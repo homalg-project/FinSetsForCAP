@@ -1,3 +1,6 @@
+/maketest.g
+/doc/*.xml
+
 /doc/chap*.html
 /doc/chap*.txt
 /doc/*.css

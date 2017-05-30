@@ -17,7 +17,7 @@ InstallMethod( FinSet,
     set := rec( );
     
     ObjectifyWithAttributes( set, TheTypeOfFiniteSets,
-            UnderlyingGAPFinSet, Set( L )
+            UnderlyingGAPSet, Set( L )
             );
     
     Add( FinSets, set );
@@ -35,7 +35,7 @@ InstallMethod( Length,
         "for CAP finite sets",
         [ IsFiniteSetRep ],
         
-  set -> Length( UnderlyingGAPFinSet( set ) ) );
+  set -> Length( UnderlyingGAPSet( set ) ) );
 
 ##
 AddIsEqualForObjects( FinSets,
@@ -44,7 +44,7 @@ AddIsEqualForObjects( FinSets,
         return false;
     fi;
     
-    return UnderlyingGAPFinSet( set1 ) = UnderlyingGAPFinSet( set2 );
+    return UnderlyingGAPSet( set1 ) = UnderlyingGAPSet( set2 );
     
 end );
 
@@ -53,17 +53,17 @@ InstallMethod( MapOfFinSets,
         "for a two CAP finite sets and a list",
         [ IsFiniteSetRep, IsList, IsFiniteSetRep ],
         
-  function( S, M, T )
+  function( S, G, T )
     local map;
     
-    if not ForAll( M, a -> IsList( a ) and Length( a ) = 2 ) then
+    if not ForAll( G, a -> IsList( a ) and Length( a ) = 2 ) then
         Error( "the list of relations has a wrong syntax\n" );
     fi;
     
     map := rec( );
     
     ObjectifyWithAttributes( map, TheTypeOfMapsOfFiniteSets,
-            UnderlyingRelation, M,
+            UnderlyingRelation, G,
             Source, S,
             Range, T
             );
@@ -79,7 +79,7 @@ AddIsWellDefinedForMorphisms( FinSets,
   function( mor )
     local S, rel, T;
     
-    S := UnderlyingGAPFinSet( Source( mor ) );
+    S := UnderlyingGAPSet( Source( mor ) );
     
     rel := UnderlyingRelation( mor );
     
@@ -91,7 +91,7 @@ AddIsWellDefinedForMorphisms( FinSets,
         return false;
     fi;
     
-    T := UnderlyingGAPFinSet( Range( mor ) );
+    T := UnderlyingGAPSet( Range( mor ) );
     
     return ForAll( rel, a -> a[2] in T );
     
@@ -106,24 +106,48 @@ AddIsEqualForMorphisms( FinSets,
 end );
 
 ##
-AddIdentityMorphism( FinSets,
-  function( set )
-    local gap_set;
+InstallOtherMethod( ListOp,
+        "for a CAP finite set and a function",
+        [ IsFiniteSetRep, IsFunction ],
+        
+  function( F, f )
     
-    gap_set := UnderlyingGAPFinSet( set );
-    
-    return MapOfFinSets( set, List( gap_set, -> e -> [ e, e ] ), set );
+    return List( UnderlyingGAPSet( F ), f );
     
 end );
 
 ##
-InstallGlobalFunction( ImageFinSet,
-  function( f, x )
+AddIdentityMorphism( FinSets,
+  function( set )
     
-    return First( UnderlyingRelation( f ), pair -> pair[1] = x )[2];
+    return MapOfFinSets( set, List( set, e -> [ e, e ] ), set );
     
 end );
 
+##
+InstallMethod( CallFuncList,
+        "for a CAP map of finite sets and a list",
+        [ IsFiniteSetMapRep, IsList ],
+        
+  function( phi, L )
+    local x;
+    
+    x := L[1];
+    
+    return First( UnderlyingRelation( phi ), pair -> pair[1] = x )[2];
+    
+end );
+
+##
+InstallOtherMethod( ListOp,
+        "for a CAP finite set and a CAP map of finite sets",
+        [ IsFiniteSetRep, IsFiniteSetMapRep ],
+        
+  function( F, phi )
+    
+    return List( UnderlyingGAPSet( F ), phi );
+    
+end );
 
 ##
 AddPreCompose( FinSets,
@@ -132,9 +156,20 @@ AddPreCompose( FinSets,
     
     S := Source( map_pre );
     
-    cmp := List( UnderlyingGAPFinSet( S ),
-                 s -> [ s, ImageFinSet( map_post, ImageFinSet( map_pre, s ) ) ] );
+    cmp := List( S, s -> [ s, map_post( map_pre( s ) ) ] );
     
     return MapOfFinSets( S, cmp, Range( map_post ) );
     
+end );
+
+##
+Finalize( FinSets );
+
+##
+InstallMethod( Display,
+        "for CAP finite sets",
+        [ IsFiniteSetRep ],
+        
+  function( S )
+    Display( UnderlyingGAPSet( S ) );
 end );

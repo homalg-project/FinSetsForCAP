@@ -10,8 +10,14 @@ SetPackageInfo( rec(
 
 PackageName := "FinSetsForCAP",
 Subtitle := "The elementary topos of finite sets",
-Version := "0.1",
-Date := "22/05/2017", # dd/mm/yyyy format
+Version := Maximum( [
+                   "2017.05.30", ## Mohamed's version
+                   ## this line prevents merge conflicts
+                   "2017.05.26", ## Julia's version
+                   ] ),
+
+Date := ~.Version{[ 1 .. 10 ]},
+Date := Concatenation( ~.Date{[ 9, 10 ]}, "/", ~.Date{[ 6, 7 ]}, "/", ~.Date{[ 1 .. 4 ]} ),
 
 Persons := [
   rec(
@@ -33,9 +39,12 @@ Persons := [
     IsMaintainer := true,
     FirstNames := "Julia",
     LastName := "Mickisch",
-    WWWHome := "TODO",
+    WWWHome := "https://github.com/juliamick/",
     Email := "julia.mickisch@student.uni-siegen.de",
-    PostalAddress := "TODO",
+    PostalAddress := Concatenation(
+               "Walter-Flex-Str. 3\n",
+               "57068 Siegen\n",
+               "Germany" ),
     Place := "Siegen",
     Institution := "University of Siegen",
   ),
