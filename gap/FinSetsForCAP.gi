@@ -163,6 +163,24 @@ AddPreCompose( FinSets,
 end );
 
 ##
+AddDirectProduct( FinSets,
+  function( L )
+    
+    return FinSet( Cartesian( List( L, UnderlyingGAPSet ) ) );
+    
+end );
+
+##
+AddCoproduct( FinSets,
+  function( L )
+    
+    L := List( [ 1 .. Length( L ) ], i -> Cartesian( [ i ], UnderlyingGAPSet( L[i] ) ) );
+    
+    return FinSet( Concatenation( L ) );
+    
+end );
+
+##
 Finalize( FinSets );
 
 ##

@@ -7,4 +7,9 @@
 @Subsection PreCompose
 @InsertSystem PreCompose
 
+@Subsection DirectProduct
+@InsertSystem DirectProduct
+
+@Subsection Coproduct
+@InsertSystem Coproduct
 
