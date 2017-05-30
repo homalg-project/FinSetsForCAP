@@ -1,4 +1,10 @@
 @Chapter The category of finite sets
 
+@Section Attributes
+@Section Constructors
+@Section Examples
+
+@Subsection PreCompose
+@InsertSystem PreCompose
 
 
