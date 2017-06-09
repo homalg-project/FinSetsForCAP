@@ -199,6 +199,56 @@ AddCoproduct( FinSets,
 end );
 
 ##
+AddImageObject( FinSets,
+  function( phi )
+    
+    return FinSet( Set( List( Source( phi ), phi ) ) );
+    
+end );
+
+##
+AddIsEpimorphism( FinSets,
+  function( phi )
+    
+    return ImageObject( phi ) = Range( phi );
+    
+end );
+
+##
+AddIsMonomorphism( FinSets,
+  function( phi )
+    
+    return Length( ImageObject( phi ) ) = Length( Source( phi ) );
+    
+end );
+
+##
+AddImageEmbedding( FinSets,
+  function( phi )
+    local I;
+    
+    I := ImageObject( phi );
+    
+    return MapOfFinSets( I, List( I, e -> [ e, e ] ), Range( phi ) );
+    
+end );
+
+##
+AddCoastrictionToImage( FinSets,
+  function( phi )
+    local pi;
+    
+    pi := MapOfFinSets( Source( phi ), UnderlyingRelation( phi ), ImageObject( phi ) );
+    
+    Assert( 3, IsEpimorphism( pi ) );
+    
+    SetIsEpimorphism( pi, true );
+    
+    return pi;
+    
+end );
+
+##
 Finalize( FinSets );
 
 ##

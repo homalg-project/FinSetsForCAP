@@ -5,7 +5,7 @@ LoadPackage( "FinSets" );
 #! @Example
 S := FinSet( [ 1, 3, 2, 2, 1 ] );
 #! <An object in FinSets>
-T := FinSet( [ "a", "b" ] );
+T := FinSet( [ "a", "b", "c" ] );
 #! <An object in FinSets>
 G := [ [ 1, "b" ], [ 3, "b" ], [ 2, "a" ] ];;
 phi := MapOfFinSets( S, G, T );
