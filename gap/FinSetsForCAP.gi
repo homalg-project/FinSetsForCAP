@@ -130,11 +130,29 @@ InstallMethod( CallFuncList,
         [ IsFiniteSetMapRep, IsList ],
         
   function( phi, L )
-    local x;
+    local x, y;
     
     x := L[1];
     
-    return First( UnderlyingRelation( phi ), pair -> pair[1] = x )[2];
+    y := First( UnderlyingRelation( phi ), pair -> pair[1] = x );
+    
+    if y = fail then
+        if HasIsWellDefined( phi ) then
+            if IsWellDefined( phi ) then
+                Error( "the element ", x, " is not in the source of the map\n" );
+            else
+                if not x in UnderlyingGAPSet( Source( phi ) ) then
+                    Error( "the element ", x, " is not in the source of the map\n" );
+                else
+                    Error( "the element ", x, " is in the source of the map, however, the map is not well-defined\n" );
+                fi;
+            fi;
+        else
+            Error( "the element ", x, " may not be in the source of the map, please check if the map is well-defined\n" );
+        fi;
+    fi;
+    
+    return y[2];
     
 end );
 
