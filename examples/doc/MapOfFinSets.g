@@ -20,6 +20,13 @@ phi( 3 );
 #! "b"
 List( S, phi );
 #! [ "b", "a", "b" ]
+psi := [ [ 1, "b" ], [ 2, "a" ], [ 3, "b" ] ];;
+psi := MapOfFinSets( S, psi, T );
+#! <A morphism in FinSets>
+IsWellDefined( psi );
+#! true
+phi = psi;
+#! true
 psi := [ [ 1, "b" ], [ 3, "b" ], [ 2, "a" ], [ 2, "b" ] ];;
 psi := MapOfFinSets( S, psi, T );
 #! <A morphism in FinSets>

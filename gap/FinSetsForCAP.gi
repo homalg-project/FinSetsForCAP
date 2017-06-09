@@ -63,7 +63,7 @@ InstallMethod( MapOfFinSets,
     map := rec( );
     
     ObjectifyWithAttributes( map, TheTypeOfMapsOfFiniteSets,
-            UnderlyingRelation, G,
+            UnderlyingRelation, Set( G ),
             Source, S,
             Range, T
             );
