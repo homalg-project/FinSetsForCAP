@@ -80,8 +80,14 @@ InstallMethod( EmbeddingOfFinSets,
         [ IsFiniteSetRep, IsFiniteSetRep ],
         
   function( S, T )
+    local iota;
     
-    return MapOfFinSets( S, List( S, x -> [ x, x ] ), T );
+    iota := MapOfFinSets( S, List( S, x -> [ x, x ] ), T );
+    
+    Assert( 3, IsMonomorphism( iota ) );
+    SetIsMonomorphism( iota, true );
+    
+    return iota;
     
 end );
 
