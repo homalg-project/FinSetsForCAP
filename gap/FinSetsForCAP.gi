@@ -75,6 +75,17 @@ InstallMethod( MapOfFinSets,
 end );
 
 ##
+InstallMethod( EmbeddingOfFinSets,
+        "for a two CAP finite sets",
+        [ IsFiniteSetRep, IsFiniteSetRep ],
+        
+  function( S, T )
+    
+    return MapOfFinSets( S, List( S, x -> [ x, x ] ), T );
+    
+end );
+
+##
 AddIsWellDefinedForMorphisms( FinSets,
   function( mor )
     local S, rel, T;
@@ -277,13 +288,8 @@ end );
 ##
 AddEmbeddingOfEqualizerWithGivenEqualizer( FinSets,
   function( D, E )
-    local f1, S;
     
-    f1 := D[1];
-    
-    S := Source( f1 );
-    
-    return MapOfFinSets( E, List( E, x -> [ x, x ] ), S );
+    return EmbeddingOfFinSets( E, Source( D[1] ) );
     
 end );
 
