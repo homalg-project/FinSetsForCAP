@@ -249,11 +249,22 @@ AddCoastrictionToImage( FinSets,
 end );
 
 ##
+InstallOtherMethod( FilteredOp,
+        "for a CAP finite set and a function",
+        [ IsFiniteSetRep, IsFunction ],
+        
+  function( M, b )
+    
+    return FinSet( Filtered( UnderlyingGAPSet( M ), b ) );
+    
+end );
+
+##
 Finalize( FinSets );
 
 ##
 InstallMethod( Display,
-        "for CAP finite sets",
+        "for a CAP finite set",
         [ IsFiniteSetRep ],
         
   function( S )
