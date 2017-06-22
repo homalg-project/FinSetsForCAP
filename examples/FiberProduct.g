@@ -20,4 +20,16 @@ int := FiberProduct( D );
 Display( int );
 #! [ [  2,  2 ],
 #!   [  3,  3 ] ]
+pi1 := ProjectionInFactorOfFiberProduct( D, 1 );
+#! <A monomorphism in FinSets>
+int1 := ImageObject( pi1 );
+#! <An object in FinSets>
+Display( int1 );
+#! [ 2, 3 ]
+pi2 := ProjectionInFactorOfFiberProduct( D, 2 );
+#! <A monomorphism in FinSets>
+int2 := ImageObject( pi2 );
+#! <An object in FinSets>
+Display( int2 );
+#! [ 2, 3 ]
 #! @EndExample
