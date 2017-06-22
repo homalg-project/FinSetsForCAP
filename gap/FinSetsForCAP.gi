@@ -260,6 +260,34 @@ InstallOtherMethod( FilteredOp,
 end );
 
 ##
+AddEqualizer( FinSets,
+  function( D )
+    local f1, S;
+    
+    f1 := D[1];
+    
+    S := Source( f1 );
+    
+    D := D{[ 2 .. Length( D ) ]};
+    
+    return Filtered( S, x -> ForAll( D, fj -> f1( x ) = fj( x ) ) );
+    
+end );
+
+##
+AddEmbeddingOfEqualizerWithGivenEqualizer( FinSets,
+  function( D, E )
+    local f1, S;
+    
+    f1 := D[1];
+    
+    S := Source( f1 );
+    
+    return MapOfFinSets( E, List( E, x -> [ x, x ] ), S );
+    
+end );
+
+##
 Finalize( FinSets );
 
 ##

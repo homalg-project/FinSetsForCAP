@@ -16,4 +16,5 @@
 @Subsection ImageObject
 @InsertSystem ImageObject
 
-
+@Subsection Equalizer
+@InsertSystem Equalizer
