@@ -206,6 +206,19 @@ AddDirectProduct( FinSets,
 end );
 
 ##
+AddProjectionInFactorOfDirectProduct( FinSets,
+  function( L, i )
+    local S, T;
+    
+    S := DirectProduct( L );
+    
+    T := L[i];
+    
+    return MapOfFinSets( S, List( S, x -> [ x, x[i] ] ), T );
+    
+end );
+
+##
 AddCoproduct( FinSets,
   function( L )
     
