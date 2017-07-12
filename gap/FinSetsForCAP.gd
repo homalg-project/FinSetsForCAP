@@ -63,6 +63,8 @@ DeclareOperation( "MapOfFinSets",
         [ IsFiniteSetRep, IsList, IsFiniteSetRep ] );
 #! @InsertSystem MapOfFinSets
 
+#! @Section Tools
+
 #! @Description
 #!  Construct the embedding $\iota:$<A>S</A>$\to$<A>T</A> of the finite sets <A>S</A> and <A>T</A>,
 #!  where <A>S</A> must be subset of <A>T</A>.
@@ -78,5 +80,3 @@ DeclareOperation( "EmbeddingOfFinSets",
 #! @Returns a &CAP; morphism
 DeclareOperation( "ProjectionOfFinSets",
         [ IsFiniteSetRep, IsFiniteSetRep ] );
-
-#! @Section Tools
