@@ -354,6 +354,17 @@ InstallMethod( Preimage,
 end );
 
 ##
+InstallOtherMethod( Union2,
+        "for a CAP map of finite sets and a CAP finite set",
+        [ IsFiniteSetRep, IsFiniteSetRep ],
+        
+  function( M, N )
+    
+    return FinSet( Union2( UnderlyingGAPSet( M ), UnderlyingGAPSet( N ) ) );
+    
+end );
+
+##
 InstallMethod( ImageObject,
         "for a CAP map of finite sets and a CAP finite set",
         [ IsFiniteSetMapRep, IsFiniteSetRep ],
