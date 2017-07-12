@@ -21,3 +21,6 @@
 
 @Subsection FiberProduct
 @InsertSystem FiberProduct
+
+@Subsection Coequalizer
+@InsertSystem Coequalizer

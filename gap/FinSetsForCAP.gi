@@ -376,6 +376,40 @@ InstallMethod( ImageObject,
 end );
 
 ##
+AddCoequalizer( FinSets,
+  function( D )
+    local T, C, t;
+    
+    T := Range( D[1] );
+    T := UnderlyingGAPSet( T );
+    
+    C := [ ];
+    
+    for t in T do
+        t := FinSet( [ t ] );
+        t := Union( List( D, f_j -> ImageObject( f_j, Union( List( D, f_i -> Preimage( f_i, t ) ) ) ) ) );
+        t := UnderlyingGAPSet( t );
+        if not t = [ ] then
+            Add( C, t );
+            T := Difference( T, t );
+        fi;
+    od;
+    
+    Append( C, List( T, t -> [ t ] ) );
+    
+    return FinSet( C );
+    
+end );
+
+##
+AddProjectionOntoCoequalizerWithGivenCoequalizer( FinSets,
+  function( D, C )
+    
+    return ProjectionOfFinSets( Range( D[1] ), C );
+    
+end );
+
+##
 Finalize( FinSets );
 
 ##
