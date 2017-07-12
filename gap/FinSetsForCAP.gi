@@ -332,6 +332,28 @@ AddEmbeddingOfEqualizerWithGivenEqualizer( FinSets,
 end );
 
 ##
+InstallMethod( \in,
+        "for an object and a CAP finite set",
+        [ IsObject, IsFiniteSetRep ],
+        
+  function( y, M )
+    
+    return y in UnderlyingGAPSet( M );
+    
+end );
+
+##
+InstallMethod( Preimage,
+        "for a CAP map of finite sets and a CAP finite set",
+        [ IsFiniteSetMapRep, IsFiniteSetRep ],
+        
+  function( f, T_ )
+    
+    return Filtered( Source( f ), x -> f(x) in T_ );
+    
+end );
+
+##
 Finalize( FinSets );
 
 ##
