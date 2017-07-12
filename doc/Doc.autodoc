@@ -20,7 +20,7 @@
 @Subsection Equalizer
 @InsertSystem Equalizer
 
-@Subsection FiberProduct
+@Subsection Pullback
 @InsertSystem FiberProduct
 
 @Subsection Coequalizer
