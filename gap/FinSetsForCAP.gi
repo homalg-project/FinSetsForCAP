@@ -354,6 +354,17 @@ InstallMethod( Preimage,
 end );
 
 ##
+InstallMethod( ImageObject,
+        "for a CAP map of finite sets and a CAP finite set",
+        [ IsFiniteSetMapRep, IsFiniteSetRep ],
+        
+  function( f, S_ )
+    
+    return ImageObject( PreCompose( EmbeddingOfFinSets( S_, Source( f ) ), f ) );
+    
+end );
+
+##
 Finalize( FinSets );
 
 ##

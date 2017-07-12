@@ -81,6 +81,13 @@ DeclareOperation( "Preimage",
         [ IsFiniteSetMapRep, IsFiniteSetRep ] );
 
 #! @Description
+#!  Compute the image of <A>S_</A> under the morphism <A>f</A>.
+#! @Arguments f, S_
+#! @Returns a &CAP; object
+DeclareOperation( "ImageObject",
+        [ IsFiniteSetMapRep, IsFiniteSetRep ] );
+
+#! @Description
 #!  Construct the projection $\pi:$<A>S</A>$\to$<A>T</A> of the finite sets <A>S</A> and <A>T</A>,
 #!  where <A>T</A> is a partition of <A>S</A>.
 #! @Arguments S, T
