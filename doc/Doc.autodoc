@@ -8,13 +8,13 @@
 @Subsection PreCompose
 @InsertSystem PreCompose
 
-@Subsection DirectProduct
+@Subsection Product
 @InsertSystem DirectProduct
 
 @Subsection Coproduct
 @InsertSystem Coproduct
 
-@Subsection ImageObject
+@Subsection Image
 @InsertSystem ImageObject
 
 @Subsection Equalizer
