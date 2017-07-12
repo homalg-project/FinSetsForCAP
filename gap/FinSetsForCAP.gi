@@ -92,6 +92,25 @@ InstallMethod( EmbeddingOfFinSets,
 end );
 
 ##
+InstallMethod( ProjectionOfFinSets,
+        "for a two CAP finite sets",
+        [ IsFiniteSetRep, IsFiniteSetRep ],
+        
+  function( S, T )
+    local L, pi;
+    
+    L := UnderlyingGAPSet( T );
+    
+    pi := MapOfFinSets( S, List( S, x -> [ x, L[PositionProperty( L, t -> x in t )] ] ), T );
+    
+    Assert( 3, IsEpimorphism( pi ) );
+    SetIsEpimorphism( pi, true );
+    
+    return pi;
+    
+end );
+
+##
 AddIsWellDefinedForMorphisms( FinSets,
   function( mor )
     local S, rel, T;

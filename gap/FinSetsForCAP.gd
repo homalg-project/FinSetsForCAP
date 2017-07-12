@@ -71,4 +71,12 @@ DeclareOperation( "MapOfFinSets",
 DeclareOperation( "EmbeddingOfFinSets",
         [ IsFiniteSetRep, IsFiniteSetRep ] );
 
+#! @Description
+#!  Construct the projection $\pi:$<A>S</A>$\to$<A>T</A> of the finite sets <A>S</A> and <A>T</A>,
+#!  where <A>T</A> is a partition of <A>S</A>.
+#! @Arguments S, T
+#! @Returns a &CAP; morphism
+DeclareOperation( "ProjectionOfFinSets",
+        [ IsFiniteSetRep, IsFiniteSetRep ] );
+
 #! @Section Tools
