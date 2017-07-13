@@ -248,6 +248,19 @@ AddCoproduct( FinSets,
 end );
 
 ##
+AddInjectionOfCofactorOfCoproduct( FinSets,
+  function( L, i )
+    local S, T;
+    
+    S := L[i];
+    
+    T := Coproduct( L );
+    
+    return MapOfFinSets( S, List( S, x -> [ x, [ i, x ] ] ), T );
+    
+end );
+
+##
 AddImageObject( FinSets,
   function( phi )
     
