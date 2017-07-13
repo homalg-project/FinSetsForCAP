@@ -272,6 +272,17 @@ AddInjectionOfCofactorOfCoproduct( FinSets,
 end );
 
 ##
+AddUniversalMorphismFromCoproductWithGivenCoproduct( FinSets,
+  function( D, tau, S )
+    local T;
+    
+    T := Range( tau[1] );
+    
+    return MapOfFinSets( S, List( S, i_x -> [ i_x, tau[i_x[1]]( i_x[2] ) ] ), T );
+    
+end );
+
+##
 AddImageObject( FinSets,
   function( phi )
     
