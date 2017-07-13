@@ -29,7 +29,7 @@ BindGlobal( "TheTypeOfMapsOfFiniteSets",
 #! @Description
 #!  The &GAP; set of the list used to construct a finite set $S$, i.e.,
 #!  <C>AsList( FinSet( <A>L</A> ) ) = Set( <A>L</A> )</C>.
-#! @Arguments L
+#! @Arguments M
 #! @Returns a &GAP; set
 DeclareAttribute( "AsList",
         IsFiniteSetRep );
@@ -37,7 +37,7 @@ DeclareAttribute( "AsList",
 #! @Description
 #!  The relation underlying a map between finite sets,
 #!  i.e., <C>AsList( MapOfFinSets( S, <A>G</A>, T ) ) = <A>G</A></C>.
-#! @Arguments G
+#! @Arguments f
 #! @Returns a list
 DeclareAttribute( "AsList",
         IsFiniteSetMapRep );
