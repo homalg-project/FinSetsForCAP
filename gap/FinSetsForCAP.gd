@@ -28,10 +28,10 @@ BindGlobal( "TheTypeOfMapsOfFiniteSets",
 
 #! @Description
 #!  The &GAP; set of the list used to construct a finite set $S$, i.e.,
-#!  <C>UnderlyingGAPSet( FinSet( <A>L</A> ) ) = Set( <A>L</A> )</C>.
+#!  <C>AsList( FinSet( <A>L</A> ) ) = Set( <A>L</A> )</C>.
 #! @Arguments L
 #! @Returns a &GAP; set
-DeclareAttribute( "UnderlyingGAPSet",
+DeclareAttribute( "AsList",
         IsFiniteSetRep );
 
 #! @Description

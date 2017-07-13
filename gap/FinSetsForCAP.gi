@@ -17,7 +17,7 @@ InstallMethod( FinSet,
     set := rec( );
     
     ObjectifyWithAttributes( set, TheTypeOfFiniteSets,
-            UnderlyingGAPSet, Set( L )
+            AsList, Set( L )
             );
     
     Add( FinSets, set );
@@ -35,7 +35,7 @@ InstallMethod( Length,
         "for CAP finite sets",
         [ IsFiniteSetRep ],
         
-  set -> Length( UnderlyingGAPSet( set ) ) );
+  set -> Length( AsList( set ) ) );
 
 ##
 AddIsEqualForObjects( FinSets,
@@ -44,7 +44,7 @@ AddIsEqualForObjects( FinSets,
         return false;
     fi;
     
-    return UnderlyingGAPSet( set1 ) = UnderlyingGAPSet( set2 );
+    return AsList( set1 ) = AsList( set2 );
     
 end );
 
@@ -99,7 +99,7 @@ InstallMethod( ProjectionOfFinSets,
   function( S, T )
     local L, pi;
     
-    L := UnderlyingGAPSet( T );
+    L := AsList( T );
     
     pi := MapOfFinSets( S, List( S, x -> [ x, L[PositionProperty( L, t -> x in t )] ] ), T );
     
@@ -115,7 +115,7 @@ AddIsWellDefinedForMorphisms( FinSets,
   function( mor )
     local S, rel, T;
     
-    S := UnderlyingGAPSet( Source( mor ) );
+    S := AsList( Source( mor ) );
     
     rel := UnderlyingRelation( mor );
     
@@ -127,7 +127,7 @@ AddIsWellDefinedForMorphisms( FinSets,
         return false;
     fi;
     
-    T := UnderlyingGAPSet( Range( mor ) );
+    T := AsList( Range( mor ) );
     
     return ForAll( rel, a -> a[2] in T );
     
@@ -148,7 +148,7 @@ InstallOtherMethod( ListOp,
         
   function( F, f )
     
-    return List( UnderlyingGAPSet( F ), f );
+    return List( AsList( F ), f );
     
 end );
 
@@ -177,7 +177,7 @@ InstallMethod( CallFuncList,
             if IsWellDefined( phi ) then
                 Error( "the element ", x, " is not in the source of the map\n" );
             else
-                if not x in UnderlyingGAPSet( Source( phi ) ) then
+                if not x in AsList( Source( phi ) ) then
                     Error( "the element ", x, " is not in the source of the map\n" );
                 else
                     Error( "the element ", x, " is in the source of the map, however, the map is not well-defined\n" );
@@ -199,7 +199,7 @@ InstallOtherMethod( ListOp,
         
   function( F, phi )
     
-    return List( UnderlyingGAPSet( F ), phi );
+    return List( AsList( F ), phi );
     
 end );
 
@@ -220,7 +220,7 @@ end );
 AddDirectProduct( FinSets,
   function( L )
     
-    return FinSet( Cartesian( List( L, UnderlyingGAPSet ) ) );
+    return FinSet( Cartesian( List( L, AsList ) ) );
     
 end );
 
@@ -252,7 +252,7 @@ end );
 AddCoproduct( FinSets,
   function( L )
     
-    L := List( [ 1 .. Length( L ) ], i -> Cartesian( [ i ], UnderlyingGAPSet( L[i] ) ) );
+    L := List( [ 1 .. Length( L ) ], i -> Cartesian( [ i ], AsList( L[i] ) ) );
     
     return FinSet( Concatenation( L ) );
     
@@ -339,7 +339,7 @@ InstallOtherMethod( FilteredOp,
         
   function( M, b )
     
-    return FinSet( Filtered( UnderlyingGAPSet( M ), b ) );
+    return FinSet( Filtered( AsList( M ), b ) );
     
 end );
 
@@ -381,7 +381,7 @@ InstallMethod( \in,
         
   function( y, M )
     
-    return y in UnderlyingGAPSet( M );
+    return y in AsList( M );
     
 end );
 
@@ -403,7 +403,7 @@ InstallOtherMethod( Union2,
         
   function( M, N )
     
-    return FinSet( Union2( UnderlyingGAPSet( M ), UnderlyingGAPSet( N ) ) );
+    return FinSet( Union2( AsList( M ), AsList( N ) ) );
     
 end );
 
@@ -424,14 +424,14 @@ AddCoequalizer( FinSets,
     local T, C, t;
     
     T := Range( D[1] );
-    T := UnderlyingGAPSet( T );
+    T := AsList( T );
     
     C := [ ];
     
     for t in T do
         t := FinSet( [ t ] );
         t := Union( List( D, f_j -> ImageObject( f_j, Union( List( D, f_i -> Preimage( f_i, t ) ) ) ) ) );
-        t := UnderlyingGAPSet( t );
+        t := AsList( t );
         if not t = [ ] then
             Add( C, t );
             T := Difference( T, t );
@@ -478,5 +478,5 @@ InstallMethod( Display,
         [ IsFiniteSetRep ],
         
   function( S )
-    Display( UnderlyingGAPSet( S ) );
+    Display( AsList( S ) );
 end );
