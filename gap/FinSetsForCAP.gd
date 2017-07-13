@@ -36,10 +36,10 @@ DeclareAttribute( "AsList",
 
 #! @Description
 #!  The relation underlying a map between finite sets,
-#!  i.e., <C>UnderlyingRelation( MapOfFinSets( S, <A>G</A>, T ) ) = <A>G</A></C>.
+#!  i.e., <C>AsList( MapOfFinSets( S, <A>G</A>, T ) ) = <A>G</A></C>.
 #! @Arguments G
 #! @Returns a list
-DeclareAttribute( "UnderlyingRelation",
+DeclareAttribute( "AsList",
         IsFiniteSetMapRep );
 
 #! @Section Constructors

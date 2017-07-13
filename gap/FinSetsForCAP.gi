@@ -63,7 +63,7 @@ InstallMethod( MapOfFinSets,
     map := rec( );
     
     ObjectifyWithAttributes( map, TheTypeOfMapsOfFiniteSets,
-            UnderlyingRelation, Set( G ),
+            AsList, Set( G ),
             Source, S,
             Range, T
             );
@@ -117,7 +117,7 @@ AddIsWellDefinedForMorphisms( FinSets,
     
     S := AsList( Source( mor ) );
     
-    rel := UnderlyingRelation( mor );
+    rel := AsList( mor );
     
     if not Length( S ) = Length( rel ) then
         return false;
@@ -137,7 +137,7 @@ end );
 AddIsEqualForMorphisms( FinSets,
   function( map1, map2 )
     
-    return UnderlyingRelation( map1 ) = UnderlyingRelation( map2 );
+    return AsList( map1 ) = AsList( map2 );
     
 end );
 
@@ -170,7 +170,7 @@ InstallMethod( CallFuncList,
     
     x := L[1];
     
-    y := First( UnderlyingRelation( phi ), pair -> pair[1] = x );
+    y := First( AsList( phi ), pair -> pair[1] = x );
     
     if y = fail then
         if HasIsWellDefined( phi ) then
@@ -322,7 +322,7 @@ AddCoastrictionToImage( FinSets,
   function( phi )
     local pi;
     
-    pi := MapOfFinSets( Source( phi ), UnderlyingRelation( phi ), ImageObject( phi ) );
+    pi := MapOfFinSets( Source( phi ), AsList( phi ), ImageObject( phi ) );
     
     Assert( 3, IsEpimorphism( pi ) );
     
@@ -370,7 +370,7 @@ end );
 AddUniversalMorphismIntoEqualizerWithGivenEqualizer( FinSets,
   function( D, tau, E )
     
-    return MapOfFinSets( Source( tau ), UnderlyingRelation( tau ), E );
+    return MapOfFinSets( Source( tau ), AsList( tau ), E );
     
 end );
 
@@ -461,7 +461,7 @@ AddUniversalMorphismFromCoequalizerWithGivenCoequalizer( FinSets,
     
     Assert( 0, IsWellDefined( tau ) );
     
-    G := UnderlyingRelation( tau );
+    G := AsList( tau );
     
     G := List( G, t_y -> [ pi( t_y[1] ), t_y[2] ] );
     
