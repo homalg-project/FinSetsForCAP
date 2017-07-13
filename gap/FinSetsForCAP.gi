@@ -453,6 +453,23 @@ AddProjectionOntoCoequalizerWithGivenCoequalizer( FinSets,
 end );
 
 ##
+AddUniversalMorphismFromCoequalizerWithGivenCoequalizer( FinSets,
+  function( D, tau, C )
+    local pi, G;
+    
+    pi := ProjectionOntoCoequalizerWithGivenCoequalizer( D, C );
+    
+    Assert( 0, IsWellDefined( tau ) );
+    
+    G := UnderlyingRelation( tau );
+    
+    G := List( G, t_y -> [ pi( t_y[1] ), t_y[2] ] );
+    
+    return MapOfFinSets( C, G, Range( tau ) );
+    
+end );
+
+##
 Finalize( FinSets );
 
 ##

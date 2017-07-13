@@ -25,3 +25,6 @@
 
 @Subsection Coequalizer
 @InsertSystem Coequalizer
+
+@Subsection Pushout
+@InsertSystem Pushout
