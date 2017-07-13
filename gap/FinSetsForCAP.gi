@@ -367,6 +367,14 @@ AddEmbeddingOfEqualizerWithGivenEqualizer( FinSets,
 end );
 
 ##
+AddUniversalMorphismIntoEqualizerWithGivenEqualizer( FinSets,
+  function( D, tau, E )
+    
+    return MapOfFinSets( Source( tau ), UnderlyingRelation( tau ), E );
+    
+end );
+
+##
 InstallMethod( \in,
         "for an object and a CAP finite set",
         [ IsObject, IsFiniteSetRep ],
