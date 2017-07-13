@@ -5,3 +5,4 @@
 #
 
 ReadPackage( "FinSetsForCAP", "gap/FinSetsForCAP.gd");
+ReadPackage( "FinSetsForCAP", "gap/SkeletalFinSetsForCAP.gd");
