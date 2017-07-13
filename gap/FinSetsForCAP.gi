@@ -238,6 +238,17 @@ AddProjectionInFactorOfDirectProduct( FinSets,
 end );
 
 ##
+AddUniversalMorphismIntoDirectProductWithGivenDirectProduct( FinSets,
+  function( D, tau, T )
+    local S;
+    
+    S := Source( tau[1] );
+    
+    return MapOfFinSets( S, List( S, x -> List( tau, f -> f(x) ) ), T );
+    
+end );
+
+##
 AddCoproduct( FinSets,
   function( L )
     
