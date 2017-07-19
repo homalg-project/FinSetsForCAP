@@ -8,6 +8,9 @@
 @Subsection PreCompose
 @InsertSystem PreCompose
 
+@Subsection Initial and Terminal objects
+@InsertSystem InitialTerminal
+
 @Subsection Product
 @InsertSystem DirectProduct
 

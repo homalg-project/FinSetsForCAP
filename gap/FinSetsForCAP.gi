@@ -217,6 +217,31 @@ AddPreCompose( FinSets,
 end );
 
 ##
+AddTerminalObject( FinSets,
+  function( arg )
+    
+    return FinSet( [ "*" ] );
+    
+end );
+
+##
+AddUniversalMorphismIntoTerminalObjectWithGivenTerminalObject( FinSets,
+  function( M, T )
+    local t;
+    
+    t := AsList( T );
+    
+    if not Length( t ) = 1 then
+        Error( "the second argument is not a terminal object" );
+    fi;
+
+    t := t[1];
+    
+    return MapOfFinSets( M, List( M, x -> [ x, t ] ), T );
+    
+end );
+
+##
 AddDirectProduct( FinSets,
   function( L )
     
@@ -245,6 +270,26 @@ AddUniversalMorphismIntoDirectProductWithGivenDirectProduct( FinSets,
     S := Source( tau[1] );
     
     return MapOfFinSets( S, List( S, x -> List( tau, f -> f(x) ) ), T );
+    
+end );
+
+##
+AddInitialObject( FinSets,
+  function( arg )
+    
+    return FinSet( [  ] );
+    
+end );
+
+##
+AddUniversalMorphismFromInitialObjectWithGivenInitialObject( FinSets,
+  function( M, I )
+    
+    if not Length( I ) = 0 then
+        Error( "the second argument is not an initial object" );
+    fi;
+
+    return MapOfFinSets( I, [ ], M );
     
 end );
 
