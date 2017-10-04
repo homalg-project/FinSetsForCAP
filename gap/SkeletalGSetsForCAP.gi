@@ -18,7 +18,7 @@ InstallMethod( GSet,
        
     ObjectifyWithAttributes( gset, TheTypeOfSkeletalGSets,
 		AsList,  L, 
-		AsGroup, G );
+		UnderlyingGroup, G );
 
     Add( SkeletalGSets, gset );
 
@@ -31,7 +31,7 @@ AddIsWellDefinedForObjects( SkeletalGSets,
   function( N )
     local ToM, V, B, C;
 
-    ToM:= TableOfMarks( AsGroup( N ) );
+    ToM:= TableOfMarks( UnderlyingGroup( N ) );
 
     ToM:= MatTom(ToM);
 
@@ -52,7 +52,7 @@ InstallOtherMethod( Set,
   function( N )
     local ToM1, ToM2, l, V, B, C, L, i, U, R, Co, List, j, E, k, m, n, K;
 
-    ToM1:= TableOfMarks( AsGroup( N ) );
+    ToM1:= TableOfMarks( UnderlyingGroup( N ) );
 
     ToM2:= MatTom(ToM1);
 
@@ -74,7 +74,7 @@ InstallOtherMethod( Set,
     R := [];
 
     for i in [ 1 .. l ] do 
-	Co := RightCosets( AsGroup( N ), L[ i ] ); 
+	Co := RightCosets( UnderlyingGroup( N ), L[ i ] ); 
 	List := [ 1 .. Size( Co) ];
 
 	for j in [ 1 .. Size( Co ) ] do
@@ -108,7 +108,7 @@ end );
 AddIsEqualForObjects( SkeletalGSets,
   function( N1, N2 )
 
-    return AsGroup( N1 ) = AsGroup( N2 ) and AsList( N1 ) = AsList( N2 );
+    return UnderlyingGroup( N1 ) = UnderlyingGroup( N2 ) and AsList( N1 ) = AsList( N2 );
     
 end );
 
@@ -146,7 +146,7 @@ AddIsWellDefinedForMorphisms( SkeletalGSets,
 
     T := Range( mor );
 
-    if not AsGroup( S ) = AsGroup( T ) then 
+    if not UnderlyingGroup( S ) = UnderlyingGroup( T ) then 
 	return false;
     fi;
     
@@ -160,11 +160,11 @@ AddIsWellDefinedForMorphisms( SkeletalGSets,
 	return false;
     fi;
 
-    if not ForAll( AsGroup( S ), g -> ForAll( Set( S ), x -> [ Set( x[ 1 ] * g ), x[ 2 ] ]  in Set( S ) ) ) then
+    if not ForAll( UnderlyingGroup( S ), g -> ForAll( Set( S ), x -> [ Set( x[ 1 ] * g ), x[ 2 ] ]  in Set( S ) ) ) then
 	return false;
     fi;
 
-    if not ForAll( Set( S ), x -> ForAll( AsGroup( S ), g -> mor( Position( Set( S ), [ Set( x[ 1 ] * g ), x[ 2 ] ] ) ) = [ Set( mor( Position( Set( S ), x ) )[ 1 ] * g ), x[ 2 ] ] ) ) then
+    if not ForAll( Set( S ), x -> ForAll( UnderlyingGroup( S ), g -> mor( Position( Set( S ), [ Set( x[ 1 ] * g ), x[ 2 ] ] ) ) = [ Set( mor( Position( Set( S ), x ) )[ 1 ] * g ), x[ 2 ] ] ) ) then
 	return false;
     fi;
 
@@ -242,7 +242,7 @@ end );
 AddTerminalObject( SkeletalGSets,
   function( M )    
     
-    return GSet( AsGroup( M ), List( [ 1 .. AsList( M )[ 1 ] ], x -> 1 ) );
+    return GSet( UnderlyingGroup( M ), List( [ 1 .. AsList( M )[ 1 ] ], x -> 1 ) );
     
 end );
 
@@ -252,7 +252,7 @@ end );
 AddInitialObject( SkeletalGSets,
   function( arg )
     
-    return GSet( AsGroup( arg ), [] );
+    return GSet( UnderlyingGroup( arg ), [] );
     
 end );
 
@@ -264,5 +264,5 @@ InstallMethod( Display,
         [ IsSkeletalGSetRep ],
         
   function( N )
-    Display( [ AsGroup( N ), AsList( N ) ] );
+    Display( [ UnderlyingGroup( N ), AsList( N ) ] );
 end );
