@@ -26,6 +26,37 @@ BindGlobal( "TheTypeOfMapsOfSkeletalGSets",
                  IsSkeletalGSetMapRep ) );
 
 
+#! @Section Attributes
+
+#! @Description
+#!  The &GAP; set of the list used to construct a finite $G$-set <A>Omega</A>, i.e.,
+#!  <C>AsList( GSet( G, <A>L</A> ) ) = <A>L</A></C>.
+#! @Arguments Omega
+#! @Returns a &GAP; set
+DeclareAttribute( "AsList",
+        IsSkeletalGSetRep );
+
+#! @Description
+#!  The group $G$ underlying the $G$-set <A>Omega</A>.
+#! @Arguments Omega
+#! @Returns a group
+DeclareAttribute( "UnderlyingGroup",
+        IsSkeletalGSetRep );
+
+#! @Description
+#!  The table of marks of the group $G$ underlying the $G$-set <A>Omega</A>.
+#! @Arguments Omega
+#! @Returns a table of marks
+DeclareAttribute( "TableOfMarks",
+        IsSkeletalGSetRep );
+
+#! @Description
+#!  The number of conjugacy classes of subgroups of the group underlying the $G$-set <A>Omega</A>.
+#! @Arguments Omega
+#! @Returns a positive integer
+DeclareAttribute( "NrConjugacyClassesOfSubgroups",
+        IsSkeletalGSetRep );
+
 #! @Section Constructors
 
 #! @Description

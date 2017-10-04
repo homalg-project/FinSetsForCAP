@@ -12,36 +12,58 @@ InstallMethod( GSet,
         [ IsGroup, IsList ],
         
   function( G, L )
-    local gset;
+    local Omega;
     
-    gset:= rec( );
-       
-    ObjectifyWithAttributes( gset, TheTypeOfSkeletalGSets,
-		AsList,  L, 
-		UnderlyingGroup, G );
+    Omega := rec( );
+    
+    ObjectifyWithAttributes( Omega, TheTypeOfSkeletalGSets,
+            AsList,  L, 
+            UnderlyingGroup, G );
+    
+    Add( SkeletalGSets, Omega );
+    
+    return Omega;
+    
+end );
 
-    Add( SkeletalGSets, gset );
+##
+InstallMethod( TableOfMarks,
+        "for a finite skeletal G-set",
+        [ IsSkeletalGSetRep ],
+        
+  function( Omega )
+    
+    return TableOfMarks( UnderlyingGroup( Omega ) );
+    
+end );
 
-    return gset;
+##
+InstallMethod( NrConjugacyClassesOfSubgroups,
+        "for a finite skeletal G-set",
+        [ IsSkeletalGSetRep ],
+        
+  function( Omega )
+    
+    return Length( MatTom( TableOfMarks( Omega ) ) );
     
 end );
 
 ##
 AddIsWellDefinedForObjects( SkeletalGSets,
-  function( N )
-    local ToM, V, B, C;
-
-    ToM:= TableOfMarks( UnderlyingGroup( N ) );
-
-    ToM:= MatTom(ToM);
-
-    V := VectorSpace( Rationals, ToM );
-
-    B := Basis( V, ToM );
-
-    C := Coefficients( B, AsList( N ) );
-
-    return ForAll( C, a -> a >= 0 and IsInt( a )); 
+  function( Omega )
+    local L;
+    
+    L := AsList( Omega );
+    
+    if not Length( L ) = NrConjugacyClassesOfSubgroups( Omega ) then
+        return false;
+    fi;
+    
+    if not ForAll( L, a -> IsInt( a ) and a >= 0 ) then
+        return false;
+    fi;
+    
+    return true;
     
 end );
 
@@ -51,64 +73,63 @@ InstallOtherMethod( Set,
         [ IsSkeletalGSetRep ],
   function( N )
     local ToM1, ToM2, l, V, B, C, L, i, U, R, Co, List, j, E, k, m, n, K;
-
+    
     ToM1:= TableOfMarks( UnderlyingGroup( N ) );
-
+    
     ToM2:= MatTom(ToM1);
-
+    
     l := Length( ToM2 );
-
+    
     V := VectorSpace( Rationals, ToM2 );
-
+    
     B := Basis( V, ToM2 );
-
+    
     C := Coefficients( B, AsList( N ) );
-
+    
     L := [];
-
+    
     for i in [ 1 .. l ] do
-	U := RepresentativeTom( ToM1, i );
-	Add( L, U );
+        U := RepresentativeTom( ToM1, i );
+        Add( L, U );
     od;
-
+    
     R := [];
-
+    
     for i in [ 1 .. l ] do 
-	Co := RightCosets( UnderlyingGroup( N ), L[ i ] ); 
-	List := [ 1 .. Size( Co) ];
-
-	for j in [ 1 .. Size( Co ) ] do
-		List[ j ] := Set( AsList( Co[ j ] ) ); 
-	od;
-
-	Add( R, List );
-    od;
-
-    E := [];
-
-    for k in [ 1 .. l ] do
-	for m in [ 1 .. C[ k ] ] do
-	Add( E, R[ k ] );
-	od;
-    od;
-
-    K := [];
-
-    for n in [ 1 .. Size( E ) ] do
-	n := Cartesian( E[ n ], [ n ] );
-	Add( K, n );
-    od;
-
-    return Concatenation( K );
+        Co := RightCosets( UnderlyingGroup( N ), L[ i ] ); 
+        List := [ 1 .. Size( Co) ];
         
+        for j in [ 1 .. Size( Co ) ] do
+            List[ j ] := Set( AsList( Co[ j ] ) ); 
+        od;
+        
+        Add( R, List );
+    od;
+    
+    E := [];
+    
+    for k in [ 1 .. l ] do
+        for m in [ 1 .. C[ k ] ] do
+            Add( E, R[ k ] );
+        od;
+    od;
+    
+    K := [];
+    
+    for n in [ 1 .. Size( E ) ] do
+        n := Cartesian( E[ n ], [ n ] );
+        Add( K, n );
+    od;
+    
+    return Concatenation( K );
+    
 end );
-
 
 ##
 AddIsEqualForObjects( SkeletalGSets,
-  function( N1, N2 )
-
-    return UnderlyingGroup( N1 ) = UnderlyingGroup( N2 ) and AsList( N1 ) = AsList( N2 );
+  function( Omega1, Omega2 )
+    
+    return UnderlyingGroup( Omega1 ) = UnderlyingGroup( Omega2 ) and AsList( Omega1 ) = AsList( Omega2 );
     
 end );
 
@@ -120,13 +141,13 @@ InstallMethod( MapOfGSets,
         "for two CAP skeletal G sets and a list",
         [ IsSkeletalGSetRep, IsList, IsSkeletalGSetRep ],
         
-  function( S, G, T )
+  function( S, I, T )
     local map;
     
     map := rec( );
     
     ObjectifyWithAttributes( map, TheTypeOfMapsOfSkeletalGSets,
-            AsList, G,
+            AsList, I,
             Source, S,
             Range, T 
 	    );
@@ -140,34 +161,52 @@ end );
 ##
 AddIsWellDefinedForMorphisms( SkeletalGSets,
   function( mor )
-    local S, T, rel;
+    local S, T, G, img, tom, k, s, t;
 
     S := Source( mor );
 
     T := Range( mor );
 
-    if not UnderlyingGroup( S ) = UnderlyingGroup( T ) then 
+    G := UnderlyingGroup( S );
+    
+    if not G = UnderlyingGroup( T ) then 
 	return false;
     fi;
     
-    rel := AsList( mor );
+    img := AsList( mor );
     
-    if not AsList( S )[ 1 ] = Length( rel ) then
-	return false;
+    k := NrConjugacyClassesOfSubgroups( S );
+    
+    if not Length( img ) = k then
+        return false;
     fi;
-     
-    if not ForAll( rel, a -> a <= AsList( T )[ 1 ] and IsPosInt( a ) ) then
-	return false;
+    
+    tom := MatTom( TableOfMarks( G ) );
+    
+    s := AsList( S );
+    t := AsList( T );
+    
+    if not ForAll( [ 1 .. k ], i -> IsList( img[i] ) and Length( img[i] ) = s[i] and
+               ForAll( img[i], function( e )
+                                 local r, g, j;
+                                 
+                                 if not ( IsList( e ) and Length( e ) = 3 ) then
+                                     return false;
+                                 fi;
+                                 
+                                 r := e[1];
+                                 g := e[2];
+                                 j := e[3];
+                                 
+                                 if not ( IsPosInt( j ) and j <= k and IsPosInt( r ) and r <= t[j] and g in G and tom[j][i] > 0 ) then
+                                     return false;
+                                 fi;
+                               end
+                     )
+                 ) then
+        return false;
     fi;
-
-    if not ForAll( UnderlyingGroup( S ), g -> ForAll( Set( S ), x -> [ Set( x[ 1 ] * g ), x[ 2 ] ]  in Set( S ) ) ) then
-	return false;
-    fi;
-
-    if not ForAll( Set( S ), x -> ForAll( UnderlyingGroup( S ), g -> mor( Position( Set( S ), [ Set( x[ 1 ] * g ), x[ 2 ] ] ) ) = [ Set( mor( Position( Set( S ), x ) )[ 1 ] * g ), x[ 2 ] ] ) ) then
-	return false;
-    fi;
-
+    
     return true;
     
 end );
