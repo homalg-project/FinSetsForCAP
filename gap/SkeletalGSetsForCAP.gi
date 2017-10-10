@@ -68,64 +68,6 @@ AddIsWellDefinedForObjects( SkeletalGSets,
 end );
 
 ##
-InstallOtherMethod( Set,
-        "for CAP skeletal G sets",
-        [ IsSkeletalGSetRep ],
-  function( N )
-    local ToM1, ToM2, l, V, B, C, L, i, U, R, Co, List, j, E, k, m, n, K;
-    
-    ToM1:= TableOfMarks( UnderlyingGroup( N ) );
-    
-    ToM2:= MatTom(ToM1);
-    
-    l := Length( ToM2 );
-    
-    V := VectorSpace( Rationals, ToM2 );
-    
-    B := Basis( V, ToM2 );
-    
-    C := Coefficients( B, AsList( N ) );
-    
-    L := [];
-    
-    for i in [ 1 .. l ] do
-        U := RepresentativeTom( ToM1, i );
-        Add( L, U );
-    od;
-    
-    R := [];
-    
-    for i in [ 1 .. l ] do 
-        Co := RightCosets( UnderlyingGroup( N ), L[ i ] ); 
-        List := [ 1 .. Size( Co) ];
-        
-        for j in [ 1 .. Size( Co ) ] do
-            List[ j ] := Set( AsList( Co[ j ] ) ); 
-        od;
-        
-        Add( R, List );
-    od;
-    
-    E := [];
-    
-    for k in [ 1 .. l ] do
-        for m in [ 1 .. C[ k ] ] do
-            Add( E, R[ k ] );
-        od;
-    od;
-    
-    K := [];
-    
-    for n in [ 1 .. Size( E ) ] do
-        n := Cartesian( E[ n ], [ n ] );
-        Add( K, n );
-    od;
-    
-    return Concatenation( K );
-    
-end );
-
-##
 AddIsEqualForObjects( SkeletalGSets,
   function( Omega1, Omega2 )
     
@@ -178,7 +120,7 @@ AddIsWellDefinedForMorphisms( SkeletalGSets,
     k := NrConjugacyClassesOfSubgroups( S );
     
     if not Length( img ) = k then
-        return false;
+        return Error( "1\n");
     fi;
     
     tom := MatTom( TableOfMarks( G ) );
@@ -186,12 +128,14 @@ AddIsWellDefinedForMorphisms( SkeletalGSets,
     s := AsList( S );
     t := AsList( T );
     
+    
+
     if not ForAll( [ 1 .. k ], i -> IsList( img[i] ) and Length( img[i] ) = s[i] and
                ForAll( img[i], function( e )
                                  local r, g, j;
                                  
                                  if not ( IsList( e ) and Length( e ) = 3 ) then
-                                     return false;
+                                     return Error( "2\n" );
                                  fi;
                                  
                                  r := e[1];
@@ -199,12 +143,13 @@ AddIsWellDefinedForMorphisms( SkeletalGSets,
                                  j := e[3];
                                  
                                  if not ( IsPosInt( j ) and j <= k and IsPosInt( r ) and r <= t[j] and g in G and tom[j][i] > 0 ) then
-                                     return false;
+                                     return Error( "3\n");
                                  fi;
+				return true;
                                end
                      )
                  ) then
-        return false;
+        return Error( "4\n" );
     fi;
     
     return true;
@@ -252,9 +197,25 @@ end );
 
 ##
 AddIdentityMorphism( SkeletalGSets,
-  function( N )
-    
-    return MapOfGSets( N, [ 1 .. AsList( N )[ 1 ] ], N );
+  function( Omega )
+    local L, M, G, k, i, C, j;
+
+    L := [];
+
+    M := AsList( Omega );  
+    G := UnderlyingGroup( Omega );
+
+    k := Length( M );
+
+    for i in [ 1 .. k ] do 
+	        C := [];
+	        for j in [ 1 .. M[ i ] ] do
+		Add( C, [ j, Identity( G ), i ] );
+	od;
+	Add( L, C );
+    od;
+
+    return MapOfGSets( Omega, L, Omega );
     
 end );
 
