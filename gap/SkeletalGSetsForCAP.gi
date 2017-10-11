@@ -4,7 +4,9 @@
 # Implementations
 #
 
-BindGlobal( "SkeletalGSets", CreateCapCategory( "SkeletalGSets" ) );
+
+
+#! BindGlobal( "SkeletalGSets", CreateCapCategory( "SkeletalGSets" ) );
 
 ##
 InstallMethod( GSet,
@@ -20,11 +22,23 @@ InstallMethod( GSet,
             AsList,  L, 
             UnderlyingGroup, G );
     
-    Add( SkeletalGSets, Omega );
+    Add( SkeletalGSets( G ), Omega );
     
     return Omega;
     
 end );
+
+##
+InstallMethod( SkeletalGSets,
+               [ IsGroup ],
+               
+  function( group )
+    local SkeletalGSets;
+    
+    SkeletalGSets := CreateCapCategory( "Skeletal Category of -Sets" );  #! TODOOOOO
+    
+    SkeletalGSets!.group_for_category := group;
+
 
 ##
 InstallMethod( TableOfMarks,
@@ -127,8 +141,6 @@ AddIsWellDefinedForMorphisms( SkeletalGSets,
     
     s := AsList( S );
     t := AsList( T );
-    
-    
 
     if not ForAll( [ 1 .. k ], i -> IsList( img[i] ) and Length( img[i] ) = s[i] and
                ForAll( img[i], function( e )
@@ -182,7 +194,7 @@ InstallMethod( CallFuncList,
         fi;
     fi;
     
-    return Set( Range( phi ) )[ AsList( phi )[ x ] ];
+    return AsList( phi )[ x ];
     
 end );
 
@@ -198,7 +210,7 @@ end );
 ##
 AddIdentityMorphism( SkeletalGSets,
   function( Omega )
-    local L, M, G, k, i, C, j;
+    local L, M, G, k, i, C, l;
 
     L := [];
 
@@ -209,8 +221,8 @@ AddIdentityMorphism( SkeletalGSets,
 
     for i in [ 1 .. k ] do 
 	        C := [];
-	        for j in [ 1 .. M[ i ] ] do
-		Add( C, [ j, Identity( G ), i ] );
+	        for l in [ 1 .. M[ i ] ] do
+		Add( C, [ l, Identity( G ), i ] );
 	od;
 	Add( L, C );
     od;
@@ -222,27 +234,79 @@ end );
 ##
 AddPreCompose( SkeletalGSets,
   function( map_pre, map_post )
-    local S, cmp;
+    local cmp, S, M, L_pre, L_post, k, i, C, l, r, img_pre, g, j, img_post;
 
     if IsWellDefined( map_pre ) = false or IsWellDefined( map_post ) = false then
 	Error( "Check if the maps are well defined\n" );
     fi;
 
+    cmp := [];
+
     S := Source( map_pre );
 
-    cmp := List( S , i -> map_post( map_pre( i ) ) );
+    M := AsList( S );  
+
+    L_pre := AsList( map_pre );
+    L_post := AsList( map_post );
+
+    k := Length( M );
+
+    for i in [ 1 .. k ] do 
+	        C := [];
+	        for l in [ 1 .. M[ i ] ] do
+			img_pre := L_pre[ i ][ l ];
+			r := img_pre[1];
+			g := img_pre[2];
+			j := img_pre[3];
+			img_post := L_post[ j ][ r ];
+			Add( C, [ img_post[ 1 ], img_post[ 2 ] * g , img_post[ 3 ] ] );
+		od;
+		Add( cmp, C );
+    od;
 
     return MapOfGSets( S, cmp, Range( map_post ) );
     
 end );
 
 ## Limits
-
 ##
 AddTerminalObject( SkeletalGSets,
-  function( M )    
+  function( arg )
+    local G, k, L;
+
+    G := group;
+
+    k := Size( MatTom( TableOfMarks( G ) ) );
+
+    L := List( [ 1 .. k ], x -> 0 );
+
+    L[ k ] := 1;
     
-    return GSet( UnderlyingGroup( M ), List( [ 1 .. AsList( M )[ 1 ] ], x -> 1 ) );
+    return GSet( G, L );
+    
+end );
+
+##
+AddUniversalMorphismIntoTerminalObjectWithGivenTerminalObject( SkeletalGSets,
+  function( Omega, T ) 
+    local L, M, G, k, i, C, l;
+
+    L := [];
+
+    M := AsList( Omega );  
+    G := UnderlyingGroup( Omega );
+
+    k := Length( M );
+
+    for i in [ 1 .. k ] do 
+	        C := [];
+	        for l in [ 1 .. M[ i ] ] do
+		Add( C, [ 1, Identity( G ), k ] );
+	od;
+	Add( L, C );
+    od;    
+    
+    return MapOfGSets( Omega, L, T );
     
 end );
 
@@ -251,8 +315,27 @@ end );
 ##
 AddInitialObject( SkeletalGSets,
   function( arg )
+    local k, L, G;
+
+    G := group;
+
+    k := Size( MatTom( TableOfMarks( G ) ) );
+
+    L := List( [ 1 .. k ], x -> 0 );
     
-    return GSet( UnderlyingGroup( arg ), [] );
+    return GSet( G, L );
+    
+end );
+
+##
+AddUniversalMorphismFromInitialObjectWithGivenInitialObject( SkeletalGSets,
+  function( Omega, I )    
+    
+    if not ForAll( AsList( I ), a -> a = 0 ) then
+        Error( "the second argument is not an initial object" );
+    fi;
+    
+    return MapOfGSets( I, List( AsList( Omega ), x -> [] ), Omega );
     
 end );
 
@@ -265,4 +348,8 @@ InstallMethod( Display,
         
   function( N )
     Display( [ UnderlyingGroup( N ), AsList( N ) ] );
+end );
+
+return SkeletalGSets;
+    
 end );

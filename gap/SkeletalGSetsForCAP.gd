@@ -79,5 +79,13 @@ DeclareOperation( "MapOfGSets",
         [ IsSkeletalGSetRep, IsList, IsSkeletalGSetRep ] );
 #! @InsertSystem  MapOfGSets
 
+#! @Description
+#! The argument is a group $G$.
+#! The output is the skeletal category of finite $G$-Sets.
+#! @Returns a category
+#! @Arguments G
+DeclareAttribute( "SkeletalGSets",
+                  IsGroup );
+
 #! @Section Tools
 
