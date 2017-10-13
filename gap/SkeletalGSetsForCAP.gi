@@ -105,10 +105,10 @@ InstallMethod( MapOfGSets,
     map := rec( );
     
     ObjectifyWithAttributes( map, TheTypeOfMapsOfSkeletalGSets,
-            AsList, I,
-            Source, S,
-            Range, T 
-	    );
+        AsList, I,
+        Source, S,
+        Range, T 
+    );
     
     Add( SkeletalGSets, map );
      
@@ -128,7 +128,7 @@ AddIsWellDefinedForMorphisms( SkeletalGSets,
     G := UnderlyingGroup( S );
     
     if not G = UnderlyingGroup( T ) then 
-	return false;
+        return false;
     fi;
     
     img := AsList( mor );
@@ -145,28 +145,28 @@ AddIsWellDefinedForMorphisms( SkeletalGSets,
     t := AsList( T );
 
     if not ForAll( [ 1 .. k ], i -> IsList( img[i] ) and Length( img[i] ) = s[i] and
-               ForAll( img[i], function( e )
-                                 local r, g, j;
-                                 
-                                 if not ( IsList( e ) and Length( e ) = 3 ) then
-                                     return Error( "2\n" );
-                                 fi;
-                                 
-                                 r := e[1];
-                                 g := e[2];
-                                 j := e[3];
-                                 
-                                 # j has to be the index of a subgroup of G, i.e. an integer between 1 and k
-                                 # r has to be the index of a copy of U_j
-                                 # g has to be an element of G
-                                 # U_i has to be a subgroup of U_j up to conjugation, which can be read off the table of marks
-                                 
-                                 if not ( IsPosInt( j ) and j <= k and IsPosInt( r ) and r <= t[j] and g in G and tom[j][i] > 0 ) then
-                                     return Error( "3\n");
-                                 fi;
-				return true;
-                               end
-                     )
+        ForAll( img[i], function( e )
+                            local r, g, j;
+                            
+                            if not ( IsList( e ) and Length( e ) = 3 ) then
+                                return Error( "2\n" );
+                            fi;
+                            
+                            r := e[1];
+                            g := e[2];
+                            j := e[3];
+                            
+                            # j has to be the index of a subgroup of G, i.e. an integer between 1 and k
+                            # r has to be the index of a copy of U_j
+                            # g has to be an element of G
+                            # U_i has to be a subgroup of U_j up to conjugation, which can be read off the table of marks
+                            
+                            if not ( IsPosInt( j ) and j <= k and IsPosInt( r ) and r <= t[j] and g in G and tom[j][i] > 0 ) then
+                                return Error( "3\n");
+                            fi;
+                            return true;
+                        end
+              )
                  ) then
         return Error( "4\n" );
     fi;
@@ -227,11 +227,11 @@ AddIdentityMorphism( SkeletalGSets,
     k := Length( M );
 
     for i in [ 1 .. k ] do 
-	        C := [];
-	        for l in [ 1 .. M[ i ] ] do
-		Add( C, [ l, Identity( G ), i ] );
-	od;
-	Add( L, C );
+        C := [];
+        for l in [ 1 .. M[ i ] ] do
+            Add( C, [ l, Identity( G ), i ] );
+        od;
+        Add( L, C );
     od;
 
     return MapOfGSets( Omega, L, Omega );
@@ -244,7 +244,7 @@ AddPreCompose( SkeletalGSets,
     local cmp, S, M, L_pre, L_post, k, i, C, l, r, img_pre, g, j, img_post;
 
     if IsWellDefined( map_pre ) = false or IsWellDefined( map_post ) = false then
-	Error( "Check if the maps are well defined\n" );
+        Error( "Check if the maps are well defined\n" );
     fi;
 
     cmp := [];
@@ -259,16 +259,16 @@ AddPreCompose( SkeletalGSets,
     k := Length( M );
 
     for i in [ 1 .. k ] do 
-	        C := [];
-	        for l in [ 1 .. M[ i ] ] do
-			img_pre := L_pre[ i ][ l ];
-			r := img_pre[1];
-			g := img_pre[2];
-			j := img_pre[3];
-			img_post := L_post[ j ][ r ];
-			Add( C, [ img_post[ 1 ], img_post[ 2 ] * g , img_post[ 3 ] ] );
-		od;
-		Add( cmp, C );
+        C := [];
+        for l in [ 1 .. M[ i ] ] do
+            img_pre := L_pre[ i ][ l ];
+            r := img_pre[ 1 ];
+            g := img_pre[ 2 ];
+            j := img_pre[ 3 ];
+            img_post := L_post[ j ][ r ];
+            Add( C, [ img_post[ 1 ], img_post[ 2 ] * g , img_post[ 3 ] ] );
+        od;
+        Add( cmp, C );
     od;
 
     return MapOfGSets( S, cmp, Range( map_post ) );
@@ -306,11 +306,11 @@ AddUniversalMorphismIntoTerminalObjectWithGivenTerminalObject( SkeletalGSets,
     k := Length( M );
 
     for i in [ 1 .. k ] do 
-	        C := [];
-	        for l in [ 1 .. M[ i ] ] do
-		Add( C, [ 1, Identity( G ), k ] );
-	od;
-	Add( L, C );
+        C := [];
+        for l in [ 1 .. M[ i ] ] do
+            Add( C, [ 1, Identity( G ), k ] );
+        od;
+        Add( L, C );
     od;    
     
     return MapOfGSets( Omega, L, T );
@@ -331,11 +331,11 @@ AddDirectProduct( SkeletalGSets,
     prod := List( [ 1 .. k ], x -> 1 );
     
     for l in L do
-    	M_l := AsList(l) * ToM;
-    	
-    	for i in [ 1 .. k ] do
-    		prod[i] := prod[i] * M_l[i];
-    	od;
+        M_l := AsList(l) * ToM;
+
+        for i in [ 1 .. k ] do
+            prod[i] := prod[i] * M_l[i];
+        od;
     od;
 
     V := VectorSpace( Rationals, ToM );
@@ -411,7 +411,7 @@ AddCoproduct( SkeletalGSets,
     sum := List( [ 1 .. k ], x -> 0 );
     
     for l in L do
-    	sum := sum + AsList(l);
+        sum := sum + AsList(l);
     od;
     
     return GSet( group, sum );
@@ -434,17 +434,17 @@ AddInjectionOfCofactorOfCoproduct( SkeletalGSets,
     sum := List( [ 1 .. k ], x -> 0 );
     
     for j in [ 1 .. (pos - 1) ] do
-    	sum := sum + AsList( L[ j ] );
+        sum := sum + AsList( L[ j ] );
     od;
     
     imgs := [];
     
     for i in [ 1 .. k ] do 
-	C := [];
-	for l in [ 1 .. M[ i ] ] do
+        C := [];
+        for l in [ 1 .. M[ i ] ] do
             Add( C, [ sum[i] + l, Identity( group ), i ] );
-	od;
-	Add( imgs, C );
+        od;
+        Add( imgs, C );
     od;
     
     return MapOfGSets( S, imgs, T );
@@ -465,20 +465,20 @@ AddUniversalMorphismFromCoproductWithGivenCoproduct( SkeletalGSets,
     imgs := [];
     
     for i in [ 1 .. k ] do 
-	C := [];
-	for l in [ 1 .. M[ i ] ] do
-	    sum := 0;
-	    sum_pre := 0;
-	    for j in [ 1 .. Length(D) ] do
-	    	sum := sum + AsList(D[j])[i];
-	    	if sum >= l then
-	    	    break;
-	    	fi;
-	    	sum_pre := sum;
-	    od;
+        C := [];
+        for l in [ 1 .. M[ i ] ] do
+            sum := 0;
+            sum_pre := 0;
+            for j in [ 1 .. Length(D) ] do
+                    sum := sum + AsList(D[j])[i];
+                    if sum >= l then
+                        break;
+                    fi;
+                    sum_pre := sum;
+            od;
             Add( C, AsList(tau[ j ])[ i ][ l - sum_pre] );
-	od;
-	Add( imgs, C );
+        od;
+        Add( imgs, C );
     od;
     
     return MapOfGSets( S, imgs, T );
@@ -499,16 +499,16 @@ AddImageObject( SkeletalGSets,
     L := [];
     
     for i in [ 1 .. k ] do
-    	L[i] := [];
+        L[i] := [];
     od;
     
     for i in [ 1 .. k ] do
-	for l in [ 1 .. M[ i ] ] do
-	    r := imgs[i][l][1];
-	    j := imgs[i][l][3];
-	    
-	    Add(L[j], r);
-	od;
+        for l in [ 1 .. M[ i ] ] do
+            r := imgs[i][l][1];
+            j := imgs[i][l][3];
+            
+            Add(L[j], r);
+        od;
     od;
     
     return GSet( group, List( L, x -> Length( Set ( x ) ) ) );
@@ -550,16 +550,16 @@ AddImageEmbedding( SkeletalGSets,
     L := [];
     
     for i in [ 1 .. k ] do
-    	L[i] := [];
+        L[i] := [];
     od;
     
     for i in [ 1 .. k ] do
-	for l in [ 1 .. M[ i ] ] do
-	    r := imgs[i][l][1];
-	    j := imgs[i][l][3];
-	    
-	    Add(L[j], r);
-	od;
+        for l in [ 1 .. M[ i ] ] do
+            r := imgs[i][l][1];
+            j := imgs[i][l][3];
+            
+            Add(L[j], r);
+        od;
     od;
     
     D := [];
@@ -590,16 +590,16 @@ AddCoastrictionToImage( SkeletalGSets,
     L := [];
     
     for i in [ 1 .. k ] do
-    	L[i] := [];
+        L[i] := [];
     od;
     
     for i in [ 1 .. k ] do
-	for l in [ 1 .. M[ i ] ] do
-	    r := imgs[ i ][ l ][ 1 ];
-	    j := imgs[ i ][ l ][ 3 ];
-	    
-	    Add(L[j], r);
-	od;
+        for l in [ 1 .. M[ i ] ] do
+            r := imgs[ i ][ l ][ 1 ];
+            j := imgs[ i ][ l ][ 3 ];
+            
+            Add(L[j], r);
+        od;
     od;
     
     D := [];
@@ -608,9 +608,9 @@ AddCoastrictionToImage( SkeletalGSets,
         C := [];
         for l in [ 1 .. M[ i ] ] do
             r := imgs[ i ][ l ][ 1 ];
-	    g := imgs[ i ][ l ][ 2 ];
-	    j := imgs[ i ][ l ][ 3 ];
-	    
+            g := imgs[ i ][ l ][ 2 ];
+            j := imgs[ i ][ l ][ 3 ];
+            
             Add( C, [ Position( Set( L[ j ] ), r ), g, j ] );
         od;
         Add( D, C );
