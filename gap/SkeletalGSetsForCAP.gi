@@ -351,14 +351,14 @@ end );
 ##
 InstallMethod( PositionOfSubgroup,
         "for CAP",
-	[ IsObject ], 
+        [ IsObject ], 
 
   function( U )
     local i;
 
     for i in [ 1..k ] do
         if U in ConjugateSubgroups( group, RepresentativeTom( TableOfMarks( group ), i ) ) then
-	    return i;
+            return i;
         fi;
     od;
      
@@ -404,17 +404,96 @@ InstallMethod( ToBeNamed,
 end );
 
 ##
-AddProjectionInFactorOfDirectProduct( SkeletalGSets,
-  function( L, i )
-    local temp, S, T;
+InstallMethod( IntZeroVector,
+        "for CAP skeletal finite G - sets",
+        [ IsInt ],
+        
+  function( k )
+    return List( [ 1 .. k ], i -> 0 );
     
-    temp := ToBeNamed( [2, 2]);
+end );
+
+##
+InstallMethod( ProjectionOfASingleBinaryProduct,
+        "for CAP skeletal finite G - sets",
+        [ IsInt, IsInt, IsInt, IsInt, IsSkeletalGSetRep ],
+        
+  function( i, j, pos, copy_number, target )
+    local imgs, G_i, G_j, P, pi, l, img, target_index;
+    
+    imgs := ToBeNamed( [ i, j ] );
+    
+    # G/U_i
+    G_i := List( [ 1 .. k ], i -> 0 );
+    G_i[ i ] := 1;
+    # G/U_j
+    G_j := List( [ 1 .. k ], i -> 0 );
+    G_j[ j ] := 1;
+    
+    # take the direct product of G/U_i and G/U_j and construct the projection pi
+    P := DirectProduct( [ GSet( group, G_i), GSet( group, G_j) ] );
+    pi := [];
+    for l in [ 1 .. k ] do
+        pi [ l ] := [];
+        for img in imgs[ l ] do
+            if pos = 1 then
+                target_index := i;
+            else
+                target_index := j;
+            fi;
+            Add( pi[ l ], [ copy_number, img[ pos ], target_index ] ); 
+        od;
+    od;
+    
+    return MapOfGSets( P, pi, target );
+    
+end );
+
+##
+AddProjectionInFactorOfDirectProduct( SkeletalGSets,
+  function( L, pos )
+    local temp, S, T, M, N, D, tau, i, j, l, result, imgs, img, m, n, target, copy_number, pi, P;
+    
+    # assumption: Size( L ) = 2
     
     S := DirectProduct( L );
     
-    T := L[i];
+    T := L[ pos ];
     
-    return MapOfGSets( S, temp, T );
+    M := AsList( L[1] );
+    N := AsList( L[2] );
+    
+    result := [];
+    
+    for i in [ 1 .. k ] do
+        result[ i ] := [];
+    od;
+    
+    D := [];
+    tau := [];
+    
+    for i in [ 1 .. k ] do
+        for j in [ 1 .. k ] do
+            for m in [ 1 .. M[i] ] do
+                for n in [ 1 .. N[j] ] do
+                    if pos = 1 then
+                        copy_number := m;
+                    else
+                        copy_number := n;
+                    fi;
+                    
+                    pi := ProjectionOfASingleBinaryProduct( i, j, pos, copy_number, T );
+                       
+                    P := Source( pi );
+                    
+                    Add( D, P );
+                    Add( tau, pi );
+                od;
+            od;
+        od;
+    od;
+    
+    return UniversalMorphismFromCoproduct( D, tau );
     
 end );
 
@@ -488,7 +567,7 @@ end );
 ##
 AddUniversalMorphismIntoEqualizerWithGivenEqualizer( SkeletalGSets,
   function( D, tau, E )
-    local f1, M, L, i, l, S;
+    local f1, M, L, i, l, S, imgs;
     
     f1 := D[ 1 ];
    
@@ -606,7 +685,7 @@ end );
 ##
 AddUniversalMorphismFromCoproductWithGivenCoproduct( SkeletalGSets,
   function( D, tau, S )
-    local T, M, k, imgs, i, C, l, sum, sum_pre, j;
+    local T, M, k, imgs, i, C, j;
     
     T := Range( tau[1] );
     
@@ -618,19 +697,10 @@ AddUniversalMorphismFromCoproductWithGivenCoproduct( SkeletalGSets,
     
     for i in [ 1 .. k ] do 
         C := [];
-        for l in [ 1 .. M[ i ] ] do
-            sum := 0;
-            sum_pre := 0;
-            for j in [ 1 .. Length(D) ] do
-                    sum := sum + AsList(D[j])[i];
-                    if sum >= l then
-                        break;
-                    fi;
-                    sum_pre := sum;
-            od;
-            Add( C, AsList(tau[ j ])[ i ][ l - sum_pre] );
+        for j in [ 1 .. Length(tau) ] do
+            C := Concatenation( C, AsList(tau[ j ])[ i ] );
         od;
-        Add( imgs, C );
+        Add( imgs, C);
     od;
     
     return MapOfGSets( S, imgs, T );

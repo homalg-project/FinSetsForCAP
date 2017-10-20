@@ -70,4 +70,20 @@ phi_res := CoastrictionToImage( phi );
 #! <An epimorphism in Skeletal Category of -Sets>
 phi = PreCompose( phi_res, psi );
 #! true
+
+A := GSet( S3, [0, 1, 0, 0] );
+#! <An object in Skeletal Category of -Sets>
+B := GSet( S3, [0, 1, 0, 0] );
+#! <An object in Skeletal Category of -Sets>
+pi1 := ProjectionInFactorOfDirectProduct( [ A, B ], 1 );
+#! <A morphism in Skeletal Category of -Sets>
+pi2 := ProjectionInFactorOfDirectProduct( [ A, B ], 2 );
+#! <A morphism in Skeletal Category of -Sets>
+AsList(pi1);
+#! [ [ [ 1, RightCoset(Group([ (2,3) ]),()), 2 ] ], 
+#!  [ [ 1, RightCoset(Group([ (2,3) ]),()), 2 ] ], [  ], [  ] ]
+AsList(pi2);
+#! [ [ [ 1, RightCoset(Group([ (2,3) ]),(1,3)), 2 ] ], 
+#!  [ [ 1, RightCoset(Group([ (2,3) ]),()), 2 ] ], [  ], [  ] ]
+
 #! @EndExample
