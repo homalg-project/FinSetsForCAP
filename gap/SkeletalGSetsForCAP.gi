@@ -323,7 +323,7 @@ AddDirectProduct( SkeletalGSets,
     local ToM, k, prod, l, M_l, i, V, B, C;
     
     ToM := TableOfMarks( group );
-
+    
     ToM := MatTom( ToM );
     
     k := Length(ToM);
@@ -332,32 +332,89 @@ AddDirectProduct( SkeletalGSets,
     
     for l in L do
         M_l := AsList(l) * ToM;
-
+        
         for i in [ 1 .. k ] do
             prod[i] := prod[i] * M_l[i];
         od;
     od;
-
+    
     V := VectorSpace( Rationals, ToM );
-
+    
     B := Basis( V, ToM );
-
+    
     C := Coefficients( B, prod );
+    
+    return GSet(group, C);  
+    
+end );
 
-    return GSet(group, C);
+##
+InstallMethod( PositionOfSubgroup,
+        "for CAP",
+	[ IsObject ], 
+
+  function( U )
+    local i;
+
+    for i in [ 1..k ] do
+        if U in ConjugateSubgroups( group, RepresentativeTom( TableOfMarks( group ), i ) ) then
+	    return i;
+        fi;
+    od;
+     
+end );
+
+##
+InstallMethod( ToBeNamed,
+        "for CAP skeletal finite G - sets",
+        [ IsList ],
+        
+  function( L )
+    local LoS, LoF, C, e, o, RoO, SRO, imgs, r, s, i; 
+    
+    # ListOfSubgroups
+    LoS := List( L, i -> RepresentativeTom( TableOfMarks( group ), i ) );
+
+    # ListOfFactorgroups
+    LoF := List( LoS, U -> RightCosets( group, U ) );
+
+    C := Cartesian( LoF );
+    
+    #Action of G on C by rightmultiplication 
+    e := ExternalSet( group, C, OnRight );
+
+    o := Orbits( e );
+
+    # Representatives Of Orbits
+    RoO := List( o, x -> x[ 1 ] );
+
+    # Stabilizers of Representatives of orbits
+    SRO := List( RoO, r -> Stabilizer( group, r, OnRight ) );
+    
+    imgs := List( [ 1..k ], i -> [] );
+
+    for r in RoO do
+          s := Stabilizer( group, r, OnRight );
+          i := PositionOfSubgroup( s );
+          Add( imgs[ i ], r );
+    od;
+    
+    return imgs;
     
 end );
 
 ##
 AddProjectionInFactorOfDirectProduct( SkeletalGSets,
   function( L, i )
-    local S, T;
+    local temp, S, T;
+    
+    temp := ToBeNamed( [2, 2]);
     
     S := DirectProduct( L );
     
     T := L[i];
     
-    return MapOfGSets( S, List( S, x -> [ x, x[i] ] ), T );
+    return MapOfGSets( S, temp, T );
     
 end );
 
@@ -369,6 +426,101 @@ AddUniversalMorphismIntoDirectProductWithGivenDirectProduct( SkeletalGSets,
     S := Source( tau[1] );
     
     return MapOfGSets( S, List( S, x -> List( tau, f -> f(x) ) ), T );
+    
+end );
+
+##
+AddEqualizer(SkeletalGSets,
+  function( D )
+    local f1, s, M, L, i, l;
+    
+    f1 := D[ 1 ];
+    
+    s := Source( f1 );
+    
+    D := D{ [ 2 .. Length( D ) ] };
+    
+    M := AsList( s );    
+
+    L := [];
+    
+    for i in [ 1 .. k ] do
+        L[i] := 0; 
+        for l in [ 1 .. M[ i ] ] do
+            if ForAll( D, fj -> AsList( f1 )[i][l] = AsList( fj )[i][l] ) then
+                 L[i] := L[i] + 1;
+            fi;    
+        od;
+    od;
+    
+    return GSet( group, L );
+    
+end);
+
+##
+AddEmbeddingOfEqualizerWithGivenEqualizer( SkeletalGSets,
+  function( D, E )
+    local f1, s, M, L, i, l;
+    
+    f1 := D[ 1 ];
+    
+    s := Source( f1 );
+    
+    D := D{ [ 2 .. Length( D ) ] };
+    
+    M := AsList( s );    
+
+    L := [];
+    
+    for i in [ 1 .. k ] do
+        L[i] := []; 
+        for l in [ 1 .. M[ i ] ] do
+            if ForAll( D, fj -> AsList( f1 )[i][l] = AsList( fj )[i][l] ) then
+                 Add( L[i], [ l, Identity( group ), i ] );
+            fi;    
+        od;
+    od;
+    
+    return MapOfGSets( E, L, s );
+    
+end );
+
+##
+AddUniversalMorphismIntoEqualizerWithGivenEqualizer( SkeletalGSets,
+  function( D, tau, E )
+    local f1, M, L, i, l, S;
+    
+    f1 := D[ 1 ];
+   
+    D := D{ [ 2 .. Length( D ) ] };
+    
+    M := AsList( Source( f1 ) );    
+    
+    L := [];
+    
+    for i in [ 1 .. k ] do
+        L[i] := []; 
+        for l in [ 1 .. M[ i ] ] do
+            if ForAll( D, fj -> AsList( f1 )[i][l] = AsList( fj )[i][l] ) then
+                 Add( L[i], l );
+            fi;    
+        od;
+    od;
+    
+    S := Source( tau );
+
+    imgs := [];
+
+    for i in [ 1 .. k ] do
+        imgs[i] := []; 
+        for l in [ 1 .. M[ i ] ] do
+            if ForAll( D, fj -> AsList( f1 )[i][l] = AsList( fj )[i][l] ) then
+                 Add( imgs[i], [ Position( L[i], l ), AsList( tau )[i][l][2], i ]  );
+            fi;    
+        od;
+    od;
+
+    return MapOfGSets( S, imgs, E );
     
 end );
 

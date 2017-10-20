@@ -57,6 +57,22 @@ DeclareAttribute( "TableOfMarks",
 DeclareAttribute( "NrConjugacyClassesOfSubgroups",
         IsSkeletalGSetRep );
 
+
+#! @Description
+#!  The number of conjugacy classes of subgroups of the group underlying the $G$-set <A>Omega</A>.
+#! @Arguments TODOO
+#! @Returns a positive integer
+DeclareAttribute( "PositionOfSubgroup",
+        IsObject );
+
+
+#! @Description
+#!  The number of conjugacy classes of subgroups of the group underlying the $G$-set <A>Omega</A>.
+#! @Arguments TODO
+#! @Returns a positive integer
+DeclareAttribute( "ToBeNamed",
+        IsList );
+
 #! @Section Constructors
 
 #! @Description
