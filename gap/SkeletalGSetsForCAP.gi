@@ -205,12 +205,43 @@ InstallMethod( CallFuncList,
     
 end );
 
+##
+InstallMethod( IsEqualModSubgroup,
+        "for two group elements and a Subgroup",
+    [ IsObject, IsObject, IsObject ], # TODO
+        
+  function( g1, g2, U )
+
+    return g1 * Inverse( g2 ) in U;
+    
+end );
 
 ##
 AddIsEqualForMorphisms( SkeletalGSets,
   function( mor1, mor2 )
+    local M, i, l, img1, img2, j, U;
     
-    return AsList( mor1 ) = AsList( mor2 );
+    M := AsList( Source( mor1 ) );
+    
+    for i in [ 1 .. k ] do 
+        if not Length( AsList( mor1 )[ i ] ) = Length( AsList( mor2 )[ i ] ) then
+            return false;
+        fi;
+        
+        for l in [ 1 .. M[ i ] ] do   
+            
+            img1 := AsList( mor1 )[ i ][ l ];
+            img2 := AsList( mor2 )[ i ][ l ];
+            j := img1[ 3 ];
+            U := RepresentativeOfSubgroupsUpToConjugation( j );
+            
+            if not ( img1[ 1 ] = img2[ 1 ] and IsEqualModSubgroup( img1[ 2 ], img2[ 2 ], U ) and img1[ 3 ] = img2[ 3 ] ) then 
+                return false;
+            fi;
+        od;
+    od;
+     
+    return true; 
     
 end );
 
@@ -365,7 +396,18 @@ InstallMethod( PositionOfSubgroup,
 end );
 
 ##
-InstallMethod( ToBeNamed,
+InstallMethod( RepresentativeOfSubgroupsUpToConjugation,
+        "for CAP skeletal finite G - sets",
+        [ IsInt ],
+        
+  function( i ) 
+    
+    return RepresentativeTom( TableOfMarks( group ), i ) ;
+    
+end );
+
+##
+InstallMethod( OrbitsOfActionOnCartesianProduct,
         "for CAP skeletal finite G - sets",
         [ IsList ],
         
@@ -373,26 +415,40 @@ InstallMethod( ToBeNamed,
     local LoS, LoF, C, e, o, RoO, SRO, imgs, r, s, i; 
     
     # ListOfSubgroups
-    LoS := List( L, i -> RepresentativeTom( TableOfMarks( group ), i ) );
-
+    LoS := List( L, i -> RepresentativeOfSubgroupsUpToConjugation( i ) );
+    
     # ListOfFactorgroups
     LoF := List( LoS, U -> RightCosets( group, U ) );
-
+    
     C := Cartesian( LoF );
     
     #Action of G on C by rightmultiplication 
     e := ExternalSet( group, C, OnRight );
-
+    
     o := Orbits( e );
+   
+    return o;
+    
+end );
 
+##
+InstallMethod( ToBeNamed,
+        "for CAP skeletal finite G - sets",
+        [ IsList ],
+        
+  function( L )
+    local o, RoO, SRO, imgs, r, s, i; 
+    
+    o := OrbitsOfActionOnCartesianProduct( L );
+    
     # Representatives Of Orbits
     RoO := List( o, x -> x[ 1 ] );
-
+    
     # Stabilizers of Representatives of orbits
     SRO := List( RoO, r -> Stabilizer( group, r, OnRight ) );
     
     imgs := List( [ 1..k ], i -> [] );
-
+    
     for r in RoO do
           s := Stabilizer( group, r, OnRight );
           i := PositionOfSubgroup( s );
@@ -441,7 +497,8 @@ InstallMethod( ProjectionOfASingleBinaryProduct,
             else
                 target_index := j;
             fi;
-            Add( pi[ l ], [ copy_number, img[ pos ], target_index ] ); 
+
+            Add( pi[ l ], [ copy_number, Representative( img[ pos ] ), target_index ] ); 
         od;
     od;
     
@@ -452,7 +509,7 @@ end );
 ##
 AddProjectionInFactorOfDirectProduct( SkeletalGSets,
   function( L, pos )
-    local temp, S, T, M, N, D, tau, i, j, l, result, imgs, img, m, n, target, copy_number, pi, P;
+    local S, T, M, N, D, tau, i, j, l, imgs, img, m, n, target, copy_number, pi, P;
     
     # assumption: Size( L ) = 2
     
@@ -462,12 +519,6 @@ AddProjectionInFactorOfDirectProduct( SkeletalGSets,
     
     M := AsList( L[1] );
     N := AsList( L[2] );
-    
-    result := [];
-    
-    for i in [ 1 .. k ] do
-        result[ i ] := [];
-    od;
     
     D := [];
     tau := [];
@@ -496,21 +547,120 @@ AddProjectionInFactorOfDirectProduct( SkeletalGSets,
     return UniversalMorphismFromCoproduct( D, tau );
     
 end );
-
+ 
 ##
+InstallMethod( OffsetInCartesianProduct,
+        "for CAP skeletal finite G - sets",
+        [ IsList, IsList, IsInt, IsInt, IsInt, IsInt ],
+
+  function( M, N, given_i, given_j, given_m, given_n  )
+    local i, j, l, result, m, n, target, copy_number, pi, P;
+    
+    result := [];
+    
+    for i in [ 1 .. k ] do
+        result[ i ] := 0;
+    od;
+    
+    for i in [ 1 .. k ] do
+        for j in [ 1 .. k ] do
+            for m in [ 1 .. M[i] ] do
+                for n in [ 1 .. N[j] ] do
+                    if i = given_i and j = given_j and m = given_m and n = given_n then
+                        return result;                    
+                    fi;
+
+                    # TODO replace dummy values 1, 1 and TerminalObject
+                    pi := ProjectionOfASingleBinaryProduct( i, j, 1, 1, TerminalObject( GSet( group, M ) ) );
+                                        
+                    result := result + List( AsList( pi ), x -> Length( x ) );
+                od;
+            od;
+        od;
+    od;
+        
+end );
+
+##  
 AddUniversalMorphismIntoDirectProductWithGivenDirectProduct( SkeletalGSets,
   function( D, tau, T )
-    local S;
+    local S, M, N, imgs, i, l, r_1, r_2, g_1, g_2, j_1, j_2, Offset, Orbits, RoO, SRO, U_j_1, U_j_2, img, o, g, s, j, Internaloffset, p, j_p, r;
+
+    # Assumption Length( D ) = 2
     
-    S := Source( tau[1] );
+    S := Source( tau[ 1 ] ); 
     
-    return MapOfGSets( S, List( S, x -> List( tau, f -> f(x) ) ), T );
+    M := AsList( Range( tau[ 1 ] ) );
+    N := AsList( Range( tau[ 2 ] ) );    
+
+    imgs := [];
+
+    for i in [ 1..k ] do
+        imgs[ i ] := [];
+        for l in [ 1.. AsList( S )[ i ] ] do
+             r_1 := AsList( tau[ 1 ] )[ i ][ l ][ 1 ];
+             r_2 := AsList( tau[ 2 ] )[ i ][ l ][ 1 ];
+             g_1 := AsList( tau[ 1 ] )[ i ][ l ][ 2 ];
+             g_2 := AsList( tau[ 2 ] )[ i ][ l ][ 2 ];
+             j_1 := AsList( tau[ 1 ] )[ i ][ l ][ 3 ]; 
+             j_2 := AsList( tau[ 2 ] )[ i ][ l ][ 3 ];
+             
+             Offset := OffsetInCartesianProduct( M, N, j_1, j_2, r_1, r_2 );
+             
+             Orbits := OrbitsOfActionOnCartesianProduct( [ j_1, j_2 ] ); 
+                          
+             # Representatives Of Orbits
+             RoO := List( Orbits, x -> x[ 1 ] );
+             
+             # Stabilizers of Representatives of orbits
+             SRO := List( RoO, r -> Stabilizer( group, r, OnRight ) );
+             
+             U_j_1 := RepresentativeOfSubgroupsUpToConjugation( j_1 );
+             U_j_2 := RepresentativeOfSubgroupsUpToConjugation( j_2 );
+             
+             img := [ RightCoset( U_j_1, g_1 ), RightCoset( U_j_2, g_2 ) ]; 
+             
+             for o in [ 1.. Length( Orbits ) ] do
+                 if img in Orbits[ o ] then
+                     break;
+                 fi;                           
+             od;  
+             
+             for g in group do
+                 if RoO[ o ] * g = img then
+                     break;
+                 fi;
+             od;
+             
+             s := Stabilizer( group, RoO[ o ], OnRight );
+             j := PositionOfSubgroup( s );
+             
+             Internaloffset := 0;
+             
+             for  p in [ 1 .. Length( SRO )] do
+                 j_p := PositionOfSubgroup( SRO[ p ] );
+                 if j = j_p then
+                     Internaloffset := Internaloffset + 1;
+                     if p = o then
+                         break;
+                     fi;
+                 fi; 
+             od;
+              
+             r := Offset[ j ] + Internaloffset;
+             Add( imgs[i], [ r, g, j ] );
+        od;
+    od;
+    
+    return MapOfGSets( S, imgs, T );
     
 end );
 
 ##
 AddEqualizer(SkeletalGSets,
   function( D )
+    # TODO g equal mod subgroup
+
     local f1, s, M, L, i, l;
     
     f1 := D[ 1 ];

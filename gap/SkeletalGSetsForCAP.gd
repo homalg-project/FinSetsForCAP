@@ -57,6 +57,12 @@ DeclareAttribute( "TableOfMarks",
 DeclareAttribute( "NrConjugacyClassesOfSubgroups",
         IsSkeletalGSetRep );
 
+#! @Description
+#! TODO.
+#! @Arguments two group elements and a Subgroup
+#! @Returns a positive integer
+DeclareOperation( "IsEqualModSubgroup",
+         [ IsObject, IsObject, IsObject ] );
 
 #! @Description
 #!  The number of conjugacy classes of subgroups of the group underlying the $G$-set <A>Omega</A>.
@@ -66,6 +72,20 @@ DeclareAttribute( "PositionOfSubgroup",
         IsObject );
 
 # TODO: DeclareAttribute vs DeclareOperation
+
+#! @Description
+#! ToDO.
+#! @Arguments TODO
+#! @Returns a positive integer
+DeclareAttribute( "RepresentativeOfSubgroupsUpToConjugation",
+        IsInt );
+
+#! @Description
+#!  ToDO.
+#! @Arguments TODO
+#! @Returns a positive integer
+DeclareAttribute( "OrbitsOfActionOnCartesianProduct",
+        IsList );
 
 #! @Description
 #!  The number of conjugacy classes of subgroups of the group underlying the $G$-set <A>Omega</A>.
@@ -87,6 +107,13 @@ DeclareAttribute( "IntZeroVector",
 #! @Returns a positive integer
 DeclareOperation( "ProjectionOfASingleBinaryProduct",
         [ IsInt, IsInt, IsInt, IsInt, IsSkeletalGSetRep ] );
+
+#! @Description
+#! TODO.
+#! @Arguments TODO
+#! @Returns a positive integer
+DeclareOperation( "OffsetInCartesianProduct",
+         [ IsList, IsList, IsInt, IsInt, IsInt, IsInt ] );
 
 #! @Section Constructors
 
