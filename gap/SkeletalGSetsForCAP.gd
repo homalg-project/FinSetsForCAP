@@ -65,6 +65,7 @@ DeclareAttribute( "NrConjugacyClassesOfSubgroups",
 DeclareAttribute( "PositionOfSubgroup",
         IsObject );
 
+# TODO: DeclareAttribute vs DeclareOperation
 
 #! @Description
 #!  The number of conjugacy classes of subgroups of the group underlying the $G$-set <A>Omega</A>.
@@ -72,6 +73,20 @@ DeclareAttribute( "PositionOfSubgroup",
 #! @Returns a positive integer
 DeclareAttribute( "ToBeNamed",
         IsList );
+
+#! @Description
+#!  The number of conjugacy classes of subgroups of the group underlying the $G$-set <A>Omega</A>.
+#! @Arguments TODO
+#! @Returns a positive integer
+DeclareAttribute( "IntZeroVector",
+        IsInt );
+
+#! @Description
+#!  The number of conjugacy classes of subgroups of the group underlying the $G$-set <A>Omega</A>.
+#! @Arguments TODO
+#! @Returns a positive integer
+DeclareOperation( "ProjectionOfASingleBinaryProduct",
+        [ IsInt, IsInt, IsInt, IsInt, IsSkeletalGSetRep ] );
 
 #! @Section Constructors
 
