@@ -164,6 +164,6 @@ IsWellDefined( psi2);
 Eq := Equalizer( [ psi1, psi2 ] );
 #! <An object in Skeletal Category of -Sets>
 AsList( Eq );
-#! [ 0, 0, 1, 0 ]
+#! [ 0, 0, 2, 0 ]
 
 #! @EndExample
