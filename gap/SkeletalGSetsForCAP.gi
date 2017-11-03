@@ -35,11 +35,11 @@ InstallMethod( SkeletalGSets,
   function( group )
     local SkeletalGSets, k;
     
-    SkeletalGSets := CreateCapCategory( "Skeletal Category of -Sets" );  #! TODOOOOO
+    SkeletalGSets := CreateCapCategory( "Skeletal Category of G-Sets" );  # TODO
     
     SkeletalGSets!.group_for_category := group;
     
-    k := Size( MatTom( TableOfMarks( group ) ) );
+    k := Length( MatTom( TableOfMarks( group ) ) );
 
 
 ##
@@ -54,24 +54,13 @@ InstallMethod( TableOfMarks,
 end );
 
 ##
-InstallMethod( NrConjugacyClassesOfSubgroups,
-        "for a finite skeletal G-set",
-        [ IsSkeletalGSetRep ],
-        
-  function( Omega )
-    
-    return Length( MatTom( TableOfMarks( Omega ) ) );
-    
-end );
-
-##
 AddIsWellDefinedForObjects( SkeletalGSets,
   function( Omega )
     local L;
     
     L := AsList( Omega );
     
-    if not Length( L ) = NrConjugacyClassesOfSubgroups( Omega ) then
+    if not Length( L ) = k then
         return false;
     fi;
     
@@ -86,8 +75,9 @@ end );
 ##
 AddIsEqualForObjects( SkeletalGSets,
   function( Omega1, Omega2 )
-    
-    return UnderlyingGroup( Omega1 ) = UnderlyingGroup( Omega2 ) and AsList( Omega1 ) = AsList( Omega2 );
+
+    #! groups have to be the same, because G is fixed
+    return AsList( Omega1 ) = AsList( Omega2 );
     
 end );
 
@@ -119,7 +109,7 @@ end );
 ##
 AddIsWellDefinedForMorphisms( SkeletalGSets,
   function( mor )
-    local S, T, G, img, tom, k, s, t;
+    local S, T, G, img, tom, s, t;
 
     S := Source( mor );
 
@@ -127,29 +117,27 @@ AddIsWellDefinedForMorphisms( SkeletalGSets,
 
     G := UnderlyingGroup( S );
     
-    if not G = UnderlyingGroup( T ) then 
+    if not G = UnderlyingGroup( T ) then
         return false;
     fi;
     
     img := AsList( mor );
     
-    k := NrConjugacyClassesOfSubgroups( S );
-    
     if not Length( img ) = k then
-        return Error( "1\n");
+        return Error( "The length of the list of relations is wrong.\n");
     fi;
     
     tom := MatTom( TableOfMarks( G ) );
     
     s := AsList( S );
     t := AsList( T );
-
+    
     if not ForAll( [ 1 .. k ], i -> IsList( img[i] ) and Length( img[i] ) = s[i] and
         ForAll( img[i], function( e )
                             local r, g, j;
                             
                             if not ( IsList( e ) and Length( e ) = 3 ) then
-                                return Error( "2\n" );
+                                return Error( "The list of relations has a wrong syntax.\n" );
                             fi;
                             
                             r := e[1];
@@ -181,34 +169,35 @@ InstallMethod( CallFuncList,
     [ IsSkeletalGSetMapRep, IsList ],
         
   function( phi, L )
-    local x;
-    
-    x := L[ 1 ];
-    
-    if x = fail then
-        if HasIsWellDefined( phi ) then
-            if IsWellDefined( phi ) then
-                Error( "the element ", x, " is not in the source of the map\n" );
-            else
-                if not x in Source( phi ) then
-                    Error( "the element ", x, " is not in the source of the map\n" );
-                else
-                    Error( "the element ", x, " is in the source of the map, however, the map is not well-defined\n" );
-                fi;
+    local y, m, g, i;
+
+    m := L[ 1 ];
+    g := L[ 2 ];
+    i := L[ 3 ];
+
+    y := AsList( phi )[ i ][ m ];
+
+    if IsWellDefined( phi ) then 
+        if y = fail then					#TODO fail???
+            Error( "the element ", L, " is not in the source of the map\n" );
+        else 
+            
+            if not ( i in [ 1 .. k ] and m <= AsList( Source( phi ) )[ i ] ) then
+                Error( "the element ", [ m, i ], " is not in the source of the map\n" );
             fi;
-        else
-            Error( "please check if the map is well-defined\n" );
         fi;
+    else
+        Error( "please check if the map is well-defined\n" );
     fi;
-    
-    return AsList( phi )[ x ];
+
+    return  [ AsList( phi )[ i ][ m ][ 1 ], AsList( phi )[ i ][ m ][ 2 ] * g, AsList( phi )[ i ][ m ][ 3 ] ];
     
 end );
 
 ##
 InstallMethod( IsEqualModSubgroup,
         "for two group elements and a Subgroup",
-    [ IsObject, IsObject, IsObject ], # TODO
+    [ IsObject, IsObject, IsObject ],                                                # TODO
         
   function( g1, g2, U )
 
@@ -227,7 +216,7 @@ AddIsEqualForMorphisms( SkeletalGSets,
         if not Length( AsList( mor1 )[ i ] ) = Length( AsList( mor2 )[ i ] ) then
             return false;
         fi;
-        
+         
         for l in [ 1 .. M[ i ] ] do   
             
             img1 := AsList( mor1 )[ i ][ l ];
@@ -248,31 +237,27 @@ end );
 ##
 AddIdentityMorphism( SkeletalGSets,
   function( Omega )
-    local L, M, G, k, i, C, l;
-
+    local L, M, i, C, l;
+    
     L := [];
-
     M := AsList( Omega );  
-    G := UnderlyingGroup( Omega );
-
-    k := Length( M );
-
+    
     for i in [ 1 .. k ] do 
         C := [];
         for l in [ 1 .. M[ i ] ] do
-            Add( C, [ l, Identity( G ), i ] );
+            Add( C, [ l, Identity( group ), i ] );
         od;
         Add( L, C );
     od;
-
+    
     return MapOfGSets( Omega, L, Omega );
     
 end );
 
 ##
-AddPreCompose( SkeletalGSets,
+AddPreCompose( SkeletalGSets,                      # TODO rewrite with callfunclist
   function( map_pre, map_post )
-    local cmp, S, M, L_pre, L_post, k, i, C, l, r, img_pre, g, j, img_post;
+    local cmp, S, M, L_pre, L_post, i, C, l, r, img_pre, g, j, img_post;
 
     if IsWellDefined( map_pre ) = false or IsWellDefined( map_post ) = false then
         Error( "Check if the maps are well defined\n" );
@@ -286,8 +271,6 @@ AddPreCompose( SkeletalGSets,
 
     L_pre := AsList( map_pre );
     L_post := AsList( map_post );
-
-    k := Length( M );
 
     for i in [ 1 .. k ] do 
         C := [];
@@ -307,39 +290,33 @@ AddPreCompose( SkeletalGSets,
 end );
 
 ## Limits
+
 ##
 AddTerminalObject( SkeletalGSets,
   function( arg )
-    local G, k, L;
+    local L;
 
-    G := group;
-
-    k := Length( MatTom( TableOfMarks( G ) ) );
-
-    L := List( [ 1 .. k ], x -> 0 );
+    L := IntZeroVector( k );
 
     L[ k ] := 1;
     
-    return GSet( G, L );
+    return GSet( group, L );
     
 end );
 
 ##
 AddUniversalMorphismIntoTerminalObjectWithGivenTerminalObject( SkeletalGSets,
   function( Omega, T ) 
-    local L, M, G, k, i, C, l;
+    local L, M, i, C, l;
 
     L := [];
 
     M := AsList( Omega );  
-    G := UnderlyingGroup( Omega );
-
-    k := Length( M );
 
     for i in [ 1 .. k ] do 
         C := [];
         for l in [ 1 .. M[ i ] ] do
-            Add( C, [ 1, Identity( G ), k ] );
+            Add( C, [ 1, Identity( group ), k ] );
         od;
         Add( L, C );
     od;    
@@ -357,13 +334,10 @@ AddDirectProduct( SkeletalGSets,
     
     ToM := MatTom( ToM );
     
-    k := Length(ToM);
-    
     prod := List( [ 1 .. k ], x -> 1 );
-    
+     
     for l in L do
-        M_l := AsList(l) * ToM;
-        
+        M_l := AsList( l ) * ToM;
         for i in [ 1 .. k ] do
             prod[i] := prod[i] * M_l[i];
         od;
@@ -375,7 +349,7 @@ AddDirectProduct( SkeletalGSets,
     
     C := Coefficients( B, prod );
     
-    return GSet(group, C);  
+    return GSet( group, C );  
     
 end );
 
@@ -388,7 +362,7 @@ InstallMethod( PositionOfSubgroup,
     local i;
 
     for i in [ 1..k ] do
-        if U in ConjugateSubgroups( group, RepresentativeTom( TableOfMarks( group ), i ) ) then
+        if U in ConjugateSubgroups( group, RepresentativeOfSubgroupsUpToConjugation( i ) ) then
             return i;
         fi;
     od;
@@ -464,14 +438,14 @@ InstallMethod( IntZeroVector,
         "for CAP skeletal finite G - sets",
         [ IsInt ],
         
-  function( k )
-    return List( [ 1 .. k ], i -> 0 );
+  function( i )
+    return List( [ 1 .. i ], x -> 0 );
     
 end );
 
 ##
 InstallMethod( ProjectionOfASingleBinaryProduct,
-        "for CAP skeletal finite G - sets",
+        "for ... and a CAP skeletal finite G-Set",
         [ IsInt, IsInt, IsInt, IsInt, IsSkeletalGSetRep ],
         
   function( i, j, pos, copy_number, target )
@@ -480,10 +454,10 @@ InstallMethod( ProjectionOfASingleBinaryProduct,
     imgs := ToBeNamed( [ i, j ] );
     
     # G/U_i
-    G_i := List( [ 1 .. k ], i -> 0 );
+    G_i := IntZeroVector( k );
     G_i[ i ] := 1;
     # G/U_j
-    G_j := List( [ 1 .. k ], i -> 0 );
+    G_j := IntZeroVector( k );
     G_j[ j ] := 1;
     
     # take the direct product of G/U_i and G/U_j and construct the projection pi
@@ -497,7 +471,7 @@ InstallMethod( ProjectionOfASingleBinaryProduct,
             else
                 target_index := j;
             fi;
-
+    
             Add( pi[ l ], [ copy_number, Representative( img[ pos ] ), target_index ] ); 
         od;
     od;
@@ -550,17 +524,13 @@ end );
  
 ##
 InstallMethod( OffsetInCartesianProduct,
-        "for CAP skeletal finite G - sets",
+        "for CAP ... ",
         [ IsList, IsList, IsInt, IsInt, IsInt, IsInt ],
 
   function( M, N, given_i, given_j, given_m, given_n  )
-    local i, j, l, result, m, n, target, copy_number, pi, P;
+    local result, i, j, m, n, pi;
     
-    result := [];
-    
-    for i in [ 1 .. k ] do
-        result[ i ] := 0;
-    od;
+    result := IntZeroVector( k );
     
     for i in [ 1 .. k ] do
         for j in [ 1 .. k ] do
@@ -595,7 +565,7 @@ AddUniversalMorphismIntoDirectProductWithGivenDirectProduct( SkeletalGSets,
 
     imgs := [];
 
-    for i in [ 1..k ] do
+    for i in [ 1 .. k ] do
         imgs[ i ] := [];
         for l in [ 1.. AsList( S )[ i ] ] do
              r_1 := AsList( tau[ 1 ] )[ i ][ l ][ 1 ];
@@ -659,8 +629,6 @@ end );
 ##
 AddEqualizer(SkeletalGSets,
   function( D )
-    # TODO g equal mod subgroup
-
     local f1, s, M, L, i, l;
     
     f1 := D[ 1 ];
@@ -676,7 +644,7 @@ AddEqualizer(SkeletalGSets,
     for i in [ 1 .. k ] do
         L[i] := 0; 
         for l in [ 1 .. M[ i ] ] do
-            if ForAll( D, fj -> AsList( f1 )[i][l] = AsList( fj )[i][l] ) then
+            if ForAll( D, fj -> AsList( f1 )[i][l][1] = AsList( fj )[i][l][1] and AsList( f1 )[i][l][3] = AsList( fj )[i][l][3] and IsEqualModSubgroup( AsList( f1 )[i][l][2], AsList( fj )[i][l][2], RepresentativeOfSubgroupsUpToConjugation( AsList( f1 )[i][l][3] ) ) ) then
                  L[i] := L[i] + 1;
             fi;    
         od;
@@ -858,9 +826,71 @@ AddUniversalMorphismFromCoproductWithGivenCoproduct( SkeletalGSets,
 end );
 
 ##
+InstallMethod( PreimagePositions,
+        "for a CAP map of skeletal G-Sets and a finite set",
+        [ IsSkeletalGSetMapRep, IsList ],
+        
+  function( phi, L )
+    local r, j, C, i, l;  
+    
+    r := L[ 1 ];
+    j := L[ 2 ];
+    
+    C := []; 
+    
+    for i in [ 1 .. k ] do 
+        for l in [ 1 .. AsList( Source( phi ) )[ i ] ] do
+            if ( AsList( phi )[ i ][ l ][ 1 ] = r and AsList( phi )[ i ][ l ][ 3 ] = j ) then
+                Add( C, [ i, l ] );
+            fi;
+        od;
+    od; 
+    
+    return C;
+    
+end );
+
+##
+AddCoequalizer( SkeletalGSets,
+  function( D )
+    local T, L, j, r, pos, p, Cq, t;
+    
+    T := Range( D[ 1 ] );
+    
+    L := [ ];
+    
+    for j in [ 1 .. k ] do
+        for r in [ 1 .. AsList( T )[ j ] ] do
+            Add( L, [ r, j ] ); 
+        od;
+    od;
+    
+    for pos in L do
+        for p in Preimage( D[ 1 ], pos ) do 
+                
+        od;
+    od;
+    
+        	t := [ t ];
+        	t := Union( List( D, f_j -> List( Union( List( D, f_i -> Preimage( f_i, t ) ) ), f_j  ) ) );
+        	t := Set( t );
+        	if not t = [ ] then
+        	    Add( Cq, t );
+    		    T:= Difference( T, t ); 
+        	fi;
+    
+    Append( Cq, List( T, t -> [ t ] )  );
+    
+    Cq := Set( Cq );
+    
+    return GSet( group, );
+    
+end );
+
+##
 AddImageObject( SkeletalGSets,
   function( phi )
-    local S, M, imgs, L, i, l, r, j;
+    local S, M, imgs, L, i, l, r, j; 
     
     S := Source( phi );
     
@@ -899,9 +929,12 @@ end );
 AddIsMonomorphism( SkeletalGSets,
   function( phi )
     
-    # Assume phi is a monomorphism mapping a generator of G/U_i to an element of G/U_j. Since phi is well-defined we have that U_i is contained in U_j up to conjugation. Since phi is injective we must have |U_j| <= |U_i|.
-    # Thus, U_i and U_j are equal up to conjugation and since the U_i are representatives of conjugacy classes of subgroups of G, we get i = j. Additionally, the multiplicity of G/U_i in the source must be the same as in the image, since otherwise phi cannot be injective.
-    # Conversely, if a morphism phi maps the generator of any G/U_i to an element of G/U_i and the multiplicity of any G/U_i in the source is the same as its multiplicity in the image, then phi is monomorphism.
+    # Assume phi is a monomorphism mapping a generator of G/U_i to an element of G/U_j. Since phi is well-defined we have that U_i is contained in U_j 
+      # up to conjugation. Since phi is injective we must have |U_j| <= |U_i|.
+    # Thus, U_i and U_j are equal up to conjugation and since the U_i are representatives of conjugacy classes of subgroups of G, we get i = j. 
+      # Additionally, the multiplicity of G/U_i in the source must be the same as in the image, since otherwise phi cannot be injective.
+    # Conversely, if a morphism phi maps the generator of any G/U_i to an element of G/U_i and the multiplicity of any G/U_i in the source is the 
+      # same as its multiplicity in the image, then phi is monomorphism.
     # Conclusion: we only have to compare the multiplicities of the G/U_i in the source and the image.
     
     return AsList( ImageObject( phi ) ) = AsList( Source( phi ) );
@@ -1008,6 +1041,16 @@ InstallMethod( Display,
   function( N )
     Display( [ UnderlyingGroup( N ), AsList( N ) ] );
 end );
+
+##
+InstallMethod( Display,
+        "for a CAP map of CAP skeletal G sets",
+        [ IsSkeletalGSetMapRep ],
+        
+  function( mor )
+    Display( [ Source( mor ) , AsList( mor ), Range( mor ) ] );
+end );
+
 
 return SkeletalGSets;
     

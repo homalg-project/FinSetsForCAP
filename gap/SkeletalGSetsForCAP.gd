@@ -60,13 +60,13 @@ DeclareAttribute( "NrConjugacyClassesOfSubgroups",
 #! @Description
 #! TODO.
 #! @Arguments two group elements and a Subgroup
-#! @Returns a positive integer
+#! @Returns a boolean
 DeclareOperation( "IsEqualModSubgroup",
          [ IsObject, IsObject, IsObject ] );
 
 #! @Description
-#!  The number of conjugacy classes of subgroups of the group underlying the $G$-set <A>Omega</A>.
-#! @Arguments TODOO
+#!  The position of the conjugacy class of the given subgroup in the table of marks.
+#! @Arguments a subgroup
 #! @Returns a positive integer
 DeclareAttribute( "PositionOfSubgroup",
         IsObject );
@@ -75,8 +75,8 @@ DeclareAttribute( "PositionOfSubgroup",
 
 #! @Description
 #! ToDO.
-#! @Arguments TODO
-#! @Returns a positive integer
+#! @Arguments a positive integer
+#! @Returns a subgroup
 DeclareAttribute( "RepresentativeOfSubgroupsUpToConjugation",
         IsInt );
 
@@ -95,42 +95,50 @@ DeclareAttribute( "ToBeNamed",
         IsList );
 
 #! @Description
-#!  The number of conjugacy classes of subgroups of the group underlying the $G$-set <A>Omega</A>.
-#! @Arguments TODO
-#! @Returns a positive integer
+#!  The zero vector with length $i$.
+#! @Arguments a positive integer
+#! @Returns a zero vector
 DeclareAttribute( "IntZeroVector",
         IsInt );
 
 #! @Description
-#!  The number of conjugacy classes of subgroups of the group underlying the $G$-set <A>Omega</A>.
+#!  TODO.
 #! @Arguments TODO
-#! @Returns a positive integer
+#! @Returns TODO
 DeclareOperation( "ProjectionOfASingleBinaryProduct",
         [ IsInt, IsInt, IsInt, IsInt, IsSkeletalGSetRep ] );
 
 #! @Description
 #! TODO.
 #! @Arguments TODO
-#! @Returns a positive integer
+#! @Returns TODO
 DeclareOperation( "OffsetInCartesianProduct",
          [ IsList, IsList, IsInt, IsInt, IsInt, IsInt ] );
+
+
+#! @Description
+#! TODO.
+#! @Arguments TODO
+#! @Returns TODO
+DeclareOperation( "PreimagePositions",
+         [ IsSkeletalGSetMapRep, IsList ] );
 
 #! @Section Constructors
 
 #! @Description
 #!  Construct an object in the skeletal category of G sets
-#!  out of the group <A>G</A> and a List <A>L</A>, i.e.,
+#!  out of the group <A>G</A> and a list <A>L</A>, i.e.,
 #!  an object in the &CAP; category <C>SkeletalGSets</C>.
-#! @Arguments G, M
+#! @Arguments G, L
 #! @Returns a &CAP; object
 DeclareOperation( "GSet",
         [ IsGroup, IsList ] );
 #! @InsertSystem GSet
 
 #! @Description
-#!  Construct a map $\phi:$<A>s</A>$\to$<A>t</A> of the skeletal G sets <A>s</A> and <A>t</A>,
+#!  Construct a map $\phi:$<A>s</A>$\to$<A>t</A> of the skeletal G-sets <A>s</A> and <A>t</A>,
 #!  i.e., a morphism in the &CAP; category <C>SkeletalGSets</C>, where <A>G</A>
-#!  is a list of XXX describing the graph of $\phi$.
+#!  is a list of lists describing the graph of $\phi$.
 #! @Arguments s, G, t
 #! @Returns a &CAP; morphism
 DeclareOperation( "MapOfGSets",
