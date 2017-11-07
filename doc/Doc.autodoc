@@ -34,3 +34,6 @@
 
 @Subsection SkeletalGSets
 @InsertSystem SkeletalGSets
+
+@Subsection UniversalMorphismDirectProduct
+@InsertSystem UniversalMorphismDirectProduct

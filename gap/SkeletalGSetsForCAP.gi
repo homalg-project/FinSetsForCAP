@@ -178,7 +178,7 @@ InstallMethod( CallFuncList,
     y := AsList( phi )[ i ][ m ];
 
     if IsWellDefined( phi ) then 
-        if y = fail then					#TODO fail???
+        if y = fail then                    #TODO fail???
             Error( "the element ", L, " is not in the source of the map\n" );
         else 
             
@@ -296,7 +296,7 @@ AddTerminalObject( SkeletalGSets,
   function( arg )
     local L;
 
-    L := IntZeroVector( k );
+    L := List( [ 1 .. k ], x -> 0 );
 
     L[ k ] := 1;
     
@@ -328,7 +328,7 @@ end );
 ##
 AddDirectProduct( SkeletalGSets,
   function( L )
-    local ToM, k, prod, l, M_l, i, V, B, C;
+    local ToM, prod, l, M_l, i, V, B, C;
     
     ToM := TableOfMarks( group );
     
@@ -454,10 +454,10 @@ InstallMethod( ProjectionOfASingleBinaryProduct,
     imgs := ToBeNamed( [ i, j ] );
     
     # G/U_i
-    G_i := IntZeroVector( k );
+    G_i := List( [ 1 .. k ], x -> 0 );
     G_i[ i ] := 1;
     # G/U_j
-    G_j := IntZeroVector( k );
+    G_j := List( [ 1 .. k ], x -> 0 );
     G_j[ j ] := 1;
     
     # take the direct product of G/U_i and G/U_j and construct the projection pi
@@ -481,11 +481,14 @@ InstallMethod( ProjectionOfASingleBinaryProduct,
 end );
 
 ##
-AddProjectionInFactorOfDirectProduct( SkeletalGSets,
+InstallMethod( ProjectionInFactorOfBinaryDirectProduct,
+        "for CAP skeletal finite G - sets",
+        [ IsList, IsInt ],
+        
   function( L, pos )
     local S, T, M, N, D, tau, i, j, l, imgs, img, m, n, target, copy_number, pi, P;
     
-    # assumption: Size( L ) = 2
+    # here: Size( L ) = 2
     
     S := DirectProduct( L );
     
@@ -521,6 +524,27 @@ AddProjectionInFactorOfDirectProduct( SkeletalGSets,
     return UniversalMorphismFromCoproduct( D, tau );
     
 end );
+
+##
+AddProjectionInFactorOfDirectProduct( SkeletalGSets,
+  function( L, pos )
+    local P, pi1, pi2;
+    
+    if Length( L ) = 1 then
+        return IdentityMorphism( L[ 1 ] );
+    fi;
+    
+    P := DirectProduct( L{ [ 2 .. Length( L ) ] } );
+
+    if pos = 1 then
+        return ProjectionInFactorOfBinaryDirectProduct( [ L[ 1 ], P ], 1 );
+    else
+        pi1 := ProjectionInFactorOfBinaryDirectProduct( [ L[ 1 ], P ], 2 );
+        pi2 := ProjectionInFactorOfDirectProduct( L{ [ 2 .. Length( L ) ] }, pos - 1 );
+        return PreCompose( pi1, pi2 );
+    fi;
+    
+end );
  
 ##
 InstallMethod( OffsetInCartesianProduct,
@@ -530,7 +554,7 @@ InstallMethod( OffsetInCartesianProduct,
   function( M, N, given_i, given_j, given_m, given_n  )
     local result, i, j, m, n, pi;
     
-    result := IntZeroVector( k );
+    result := List( [ 1 .. k ], x -> 0 );
     
     for i in [ 1 .. k ] do
         for j in [ 1 .. k ] do
@@ -551,9 +575,12 @@ InstallMethod( OffsetInCartesianProduct,
         
 end );
 
-##  
-AddUniversalMorphismIntoDirectProductWithGivenDirectProduct( SkeletalGSets,
-  function( D, tau, T )
+##
+InstallMethod( UniversalMorphismIntoBinaryDirectProductWithGivenDirectProduct,
+        "for CAP ... ",
+        [ IsList, IsList, IsSkeletalGSetRep ],
+
+  function( D, tau, T ) # TODO: Frage: was ist D resp. wofür braucht man es??????
     local S, M, N, imgs, i, l, r_1, r_2, g_1, g_2, j_1, j_2, Offset, Orbits, RoO, SRO, U_j_1, U_j_2, img, o, g, s, j, Internaloffset, p, j_p, r;
 
     # Assumption Length( D ) = 2
@@ -607,7 +634,7 @@ AddUniversalMorphismIntoDirectProductWithGivenDirectProduct( SkeletalGSets,
              
              Internaloffset := 0;
              
-             for  p in [ 1 .. Length( SRO )] do
+             for p in [ 1 .. Length( SRO )] do
                  j_p := PositionOfSubgroup( SRO[ p ] );
                  if j = j_p then
                      Internaloffset := Internaloffset + 1;
@@ -623,6 +650,27 @@ AddUniversalMorphismIntoDirectProductWithGivenDirectProduct( SkeletalGSets,
     od;
     
     return MapOfGSets( S, imgs, T );
+    
+end );
+
+##  
+AddUniversalMorphismIntoDirectProductWithGivenDirectProduct( SkeletalGSets,
+  function( D, tau, T ) # TODO: Frage: was ist D resp. wofür braucht man es??????
+    local D2, tau2, sigma;
+    
+    if Length( D ) = 1 then
+        return tau[ 1 ];
+    fi;
+    
+    if Length( D ) = 2 then
+        return UniversalMorphismIntoBinaryDirectProductWithGivenDirectProduct( D, tau, T );
+    fi;
+    
+    D2 := D{ [ 2 .. Length( D ) ] };
+    tau2 := tau{ [ 2 .. Length( tau ) ] };
+    
+    sigma := UniversalMorphismIntoDirectProduct( D2, tau2 );
+    return UniversalMorphismIntoBinaryDirectProductWithGivenDirectProduct( [ D[ 1 ], DirectProduct( D2 ) ], [ tau[ 1 ], sigma ], T );
     
 end );
 
@@ -871,19 +919,19 @@ AddCoequalizer( SkeletalGSets,
         od;
     od;
     
-        	t := [ t ];
-        	t := Union( List( D, f_j -> List( Union( List( D, f_i -> Preimage( f_i, t ) ) ), f_j  ) ) );
-        	t := Set( t );
-        	if not t = [ ] then
-        	    Add( Cq, t );
-    		    T:= Difference( T, t ); 
-        	fi;
+            t := [ t ];
+            t := Union( List( D, f_j -> List( Union( List( D, f_i -> Preimage( f_i, t ) ) ), f_j  ) ) );
+            t := Set( t );
+            if not t = [ ] then
+                Add( Cq, t );
+                T:= Difference( T, t ); 
+            fi;
     
     Append( Cq, List( T, t -> [ t ] )  );
     
     Cq := Set( Cq );
     
-    return GSet( group, );
+    return GSet( group, [] );
     
 end );
 

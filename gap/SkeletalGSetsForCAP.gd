@@ -109,12 +109,25 @@ DeclareOperation( "ProjectionOfASingleBinaryProduct",
         [ IsInt, IsInt, IsInt, IsInt, IsSkeletalGSetRep ] );
 
 #! @Description
+#!  TODO.
+#! @Arguments TODO
+#! @Returns TODO
+DeclareOperation( "ProjectionInFactorOfBinaryDirectProduct",
+        [ IsList, IsInt ] );
+
+#! @Description
 #! TODO.
 #! @Arguments TODO
 #! @Returns TODO
 DeclareOperation( "OffsetInCartesianProduct",
          [ IsList, IsList, IsInt, IsInt, IsInt, IsInt ] );
 
+#! @Description
+#! TODO.
+#! @Arguments TODO
+#! @Returns TODO
+DeclareOperation( "UniversalMorphismIntoBinaryDirectProductWithGivenDirectProduct",
+         [ IsList, IsList, IsSkeletalGSetRep ] );
 
 #! @Description
 #! TODO.
