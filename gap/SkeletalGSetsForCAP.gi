@@ -287,7 +287,7 @@ AddPreCompose( SkeletalGSets,                      # TODO rewrite with callfuncl
             g := img_pre[ 2 ];
             j := img_pre[ 3 ];
             img_post := L_post[ j ][ r ];
-            Add( C, [ img_post[ 1 ], g * img_post[ 2 ] , img_post[ 3 ] ] ); # TODO: g * oder * g?
+            Add( C, [ img_post[ 1 ], img_post[ 2 ] * g , img_post[ 3 ] ] );
         od;
         Add( cmp, C );
     od;

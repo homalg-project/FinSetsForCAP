@@ -114,7 +114,7 @@ phi := PreCompose(psi1, psi2);
 IsWellDefined( phi);
 #! true
 AsList( phi);
-#! [ [ [ 1, (1,3), 1 ] ], [  ], [  ], [  ] ]
+#! [ [ [ 1, (2,3), 1 ] ], [  ], [  ], [  ] ]
 
 # TerminalObject
 
@@ -148,7 +148,7 @@ IsWellDefined( psi2 );
 pi := PreCompose( psi1, psi2 );
 #! <A morphism in Skeletal Category of G-Sets>
 AsList( pi );
-#! [ [ [ 1, (1,3), 3 ], [ 1, (1,2,3), 2 ] ], [ [ 1, (), 2 ], [ 1, (2,3), 2 ] ], [  ], [  ] ]
+#! [ [ [ 1, (2,3), 3 ], [ 1, (1,2,3), 2 ] ], [ [ 1, (), 2 ], [ 1, (2,3), 2 ] ], [  ], [  ] ]
 
 # Equalizer
 
