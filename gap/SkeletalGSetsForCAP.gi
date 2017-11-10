@@ -109,7 +109,7 @@ end );
 ##
 AddIsWellDefinedForMorphisms( SkeletalGSets,
   function( mor )
-    local S, T, G, img, tom, s, t;
+    local S, T, G, img, tom, s, t, U_i, U_j, u;
 
     S := Source( mor );
 
@@ -150,13 +150,20 @@ AddIsWellDefinedForMorphisms( SkeletalGSets,
                             # U_i has to be a subgroup of U_j up to conjugation, which can be read off the table of marks
                             
                             if not ( IsPosInt( j ) and j <= k and IsPosInt( r ) and r <= t[j] and g in G and tom[j][i] > 0 ) then
-                                return Error( "3\n");
+                                return Error( "3\n" );
                             fi;
+                            
+                            U_i := RepresentativeOfSubgroupsUpToConjugation( i );
+                            U_j := RepresentativeOfSubgroupsUpToConjugation( j );
+                            if not IsSubset( U_j, ConjugateSubgroup( U_i, Inverse(g) ) ) then
+                                return Error( "4\n" );
+                            fi;
+                            
                             return true;
                         end
               )
                  ) then
-        return Error( "4\n" );
+        return Error( "5\n" );
     fi;
     
     return true;

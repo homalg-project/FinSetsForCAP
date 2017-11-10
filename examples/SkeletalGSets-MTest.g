@@ -71,6 +71,10 @@ phi_res := CoastrictionToImage( phi );
 phi = PreCompose( phi_res, psi );
 #! true
 
+phi := MapOfGSets( M1, [ [ [ 1, (), 2 ], [ 1, (), 2 ] ], [ [ 1, (1,2,3), 2 ] ], [], [] ], M1 );
+#! <A morphism in Skeletal Category of G-Sets>
+IsWellDefined(phi);
+#! Error, 4
 
 # IdentityMorphism
 
