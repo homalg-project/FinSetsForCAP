@@ -50,4 +50,5 @@ D:= [M, N, L];
 #!   <An object in Skeletal Category of G-Sets>, 
 #!   <An object in Skeletal Category of G-Sets> ]
 
+
 #! @EndExample
