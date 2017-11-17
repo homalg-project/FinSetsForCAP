@@ -33,7 +33,7 @@ InstallMethod( SkeletalGSets,
                [ IsGroup ],
                
   function( group )
-    local SkeletalGSets, k;
+    local SkeletalGSets, k, AsASet;
     
     SkeletalGSets := CreateCapCategory( "Skeletal Category of G-Sets" );  # TODO
     
@@ -380,7 +380,7 @@ InstallMethod( OrbitsOfActionOnCartesianProduct,
         [ IsList ],
         
   function( L )
-    local LoS, LoF, C, e, o, RoO, SRO, imgs, r, s, i; 
+    local LoS, LoF, C, e, o; 
     
     # ListOfSubgroups
     LoS := List( L, i -> RepresentativeOfSubgroupsUpToConjugation( i ) );
@@ -405,15 +405,12 @@ InstallMethod( ToBeNamed,
         [ IsList ],
         
   function( L )
-    local o, RoO, SRO, imgs, r, s, i; 
+    local o, RoO, imgs, r, s, i; 
     
     o := OrbitsOfActionOnCartesianProduct( L );
     
     # Representatives Of Orbits
     RoO := List( o, x -> x[ 1 ] );
-    
-    # Stabilizers of Representatives of orbits
-    SRO := List( RoO, r -> Stabilizer( group, r, OnRight ) );
     
     imgs := List( [ 1..k ], i -> [] );
     
@@ -892,41 +889,131 @@ InstallMethod( PreimagePositions,
     
 end );
 
+
+AsASet := function( M ) #TODO: AsSet?, eigener Typ um Gleichheit mod U_i direkt zu prüfen
+    local set, i, U, l, g;
+    
+    set := [];
+    for i in [ 1 .. k ] do
+        U := RepresentativeOfSubgroupsUpToConjugation( i );
+        for l in [ 1 .. M[ i ] ] do
+            set := Union2( set, List( RightTransversal( group, U ), g -> [ l, g, i ] ) );
+        od;
+    od;
+    return set;
+    
+end;
+
 ##
 AddCoequalizer( SkeletalGSets,
   function( D )
-    local T, L, j, r, pos, p, Cq, t;
+    local A, B, ASet, BSet, AreEquivalent, equivalence_classes, b, first_equivalence_class, i, class, j, element, OurAction, external_set, orbits, RoO, Cq, r, s;
     
-    T := Range( D[ 1 ] );
+    A := Source( D[ 1 ] );
+    B := Range( D[ 1 ] );
+    ASet := AsASet( AsList( A ) );
+    BSet := AsASet( AsList( B ) );
     
-    L := [ ];
-    
-    for j in [ 1 .. k ] do
-        for r in [ 1 .. AsList( T )[ j ] ] do
-            Add( L, [ r, j ] ); 
+    AreEquivalent := function(e, b)
+        local a, imgs, found_e, found_b, img, U;
+        if e = b then
+            Error( "this should not happen" );
+        fi;
+
+        for a in ASet do
+            imgs := List( D, f -> f( a ) );
+            found_e := false;
+            found_b := false;
+            for img in imgs do
+                U := RepresentativeOfSubgroupsUpToConjugation( img[ 3 ] );
+                if e[ 3 ] = img[ 3 ] and e[ 1 ] = img[ 1 ] and IsEqualModSubgroup( e[ 2 ], img[ 2 ], U ) then
+                    found_e := true;
+                fi;
+                if b[ 3 ] = img[ 3 ] and b[ 1 ] = img[ 1 ] and IsEqualModSubgroup( b[ 2 ], img[ 2 ], U ) then
+                    found_b := true;
+                fi;
+                if found_e and found_b then
+                    return true;
+                fi;
+            od;
         od;
+        
+        return false;
+    end;
+
+    Display( ASet );
+    Display( Length( ASet));
+    Display( BSet );
+    Display( Length( BSet));
+
+    equivalence_classes := [];
+    for b in BSet do
+        first_equivalence_class := 0;
+        for i in [ 1 .. Length( equivalence_classes ) ] do
+            class := equivalence_classes[ i ];
+            for j in [ 1 .. Length( class ) ] do
+                element := class[ j ];
+                # prüfe ob element ~ b
+                if AreEquivalent( element, b) then
+                    if first_equivalence_class > 0 then
+                        # merge class and first_equivalence_class
+                        Display( "classes are merged" );
+                        equivalence_classes[ first_equivalence_class ] := Union2( equivalence_classes[ first_equivalence_class ], class );
+                        equivalence_classes[ i ] := [];
+                    else
+                        Add( equivalence_classes[ i ], b);
+                        first_equivalence_class := i;
+                    fi;
+                    break;
+                fi;
+            od;
+        od;
+        if first_equivalence_class = 0 then
+            Add(equivalence_classes, [ b ]);
+        fi;
     od;
-    
-    for pos in L do
-        for p in Preimage( D[ 1 ], pos ) do 
+    equivalence_classes := Filtered( equivalence_classes, x -> Length( x ) > 0 );
+
+    Display( Size( equivalence_classes ) );
+
+    OurAction := function( pnt, g )
+        local representative, l_r, g_r, i_r, result, class, element, U;
+        
+        representative := pnt[ 1 ];
+        
+        l_r := representative[ 1 ];
+        g_r := representative[ 2 ];
+        i_r := representative[ 3 ];
+        
+        result := [ l_r, g_r * g, i_r ];
+        for class in equivalence_classes do
+            for element in class do
                 
+                U := RepresentativeOfSubgroupsUpToConjugation( result[ 3 ] );
+            
+                if result[ 3 ] = element[ 3 ] and result[ 1 ] = element[ 1 ] and IsEqualModSubgroup( result[ 2 ], element[ 2 ], U ) then
+                    return class;
+                fi;
+            od;
         od;
+    end;
+
+    external_set := ExternalSet( group, equivalence_classes, OurAction );
+
+    
+    orbits := Orbits( external_set );
+    
+    # Representatives Of Orbits
+    RoO := List( orbits, x -> x[ 1 ] );
+    
+    Cq := List( [ 1 .. k], x -> 0 );
+    for r in RoO do
+          s := Stabilizer( group, r, OurAction );
+          i := PositionOfSubgroup( s );
+          Cq[ i ] := Cq[ i ] + 1;
     od;
     
-            t := [ t ];
-            t := Union( List( D, f_j -> List( Union( List( D, f_i -> Preimage( f_i, t ) ) ), f_j  ) ) );
-            t := Set( t );
-            if not t = [ ] then
-                Add( Cq, t );
-                T:= Difference( T, t ); 
-            fi;
-    
-    Append( Cq, List( T, t -> [ t ] )  );
-    
-    Cq := Set( Cq );
-    
-    return GSet( group, [] );
-    
+    return GSet( group, Cq );
 end );
 
 ##
