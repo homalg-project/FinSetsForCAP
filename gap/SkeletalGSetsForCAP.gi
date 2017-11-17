@@ -176,28 +176,23 @@ InstallMethod( CallFuncList,
     [ IsSkeletalGSetMapRep, IsList ],
         
   function( phi, L )
-    local y, m, g, i;
+    local y, l, g, i;
 
-    m := L[ 1 ];
-    g := L[ 2 ];
-    i := L[ 3 ];
+    l := L[ 1 ][ 1 ];
+    g := L[ 1 ][ 2 ];
+    i := L[ 1 ][ 3 ];
 
-    y := AsList( phi )[ i ][ m ];
+    y := AsList( phi )[ i ][ l ];
 
     if IsWellDefined( phi ) then 
-        if y = fail then                    #TODO fail???
-            Error( "the element ", L, " is not in the source of the map\n" );
-        else 
-            
-            if not ( i in [ 1 .. k ] and m <= AsList( Source( phi ) )[ i ] ) then
-                Error( "the element ", [ m, i ], " is not in the source of the map\n" );
-            fi;
+        if not ( i in [ 1 .. k ] and l <= AsList( Source( phi ) )[ i ] ) then
+            Error( "the element ", [ l, g, i ], " is not in the source of the map\n" );
         fi;
     else
         Error( "please check if the map is well-defined\n" );
     fi;
 
-    return  [ AsList( phi )[ i ][ m ][ 1 ], AsList( phi )[ i ][ m ][ 2 ] * g, AsList( phi )[ i ][ m ][ 3 ] ];
+    return  [ y[ 1 ], y[ 2 ] * g, y[ 3 ] ];
     
 end );
 
@@ -262,9 +257,9 @@ AddIdentityMorphism( SkeletalGSets,
 end );
 
 ##
-AddPreCompose( SkeletalGSets,                      # TODO rewrite with callfunclist
+AddPreCompose( SkeletalGSets,
   function( map_pre, map_post )
-    local cmp, S, M, L_pre, L_post, i, C, l, r, img_pre, g, j, img_post;
+    local cmp, S, M, i, C, l;
 
     if IsWellDefined( map_pre ) = false or IsWellDefined( map_post ) = false then
         Error( "Check if the maps are well defined\n" );
@@ -276,18 +271,10 @@ AddPreCompose( SkeletalGSets,                      # TODO rewrite with callfuncl
 
     M := AsList( S );  
 
-    L_pre := AsList( map_pre );
-    L_post := AsList( map_post );
-
     for i in [ 1 .. k ] do 
         C := [];
         for l in [ 1 .. M[ i ] ] do
-            img_pre := L_pre[ i ][ l ];
-            r := img_pre[ 1 ];
-            g := img_pre[ 2 ];
-            j := img_pre[ 3 ];
-            img_post := L_post[ j ][ r ];
-            Add( C, [ img_post[ 1 ], img_post[ 2 ] * g , img_post[ 3 ] ] );
+            Add( C, map_post( map_pre( [ l, Identity( group ), i ] ) ) );
         od;
         Add( cmp, C );
     od;
