@@ -1028,25 +1028,23 @@ CoequalizerOfAConnectedComponent := function( D, SourcePositions, RangePositions
     Solutions := List( [ 1 .. k ], j -> ListWithIdenticalEntries( N[ j ], false ) );
     
     for a in [ 1 .. Length( D ) ] do
-        for b in [ 1 .. Length( D ) ] do
-            if a <> b then
-                for s in SourcePositions do
-                    i := s[ 2 ];
-                    l := s[ 1 ];                        
-                    f_a := D[ a ];  
-                    f_b := D[ b ];
-                    img_a := AsList( f_a )[ i ][ l ];  
-                    img_b := AsList( f_b )[ i ][ l ];
-                    r_a := img_a[ 1 ];
-                    r_b := img_b[ 1 ];
-                    g_a := img_a[ 2 ];
-                    g_b := img_b[ 2 ];
-                    j_a := img_a[ 3 ];
-                    j_b := img_b[ 3 ];       
-                    
-                    Add( Equations, [ g_a, r_a, j_a, g_b, r_b, j_b ] ); 
-                od;  
-            fi;
+        for b in [ (a + 1) .. Length( D ) ] do
+            for s in SourcePositions do
+                i := s[ 2 ];
+                l := s[ 1 ];                        
+                f_a := D[ a ];  
+                f_b := D[ b ];
+                img_a := AsList( f_a )[ i ][ l ];  
+                img_b := AsList( f_b )[ i ][ l ];
+                r_a := img_a[ 1 ];
+                r_b := img_b[ 1 ];
+                g_a := img_a[ 2 ];
+                g_b := img_b[ 2 ];
+                j_a := img_a[ 3 ];
+                j_b := img_b[ 3 ];       
+                
+                Add( Equations, [ g_a, r_a, j_a, g_b, r_b, j_b ] ); 
+            od;  
         od;
     od;
 
