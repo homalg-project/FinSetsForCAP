@@ -50,9 +50,10 @@ Display( Cq );
 pi := ProjectionOntoCoequalizer( D );
 IsWellDefined( pi );
 
-
-
-
+id_to_be := UniversalMorphismFromCoequalizer( D, pi );
+id := IdentityMorphism( Cq );
+Display(IsWellDefined( id_to_be ));
+Display( id = id_to_be );
 
 AreEquivalent := function(G, e, b)
 	local g_e, U_e, g_b, U_b, g;

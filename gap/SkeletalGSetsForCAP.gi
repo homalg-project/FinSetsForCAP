@@ -1119,7 +1119,7 @@ CoequalizerOfAConnectedComponent := function( D, SourcePositions, RangePositions
                     j := p[ 2 ];
                     Solutions[ j ][ r ] := g * Solutions[ j ][ r ]; 
                 od;
-                return [ i, Solutions ];
+                return [ i, Solutions, g ];
             fi;
         od;        
     od;
@@ -1255,6 +1255,79 @@ AddProjectionOntoCoequalizerWithGivenCoequalizer( SkeletalGSets,
     
 end );
 
+##
+AddUniversalMorphismFromCoequalizerWithGivenCoequalizer( SkeletalGSets,
+  function( D, tau, C )
+    local T, A, B, M, N, Cq, ProcessedImagePositions, imgs, j, r, PreimagePositions, f, i, l, ImagePositions, p, img, temp, pos, Solutions, first_image_position, g;
+    
+    T := Range( tau );
+    
+    A := Source( D[ 1 ] );
+    B := Range( D[ 1 ] );
+
+    M := AsList( A );
+    N := AsList( B );
+        
+    Cq := ListWithIdenticalEntries( k, 0 );
+    
+    ProcessedImagePositions := [];
+    
+    imgs := List( [ 1 .. k ], x -> [] );
+    
+    for j in [ 1 .. k ] do
+        for r in [ 1 .. N[ j ] ] do 
+            if [ r, j ] in ProcessedImagePositions then
+                continue;
+            fi;
+            
+            PreimagePositions := [];
+            
+            for f in D do              
+                for i in [ 1 .. k ] do
+                    for l in [ 1 .. M[ i ] ] do
+                        if AsList( f )[ i ][ l ][ 1 ] = r and AsList( f )[ i ][ l ][ 3 ] = j then
+                            Add( PreimagePositions, [ l, i ] );
+                        fi;
+                    od; 
+                od;
+            
+            od;
+            
+            PreimagePositions := Set( PreimagePositions );
+            
+            ImagePositions := [];
+            
+            for p in PreimagePositions do
+                for f in D do
+                    img := AsList( f )[ p[ 2 ] ][ p[ 1 ] ];
+                    Add( ImagePositions, [ img[ 1 ], img[ 3 ] ] );
+                od;
+            od;
+            
+            ImagePositions := Set( ImagePositions );
+        
+            temp := CoequalizerOfAConnectedComponent( D, PreimagePositions, ImagePositions );
+            
+            pos := temp[ 1 ];
+            Solutions := temp[ 2 ];
+            g := temp[ 3 ];
+            
+            Cq[ pos ] := Cq[ pos ] + 1;
+            
+            Display( ImagePositions );
+            
+            first_image_position := ImagePositions[ 1 ];
+            img := AsList(tau)[ first_image_position[ 2 ] ][ first_image_position[ 1 ] ];
+            
+            Add( imgs[ pos ], [ img[ 1 ], img[ 2 ] * Inverse( g ), img [ 3 ] ] );
+            
+            ProcessedImagePositions := Union2( ProcessedImagePositions, ImagePositions );
+        od;
+    od;
+    
+    return MapOfGSets( C, imgs, Range( tau ) );
+    
+ end );
 
 ##
 AddImageObject( SkeletalGSets,
