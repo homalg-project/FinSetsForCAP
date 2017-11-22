@@ -405,7 +405,7 @@ InstallMethod( ToBeNamed,
         [ IsList ],
         
   function( L )
-    local o, RoO, imgs, r, s, i; 
+    local o, RoO, imgs, r, s, i, found_g, U_i, g; 
     
     o := OrbitsOfActionOnCartesianProduct( L );
     
@@ -415,9 +415,23 @@ InstallMethod( ToBeNamed,
     imgs := List( [ 1..k ], i -> [] );
     
     for r in RoO do
-          s := Stabilizer( group, r, OnRight );
-          i := PositionOfSubgroup( s );
-          Add( imgs[ i ], r );
+        s := Stabilizer( group, r, OnRight );
+        
+        found_g := false;
+        for i in [ 1 .. k ] do
+            U_i := RepresentativeOfSubgroupsUpToConjugation( i );
+            for g in group do
+                if ConjugateSubgroup( s, Inverse( g ) ) = U_i then # TODO: g oder Inverse( g )?
+                    found_g := true;
+                    break;
+                fi;
+            od;
+            if found_g then
+                break;
+            fi;
+        od;
+        
+        Add( imgs[ i ], r * Inverse( g ) );
     od;
     
     return imgs;
@@ -572,7 +586,7 @@ InstallMethod( UniversalMorphismIntoBinaryDirectProductWithGivenDirectProduct,
         [ IsList, IsList, IsSkeletalGSetRep ],
 
   function( D, tau, T ) # TODO: Frage: was ist D resp. wofür braucht man es??????
-    local S, M, N, imgs, i, l, r_1, r_2, g_1, g_2, j_1, j_2, Offset, Orbits, RoO, SRO, U_j_1, U_j_2, img, o, g, s, j, Internaloffset, p, j_p, r;
+    local S, M, N, imgs, i, l, r_1, r_2, g_1, g_2, j_1, j_2, Offset, Orbits, RoO, SRO, U_j_1, U_j_2, img, o, g, s, j, Internaloffset, p, j_p, r, U_j, conj, found_conj;
 
     # Assumption Length( D ) = 2
     
@@ -606,22 +620,38 @@ InstallMethod( UniversalMorphismIntoBinaryDirectProductWithGivenDirectProduct,
              U_j_1 := RepresentativeOfSubgroupsUpToConjugation( j_1 );
              U_j_2 := RepresentativeOfSubgroupsUpToConjugation( j_2 );
              
+             # image in the Cartesian product
              img := [ RightCoset( U_j_1, g_1 ), RightCoset( U_j_2, g_2 ) ]; 
              
-             for o in [ 1.. Length( Orbits ) ] do
+             # find the orbit containing img
+             for o in [ 1 .. Length( Orbits ) ] do
                  if img in Orbits[ o ] then
                      break;
-                 fi;                           
-             od;  
+                 fi;
+             od;
              
+             # find an element of g which maps the representative of o to img
              for g in group do
                  if RoO[ o ] * g = img then
                      break;
                  fi;
              od;
              
-             s := Stabilizer( group, RoO[ o ], OnRight );
-             j := PositionOfSubgroup( s );
+             s := Stabilizer( group, RoO[ o ], OnRight ); # = SRO[ o ]? TODO
+             
+             found_conj := false;
+             for j in [ 1 .. k ] do
+                 U_j := RepresentativeOfSubgroupsUpToConjugation( j );
+                 for conj in group do
+                     if ConjugateSubgroup( s, Inverse( conj ) ) = U_j then # TODO: g oder Inverse( g )?
+                         found_conj := true;
+                         break;
+                     fi;
+                 od;
+                 if found_conj then
+                     break;
+                 fi;
+             od;
              
              Internaloffset := 0;
              
@@ -632,11 +662,11 @@ InstallMethod( UniversalMorphismIntoBinaryDirectProductWithGivenDirectProduct,
                      if p = o then
                          break;
                      fi;
-                 fi; 
+                 fi;
              od;
               
              r := Offset[ j ] + Internaloffset;
-             Add( imgs[i], [ r, g, j ] );
+             Add( imgs[i], [ r, conj * g, j ] );
         od;
     od;
     
@@ -1051,7 +1081,7 @@ CoequalizerOfAConnectedComponent := function( D, SourcePositions, RangePositions
     Solutions[ RangePositions[ 1 ][ 2 ] ] [ RangePositions[ 1 ][ 1 ] ] := Identity( group );
     
     repeat 
-        #neue Lösungen suchen
+        # search for new solutions
         for p in RangePositions do
             r := p[ 1 ];
             j := p[ 2 ];
@@ -1111,7 +1141,7 @@ CoequalizerOfAConnectedComponent := function( D, SourcePositions, RangePositions
     for i in [ 1 .. k ] do
         U_i := RepresentativeOfSubgroupsUpToConjugation( i );
         for g in group do
-            if ConjugateSubgroup( V, g ) = U_i then
+            if ConjugateSubgroup( V, Inverse( g ) ) = U_i then # TODO: g oder Inverse( g )?
                 for p in RangePositions do
                     r := p[ 1 ];
                     j := p[ 2 ];
