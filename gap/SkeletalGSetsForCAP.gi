@@ -1096,7 +1096,7 @@ CoequalizerOfAConnectedComponent := function( D, SourcePositions, RangePositions
         v := Union2( v, GeneratorsOfGroup( ConjugateSubgroup( U_j, Inverse( h ) ) ) );
     od;
     
-    for i in Equations do
+    for e in Equations do
         r_a := e[ 2 ];
         r_b := e[ 5 ];
         g_a := e[ 1 ];
