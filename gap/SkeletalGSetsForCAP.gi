@@ -1235,15 +1235,9 @@ AddProjectionOntoCoequalizerWithGivenCoequalizer( SkeletalGSets,
             
             Cq[ pos ] := Cq[ pos ] + 1;
             
-            Display( ImagePositions );
-            
             for p in ImagePositions do
                 imgs[ p[ 2 ] ][ p[ 1 ] ] := [ Cq[ pos ], Solutions[ p[ 2 ] ][ p[ 1 ] ] , pos ]; 
-                Display( imgs );
             od;
-            
-            Display( imgs );
-            Display( Length( imgs ) );
             
             ProcessedImagePositions := Union2( ProcessedImagePositions, ImagePositions );
         od;
@@ -1311,8 +1305,6 @@ AddUniversalMorphismFromCoequalizerWithGivenCoequalizer( SkeletalGSets,
             g := temp[ 3 ];
             
             Cq[ pos ] := Cq[ pos ] + 1;
-            
-            Display( ImagePositions );
             
             first_image_position := ImagePositions[ 1 ];
             img := AsList(tau)[ first_image_position[ 2 ] ][ first_image_position[ 1 ] ];
