@@ -462,7 +462,7 @@ AddCoequalizer( SkeletalFinSets,
         t := Set( t );
         if not t = [ ] then
             Add( Cq, t );
-	    T:= Difference( T, t ); ## damit bei Append nur noch die dabei sind, die wir noch wollen ## diesen Text noch Löschen!!
+	    T:= Difference( T, t ); ## damit bei Append nur noch die dabei sind, die wir noch wollen ## diesen Text noch LÃ¶schen!!
         fi;
     od;
     
