@@ -1158,7 +1158,9 @@ AddCoequalizer( SkeletalGSets,
             
             od;
             
-            ImagePositions := [];
+            PreimagePositions := Set( PreimagePositions );
+            
+            ImagePositions := [ [ r, j ] ];
             
             for p in PreimagePositions do
                 for f in D do
@@ -1166,6 +1168,8 @@ AddCoequalizer( SkeletalGSets,
                     Add( ImagePositions, [ img[ 1 ], img[ 3 ] ] );
                 od;
             od;
+            
+            ImagePositions := Set( ImagePositions );
             
             p := CoequalizerOfAConnectedComponent( D, PreimagePositions, ImagePositions )[ 1 ];
             
@@ -1217,7 +1221,7 @@ AddProjectionOntoCoequalizerWithGivenCoequalizer( SkeletalGSets,
             
             PreimagePositions := Set( PreimagePositions );
             
-            ImagePositions := [];
+            ImagePositions := [ [ r, j ] ];
             
             for p in PreimagePositions do
                 for f in D do
@@ -1287,7 +1291,7 @@ AddUniversalMorphismFromCoequalizerWithGivenCoequalizer( SkeletalGSets,
             
             PreimagePositions := Set( PreimagePositions );
             
-            ImagePositions := [];
+            ImagePositions := [ [ r, j ] ];
             
             for p in PreimagePositions do
                 for f in D do

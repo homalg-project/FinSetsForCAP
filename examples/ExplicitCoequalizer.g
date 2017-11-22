@@ -55,6 +55,19 @@ id := IdentityMorphism( Cq );
 Display(IsWellDefined( id_to_be ));
 Display( id = id_to_be );
 
+
+A := GSet( S5, [ 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] );
+B := GSet( S5, [ 0, 3, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] );
+f_1 := MapOfGSets(A, [ [ [ 1, g_1_1, 2 ], [ 1, g_1_3, 2], [ 2, g_2_1, 2 ], [ 2, g_2_3, 2], [ 3, g_3_1, 2 ], [ 3, g_3_3, 2] ], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [] ], B);
+f_2 := MapOfGSets(A, [ [ [ 1, g_1_2, 4 ], [ 1, g_1_4, 4], [ 2, g_2_2, 4 ], [ 2, g_2_4, 4], [ 3, g_3_2, 4 ], [ 3, g_3_4, 4] ], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [] ], B);
+Display(IsWellDefined( f_1 ));
+Display(IsWellDefined( f_2 ));
+D := [ f_1, f_2 ];
+Cq := Coequalizer( D );
+Display( Cq );
+pi := ProjectionOntoCoequalizer( D );
+Display(IsWellDefined( pi ));
+
 AreEquivalent := function(G, e, b)
 	local g_e, U_e, g_b, U_b, g;
 	g_e := e[1];
