@@ -750,27 +750,16 @@ InstallMethod( SkeletalGSets,
     ##
     AddInitialObject( SkeletalGSets,
       function( arg )
-        local k, L, G;
         
-        G := group;
-        
-        k := Length( MatTom( TableOfMarks( G ) ) );
-        
-        L := IntZeroVector( k );
-        
-        return GSet( G, L );
+        return GSet( group, IntZeroVector( k ) );
         
     end );
 
     ##
-    AddUniversalMorphismFromInitialObjectWithGivenInitialObject( SkeletalGSets,
-      function( Omega, I )    
+    AddUniversalMorphismFromInitialObject( SkeletalGSets,
+      function( Omega )    
         
-        if not ForAll( AsList( I ), a -> a = 0 ) then
-            Error( "the second argument is not an initial object" );
-        fi;
-        
-        return MapOfGSets( I, List( AsList( Omega ), x -> [] ), Omega );
+        return MapOfGSets( GSet( group, IntZeroVector( k ) ), List( AsList( Omega ), x -> [] ), Omega );
         
     end );
 
@@ -825,13 +814,11 @@ InstallMethod( SkeletalGSets,
     ##
     AddUniversalMorphismFromCoproductWithGivenCoproduct( SkeletalGSets,
       function( D, tau, S )
-        local T, M, k, imgs, i, C, j;
+        local T, M, imgs, i, C, j;
         
         T := Range( tau[1] );
         
         M := AsList( S );
-        
-        k := Size( MatTom( TableOfMarks( group ) ) );
         
         imgs := [];
         
@@ -840,7 +827,7 @@ InstallMethod( SkeletalGSets,
             for j in [ 1 .. Length(tau) ] do
                 C := Concatenation( C, AsList(tau[ j ])[ i ] );
             od;
-            Add( imgs, C);
+            Add( imgs, C );
         od;
         
         return MapOfGSets( S, imgs, T );
@@ -1084,67 +1071,8 @@ InstallMethod( SkeletalGSets,
     end;
 
     ##
-    AddCoequalizer( SkeletalGSets,
-      function( D )                 # TODO what if D is empty?
-        local A, B, M, N, Cq, ProcessedImagePositions, j, r, PreimagePositions, f, i, l, ImagePositions, p, img;
-        
-        A := Source( D[ 1 ] );
-        B := Range( D[ 1 ] );
-
-        M := AsList( A );
-        N := AsList( B );
-        
-        Cq := IntZeroVector( k );
-        
-        ProcessedImagePositions := [];
-        
-        for j in [ 1 .. k ] do
-            for r in [ 1 .. N[ j ] ] do 
-                if [ r, j ] in ProcessedImagePositions then
-                    continue;
-                fi;
-                
-                PreimagePositions := [];
-                
-                for f in D do
-                    for i in [ 1 .. k ] do
-                        for l in [ 1 .. M[ i ] ] do
-                            if AsList( f )[ i ][ l ][ 1 ] = r and AsList( f )[ i ][ l ][ 3 ] = j then
-                                Add( PreimagePositions, [ l, i ] );
-                            fi;
-                        od; 
-                    od;
-                
-                od;
-                
-                PreimagePositions := Set( PreimagePositions );
-                
-                ImagePositions := [ [ r, j ] ];
-                
-                for p in PreimagePositions do
-                    for f in D do
-                        img := AsList( f )[ p[ 2 ] ][ p[ 1 ] ];
-                        Add( ImagePositions, [ img[ 1 ], img[ 3 ] ] );
-                    od;
-                od;
-                
-                ImagePositions := Set( ImagePositions );
-                
-                p := CoequalizerOfAConnectedComponent( D, PreimagePositions, ImagePositions )[ 1 ];
-                
-                Cq[ p ] := Cq[ p ] + 1;
-                
-                ProcessedImagePositions := Union2( ProcessedImagePositions, ImagePositions );
-            od;
-        od; 
-        
-        return GSet( group, Cq );
-       
-    end );
-
-    ##
-    AddProjectionOntoCoequalizerWithGivenCoequalizer( SkeletalGSets,
-      function( D, C )
+    AddProjectionOntoCoequalizer( SkeletalGSets,
+      function( D )
         local A, B, M, N, Cq, ProcessedImagePositions, imgs, j, r, PreimagePositions, f, i, l, ImagePositions, p, img, temp, pos, Solutions;
         
         A := Source( D[ 1 ] );
@@ -1206,13 +1134,13 @@ InstallMethod( SkeletalGSets,
             od;
         od; 
         
-        return MapOfGSets( Range( D[ 1 ] ), imgs , C );
+        return MapOfGSets( Range( D[ 1 ] ), imgs , Cq );
         
     end );
 
     ##
-    AddUniversalMorphismFromCoequalizerWithGivenCoequalizer( SkeletalGSets,
-      function( D, tau, C )
+    AddUniversalMorphismFromCoequalizer( SkeletalGSets,
+      function( D, tau )
         local T, A, B, M, N, Cq, ProcessedImagePositions, imgs, j, r, PreimagePositions, f, i, l, ImagePositions, p, img, temp, pos, Solutions, first_image_position, g;
         
         T := Range( tau );
@@ -1278,7 +1206,7 @@ InstallMethod( SkeletalGSets,
             od;
         od;
         
-        return MapOfGSets( C, imgs, Range( tau ) );
+        return MapOfGSets( Cq, imgs, Range( tau ) );
         
      end );
 
