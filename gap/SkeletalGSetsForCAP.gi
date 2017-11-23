@@ -33,15 +33,51 @@ InstallMethod( SkeletalGSets,
                [ IsGroup ],
                
   function( group )
-    local SkeletalGSets, k, AsASet, ExplicitCoequalizer, CoequalizerOfAConnectedComponent;
+    local
+        SkeletalGSets,
+        k,
+        IntZeroVector,
+        RepresentativeOfSubgroupsUpToConjugation,
+        PositionOfSubgroup,
+        IsEqualModSubgroup,
+        OrbitsOfActionOnCartesianProduct,
+        ProjectionOfASingleBinaryProduct,
+        ProjectionInFactorOfBinaryDirectProduct,
+        OffsetInCartesianProduct,
+        UniversalMorphismIntoBinaryDirectProductWithGivenDirectProduct,
+        AsASet,
+        ExplicitCoequalizer,
+        CoequalizerOfAConnectedComponent;
     
     SkeletalGSets := CreateCapCategory( "Skeletal Category of G-Sets" );  # TODO
     
     SkeletalGSets!.group_for_category := group;
     
     k := Length( MatTom( TableOfMarks( group ) ) );
+    
+    IntZeroVector := function( i )
+        
+        return ListWithIdenticalEntries( i, 0 );
+        
+    end;
+    
+    RepresentativeOfSubgroupsUpToConjugation := function( i ) 
+        
+        return RepresentativeTom( TableOfMarks( group ), i ) ;
+        
+    end;
+    
+    PositionOfSubgroup := function( U )
+        local i;
 
-
+        for i in [ 1..k ] do
+            if U in ConjugateSubgroups( group, RepresentativeOfSubgroupsUpToConjugation( i ) ) then
+                return i;
+            fi;
+        od;
+         
+    end;
+    
     ##
     InstallMethod( TableOfMarks,
             "for a finite skeletal G-set",
@@ -195,17 +231,12 @@ InstallMethod( SkeletalGSets,
         return  [ y[ 1 ], y[ 2 ] * g, y[ 3 ] ];
         
     end );
-
-    ##
-    InstallMethod( IsEqualModSubgroup,
-            "for two group elements and a Subgroup",
-        [ IsObject, IsObject, IsGroup ],                                                # TODO
-            
-      function( g1, g2, U )
+    
+    IsEqualModSubgroup := function( g1, g2, U )
         
         return g1 * Inverse( g2 ) in U;
         
-    end );
+    end;
 
     ##
     AddIsEqualForMorphisms( SkeletalGSets,
@@ -346,40 +377,8 @@ InstallMethod( SkeletalGSets,
         return GSet( group, C );  
         
     end );
-
-    ##
-    InstallMethod( PositionOfSubgroup,
-            "for CAP",
-            [ IsGroup ], 
-
-      function( U )
-        local i;
-
-        for i in [ 1..k ] do
-            if U in ConjugateSubgroups( group, RepresentativeOfSubgroupsUpToConjugation( i ) ) then
-                return i;
-            fi;
-        od;
-         
-    end );
-
-    ##
-    InstallMethod( RepresentativeOfSubgroupsUpToConjugation,
-            "for CAP skeletal finite G - sets",
-            [ IsInt ],
-            
-      function( i ) 
-        
-        return RepresentativeTom( TableOfMarks( group ), i ) ;
-        
-    end );
-
-    ##
-    InstallMethod( OrbitsOfActionOnCartesianProduct,
-            "for CAP skeletal finite G - sets",
-            [ IsList ],
-            
-      function( L )
+    
+    OrbitsOfActionOnCartesianProduct := function( L )
         local LoS, LoF, C, e, o; 
         
         # ListOfSubgroups
@@ -397,31 +396,26 @@ InstallMethod( SkeletalGSets,
         
         return o;
         
-    end );
+    end;
 
-    ##
-    InstallMethod( ToBeNamed,
-            "for CAP skeletal finite G - sets",
-            [ IsList ],
-            
-      function( L )
-        local o, RoO, imgs, r, s, i, found_g, U_i, g; 
+    ProjectionOfASingleBinaryProduct := function( i, j, pos, copy_number, target )
+        local o, RoO, imgs, r, s, a, found_g, U_a, g, G_i, G_j, P, pi, l, img, target_index;
         
-        o := OrbitsOfActionOnCartesianProduct( L );
+        o := OrbitsOfActionOnCartesianProduct( [ i, j ] );
         
         # Representatives Of Orbits
         RoO := List( o, x -> x[ 1 ] );
         
-        imgs := List( [ 1 .. k ], i -> [] );
+        imgs := List( [ 1 .. k ], x -> [] );
         
         for r in RoO do
             s := Stabilizer( group, r, OnRight );
             
             found_g := false;
-            for i in [ 1 .. k ] do
-                U_i := RepresentativeOfSubgroupsUpToConjugation( i );
+            for a in [ 1 .. k ] do
+                U_a := RepresentativeOfSubgroupsUpToConjugation( a );
                 for g in group do
-                    if ConjugateSubgroup( s, Inverse( g ) ) = U_i then # TODO: g oder Inverse( g )?
+                    if ConjugateSubgroup( s, Inverse( g ) ) = U_a then # TODO: g oder Inverse( g )?
                         found_g := true;
                         break;
                     fi;
@@ -431,32 +425,8 @@ InstallMethod( SkeletalGSets,
                 fi;
             od;
             
-            Add( imgs[ i ], r * Inverse( g ) );
+            Add( imgs[ a ], r * Inverse( g ) );
         od;
-        
-        return imgs;
-        
-    end );
-
-    ##
-    InstallMethod( IntZeroVector,
-            "for CAP skeletal finite G - sets",
-            [ IsInt ],
-            
-      function( i )
-        return ListWithIdenticalEntries( i, 0 );
-        
-    end );
-
-    ##
-    InstallMethod( ProjectionOfASingleBinaryProduct,
-            "for ... and a CAP skeletal finite G-Set",
-            [ IsInt, IsInt, IsInt, IsInt, IsSkeletalGSetRep ],
-            
-      function( i, j, pos, copy_number, target )
-        local imgs, G_i, G_j, P, pi, l, img, target_index;
-        
-        imgs := ToBeNamed( [ i, j ] );
         
         # G/U_i
         G_i := IntZeroVector( k );
@@ -483,14 +453,9 @@ InstallMethod( SkeletalGSets,
         
         return MapOfGSets( P, pi, target );
         
-    end );
+    end;
 
-    ##
-    InstallMethod( ProjectionInFactorOfBinaryDirectProduct,
-            "for CAP skeletal finite G - sets",
-            [ IsList, IsInt ],
-            
-      function( L, pos )
+    ProjectionInFactorOfBinaryDirectProduct := function( L, pos )
         local S, T, M, N, D, tau, i, j, l, imgs, img, m, n, target, copy_number, pi, P;
         
         # here: Size( L ) = 2
@@ -528,7 +493,7 @@ InstallMethod( SkeletalGSets,
         
         return UniversalMorphismFromCoproduct( D, tau );
         
-    end );
+    end;
 
     ##
     AddProjectionInFactorOfDirectProduct( SkeletalGSets,
@@ -551,12 +516,7 @@ InstallMethod( SkeletalGSets,
         
     end );
      
-    ##
-    InstallMethod( OffsetInCartesianProduct,
-            "for CAP ... ",
-            [ IsList, IsList, IsInt, IsInt, IsInt, IsInt ],
-
-      function( M, N, given_i, given_j, given_m, given_n  )
+    OffsetInCartesianProduct := function( M, N, given_i, given_j, given_m, given_n  )
         local result, i, j, m, n, pi;
         
         result := IntZeroVector( k );
@@ -578,14 +538,9 @@ InstallMethod( SkeletalGSets,
             od;
         od;
         
-    end );
+    end;
 
-    ##
-    InstallMethod( UniversalMorphismIntoBinaryDirectProductWithGivenDirectProduct,
-            "for CAP ... ",
-            [ IsList, IsList, IsSkeletalGSetRep ],
-
-      function( D, tau, T ) # TODO: Frage: was ist D resp. wofür braucht man es??????
+    UniversalMorphismIntoBinaryDirectProductWithGivenDirectProduct := function( D, tau, T ) # TODO: Frage: was ist D resp. wofür braucht man es??????
         local S, M, N, imgs, i, l, r_1, r_2, g_1, g_2, j_1, j_2, Offset, Orbits, RoO, SRO, U_j_1, U_j_2, img, o, g, s, j, Internaloffset, p, j_p, r, U_j, conj, found_conj;
         
         # Assumption Length( D ) = 2
@@ -672,7 +627,7 @@ InstallMethod( SkeletalGSets,
         
         return MapOfGSets( S, imgs, T );
         
-    end );
+    end;
 
     ##  
     AddUniversalMorphismIntoDirectProductWithGivenDirectProduct( SkeletalGSets,
@@ -891,32 +846,6 @@ InstallMethod( SkeletalGSets,
         return MapOfGSets( S, imgs, T );
         
     end );
-
-    ##
-    InstallMethod( PreimagePositions,
-            "for a CAP map of skeletal G-Sets and a finite set",
-            [ IsSkeletalGSetMapRep, IsList ],
-            
-      function( phi, L )
-        local r, j, C, i, l;  
-        
-        r := L[ 1 ];
-        j := L[ 2 ];
-        
-        C := []; 
-        
-        for i in [ 1 .. k ] do 
-            for l in [ 1 .. AsList( Source( phi ) )[ i ] ] do
-                if ( AsList( phi )[ i ][ l ][ 1 ] = r and AsList( phi )[ i ][ l ][ 3 ] = j ) then
-                    Add( C, [ i, l ] );
-                fi;
-            od;
-        od; 
-        
-        return C;
-        
-    end );
-
 
     AsASet := function( M ) #TODO: AsSet?, eigener Typ um Gleichheit mod U_i direkt zu prüfen
         local set, i, U, l, g;
