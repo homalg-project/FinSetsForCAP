@@ -290,7 +290,7 @@ AddTerminalObject( SkeletalGSets,
   function( arg )
     local L;
 
-    L := ListWithIdenticalEntries( k, 0 );
+    L := IntZeroVector( k );
 
     L[ k ] := 1;
     
@@ -350,7 +350,7 @@ end );
 ##
 InstallMethod( PositionOfSubgroup,
         "for CAP",
-        [ IsObject ], 
+        [ IsGroup ], 
 
   function( U )
     local i;
@@ -412,7 +412,7 @@ InstallMethod( ToBeNamed,
     # Representatives Of Orbits
     RoO := List( o, x -> x[ 1 ] );
     
-    imgs := List( [ 1..k ], i -> [] );
+    imgs := List( [ 1 .. k ], i -> [] );
     
     for r in RoO do
         s := Stabilizer( group, r, OnRight );
@@ -444,7 +444,7 @@ InstallMethod( IntZeroVector,
         [ IsInt ],
         
   function( i )
-    return List( [ 1 .. i ], x -> 0 );
+    return ListWithIdenticalEntries( i, 0 );
     
 end );
 
@@ -459,10 +459,10 @@ InstallMethod( ProjectionOfASingleBinaryProduct,
     imgs := ToBeNamed( [ i, j ] );
     
     # G/U_i
-    G_i := ListWithIdenticalEntries( k, 0 );
+    G_i := IntZeroVector( k );
     G_i[ i ] := 1;
     # G/U_j
-    G_j := ListWithIdenticalEntries( k, 0 );
+    G_j := IntZeroVector( k );
     G_j[ j ] := 1;
     
     # take the direct product of G/U_i and G/U_j and construct the projection pi
@@ -559,7 +559,7 @@ InstallMethod( OffsetInCartesianProduct,
   function( M, N, given_i, given_j, given_m, given_n  )
     local result, i, j, m, n, pi;
     
-    result := ListWithIdenticalEntries( k, 0 );
+    result := IntZeroVector( k );
     
     for i in [ 1 .. k ] do
         for j in [ 1 .. k ] do
@@ -801,7 +801,7 @@ AddInitialObject( SkeletalGSets,
 
     k := Length( MatTom( TableOfMarks( G ) ) );
 
-    L := ListWithIdenticalEntries( k, 0 );
+    L := IntZeroVector( k );
     
     return GSet( G, L );
     
@@ -824,7 +824,7 @@ AddCoproduct( SkeletalGSets,
   function( L )
     local sum, l;
     
-    sum := ListWithIdenticalEntries( k, 0 );
+    sum := IntZeroVector( k );
     
     for l in L do
         sum := sum + AsList(l);
@@ -847,7 +847,7 @@ AddInjectionOfCofactorOfCoproduct( SkeletalGSets,
     
     k := Size( MatTom( TableOfMarks( group ) ) );
     
-    sum := ListWithIdenticalEntries( k, 0 );
+    sum := IntZeroVector( k );
     
     for j in [ 1 .. (pos - 1) ] do
         sum := sum + AsList( L[ j ] );
@@ -1033,7 +1033,7 @@ ExplicitCoequalizer :=  function( D )
     # Representatives Of Orbits
     RoO := List( orbits, x -> x[ 1 ] );
     
-    Cq := List( [ 1 .. k], x -> 0 );
+    Cq := IntZeroVector( k );
     for r in RoO do
           s := Stabilizer( group, r, OurAction );
           i := PositionOfSubgroup( s );
@@ -1165,7 +1165,7 @@ AddCoequalizer( SkeletalGSets,
     M := AsList( A );
     N := AsList( B );
         
-    Cq := ListWithIdenticalEntries( k, 0 );
+    Cq := IntZeroVector( k );
     
     ProcessedImagePositions := [];
     
@@ -1224,7 +1224,7 @@ AddProjectionOntoCoequalizerWithGivenCoequalizer( SkeletalGSets,
     M := AsList( A );
     N := AsList( B );
         
-    Cq := ListWithIdenticalEntries( k, 0 );
+    Cq := IntZeroVector( k );
     
     ProcessedImagePositions := [];
     
@@ -1294,7 +1294,7 @@ AddUniversalMorphismFromCoequalizerWithGivenCoequalizer( SkeletalGSets,
     M := AsList( A );
     N := AsList( B );
         
-    Cq := ListWithIdenticalEntries( k, 0 );
+    Cq := IntZeroVector( k );
     
     ProcessedImagePositions := [];
     

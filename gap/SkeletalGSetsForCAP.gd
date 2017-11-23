@@ -62,44 +62,42 @@ DeclareAttribute( "NrConjugacyClassesOfSubgroups",
 #! @Arguments two group elements and a Subgroup
 #! @Returns a boolean
 DeclareOperation( "IsEqualModSubgroup",
-         [ IsObject, IsObject, IsObject ] );
+         [ IsObject, IsObject, IsGroup ] );
 
 #! @Description
 #!  The position of the conjugacy class of the given subgroup in the table of marks.
 #! @Arguments a subgroup
 #! @Returns a positive integer
-DeclareAttribute( "PositionOfSubgroup",
-        IsObject );
-
-# TODO: DeclareAttribute vs DeclareOperation
+DeclareOperation( "PositionOfSubgroup",
+        [ IsGroup ] );
 
 #! @Description
 #! ToDO.
 #! @Arguments a positive integer
 #! @Returns a subgroup
-DeclareAttribute( "RepresentativeOfSubgroupsUpToConjugation",
-        IsInt );
+DeclareOperation( "RepresentativeOfSubgroupsUpToConjugation",
+        [ IsInt ] );
 
 #! @Description
 #!  ToDO.
 #! @Arguments TODO
 #! @Returns a positive integer
-DeclareAttribute( "OrbitsOfActionOnCartesianProduct",
-        IsList );
+DeclareOperation( "OrbitsOfActionOnCartesianProduct",
+        [ IsList ] );
 
 #! @Description
 #!  The number of conjugacy classes of subgroups of the group underlying the $G$-set <A>Omega</A>.
 #! @Arguments TODO
 #! @Returns a positive integer
-DeclareAttribute( "ToBeNamed",
-        IsList );
+DeclareOperation( "ToBeNamed",
+        [ IsList ] );
 
 #! @Description
 #!  The zero vector with length $i$.
 #! @Arguments a positive integer
 #! @Returns a zero vector
-DeclareAttribute( "IntZeroVector",
-        IsInt );
+DeclareOperation( "IntZeroVector",
+        [ IsInt ] );
 
 #! @Description
 #!  TODO.
