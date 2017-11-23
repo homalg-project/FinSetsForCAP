@@ -145,15 +145,13 @@ InstallMethod( SkeletalGSets,
     ##
     AddIsWellDefinedForMorphisms( SkeletalGSets,
       function( mor )
-        local S, T, G, img, tom, s, t, U_i, U_j, u;
+        local S, T, img, tom, s, t, U_i, U_j, u;
         
         S := Source( mor );
         
         T := Range( mor );
         
-        G := UnderlyingGroup( S );
-        
-        if not G = UnderlyingGroup( T ) then
+        if not (group = UnderlyingGroup( S ) and group = UnderlyingGroup( T )) then
             return false;
         fi;
         
@@ -163,7 +161,7 @@ InstallMethod( SkeletalGSets,
             return Error( "The length of the list of relations is wrong.\n");
         fi;
         
-        tom := MatTom( TableOfMarks( G ) );
+        tom := MatTom( TableOfMarks( group ) );
         
         s := AsList( S );
         t := AsList( T );
@@ -180,12 +178,12 @@ InstallMethod( SkeletalGSets,
                                 g := e[2];
                                 j := e[3];
                                 
-                                # j has to be the index of a subgroup of G, i.e. an integer between 1 and k
+                                # j has to be the index of a subgroup of group, i.e. an integer between 1 and k
                                 # r has to be the index of a copy of U_j
-                                # g has to be an element of G
+                                # g has to be an element of group
                                 # U_i has to be a subgroup of U_j up to conjugation, which can be read off the table of marks
                                 
-                                if not ( IsPosInt( j ) and j <= k and IsPosInt( r ) and r <= t[j] and g in G and tom[j][i] > 0 ) then
+                                if not ( IsPosInt( j ) and j <= k and IsPosInt( r ) and r <= t[j] and g in group and tom[j][i] > 0 ) then
                                     return Error( "3\n" );
                                 fi;
                                 
@@ -781,15 +779,13 @@ InstallMethod( SkeletalGSets,
     ##
     AddInjectionOfCofactorOfCoproduct( SkeletalGSets,
       function( L, pos )
-        local S, M, T, k, sum, j, imgs, i, C, l;
+        local S, M, T, sum, j, imgs, i, C, l;
         
         S := L[ pos ];
         
         M := AsList( S );
         
         T := Coproduct( L );
-        
-        k := Size( MatTom( TableOfMarks( group ) ) );
         
         sum := IntZeroVector( k );
         
