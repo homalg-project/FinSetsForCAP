@@ -32,8 +32,47 @@
 @Subsection Pushout
 @InsertSystem Pushout
 
-@Subsection SkeletalGSets
-@InsertSystem SkeletalGSets
 
-@Subsection UniversalMorphismDirectProduct
-@InsertSystem UniversalMorphismDirectProduct
+@Chapter The category of skeletal finite sets
+
+@Section SkeletalAttributes
+@Section SkeletalConstructors
+@Section SkeletalTools
+@Section SkeletalExamples
+
+@Subsection SkeletalWellDefined
+@InsertSystem SkeletalWellDefined
+
+@Subsection SkeletalPreCompose
+@InsertSystem SkeletalPreCompose
+
+@Subsection SkeletalMonoEpi
+@InsertSystem SkeletalMonoEpi
+
+@Subsection Skeletal Initial and Terminal objects
+@InsertSystem SkeletalInitialTerminal
+
+@Subsection SkeletalProduct
+@InsertSystem SkeletalDirectProduct
+
+@Subsection SkeletalCoproduct
+@InsertSystem SkeletalCoproduct
+
+@Subsection SkeletalImage
+@InsertSystem SkeletalImageObject
+@InsertSystem SkeletalImageEmbedding
+
+@Subsection SkeletalPreimage
+@InsertSystem SkeletalPreimage
+
+@Subsection SkeletalEqualizer
+@InsertSystem SkeletalEqualizer
+
+@Subsection SkeletalPullback
+@InsertSystem SkeletalFiberProduct
+
+@Subsection SkeletalCoequalizer
+@InsertSystem SkeletalCoequalizer
+
+@Subsection SkeletalPushout
+@InsertSystem SkeletalPushout

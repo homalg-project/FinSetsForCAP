@@ -1,4 +1,4 @@
-#! @System Equalizer
+#! @System SkeletalEqualizer
 
 LoadPackage( "FinSets" );
 
@@ -10,7 +10,7 @@ T := FinSet( 3 );
 f1 := MapOfFinSets( S, [ 3, 3, 1, 2, 2], T );
 #! <A morphism in SkeletalFinSets>
 f2 := MapOfFinSets( S, [ 3, 2, 3, 1, 2], T );
-#! <A morphism in FinSets>
+#! <A morphism in SkeletalFinSets>
 f3 := MapOfFinSets( S, [ 3, 1, 2, 1, 2], T );
 #! <A morphism in SkeletalFinSets>
 D := [ f1, f2, f3 ];

@@ -1,22 +1,26 @@
+#! @System Equalizer
 
-S3:= SymmetricGroup( 3 );
-#! Sym( [ 1 .. 3 ] )
-s := GSet( S3, [1, 0, 2, 0]);
-#! <An object in Skeletal Category of G-Sets>
-r := GSet(S3, [1, 2, 1, 0]);
-#! <An object in Skeletal Category of G-Sets>
+LoadPackage( "FinSets" );
 
-psi1:=MapOfGSets(s, [ [ [1, (1, 2), 1] ], [], [ [1, (), 3], [1, (1, 2, 3), 3] ], [] ], r);
-#! <A morphism in Skeletal Category of G-Sets>
-IsWellDefined( psi1);
-#! true
-
-psi2:=MapOfGSets(s, [ [[1, (1, 2), 3]], [], [[1, (), 3], [1, (), 3]], [] ], r);
-#! <A morphism in Skeletal Category of G-Sets>
-IsWellDefined( psi2);
-#! true
-
-Eq := Equalizer( [ psi1, psi2 ] );
-#! <An object in Skeletal Category of G-Sets>
-AsList( Eq );
-#! [ 0, 0, 2, 0 ]
+#! @Example
+S := FinSet( [ 1 .. 5 ] );
+#! <An object in FinSets>
+T := FinSet( [ 1 .. 3 ] );
+#! <An object in FinSets>
+f1 := MapOfFinSets( S, [ [1,3],[2,3],[3,1],[4,2],[5,2] ], T );
+#! <A morphism in FinSets>
+f2 := MapOfFinSets( S, [ [1,3],[2,2],[3,3],[4,1],[5,2] ], T );
+#! <A morphism in FinSets>
+f3 := MapOfFinSets( S, [ [1,3],[2,1],[3,2],[4,1],[5,2] ], T );
+#! <A morphism in FinSets>
+D := [ f1, f2, f3 ];
+#! [ <A morphism in FinSets>, <A morphism in FinSets>, <A morphism in FinSets> ]
+Eq := Equalizer( D );
+#! <An object in FinSets>
+Display( Eq );
+#! [ 1, 5 ]
+Im := ImageObject( EmbeddingOfEqualizer( D ) );
+#! <An object in FinSets>
+Display( Im );
+#! [ 1, 5 ]
+#! @EndExample

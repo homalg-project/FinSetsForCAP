@@ -1,4 +1,4 @@
-#! @System Pushout
+#! @System SkeletalPushout
 
 LoadPackage( "FinSets" );
 
@@ -34,12 +34,12 @@ Display( pi2 );
 
 ## The easy way
 
-D := [pi1, pi2];
+D := [ pi1, pi2 ];
 #! [ <A mono morphism in SkeletalFinSets>, <A mono morphism in SkeletalFinSets> ]
 UU := Pushout( D );
 #! <An object in SkeletalFinSets>
 Display( UU );
-#! 5
+#! 3
 kappa1 := InjectionOfCofactorOfPushout( D, 1 );
 #! <A morphism in SkeletalFinSets>
 Display( kappa1 );
@@ -80,11 +80,11 @@ Display( Cq );
 psi := ProjectionOntoCoequalizer( [ alpha, beta ] );
 #! <A morphism in SkeletalFinSets>
 Display( psi );
-#!  5, [ 1, 2, 3, 1, 2 ], 3 ]
+#! [ 5, [ 1, 2, 3, 1, 2 ], 3 ]
 Display( PreCompose( iota_1, psi ) );
-#! [ 3, [ 1, 2, 3 ], 3 ] ## kappa1
+#! [ 3, [ 1, 2, 3 ], 3 ]
 Display( PreCompose( iota_2, psi ) );
-#! [ 2, [ 1, 2 ], 3 ] ## kappa2
+#! [ 2, [ 1, 2 ], 3 ]
 PreCompose( alpha, psi ) = PreCompose( beta, psi );
 #! true
 #! @EndExample

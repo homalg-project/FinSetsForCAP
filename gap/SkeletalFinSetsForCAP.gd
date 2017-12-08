@@ -4,7 +4,7 @@
 # Declarations
 #
 
-#! @Chapter The skeletal category of finite sets
+#! @Chapter The category of skeletal finite sets
 
 DeclareRepresentation( "IsSkeletalFiniteSetRep",
         IsAttributeStoringRep and
@@ -26,7 +26,7 @@ BindGlobal( "TheTypeOfMapsOfSkeletalFiniteSets",
                  IsSkeletalFiniteSetMapRep ) );
 
 
-#! @Section Constructors
+#! @Section SkeletalConstructors
 
 #! @Description
 #!  Construct an object in the skeletal category of finite sets
@@ -36,7 +36,7 @@ BindGlobal( "TheTypeOfMapsOfSkeletalFiniteSets",
 #! @Returns a &CAP; object
 DeclareOperation( "FinSet",
         [ IsInt ] );
-#! @InsertSystem FinSet
+#! @InsertSystem SkeletalFinSet
 
 #! @Description
 #!  Construct a map $\phi:$<A>s</A>$\to$<A>t</A> of the skeletal finite sets <A>s</A> and <A>t</A>,
@@ -46,9 +46,9 @@ DeclareOperation( "FinSet",
 #! @Returns a &CAP; morphism
 DeclareOperation( "MapOfFinSets",
         [ IsSkeletalFiniteSetRep, IsList, IsSkeletalFiniteSetRep ] );
-#! @InsertSystem  MapOfFinSets
+#! @InsertSystem  MapOfSkeletalFinSets
 
-#! @Section Tools
+#! @Section SkeletalTools
 
 #! @Description
 #!  Construct the embedding $\iota:$<A>s</A>$\to$<A>t</A> of the finite sets <A>s</A> and <A>t</A>,

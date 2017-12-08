@@ -1,22 +1,22 @@
-#! @System Objects
+#! @System SkeletalFinSet
 
 LoadPackage( "FinSets" );
 
 #! @Example
 m := FinSet( 7 );
-#!<An object in SkeletalFinSets>
+#! <An object in SkeletalFinSets>
 IsWellDefined( m );
-#!true
+#! true
 n := FinSet( -2 );
-#!<An object in SkeletalFinSets>
+#! <An object in SkeletalFinSets>
 IsWellDefined( n );
-#!false
+#! false
 n := FinSet( 3 );
-#!<An object in SkeletalFinSets>
+#! <An object in SkeletalFinSets>
 IsWellDefined( n );
-#!true
+#! true
 p := FinSet( 4 );
-#!<An object in SkeletalFinSets>
+#! <An object in SkeletalFinSets>
 IsWellDefined( p );
-#!true
+#! true
 #! @EndExample
