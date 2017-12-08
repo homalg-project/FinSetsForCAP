@@ -7,11 +7,11 @@ S := FinSet( 5 );
 #! <An object in SkeletalFinSets>
 T := FinSet( 3 );
 #! <An object in SkeletalFinSets>
-f1 := MapOfFinSets( S, [ 3, 3, 1, 2, 2], T );
+f1 := MapOfFinSets( S, [ 3, 3, 1, 2, 2 ], T );
 #! <A morphism in SkeletalFinSets>
-f2 := MapOfFinSets( S, [ 3, 2, 3, 1, 2], T );
+f2 := MapOfFinSets( S, [ 3, 2, 3, 1, 2 ], T );
 #! <A morphism in SkeletalFinSets>
-f3 := MapOfFinSets( S, [ 3, 1, 2, 1, 2], T );
+f3 := MapOfFinSets( S, [ 3, 1, 2, 1, 2 ], T );
 #! <A morphism in SkeletalFinSets>
 D := [ f1, f2, f3 ];
 #! [ <A morphism in SkeletalFinSets>, <A morphism in SkeletalFinSets>, <A morphism in SkeletalFinSets> ]

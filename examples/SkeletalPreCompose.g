@@ -9,11 +9,9 @@ n := FinSet( 5 );
 #! <An object in SkeletalFinSets>
 p := FinSet( 7 );
 #! <An object in SkeletalFinSets>
-psi := MapOfFinSets( m, [2, 5, 3], n );
+psi := MapOfFinSets( m, [ 2, 5, 3 ], n );
 #! <A morphism in SkeletalFinSets>
-phi := MapOfFinSets( n, [1, 4, 6, 6, 3], p );
-#! <A morphism in SkeletalFinSets>
-PreCompose( psi, phi );
+phi := MapOfFinSets( n, [ 1, 4, 6, 6, 3 ], p );
 #! <A morphism in SkeletalFinSets>
 alpha := PreCompose( psi, phi );
 #! <A morphism in SkeletalFinSets>

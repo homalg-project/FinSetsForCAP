@@ -20,7 +20,7 @@ pi := UniversalMorphismIntoTerminalObject( m );
 IsIdenticalObj( Range( pi ), t );
 #! true
 pi_t := UniversalMorphismIntoTerminalObjectWithGivenTerminalObject( m, t );
-#! <A morphism in Skeletal FinSets>
+#! <A morphism in SkeletalFinSets>
 AsList( pi_t );
 #! [ 1, 1, 1, 1, 1, 1, 1, 1 ]
 pi = pi_t;

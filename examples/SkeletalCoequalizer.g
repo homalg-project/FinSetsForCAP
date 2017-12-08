@@ -11,7 +11,7 @@ f := MapOfFinSets( s, [ 3, 4, 4, 2, 4 ], t );
 #! <A morphism in SkeletalFinSets>
 g := MapOfFinSets( s, [ 3, 3, 4, 2, 4 ], t );
 #! <A morphism in SkeletalFinSets>
-D := [f, g];
+D := [ f, g ];
 #! [ <A morphism in SkeletalFinSets>, <A morphism in SkeletalFinSets> ]
 C := Coequalizer( D );
 #! <An object in SkeletalFinSets>

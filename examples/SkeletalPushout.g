@@ -8,17 +8,17 @@ M := FinSet( 5 );
 N1 := FinSet( 3 );
 #! <An object in SkeletalFinSets>
 iota1 := EmbeddingOfFinSets( N1, M );
-#! <A mono morphism in SkeletalFinSets>
+#! <A monomorphism in SkeletalFinSets>
 Display( iota1 );
 #! [ 3, [ 1, 2, 3 ], 5 ]
 N2 := FinSet( 2 );
 #! <An object in SkeletalFinSets>
 iota2 := EmbeddingOfFinSets( N2, M );
-#! <A mono morphism in SkeletalFinSets>
+#! <A monomorphism in SkeletalFinSets>
 Display( iota2 );
 #! [ 2, [ 1, 2 ], 5 ]
 D := [ iota1, iota2 ];
-#! [ <A mono morphism in SkeletalFinSets>, <A mono morphism in SkeletalFinSets> ]
+#! [ <A monomorphism in SkeletalFinSets>, <A monomorphism in SkeletalFinSets> ]
 Fib := FiberProduct( D );
 #! <An object in SkeletalFinSets>
 Display( Fib );
@@ -35,7 +35,7 @@ Display( pi2 );
 ## The easy way
 
 D := [ pi1, pi2 ];
-#! [ <A mono morphism in SkeletalFinSets>, <A mono morphism in SkeletalFinSets> ]
+#! [ <A monomorphism in SkeletalFinSets>, <A monomorphism in SkeletalFinSets> ]
 UU := Pushout( D );
 #! <An object in SkeletalFinSets>
 Display( UU );
