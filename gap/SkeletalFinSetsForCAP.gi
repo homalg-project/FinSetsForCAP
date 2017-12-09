@@ -239,12 +239,12 @@ AddImageEmbedding( SkeletalFinSets,
     local L, a;
     
     L := [];
-	
+    
     for a in AsList( phi ) do
         if not a in L then
-		    Add( L, a );
-	    fi;
-	od;
+            Add( L, a );
+        fi;
+    od;
     
     return MapOfFinSets( ImageObject( phi ), List( L, x -> x ), Range( phi ) );
 
@@ -253,9 +253,17 @@ end );
 ##
 AddCoastrictionToImage( SkeletalFinSets,
   function( phi )
-    local pi;
+    local G, L, l, pi;
     
-    pi := MapOfFinSets( Source( phi ), AsList( phi ), ImageObject( phi ) );
+    G := AsList( phi );
+    
+    L := [];
+    
+    for l in G do
+        Add( L, Position( Set( G ), l ) );
+    od;
+    
+    pi := MapOfFinSets( Source( phi ), L, ImageObject( phi ) );
     
     Assert( 3, IsEpimorphism( pi ) );
     

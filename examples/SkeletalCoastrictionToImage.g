@@ -1,0 +1,40 @@
+#! @System SkeletalCoastrictionToImage
+
+LoadPackage( "FinSets" );
+
+#! @Example
+m := FinSet( 7 );
+#! <An object in SkeletalFinSets>
+n := FinSet( 3 );
+#! <An object in SkeletalFinSets>
+phi := MapOfFinSets( n, [ 7, 5, 5 ], m );
+#! <A morphism in SkeletalFinSets>
+IsWellDefined( phi );
+#! true
+f := CoastrictionToImage( phi );
+#! <An epimorphism in SkeletalFinSets>
+Display( f );
+[ 3, [ 2, 1, 1 ], 2 ]
+IsWellDefined( f );
+#! true
+IsEpimorphism( f );
+#! true
+
+m := FinSet( 77 );
+#! <An object in SkeletalFinSets>
+n := FinSet( 4 );
+#! <An object in SkeletalFinSets>
+phi := MapOfFinSets( n, [ 77, 2, 25, 2 ], m );
+#! <A morphism in SkeletalFinSets>
+IsWellDefined( phi );
+#! true
+f := CoastrictionToImage( phi );
+#! <An epimorphism in SkeletalFinSets>
+Display( f );
+#! [ 4, [ 3, 1, 2, 1 ], 3 ]
+IsWellDefined( f );
+#! true
+IsEpimorphism( f );
+#! true
+
+#! @EndExample
