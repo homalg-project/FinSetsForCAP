@@ -12,5 +12,5 @@ phi := MapOfFinSets( n, [7, 5, 5] ,m );
 pi := ImageEmbedding( phi );
 #! <A monomorphism in SkeletalFinSets>
 Display( pi );
-#! [ 2, [ 1, 2 ], 7 ]
+#! [ 2, [ 7,5 ], 7 ]
 #! @EndExample

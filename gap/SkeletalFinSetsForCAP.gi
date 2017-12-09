@@ -17,7 +17,7 @@ InstallMethod( FinSet,
     int:= rec( );
        
     ObjectifyWithAttributes( int, TheTypeOfSkeletalFiniteSets,
-		Length, n );
+        Length, n );
 
     Add( SkeletalFinSets, int );
     
@@ -55,7 +55,7 @@ InstallMethod( MapOfFinSets,
   function( s, G, t )
     local map;
     
-    if not ForAll( G, a -> IsInt( a ) ) then
+    if not ForAll( G, a -> IsPosInt( a ) ) then
         Error( "the list of relations has a wrong syntax\n" );
     fi;
     
@@ -65,7 +65,7 @@ InstallMethod( MapOfFinSets,
             AsList, G,
             Source, s,
             Range, t 
-	    );
+        );
     
     Add( SkeletalFinSets, map );
     
@@ -130,7 +130,7 @@ InstallOtherMethod( ListOp,
   function( s, phi )
     
     return List( Set( s ), phi );
-  	 
+       
 end );
 
 ##
@@ -139,7 +139,7 @@ AddPreCompose( SkeletalFinSets,
     local s, cmp;
 
     if IsWellDefined( map_pre) = false or IsWellDefined( map_post ) = false then
-	Error( "Check if the maps are well defined\n" );
+    Error( "Check if the maps are well defined\n" );
     fi;
 
     s := Source( map_pre );
@@ -149,7 +149,7 @@ AddPreCompose( SkeletalFinSets,
     return MapOfFinSets( s, cmp, Range( map_post ) );
     
 end );
-	
+    
 ##
 AddImageObject( SkeletalFinSets,
   function( phi )
@@ -205,7 +205,7 @@ InstallMethod( CallFuncList,
     
 end );
 
-	
+    
 ##
 InstallMethod( EmbeddingOfFinSets,
         "for two CAP skeletal finite sets",
@@ -227,7 +227,7 @@ end );
 InstallMethod( ImageObject,
      "for a CAP map of skeletal finite sets and a CAP skeletal finite set",
      [ IsSkeletalFiniteSetMapRep, IsSkeletalFiniteSetRep ],
-	  function( phi, s_ )
+      function( phi, s_ )
 
     return ImageObject( PreCompose( EmbeddingOfFinSets( s_, Source( phi ) ), phi ) );
 
@@ -236,8 +236,17 @@ end );
 ##
 AddImageEmbedding( SkeletalFinSets,
   function( phi )
-
-    return EmbeddingOfFinSets( ImageObject( phi ), Range( phi ) );
+    local L, a;
+    
+    L := [];
+	
+    for a in AsList( phi ) do
+        if not a in L then
+		    Add( L, a );
+	    fi;
+	od;
+    
+    return MapOfFinSets( ImageObject( phi ), List( L, x -> x ), Range( phi ) );
 
 end );
 
@@ -462,7 +471,7 @@ AddCoequalizer( SkeletalFinSets,
         t := Set( t );
         if not t = [ ] then
             Add( Cq, t );
-	    T:= Difference( T, t ); ## damit bei Append nur noch die dabei sind, die wir noch wollen ## diesen Text noch Löschen!!
+        T:= Difference( T, t ); ## damit bei Append nur noch die dabei sind, die wir noch wollen ## diesen Text noch Löschen!!
         fi;
     od;
     
@@ -490,7 +499,7 @@ AddProjectionOntoCoequalizerWithGivenCoequalizer( SkeletalFinSets,
         t := Set( t );
         if not t = [ ] then
             Add( Cq, t );
-	    T:= Difference( T, t );
+        T:= Difference( T, t );
         fi;
     od;
     
@@ -518,7 +527,7 @@ AddUniversalMorphismFromCoequalizerWithGivenCoequalizer( SkeletalFinSets,
         t := Set( t );
         if not t = [ ] then
             Add( Cq, t );
-	    T:= Difference( T, t );
+        T:= Difference( T, t );
         fi;
     od;
     
@@ -621,7 +630,7 @@ end );
 
 ##
 InstallMethod( Display,
-	"for a CAP map of skeletal finite sets",
+    "for a CAP map of skeletal finite sets",
         [ IsSkeletalFiniteSetMapRep ],
         
   function( phi )
