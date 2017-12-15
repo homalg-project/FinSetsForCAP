@@ -138,10 +138,6 @@ AddPreCompose( SkeletalFinSets,
   function( map_pre, map_post )
     local s, cmp;
 
-    if IsWellDefined( map_pre) = false or IsWellDefined( map_post ) = false then
-    Error( "Check if the maps are well defined\n" );
-    fi;
-
     s := Source( map_pre );
 
     cmp := List( s, i -> map_post( map_pre( i ) ) );
