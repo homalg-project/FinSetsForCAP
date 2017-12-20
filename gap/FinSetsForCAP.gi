@@ -504,8 +504,6 @@ AddUniversalMorphismFromCoequalizerWithGivenCoequalizer( FinSets,
     
     pi := ProjectionOntoCoequalizerWithGivenCoequalizer( D, C );
     
-    Assert( 0, IsWellDefined( tau ) );
-    
     G := AsList( tau );
     
     G := List( G, t_y -> [ pi( t_y[1] ), t_y[2] ] );
