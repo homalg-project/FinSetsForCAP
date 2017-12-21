@@ -232,17 +232,8 @@ end );
 ##
 AddImageEmbedding( SkeletalFinSets,
   function( phi )
-    local L, a;
     
-    L := [];
-    
-    for a in AsList( phi ) do
-        if not a in L then
-            Add( L, a );
-        fi;
-    od;
-    
-    return MapOfFinSets( ImageObject( phi ), List( L, x -> x ), Range( phi ) );
+    return MapOfFinSets( ImageObject( phi ), Set( AsList( phi ) ), Range( phi ) );
 
 end );
 
