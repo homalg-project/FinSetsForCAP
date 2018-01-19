@@ -1,4 +1,4 @@
-#! @System MapOfFinSets
+#! @System MapOfFinSetsNC
 
 LoadPackage( "FinSets" );
 
@@ -6,12 +6,12 @@ LoadPackage( "FinSets" );
 a := Immutable( "a" );;
 b := Immutable( "b" );;
 c := Immutable( "c" );;
-S := FinSet( [ 1, 3, 2, 2, 1 ] );
+S := FinSetNC( [ 1, 3, 2 ] );
 #! <An object in FinSets>
-T := FinSet( [ a, b, c ] );
+T := FinSetNC( [ a, b, c ] );
 #! <An object in FinSets>
 G := [ [ 1, b ], [ 3, b ], [ 2, a ] ];;
-phi := MapOfFinSets( S, G, T );
+phi := MapOfFinSetsNC( S, G, T );
 #! <A morphism in FinSets>
 IsWellDefined( phi );
 #! true
@@ -22,26 +22,26 @@ phi( 2 );
 phi( 3 );
 #! "b"
 List( S, phi );
-#! [ "b", "a", "b" ]
+#! [ "b", "b", "a" ]
 psi := [ [ 1, b ], [ 2, a ], [ 3, b ] ];;
-psi := MapOfFinSets( S, psi, T );
+psi := MapOfFinSetsNC( S, psi, T );
 #! <A morphism in FinSets>
 IsWellDefined( psi );
 #! true
 phi = psi;
 #! true
 psi := [ [ 1, b ], [ 3, b ], [ 2, a ], [ 2, b ] ];;
-psi := MapOfFinSets( S, psi, T );
+psi := MapOfFinSetsNC( S, psi, T );
 #! <A morphism in FinSets>
 IsWellDefined( psi );
 #! false
 psi := [ [ 1, b ], [ 3, b ] ];;
-psi := MapOfFinSets( S, psi, T );
+psi := MapOfFinSetsNC( S, psi, T );
 #! <A morphism in FinSets>
 IsWellDefined( psi );
 #! false
 psi := [ [ 1, b ], [ 3, b ], [ 2, "julia" ] ];;
-psi := MapOfFinSets( S, psi, T );
+psi := MapOfFinSetsNC( S, psi, T );
 #! <A morphism in FinSets>
 IsWellDefined( psi );
 #! false

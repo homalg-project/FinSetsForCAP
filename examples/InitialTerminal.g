@@ -19,7 +19,7 @@ pi := UniversalMorphismIntoTerminalObject( M );
 #! <A morphism in FinSets>
 IsIdenticalObj( Range( pi ), T );
 #! true
-t := FinSet( [ "Julia" ] );
+t := FinSet( [ MakeImmutable( "Julia" ) ] );
 #! <An object in FinSets>
 pi_t := UniversalMorphismIntoTerminalObjectWithGivenTerminalObject( M, t );
 #! <A morphism in FinSets>

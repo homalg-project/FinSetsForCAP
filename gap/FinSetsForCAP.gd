@@ -47,11 +47,22 @@ DeclareAttribute( "AsList",
 #! @Description
 #!  Construct a finite set out of the list <A>L</A>, i.e.,
 #!  an object in the &CAP; category <C>FinSets</C>.
+#!  Warning: L must not contain mutable objects
 #! @Arguments L
 #! @Returns a &CAP; object
 DeclareOperation( "FinSet",
         [ IsList ] );
 #! @InsertSystem FinSet
+
+#! @Description
+#!  Construct a finite set out of the duplicate-free and dense list <A>L</A>, i.e.,
+#!  an object in the &CAP; category <C>FinSets</C>.
+#!  Warning: if L contains mutable objects it is not possible to define a well-defined map from or to the object, see WellDefinedForMophisms TODO
+#! @Arguments L
+#! @Returns a &CAP; object
+DeclareOperation( "FinSetNC",
+        [ IsList ] );
+#! @InsertSystem FinSetNC
 
 #! @Description
 #!  Construct a map $\phi:$<A>S</A>$\to$<A>T</A> of the finite sets <A>S</A> and <A>T</A>,
@@ -62,6 +73,16 @@ DeclareOperation( "FinSet",
 DeclareOperation( "MapOfFinSets",
         [ IsFiniteSetRep, IsList, IsFiniteSetRep ] );
 #! @InsertSystem MapOfFinSets
+
+#! @Description
+#!  Construct a map $\phi:$<A>S</A>$\to$<A>T</A> of the finite sets <A>S</A> and <A>T</A>,
+#!  i.e., a morphism in the &CAP; category <C>FinSets</C>, where <A>G</A>
+#!  is a duplicate-free and dense list of pairs in <A>S</A>$\times$<A>T</A> describing the graph of $\phi$.
+#! @Arguments S, G, T
+#! @Returns a &CAP; morphism
+DeclareOperation( "MapOfFinSetsNC",
+        [ IsFiniteSetRep, IsList, IsFiniteSetRep ] );
+#! @InsertSystem MapOfFinSetsNC
 
 #! @Section Tools
 

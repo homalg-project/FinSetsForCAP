@@ -3,11 +3,14 @@
 LoadPackage( "FinSets" );
 
 #! @Example
+a := Immutable( "a" );;
+b := Immutable( "b" );;
+c := Immutable( "c" );;
 S := FinSet( [ 1, 2, 3 ] );
 #! <An object in FinSets>
-T := FinSet( [ "a", "b", "c" ] );
+T := FinSet( [ a, b, c ] );
 #! <An object in FinSets>
-phi := [ [ 1, "b" ], [ 2, "a" ], [ 3, "b" ] ];;
+phi := [ [ 1, b ], [ 2, a ], [ 3, b ] ];;
 phi := MapOfFinSets( S, phi, T );
 #! <A morphism in FinSets>
 I := ImageObject( phi );

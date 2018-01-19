@@ -3,11 +3,13 @@
 LoadPackage( "FinSets" );
 
 #! @Example
+a := Immutable( "a" );;
+b := Immutable( "b" );;
 S := FinSet( [ 1, 2, 3 ] );
 #! <An object in FinSets>
 Length( S );
 #! 3
-T := FinSet( [ "a", "b" ] );
+T := FinSet( [ a, b ] );
 #! <An object in FinSets>
 Length( T );
 #! 2

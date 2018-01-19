@@ -12,23 +12,59 @@ InstallMethod( FinSet,
         [ IsList ],
         
   function( L )
+    
+    if ForAny( L, l -> IsMutable( l ) ) then
+        Error( "FinSet only accepts lists of immutable objects" );
+    fi;
+    
+    return FinSetNC( Set( L ) );
+    
+end );
+
+##
+InstallMethod( FinSetNC,
+        "for a list",
+        [ IsList ],
+        
+  function( L )
     local set;
     
     set := rec( );
     
     ObjectifyWithAttributes( set, TheTypeOfFiniteSets,
-            AsList, Set( L )
+            AsList, L
             );
     
     Add( FinSets, set );
     
+    Assert( 4, IsWellDefined( set ) );
+
     return set;
     
 end );
 
 ##
 AddIsWellDefinedForObjects( FinSets,
-  ReturnTrue );
+  function( set )
+    local L, i, j;
+    
+    L := AsList( set );
+    
+    if not IsDenseList( L ) then
+        return false;
+    fi;
+    
+    for i in [ 1 .. Length( L ) ] do
+        for j in [ 1 .. ( i - 1 ) ] do
+            if IsIdenticalObj( L[ i ], L[ j ] ) then
+                return false;
+            fi;
+        od;
+    od;
+    
+    return true;
+  
+end  );
 
 ##
 InstallMethod( Length,
@@ -38,18 +74,40 @@ InstallMethod( Length,
   set -> Length( AsList( set ) ) );
 
 ##
+InstallMethod( \in,
+        "for an object and a CAP finite set",
+        [ IsObject, IsFiniteSetRep ],
+        
+  function( y, M )
+    
+    return ForAny( AsList( M ), m -> IsIdenticalObj( m, y ) );
+    
+end );
+
+##
 AddIsEqualForObjects( FinSets,
   function( set1, set2 )
     if not Length( set1 ) = Length( set2 ) then
         return false;
     fi;
     
-    return AsList( set1 ) = AsList( set2 );
+    return ForAll( AsList( set1 ), element -> element in set2 );
     
 end );
 
 ##
 InstallMethod( MapOfFinSets,
+        "for a two CAP finite sets and a list",
+        [ IsFiniteSetRep, IsList, IsFiniteSetRep ],
+        
+  function( S, G, T )
+    
+    return MapOfFinSetsNC( S, Set( G ), T );
+    
+end );
+
+##
+InstallMethod( MapOfFinSetsNC,
         "for a two CAP finite sets and a list",
         [ IsFiniteSetRep, IsList, IsFiniteSetRep ],
         
@@ -63,12 +121,14 @@ InstallMethod( MapOfFinSets,
     map := rec( );
     
     ObjectifyWithAttributes( map, TheTypeOfMapsOfFiniteSets,
-            AsList, Set( G ),
+            AsList, G,
             Source, S,
             Range, T
             );
     
     Add( FinSets, map );
+    
+    Assert( 4, IsWellDefined( map ) );
     
     return map;
     
@@ -82,7 +142,7 @@ InstallMethod( EmbeddingOfFinSets,
   function( S, T )
     local iota;
     
-    iota := MapOfFinSets( S, List( S, x -> [ x, x ] ), T );
+    iota := MapOfFinSetsNC( S, List( S, x -> [ x, x ] ), T );
     
     Assert( 3, IsMonomorphism( iota ) );
     SetIsMonomorphism( iota, true );
@@ -97,11 +157,9 @@ InstallMethod( ProjectionOfFinSets,
         [ IsFiniteSetRep, IsFiniteSetRep ],
         
   function( S, T )
-    local L, pi;
+    local pi;
     
-    L := AsList( T );
-    
-    pi := MapOfFinSets( S, List( S, x -> [ x, L[PositionProperty( L, t -> x in t )] ] ), T );
+    pi := MapOfFinSetsNC( S, List( S, x -> [ x, First( T, t -> ForAny( t, element -> IsIdenticalObj( element, x ) ) ) ] ), T );
     
     Assert( 3, IsEpimorphism( pi ) );
     SetIsEpimorphism( pi, true );
@@ -113,31 +171,50 @@ end );
 ##
 AddIsWellDefinedForMorphisms( FinSets,
   function( mor )
-    local S, rel, T;
+    local S, T, rel, i, j;
     
-    S := AsList( Source( mor ) );
+    S := Source( mor );
+    T := Range( mor );
     
     rel := AsList( mor );
+
+    if not IsDenseList( rel ) then
+        return false;
+    fi;
     
     if not Length( S ) = Length( rel ) then
         return false;
     fi;
     
-    if not Set( List( rel, a -> a[1] ) ) = S then
+    if not ForAll( rel, a -> a[ 1 ] in S and a[ 2 ] in T ) then
         return false;
     fi;
     
-    T := AsList( Range( mor ) );
+    for i in [ 1 .. Length( rel ) ] do
+        for j in [ 1 .. ( i - 1 ) ] do
+            if IsIdenticalObj( rel[ i ][ 1 ], rel[ j ][ 1 ] ) then
+                return false;
+            fi;
+        od;
+    od;
+
+    # since Length( S ) = Length( rel ) and the list of first components of rel is duplicate free, any element in S has to appear as a first component in rel
     
-    return ForAll( rel, a -> a[2] in T );
+    return true;
     
 end );
 
 ##
 AddIsEqualForMorphisms( FinSets,
   function( map1, map2 )
+    local S;
     
-    return AsList( map1 ) = AsList( map2 );
+    if not Length( AsList( map1 ) ) = Length( AsList( map2 ) ) then
+        return false;
+    fi;
+    
+    S := Source( map1 );
+    return ForAll( AsList( S ), s -> IsIdenticalObj( map1( s ), map2( s ) ) );
     
 end );
 
@@ -146,9 +223,31 @@ InstallOtherMethod( ListOp,
         "for a CAP finite set and a function",
         [ IsFiniteSetRep, IsFunction ],
         
-  function( F, f )
+  function( M, f )
     
-    return List( AsList( F ), f );
+    return List( AsList( M ), f );
+    
+end );
+
+##
+InstallOtherMethod( FilteredOp,
+        "for a CAP finite set and a function",
+        [ IsFiniteSetRep, IsFunction ],
+        
+  function( M, f )
+    
+    return FinSetNC( Filtered( AsList( M ), f ) );
+    
+end );
+
+##
+InstallOtherMethod( FirstOp,
+        "for a CAP finite set and a function",
+        [ IsFiniteSetRep, IsFunction ],
+        
+  function( M, f )
+    
+    return First( AsList( M ), f );
     
 end );
 
@@ -156,7 +255,7 @@ end );
 AddIdentityMorphism( FinSets,
   function( set )
     
-    return MapOfFinSets( set, List( set, e -> [ e, e ] ), set );
+    return MapOfFinSetsNC( set, List( set, e -> [ e, e ] ), set );
     
 end );
 
@@ -170,14 +269,14 @@ InstallMethod( CallFuncList,
     
     x := L[1];
     
-    y := First( AsList( phi ), pair -> pair[1] = x );
+    y := First( AsList( phi ), pair -> IsIdenticalObj( pair[1], x) );
     
     if y = fail then
         if HasIsWellDefined( phi ) then
             if IsWellDefined( phi ) then
                 Error( "the element ", x, " is not in the source of the map\n" );
             else
-                if not x in AsList( Source( phi ) ) then
+                if not x in Source( phi ) then
                     Error( "the element ", x, " is not in the source of the map\n" );
                 else
                     Error( "the element ", x, " is in the source of the map, however, the map is not well-defined\n" );
@@ -212,7 +311,7 @@ AddPreCompose( FinSets,
     
     cmp := List( S, s -> [ s, map_post( map_pre( s ) ) ] );
     
-    return MapOfFinSets( S, cmp, Range( map_post ) );
+    return MapOfFinSetsNC( S, cmp, Range( map_post ) );
     
 end );
 
@@ -220,7 +319,7 @@ end );
 AddTerminalObject( FinSets,
   function( arg )
     
-    return FinSet( [ "*" ] );
+    return FinSetNC( [ MakeImmutable( "*" ) ] );
     
 end );
 
@@ -235,9 +334,9 @@ AddUniversalMorphismIntoTerminalObjectWithGivenTerminalObject( FinSets,
         Error( "the second argument is not a terminal object" );
     fi;
 
-    t := t[1];
+    t := t[ 1 ];
     
-    return MapOfFinSets( M, List( M, x -> [ x, t ] ), T );
+    return MapOfFinSetsNC( M, List( M, x -> [ x, t ] ), T );
     
 end );
 
@@ -245,31 +344,33 @@ end );
 AddDirectProduct( FinSets,
   function( L )
     
-    return FinSet( Cartesian( List( L, AsList ) ) );
+    return FinSetNC( MakeImmutable( Cartesian( List( L, AsList ) ) ) );
     
 end );
 
 ##
-AddProjectionInFactorOfDirectProduct( FinSets,
-  function( L, i )
-    local S, T;
-    
-    S := DirectProduct( L );
+AddProjectionInFactorOfDirectProductWithGivenDirectProduct( FinSets,
+  function( L, i, S)
+    local T, Graph;
     
     T := L[i];
     
-    return MapOfFinSets( S, List( S, x -> [ x, x[i] ] ), T );
+    Graph := List( S, x -> [ x, x[i] ] );
+    
+    return MapOfFinSetsNC( S, Graph, T );
     
 end );
 
 ##
 AddUniversalMorphismIntoDirectProductWithGivenDirectProduct( FinSets,
   function( D, tau, T )
-    local S;
+    local S, Graph;
     
     S := Source( tau[1] );
     
-    return MapOfFinSets( S, List( S, x -> List( tau, f -> f(x) ) ), T );
+    Graph := List( AsList( S ), x -> [ x, First( T, t -> ForAll( [ 1 .. Length( t ) ], i -> IsIdenticalObj( t[ i ], tau[ i ]( x ) ) ) ) ] );
+    
+    return MapOfFinSetsNC( S, Graph, T );
     
 end );
 
@@ -277,7 +378,7 @@ end );
 AddInitialObject( FinSets,
   function( arg )
     
-    return FinSet( [  ] );
+    return FinSetNC( [  ] );
     
 end );
 
@@ -289,7 +390,7 @@ AddUniversalMorphismFromInitialObjectWithGivenInitialObject( FinSets,
         Error( "the second argument is not an initial object" );
     fi;
 
-    return MapOfFinSets( I, [ ], M );
+    return MapOfFinSetsNC( I, [ ], M );
     
 end );
 
@@ -297,22 +398,20 @@ end );
 AddCoproduct( FinSets,
   function( L )
     
-    L := List( [ 1 .. Length( L ) ], i -> Cartesian( [ i ], AsList( L[i] ) ) );
+    L := List( [ 1 .. Length( L ) ], i -> MakeImmutable( Cartesian( [ i ], AsList( L[i] ) ) ) );
     
-    return FinSet( Concatenation( L ) );
+    return FinSetNC( Concatenation( L ) );
     
 end );
 
 ##
-AddInjectionOfCofactorOfCoproduct( FinSets,
-  function( L, i )
-    local S, T;
+AddInjectionOfCofactorOfCoproductWithGivenCoproduct( FinSets,
+  function( L, i, T )
+    local S;
     
     S := L[i];
     
-    T := Coproduct( L );
-    
-    return MapOfFinSets( S, List( S, x -> [ x, [ i, x ] ] ), T );
+    return MapOfFinSetsNC( S, List( S, x -> [ x, First( T, t -> t[1] = i and IsIdenticalObj( t[2], x ) ) ] ), T );
     
 end );
 
@@ -323,15 +422,19 @@ AddUniversalMorphismFromCoproductWithGivenCoproduct( FinSets,
     
     T := Range( tau[1] );
     
-    return MapOfFinSets( S, List( S, i_x -> [ i_x, tau[i_x[1]]( i_x[2] ) ] ), T );
+    return MapOfFinSetsNC( S, List( S, i_x -> [ i_x, tau[i_x[1]]( i_x[2] ) ] ), T );
     
 end );
 
 ##
 AddImageObject( FinSets,
   function( phi )
+    local S, T;
     
-    return FinSet( Set( List( Source( phi ), phi ) ) );
+    S := Source( phi );
+    T := Range( phi );
+    
+    return Filtered( T, t -> ForAny( AsList( S ), s -> IsIdenticalObj( phi( s ), t ) ) );
     
 end );
 
@@ -358,7 +461,7 @@ AddImageEmbedding( FinSets,
     
     I := ImageObject( phi );
     
-    return MapOfFinSets( I, List( I, e -> [ e, e ] ), Range( phi ) );
+    return MapOfFinSetsNC( I, List( I, e -> [ e, e ] ), Range( phi ) );
     
 end );
 
@@ -367,24 +470,13 @@ AddCoastrictionToImage( FinSets,
   function( phi )
     local pi;
     
-    pi := MapOfFinSets( Source( phi ), AsList( phi ), ImageObject( phi ) );
+    pi := MapOfFinSetsNC( Source( phi ), AsList( phi ), ImageObject( phi ) );
     
     Assert( 3, IsEpimorphism( pi ) );
     
     SetIsEpimorphism( pi, true );
     
     return pi;
-    
-end );
-
-##
-InstallOtherMethod( FilteredOp,
-        "for a CAP finite set and a function",
-        [ IsFiniteSetRep, IsFunction ],
-        
-  function( M, b )
-    
-    return FinSet( Filtered( AsList( M ), b ) );
     
 end );
 
@@ -399,7 +491,7 @@ AddEqualizer( FinSets,
     
     D := D{[ 2 .. Length( D ) ]};
     
-    return Filtered( S, x -> ForAll( D, fj -> f1( x ) = fj( x ) ) );
+    return Filtered( S, x -> ForAll( D, fj -> IsIdenticalObj( f1( x ), fj( x ) ) ) );
     
 end );
 
@@ -415,18 +507,7 @@ end );
 AddUniversalMorphismIntoEqualizerWithGivenEqualizer( FinSets,
   function( D, tau, E )
     
-    return MapOfFinSets( Source( tau ), AsList( tau ), E );
-    
-end );
-
-##
-InstallMethod( \in,
-        "for an object and a CAP finite set",
-        [ IsObject, IsFiniteSetRep ],
-        
-  function( y, M )
-    
-    return y in AsList( M );
+    return MapOfFinSetsNC( Source( tau ), AsList( tau ), E );
     
 end );
 
@@ -448,7 +529,7 @@ InstallOtherMethod( Union2,
         
   function( M, N )
     
-    return FinSet( Union2( AsList( M ), AsList( N ) ) );
+    return FinSetNC( Union2( AsList( M ), AsList( N ) ) );
     
 end );
 
@@ -473,19 +554,19 @@ AddCoequalizer( FinSets,
     
     C := [ ];
     
-    for t in T do
-        t := FinSet( [ t ] );
+    while not IsEmpty( T ) do
+        t := T[ 1 ];
+        t := FinSetNC( [ t ] );
         t := Union( List( D, f_j -> ImageObject( f_j, Union( List( D, f_i -> Preimage( f_i, t ) ) ) ) ) );
         t := AsList( t );
-        if not t = [ ] then
-            Add( C, t );
-            T := Difference( T, t );
+        if IsEmpty( t ) then
+            t := [ T[ 1 ] ];
         fi;
+        Add( C, t );
+        T := Difference( T, t );
     od;
     
-    Append( C, List( T, t -> [ t ] ) );
-    
-    return FinSet( C );
+    return FinSetNC( MakeImmutable( C ) );
     
 end );
 
@@ -506,9 +587,9 @@ AddUniversalMorphismFromCoequalizerWithGivenCoequalizer( FinSets,
     
     G := AsList( tau );
     
-    G := List( G, t_y -> [ pi( t_y[1] ), t_y[2] ] );
+    G := List( C, x -> [ x, tau( x[1] ) ] );
     
-    return MapOfFinSets( C, G, Range( tau ) );
+    return MapOfFinSetsNC( C, G, Range( tau ) );
     
 end );
 
@@ -542,7 +623,7 @@ AddTensorUnit( FinSets,
 AddLeftUnitorWithGivenTensorProduct( FinSets,
   function( M, TM )
     
-    return MapOfFinSets( TM, List( TM, x -> [ x, x[2] ] ), M );
+    return MapOfFinSetsNC( TM, List( TM, x -> [ x, x[2] ] ), M );
     
 end );
 
@@ -550,7 +631,7 @@ end );
 AddLeftUnitorInverseWithGivenTensorProduct( FinSets,
   function( M, TM )
     
-    return MapOfFinSets( M, List( TM, x -> [ x[2], x ] ), TM );
+    return MapOfFinSetsNC( M, List( TM, x -> [ x[2], x ] ), TM );
     
 end );
 
@@ -558,7 +639,7 @@ end );
 AddRightUnitorWithGivenTensorProduct( FinSets,
   function( M, MT )
     
-    return MapOfFinSets( MT, List( MT, x -> [ x, x[1] ] ), M );
+    return MapOfFinSetsNC( MT, List( MT, x -> [ x, x[1] ] ), M );
     
 end );
 
@@ -566,7 +647,7 @@ end );
 AddRightUnitorInverseWithGivenTensorProduct( FinSets,
   function( M, MT )
     
-    return MapOfFinSets( M, List( MT, x -> [ x[1], x ] ), MT );
+    return MapOfFinSetsNC( M, List( MT, x -> [ x[1], x ] ), MT );
     
 end );
 
@@ -574,7 +655,7 @@ end );
 AddBraidingInverseWithGivenTensorProducts( FinSets,
   function( MN, M, N, NM )
     
-    return MapOfFinSets( MN, List( MN, x -> [ x, x{[2,1]} ] ), NM );
+    return MapOfFinSetsNC( MN, List( MN, x -> [ x, x{[2,1]} ] ), NM );
     
 end );
 
@@ -596,7 +677,7 @@ AddInternalHomOnObjects( FinSets,
     
     m := Length( M );
     
-    return FinSet( List( Tuples( AsList( N ), m ), L -> MapOfFinSets( M, List( [ 1 .. m ], i -> [ M[i], L[i] ] ), N ) ) );
+    return FinSetNC( List( Tuples( AsList( N ), m ), L -> MapOfFinSetsNC( M, List( [ 1 .. m ], i -> [ M[i], L[i] ] ), N ) ) );
     
 end );
 
@@ -604,7 +685,7 @@ end );
 AddInternalHomOnMorphismsWithGivenInternalHoms( FinSets,
   function( S, alpha, beta, T )
     
-    return MapOfFinSets( S, List( S, f -> PreCompose( alpha, f, beta ) ), T );
+    return MapOfFinSetsNC( S, List( S, f -> PreCompose( alpha, f, beta ) ), T );
     
 end );
 
@@ -612,7 +693,7 @@ end );
 AddEvaluationMorphismWithGivenSource( FinSets,
   function( M, N, HM_NxM )
     
-    return MapOfFinSets( HM_NxM, List( HM_NxM, fx -> [ fx, fx[1](fx[2]) ] ), N );
+    return MapOfFinSetsNC( HM_NxM, List( HM_NxM, fx -> [ fx, fx[1](fx[2]) ] ), N );
     
 end );
 
@@ -623,7 +704,7 @@ AddCoevaluationMorphismWithGivenRange( FinSets,
     
     MN := TensorProduct( M, N );
     
-    return MapOfFinSets( M, List( M, x -> [ x, MapOfFinSets( N, List( N, y -> [ y, [ x, y ] ] ), MN ) ] ), HN_MxN );
+    return MapOfFinSetsNC( M, List( M, x -> [ x, MapOfFinSetsNC( N, List( N, y -> [ y, [ x, y ] ] ), MN ) ] ), HN_MxN );
     
 end );
 
@@ -634,7 +715,7 @@ AddTensorProductToInternalHomAdjunctionMap( FinSets,
     
     L := Range( f );
     
-    return MapOfFinSets( M, List( M, x -> [ x, MapOfFinSets( N, List( N, y -> [ y, f( [ x, y ] ) ] ), L ) ] ), InternalHomOnObjects( N, L ) );
+    return MapOfFinSetsNC( M, List( M, x -> [ x, MapOfFinSetsNC( N, List( N, y -> [ y, f( [ x, y ] ) ] ), L ) ] ), InternalHomOnObjects( N, L ) );
     
 end );
 
@@ -647,7 +728,7 @@ AddInternalHomToTensorProductAdjunctionMap( FinSets,
     
     MN := TensorProduct( M, N );
     
-    return MapOfFinSets( MN, List( MN, xy -> [ xy, g( xy[1] )( xy[2] ) ] ), L );
+    return MapOfFinSetsNC( MN, List( MN, xy -> [ xy, g( xy[1] )( xy[2] ) ] ), L );
     
 end );
 
@@ -655,7 +736,7 @@ end );
 AddMonoidalPreComposeMorphismWithGivenObjects( FinSets,
   function( HM_NxH_N_L, M, N, L, HM_L );
     
-    return MapOfFinSets( HM_NxH_N_L, List( HM_NxH_N_L, fg -> [ fg, PreCompose( fg[1], fg[2] ) ] ), HM_L );
+    return MapOfFinSetsNC( HM_NxH_N_L, List( HM_NxH_N_L, fg -> [ fg, PreCompose( fg[1], fg[2] ) ] ), HM_L );
     
 end );
 
@@ -663,7 +744,7 @@ end );
 AddMonoidalPostComposeMorphismWithGivenObjects( FinSets,
   function( HM_NxH_N_L, M, N, L, HM_L );
     
-    return MapOfFinSets( HM_NxH_N_L, List( HM_NxH_N_L, fg -> [ fg, PostCompose( fg[2], fg[1] ) ] ), HM_L );
+    return MapOfFinSetsNC( HM_NxH_N_L, List( HM_NxH_N_L, fg -> [ fg, PostCompose( fg[2], fg[1] ) ] ), HM_L );
     
 end );
 
@@ -675,7 +756,7 @@ AddTensorProductInternalHomCompatibilityMorphismWithGivenObjects( FinSets,
     S1S2 := TensorProduct( S1, S2 );
     T1T2 := TensorProduct( T1, T2 );
     
-    return MapOfFinSets( L[1], List( L[1], fg -> [ fg, TensorProductOnMorphismsWithGivenTensorProducts( S1S2, fg[1], fg[2], T1T2 ) ] ), L[2] );
+    return MapOfFinSetsNC( L[1], List( L[1], fg -> [ fg, TensorProductOnMorphismsWithGivenTensorProducts( S1S2, fg[1], fg[2], T1T2 ) ] ), L[2] );
     
 end );
 
