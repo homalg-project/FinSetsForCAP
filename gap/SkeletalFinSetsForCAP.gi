@@ -15,11 +15,13 @@ InstallMethod( FinSet,
     local int;
     
     int:= rec( );
-       
+    
     ObjectifyWithAttributes( int, TheTypeOfSkeletalFiniteSets,
         Length, n );
 
     Add( SkeletalFinSets, int );
+    
+    Assert( 4, IsWellDefined( int ) );
     
     return int;
     
@@ -68,6 +70,8 @@ InstallMethod( MapOfFinSets,
         );
     
     Add( SkeletalFinSets, map );
+    
+    Assert( 4, IsWellDefined( map ) );
     
     return map;
     
