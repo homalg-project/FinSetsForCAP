@@ -293,38 +293,100 @@ end );
 ##
 AddDirectProduct( SkeletalFinSets,
   function( L )
+    local int, l;
 
-    L := List( [ 1 .. Length( L ) ], i -> Set( L[ i ] ) );
+    int := 1;
+    for l in L do
+        int := int * Length( l );
+    od;
 
-    return FinSet( Length( Cartesian( L ) ) );
+    return FinSet( int );
     
 end );
 
 ##
+ProjectionInFactorOfBinaryDirectProduct := function( L, pos )
+    local S, T, N, imgs, i;
+    
+    S := DirectProduct( L );
+    T := L[ pos ];
+    
+    N := Length( L[ 2 ] );
+    
+    imgs := [];
+
+    for i in [ 0 .. ( Length( S ) - 1 ) ] do
+        if pos = 2 then
+            Add( imgs, i mod N );
+        else
+            Add( imgs, Int( i / N ) );
+        fi;
+    od;
+    
+    imgs := List( imgs, img -> img + 1 );
+
+    return MapOfFinSets( S, imgs, T );
+end;
+
 AddProjectionInFactorOfDirectProduct( SkeletalFinSets,
-  function( L, i )
-    local C, s, t;
-
-    C := Cartesian( List( [ 1 .. Length( L ) ], i -> Set( L[ i ] ) ) );
+  function( L, pos )
+    local P, pi1, pi2;
     
-    s := DirectProduct( L );
+    if Length( L ) = 1 then
+        return IdentityMorphism( L[ 1 ] );
+    fi;
     
-    t := L[ i ];
+    P := DirectProduct( L{ [ 2 .. Length( L ) ] } );
     
-    return MapOfFinSets( s, List( s, x -> C[ x ][ i ] ), t );
+    if pos = 1 then
+        return ProjectionInFactorOfBinaryDirectProduct( [ L[ 1 ], P ], 1 );
+    else
+        pi1 := ProjectionInFactorOfBinaryDirectProduct( [ L[ 1 ], P ], 2 );
+        pi2 := ProjectionInFactorOfDirectProduct( L{ [ 2 .. Length( L ) ] }, pos - 1 );
+        return PreCompose( pi1, pi2 );
+    fi;
     
 end );
 
 ##
-AddUniversalMorphismIntoDirectProductWithGivenDirectProduct( SkeletalFinSets,
-  function( L, tau, T )
-    local C, S;
-
-    C := Cartesian( List( [ 1 .. Length( L ) ], i -> Set( L[ i ] ) ) );
-
+UniversalMorphismIntoBinaryDirectProductWithGivenDirectProduct := function( D, tau, T )
+    local S, tau_1, tau_2, N, imgs, i;
+    
     S := Source( tau[ 1 ] );
     
-    return MapOfFinSets( S, List( S, x -> Position( C, List( tau, f -> f( x ) ) ) ), T );
+    tau_1 := tau[ 1 ];
+    tau_2 := tau[ 2 ];
+    
+    N := Length( D[ 2 ] );
+    
+    imgs := [];
+    for i in [ 1 .. Length( S ) ] do
+        Add( imgs, ( AsList( tau_1 )[ i ] - 1 ) * N + ( AsList( tau_2 )[ i ] - 1 ) );
+    od;
+
+    imgs := List( imgs, img -> img + 1 );
+    
+    return MapOfFinSets( S, imgs, T );
+    
+end;
+
+AddUniversalMorphismIntoDirectProductWithGivenDirectProduct( SkeletalFinSets,
+  function( D, tau, T )
+    local D2, tau2, sigma;
+    
+    if Length( D ) = 1 then
+        return tau[ 1 ];
+    fi;
+    
+    if Length( D ) = 2 then
+        return UniversalMorphismIntoBinaryDirectProductWithGivenDirectProduct( D, tau, T );
+    fi;
+    
+    D2 := D{ [ 2 .. Length( D ) ] };
+    tau2 := tau{ [ 2 .. Length( tau ) ] };
+    
+    sigma := UniversalMorphismIntoDirectProduct( D2, tau2 );
+    return UniversalMorphismIntoBinaryDirectProductWithGivenDirectProduct( [ D[ 1 ], DirectProduct( D2 ) ], [ tau[ 1 ], sigma ], T );
     
 end );
 
