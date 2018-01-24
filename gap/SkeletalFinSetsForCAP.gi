@@ -57,10 +57,6 @@ InstallMethod( MapOfFinSets,
   function( s, G, t )
     local map;
     
-    if not ForAll( G, a -> IsPosInt( a ) ) then
-        Error( "the list of relations has a wrong syntax\n" );
-    fi;
-    
     map := rec( );
     
     ObjectifyWithAttributes( map, TheTypeOfMapsOfSkeletalFiniteSets,
@@ -86,6 +82,10 @@ AddIsWellDefinedForMorphisms( SkeletalFinSets,
     
     rel := AsList( mor );
     
+    if not ForAll( rel, a -> IsPosInt( a ) ) then
+        return false;
+    fi;
+    
     if not s = Length( rel ) then
         return false;
     fi;
@@ -95,7 +95,7 @@ AddIsWellDefinedForMorphisms( SkeletalFinSets,
     if not ForAll( rel, a -> a <= t  ) then
         return false;
     fi;
-
+    
     return true;
     
 end );
