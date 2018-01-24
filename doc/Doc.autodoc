@@ -61,6 +61,7 @@
 @Subsection SkeletalImage
 @InsertSystem SkeletalImageObject
 @InsertSystem SkeletalImageEmbedding
+@InsertSystem SkeletalCoastrictionToImage
 
 @Subsection SkeletalPreimage
 @InsertSystem SkeletalPreimage
