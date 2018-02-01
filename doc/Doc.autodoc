@@ -1,5 +1,6 @@
 @Chapter The category of finite sets
 
+@Section GAP Categories
 @Section Attributes
 @Section Constructors
 @Section Tools
@@ -35,10 +36,10 @@
 
 @Chapter The category of skeletal finite sets
 
-@Section SkeletalAttributes
-@Section SkeletalConstructors
-@Section SkeletalTools
-@Section SkeletalExamples
+@Section Skeletal GAP Categories
+@Section Skeletal Constructors
+@Section Skeletal Tools
+@Section Skeletal Examples
 
 @Subsection SkeletalWellDefined
 @InsertSystem SkeletalWellDefined

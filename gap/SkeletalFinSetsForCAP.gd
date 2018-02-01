@@ -6,27 +6,23 @@
 
 #! @Chapter The category of skeletal finite sets
 
-DeclareRepresentation( "IsSkeletalFiniteSetRep",
-        IsAttributeStoringRep and
-        IsCapCategoryObjectRep and
-	IsCellOfSkeletalCategory,
-        [ ] );
+#! @Section Skeletal GAP Categories
 
-BindGlobal( "TheTypeOfSkeletalFiniteSets",
-         NewType( TheFamilyOfCapCategoryObjects,
-                 IsSkeletalFiniteSetRep ) );
+#! @Description
+#! The GAP category of objects in the category
+#! of skeletal finite sets.
+#! @Arguments object
+DeclareCategory( "IsSkeletalFiniteSet",
+                 IsCapCategoryObject and IsCellOfSkeletalCategory );
 
-DeclareRepresentation( "IsSkeletalFiniteSetMapRep",
-        IsAttributeStoringRep and
-        IsCapCategoryMorphismRep,
-        [ ] );
+#! @Description
+#! The GAP category of morphisms in the category
+#! of skeletal finite sets.
+#! @Arguments object
+DeclareCategory( "IsSkeletalFiniteSetMap",
+                 IsCapCategoryMorphism and IsCellOfSkeletalCategory );
 
-BindGlobal( "TheTypeOfMapsOfSkeletalFiniteSets",
-         NewType( TheFamilyOfCapCategoryMorphisms,
-                 IsSkeletalFiniteSetMapRep ) );
-
-
-#! @Section SkeletalConstructors
+#! @Section Skeletal Constructors
 
 #! @Description
 #!  Construct an object in the skeletal category of finite sets
@@ -36,7 +32,7 @@ BindGlobal( "TheTypeOfMapsOfSkeletalFiniteSets",
 #! @Returns a &CAP; object
 DeclareOperation( "FinSet",
         [ IsInt ] );
-#! @InsertSystem SkeletalFinSet
+#! @InsertSystem Skeletal FinSet
 
 #! @Description
 #!  Construct a map $\phi:$<A>s</A>$\to$<A>t</A> of the skeletal finite sets <A>s</A> and <A>t</A>,
@@ -45,10 +41,10 @@ DeclareOperation( "FinSet",
 #! @Arguments s, G, t
 #! @Returns a &CAP; morphism
 DeclareOperation( "MapOfFinSets",
-        [ IsSkeletalFiniteSetRep, IsList, IsSkeletalFiniteSetRep ] );
+        [ IsSkeletalFiniteSet, IsList, IsSkeletalFiniteSet ] );
 #! @InsertSystem  MapOfSkeletalFinSets
 
-#! @Section SkeletalTools
+#! @Section Skeletal Tools
 
 #! @Description
 #!  Construct the embedding $\iota:$<A>s</A>$\to$<A>t</A> of the finite sets <A>s</A> and <A>t</A>,
@@ -56,21 +52,21 @@ DeclareOperation( "MapOfFinSets",
 #! @Arguments s, t
 #! @Returns a &CAP; morphism
 DeclareOperation( "EmbeddingOfFinSets",
-        [ IsSkeletalFiniteSetRep, IsSkeletalFiniteSetRep ] );
+        [ IsSkeletalFiniteSet, IsSkeletalFiniteSet ] );
 
 #! @Description
 #!  Compute the image of <A>s_</A> under the morphism <A>phi</A>.
 #! @Arguments phi, s_
 #! @Returns a &CAP; object
 DeclareOperation( "ImageObject",
-        [ IsSkeletalFiniteSetMapRep, IsSkeletalFiniteSetRep ] );
+        [ IsSkeletalFiniteSetMap, IsSkeletalFiniteSet ] );
 
 #! @Description
 #!  Compute the Preimage of <A>t</A> under the morphism <A>phi</A>.
 #! @Arguments phi, t
 #! @Returns a &CAP; object
 DeclareOperation( "Preimage",
-        [ IsSkeletalFiniteSetMapRep, IsList ] );
+        [ IsSkeletalFiniteSetMap, IsList ] );
 
 #! @Description
 #!  Construct the projection $\pi:$<A>s</A>$\to$<A>t</A> of the skeletal finite sets <A>s</A> and <A>t</A>,
@@ -78,4 +74,4 @@ DeclareOperation( "Preimage",
 #! @Arguments s,t
 #! @Returns a &CAP; morphism
 DeclareOperation( "ProjectionOfFinSets",
-        [ IsSkeletalFiniteSetRep, IsSkeletalFiniteSetRep ] );
+        [ IsSkeletalFiniteSet, IsSkeletalFiniteSet ] );

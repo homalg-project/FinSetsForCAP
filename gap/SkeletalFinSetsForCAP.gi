@@ -6,6 +6,10 @@
 
 BindGlobal( "SkeletalFinSets", CreateCapCategory( "SkeletalFinSets" ) );
 
+AddObjectRepresentation( SkeletalFinSets, IsSkeletalFiniteSet );
+
+AddMorphismRepresentation( SkeletalFinSets, IsSkeletalFiniteSetMap );
+
 ##
 InstallMethod( FinSet,
         "for a nonnegative integer",
@@ -16,11 +20,9 @@ InstallMethod( FinSet,
     
     int:= rec( );
     
-    ObjectifyWithAttributes( int, TheTypeOfSkeletalFiniteSets,
+    ObjectifyObjectForCAPWithAttributes( int, SkeletalFinSets,
         Length, n );
 
-    Add( SkeletalFinSets, int );
-    
     Assert( 4, IsWellDefined( int ) );
     
     return int;
@@ -30,7 +32,7 @@ end );
 ##
 InstallOtherMethod( AsList,
         "for CAP skeletal finite sets",
-        [ IsSkeletalFiniteSetRep ],
+        [ IsSkeletalFiniteSet ],
         
   n -> Set( [ 1 .. Length( n ) ] ) );
 
@@ -52,20 +54,18 @@ end );
 ##
 InstallMethod( MapOfFinSets,
         "for two CAP skeletal finite sets and a list",
-        [ IsSkeletalFiniteSetRep, IsList, IsSkeletalFiniteSetRep ],
+        [ IsSkeletalFiniteSet, IsList, IsSkeletalFiniteSet ],
         
   function( s, G, t )
     local map;
     
     map := rec( );
     
-    ObjectifyWithAttributes( map, TheTypeOfMapsOfSkeletalFiniteSets,
+    ObjectifyMorphismForCAPWithAttributes( map, SkeletalFinSets,
             AsList, G,
             Source, s,
-            Range, t 
+            Range, t
         );
-    
-    Add( SkeletalFinSets, map );
     
     Assert( 4, IsWellDefined( map ) );
     
@@ -119,7 +119,7 @@ end );
 ##
 InstallOtherMethod( ListOp,
         "for a CAP skeletal finite set and a function",
-        [ IsSkeletalFiniteSetRep, IsFunction ],
+        [ IsSkeletalFiniteSet, IsFunction ],
         
   function( s, f )
 
@@ -129,7 +129,7 @@ end );
 ##
 InstallOtherMethod( ListOp,
         "for a CAP skeletal finite set and a CAP map of skeletal finite sets",
-        [ IsSkeletalFiniteSetRep, IsSkeletalFiniteSetMapRep ],
+        [ IsSkeletalFiniteSet, IsSkeletalFiniteSetMap ],
         
   function( s, phi )
     
@@ -198,7 +198,7 @@ end );
 ##
 InstallMethod( CallFuncList,
         "for a CAP map of skeletal finite sets and a list",
-    [ IsSkeletalFiniteSetMapRep, IsList ],
+    [ IsSkeletalFiniteSetMap, IsList ],
         
   function( phi, L )
     local x;
@@ -212,7 +212,7 @@ end );
 ##
 InstallMethod( EmbeddingOfFinSets,
         "for two CAP skeletal finite sets",
-        [ IsSkeletalFiniteSetRep, IsSkeletalFiniteSetRep ],
+        [ IsSkeletalFiniteSet, IsSkeletalFiniteSet ],
         
   function( s, t )
     local iota;
@@ -229,7 +229,7 @@ end );
 ##
 InstallMethod( ImageObject,
      "for a CAP map of skeletal finite sets and a CAP skeletal finite set",
-     [ IsSkeletalFiniteSetMapRep, IsSkeletalFiniteSetRep ],
+     [ IsSkeletalFiniteSetMap, IsSkeletalFiniteSet ],
       function( phi, s_ )
 
     return ImageObject( PreCompose( EmbeddingOfFinSets( s_, Source( phi ) ), phi ) );
@@ -503,7 +503,7 @@ end );
 ##
 InstallMethod( Preimage,
         "for a CAP map of skeletal finite sets and a CAP skeletal finite set",
-        [ IsSkeletalFiniteSetMapRep, IsList ],
+        [ IsSkeletalFiniteSetMap, IsList ],
         
   function( phi, t )
 
@@ -593,7 +593,7 @@ Finalize( SkeletalFinSets );
 ##
 InstallMethod( Display,
         "for a CAP skeletal finite set",
-        [ IsSkeletalFiniteSetRep ],
+        [ IsSkeletalFiniteSet ],
         
   function( s )
     Display( Length( s ) );
@@ -602,7 +602,7 @@ end );
 ##
 InstallMethod( Display,
     "for a CAP map of skeletal finite sets",
-        [ IsSkeletalFiniteSetMapRep ],
+        [ IsSkeletalFiniteSetMap ],
         
   function( phi )
     Display( [ Length( Source( phi ) ), AsList( phi ), Length( Range( phi ) ) ] );

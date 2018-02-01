@@ -6,6 +6,10 @@
 
 BindGlobal( "FinSets", CreateCapCategory( "FinSets" ) );
 
+AddObjectRepresentation( FinSets, IsFiniteSet );
+
+AddMorphismRepresentation( FinSets, IsFiniteSetMap );
+
 ##
 InstallMethod( FinSet,
         "for a list",
@@ -31,11 +35,9 @@ InstallMethod( FinSetNC,
     
     set := rec( );
     
-    ObjectifyWithAttributes( set, TheTypeOfFiniteSets,
+    ObjectifyObjectForCAPWithAttributes( set, FinSets,
             AsList, L
             );
-    
-    Add( FinSets, set );
     
     Assert( 4, IsWellDefined( set ) );
 
@@ -69,14 +71,14 @@ end  );
 ##
 InstallMethod( Length,
         "for CAP finite sets",
-        [ IsFiniteSetRep ],
+        [ IsFiniteSet ],
         
   set -> Length( AsList( set ) ) );
 
 ##
 InstallMethod( \in,
         "for an object and a CAP finite set",
-        [ IsObject, IsFiniteSetRep ],
+        [ IsObject, IsFiniteSet ],
         
   function( y, M )
     
@@ -98,7 +100,7 @@ end );
 ##
 InstallMethod( MapOfFinSets,
         "for two CAP finite sets and a list",
-        [ IsFiniteSetRep, IsList, IsFiniteSetRep ],
+        [ IsFiniteSet, IsList, IsFiniteSet ],
         
   function( S, G, T )
     
@@ -109,7 +111,7 @@ end );
 ##
 InstallMethod( MapOfFinSetsNC,
         "for a two CAP finite sets and a list",
-        [ IsFiniteSetRep, IsList, IsFiniteSetRep ],
+        [ IsFiniteSet, IsList, IsFiniteSet ],
         
   function( S, G, T )
     local map;
@@ -120,13 +122,11 @@ InstallMethod( MapOfFinSetsNC,
     
     map := rec( );
     
-    ObjectifyWithAttributes( map, TheTypeOfMapsOfFiniteSets,
+    ObjectifyMorphismForCAPWithAttributes( map, FinSets,
             AsList, G,
             Source, S,
             Range, T
             );
-    
-    Add( FinSets, map );
     
     Assert( 4, IsWellDefined( map ) );
     
@@ -137,7 +137,7 @@ end );
 ##
 InstallMethod( EmbeddingOfFinSets,
         "for a two CAP finite sets",
-        [ IsFiniteSetRep, IsFiniteSetRep ],
+        [ IsFiniteSet, IsFiniteSet ],
         
   function( S, T )
     local iota;
@@ -154,7 +154,7 @@ end );
 ##
 InstallMethod( ProjectionOfFinSets,
         "for a two CAP finite sets",
-        [ IsFiniteSetRep, IsFiniteSetRep ],
+        [ IsFiniteSet, IsFiniteSet ],
         
   function( S, T )
     local pi;
@@ -221,7 +221,7 @@ end );
 ##
 InstallOtherMethod( ListOp,
         "for a CAP finite set and a function",
-        [ IsFiniteSetRep, IsFunction ],
+        [ IsFiniteSet, IsFunction ],
         
   function( M, f )
     
@@ -232,7 +232,7 @@ end );
 ##
 InstallOtherMethod( FilteredOp,
         "for a CAP finite set and a function",
-        [ IsFiniteSetRep, IsFunction ],
+        [ IsFiniteSet, IsFunction ],
         
   function( M, f )
     
@@ -243,7 +243,7 @@ end );
 ##
 InstallOtherMethod( FirstOp,
         "for a CAP finite set and a function",
-        [ IsFiniteSetRep, IsFunction ],
+        [ IsFiniteSet, IsFunction ],
         
   function( M, f )
     
@@ -262,7 +262,7 @@ end );
 ##
 InstallMethod( CallFuncList,
         "for a CAP map of finite sets and a list",
-        [ IsFiniteSetMapRep, IsList ],
+        [ IsFiniteSetMap, IsList ],
         
   function( phi, L )
     local x, y;
@@ -294,7 +294,7 @@ end );
 ##
 InstallOtherMethod( ListOp,
         "for a CAP finite set and a CAP map of finite sets",
-        [ IsFiniteSetRep, IsFiniteSetMapRep ],
+        [ IsFiniteSet, IsFiniteSetMap ],
         
   function( F, phi )
     
@@ -514,7 +514,7 @@ end );
 ##
 InstallMethod( Preimage,
         "for a CAP map of finite sets and a CAP finite set",
-        [ IsFiniteSetMapRep, IsFiniteSetRep ],
+        [ IsFiniteSetMap, IsFiniteSet ],
         
   function( f, T_ )
     
@@ -525,7 +525,7 @@ end );
 ##
 InstallOtherMethod( Union2,
         "for a CAP map of finite sets and a CAP finite set",
-        [ IsFiniteSetRep, IsFiniteSetRep ],
+        [ IsFiniteSet, IsFiniteSet ],
         
   function( M, N )
     
@@ -542,7 +542,7 @@ end;
 ##
 InstallMethod( ImageObject,
         "for a CAP map of finite sets and a CAP finite set",
-        [ IsFiniteSetMapRep, IsFiniteSetRep ],
+        [ IsFiniteSetMap, IsFiniteSet ],
         
   function( f, S_ )
     
@@ -681,7 +681,7 @@ end );
 ##
 InstallMethod( \[\],
         "for CAP finite sets",
-        [ IsFiniteSetRep, IsInt ],
+        [ IsFiniteSet, IsInt ],
 
   function( M, i )
     
@@ -785,7 +785,7 @@ Finalize( FinSets );
 ##
 InstallMethod( Display,
         "for a CAP finite set",
-        [ IsFiniteSetRep ],
+        [ IsFiniteSet ],
         
   function( S )
     Display( AsList( S ) );

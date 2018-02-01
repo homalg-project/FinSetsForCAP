@@ -6,23 +6,21 @@
 
 #! @Chapter The category of finite sets
 
-DeclareRepresentation( "IsFiniteSetRep",
-        IsAttributeStoringRep and
-        IsCapCategoryObjectRep,
-        [ ] );
+#! @Section GAP Categories
 
-BindGlobal( "TheTypeOfFiniteSets",
-         NewType( TheFamilyOfCapCategoryObjects,
-                 IsFiniteSetRep ) );
+#! @Description
+#! The GAP category of objects in the category
+#! of finite sets.
+#! @Arguments object
+DeclareCategory( "IsFiniteSet",
+                 IsCapCategoryObject );
 
-DeclareRepresentation( "IsFiniteSetMapRep",
-        IsAttributeStoringRep and
-        IsCapCategoryMorphismRep,
-        [ ] );
-
-BindGlobal( "TheTypeOfMapsOfFiniteSets",
-         NewType( TheFamilyOfCapCategoryMorphisms,
-                 IsFiniteSetMapRep ) );
+#! @Description
+#! The GAP category of morphisms in the category
+#! of finite sets.
+#! @Arguments object
+DeclareCategory( "IsFiniteSetMap",
+                 IsCapCategoryMorphism );
 
 #! @Section Attributes
 
@@ -32,7 +30,7 @@ BindGlobal( "TheTypeOfMapsOfFiniteSets",
 #! @Arguments M
 #! @Returns a &GAP; set
 DeclareAttribute( "AsList",
-        IsFiniteSetRep );
+        IsFiniteSet );
 
 #! @Description
 #!  The relation underlying a map between finite sets,
@@ -40,7 +38,7 @@ DeclareAttribute( "AsList",
 #! @Arguments f
 #! @Returns a list
 DeclareAttribute( "AsList",
-        IsFiniteSetMapRep );
+        IsFiniteSetMap );
 
 #! @Section Constructors
 
@@ -71,7 +69,7 @@ DeclareOperation( "FinSetNC",
 #! @Arguments S, G, T
 #! @Returns a &CAP; morphism
 DeclareOperation( "MapOfFinSets",
-        [ IsFiniteSetRep, IsList, IsFiniteSetRep ] );
+        [ IsFiniteSet, IsList, IsFiniteSet ] );
 #! @InsertSystem MapOfFinSets
 
 #! @Description
@@ -81,7 +79,7 @@ DeclareOperation( "MapOfFinSets",
 #! @Arguments S, G, T
 #! @Returns a &CAP; morphism
 DeclareOperation( "MapOfFinSetsNC",
-        [ IsFiniteSetRep, IsList, IsFiniteSetRep ] );
+        [ IsFiniteSet, IsList, IsFiniteSet ] );
 #! @InsertSystem MapOfFinSetsNC
 
 #! @Section Tools
@@ -92,21 +90,21 @@ DeclareOperation( "MapOfFinSetsNC",
 #! @Arguments S, T
 #! @Returns a &CAP; morphism
 DeclareOperation( "EmbeddingOfFinSets",
-        [ IsFiniteSetRep, IsFiniteSetRep ] );
+        [ IsFiniteSet, IsFiniteSet ] );
 
 #! @Description
 #!  Compute the preimage of <A>T_</A> under the morphism <A>f</A>.
 #! @Arguments f, T_
 #! @Returns a &CAP; object
 DeclareOperation( "Preimage",
-        [ IsFiniteSetMapRep, IsFiniteSetRep ] );
+        [ IsFiniteSetMap, IsFiniteSet ] );
 
 #! @Description
 #!  Compute the image of <A>S_</A> under the morphism <A>f</A>.
 #! @Arguments f, S_
 #! @Returns a &CAP; object
 DeclareOperation( "ImageObject",
-        [ IsFiniteSetMapRep, IsFiniteSetRep ] );
+        [ IsFiniteSetMap, IsFiniteSet ] );
 
 #! @Description
 #!  Construct the projection $\pi:$<A>S</A>$\to$<A>T</A> of the finite sets <A>S</A> and <A>T</A>,
@@ -114,4 +112,4 @@ DeclareOperation( "ImageObject",
 #! @Arguments S, T
 #! @Returns a &CAP; morphism
 DeclareOperation( "ProjectionOfFinSets",
-        [ IsFiniteSetRep, IsFiniteSetRep ] );
+        [ IsFiniteSet, IsFiniteSet ] );
