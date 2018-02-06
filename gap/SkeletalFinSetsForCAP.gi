@@ -144,7 +144,7 @@ AddPreCompose( SkeletalFinSets,
 
     s := Source( map_pre );
 
-    cmp := List( s, i -> map_post( map_pre( i ) ) );
+    cmp := List( s, i -> AsList( map_post )[ AsList( map_pre )[ i ] ] );
 
     return MapOfFinSets( s, cmp, Range( map_post ) );
     
@@ -205,22 +205,6 @@ InstallMethod( CallFuncList,
     local x;
     
     x := L[ 1 ];
-    
-    if x = fail then
-        if HasIsWellDefined( phi ) then
-            if IsWellDefined( phi ) then
-                Error( "the element ", x, " is not in the source of the map\n" );
-            else
-                if not x <= Length( Source( phi ) ) then
-                    Error( "the element ", x, " is not in the source of the map\n" );
-                else
-                    Error( "the element ", x, " is in the source of the map, however, the map is not well-defined\n" );
-                fi;
-            fi;
-        else
-            Error( "please check if the map is well-defined\n" );
-        fi;
-    fi;
     
     return AsList( phi )[ x ];
     
@@ -533,7 +517,7 @@ InstallMethod( Preimage,
         
   function( phi, t )
 
-    return Filtered( Set( Source( phi ) ), x -> phi( x ) in t );
+    return Filtered( Set( Source( phi ) ), x -> AsList( phi )[ x ] in t );
 
 end );
 
