@@ -161,16 +161,37 @@ end );
 ##
 AddIsEpimorphism( SkeletalFinSets,
   function( phi )
+    local imgs, testList, img;
     
-    return ImageObject( phi ) = Range( phi );
+    imgs := AsList( phi );
+    
+    testList := ListWithIdenticalEntries( Length( Range( phi ) ), 0 );
+    
+    for img in imgs do
+        testList[ img ] := 1;
+    od;
+
+    return ForAll( testList, test -> test = 1 );
     
 end );
 
 ##
 AddIsMonomorphism( SkeletalFinSets,
   function( phi )
+    local imgs, testList, img;
+    
+    imgs := AsList( phi );
+    
+    testList := ListWithIdenticalEntries( Length( Range( phi ) ), 0 );
+    
+    for img in imgs do
+        if testList[ img ] = 1 then
+            return false;
+        fi;
+        testList[ img ] := 1;
+    od;
 
-    return Source( phi ) = ImageObject( phi );
+    return true;
     
 end );
 
