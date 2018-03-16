@@ -547,7 +547,7 @@ end );
 ##
 AddCoequalizer( FinSets,
   function( D )
-    local T, C, t;
+    local T, C, t, L, i;
     
     T := Range( D[1] );
     T := AsList( T );
@@ -565,6 +565,23 @@ AddCoequalizer( FinSets,
         Add( C, t );
         T := Difference( T, t );
     od;
+    
+    T := AsList( Range( D[ 1 ] ) );
+    
+    if not Concatenation( C ) = T then
+    for t in T do
+        L := [];
+            for i in [ 1 .. Length( C )] do
+                if t in C[ i ] then 
+                    Add( L, C[ i ] );
+                fi;
+	    	od;
+            if Length( L ) > 1 then
+                C := Difference( C, L );
+                Add( C, Set( Concatenation( L ) ) );
+	        fi;
+	    od;
+    fi;
     
     return FinSetNC( MakeImmutable( C ) );
     
