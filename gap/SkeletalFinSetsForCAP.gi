@@ -478,36 +478,38 @@ end );
 ##
 AddCoproduct( SkeletalFinSets,
   function( L )
-
-    L := List( [ 1 .. Length( L ) ], i -> Cartesian( [ i ], AsList( L[ i ] ) ) );
     
-    return FinSet( Length( Concatenation( L ) ) );
+    return FinSet( Sum( L, x -> Length( x ) ) );
     
 end );
 
 ##
 AddInjectionOfCofactorOfCoproduct( SkeletalFinSets,
   function( L, i )
-    local C, s;
-
-    C := Concatenation( List( [ 1 .. Length( L ) ], i -> Cartesian( [ i ], AsList( L[ i ] ) ) ) );
-
-    s := L[ i ];
+    local s, O, sum, cmp;
     
-    return MapOfFinSets( s, List( s, x -> Position( C, [ i, x ] ) ), Coproduct( L ) );
+    O := L{ [ 1 .. i-1 ] };
     
+    sum := Sum( O, x -> Length( x ) );
+    
+    s := L[ i ]; 
+    
+    cmp := List( s, x -> sum + x );
+    
+    return MapOfFinSets( s, cmp, Coproduct( L ) );
+
 end );
 
 ##
 AddUniversalMorphismFromCoproductWithGivenCoproduct( SkeletalFinSets,
   function( L, tau, S )
-    local T, C;
+    local T, cmp;
     
     T := Range( tau[ 1 ] );
 
-    C := Concatenation( List( [ 1 .. Length( L ) ], i -> Cartesian( [ i ], AsList( L[ i ] ) ) ) );    
+    cmp := Concatenation( List( [ 1 .. Length( tau ) ], x -> AsList( tau[ x ] ) ) );    
 
-    return MapOfFinSets( S, List( C, i_x -> tau[i_x[1]]( i_x[2] ) ), T );
+    return MapOfFinSets( S, cmp, T );
     
 end );
 
