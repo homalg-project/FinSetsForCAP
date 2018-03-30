@@ -429,6 +429,7 @@ AddEmbeddingOfEqualizerWithGivenEqualizer( SkeletalFinSets,
     f1 := D[ 1 ];
     
     s := Source( f1 );
+    D := D{ [ 2 .. Length( D ) ] };
 
     cmp := Filtered( s, x -> ForAll( D, fj -> f1( x ) = fj( x ) ) );
 
@@ -522,86 +523,79 @@ InstallMethod( Preimage,
 end );
 
 ##
-AddCoequalizer( SkeletalFinSets,
-  function( D )
-    local T, Cq, t;
+ExplicitCoequalizer := function( D )
+    local T, Cq, t, L, i;
     
     T := Range( D[ 1 ] );
     T := AsList( T );
     
     Cq := [ ];
     
-    for t in T do
-        t := [ t ];
-        t := Union( List( D, f_j -> List( Union( List( D, f_i -> Preimage( f_i, t ) ) ), f_j  ) ) );
-        t := Set( t );
-        if not t = [ ] then
-            Add( Cq, t );
-        T:= Difference( T, t ); ## damit bei Append nur noch die dabei sind, die wir noch wollen ## diesen Text noch Löschen!!
+    while not IsEmpty( T ) do
+        t := T[ 1 ]; 
+        t := Union( List( D, f_j -> List( Union( List( D, f_i -> Preimage( f_i, [ t ] ) ) ), f_j  ) ) );
+        t := AsList( t );
+        if IsEmpty( t ) then
+            t := [ T[ 1 ] ];
         fi;
+        Add( Cq, t );
+        T := Difference( T, t );
     od;
     
-    Append( Cq, List( T, t -> [ t ] )  );
+    T := AsList( Range( D[ 1 ] ) );
     
-    Cq := Set( Cq );
+    if not Concatenation( Cq ) = T then
+    for t in T do
+        L := [];
+            for i in [ 1 .. Length( Cq )] do
+                if t in Cq[ i ] then 
+                    Add( L, Cq[ i ] );
+                fi;
+            od;
+            if Length( L ) > 1 then
+                Cq := Difference( Cq, L );
+                Add( Cq, Set( Concatenation( L ) ) );
+            fi;
+        od;
+    fi;
+    
+    return Cq;
 
-    return FinSet( Length( Cq ) );
+end;
+
+##
+AddCoequalizer( SkeletalFinSets,
+  function( D )
+  
+    return FinSet( Length( ExplicitCoequalizer( D ) ) );
     
 end );
 
 ##
 AddProjectionOntoCoequalizerWithGivenCoequalizer( SkeletalFinSets,
   function( D, C )
-    local T, Cq, t, G;
-    
-    T := Range( D[ 1 ] );
-    T := AsList( T );
-    
-    Cq := [ ];
-    
-    for t in T do
-        t := [ t ];
-        t := Union( List( D, f_j -> List( Union( List( D, f_i -> Preimage( f_i, t ) ) ), f_j  ) ) );
-        t := Set( t );
-        if not t = [ ] then
-            Add( Cq, t );
-        T:= Difference( T, t );
-        fi;
-    od;
-    
-    Append( Cq, List( T, t -> [ t ] ) );
+    local Cq, s, cmp;
 
-    G := List( [ 1 .. Length( Cq ) ], x -> Position( Set( Cq ), Cq[ PositionProperty( Cq, t -> x in t ) ] ) );
+    Cq := ExplicitCoequalizer( D );
     
-    return MapOfFinSets( Range( D[ 1 ] ), G, C );
+    s := Range( D[ 1 ] );
+    
+    cmp := List( s, x -> First( Cq, c -> x in c ) ); 
+    
+    cmp := List( cmp, x -> Position( Cq, x ) );
+    
+    return MapOfFinSets( s, cmp, C );
     
 end );
 
 ##
 AddUniversalMorphismFromCoequalizerWithGivenCoequalizer( SkeletalFinSets,
   function( D, tau, C )
-    local T, Cq, t;
+    local Cq;
     
-    T := Range( D[ 1 ] );
-    T := AsList( T );
-    
-    Cq := [ ];
-    
-    for t in T do
-        t := [ t ];
-        t := Union( List( D, f_j -> List( Union( List( D, f_i -> Preimage( f_i, t ) ) ), f_j  ) ) );
-        t := Set( t );
-        if not t = [ ] then
-            Add( Cq, t );
-        T:= Difference( T, t );
-        fi;
-    od;
-    
-    Append( Cq, List( T, t -> [ t ] )  );
-    
-    Cq := Set( Cq );
+    Cq := ExplicitCoequalizer( D );
 
-    return MapOfFinSets( C, List( Cq, x -> tau( First( x, IsInt ) ) ), Range( tau ) );
+    return MapOfFinSets( C, List( Cq, x -> tau( x[ 1 ] ) ), Range( tau ) );
     
  end ); 
 
