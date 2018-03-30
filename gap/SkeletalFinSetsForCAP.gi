@@ -311,20 +311,20 @@ end );
 
 ##
 ProjectionInFactorOfBinaryDirectProduct := function( L, pos )
-    local S, T, N, imgs, i;
+    local S, T, n, imgs, i;
     
     S := DirectProduct( L );
     T := L[ pos ];
     
-    N := Length( L[ 2 ] );
+    n := Length( L[ 2 ] );
     
     imgs := [];
 
-    for i in [ 0 .. ( Length( S ) - 1 ) ] do
+    for i in AsList( S ) do
         if pos = 2 then
-            Add( imgs, i mod N );
+            Add( imgs, ( i-1 ) mod n );
         else
-            Add( imgs, Int( i / N ) );
+            Add( imgs, Int( ( i-1 ) / n ) );
         fi;
     od;
     
@@ -355,21 +355,19 @@ end );
 
 ##
 UniversalMorphismIntoBinaryDirectProductWithGivenDirectProduct := function( D, tau, T )
-    local S, tau_1, tau_2, N, imgs, i;
+    local S, n, imgs, i;
     
     S := Source( tau[ 1 ] );
     
-    tau_1 := tau[ 1 ];
-    tau_2 := tau[ 2 ];
-    
-    N := Length( D[ 2 ] );
+    n := Length( D[ 2 ] );
     
     imgs := [];
-    for i in [ 1 .. Length( S ) ] do
-        Add( imgs, ( AsList( tau_1 )[ i ] - 1 ) * N + ( AsList( tau_2 )[ i ] - 1 ) );
+    
+    for i in AsList( S ) do
+    
+        Add( imgs, ( AsList( tau[ 1 ] )[ i ] - 1 ) * n + AsList( tau[ 2 ] )[ i ] );
+        
     od;
-
-    imgs := List( imgs, img -> img + 1 );
     
     return MapOfFinSets( S, imgs, T );
     
