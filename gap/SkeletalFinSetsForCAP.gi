@@ -28,7 +28,7 @@ InstallMethod( FinSet,
 end );
 
 ##
-InstallOtherMethod( Set,
+InstallOtherMethod( AsList,
         "for CAP skeletal finite sets",
         [ IsSkeletalFiniteSetRep ],
         
@@ -123,7 +123,7 @@ InstallOtherMethod( ListOp,
         
   function( s, f )
 
-    return List( Set( s ), f );
+    return List( AsList( s ), f );
 end );
 
 ##
@@ -133,7 +133,7 @@ InstallOtherMethod( ListOp,
         
   function( s, phi )
     
-    return List( Set( s ), phi );
+    return List( AsList( s ), phi );
        
 end );
 
@@ -289,7 +289,7 @@ AddUniversalMorphismIntoTerminalObjectWithGivenTerminalObject( SkeletalFinSets,
         Error( "the second argument is not a terminal object" );
     fi;
     
-    M := Set( m );
+    M := AsList( m );
 
     return MapOfFinSets( m, List( M, a -> Length( t ) ), t );
     
@@ -402,7 +402,7 @@ InstallOtherMethod( FilteredOp,
         
   function( m, f )
     
-    return FinSet( Length( Filtered( Set( m ), f ) ) );
+    return FinSet( Length( Filtered( AsList( m ), f ) ) );
     
 end );
 
@@ -430,7 +430,7 @@ AddEmbeddingOfEqualizerWithGivenEqualizer( SkeletalFinSets,
     
     s := Source( f1 );
 
-    cmp := Filtered( Set( s ), x -> ForAll( D, fj -> f1( x ) = fj( x ) ) );
+    cmp := Filtered( s, x -> ForAll( D, fj -> f1( x ) = fj( x ) ) );
 
     return MapOfFinSets( E, cmp, s );
     
@@ -445,7 +445,7 @@ AddUniversalMorphismIntoEqualizerWithGivenEqualizer( SkeletalFinSets,
     
     s := Source( f1 );
 
-    Eq := Filtered( Set( s ), x -> ForAll( D, fj -> f1( x ) = fj( x ) ) );
+    Eq := Filtered( s, x -> ForAll( D, fj -> f1( x ) = fj( x ) ) );
 
     return MapOfFinSets( Source( tau ), List( x -> Position( Eq, tau( x ) ) ), E );
     
@@ -478,7 +478,7 @@ end );
 AddCoproduct( SkeletalFinSets,
   function( L )
 
-    L := List( [ 1 .. Length( L ) ], i -> Cartesian( [ i ], Set( L[ i ] ) ) );
+    L := List( [ 1 .. Length( L ) ], i -> Cartesian( [ i ], AsList( L[ i ] ) ) );
     
     return FinSet( Length( Concatenation( L ) ) );
     
@@ -489,7 +489,7 @@ AddInjectionOfCofactorOfCoproduct( SkeletalFinSets,
   function( L, i )
     local C, s;
 
-    C := Concatenation( List( [ 1 .. Length( L ) ], i -> Cartesian( [ i ], Set( L[ i ] ) ) ) );
+    C := Concatenation( List( [ 1 .. Length( L ) ], i -> Cartesian( [ i ], AsList( L[ i ] ) ) ) );
 
     s := L[ i ];
     
@@ -504,7 +504,7 @@ AddUniversalMorphismFromCoproductWithGivenCoproduct( SkeletalFinSets,
     
     T := Range( tau[ 1 ] );
 
-    C := Concatenation( List( [ 1 .. Length( L ) ], i -> Cartesian( [ i ], Set( L[ i ] ) ) ) );    
+    C := Concatenation( List( [ 1 .. Length( L ) ], i -> Cartesian( [ i ], AsList( L[ i ] ) ) ) );    
 
     return MapOfFinSets( S, List( C, i_x -> tau[i_x[1]]( i_x[2] ) ), T );
     
@@ -517,7 +517,7 @@ InstallMethod( Preimage,
         
   function( phi, t )
 
-    return Filtered( Set( Source( phi ) ), x -> AsList( phi )[ x ] in t );
+    return Filtered( Source( phi ) , x -> AsList( phi )[ x ] in t );
 
 end );
 
@@ -527,7 +527,7 @@ AddCoequalizer( SkeletalFinSets,
     local T, Cq, t;
     
     T := Range( D[ 1 ] );
-    T := Set( T );
+    T := AsList( T );
     
     Cq := [ ];
     
@@ -555,7 +555,7 @@ AddProjectionOntoCoequalizerWithGivenCoequalizer( SkeletalFinSets,
     local T, Cq, t, G;
     
     T := Range( D[ 1 ] );
-    T := Set( T );
+    T := AsList( T );
     
     Cq := [ ];
     
@@ -583,7 +583,7 @@ AddUniversalMorphismFromCoequalizerWithGivenCoequalizer( SkeletalFinSets,
     local T, Cq, t;
     
     T := Range( D[ 1 ] );
-    T := Set( T );
+    T := AsList( T );
     
     Cq := [ ];
     
@@ -668,7 +668,7 @@ end );
 AddInternalHomOnObjects( SkeletalFinSets,
   function( m, n )
         
-    return FinSet( Length( List( Tuples( Set( n ), Length( m ) ), L -> MapOfFinSets( m, L, n ) ) ) );
+    return FinSet( Length( List( Tuples( AsList( n ), Length( m ) ), L -> MapOfFinSets( m, L, n ) ) ) );
     
 end );
 
@@ -677,7 +677,7 @@ AddInternalHomOnMorphismsWithGivenInternalHoms( SkeletalFinSets,
   function( s, alpha, beta, t )
     local S;
 
-    S := List( Tuples( Set( t ), Length( s ) ), L -> MapOfFinSets( s, L, t ) );
+    S := List( Tuples( AsList( t ), Length( s ) ), L -> MapOfFinSets( s, L, t ) );
 
     return MapOfFinSets( s, List( S, f -> PreCompose( alpha, f, beta ) ), t );
     
