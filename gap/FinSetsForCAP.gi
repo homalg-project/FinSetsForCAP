@@ -575,13 +575,15 @@ AddCoequalizer( FinSets,
                 if t in C[ i ] then 
                     Add( L, C[ i ] );
                 fi;
-	    	od;
+            od;
             if Length( L ) > 1 then
                 C := Difference( C, L );
                 Add( C, Set( Concatenation( L ) ) );
-	        fi;
-	    od;
+            fi;
+        od;
     fi;
+    
+    C := Set( C );
     
     return FinSetNC( MakeImmutable( C ) );
     

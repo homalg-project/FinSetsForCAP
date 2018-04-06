@@ -11,6 +11,6 @@ phi := MapOfFinSets( n, [7, 5, 5] ,m );
 #! <A morphism in SkeletalFinSets>
 P := Preimage( phi, [2] );
 #! [  ]
-P := Preimage( phi, Set( FinSet( 5 ) ) );
+P := Preimage( phi, AsList( FinSet( 5 ) ) );
 #! [ 2, 3 ]
 #! @EndExample

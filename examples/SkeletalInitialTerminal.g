@@ -9,11 +9,11 @@ i := InitialObject( m );
 #! <An object in SkeletalFinSets>
 iota := UniversalMorphismFromInitialObject( m );
 #! <A morphism in SkeletalFinSets>
-Set( i );
+AsList( i );
 #! [  ]
 t := TerminalObject( m );
 #! <An object in SkeletalFinSets>
-Set( t );
+AsList( t );
 #! [ 1 ]
 pi := UniversalMorphismIntoTerminalObject( m );
 #! <A morphism in SkeletalFinSets>

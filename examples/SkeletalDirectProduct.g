@@ -11,7 +11,7 @@ p := FinSet( 4 );
 #! <An object in SkeletalFinSets>
 d := DirectProduct( [ m, n, p ] );
 #! <An object in SkeletalFinSets>
-Set( d );
+AsList( d );
 #! [ 1 .. 84 ]
 pi1 := ProjectionInFactorOfDirectProduct( [ m, n, p ], 1 );
 #! <A morphism in SkeletalFinSets>

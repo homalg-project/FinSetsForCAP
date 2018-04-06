@@ -11,7 +11,7 @@ p := FinSet( 4 );
 #! <An object in SkeletalFinSets>
 c := Coproduct( m, n, p );
 #! <An object in SkeletalFinSets>
-Set( c );
+AsList( c );
 #! [ 1 .. 14 ]
 iota1 := InjectionOfCofactorOfCoproduct( [ m, n, p ], 1 );
 #! <A morphism in SkeletalFinSets>

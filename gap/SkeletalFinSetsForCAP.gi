@@ -195,7 +195,6 @@ AddIsMonomorphism( SkeletalFinSets,
     
 end );
 
-
 ##
 InstallMethod( CallFuncList,
         "for a CAP map of skeletal finite sets and a list",
@@ -210,7 +209,6 @@ InstallMethod( CallFuncList,
     
 end );
 
-    
 ##
 InstallMethod( EmbeddingOfFinSets,
         "for two CAP skeletal finite sets",
@@ -429,7 +427,7 @@ AddEmbeddingOfEqualizerWithGivenEqualizer( SkeletalFinSets,
     s := Source( f1 );
     D := D{ [ 2 .. Length( D ) ] };
 
-    cmp := Filtered( s, x -> ForAll( D, fj -> f1( x ) = fj( x ) ) );
+    cmp := Filtered( AsList( s ), x -> ForAll( D, fj -> f1( x ) = fj( x ) ) );
 
     return MapOfFinSets( E, cmp, s );
     
@@ -444,7 +442,7 @@ AddUniversalMorphismIntoEqualizerWithGivenEqualizer( SkeletalFinSets,
     
     s := Source( f1 );
 
-    Eq := Filtered( s, x -> ForAll( D, fj -> f1( x ) = fj( x ) ) );
+    Eq := Filtered( AsList( s ), x -> ForAll( D, fj -> f1( x ) = fj( x ) ) );
 
     return MapOfFinSets( Source( tau ), List( x -> Position( Eq, tau( x ) ) ), E );
     
@@ -518,7 +516,7 @@ InstallMethod( Preimage,
         
   function( phi, t )
 
-    return Filtered( Source( phi ) , x -> AsList( phi )[ x ] in t );
+    return Filtered( AsList( Source( phi ) ), x -> phi( x ) in t );
 
 end );
 
@@ -559,7 +557,7 @@ ExplicitCoequalizer := function( D )
         od;
     fi;
     
-    return Cq;
+    return Set( Cq );
 
 end;
 
