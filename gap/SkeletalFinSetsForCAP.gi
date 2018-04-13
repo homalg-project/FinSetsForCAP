@@ -392,28 +392,19 @@ AddUniversalMorphismIntoDirectProductWithGivenDirectProduct( SkeletalFinSets,
 end );
 
 ##
-InstallOtherMethod( FilteredOp,
-        "for a CAP skeletal finite set and a function",
-        [ IsSkeletalFiniteSetRep, IsFunction ],
-        
-  function( m, f )
-    
-    return FinSet( Length( Filtered( AsList( m ), f ) ) );
-    
-end );
-
-##
 AddEqualizer(SkeletalFinSets,
   function( D )
-    local f1, s;
+    local f1, s, Eq;
     
     f1 := D[ 1 ];
     
     s := Source( f1 );
     
     D := D{ [ 2 .. Length( D ) ] };
+	
+	Eq := Filtered( AsList( s ), x -> ForAll( D, fj -> f1( x ) = fj( x ) ) );
     
-    return Filtered( s, x -> ForAll( D, fj -> f1( x ) = fj( x ) ) );
+    return FinSet( Length( Eq ) );
     
 end);
 
@@ -596,84 +587,6 @@ AddUniversalMorphismFromCoequalizerWithGivenCoequalizer( SkeletalFinSets,
     return MapOfFinSets( C, List( Cq, x -> tau( x[ 1 ] ) ), Range( tau ) );
     
  end ); 
-
-
-## The cartesian monoidal structure
-
-##
-AddTensorProductOnObjects( SkeletalFinSets,
-  DirectProduct );
-
-##
-AddTensorProductOnMorphismsWithGivenTensorProducts( SkeletalFinSets,
-  function( s, alpha, beta, r )
-    
-    return DirectProductFunctorialWithGivenDirectProducts( s, [ alpha, beta ], r );
-    
-end );
-
-##
-AddAssociatorLeftToRightWithGivenTensorProducts( SkeletalFinSets,
-  AssociatorLeftToRightOfDirectProductsWithGivenDirectProducts );
-
-##
-AddAssociatorRightToLeftWithGivenTensorProducts( SkeletalFinSets,
-  AssociatorRightToLeftOfDirectProductsWithGivenDirectProducts );
-
-##
-AddTensorUnit( SkeletalFinSets,
-  TerminalObject );
-
-##
-AddLeftUnitorWithGivenTensorProduct( SkeletalFinSets,
-  function( M, TM )
-    
-    return MapOfFinSets( TM, List( TM, x -> x ), M );
-    
-end );
-
-##
-AddLeftUnitorInverseWithGivenTensorProduct( SkeletalFinSets,
-  function( M, TM )
-    
-    return MapOfFinSets( M, List( M, x -> x ), TM );
-    
-end );
-
-##
-AddRightUnitorWithGivenTensorProduct( SkeletalFinSets,
-  function( M, MT )
-    
-    return MapOfFinSets( MT, List( MT, x -> x ), M );
-    
-end );
-
-##
-AddRightUnitorInverseWithGivenTensorProduct( SkeletalFinSets,
-  function( M, MT )
-    
-    return MapOfFinSets( M, List( M, x -> x ), MT );
-    
-end );
-
-##
-AddInternalHomOnObjects( SkeletalFinSets,
-  function( m, n )
-        
-    return FinSet( Length( List( Tuples( AsList( n ), Length( m ) ), L -> MapOfFinSets( m, L, n ) ) ) );
-    
-end );
-
-##
-AddInternalHomOnMorphismsWithGivenInternalHoms( SkeletalFinSets,
-  function( s, alpha, beta, t )
-    local S;
-
-    S := List( Tuples( AsList( t ), Length( s ) ), L -> MapOfFinSets( s, L, t ) );
-
-    return MapOfFinSets( s, List( S, f -> PreCompose( alpha, f, beta ) ), t );
-    
-end );
 
 Finalize( SkeletalFinSets );
 

@@ -97,7 +97,7 @@ end );
 
 ##
 InstallMethod( MapOfFinSets,
-        "for a two CAP finite sets and a list",
+        "for two CAP finite sets and a list",
         [ IsFiniteSetRep, IsList, IsFiniteSetRep ],
         
   function( S, G, T )
@@ -583,8 +583,6 @@ AddCoequalizer( FinSets,
         od;
     fi;
     
-    C := Set( C );
-    
     return FinSetNC( MakeImmutable( C ) );
     
 end );
@@ -600,11 +598,7 @@ end );
 ##
 AddUniversalMorphismFromCoequalizerWithGivenCoequalizer( FinSets,
   function( D, tau, C )
-    local pi, G;
-    
-    pi := ProjectionOntoCoequalizerWithGivenCoequalizer( D, C );
-    
-    G := AsList( tau );
+    local G;
     
     G := List( C, x -> [ x, tau( x[1] ) ] );
     
