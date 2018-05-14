@@ -78,7 +78,7 @@ Cq := Coequalizer( [ alpha, beta ] );
 Display( Cq );
 #! 3
 psi := ProjectionOntoCoequalizer( [ alpha, beta ] );
-#! <A morphism in SkeletalFinSets>
+#! <An epimorphism in SkeletalFinSets>
 Display( psi );
 #! [ 5, [ 1, 2, 3, 1, 2 ], 3 ]
 Display( PreCompose( iota_1, psi ) );

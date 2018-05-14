@@ -18,7 +18,7 @@ C := Coequalizer( D );
 Length( C );
 #! 3
 pi := ProjectionOntoCoequalizer(D);
-#! <A morphism in SkeletalFinSets>
+#! <An epimorphism in SkeletalFinSets>
 Display( pi );
 #! [ 4, [ 1, 2, 3, 3 ], 3 ]
 tau := MapOfFinSets( t, [2, 1, 2, 2], FinSet( 2 ) );
@@ -46,7 +46,7 @@ C := Coequalizer( D );
 Length( C );
 #! 3
 pi := ProjectionOntoCoequalizer( D );
-#! <A morphism in SkeletalFinSets>
+#! <An epimorphism in SkeletalFinSets>
 Display( pi );
 #! [ 4, [ 1, 2, 2, 3 ], 3 ]
 PreCompose( f, pi ) = PreCompose( g, pi );

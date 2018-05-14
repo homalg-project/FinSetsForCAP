@@ -20,7 +20,7 @@ Eq := Equalizer( D );
 Length( Eq );
 #! 2
 psi := EmbeddingOfEqualizer( D );
-#! <A morphism in SkeletalFinSets>
+#! <A monomorphism in SkeletalFinSets>
 Display( psi );
 #! [ 2, [ 1, 5 ], 5 ]
 D := [ f2, f3 ];
@@ -30,7 +30,7 @@ Eq := Equalizer( D );
 Length( Eq );
 #! 3
 psi := EmbeddingOfEqualizer( D );
-#! <A morphism in SkeletalFinSets>
+#! <A monomorphism in SkeletalFinSets>
 Display( psi );
 #! [ 3, [1, 4, 5], 5 ]
 #! @EndExample
