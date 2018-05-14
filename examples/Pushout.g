@@ -33,6 +33,6 @@ U := ImageObject( iota );
 #! <An object in FinSets>
 Display( U );
 #! [ 1, 2, 3, 4 ]
-Union( N1, N2 ) = U;
+Union2( N1, N2 ) = U;
 #! true
 #! @EndExample
