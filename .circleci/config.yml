@@ -1,0 +1,17 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: gapsystem/gap-docker:latest
+    working_directory: ~/.gap/pkg/FinSetsForCAP
+    steps:
+      - checkout
+      - run: |
+          sudo apt install -y texlive-latex-extra texlive-science
+          cd ..
+          git clone --depth 1 https://github.com/homalg-project/homalg_project
+          git clone --depth 1 https://github.com/homalg-project/CAP_project.git
+          cd FinSetsForCAP
+          echo "SetUserPreference(\"PackagesToLoad\", []);" > ~/.gap/gap.ini
+          sed 's/  SuggestedOtherPackages := \[ \[ "Browse", ">=0" \] \],/  SuggestedOtherPackages := [ ],/g' -i ~/.gap/pkg/CAP_project/CAP/PackageInfo.g
+          make test | perl -pe 'END { exit $status } $status=1 if /Expected output/;'
