@@ -6,6 +6,8 @@
 
 BindGlobal( "FinSets", CreateCapCategory( "FinSets" ) );
 
+DisableAddForCategoricalOperations( FinSets );
+
 AddObjectRepresentation( FinSets, IsFiniteSet );
 
 AddMorphismRepresentation( FinSets, IsFiniteSetMap );

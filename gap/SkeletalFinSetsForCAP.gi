@@ -6,6 +6,8 @@
 
 BindGlobal( "SkeletalFinSets", CreateCapCategory( "SkeletalFinSets" ) );
 
+DisableAddForCategoricalOperations( SkeletalFinSets );
+
 AddObjectRepresentation( SkeletalFinSets, IsSkeletalFiniteSet );
 
 AddMorphismRepresentation( SkeletalFinSets, IsSkeletalFiniteSetMap );
