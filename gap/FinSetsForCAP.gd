@@ -100,6 +100,13 @@ DeclareOperation( "Preimage",
         [ IsFiniteSetMap, IsFiniteSet ] );
 
 #! @Description
+#!  Compute the set-theoretic union of the elements of <A>L</A>, where <A>L</A> is a list of finite sets.
+#! @Arguments L
+#! @Returns a &CAP; object
+DeclareOperation( "UnionOfFinSets",
+        [ IsList ] );
+
+#! @Description
 #!  Compute the image of <A>S_</A> under the morphism <A>f</A>.
 #! @Arguments f, S_
 #! @Returns a &CAP; object

@@ -535,11 +535,16 @@ InstallOtherMethod( Union2,
     
 end );
 
-MyUnion := function( L )
+##
+InstallOtherMethod( UnionOfFinSets,
+        "for a list of CAP finite sets",
+        [ IsList ],
+        
+  function( L )
     
-	return FinSetNC( Union( List( L, l -> AsList( l ) ) ) );
+    return FinSetNC( Union( List( L, l -> AsList( l ) ) ) );
     
-end;
+end );
 
 ##
 InstallMethod( ImageObject,
@@ -565,7 +570,7 @@ AddCoequalizer( FinSets,
     while not IsEmpty( T ) do
         t := T[ 1 ];
         t := FinSetNC( [ t ] );
-        t := MyUnion( List( D, f_j -> ImageObject( f_j, MyUnion( List( D, f_i -> Preimage( f_i, t ) ) ) ) ) );
+        t := UnionOfFinSets( List( D, f_j -> ImageObject( f_j, UnionOfFinSets( List( D, f_i -> Preimage( f_i, t ) ) ) ) ) );
         t := AsList( t );
         if IsEmpty( t ) then
             t := [ T[ 1 ] ];
