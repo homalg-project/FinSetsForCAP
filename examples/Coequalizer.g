@@ -34,7 +34,7 @@ AsList( C1 );
 C2 := Coequalizer( [ f1, f2, f3 ] );
 #! <An object in FinSets>
 AsList( C2 );
-#! [ [ 6 ], [ 7 ], [ 1, 2, 3, 4, 5, 8 ] ]
+#! [ [ 1, 2, 3, 8, 5, 4 ], [ 6 ], [ 7 ] ]
 
 
 S := FinSet( [ 1 .. 5 ] );
@@ -109,4 +109,27 @@ AsList( phi );
 #! [ [ [ 1 ], 1 ], [ [ 2, 3 ], 2 ], [ [ 4 ], 1 ] ]
 PreCompose( pi, phi ) = tau;
 #! true
+
+
+A := FinSet( [ 'A' ] );
+#! <An object in FinSets>
+B := FinSet( [ 'B' ] );
+#! <An object in FinSets>
+M := FinSetNC( [ A, B ] );
+#! <An object in FinSets>
+f := MapOfFinSetsNC( M, [ [ A, A ], [ B, A ] ], M );
+#! <A morphism in FinSets>
+g := IdentityMorphism( M );
+#! <An identity morphism in FinSets>
+C := Coequalizer( [ f, g ] );
+#! <An object in FinSets>
+Length( C );
+#! 1
+Length( AsList( C )[ 1 ] );
+#! 2
+Display( AsList( C )[ 1 ][ 1 ] );
+#! A
+Display( AsList( C )[ 1 ][ 2 ] );
+#! B
+
 #! @EndExample

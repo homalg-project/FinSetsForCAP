@@ -525,24 +525,29 @@ InstallMethod( Preimage,
 end );
 
 ##
-InstallOtherMethod( Union2,
-        "for a CAP map of finite sets and a CAP finite set",
-        [ IsFiniteSet, IsFiniteSet ],
-        
-  function( M, N )
-    
-    return FinSetNC( Union2( AsList( M ), AsList( N ) ) );
-    
-end );
-
-##
-InstallOtherMethod( UnionOfFinSets,
+InstallMethod( UnionOfFinSets,
         "for a list of CAP finite sets",
         [ IsList ],
         
   function( L )
+    local union, M, m;
     
-    return FinSetNC( Union( List( L, l -> AsList( l ) ) ) );
+    if Length( L ) = 0 then
+        return FinSetNC( [ ] );
+    fi;
+    
+    union := L[ 1 ];
+    for M in L{ [ 2 .. Length( L ) ] } do
+        for m in AsList( M ) do
+            if not m in union then
+                union := ShallowCopy( AsList( union ) );
+                Add( union, m );
+                union := FinSetNC( union );
+            fi;
+        od;
+    od;
+    
+    return union;
     
 end );
 
@@ -560,7 +565,7 @@ end );
 ##
 AddCoequalizer( FinSets,
   function( D )
-    local T, C, t, L, i;
+    local T, C, images, previousImages, preimages;
     
     T := Range( D[1] );
     T := AsList( T );
@@ -568,34 +573,20 @@ AddCoequalizer( FinSets,
     C := [ ];
     
     while not IsEmpty( T ) do
-        t := T[ 1 ];
-        t := FinSetNC( [ t ] );
-        t := UnionOfFinSets( List( D, f_j -> ImageObject( f_j, UnionOfFinSets( List( D, f_i -> Preimage( f_i, t ) ) ) ) ) );
-        t := AsList( t );
-        if IsEmpty( t ) then
-            t := [ T[ 1 ] ];
-        fi;
-        Add( C, t );
-        T := Difference( T, t );
-    od;
-    
-    T := AsList( Range( D[ 1 ] ) );
-    
-    if not Concatenation( C ) = T then
-    for t in T do
-        L := [];
-            for i in [ 1 .. Length( C )] do
-                if t in C[ i ] then 
-                    Add( L, C[ i ] );
-                fi;
-            od;
-            if Length( L ) > 1 then
-                C := Difference( C, L );
-                Add( C, Set( Concatenation( L ) ) );
+        images := FinSetNC( [ T[ 1 ] ] );
+        previousImages := FinSetNC( [ ] );
+        while previousImages <> images do
+            previousImages := images;
+            preimages := UnionOfFinSets( List( D, f_i -> Preimage( f_i, images ) ) );
+            if Length( preimages ) > 0 then
+                images := UnionOfFinSets( List( D, f_j -> ImageObject( f_j, preimages ) ) );
             fi;
         od;
-    fi;
-    
+        
+        Add( C, AsList( images ) );
+        T := Filtered( T, t -> not t in images );
+    od;
+
     return FinSetNC( MakeImmutable( C ) );
     
 end );
