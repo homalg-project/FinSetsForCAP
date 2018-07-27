@@ -105,7 +105,7 @@ Dependencies := rec(
   GAP := ">= 4.9.1",
   NeededOtherPackages := [
                    [ "GAPDoc", ">= 1.5" ],
-                   [ "CAP", ">= 2018.07.10" ],
+                   [ "CAP", ">= 2018.08.15" ],
                    ],
   SuggestedOtherPackages := [ ],
   ExternalConditions := [ ],
