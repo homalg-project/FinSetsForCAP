@@ -36,7 +36,7 @@ InstallOtherMethod( AsList,
         "for CAP skeletal finite sets",
         [ IsSkeletalFiniteSet ],
         
-  n -> Set( [ 1 .. Length( n ) ] ) );
+  n -> [ 1 .. Length( n ) ] );
 
 ##
 AddIsWellDefinedForObjects( SkeletalFinSets, 
