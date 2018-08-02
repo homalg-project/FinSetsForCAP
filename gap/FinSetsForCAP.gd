@@ -25,6 +25,14 @@ DeclareCategory( "IsFiniteSetMap",
 #! @Section Attributes
 
 #! @Description
+#!  The length of the &GAP; set of the list used to construct a finite set $S$, i.e.,
+#!  <C>Length( FinSet( <A>L</A> ) ) = Length( Set( <A>L</A> ) )</C>.
+#! @Arguments M
+#! @Returns an integer
+DeclareAttribute( "Length",
+        IsFiniteSet );
+
+#! @Description
 #!  The &GAP; set of the list used to construct a finite set $S$, i.e.,
 #!  <C>AsList( FinSet( <A>L</A> ) ) = Set( <A>L</A> )</C>.
 #! @Arguments M
@@ -83,6 +91,14 @@ DeclareOperation( "MapOfFinSetsNC",
 #! @InsertSystem MapOfFinSetsNC
 
 #! @Section Tools
+
+#! @Description
+#!  Returns the <A>i</A>-th entry of the &GAP; set of the list used to construct a finite set $S$, i.e.,
+#!  <C>FinSet( <A>L</A> )[ i ] = Set( <A>L</A> )[ i ]</C>.
+#! @Arguments M, i
+#! @Returns an object
+DeclareOperation( "\[\]",
+        [ IsFiniteSet, IsInt ] );
 
 #! @Description
 #!  Construct the embedding $\iota:$<A>S</A>$\to$<A>T</A> of the finite sets <A>S</A> and <A>T</A>,
