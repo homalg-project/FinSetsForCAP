@@ -22,6 +22,24 @@ DeclareCategory( "IsSkeletalFiniteSet",
 DeclareCategory( "IsSkeletalFiniteSetMap",
                  IsCapCategoryMorphism and IsCellOfSkeletalCategory );
 
+#! @Section Skeletal Attributes
+
+#! @Description
+#!  The integer defining the skeletal finite set <A>M</A>, i.e.,
+#!  <C>Length( FinSet( n ) ) = n</C>.
+#! @Arguments M
+#! @Returns an integer
+DeclareAttribute( "Length",
+        IsSkeletalFiniteSet );
+
+#! @Description
+#!  The list associated to a skeletal finite set, i.e.,
+#!  <C>AsList( FinSet( n ) ) = [ 1 .. n ]</C>.
+#! @Arguments M
+#! @Returns a list
+DeclareAttribute( "AsList",
+        IsSkeletalFiniteSet );
+
 #! @Section Skeletal Constructors
 
 #! @Description
@@ -55,15 +73,15 @@ DeclareOperation( "EmbeddingOfFinSets",
         [ IsSkeletalFiniteSet, IsSkeletalFiniteSet ] );
 
 #! @Description
-#!  Compute the image of <A>s_</A> under the morphism <A>phi</A>.
-#! @Arguments phi, s_
-#! @Returns a &CAP; object
-DeclareOperation( "ImageObject",
-        [ IsSkeletalFiniteSetMap, IsSkeletalFiniteSet ] );
-
-#! @Description
 #!  Compute the Preimage of <A>t</A> under the morphism <A>phi</A>.
 #! @Arguments phi, t
 #! @Returns a &CAP; object
 DeclareOperation( "Preimage",
         [ IsSkeletalFiniteSetMap, IsList ] );
+
+#! @Description
+#!  Compute the image of <A>s_</A> under the morphism <A>phi</A>.
+#! @Arguments phi, s_
+#! @Returns a &CAP; object
+DeclareOperation( "ImageObject",
+        [ IsSkeletalFiniteSetMap, IsSkeletalFiniteSet ] );

@@ -34,7 +34,14 @@ InstallMethod( FinSet,
 end );
 
 ##
+InstallOtherMethod( ListOp,
+        "for a CAP skeletal finite set and a function",
+        [ IsSkeletalFiniteSet, IsFunction ],
         
+  function( s, f )
+
+    return List( AsList( s ), f );
+end );
 
 ##
 AddIsWellDefinedForObjects( SkeletalFinSets, 
@@ -71,6 +78,69 @@ InstallMethod( MapOfFinSets,
     
     return map;
     
+end );
+
+##
+InstallMethod( EmbeddingOfFinSets,
+        "for two CAP skeletal finite sets",
+        [ IsSkeletalFiniteSet, IsSkeletalFiniteSet ],
+        
+  function( s, t )
+    local iota;
+    
+    iota := MapOfFinSets( s, List( s, x -> x  ), t );
+    
+    Assert( 3, IsMonomorphism( iota ) );
+    SetIsMonomorphism( iota, true );
+    
+    return iota;
+    
+end );
+
+##
+InstallMethod( Preimage,
+        "for a CAP map of skeletal finite sets and a CAP skeletal finite set",
+        [ IsSkeletalFiniteSetMap, IsList ],
+        
+  function( phi, t )
+
+    return Filtered( AsList( Source( phi ) ), x -> phi( x ) in t );
+
+end );
+
+##
+InstallMethod( ImageObject,
+     "for a CAP map of skeletal finite sets and a CAP skeletal finite set",
+     [ IsSkeletalFiniteSetMap, IsSkeletalFiniteSet ],
+      function( phi, s_ )
+
+    return ImageObject( PreCompose( EmbeddingOfFinSets( s_, Source( phi ) ), phi ) );
+
+end );
+
+##
+InstallMethod( CallFuncList,
+        "for a CAP map of skeletal finite sets and a list",
+    [ IsSkeletalFiniteSetMap, IsList ],
+        
+  function( phi, L )
+    local x;
+    
+    x := L[ 1 ];
+    
+    return AsList( phi )[ x ];
+    
+end );
+
+##
+InstallOtherMethod( ListOp,
+        "for a CAP skeletal finite set and a CAP map of skeletal finite sets",
+        [ IsSkeletalFiniteSet, IsSkeletalFiniteSetMap ],
+        
+  function( s, phi )
+    
+    return List( AsList( s ), phi );
+       
 end );
 
 ##
@@ -114,27 +184,6 @@ AddIdentityMorphism( SkeletalFinSets,
     
     return MapOfFinSets( n, [ 1 .. Length( n ) ], n );
     
-end );
-
-##
-InstallOtherMethod( ListOp,
-        "for a CAP skeletal finite set and a function",
-        [ IsSkeletalFiniteSet, IsFunction ],
-        
-  function( s, f )
-
-    return List( AsList( s ), f );
-end );
-
-##
-InstallOtherMethod( ListOp,
-        "for a CAP skeletal finite set and a CAP map of skeletal finite sets",
-        [ IsSkeletalFiniteSet, IsSkeletalFiniteSetMap ],
-        
-  function( s, phi )
-    
-    return List( AsList( s ), phi );
-       
 end );
 
 ##
@@ -193,47 +242,6 @@ AddIsMonomorphism( SkeletalFinSets,
 
     return true;
     
-end );
-
-##
-InstallMethod( CallFuncList,
-        "for a CAP map of skeletal finite sets and a list",
-    [ IsSkeletalFiniteSetMap, IsList ],
-        
-  function( phi, L )
-    local x;
-    
-    x := L[ 1 ];
-    
-    return AsList( phi )[ x ];
-    
-end );
-
-##
-InstallMethod( EmbeddingOfFinSets,
-        "for two CAP skeletal finite sets",
-        [ IsSkeletalFiniteSet, IsSkeletalFiniteSet ],
-        
-  function( s, t )
-    local iota;
-    
-    iota := MapOfFinSets( s, List( s, x -> x  ), t );
-    
-    Assert( 3, IsMonomorphism( iota ) );
-    SetIsMonomorphism( iota, true );
-    
-    return iota;
-    
-end );
-
-##
-InstallMethod( ImageObject,
-     "for a CAP map of skeletal finite sets and a CAP skeletal finite set",
-     [ IsSkeletalFiniteSetMap, IsSkeletalFiniteSet ],
-      function( phi, s_ )
-
-    return ImageObject( PreCompose( EmbeddingOfFinSets( s_, Source( phi ) ), phi ) );
-
 end );
 
 ##
@@ -498,17 +506,6 @@ AddUniversalMorphismFromCoproductWithGivenCoproduct( SkeletalFinSets,
 
     return MapOfFinSets( S, cmp, T );
     
-end );
-
-##
-InstallMethod( Preimage,
-        "for a CAP map of skeletal finite sets and a CAP skeletal finite set",
-        [ IsSkeletalFiniteSetMap, IsList ],
-        
-  function( phi, t )
-
-    return Filtered( AsList( Source( phi ) ), x -> phi( x ) in t );
-
 end );
 
 ##
