@@ -23,7 +23,9 @@ InstallMethod( FinSet,
     int:= rec( );
     
     ObjectifyObjectForCAPWithAttributes( int, SkeletalFinSets,
-        Length, n );
+        Length, n,
+        AsList, [ 1 .. n ]
+        );
 
     Assert( 4, IsWellDefined( int ) );
     
@@ -32,11 +34,7 @@ InstallMethod( FinSet,
 end );
 
 ##
-InstallOtherMethod( AsList,
-        "for CAP skeletal finite sets",
-        [ IsSkeletalFiniteSet ],
         
-  n -> [ 1 .. Length( n ) ] );
 
 ##
 AddIsWellDefinedForObjects( SkeletalFinSets, 
