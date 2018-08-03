@@ -1,6 +1,6 @@
 #! @System SkeletalPushout
 
-LoadPackage( "FinSets" );
+LoadPackage( "FinSetsForCAP" );
 
 #! @Example
 M := FinSet( 5 );

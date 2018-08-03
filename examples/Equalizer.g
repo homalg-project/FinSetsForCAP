@@ -1,6 +1,6 @@
 #! @System Equalizer
 
-LoadPackage( "FinSets" );
+LoadPackage( "FinSetsForCAP" );
 
 #! @Example
 S := FinSet( [ 1 .. 5 ] );

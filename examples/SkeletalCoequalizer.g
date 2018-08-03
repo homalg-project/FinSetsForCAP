@@ -1,6 +1,6 @@
 #! @System SkeletalCoequalizer
 
-LoadPackage( "FinSets" );
+LoadPackage( "FinSetsForCAP" );
 
 #! @Example
 s := FinSet( 5 );

@@ -1,6 +1,6 @@
 #! @System Pushout
 
-LoadPackage( "FinSets" );
+LoadPackage( "FinSetsForCAP" );
 
 #! @Example
 M := FinSet( [ 1 .. 5 ] );

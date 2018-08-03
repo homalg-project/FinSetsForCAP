@@ -1,6 +1,6 @@
 #! @System MapOfSkeletalFinSets
 
-LoadPackage( "FinSets" );
+LoadPackage( "FinSetsForCAP" );
 
 #! @Example
 s := FinSet( 3 );

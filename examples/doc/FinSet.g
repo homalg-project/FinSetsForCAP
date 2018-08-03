@@ -1,6 +1,6 @@
 #! @System FinSet
 
-LoadPackage( "FinSets" );
+LoadPackage( "FinSetsForCAP" );
 
 #! @Example
 S := FinSet( [ 1, 3, 2, 2, 1 ] );

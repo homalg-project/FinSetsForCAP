@@ -1,6 +1,6 @@
 #! @System Coequalizer
 
-LoadPackage( "FinSets" );
+LoadPackage( "FinSetsForCAP" );
 
 #! @Example
 N := FinSet( [1,3] );

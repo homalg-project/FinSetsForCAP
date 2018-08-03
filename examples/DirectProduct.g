@@ -1,6 +1,6 @@
 #! @System DirectProduct
 
-LoadPackage( "FinSets" );
+LoadPackage( "FinSetsForCAP" );
 
 #! @Example
 a := Immutable( "a" );;

@@ -1,6 +1,6 @@
 #! @System Coproduct
 
-LoadPackage( "FinSets" );
+LoadPackage( "FinSetsForCAP" );
 
 #! @Example
 a := Immutable( "a" );;

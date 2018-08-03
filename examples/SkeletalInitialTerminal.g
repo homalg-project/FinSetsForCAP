@@ -1,6 +1,6 @@
 #! @System SkeletalInitialTerminal
 
-LoadPackage( "FinSets" );
+LoadPackage( "FinSetsForCAP" );
 
 #! @Example
 m := FinSet( 8 );

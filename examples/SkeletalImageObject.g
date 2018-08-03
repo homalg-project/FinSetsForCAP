@@ -1,6 +1,6 @@
 #! @System SkeletalImageObject
 
-LoadPackage( "FinSets" );
+LoadPackage( "FinSetsForCAP" );
 
 #! @Example
 m := FinSet( 7 );

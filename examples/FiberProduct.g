@@ -1,6 +1,6 @@
 #! @System FiberProduct
 
-LoadPackage( "FinSets" );
+LoadPackage( "FinSetsForCAP" );
 
 #! @Example
 M := FinSet( [ 1 .. 5 ] );

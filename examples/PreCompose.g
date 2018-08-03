@@ -1,6 +1,6 @@
 #! @System PreCompose
 
-LoadPackage( "FinSets" );
+LoadPackage( "FinSetsForCAP" );
 
 #! @Example
 a := Immutable( "a" );;

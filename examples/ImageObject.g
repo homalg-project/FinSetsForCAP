@@ -1,6 +1,6 @@
 #! @System ImageObject
 
-LoadPackage( "FinSets" );
+LoadPackage( "FinSetsForCAP" );
 
 #! @Example
 a := Immutable( "a" );;

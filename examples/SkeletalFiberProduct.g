@@ -1,6 +1,6 @@
 #! @System SkeletalFiberProduct
 
-LoadPackage( "FinSets" );
+LoadPackage( "FinSetsForCAP" );
 
 #! @Example
 m := FinSet( 5 );

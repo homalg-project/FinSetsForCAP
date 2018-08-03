@@ -1,6 +1,6 @@
 #! @System FinSetNC
 
-LoadPackage( "FinSets" );
+LoadPackage( "FinSetsForCAP" );
 
 #! @Example
 S := FinSetNC( [ 1, 3, 2 ] );
