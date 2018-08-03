@@ -1,4 +1,4 @@
-#! @System MapOfSkeletalFinSets
+#! @System SkeletalMapOfFinSets
 
 LoadPackage( "FinSetsForCAP" );
 

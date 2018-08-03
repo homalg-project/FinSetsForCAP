@@ -60,7 +60,7 @@ DeclareOperation( "FinSet",
 #! @Returns a &CAP; morphism
 DeclareOperation( "MapOfFinSets",
         [ IsSkeletalFiniteSet, IsList, IsSkeletalFiniteSet ] );
-#! @InsertSystem  MapOfSkeletalFinSets
+#! @InsertSystem  SkeletalMapOfFinSets
 
 #! @Section Skeletal Tools
 
