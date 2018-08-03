@@ -782,3 +782,12 @@ InstallMethod( Display,
   function( S )
     Display( AsList( S ) );
 end );
+
+##
+InstallMethod( Display,
+        "for a CAP map of finite sets",
+        [ IsFiniteSetMap ],
+        
+  function( phi )
+    Display( [ AsList( Source( phi ) ), AsList( phi), AsList( Range( phi ) ) ] );
+end );
