@@ -1,5 +1,5 @@
 #
-# SkeletalFinSetsForCAP: The skeletal category of finite sets
+# SkeletalFinSetsForCAP: The elementary topos of skeletal finite sets
 #
 # Declarations
 #
