@@ -67,11 +67,3 @@ DeclareOperation( "ImageObject",
 #! @Returns a &CAP; object
 DeclareOperation( "Preimage",
         [ IsSkeletalFiniteSetMap, IsList ] );
-
-#! @Description
-#!  Construct the projection $\pi:$<A>s</A>$\to$<A>t</A> of the skeletal finite sets <A>s</A> and <A>t</A>,
-#!  where <A>t</A> is a partition of <A>s</A>.
-#! @Arguments s,t
-#! @Returns a &CAP; morphism
-DeclareOperation( "ProjectionOfFinSets",
-        [ IsSkeletalFiniteSet, IsSkeletalFiniteSet ] );
