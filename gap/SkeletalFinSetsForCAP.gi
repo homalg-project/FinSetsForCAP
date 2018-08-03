@@ -20,7 +20,7 @@ InstallMethod( FinSet,
   function( n )
     local int;
     
-    int:= rec( );
+    int := rec( );
     
     ObjectifyObjectForCAPWithAttributes( int, SkeletalFinSets,
         Length, n,
@@ -409,8 +409,8 @@ AddEqualizer(SkeletalFinSets,
     s := Source( f1 );
     
     D := D{ [ 2 .. Length( D ) ] };
-	
-	Eq := Filtered( AsList( s ), x -> ForAll( D, fj -> f1( x ) = fj( x ) ) );
+    
+    Eq := Filtered( AsList( s ), x -> ForAll( D, fj -> f1( x ) = fj( x ) ) );
     
     return FinSet( Length( Eq ) );
     
