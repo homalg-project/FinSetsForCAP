@@ -43,7 +43,7 @@ DeclareAttribute( "AsList",
 #! @Section Skeletal Constructors
 
 #! @Description
-#!  Construct an object in the skeletal category of finite sets
+#!  Construct a skeletal finite set
 #!  out of a nonnegative integer <A>n</A>, i.e.,
 #!  an object in the &CAP; category <C>SkeletalFinSets</C>.
 #! @Arguments n
