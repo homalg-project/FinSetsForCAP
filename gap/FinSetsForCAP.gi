@@ -38,12 +38,95 @@ InstallMethod( FinSetNC,
     set := rec( );
     
     ObjectifyObjectForCAPWithAttributes( set, FinSets,
-            AsList, L
+            AsList, L,
+            Length, Length( L )
             );
     
     Assert( 4, IsWellDefined( set ) );
 
     return set;
+    
+end );
+
+##
+InstallMethod( \in,
+        "for an object and a CAP finite set",
+        [ IsObject, IsFiniteSet ],
+        
+  function( y, M )
+    
+    return ForAny( AsList( M ), m -> IsIdenticalObj( m, y ) );
+    
+end );
+
+##
+InstallMethod( \[\],
+        "for CAP finite sets",
+        [ IsFiniteSet, IsInt ],
+
+  function( M, i )
+    
+    return AsList( M )[i];
+    
+end );
+
+##
+InstallMethod( UnionOfFinSets,
+        "for a list of CAP finite sets",
+        [ IsList ],
+        
+  function( L )
+    local union, M, m;
+    
+    if Length( L ) = 0 then
+        return FinSetNC( [ ] );
+    fi;
+    
+    union := L[ 1 ];
+    for M in L{ [ 2 .. Length( L ) ] } do
+        for m in AsList( M ) do
+            if not m in union then
+                union := ShallowCopy( AsList( union ) );
+                Add( union, m );
+                union := FinSetNC( union );
+            fi;
+        od;
+    od;
+    
+    return union;
+    
+end );
+
+##
+InstallOtherMethod( ListOp,
+        "for a CAP finite set and a function",
+        [ IsFiniteSet, IsFunction ],
+        
+  function( M, f )
+    
+    return List( AsList( M ), f );
+    
+end );
+
+##
+InstallOtherMethod( FilteredOp,
+        "for a CAP finite set and a function",
+        [ IsFiniteSet, IsFunction ],
+        
+  function( M, f )
+    
+    return FinSetNC( Filtered( AsList( M ), f ) );
+    
+end );
+
+##
+InstallOtherMethod( FirstOp,
+        "for a CAP finite set and a function",
+        [ IsFiniteSet, IsFunction ],
+        
+  function( M, f )
+    
+    return First( AsList( M ), f );
     
 end );
 
@@ -69,24 +152,6 @@ AddIsWellDefinedForObjects( FinSets,
     return true;
   
 end  );
-
-##
-InstallMethod( Length,
-        "for CAP finite sets",
-        [ IsFiniteSet ],
-        
-  set -> Length( AsList( set ) ) );
-
-##
-InstallMethod( \in,
-        "for an object and a CAP finite set",
-        [ IsObject, IsFiniteSet ],
-        
-  function( y, M )
-    
-    return ForAny( AsList( M ), m -> IsIdenticalObj( m, y ) );
-    
-end );
 
 ##
 AddIsEqualForObjects( FinSets,
@@ -171,6 +236,71 @@ InstallMethod( ProjectionOfFinSets,
 end );
 
 ##
+InstallMethod( Preimage,
+        "for a CAP map of finite sets and a CAP finite set",
+        [ IsFiniteSetMap, IsFiniteSet ],
+        
+  function( f, T_ )
+    
+    return Filtered( Source( f ), x -> f(x) in T_ );
+    
+end );
+
+##
+InstallMethod( ImageObject,
+        "for a CAP map of finite sets and a CAP finite set",
+        [ IsFiniteSetMap, IsFiniteSet ],
+        
+  function( f, S_ )
+    
+    return ImageObject( PreCompose( EmbeddingOfFinSets( S_, Source( f ) ), f ) );
+    
+end );
+
+##
+InstallMethod( CallFuncList,
+        "for a CAP map of finite sets and a list",
+        [ IsFiniteSetMap, IsList ],
+        
+  function( phi, L )
+    local x, y;
+    
+    x := L[1];
+    
+    y := First( AsList( phi ), pair -> IsIdenticalObj( pair[1], x) );
+    
+    if y = fail then
+        if HasIsWellDefined( phi ) then
+            if IsWellDefined( phi ) then
+                Error( "the element ", x, " is not in the source of the map\n" );
+            else
+                if not x in Source( phi ) then
+                    Error( "the element ", x, " is not in the source of the map\n" );
+                else
+                    Error( "the element ", x, " is in the source of the map, however, the map is not well-defined\n" );
+                fi;
+            fi;
+        else
+            Error( "the element ", x, " may not be in the source of the map, please check if the map is well-defined\n" );
+        fi;
+    fi;
+    
+    return y[2];
+    
+end );
+
+##
+InstallOtherMethod( ListOp,
+        "for a CAP finite set and a CAP map of finite sets",
+        [ IsFiniteSet, IsFiniteSetMap ],
+        
+  function( F, phi )
+    
+    return List( AsList( F ), phi );
+    
+end );
+
+##
 AddIsWellDefinedForMorphisms( FinSets,
   function( mor )
     local S, T, rel, i, j;
@@ -221,86 +351,10 @@ AddIsEqualForMorphisms( FinSets,
 end );
 
 ##
-InstallOtherMethod( ListOp,
-        "for a CAP finite set and a function",
-        [ IsFiniteSet, IsFunction ],
-        
-  function( M, f )
-    
-    return List( AsList( M ), f );
-    
-end );
-
-##
-InstallOtherMethod( FilteredOp,
-        "for a CAP finite set and a function",
-        [ IsFiniteSet, IsFunction ],
-        
-  function( M, f )
-    
-    return FinSetNC( Filtered( AsList( M ), f ) );
-    
-end );
-
-##
-InstallOtherMethod( FirstOp,
-        "for a CAP finite set and a function",
-        [ IsFiniteSet, IsFunction ],
-        
-  function( M, f )
-    
-    return First( AsList( M ), f );
-    
-end );
-
-##
 AddIdentityMorphism( FinSets,
   function( set )
     
     return MapOfFinSetsNC( set, List( set, e -> [ e, e ] ), set );
-    
-end );
-
-##
-InstallMethod( CallFuncList,
-        "for a CAP map of finite sets and a list",
-        [ IsFiniteSetMap, IsList ],
-        
-  function( phi, L )
-    local x, y;
-    
-    x := L[1];
-    
-    y := First( AsList( phi ), pair -> IsIdenticalObj( pair[1], x) );
-    
-    if y = fail then
-        if HasIsWellDefined( phi ) then
-            if IsWellDefined( phi ) then
-                Error( "the element ", x, " is not in the source of the map\n" );
-            else
-                if not x in Source( phi ) then
-                    Error( "the element ", x, " is not in the source of the map\n" );
-                else
-                    Error( "the element ", x, " is in the source of the map, however, the map is not well-defined\n" );
-                fi;
-            fi;
-        else
-            Error( "the element ", x, " may not be in the source of the map, please check if the map is well-defined\n" );
-        fi;
-    fi;
-    
-    return y[2];
-    
-end );
-
-##
-InstallOtherMethod( ListOp,
-        "for a CAP finite set and a CAP map of finite sets",
-        [ IsFiniteSet, IsFiniteSetMap ],
-        
-  function( F, phi )
-    
-    return List( AsList( F ), phi );
     
 end );
 
@@ -514,55 +568,6 @@ AddUniversalMorphismIntoEqualizerWithGivenEqualizer( FinSets,
 end );
 
 ##
-InstallMethod( Preimage,
-        "for a CAP map of finite sets and a CAP finite set",
-        [ IsFiniteSetMap, IsFiniteSet ],
-        
-  function( f, T_ )
-    
-    return Filtered( Source( f ), x -> f(x) in T_ );
-    
-end );
-
-##
-InstallMethod( UnionOfFinSets,
-        "for a list of CAP finite sets",
-        [ IsList ],
-        
-  function( L )
-    local union, M, m;
-    
-    if Length( L ) = 0 then
-        return FinSetNC( [ ] );
-    fi;
-    
-    union := L[ 1 ];
-    for M in L{ [ 2 .. Length( L ) ] } do
-        for m in AsList( M ) do
-            if not m in union then
-                union := ShallowCopy( AsList( union ) );
-                Add( union, m );
-                union := FinSetNC( union );
-            fi;
-        od;
-    od;
-    
-    return union;
-    
-end );
-
-##
-InstallMethod( ImageObject,
-        "for a CAP map of finite sets and a CAP finite set",
-        [ IsFiniteSetMap, IsFiniteSet ],
-        
-  function( f, S_ )
-    
-    return ImageObject( PreCompose( EmbeddingOfFinSets( S_, Source( f ) ), f ) );
-    
-end );
-
-##
 AddCoequalizer( FinSets,
   function( D )
     local T, C, images, previousImages, preimages;
@@ -673,17 +678,6 @@ AddBraidingInverseWithGivenTensorProducts( FinSets,
   function( MN, M, N, NM )
     
     return MapOfFinSetsNC( MN, List( MN, x -> [ x, x{[2,1]} ] ), NM );
-    
-end );
-
-##
-InstallMethod( \[\],
-        "for CAP finite sets",
-        [ IsFiniteSet, IsInt ],
-
-  function( M, i )
-    
-    return AsList( M )[i];
     
 end );
 
