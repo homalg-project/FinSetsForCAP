@@ -9,7 +9,7 @@
 @Subsection PreCompose
 @InsertSystem PreCompose
 
-@Subsection Initial and Terminal objects
+@Subsection Initial and Terminal Objects
 @InsertSystem InitialTerminal
 
 @Subsection Product
@@ -42,40 +42,40 @@
 @Section Skeletal Tools
 @Section Skeletal Examples
 
-@Subsection SkeletalWellDefined
+@Subsection Skeletal WellDefined
 @InsertSystem SkeletalWellDefined
 
-@Subsection SkeletalPreCompose
+@Subsection Skeletal PreCompose
 @InsertSystem SkeletalPreCompose
 
-@Subsection SkeletalMonoEpi
+@Subsection Skeletal Monomophisms and Epimophisms
 @InsertSystem SkeletalMonoEpi
 
-@Subsection Skeletal Initial and Terminal objects
+@Subsection Skeletal Initial and Terminal Objects
 @InsertSystem SkeletalInitialTerminal
 
-@Subsection SkeletalProduct
+@Subsection Skeletal Product
 @InsertSystem SkeletalDirectProduct
 
-@Subsection SkeletalCoproduct
+@Subsection Skeletal Coproduct
 @InsertSystem SkeletalCoproduct
 
-@Subsection SkeletalImage
+@Subsection Skeletal Image
 @InsertSystem SkeletalImageObject
 @InsertSystem SkeletalImageEmbedding
 @InsertSystem SkeletalCoastrictionToImage
 
-@Subsection SkeletalPreimage
+@Subsection Skeletal Preimage
 @InsertSystem SkeletalPreimage
 
-@Subsection SkeletalEqualizer
+@Subsection Skeletal Equalizer
 @InsertSystem SkeletalEqualizer
 
-@Subsection SkeletalPullback
+@Subsection Skeletal Pullback
 @InsertSystem SkeletalFiberProduct
 
-@Subsection SkeletalCoequalizer
+@Subsection Skeletal Coequalizer
 @InsertSystem SkeletalCoequalizer
 
-@Subsection SkeletalPushout
+@Subsection Skeletal Pushout
 @InsertSystem SkeletalPushout
