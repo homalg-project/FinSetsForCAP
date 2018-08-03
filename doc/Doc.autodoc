@@ -37,6 +37,7 @@
 @Chapter The category of skeletal finite sets
 
 @Section Skeletal GAP Categories
+@Section Skeletal Attributes
 @Section Skeletal Constructors
 @Section Skeletal Tools
 @Section Skeletal Examples
