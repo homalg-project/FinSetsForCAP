@@ -71,6 +71,17 @@ InstallMethod( \[\],
 end );
 
 ##
+InstallMethod( Iterator,
+        "for CAP finite sets",
+        [ IsFiniteSet ],
+
+  function( M )
+    
+    return Iterator( AsList( M ) );
+    
+end );
+
+##
 InstallMethod( UnionOfFinSets,
         "for a list of CAP finite sets",
         [ IsList ],

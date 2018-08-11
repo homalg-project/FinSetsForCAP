@@ -101,6 +101,14 @@ DeclareOperation( "\[\]",
         [ IsFiniteSet, IsInt ] );
 
 #! @Description
+#!  An iterator of the &GAP; set of the list used to construct a finite set $S$, i.e.,
+#!  <C>Iterator( FinSet( <A>L</A> ) ) = Iterator( Set( <A>L</A> ) )</C>.
+#! @Arguments M
+#! @Returns an iterator
+DeclareOperation( "Iterator",
+        [ IsFiniteSet ] );
+
+#! @Description
 #!  Compute the set-theoretic union of the elements of <A>L</A>, where <A>L</A> is a list of finite sets.
 #! @Arguments L
 #! @Returns a &CAP; object
