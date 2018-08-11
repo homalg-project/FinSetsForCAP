@@ -89,13 +89,9 @@ InstallMethod( UnionOfFinSets,
   function( L )
     local union, M, m;
     
-    if Length( L ) = 0 then
-        return FinSetNC( [ ] );
-    fi;
-    
-    union := L[ 1 ];
-    for M in L{ [ 2 .. Length( L ) ] } do
-        for m in AsList( M ) do
+    union := FinSet( [ ] );
+    for M in L do
+        for m in M do
             if not m in union then
                 union := ShallowCopy( AsList( union ) );
                 Add( union, m );
