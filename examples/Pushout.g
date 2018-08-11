@@ -32,7 +32,7 @@ iota := UniversalMorphismFromPushout( [ pi1, pi2 ], [ iota1, iota2 ] );
 U := ImageObject( iota );
 #! <An object in FinSets>
 Display( U );
-#! [ 1, 2, 3, 4 ]
+#! [ 1, 2, 4, 3 ]
 UnionOfFinSets( [ N1, N2 ] ) = U;
 #! true
 #! @EndExample

@@ -53,7 +53,7 @@ DeclareAttribute( "AsList",
 #! @Description
 #!  Construct a finite set out of the list <A>L</A>, i.e.,
 #!  an object in the &CAP; category <C>FinSets</C>.
-#!  Warning: L must not contain mutable objects
+#!  The &GAP; operation <C>Set</C> must be applicable to <A>L</A> without throwing an error.
 #! @Arguments L
 #! @Returns a &CAP; object
 DeclareOperation( "FinSet",
@@ -61,9 +61,8 @@ DeclareOperation( "FinSet",
 #! @InsertSystem FinSet
 
 #! @Description
-#!  Construct a finite set out of the duplicate-free and dense list <A>L</A>, i.e.,
+#!  Construct a finite set out of the duplicate-free (w.r.t. <C>IsEqualForElementsOfFinSets</C>) and dense list <A>L</A>, i.e.,
 #!  an object in the &CAP; category <C>FinSets</C>.
-#!  Warning: if L contains mutable objects it is not possible to define a well-defined map from or to the object, see WellDefinedForMophisms TODO
 #! @Arguments L
 #! @Returns a &CAP; object
 DeclareOperation( "FinSetNC",
@@ -91,6 +90,17 @@ DeclareOperation( "MapOfFinSetsNC",
 #! @InsertSystem MapOfFinSetsNC
 
 #! @Section Tools
+
+#! @Description
+#!  Compares two arbitrary objects using the following rules:
+#!  * integers, strings and chars are compared using the operation <C>=</C>
+#!  * lists and records are compared recursively
+#!  * &CAP; category objects are compared using <C>IsEqualForObjects</C> (if available)
+#!  * &CAP; category morphisms are compared using <C>IsEqualForMorphisms</C> (if available)
+#!  * other objects are compared using <C>IsIdenticalObj</C>
+#! @Arguments a, b
+#! @Returns a boolean
+DeclareGlobalFunction( "IsEqualForElementsOfFinSets" );
 
 #! @Description
 #!  Returns the <A>i</A>-th entry of the &GAP; set of the list used to construct a finite set $S$, i.e.,

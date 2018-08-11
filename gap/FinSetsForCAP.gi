@@ -12,16 +12,74 @@ AddObjectRepresentation( FinSets, IsFiniteSet );
 
 AddMorphismRepresentation( FinSets, IsFiniteSetMap );
 
+InstallGlobalFunction( IsEqualForElementsOfFinSets, function( a, b )
+    local i;
+
+    # integers, characters and strings can be mutally compared in GAP
+    if ( IsInt( a ) or IsChar( a ) or IsString( a ) ) and ( IsInt( b ) or IsChar( b ) or IsString( b ) ) then
+        return a = b;
+    fi;
+    
+    # compare lists recursively
+    if IsList( a ) and IsList( b ) then
+        if Length( a ) <> Length( b ) then
+            return false;
+        fi;
+
+        for i in [ 1 .. Length( a ) ] do
+            if IsBound( a[ i ] ) <> IsBound( b[ i ] ) then
+                return false;
+            fi;
+            
+            if IsBound( a[ i ] ) then
+                if not IsEqualForElementsOfFinSets( a[ i ], b[ i ] ) then
+                    return false;
+                fi;
+            fi;
+        od;
+        
+        return true;
+    fi;
+    
+    # compare records recursively
+    if IsRecord( a ) and IsRecord( b ) then
+        if RecNames( a ) <> RecNames( b ) then
+            return false;
+        fi;
+        
+        for i in RecNames( a ) do
+            if not IsEqualForElementsOfFinSets( a.(i), b.(i) ) then
+                return false;
+            fi;
+        od;
+        
+        return true;
+    fi;
+    
+    # compare CAP category objects using IsEqualForObjects (if available)
+    if IsCapCategoryObject( a ) and IsCapCategoryObject( b ) then
+        if ApplicableMethod( IsEqualForObjects, [ a, b ] ) <> fail then
+            return IsEqualForObjects( a, b );
+        fi;
+    fi;
+    
+    # compare CAP category morphisms using IsEqualForMorphisms (if available)
+    if IsCapCategoryMorphism( a ) and IsCapCategoryMorphism( b ) then
+        if ApplicableMethod( IsEqualForMorphisms, [ a, b ] ) <> fail then
+            return IsEqualForMorphisms( a, b );
+        fi;
+    fi;
+    
+    # compare all other objects using IsIdenticalObj
+    return IsIdenticalObj( a, b );
+end );
+
 ##
 InstallMethod( FinSet,
         "for a list",
         [ IsList ],
         
   function( L )
-    
-    if ForAny( L, l -> IsMutable( l ) ) then
-        Error( "FinSet only accepts lists of immutable objects" );
-    fi;
     
     return FinSetNC( Set( L ) );
     
@@ -33,7 +91,7 @@ InstallMethod( FinSetNC,
         [ IsList ],
         
   function( L )
-    local set;
+    local set, i;
     
     set := rec( );
     
@@ -43,6 +101,13 @@ InstallMethod( FinSetNC,
             );
     
     Assert( 4, IsWellDefined( set ) );
+
+    for i in [ 1 .. Length( L ) ] do
+        if not IsEqualForElementsOfFinSets( L[ i ], AsList( set )[ i ] ) then
+            Display( "Warning: The elements of the list passed to the constructor are not equal (w.r.t. IsEqualForElementsOfFinSets) to the elements of the resulting FinSet. Either pass an immutable copy of the list or add an additional special case to IsEqualForElementsOfFinSets to avoid this warning." );
+            break;
+        fi;
+    od;
 
     return set;
     
@@ -55,7 +120,7 @@ InstallMethod( \in,
         
   function( y, M )
     
-    return ForAny( AsList( M ), m -> IsIdenticalObj( m, y ) );
+    return ForAny( AsList( M ), m -> IsEqualForElementsOfFinSets( m, y ) );
     
 end );
 
@@ -150,7 +215,7 @@ AddIsWellDefinedForObjects( FinSets,
     
     for i in [ 1 .. Length( L ) ] do
         for j in [ 1 .. ( i - 1 ) ] do
-            if IsIdenticalObj( L[ i ], L[ j ] ) then
+            if IsEqualForElementsOfFinSets( L[ i ], L[ j ] ) then
                 return false;
             fi;
         od;
@@ -233,7 +298,7 @@ InstallMethod( ProjectionOfFinSets,
   function( S, T )
     local pi;
     
-    pi := MapOfFinSetsNC( S, List( S, x -> [ x, First( T, t -> ForAny( t, element -> IsIdenticalObj( element, x ) ) ) ] ), T );
+    pi := MapOfFinSetsNC( S, List( S, x -> [ x, First( T, t -> x in t ) ] ), T );
     
     Assert( 3, IsEpimorphism( pi ) );
     SetIsEpimorphism( pi, true );
@@ -274,7 +339,7 @@ InstallMethod( CallFuncList,
     
     x := L[1];
     
-    y := First( AsList( phi ), pair -> IsIdenticalObj( pair[1], x) );
+    y := First( AsList( phi ), pair -> IsEqualForElementsOfFinSets( pair[ 1 ], x ) );
     
     if y = fail then
         if HasIsWellDefined( phi ) then
@@ -331,7 +396,7 @@ AddIsWellDefinedForMorphisms( FinSets,
     
     for i in [ 1 .. Length( rel ) ] do
         for j in [ 1 .. ( i - 1 ) ] do
-            if IsIdenticalObj( rel[ i ][ 1 ], rel[ j ][ 1 ] ) then
+            if IsEqualForElementsOfFinSets( rel[ i ][ 1 ], rel[ j ][ 1 ] ) then
                 return false;
             fi;
         od;
@@ -353,7 +418,7 @@ AddIsEqualForMorphisms( FinSets,
     fi;
     
     S := Source( map1 );
-    return ForAll( AsList( S ), s -> IsIdenticalObj( map1( s ), map2( s ) ) );
+    return ForAll( AsList( S ), s -> IsEqualForElementsOfFinSets( map1( s ), map2( s ) ) );
     
 end );
 
@@ -382,7 +447,7 @@ end );
 AddTerminalObject( FinSets,
   function( arg )
     
-    return FinSetNC( [ MakeImmutable( "*" ) ] );
+    return FinSetNC( [ "*" ] );
     
 end );
 
@@ -407,7 +472,7 @@ end );
 AddDirectProduct( FinSets,
   function( L )
     
-    return FinSetNC( MakeImmutable( Cartesian( List( L, AsList ) ) ) );
+    return FinSetNC( Cartesian( List( L, AsList ) ) );
     
 end );
 
@@ -431,7 +496,7 @@ AddUniversalMorphismIntoDirectProductWithGivenDirectProduct( FinSets,
     
     S := Source( tau[1] );
     
-    Graph := List( AsList( S ), x -> [ x, First( T, t -> ForAll( [ 1 .. Length( t ) ], i -> IsIdenticalObj( t[ i ], tau[ i ]( x ) ) ) ) ] );
+    Graph := List( AsList( S ), x -> [ x, List( tau, f -> f(x) ) ] );
     
     return MapOfFinSetsNC( S, Graph, T );
     
@@ -461,7 +526,7 @@ end );
 AddCoproduct( FinSets,
   function( L )
     
-    L := List( [ 1 .. Length( L ) ], i -> MakeImmutable( Cartesian( [ i ], AsList( L[i] ) ) ) );
+    L := List( [ 1 .. Length( L ) ], i -> Cartesian( [ i ], AsList( L[ i ] ) ) );
     
     return FinSetNC( Concatenation( L ) );
     
@@ -474,7 +539,7 @@ AddInjectionOfCofactorOfCoproductWithGivenCoproduct( FinSets,
     
     S := L[i];
     
-    return MapOfFinSetsNC( S, List( S, x -> [ x, First( T, t -> t[1] = i and IsIdenticalObj( t[2], x ) ) ] ), T );
+    return MapOfFinSetsNC( S, List( S, x -> [ x, [ i, x ] ] ), T );
     
 end );
 
@@ -492,12 +557,21 @@ end );
 ##
 AddImageObject( FinSets,
   function( phi )
-    local S, T;
+    local S, T, I, s;
     
     S := Source( phi );
     T := Range( phi );
+
+    I := FinSetNC( [ ] );
+    for s in S do
+        if not phi( s ) in I then
+            I := ShallowCopy( AsList( I ) );
+            Add( I, phi( s ) );
+            I := FinSetNC( I );
+        fi;
+    od;
     
-    return Filtered( T, t -> ForAny( AsList( S ), s -> IsIdenticalObj( phi( s ), t ) ) );
+    return I;
     
 end );
 
@@ -505,7 +579,7 @@ end );
 AddIsEpimorphism( FinSets,
   function( phi )
     
-    return ImageObject( phi ) = Range( phi );
+    return IsEqualForObjects( ImageObject( phi ), Range( phi ) );
     
 end );
 
@@ -554,7 +628,7 @@ AddEqualizer( FinSets,
     
     D := D{[ 2 .. Length( D ) ]};
     
-    return Filtered( S, x -> ForAll( D, fj -> IsIdenticalObj( f1( x ), fj( x ) ) ) );
+    return Filtered( S, x -> ForAll( D, fj -> IsEqualForElementsOfFinSets( f1( x ), fj( x ) ) ) );
     
 end );
 
@@ -599,7 +673,7 @@ AddCoequalizer( FinSets,
         T := Filtered( T, t -> not t in images );
     od;
 
-    return FinSetNC( MakeImmutable( C ) );
+    return FinSetNC( C );
     
 end );
 

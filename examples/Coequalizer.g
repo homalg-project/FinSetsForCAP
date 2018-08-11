@@ -50,7 +50,7 @@ C := Coequalizer( f, g );
 Display( C );
 #! [ [  1 ],
 #!   [  2 ],
-#!   [  3,  4 ] ]
+#!   [  4,  3 ] ]
 
 
 S := FinSet( [ 1, 2, 3, 4, 5 ] );
@@ -111,9 +111,9 @@ PreCompose( pi, phi ) = tau;
 #! true
 
 
-A := FinSet( [ 'A' ] );
+A := FinSet( [ "A" ] );
 #! <An object in FinSets>
-B := FinSet( [ 'B' ] );
+B := FinSet( [ "B" ] );
 #! <An object in FinSets>
 M := FinSetNC( [ A, B ] );
 #! <An object in FinSets>
@@ -128,8 +128,8 @@ Length( C );
 Length( AsList( C )[ 1 ] );
 #! 2
 Display( AsList( C )[ 1 ][ 1 ] );
-#! A
+#! [ "A" ]
 Display( AsList( C )[ 1 ][ 2 ] );
-#! B
+#! [ "B" ]
 
 #! @EndExample
