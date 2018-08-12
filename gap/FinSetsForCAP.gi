@@ -861,7 +861,7 @@ InstallMethod( Display,
         [ IsFiniteSet ],
         
   function( S )
-    Display( AsList( S ) );
+    Print( AsList( S ), "\n" );
 end );
 
 ##
@@ -870,5 +870,5 @@ InstallMethod( Display,
         [ IsFiniteSetMap ],
         
   function( phi )
-    Display( [ AsList( Source( phi ) ), AsList( phi), AsList( Range( phi ) ) ] );
+    Print( [ AsList( Source( phi ) ), AsList( phi), AsList( Range( phi ) ) ], "\n" );
 end );

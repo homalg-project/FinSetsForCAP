@@ -48,9 +48,7 @@ g := MapOfFinSets( S, [ [1,2], [2,3], [3,4], [4,3], [5,4] ], T );
 C := Coequalizer( f, g );
 #! <An object in FinSets>
 Display( C );
-#! [ [ 1 ],
-#!   [ 2 ],
-#!   [ 4, 3 ] ]
+#! [ [ 1 ], [ 2 ], [ 4, 3 ] ]
 
 
 S := FinSet( [ 1, 2, 3, 4, 5 ] );

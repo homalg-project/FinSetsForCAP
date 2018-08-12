@@ -32,5 +32,5 @@ Length( Eq );
 psi := EmbeddingOfEqualizer( D );
 #! <A monomorphism in SkeletalFinSets>
 Display( psi );
-#! [ 3, [1, 4, 5], 5 ]
+#! [ 3, [ 1, 4, 5 ], 5 ]
 #! @EndExample
