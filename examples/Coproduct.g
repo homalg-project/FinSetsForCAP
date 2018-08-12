@@ -36,8 +36,20 @@ IsWellDefined( iota1 );
 AsList( iota1 );
 #! [ [ 1, [ 1, 1 ] ], [ 2, [ 1, 2 ] ], [ 3, [ 1, 3 ] ], [ 4, [ 1, 4 ] ], 
 #!   [ 5, [ 1, 5 ] ], [ 6, [ 1, 6 ] ], [ 7, [ 1, 7 ] ] ]
+iota2 := InjectionOfCofactorOfCoproduct( [ M, N, P ], 2 );
+#! <A morphism in FinSets>
+IsWellDefined( iota2 );
+#! true
+AsList( iota2 );
+#! [ [ 1, [ 2, 1 ] ], [ 2, [ 2, 2 ] ], [ 3, [ 2, 3 ] ] ]
 iota3 := InjectionOfCofactorOfCoproduct( [ M, N, P ], 3 );
 #! <A morphism in FinSets>
+IsWellDefined( iota3 );
+#! true
 AsList( iota3 );
 #! [ [ 1, [ 3, 1 ] ], [ 2, [ 3, 2 ] ], [ 3, [ 3, 3 ] ], [ 4, [ 3, 4 ] ] ]
+psi := UniversalMorphismFromCoproduct( [ M, N, P ], [ iota1, iota2, iota3 ] );
+#! <A morphism in FinSets>
+psi = IdentityMorphism( Coproduct( [ M, N, P ] ) );
+#! true
 #! @EndExample
