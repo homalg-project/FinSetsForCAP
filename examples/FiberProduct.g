@@ -18,8 +18,7 @@ D := [ iota1, iota2 ];
 int := FiberProduct( D );
 #! <An object in FinSets>
 Display( int );
-#! [ [  2,  2 ],
-#!   [  3,  3 ] ]
+#! [ [ 2, 2 ], [ 3, 3 ] ]
 pi1 := ProjectionInFactorOfFiberProduct( D, 1 );
 #! <A monomorphism in FinSets>
 int1 := ImageObject( pi1 );
