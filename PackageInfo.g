@@ -15,7 +15,7 @@ Version := Maximum( [
                    ## this line prevents merge conflicts
                    "2017.05.26", ## Julia's version
                    ## this line prevents merge conflicts
-                   "2018.08.10", ## Fabian's version
+                   "2018.08.11", ## Fabian's version
                    ] ),
 
 Date := ~.Version{[ 1 .. 10 ]},
@@ -43,6 +43,20 @@ Persons := [
     LastName := "Mickisch",
     WWWHome := "https://github.com/juliamick/",
     Email := "julia.mickisch@student.uni-siegen.de",
+    PostalAddress := Concatenation(
+               "Walter-Flex-Str. 3\n",
+               "57068 Siegen\n",
+               "Germany" ),
+    Place := "Siegen",
+    Institution := "University of Siegen",
+  ),
+  rec(
+    IsAuthor := true,
+    IsMaintainer := true,
+    FirstNames := "Fabian",
+    LastName := "Zickgraf",
+    WWWHome := "https://github.com/zickgraf/",
+    Email := "fabian.zickgraf@uni-siegen.de",
     PostalAddress := Concatenation(
                "Walter-Flex-Str. 3\n",
                "57068 Siegen\n",
