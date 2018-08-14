@@ -13,3 +13,7 @@ clean:
 
 test:	doc
 	gap maketest.g
+
+coverage:	doc
+	gap --cover stats maketest.g
+	echo 'LoadPackage("profiling"); OutputJsonCoverage("stats", "coverage.json");' | gap
