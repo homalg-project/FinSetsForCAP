@@ -103,7 +103,7 @@ InstallMethod( FinSetNC,
     Assert( 4, IsWellDefined( set ) );
 
     for i in [ 1 .. Length( L ) ] do
-        if not IsEqualForElementsOfFinSets( L[ i ], AsList( set )[ i ] ) then
+        if IsBound( L[ i ] ) and not IsEqualForElementsOfFinSets( L[ i ], AsList( set )[ i ] ) then
             Display( "Warning: The elements of the list passed to the constructor are not equal (w.r.t. IsEqualForElementsOfFinSets) to the elements of the resulting FinSet. Either pass an immutable copy of the list or add an additional special case to IsEqualForElementsOfFinSets to avoid this warning." );
             break;
         fi;
@@ -255,10 +255,6 @@ InstallMethod( MapOfFinSetsNC,
   function( S, G, T )
     local map;
     
-    if not ForAll( G, a -> IsList( a ) and Length( a ) = 2 ) then
-        Error( "the list of relations has a wrong syntax\n" );
-    fi;
-    
     map := rec( );
     
     ObjectifyMorphismForCAPWithAttributes( map, FinSets,
@@ -381,7 +377,7 @@ AddIsWellDefinedForMorphisms( FinSets,
     T := Range( mor );
     
     rel := AsList( mor );
-
+    
     if not IsDenseList( rel ) then
         return false;
     fi;
@@ -390,7 +386,7 @@ AddIsWellDefinedForMorphisms( FinSets,
         return false;
     fi;
     
-    if not ForAll( rel, a -> a[ 1 ] in S and a[ 2 ] in T ) then
+    if not ForAll( rel, a -> IsList( a ) and Length( a ) = 2 and a[ 1 ] in S and a[ 2 ] in T ) then
         return false;
     fi;
     

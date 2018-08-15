@@ -28,27 +28,38 @@ IsWellDefined( psi );
 phi = psi;
 #! true
 
+# do not add morphisms which are not well-defined to cache
+DeactivateCachingOfCategory( FinSets );
 
-# non-welldefined morphisms
-# We create a new source S with a string only appearing in this test file.
-# Otherwise, the caching mechanism might compare the following non-welldefined
-# morphisms to morphisms in other tests using IsEqualForMorphisms, which might
-# throw an error.
+psi := MapOfFinSetsNC( S, [ , [ 1, "b" ], [ 3, "b" ], [ 2, "a" ] ], T );
+#! <A morphism in FinSets>
+IsWellDefined( psi );
+#! false
+psi := MapOfFinSets( S, [ [ 1, "d" ], [ 3, "b" ] ], T );
+#! <A morphism in FinSets>
+IsWellDefined( psi );
+#! false
+psi := MapOfFinSets( S, [ 1, 2, 3 ], T );
+#! <A morphism in FinSets>
+IsWellDefined( psi );
+#! false
+psi := MapOfFinSets( S, [ [ 1, "b" ], [ 3, "b" ], [ 2, "a", "b" ] ], T );
+#! <A morphism in FinSets>
+IsWellDefined( psi );
+#! false
+psi := MapOfFinSets( S, [ [ 5, "b" ], [ 3, "b" ], [ 2, "a" ] ], T );
+#! <A morphism in FinSets>
+IsWellDefined( psi );
+#! false
+psi := MapOfFinSets( S, [ [ 1, "d" ], [ 3, "b" ], [ 2, "a" ] ], T );
+#! <A morphism in FinSets>
+IsWellDefined( psi );
+#! false
+psi := MapOfFinSets( S, [ [ 1, "b" ], [ 2, "b" ], [ 2, "a" ] ], T );
+#! <A morphism in FinSets>
+IsWellDefined( psi );
+#! false
 
-S := FinSet( [ 1, 2, "MapOfFinSet.g" ] );;
-psi := [ [ 1, "b" ], [ "MapOfFinSets.g", "b" ], [ 2, "a" ], [ 2, "b" ] ];;
-psi := MapOfFinSets( S, psi, T );
-#! <A morphism in FinSets>
-IsWellDefined( psi );
-#! false
-psi := [ [ 1, "b" ], [ "MapOfFinSets.g", "b" ] ];;
-psi := MapOfFinSets( S, psi, T );
-#! <A morphism in FinSets>
-IsWellDefined( psi );
-#! false
-psi := [ [ 1, "b" ], [ "MapOfFinSets.g", "b" ], [ 2, "julia" ] ];;
-psi := MapOfFinSets( S, psi, T );
-#! <A morphism in FinSets>
-IsWellDefined( psi );
-#! false
+SetCachingOfCategoryWeak( FinSets );
+
 #! @EndExample
