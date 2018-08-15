@@ -443,7 +443,7 @@ AddUniversalMorphismIntoEqualizerWithGivenEqualizer( SkeletalFinSets,
 
     Eq := Filtered( AsList( s ), x -> ForAll( D, fj -> f1( x ) = fj( x ) ) );
 
-    return MapOfFinSets( Source( tau ), List( x -> Position( Eq, tau( x ) ) ), E );
+    return MapOfFinSets( Source( tau ), List( Source( tau ), x -> Position( Eq, tau( x ) ) ), E );
     
 end );
 
