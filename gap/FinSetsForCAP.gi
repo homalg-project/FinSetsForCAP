@@ -409,11 +409,10 @@ AddIsEqualForMorphisms( FinSets,
   function( map1, map2 )
     local S;
     
-    if not Length( AsList( map1 ) ) = Length( AsList( map2 ) ) then
-        return false;
-    fi;
-    
     S := Source( map1 );
+    
+    # if map1 and map2 are well-defined, then Length( AsList( map1 ) ) = Length( AsList( S ) ) = Length( AsList( map2 ) )
+    
     return ForAll( AsList( S ), s -> IsEqualForElementsOfFinSets( map1( s ), map2( s ) ) );
     
 end );
