@@ -720,7 +720,11 @@ AddAssociatorRightToLeftWithGivenTensorProducts( FinSets,
 
 ##
 AddTensorUnit( FinSets,
-  TerminalObject );
+  function()
+    
+    return TerminalObject( FinSet( [ ] ) );
+    
+end );
 
 ##
 AddLeftUnitorWithGivenTensorProduct( FinSets,
@@ -785,7 +789,7 @@ end );
 AddInternalHomOnMorphismsWithGivenInternalHoms( FinSets,
   function( S, alpha, beta, T )
     
-    return MapOfFinSetsNC( S, List( S, f -> PreCompose( alpha, f, beta ) ), T );
+    return MapOfFinSetsNC( S, List( S, f -> [ f, PreCompose( [ alpha, f, beta ] ) ] ), T );
     
 end );
 
@@ -844,7 +848,7 @@ end );
 AddMonoidalPostComposeMorphismWithGivenObjects( FinSets,
   function( HM_NxH_N_L, M, N, L, HM_L );
     
-    return MapOfFinSetsNC( HM_NxH_N_L, List( HM_NxH_N_L, fg -> [ fg, PostCompose( fg[2], fg[1] ) ] ), HM_L );
+    return MapOfFinSetsNC( HM_NxH_N_L, List( HM_NxH_N_L, fg -> [ fg, PostCompose( fg[1], fg[2] ) ] ), HM_L );
     
 end );
 

@@ -33,6 +33,9 @@
 @Subsection Pushout
 @InsertSystem Pushout
 
+@Subsection Topos properties
+@InsertSystem Topos
+
 
 @Chapter The category of skeletal finite sets
 
