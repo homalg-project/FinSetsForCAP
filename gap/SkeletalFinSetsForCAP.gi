@@ -519,7 +519,7 @@ ExplicitCoequalizer := function( D )
     
     while not IsEmpty( T ) do
         t := T[ 1 ]; 
-        t := Union( List( D, f_j -> List( Union( List( D, f_i -> Preimage( f_i, [ t ] ) ) ), f_j  ) ) );
+        t := Union( List( D, f_j -> List( Union( List( D, f_i -> Preimage( f_i, [ t ] ) ) ), f_j ) ) );
         t := AsList( t );
         if IsEmpty( t ) then
             t := [ T[ 1 ] ];
@@ -531,8 +531,8 @@ ExplicitCoequalizer := function( D )
     T := AsList( Range( D[ 1 ] ) );
     
     if not Concatenation( Cq ) = T then
-    for t in T do
-        L := [];
+        for t in T do
+            L := [];
             for i in [ 1 .. Length( Cq )] do
                 if t in Cq[ i ] then 
                     Add( L, Cq[ i ] );
