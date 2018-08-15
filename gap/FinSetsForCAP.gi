@@ -755,10 +755,18 @@ AddRightUnitorInverseWithGivenTensorProduct( FinSets,
 end );
 
 ##
-AddBraidingInverseWithGivenTensorProducts( FinSets,
+AddBraidingWithGivenTensorProducts( FinSets,
   function( MN, M, N, NM )
     
     return MapOfFinSetsNC( MN, List( MN, x -> [ x, x{[2,1]} ] ), NM );
+    
+end );
+
+##
+AddBraidingInverseWithGivenTensorProducts( FinSets,
+  function( NM, M, N, MN )
+    
+    return MapOfFinSetsNC( NM, List( NM, x -> [ x, x{[2,1]} ] ), MN );
     
 end );
 
