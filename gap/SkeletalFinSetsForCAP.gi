@@ -133,17 +133,6 @@ InstallMethod( CallFuncList,
 end );
 
 ##
-InstallOtherMethod( ListOp,
-        "for a CAP skeletal finite set and a CAP map of skeletal finite sets",
-        [ IsSkeletalFiniteSet, IsSkeletalFiniteSetMap ],
-        
-  function( s, phi )
-    
-    return List( AsList( s ), phi );
-       
-end );
-
-##
 AddIsWellDefinedForMorphisms( SkeletalFinSets,
   function( mor )
     local s, rel, t;
