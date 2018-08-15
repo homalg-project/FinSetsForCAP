@@ -19,4 +19,6 @@ psi := MapOfFinSets( p, [ 1, 3, 2, 3, 3, 2, 1 ], m );
 #! <A morphism in SkeletalFinSets>
 IsEpimorphism( psi );
 #! true
+IsMonomorphism( psi );
+#! false
 #! @EndExample

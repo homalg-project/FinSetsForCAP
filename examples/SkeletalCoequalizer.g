@@ -59,4 +59,20 @@ Display( phi );
 #! [ 3, [ 1, 2, 1 ], 2 ]
 PreCompose( pi, phi ) = tau;
 #! true
+
+s := FinSet( 2 );;
+t := FinSet( 3 );;
+f := MapOfFinSets( s, [ 1, 2 ], t );;
+IsWellDefined( f );
+#! true
+g := MapOfFinSets( s, [ 2, 3 ], t );;
+IsWellDefined( g );
+#! true
+C := Coequalizer( [ f, g ] );
+#! <An object in SkeletalFinSets>
+Length( C );
+#! 1
+
+
+
 #! @EndExample

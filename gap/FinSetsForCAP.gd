@@ -101,6 +101,7 @@ DeclareOperation( "MapOfFinSetsNC",
 #! @Arguments a, b
 #! @Returns a boolean
 DeclareGlobalFunction( "IsEqualForElementsOfFinSets" );
+#! @InsertSystem IsEqualForElementsOfFinSets
 
 #! @Description
 #!  Returns the <A>i</A>-th entry of the &GAP; set of the list used to construct a finite set $S$, i.e.,

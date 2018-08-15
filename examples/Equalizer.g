@@ -19,8 +19,23 @@ Eq := Equalizer( D );
 #! <An object in FinSets>
 Display( Eq );
 #! [ 1, 5 ]
-Im := ImageObject( EmbeddingOfEqualizer( D ) );
+iota := EmbeddingOfEqualizer( D );;
+IsWellDefined( iota );
+#! true
+Im := ImageObject( iota );
 #! <An object in FinSets>
 Display( Im );
 #! [ 1, 5 ]
+M := FinSet( [ "a" ] );;
+phi := MapOfFinSets( M, [ [ "a", 5 ] ], S );;
+IsWellDefined( phi );
+#! true
+psi := UniversalMorphismIntoEqualizer( D, phi );
+#! <A morphism in FinSets>
+IsWellDefined( psi );
+#! true
+Display( psi );
+#! [ [ "a" ], [ [ "a", 5 ] ], [ 1, 5 ] ]
+PreCompose( psi, iota ) = phi;
+#! true
 #! @EndExample
