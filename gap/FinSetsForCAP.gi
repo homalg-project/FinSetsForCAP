@@ -458,10 +458,6 @@ AddUniversalMorphismIntoTerminalObjectWithGivenTerminalObject( FinSets,
     
     t := AsList( T );
     
-    if not Length( t ) = 1 then
-        Error( "the second argument is not a terminal object" );
-    fi;
-
     t := t[ 1 ];
     
     return MapOfFinSetsNC( M, List( M, x -> [ x, t ] ), T );
@@ -514,10 +510,6 @@ end );
 AddUniversalMorphismFromInitialObjectWithGivenInitialObject( FinSets,
   function( M, I )
     
-    if not Length( I ) = 0 then
-        Error( "the second argument is not an initial object" );
-    fi;
-
     return MapOfFinSetsNC( I, [ ], M );
     
 end );
