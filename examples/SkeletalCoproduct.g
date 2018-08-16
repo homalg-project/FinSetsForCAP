@@ -31,7 +31,9 @@ IsWellDefined( iota3 );
 #! true
 Display( iota3 );
 #! [ 4, [ 11, 12, 13, 14 ], 14 ]
-psi := UniversalMorphismFromCoproduct( [ m, n, p ], [ iota1, iota2, iota3 ] );
+psi := UniversalMorphismFromCoproduct( [ m, n, p ],
+                                       [ iota1, iota2, iota3 ]
+                                     );
 #! <A morphism in SkeletalFinSets>
 psi = IdentityMorphism( Coproduct( [ m, n, p ] ) );
 #! true

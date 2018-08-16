@@ -55,9 +55,11 @@ S := FinSet( [ 1, 2, 3, 4, 5 ] );
 #! <An object in FinSets>
 T := FinSet( [ 1, 2, 3, 4 ] );
 #! <An object in FinSets>
-f := MapOfFinSets( S, [ [ 1, 3 ], [ 2, 4 ], [ 3, 4 ], [ 4, 2 ], [ 5, 4 ] ], T );
+G_f := [ [ 1, 3 ], [ 2, 4 ], [ 3, 4 ], [ 4, 2 ], [ 5, 4 ] ];;
+f := MapOfFinSets( S, G_f, T );
 #! <A morphism in FinSets>
-g := MapOfFinSets( S, [ [ 1, 3 ], [ 2, 3 ], [ 3, 4 ], [ 4, 2 ], [ 5, 4 ] ], T );
+G_g := [ [ 1, 3 ], [ 2, 3 ], [ 3, 4 ], [ 4, 2 ], [ 5, 4 ] ];;
+g := MapOfFinSets( S, G_g, T );
 #! <A morphism in FinSets>
 D := [ f, g ];
 #! [ <A morphism in FinSets>, <A morphism in FinSets> ]
@@ -69,7 +71,8 @@ pi := ProjectionOntoCoequalizer( D );
 #! <An epimorphism in FinSets>
 AsList( pi );
 #! [ [ 1, [ 1 ] ], [ 2, [ 2 ] ], [ 3, [ 3, 4 ] ], [ 4, [ 3, 4 ] ] ]
-tau := MapOfFinSets( T, [ [ 1, 2 ], [ 2, 1 ], [ 3, 2 ], [ 4, 2 ] ], FinSet( [ 1, 2 ] ) );
+G_tau := [ [ 1, 2 ], [ 2, 1 ], [ 3, 2 ], [ 4, 2 ] ];;
+tau := MapOfFinSets( T, G_tau, FinSet( [ 1, 2 ] ) );
 #! <A morphism in FinSets>
 phi := UniversalMorphismFromCoequalizer( D, tau );
 #! <A morphism in FinSets>
@@ -83,9 +86,11 @@ S := FinSet( [ 1, 2, 3, 4, 5 ] );
 #! <An object in FinSets>
 T := FinSet( [ 1, 2, 3, 4 ] );
 #! <An object in FinSets>
-f := MapOfFinSets( S, [ [ 1, 2 ], [ 2, 3 ], [ 3, 3 ], [ 4, 2 ], [ 5, 4 ] ], T );
+G_f := [ [ 1, 2 ], [ 2, 3 ], [ 3, 3 ], [ 4, 2 ], [ 5, 4 ] ];;
+f := MapOfFinSets( S, G_f, T );
 #! <A morphism in FinSets>
-g := MapOfFinSets( S, [ [ 1, 2 ], [ 2, 3 ], [ 3, 2 ], [ 4, 2 ], [ 5, 4 ] ], T );
+G_g := [ [ 1, 2 ], [ 2, 3 ], [ 3, 2 ], [ 4, 2 ], [ 5, 4 ] ];;
+g := MapOfFinSets( S, G_g, T );
 #! <A morphism in FinSets>
 D := [ f, g ];
 #! [ <A morphism in FinSets>, <A morphism in FinSets> ]
@@ -99,7 +104,8 @@ AsList( pi );
 #! [ [ 1, [ 1 ] ], [ 2, [ 2, 3 ] ], [ 3, [ 2, 3 ] ], [ 4, [ 4 ] ] ]
 PreCompose( f, pi ) = PreCompose( g, pi );
 #! true
-tau := MapOfFinSets( T, [ [ 1, 1 ], [ 2, 2 ], [ 3, 2 ], [ 4, 1 ] ], FinSet( [ 1, 2 ] ) );
+G_tau := [ [ 1, 1 ], [ 2, 2 ], [ 3, 2 ], [ 4, 1 ] ];;
+tau := MapOfFinSets( T, G_tau, FinSet( [ 1, 2 ] ) );
 #! <A morphism in FinSets>
 phi := UniversalMorphismFromCoequalizer( D, tau );
 #! <A morphism in FinSets>

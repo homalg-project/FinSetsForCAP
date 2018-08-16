@@ -48,7 +48,9 @@ IsWellDefined( iota3 );
 #! true
 AsList( iota3 );
 #! [ [ 1, [ 3, 1 ] ], [ 2, [ 3, 2 ] ], [ 3, [ 3, 3 ] ], [ 4, [ 3, 4 ] ] ]
-psi := UniversalMorphismFromCoproduct( [ M, N, P ], [ iota1, iota2, iota3 ] );
+psi := UniversalMorphismFromCoproduct( [ M, N, P ],
+                                       [ iota1, iota2, iota3 ]
+                                     );
 #! <A morphism in FinSets>
 psi = IdentityMorphism( Coproduct( [ M, N, P ] ) );
 #! true

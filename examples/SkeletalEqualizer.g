@@ -13,8 +13,7 @@ f2 := MapOfFinSets( S, [ 3, 2, 3, 1, 2 ], T );
 #! <A morphism in SkeletalFinSets>
 f3 := MapOfFinSets( S, [ 3, 1, 2, 1, 2 ], T );
 #! <A morphism in SkeletalFinSets>
-D := [ f1, f2, f3 ];
-#! [ <A morphism in SkeletalFinSets>, <A morphism in SkeletalFinSets>, <A morphism in SkeletalFinSets> ]
+D := [ f1, f2, f3 ];;
 Eq := Equalizer( D );
 #! <An object in SkeletalFinSets>
 Length( Eq );

@@ -14,11 +14,17 @@ IsEqualForElementsOfFinSets( [ 2 ], [ 2, 3 ] );
 #! false
 IsEqualForElementsOfFinSets( [ , 2 ], [ 2, 2 ] );
 #! false
-IsEqualForElementsOfFinSets( rec( a := "a", b := "b" ), rec( b := "b", a := "a" ) );
+IsEqualForElementsOfFinSets( rec( a := "a", b := "b" ),
+                             rec( b := "b", a := "a" )
+                           );
 #! true
-IsEqualForElementsOfFinSets( rec( a := "a", b := "b" ), rec( a := "a" ) );
+IsEqualForElementsOfFinSets( rec( a := "a", b := "b" ),
+                             rec( a := "a" )
+                           );
 #! false
-IsEqualForElementsOfFinSets( rec( a := "a", b := "b" ), rec( a := "a", b := "notb" ) );
+IsEqualForElementsOfFinSets( rec( a := "a", b := "b" ),
+                             rec( a := "a", b := "notb" )
+                           );
 #! false
 
 M := FinSet( [ ] );;
