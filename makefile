@@ -6,12 +6,12 @@ doc/manual.six: makedoc.g \
 		PackageInfo.g \
 		doc/Doc.autodoc \
 		gap/*.gd gap/*.gi examples/*.g examples/doc/*.g
-	        gap makedoc.g
+			gap makedoc.g
 
 clean:
 	(cd doc ; ./clean)
 
-test:	doc
+test: doc
 	gap maketest.g
 
 test-tabs:
