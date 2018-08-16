@@ -8,6 +8,12 @@ doc/manual.six: makedoc.g \
 		gap/*.gd gap/*.gi examples/*.g examples/doc/*.g
 	        gap makedoc.g
 
+doc_with_overfull_box_warnings: makedoc_with_overfull_box_warnings.g \
+		PackageInfo.g \
+		doc/Doc.autodoc \
+		gap/*.gd gap/*.gi examples/*.g examples/doc/*.g
+	        gap makedoc_with_overfull_box_warnings.g
+
 clean:
 	(cd doc ; ./clean)
 
