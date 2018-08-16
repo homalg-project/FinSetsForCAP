@@ -15,6 +15,8 @@ jobs:
           echo "SetUserPreference(\"PackagesToLoad\", []);" > ~/.gap/gap.ini
           sed 's/  SuggestedOtherPackages := \[ \[ "Browse", ">=0" \] \],/  SuggestedOtherPackages := [ ],/g' -i ~/.gap/pkg/CAP_project/CAP/PackageInfo.g
       - run: |
+          ! grep -RP "\t" examples/ gap/
+      - run: |
           make doc_with_overfull_box_warnings | perl -pe 'END { exit $status } $status=1 if /Overfull \\hbox/;'
       - run: |
           make test | perl -pe 'END { exit $status } $status=1 if /Expected output/;'
