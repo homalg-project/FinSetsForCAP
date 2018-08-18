@@ -66,7 +66,7 @@ InstallGlobalFunction( IsEqualForElementsOfFinSets, function( a, b )
     # compare CAP category morphisms using IsEqualForMorphisms (if available)
     if IsCapCategoryMorphism( a ) and IsCapCategoryMorphism( b ) then
         if ApplicableMethod( IsEqualForMorphisms, [ a, b ] ) <> fail then
-            return IsEqualForMorphisms( a, b );
+            return IsEqualForObjects( Source( a ), Source( b ) ) and IsEqualForObjects( Range( a ), Range( b ) ) and IsEqualForMorphisms( a, b );
         fi;
     fi;
     
