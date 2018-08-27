@@ -54,6 +54,7 @@ DeclareAttribute( "AsList",
 #!  Construct a finite set out of the list <A>L</A>, i.e.,
 #!  an object in the &CAP; category <C>FinSets</C>.
 #!  The &GAP; operation <C>Set</C> must be applicable to <A>L</A> without throwing an error.
+#!  Equality is determined as follows: <C>FinSet( L1 ) = FinSet( L2 )</C> iff <C>IsEqualForElementsOfFinSets( Immutable( Set( L1 ) ), Immutable( Set( L2 ) ) )</C>
 #! @Arguments L
 #! @Returns a &CAP; object
 DeclareOperation( "FinSet",
@@ -63,6 +64,7 @@ DeclareOperation( "FinSet",
 #! @Description
 #!  Construct a finite set out of the duplicate-free (w.r.t. <C>IsEqualForElementsOfFinSets</C>) and dense list <A>L</A>, i.e.,
 #!  an object in the &CAP; category <C>FinSets</C>.
+#!  Equality is determined as follows: <C>FinSetNC( L1 ) = FinSetNC( L2 )</C> iff <C>IsEqualForElementsOfFinSets( Immutable( L1 ), Immutable( L2 ) )</C>
 #! @Arguments L
 #! @Returns a &CAP; object
 DeclareOperation( "FinSetNC",

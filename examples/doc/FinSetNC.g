@@ -13,4 +13,8 @@ Q := FinSetNC( L );
 #! <An object in FinSets>
 S = Q;
 #! true
+
+FinSetNC( [ 1, 2 ] ) = FinSetNC( [ 2, 1 ] );
+#! false
+
 #! @EndExample

@@ -232,7 +232,7 @@ AddIsEqualForObjects( FinSets,
         return false;
     fi;
     
-    return ForAll( AsList( set1 ), element -> element in set2 );
+    return IsEqualForElementsOfFinSets( AsList( set1 ), AsList( set2 ) );
     
 end );
 

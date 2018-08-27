@@ -14,6 +14,9 @@ Q := FinSet( L );
 S = Q;
 #! true
 
+FinSet( [ 1, 2 ] ) = FinSet( [ 2, 1 ] );
+#! true
+
 # do not add objects which are not well-defined to cache
 DeactivateCachingOfCategory( FinSets );
 
