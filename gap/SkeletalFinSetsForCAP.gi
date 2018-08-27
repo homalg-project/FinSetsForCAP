@@ -44,7 +44,7 @@ InstallOtherMethod( ListOp,
 end );
 
 ##
-AddIsWellDefinedForObjects( SkeletalFinSets, 
+AddIsWellDefinedForObjects( SkeletalFinSets,
    n -> Length( n ) >= 0 );
 
 ##
@@ -431,7 +431,7 @@ AddInjectionOfCofactorOfCoproduct( SkeletalFinSets,
     
     sum := Sum( O, x -> Length( x ) );
     
-    s := L[ i ]; 
+    s := L[ i ];
     
     cmp := List( s, x -> sum + x );
     
@@ -462,7 +462,7 @@ ExplicitCoequalizer := function( D )
     Cq := [ ];
     
     while not IsEmpty( T ) do
-        t := T[ 1 ]; 
+        t := T[ 1 ];
         t := Union( List( D, f_j -> List( Union( List( D, f_i -> Preimage( f_i, [ t ] ) ) ), f_j ) ) );
         t := AsList( t );
         if IsEmpty( t ) then
@@ -478,7 +478,7 @@ ExplicitCoequalizer := function( D )
         for t in T do
             L := [];
             for i in [ 1 .. Length( Cq )] do
-                if t in Cq[ i ] then 
+                if t in Cq[ i ] then
                     Add( L, Cq[ i ] );
                 fi;
             od;
@@ -510,7 +510,7 @@ AddProjectionOntoCoequalizerWithGivenCoequalizer( SkeletalFinSets,
     
     s := Range( D[ 1 ] );
     
-    cmp := List( s, x -> First( Cq, c -> x in c ) ); 
+    cmp := List( s, x -> First( Cq, c -> x in c ) );
     
     cmp := List( cmp, x -> Position( Cq, x ) );
     
@@ -527,7 +527,7 @@ AddUniversalMorphismFromCoequalizerWithGivenCoequalizer( SkeletalFinSets,
 
     return MapOfFinSets( C, List( Cq, x -> tau( x[ 1 ] ) ), Range( tau ) );
     
- end ); 
+ end );
 
 Finalize( SkeletalFinSets );
 

@@ -32,7 +32,7 @@ InternalHomOnObjects( M, N );;
 InternalHomOnMorphisms( f, g );;
 EvaluationMorphism( M, N );;
 CoevaluationMorphism( M, N );;
-TensorProductToInternalHomAdjunctionMap( M, N, 
+TensorProductToInternalHomAdjunctionMap( M, N,
     UniversalMorphismIntoTerminalObject( TensorProductOnObjects( M, N ) )
 );;
 InternalHomToTensorProductAdjunctionMap( M, N,
