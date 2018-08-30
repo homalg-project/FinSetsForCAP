@@ -6,6 +6,8 @@
 
 BindGlobal( "FinSets", CreateCapCategory( "FinSets" ) );
 
+SetIsSymmetricClosedMonoidalCategory( FinSets, true );
+
 DisableAddForCategoricalOperations( FinSets );
 
 AddObjectRepresentation( FinSets, IsFiniteSet );
