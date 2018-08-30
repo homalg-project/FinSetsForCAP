@@ -527,7 +527,7 @@ AddUniversalMorphismFromCoequalizerWithGivenCoequalizer( SkeletalFinSets,
 
     return MapOfFinSets( C, List( Cq, x -> tau( x[ 1 ] ) ), Range( tau ) );
     
- end );
+end );
 
 Finalize( SkeletalFinSets );
 
