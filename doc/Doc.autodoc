@@ -36,6 +36,8 @@
 @Subsection Topos properties
 @InsertSystem Topos
 
+@Subsection Subobject Classifier
+@InsertSystem SubobjectClassifier
 
 @Chapter The category of skeletal finite sets
 

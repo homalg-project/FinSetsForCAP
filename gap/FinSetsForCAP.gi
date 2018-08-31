@@ -854,6 +854,41 @@ AddTensorProductInternalHomCompatibilityMorphismWithGivenObjects( FinSets,
 end );
 
 ##
+AddSubobjectClassifier( FinSets,
+  function( arg )
+      
+      return FinSetNC( [ "true" , "false" ] );
+      
+end );
+
+##
+AddTruthMorphismIntoSubobjectClassifierWithGivenObjects( FinSets, 
+  function( terminal , subobject )
+      
+      return MapOfFinSets(terminal, [ [ "*" , "true" ] ], subobject);
+      
+end );
+
+##
+AddClassifyingMorphismOfSubobjectWithGivenSubobjectClassifier( FinSets,
+  function( monomorphism , omega )
+      local range, image, r, x;
+
+      r := [];
+      range := Range(monomorphism);
+
+      for x in range do
+          if x in ImageObject(monomorphism) then
+              Add(r, [x , "true"]);
+          else
+              Add(r, [x , "false"]);
+          fi;
+      od;
+            
+      return MapOfFinSets(range, r, omega);
+end );
+
+##
 Finalize( FinSets );
 
 ##
