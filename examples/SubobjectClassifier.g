@@ -10,6 +10,7 @@ A := FinSet([1,5]);
 m := MapOfFinSets(A, List(AsList(A), x -> [x,x]), S);
 #! <A morphism in FinSets>
 Display(ClassifyingMorphismOfSubobject(m));
-#! [ [ 1, 2, 3, 4, 5 ], [ [ 1, "true" ], [ 2, "false" ], [ 3, "false" ], [ 4, "false" ], [ 5, "true" ] ], [ "true", "false" ] ]
+#! [ [ 1, 2, 3, 4, 5 ], [ [ 1, "true" ], [ 2, "false" ], [ 3, "false" ], 
+#! [ 4, "false" ], [ 5, "true" ] ], [ "true", "false" ] ]
 
 #! @EndExample
