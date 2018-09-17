@@ -7,7 +7,6 @@
 BindGlobal( "SkeletalFinSets", CreateCapCategory( "SkeletalFinSets" ) );
 
 SetIsSymmetricClosedMonoidalCategory( SkeletalFinSets, true );
-SetIsStrictMonoidalCategory( SkeletalFinSets, true );
 
 DisableAddForCategoricalOperations( SkeletalFinSets );
 
