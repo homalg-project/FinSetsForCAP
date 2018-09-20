@@ -19,7 +19,7 @@ InstallMethod( FinSet,
         "for a nonnegative integer",
         [ IsInt ],
         
-  function( n )
+  function ( n )
     local int;
     
     int := rec( );
@@ -40,7 +40,7 @@ InstallOtherMethod( ListOp,
         "for a CAP skeletal finite set and a function",
         [ IsSkeletalFiniteSet, IsFunction ],
         
-  function( s, f )
+  function ( s, f )
 
     return List( AsList( s ), f );
 end );
@@ -51,7 +51,7 @@ AddIsWellDefinedForObjects( SkeletalFinSets,
 
 ##
 AddIsEqualForObjects( SkeletalFinSets,
-  function( n1, n2 )
+  function ( n1, n2 )
 
     return Length( n1 ) = Length( n2 );
     
@@ -65,7 +65,7 @@ InstallMethod( MapOfFinSets,
         "for two CAP skeletal finite sets and a list",
         [ IsSkeletalFiniteSet, IsList, IsSkeletalFiniteSet ],
         
-  function( s, G, t )
+  function ( s, G, t )
     local map;
     
     map := rec( );
@@ -87,7 +87,7 @@ InstallMethod( EmbeddingOfFinSets,
         "for two CAP skeletal finite sets",
         [ IsSkeletalFiniteSet, IsSkeletalFiniteSet ],
         
-  function( s, t )
+  function ( s, t )
     local iota;
     
     iota := MapOfFinSets( s, List( s, x -> x  ), t );
@@ -104,7 +104,7 @@ InstallMethod( Preimage,
         "for a CAP map of skeletal finite sets and a CAP skeletal finite set",
         [ IsSkeletalFiniteSetMap, IsList ],
         
-  function( phi, t )
+  function ( phi, t )
 
     return Filtered( AsList( Source( phi ) ), x -> phi( x ) in t );
 
@@ -114,7 +114,7 @@ end );
 InstallMethod( ImageObject,
      "for a CAP map of skeletal finite sets and a CAP skeletal finite set",
      [ IsSkeletalFiniteSetMap, IsSkeletalFiniteSet ],
-      function( phi, s_ )
+      function ( phi, s_ )
 
     return ImageObject( PreCompose( EmbeddingOfFinSets( s_, Source( phi ) ), phi ) );
 
@@ -125,18 +125,18 @@ InstallMethod( CallFuncList,
         "for a CAP map of skeletal finite sets and a list",
     [ IsSkeletalFiniteSetMap, IsList ],
         
-  function( phi, L )
+  function ( phi, L )
     local x;
     
-    x := L[ 1 ];
+    x := L[1];
     
-    return AsList( phi )[ x ];
+    return AsList( phi )[x];
     
 end );
 
 ##
 AddIsWellDefinedForMorphisms( SkeletalFinSets,
-  function( mor )
+  function ( mor )
     local s, rel, t;
     
     s := Length( Source( mor ) );
@@ -163,7 +163,7 @@ end );
 
 ##
 AddIsEqualForMorphisms( SkeletalFinSets,
-  function( mor1, mor2 )
+  function ( mor1, mor2 )
     
     return AsList( mor1 ) = AsList( mor2 );
     
@@ -171,7 +171,7 @@ end );
 
 ##
 AddIdentityMorphism( SkeletalFinSets,
-  function( n )
+  function ( n )
     
     return MapOfFinSets( n, [ 1 .. Length( n ) ], n );
     
@@ -179,12 +179,12 @@ end );
 
 ##
 AddPreCompose( SkeletalFinSets,
-  function( map_pre, map_post )
+  function ( map_pre, map_post )
     local s, cmp;
 
     s := Source( map_pre );
 
-    cmp := List( s, i -> AsList( map_post )[ AsList( map_pre )[ i ] ] );
+    cmp := List( s, i -> AsList( map_post )[ AsList( map_pre )[i] ] );
 
     return MapOfFinSets( s, cmp, Range( map_post ) );
     
@@ -192,7 +192,7 @@ end );
     
 ##
 AddImageObject( SkeletalFinSets,
-  function( phi )
+  function ( phi )
     
     return FinSet( Length( Set( AsList( phi ) ) ) );
     
@@ -200,7 +200,7 @@ end );
 
 ##
 AddIsEpimorphism( SkeletalFinSets,
-  function( phi )
+  function ( phi )
     local imgs, testList, img;
     
     imgs := AsList( phi );
@@ -208,7 +208,7 @@ AddIsEpimorphism( SkeletalFinSets,
     testList := ListWithIdenticalEntries( Length( Range( phi ) ), 0 );
     
     for img in imgs do
-        testList[ img ] := 1;
+        testList[img] := 1;
     od;
 
     return ForAll( testList, test -> test = 1 );
@@ -217,7 +217,7 @@ end );
 
 ##
 AddIsMonomorphism( SkeletalFinSets,
-  function( phi )
+  function ( phi )
     local imgs, testList, img;
     
     imgs := AsList( phi );
@@ -225,10 +225,10 @@ AddIsMonomorphism( SkeletalFinSets,
     testList := ListWithIdenticalEntries( Length( Range( phi ) ), 0 );
     
     for img in imgs do
-        if testList[ img ] = 1 then
+        if testList[img] = 1 then
             return false;
         fi;
-        testList[ img ] := 1;
+        testList[img] := 1;
     od;
 
     return true;
@@ -237,7 +237,7 @@ end );
 
 ##
 AddImageEmbedding( SkeletalFinSets,
-  function( phi )
+  function ( phi )
     
     return MapOfFinSets( ImageObject( phi ), Set( AsList( phi ) ), Range( phi ) );
 
@@ -245,12 +245,12 @@ end );
 
 ##
 AddCoastrictionToImage( SkeletalFinSets,
-  function( phi )
+  function ( phi )
     local G, L, l, pi;
     
     G := AsList( phi );
     
-    L := [];
+    L := [ ];
     
     for l in G do
         Add( L, Position( Set( G ), l ) );
@@ -271,7 +271,7 @@ end );
 
 ##
 AddTerminalObject( SkeletalFinSets,
-  function( arg )
+  function ( arg )
     
     return FinSet( 1 );
     
@@ -279,7 +279,7 @@ end );
 
 ##
 AddUniversalMorphismIntoTerminalObjectWithGivenTerminalObject( SkeletalFinSets,
-  function( m, t )
+  function ( m, t )
     local M;
     
     M := AsList( m );
@@ -290,7 +290,7 @@ end );
 
 ##
 AddDirectProduct( SkeletalFinSets,
-  function( L )
+  function ( L )
     local int, l;
 
     int := 1;
@@ -303,7 +303,7 @@ AddDirectProduct( SkeletalFinSets,
 end );
 
 ##
-AddProjectionInFactorOfDirectProduct( SkeletalFinSets, CAPOperationPrepareFunction( "ProjectionInFactorOfBinaryDirectProductToProjectionInFactorOfDirectProduct", SkeletalFinSets, function( M, N, pos )
+AddProjectionInFactorOfDirectProduct( SkeletalFinSets, CAPOperationPrepareFunction( "ProjectionInFactorOfBinaryDirectProductToProjectionInFactorOfDirectProduct", SkeletalFinSets, function ( M, N, pos )
     local S, T, n, imgs, i;
     
     S := DirectProduct( [ M, N ] );
@@ -315,13 +315,13 @@ AddProjectionInFactorOfDirectProduct( SkeletalFinSets, CAPOperationPrepareFuncti
     
     n := Length( N );
     
-    imgs := [];
+    imgs := [ ];
 
     for i in AsList( S ) do
         if pos = 2 then
-            Add( imgs, ( i-1 ) mod n );
+            Add( imgs, (i - 1) mod n );
         else
-            Add( imgs, Int( ( i-1 ) / n ) );
+            Add( imgs, Int( (i - 1) / n ) );
         fi;
     od;
     
@@ -331,7 +331,7 @@ AddProjectionInFactorOfDirectProduct( SkeletalFinSets, CAPOperationPrepareFuncti
 end ) );
 
 ##
-AddUniversalMorphismIntoDirectProduct( SkeletalFinSets, CAPOperationPrepareFunction( "UniversalMorphismIntoBinaryDirectProductToUniversalMorphismIntoDirectProduct", SkeletalFinSets, function( tau1, tau2 )
+AddUniversalMorphismIntoDirectProduct( SkeletalFinSets, CAPOperationPrepareFunction( "UniversalMorphismIntoBinaryDirectProductToUniversalMorphismIntoDirectProduct", SkeletalFinSets, function ( tau1, tau2 )
     local S, T, n, imgs, i;
     
     S := Source( tau1 );
@@ -339,10 +339,10 @@ AddUniversalMorphismIntoDirectProduct( SkeletalFinSets, CAPOperationPrepareFunct
     
     n := Length( Range( tau2 ) );
     
-    imgs := [];
+    imgs := [ ];
     
     for i in AsList( S ) do
-        Add( imgs, ( AsList( tau1 )[ i ] - 1 ) * n + AsList( tau2 )[ i ] );
+        Add( imgs, (AsList( tau1 )[i] - 1) * n + AsList( tau2 )[i] );
     od;
     
     return MapOfFinSets( S, imgs, T );
@@ -350,31 +350,31 @@ AddUniversalMorphismIntoDirectProduct( SkeletalFinSets, CAPOperationPrepareFunct
 end ) );
 
 ##
-AddEqualizer(SkeletalFinSets,
-  function( D )
+AddEqualizer( SkeletalFinSets,
+  function ( D )
     local f1, s, Eq;
     
-    f1 := D[ 1 ];
+    f1 := D[1];
     
     s := Source( f1 );
     
-    D := D{ [ 2 .. Length( D ) ] };
+    D := D{[ 2 .. Length( D ) ]};
     
     Eq := Filtered( AsList( s ), x -> ForAll( D, fj -> f1( x ) = fj( x ) ) );
     
     return FinSet( Length( Eq ) );
     
-end);
+end );
 
 ##
 AddEmbeddingOfEqualizerWithGivenEqualizer( SkeletalFinSets,
-  function( D, E )
+  function ( D, E )
     local f1, s, cmp;
     
-    f1 := D[ 1 ];
+    f1 := D[1];
     
     s := Source( f1 );
-    D := D{ [ 2 .. Length( D ) ] };
+    D := D{[ 2 .. Length( D ) ]};
 
     cmp := Filtered( AsList( s ), x -> ForAll( D, fj -> f1( x ) = fj( x ) ) );
 
@@ -384,10 +384,10 @@ end );
 
 ##
 AddUniversalMorphismIntoEqualizerWithGivenEqualizer( SkeletalFinSets,
-  function( D, tau, E )
+  function ( D, tau, E )
     local f1, s, Eq;
 
-    f1 := D[ 1 ];
+    f1 := D[1];
     
     s := Source( f1 );
 
@@ -402,7 +402,7 @@ end );
 
 ##
 AddInitialObject( SkeletalFinSets,
-  function( arg )
+  function ( arg )
     
     return FinSet( 0 );
     
@@ -410,7 +410,7 @@ end );
 
 ##
 AddUniversalMorphismFromInitialObjectWithGivenInitialObject( SkeletalFinSets,
-  function( m, I )
+  function ( m, I )
     
     return MapOfFinSets( I, [ ], m );
     
@@ -418,7 +418,7 @@ end );
 
 ##
 AddCoproduct( SkeletalFinSets,
-  function( L )
+  function ( L )
     
     return FinSet( Sum( L, x -> Length( x ) ) );
     
@@ -426,14 +426,14 @@ end );
 
 ##
 AddInjectionOfCofactorOfCoproduct( SkeletalFinSets,
-  function( L, i )
+  function ( L, i )
     local s, O, sum, cmp;
     
-    O := L{ [ 1 .. i-1 ] };
+    O := L{[ 1 .. i - 1 ]};
     
     sum := Sum( O, x -> Length( x ) );
     
-    s := L[ i ];
+    s := L[i];
     
     cmp := List( s, x -> sum + x );
     
@@ -443,45 +443,45 @@ end );
 
 ##
 AddUniversalMorphismFromCoproductWithGivenCoproduct( SkeletalFinSets,
-  function( L, tau, S )
+  function ( L, tau, S )
     local T, cmp;
     
-    T := Range( tau[ 1 ] );
+    T := Range( tau[1] );
 
-    cmp := Concatenation( List( [ 1 .. Length( tau ) ], x -> AsList( tau[ x ] ) ) );    
+    cmp := Concatenation( List( [ 1 .. Length( tau ) ], x -> AsList( tau[x] ) ) );
 
     return MapOfFinSets( S, cmp, T );
     
 end );
 
 ##
-ExplicitCoequalizer := function( D )
+ExplicitCoequalizer := function ( D )
     local T, Cq, t, L, i;
     
-    T := Range( D[ 1 ] );
+    T := Range( D[1] );
     T := AsList( T );
     
     Cq := [ ];
     
     while not IsEmpty( T ) do
-        t := T[ 1 ];
+        t := T[1];
         t := Union( List( D, f_j -> List( Union( List( D, f_i -> Preimage( f_i, [ t ] ) ) ), f_j ) ) );
         t := AsList( t );
         if IsEmpty( t ) then
-            t := [ T[ 1 ] ];
+            t := [ T[1] ];
         fi;
         Add( Cq, t );
         T := Difference( T, t );
     od;
     
-    T := AsList( Range( D[ 1 ] ) );
+    T := AsList( Range( D[1] ) );
     
     if not Concatenation( Cq ) = T then
         for t in T do
-            L := [];
-            for i in [ 1 .. Length( Cq )] do
-                if t in Cq[ i ] then
-                    Add( L, Cq[ i ] );
+            L := [ ];
+            for i in [ 1 .. Length( Cq ) ] do
+                if t in Cq[i] then
+                    Add( L, Cq[i] );
                 fi;
             od;
             if Length( L ) > 1 then
@@ -497,7 +497,7 @@ end;
 
 ##
 AddCoequalizer( SkeletalFinSets,
-  function( D )
+  function ( D )
   
     return FinSet( Length( ExplicitCoequalizer( D ) ) );
     
@@ -505,12 +505,12 @@ end );
 
 ##
 AddProjectionOntoCoequalizerWithGivenCoequalizer( SkeletalFinSets,
-  function( D, C )
+  function ( D, C )
     local Cq, s, cmp;
 
     Cq := ExplicitCoequalizer( D );
     
-    s := Range( D[ 1 ] );
+    s := Range( D[1] );
     
     cmp := List( s, x -> First( Cq, c -> x in c ) );
     
@@ -522,12 +522,12 @@ end );
 
 ##
 AddUniversalMorphismFromCoequalizerWithGivenCoequalizer( SkeletalFinSets,
-  function( D, tau, C )
+  function ( D, tau, C )
     local Cq;
     
     Cq := ExplicitCoequalizer( D );
 
-    return MapOfFinSets( C, List( Cq, x -> tau( x[ 1 ] ) ), Range( tau ) );
+    return MapOfFinSets( C, List( Cq, x -> tau( x[1] ) ), Range( tau ) );
     
 end );
 
@@ -538,7 +538,7 @@ InstallMethod( Display,
         "for a CAP skeletal finite set",
         [ IsSkeletalFiniteSet ],
         
-  function( s )
+  function ( s )
     Display( Length( s ) );
 end );
 
@@ -547,6 +547,6 @@ InstallMethod( Display,
     "for a CAP map of skeletal finite sets",
         [ IsSkeletalFiniteSetMap ],
         
-  function( phi )
+  function ( phi )
     Display( [ Length( Source( phi ) ), AsList( phi ), Length( Range( phi ) ) ] );
 end );

@@ -111,7 +111,7 @@ DeclareGlobalFunction( "IsEqualForElementsOfFinSets" );
 #!  <C>FinSet( <A>L</A> )[ i ] = Set( <A>L</A> )[ i ]</C>.
 #! @Arguments M, i
 #! @Returns an object
-DeclareOperation( "\[\]",
+DeclareOperation( "[]",
         [ IsFiniteSet, IsInt ] );
 
 #! @Description
