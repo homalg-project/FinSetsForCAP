@@ -6,7 +6,7 @@
 
 BindGlobal( "FinSets", CreateCapCategory( "FinSets" ) );
 
-SetIsSymmetricClosedMonoidalCategory( FinSets, true );
+SetIsCartesianClosedCategory( FinSets, true );
 
 DisableAddForCategoricalOperations( FinSets );
 
@@ -686,34 +686,6 @@ AddUniversalMorphismFromCoequalizerWithGivenCoequalizer( FinSets,
 end );
 
 ## The cartesian monoidal structure
-
-##
-AddTensorProductOnObjects( FinSets,
-  DirectProduct );
-
-##
-AddTensorProductOnMorphismsWithGivenTensorProducts( FinSets,
-  function( s, alpha, beta, r )
-    
-    return DirectProductFunctorialWithGivenDirectProducts( s, [ alpha, beta ], r );
-    
-end );
-
-##
-AddAssociatorLeftToRightWithGivenTensorProducts( FinSets,
-  AssociatorLeftToRightOfDirectProductsWithGivenDirectProducts );
-
-##
-AddAssociatorRightToLeftWithGivenTensorProducts( FinSets,
-  AssociatorRightToLeftOfDirectProductsWithGivenDirectProducts );
-
-##
-AddTensorUnit( FinSets,
-  function()
-    
-    return TerminalObject( FinSet( [ ] ) );
-    
-end );
 
 ##
 AddLeftUnitorWithGivenTensorProduct( FinSets,
