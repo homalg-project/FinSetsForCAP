@@ -27,7 +27,7 @@ test-with-coverage: doc
 test-spacing:
 	for filename in gap/*; do \
 		echo $$filename; \
-		grep -E '[^ ] +$$' $$filename && exit; \
+		grep -E '[^ ] +$$' $$filename && echo "Trailing whitespace found" && exit 1; \
 		echo "LoadPackage(\"FinSetsForCAP\"); SizeScreen([4096]); func := ReadAsFunction(\"$$filename\"); FileString(\"gap_spacing\", PrintString(func));" | gap; \
 		cat "gap_spacing" | sed 's/^function ( ) //g' | sed 's/ return; end$$//g' | sed 's/;/;\n/g' > modified_gap_spacing; \
 		cat "$$filename" | grep -v "^ *[#]" | sed 's/^ *//' | grep -v "^$$" | tr "\n" " " | sed "s/;/;\n/g" | head -c -1 > modified_custom_spacing; \
