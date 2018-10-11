@@ -21,7 +21,7 @@ test-overfull-hboxes:
 	gap makedoc_with_overfull_box_warnings.g | perl -pe 'END { exit $$status } $$status=1 if /Overfull \\hbox/;'
 
 test-with-coverage: doc
-	gap --cover stats maketest.g | perl -pe 'END { exit $$status } $$status=1 if /Expected output/;'
+	! gap --banner --quitonbreak --cover stats maketest.g 2>&1 | grep -v "Running list" | grep ""
 	echo 'LoadPackage("profiling"); OutputJsonCoverage("stats", "coverage.json");' | gap
 
 test-spacing:
