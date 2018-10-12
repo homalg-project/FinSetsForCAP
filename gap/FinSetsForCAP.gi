@@ -14,66 +14,111 @@ AddObjectRepresentation( FinSets, IsFiniteSet );
 
 AddMorphismRepresentation( FinSets, IsFiniteSetMap );
 
-InstallGlobalFunction( IsEqualForElementsOfFinSets, function ( a, b )
-    local i;
+##
+InstallMethod( IsEqualForElementsOfFinSets,
+        "for two integers",
+        [ IsInt, IsInt ],
+        
+  \= );
 
-    # integers, characters and strings can be mutally compared in GAP
-    if (IsInt( a ) or IsChar( a ) or IsString( a )) and (IsInt( b ) or IsChar( b ) or IsString( b )) then
-        return a = b;
-    fi;
+InstallMethod( IsEqualForElementsOfFinSets,
+        "for two chars",
+        [ IsChar, IsChar ],
+        
+  \= );
+
+InstallMethod( IsEqualForElementsOfFinSets,
+        "for two strings",
+        [ IsString, IsString ],
+        
+  \= );
+
+InstallMethod( IsEqualForElementsOfFinSets,
+        "for two objects",
+        [ IsObject, IsObject ],
+        
+  IsIdenticalObj );
+
+InstallMethod( IsEqualForElementsOfFinSets,
+        "for two lists",
+        [ IsList, IsList ],
+        
+  function ( L1, L2 )
+    local i;
     
     # compare lists recursively
-    if IsList( a ) and IsList( b ) then
-        if Length( a ) <> Length( b ) then
+
+    if Length( L1 ) <> Length( L2 ) then
+        return false;
+    fi;
+
+    for i in [ 1 .. Length( L1 ) ] do
+        if IsBound( L1[i] ) <> IsBound( L2[i] ) then
             return false;
         fi;
-
-        for i in [ 1 .. Length( a ) ] do
-            if IsBound( a[i] ) <> IsBound( b[i] ) then
+        
+        if IsBound( L1[i] ) then
+            if not IsEqualForElementsOfFinSets( L1[i], L2[i] ) then
                 return false;
             fi;
-            
-            if IsBound( a[i] ) then
-                if not IsEqualForElementsOfFinSets( a[i], b[i] ) then
-                    return false;
-                fi;
-            fi;
-        od;
+        fi;
+    od;
+    
+    return true;
+    
+end );
+
+InstallMethod( IsEqualForElementsOfFinSets,
+        "for two records",
+        [ IsRecord, IsRecord ],
         
-        return true;
-    fi;
+  function ( a, b )
+    local i;
     
     # compare records recursively
-    if IsRecord( a ) and IsRecord( b ) then
-        if RecNames( a ) <> RecNames( b ) then
+
+    if RecNames( a ) <> RecNames( b ) then
+        return false;
+    fi;
+    
+    for i in RecNames( a ) do
+        if not IsEqualForElementsOfFinSets( a.(i), b.(i) ) then
             return false;
         fi;
-        
-        for i in RecNames( a ) do
-            if not IsEqualForElementsOfFinSets( a.(i), b.(i) ) then
-                return false;
-            fi;
-        od;
-        
-        return true;
-    fi;
+    od;
     
+    return true;
+    
+end );
+
+InstallMethod( IsEqualForElementsOfFinSets,
+        "for two CAP category objects",
+        [ IsCapCategoryObject, IsCapCategoryObject ],
+        
+  function ( a, b )
     # compare CAP category objects using IsEqualForObjects (if available)
-    if IsCapCategoryObject( a ) and IsCapCategoryObject( b ) then
-        if ApplicableMethod( IsEqualForObjects, [ a, b ] ) <> fail then
-            return IsEqualForObjects( a, b );
-        fi;
+    
+    if ApplicableMethod( IsEqualForObjects, [ a, b ] ) <> fail then
+        return IsEqualForObjects( a, b );
+    else
+        return false;
     fi;
     
-    # compare CAP category morphisms using IsEqualForMorphisms (if available)
-    if IsCapCategoryMorphism( a ) and IsCapCategoryMorphism( b ) then
-        if ApplicableMethod( IsEqualForMorphisms, [ a, b ] ) <> fail then
-            return IsEqualForObjects( Source( a ), Source( b ) ) and IsEqualForObjects( Range( a ), Range( b ) ) and IsEqualForMorphisms( a, b );
-        fi;
+end );
+
+InstallMethod( IsEqualForElementsOfFinSets,
+        "for two CAP category morphisms",
+        [ IsCapCategoryMorphism, IsCapCategoryMorphism ],
+        
+  function ( a, b )
+    # compare CAP category objects using IsEqualForMorphisms (if available)
+    
+    if ApplicableMethod( IsEqualForMorphisms, [ a, b ] ) <> fail then
+        return IsEqualForObjects( Source( a ), Source( b ) ) and IsEqualForObjects( Range( a ), Range( b ) ) and IsEqualForMorphisms( a, b );
+    else
+        return false;
     fi;
     
-    # compare all other objects using IsIdenticalObj
-    return IsIdenticalObj( a, b );
 end );
 
 ##

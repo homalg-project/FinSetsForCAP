@@ -108,7 +108,8 @@ DeclareOperation( "MapOfFinSetsNC",
 #!  Note: if &CAP; category objects or &CAP; category morphisms are compared using <C>IsEqualForObjects</C> or <C>IsEqualForMorphisms</C>, respectively, the result must not be <C>fail</C>.
 #! @Arguments a, b
 #! @Returns a boolean
-DeclareGlobalFunction( "IsEqualForElementsOfFinSets" );
+DeclareOperation( "IsEqualForElementsOfFinSets",
+        [ IsObject, IsObject ] );
 #! @InsertSystem IsEqualForElementsOfFinSets
 
 #! @Description
