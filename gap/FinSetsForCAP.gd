@@ -103,9 +103,9 @@ DeclareOperation( "MapOfFinSetsNC",
 #!  * integers, strings and chars are compared using the operation <C>=</C>
 #!  * lists and records are compared recursively
 #!  * &CAP; category objects are compared using <C>IsEqualForObjects</C> (if available)
-#!  * &CAP; category morphisms are compared using <C>IsEqualForMorphisms</C> (if available)
+#!  * &CAP; category morphisms are compared using <C>IsEqualForMorphismsOnMor</C> (if available)
 #!  * other objects are compared using <C>IsIdenticalObj</C>
-#!  Note: if &CAP; category objects or &CAP; category morphisms are compared using <C>IsEqualForObjects</C> or <C>IsEqualForMorphisms</C>, respectively, the result must not be <C>fail</C>.
+#!  Note: if &CAP; category objects or &CAP; category morphisms are compared using <C>IsEqualForObjects</C> or <C>IsEqualForMorphismsOnMor</C>, respectively, the result must not be <C>fail</C>.
 #! @Arguments a, b
 #! @Returns a boolean
 DeclareOperation( "IsEqualForElementsOfFinSets",

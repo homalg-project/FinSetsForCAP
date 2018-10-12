@@ -98,11 +98,11 @@ InstallMethod( IsEqualForElementsOfFinSets,
   function ( a, b )
     # compare CAP category objects using IsEqualForObjects (if available)
     
-    if ApplicableMethod( IsEqualForObjects, [ a, b ] ) <> fail then
-        return IsEqualForObjects( a, b );
-    else
-        return false;
+    if HasCapCategory( a ) and HasCapCategory( b ) and ApplicableMethod( IsEqualForObjects, [ a, b ] ) <> fail then
+        return IsIdenticalObj( CapCategory( a ), CapCategory( b ) ) and IsEqualForObjects( a, b );
     fi;
+    
+    TryNextMethod();
     
 end );
 
@@ -113,11 +113,11 @@ InstallMethod( IsEqualForElementsOfFinSets,
   function ( a, b )
     # compare CAP category objects using IsEqualForMorphisms (if available)
     
-    if ApplicableMethod( IsEqualForMorphisms, [ a, b ] ) <> fail then
-        return IsEqualForObjects( Source( a ), Source( b ) ) and IsEqualForObjects( Range( a ), Range( b ) ) and IsEqualForMorphisms( a, b );
-    else
-        return false;
+    if HasCapCategory( a ) and HasCapCategory( b ) and ApplicableMethod( IsEqualForMorphismsOnMor, [ a, b ] ) <> fail then
+        return IsIdenticalObj( CapCategory( a ), CapCategory( b ) ) and IsEqualForMorphismsOnMor( a, b );
     fi;
+    
+    TryNextMethod();
     
 end );
 
