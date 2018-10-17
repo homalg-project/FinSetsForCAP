@@ -90,7 +90,7 @@ InstallMethod( EmbeddingOfFinSets,
   function ( s, t )
     local iota;
     
-    iota := MapOfFinSets( s, List( s, x -> x  ), t );
+    iota := MapOfFinSets( s, List( s, x -> x ), t );
     
     Assert( 3, IsMonomorphism( iota ) );
     SetIsMonomorphism( iota, true );
@@ -153,7 +153,7 @@ AddIsWellDefinedForMorphisms( SkeletalFinSets,
     
     t := Length( Range( mor ) );
     
-    if not ForAll( rel, a -> a <= t  ) then
+    if not ForAll( rel, a -> a <= t ) then
         return false;
     fi;
     
