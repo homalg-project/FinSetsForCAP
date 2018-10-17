@@ -25,6 +25,7 @@ test-with-coverage: doc
 	echo 'LoadPackage("profiling"); OutputJsonCoverage("stats", "coverage.json");' | gap
 
 test-spacing:
+	grep -R "[^ []  " gap/*.gi && echo "Duplicate spaces found" && exit 1; \
 	for filename in gap/*; do \
 		echo $$filename; \
 		grep -E '[^ ] +$$' $$filename && echo "Trailing whitespace found" && exit 1; \
