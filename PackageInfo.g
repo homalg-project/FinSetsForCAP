@@ -1,5 +1,5 @@
 #
-# FinSetsForCAP: The elementary topos of finite sets
+# FinSetsForCAP
 #
 # This file contains package meta data. For additional information on
 # the meaning and correct usage of these fields, please consult the
@@ -9,7 +9,7 @@
 SetPackageInfo( rec(
 
 PackageName := "FinSetsForCAP",
-Subtitle := "The elementary topos of finite sets",
+Subtitle := "The elementary topos of (skeletal) finite sets",
 Version := Maximum( [
                    "2018.09.17", ## Mohamed's version
                    ## this line prevents merge conflicts
@@ -100,7 +100,7 @@ PackageDoc := rec(
   HTMLStart := "doc/chap0.html",
   PDFFile   := "doc/manual.pdf",
   SixFile   := "doc/manual.six",
-  LongTitle := "The elementary topos of finite sets",
+  LongTitle := "The elementary topos of (skeletal) finite sets",
 ),
 
 Dependencies := rec(

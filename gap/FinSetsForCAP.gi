@@ -1,5 +1,5 @@
 #
-# FinSetsForCAP: The elementary topos of finite sets
+# FinSetsForCAP: FinSets
 #
 # Implementations
 #

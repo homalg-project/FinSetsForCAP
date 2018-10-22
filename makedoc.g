@@ -1,5 +1,5 @@
 #
-# FinSetsForCAP: The elementary topos of finite sets
+# FinSetsForCAP
 #
 # This file is a script which compiles the package manual.
 #
