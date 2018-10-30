@@ -36,7 +36,7 @@ InstallMethod( FinSet,
 end );
 
 ##
-InstallOtherMethod( ListOp,
+InstallMethod( ListOp,
         "for a CAP skeletal finite set and a function",
         [ IsSkeletalFiniteSet, IsFunction ],
         
