@@ -217,7 +217,7 @@ InstallMethod( UnionOfFinSets,
 end );
 
 ##
-InstallOtherMethod( ListOp,
+InstallMethod( ListOp,
         "for a CAP finite set and a function",
         [ IsFiniteSet, IsFunction ],
         
@@ -228,7 +228,7 @@ InstallOtherMethod( ListOp,
 end );
 
 ##
-InstallOtherMethod( FilteredOp,
+InstallMethod( FilteredOp,
         "for a CAP finite set and a function",
         [ IsFiniteSet, IsFunction ],
         
@@ -239,7 +239,7 @@ InstallOtherMethod( FilteredOp,
 end );
 
 ##
-InstallOtherMethod( FirstOp,
+InstallMethod( FirstOp,
         "for a CAP finite set and a function",
         [ IsFiniteSet, IsFunction ],
         
@@ -405,7 +405,7 @@ InstallMethod( CallFuncList,
 end );
 
 ##
-InstallOtherMethod( ListOp,
+InstallMethod( ListOp,
         "for a CAP finite set and a CAP map of finite sets",
         [ IsFiniteSet, IsFiniteSetMap ],
         

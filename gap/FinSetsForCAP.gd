@@ -114,6 +114,13 @@ DeclareOperation( "IsEqualForElementsOfFinSets",
 #! @InsertSystem IsEqualForElementsOfFinSets
 
 #! @Description
+#!  Returns <C>true</C> if there exists an element in <C>AsList( <A>M</A> )</C> which is equal to <A>obj</A> w.r.t. <C>IsEqualForElementsOfFinSets</C> and <C>false</C> if not.
+#! @Arguments obj, M
+#! @Returns a boolean
+# DeclareOperation( "\in",
+#         [ IsObject, IsFiniteSet ] );
+
+#! @Description
 #!  Returns the <A>i</A>-th entry of the &GAP; set of the list used to construct a finite set $S$, i.e.,
 #!  <C>FinSet( <A>L</A> )[ i ] = Set( <A>L</A> )[ i ]</C>.
 #! @Arguments M, i
@@ -135,6 +142,27 @@ DeclareOperation( "Iterator",
 #! @Returns a &CAP; object
 DeclareOperation( "UnionOfFinSets",
         [ IsList ] );
+
+#! @Description
+#!  Returns <C>List( AsList( <A>M</A> ), <A>f</A> )</C>.
+#! @Arguments M, f
+#! @Returns a list
+DeclareOperation( "ListOp",
+        [ IsFiniteSet, IsFunction ] );
+
+#! @Description
+#!  Returns <C>FinSetNC( Filtered( AsList( <A>M</A> ), <A>f</A> ) )</C>.
+#! @Arguments M, f
+#! @Returns a list
+DeclareOperation( "FilteredOp",
+        [ IsFiniteSet, IsFunction ] );
+
+#! @Description
+#!  Returns <C>First( AsList( <A>M</A> ), <A>f</A> )</C>.
+#! @Arguments M, f
+#! @Returns a list
+DeclareOperation( "FirstOp",
+        [ IsFiniteSet, IsFunction ] );
 
 #! @Description
 #!  Construct the embedding $\iota:$<A>S</A>$\to$<A>T</A> of the finite sets <A>S</A> and <A>T</A>,
@@ -165,3 +193,17 @@ DeclareOperation( "Preimage",
 #! @Returns a &CAP; object
 DeclareOperation( "ImageObject",
         [ IsFiniteSetMap, IsFiniteSet ] );
+
+#! @Description
+#!  Returns the image of <C><A>L</A>[1]</C> under the map <A>phi</A> assuming <C><A>L</A>[1]</C> is an element of <C>AsList( Source( <A>phi</A> ) )</C>.
+#! @Arguments phi, L
+#! @Returns a list
+# DeclareOperation( "CallFuncList",
+#         [ IsFiniteSetMap, IsList ] );
+
+#! @Description
+#!  Returns <C>List( AsList( <A>F</A> ), <A>phi</A> )</C>.
+#! @Arguments F, phi
+#! @Returns a list
+DeclareOperation( "ListOp",
+        [ IsFiniteSet, IsFiniteSetMap ] );

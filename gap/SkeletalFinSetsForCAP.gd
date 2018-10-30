@@ -65,6 +65,13 @@ DeclareOperation( "MapOfFinSets",
 #! @Section Skeletal Tools
 
 #! @Description
+#!  Returns <C>List( AsList( <A>s</A> ), <A>f</A> )</C>.
+#! @Arguments s, f
+#! @Returns a list
+DeclareOperation( "ListOp",
+        [ IsSkeletalFiniteSet, IsFunction ] );
+
+#! @Description
 #!  Construct the embedding $\iota:$<A>s</A>$\to$<A>t</A> of the finite sets <A>s</A> and <A>t</A>,
 #!  where <A>s</A> must be subset of <A>t</A>.
 #! @Arguments s, t
@@ -85,3 +92,10 @@ DeclareOperation( "Preimage",
 #! @Returns a &CAP; object
 DeclareOperation( "ImageObject",
         [ IsSkeletalFiniteSetMap, IsSkeletalFiniteSet ] );
+
+#! @Description
+#!  Returns the image of <C><A>L</A>[1]</C> under the map <A>phi</A> assuming <C><A>L</A>[1]</C> is a positive integer smaller or equal to <C>Length( Source( <A>phi</A> ) )</C>.
+#! @Arguments phi, L
+#! @Returns a list
+# DeclareOperation( "CallFuncList",
+#         [ IsSkeletalFiniteSetMap, IsList ] );
