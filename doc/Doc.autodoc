@@ -84,3 +84,6 @@
 
 @Subsection Skeletal Pushout
 @InsertSystem SkeletalPushout
+
+@Subsection Skeletal topos properties
+@InsertSystem SkeletalTopos

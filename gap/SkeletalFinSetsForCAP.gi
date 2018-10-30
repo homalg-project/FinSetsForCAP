@@ -531,36 +531,11 @@ AddUniversalMorphismFromCoequalizerWithGivenCoequalizer( SkeletalFinSets,
     
 end );
 
- 
 ## The cartesian monoidal structure
 
 ##
-AddTensorProductOnObjects( SkeletalFinSets,
-  DirectProduct );
-
-##
-AddTensorProductOnMorphismsWithGivenTensorProducts( SkeletalFinSets,
-  function( s, alpha, beta, r )
-    
-    return DirectProductFunctorialWithGivenDirectProducts( s, [ alpha, beta ], r );
-    
-end );
-
-##
-AddAssociatorLeftToRightWithGivenTensorProducts( SkeletalFinSets,
-  AssociatorLeftToRightOfDirectProductsWithGivenDirectProducts );
-
-##
-AddAssociatorRightToLeftWithGivenTensorProducts( SkeletalFinSets,
-  AssociatorRightToLeftOfDirectProductsWithGivenDirectProducts );
-
-##
-AddTensorUnit( SkeletalFinSets,
-  TerminalObject );
-
-##
 AddLeftUnitorWithGivenTensorProduct( SkeletalFinSets,
-  function( M, TM )
+  function ( M, TM )
     local m;
     
     m := Length( M );
@@ -571,7 +546,7 @@ end );
 
 ##
 AddLeftUnitorInverseWithGivenTensorProduct( SkeletalFinSets,
-  function( M, TM ) 
+  function ( M, TM )
     
     return IdentityMorphism( M );
     
@@ -579,10 +554,10 @@ end );
 
 ##
 AddRightUnitorWithGivenTensorProduct( SkeletalFinSets,
-  function( M, MT )
+  function ( M, MT )
     local t;
     
-    t := Length( TensorUnit( M ) );
+    t := Length( TensorUnit( SkeletalFinSets ) );
     
     return MapOfFinSets( MT, List( AsList( MT ), k -> Int( ( k-1 ) / t ) + 1 ), M );
     
@@ -590,7 +565,7 @@ end );
 
 ##
 AddRightUnitorInverseWithGivenTensorProduct( SkeletalFinSets,
-  function( M, MT )
+  function ( M, MT )
     
     return IdentityMorphism( M );
     
@@ -598,7 +573,7 @@ end );
 
 ##
 AddBraidingInverseWithGivenTensorProducts( SkeletalFinSets,
-  function( MN, M, N, NM )
+  function ( MN, M, N, NM )
     local m, n;
     
     m := Length( M );
@@ -610,7 +585,7 @@ end );
 
 ##
 AddInternalHomOnObjects( SkeletalFinSets,
-  function( M, N )
+  function ( M, N )
     local m;
     
     m := Length( M );
@@ -621,97 +596,34 @@ end );
 
 ##
 AddInternalHomOnMorphismsWithGivenInternalHoms( SkeletalFinSets,
-  function( S, alpha, beta, T )
-    local M, m, N, B, b, A, S_int, T_int;
+  function ( S, alpha, beta, T )
+    local M, m, N, A, a, B, S_int, T_int;
     
     M := Range( alpha );
     m := Length( M );
     N := Source( beta );
-	
-	B := Range( beta );
-    b := Length( B );
-	A := Source( alpha );
-	
-    S_int := List( Tuples( AsList( N ), m ), x -> MapOfFinSets( M, x, N ) );
-	T_int := List( Tuples( AsList( A ), b ), x -> MapOfFinSets( B, x, A ) );
     
-    return MapOfFinSets( S, List( List( S_int, f -> PreCompose( alpha, f, beta ) ), f -> Position( T_int, f ) ), T );
+    A := Source( alpha );
+    a := Length( A );
+    B := Range( beta );
+    
+    S_int := List( Tuples( AsList( N ), m ), x -> MapOfFinSets( M, x, N ) );
+    T_int := List( Tuples( AsList( B ), a ), x -> MapOfFinSets( A, x, B ) );
+    
+    return MapOfFinSets( S, List( List( S_int, f -> PreCompose( [ alpha, f, beta ] ) ), f -> Position( T_int, f ) ), T );
     
 end );
 
 ##
 AddEvaluationMorphismWithGivenSource( SkeletalFinSets,
-  function( M, N, HM_NxM )
+  function ( M, N, HM_NxM )
     local HM_N, m;
     
-	m := Length( M );
-	
+    m := Length( M );
+    
     HM_N := List( Tuples( AsList( N ), m ), x -> MapOfFinSets( M, x, N ) );
     
     return MapOfFinSets( HM_NxM, List( Cartesian( HM_N, AsList( M ) ), fx -> fx[1](fx[2]) ), N );
-    
-end );
-
-##
-AddCoevaluationMorphismWithGivenRange( SkeletalFinSets,
-  function( M, N, HN_MxN )
-    local MN;
-    
-    MN := TensorProduct( M, N );
-    
-    return MapOfFinSets( M, List( M, x -> [ x, MapOfFinSetsNC( N, List( N, y -> [ y, [ x, y ] ] ), MN ) ] ), HN_MxN );
-    
-end );
-
-##
-AddTensorProductToInternalHomAdjunctionMap( SkeletalFinSets,
-  function( M, N, f )
-    local L;
-    
-    L := Range( f );
-    
-    return MapOfFinSets( M, List( M, x -> [ x, MapOfFinSetsNC( N, List( N, y -> [ y, f( [ x, y ] ) ] ), L ) ] ), InternalHomOnObjects( N, L ) );
-    
-end );
-
-##
-AddInternalHomToTensorProductAdjunctionMap( SkeletalFinSets,
-  function( N, L, g )
-    local M, MN;
-    
-    M := Source( g );
-    
-    MN := TensorProduct( M, N );
-    
-    return MapOfFinSets( MN, List( MN, xy -> [ xy, g( xy[1] )( xy[2] ) ] ), L );
-    
-end );
-
-##
-AddMonoidalPreComposeMorphismWithGivenObjects( SkeletalFinSets,
-  function( HM_NxH_N_L, M, N, L, HM_L );
-    
-    return MapOfFinSets( HM_NxH_N_L, List( HM_NxH_N_L, fg -> [ fg, PreCompose( fg[1], fg[2] ) ] ), HM_L );
-    
-end );
-
-##
-AddMonoidalPostComposeMorphismWithGivenObjects( SkeletalFinSets,
-  function( HM_NxH_N_L, M, N, L, HM_L );
-    
-    return MapOfFinSets( HM_NxH_N_L, List( HM_NxH_N_L, fg -> [ fg, PostCompose( fg[2], fg[1] ) ] ), HM_L );
-    
-end );
-
-##
-AddTensorProductInternalHomCompatibilityMorphismWithGivenObjects( SkeletalFinSets,
-  function( S1, T1, S2, T2, L )
-    local S1S2, T1T2;
-    
-    S1S2 := TensorProduct( S1, S2 );
-    T1T2 := TensorProduct( T1, T2 );
-    
-    return MapOfFinSets( L[1], List( L[1], fg -> [ fg, TensorProductOnMorphismsWithGivenTensorProducts( S1S2, fg[1], fg[2], T1T2 ) ] ), L[2] );
     
 end );
 
