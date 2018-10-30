@@ -105,7 +105,7 @@ DeclareOperation( "MapOfFinSetsNC",
 #!  * &CAP; category objects are compared using <C>IsEqualForObjects</C> (if available)
 #!  * &CAP; category morphisms are compared using <C>IsEqualForMorphismsOnMor</C> (if available)
 #!  * other objects are compared using <C>IsIdenticalObj</C>
-#!  
+#!
 #!  Note: if &CAP; category objects or &CAP; category morphisms are compared using <C>IsEqualForObjects</C> or <C>IsEqualForMorphismsOnMor</C>, respectively, the result must not be <C>fail</C>.
 #! @Arguments a, b
 #! @Returns a boolean
