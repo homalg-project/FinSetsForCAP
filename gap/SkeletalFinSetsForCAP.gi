@@ -536,11 +536,8 @@ end );
 ##
 AddLeftUnitorWithGivenTensorProduct( SkeletalFinSets,
   function ( M, TM )
-    local m;
     
-    m := Length( M );
-    
-    return MapOfFinSets( TM, List( AsList( TM ), k -> ( ( k-1 ) mod m ) + 1 ), M );
+    return IdentityMorphism( M );
     
 end );
 
@@ -555,11 +552,8 @@ end );
 ##
 AddRightUnitorWithGivenTensorProduct( SkeletalFinSets,
   function ( M, MT )
-    local t;
     
-    t := Length( TensorUnit( SkeletalFinSets ) );
-    
-    return MapOfFinSets( MT, List( AsList( MT ), k -> Int( ( k-1 ) / t ) + 1 ), M );
+    return IdentityMorphism( M );
     
 end );
 
