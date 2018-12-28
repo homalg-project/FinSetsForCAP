@@ -733,7 +733,7 @@ end );
 ## The cartesian monoidal structure
 
 ##
-AddLeftUnitorWithGivenTensorProduct( FinSets,
+AddCartesianLeftUnitorWithGivenDirectProduct( FinSets,
   function ( M, TM )
     
     return MapOfFinSetsNC( TM, List( TM, x -> [ x, x[2] ] ), M );
@@ -741,7 +741,7 @@ AddLeftUnitorWithGivenTensorProduct( FinSets,
 end );
 
 ##
-AddLeftUnitorInverseWithGivenTensorProduct( FinSets,
+AddCartesianLeftUnitorInverseWithGivenDirectProduct( FinSets,
   function ( M, TM )
     
     return MapOfFinSetsNC( M, List( TM, x -> [ x[2], x ] ), TM );
@@ -749,7 +749,7 @@ AddLeftUnitorInverseWithGivenTensorProduct( FinSets,
 end );
 
 ##
-AddRightUnitorWithGivenTensorProduct( FinSets,
+AddCartesianRightUnitorWithGivenDirectProduct( FinSets,
   function ( M, MT )
     
     return MapOfFinSetsNC( MT, List( MT, x -> [ x, x[1] ] ), M );
@@ -757,7 +757,7 @@ AddRightUnitorWithGivenTensorProduct( FinSets,
 end );
 
 ##
-AddRightUnitorInverseWithGivenTensorProduct( FinSets,
+AddCartesianRightUnitorInverseWithGivenDirectProduct( FinSets,
   function ( M, MT )
     
     return MapOfFinSetsNC( M, List( MT, x -> [ x[1], x ] ), MT );
@@ -765,7 +765,7 @@ AddRightUnitorInverseWithGivenTensorProduct( FinSets,
 end );
 
 ##
-AddBraidingWithGivenTensorProducts( FinSets,
+AddCartesianBraidingWithGivenDirectProducts( FinSets,
   function ( MN, M, N, NM )
     
     return MapOfFinSetsNC( MN, List( MN, x -> [ x, x{[2,1]} ] ), NM );
@@ -773,7 +773,7 @@ AddBraidingWithGivenTensorProducts( FinSets,
 end );
 
 ##
-AddBraidingInverseWithGivenTensorProducts( FinSets,
+AddCartesianBraidingInverseWithGivenDirectProducts( FinSets,
   function ( NM, M, N, MN )
     
     return MapOfFinSetsNC( NM, List( NM, x -> [ x, x{[2,1]} ] ), MN );
@@ -781,7 +781,7 @@ AddBraidingInverseWithGivenTensorProducts( FinSets,
 end );
 
 ##
-AddInternalHomOnObjects( FinSets,
+AddExponentialOnObjects( FinSets,
   function ( M, N )
     local m;
     
@@ -792,7 +792,7 @@ AddInternalHomOnObjects( FinSets,
 end );
 
 ##
-AddInternalHomOnMorphismsWithGivenInternalHoms( FinSets,
+AddExponentialOnMorphismsWithGivenExponentials( FinSets,
   function ( S, alpha, beta, T )
     
     return MapOfFinSetsNC( S, List( S, f -> [ f, PreCompose( [ alpha, f, beta ] ) ] ), T );
@@ -800,7 +800,7 @@ AddInternalHomOnMorphismsWithGivenInternalHoms( FinSets,
 end );
 
 ##
-AddEvaluationMorphismWithGivenSource( FinSets,
+AddCartesianEvaluationMorphismWithGivenSource( FinSets,
   function ( M, N, HM_NxM )
     
     return MapOfFinSetsNC( HM_NxM, List( HM_NxM, fx -> [ fx, fx[1](fx[2]) ] ), N );
@@ -808,42 +808,42 @@ AddEvaluationMorphismWithGivenSource( FinSets,
 end );
 
 ##
-AddCoevaluationMorphismWithGivenRange( FinSets,
+AddCartesianCoevaluationMorphismWithGivenRange( FinSets,
   function ( M, N, HN_MxN )
     local MN;
     
-    MN := TensorProduct( M, N );
+    MN := DirectProduct( M, N );
     
     return MapOfFinSetsNC( M, List( M, x -> [ x, MapOfFinSetsNC( N, List( N, y -> [ y, [ x, y ] ] ), MN ) ] ), HN_MxN );
     
 end );
 
 ##
-AddTensorProductToInternalHomAdjunctionMap( FinSets,
+AddDirectProductToExponentialAdjunctionMap( FinSets,
   function ( M, N, f )
     local L;
     
     L := Range( f );
     
-    return MapOfFinSetsNC( M, List( M, x -> [ x, MapOfFinSetsNC( N, List( N, y -> [ y, f( [ x, y ] ) ] ), L ) ] ), InternalHomOnObjects( N, L ) );
+    return MapOfFinSetsNC( M, List( M, x -> [ x, MapOfFinSetsNC( N, List( N, y -> [ y, f( [ x, y ] ) ] ), L ) ] ), ExponentialOnObjects( N, L ) );
     
 end );
 
 ##
-AddInternalHomToTensorProductAdjunctionMap( FinSets,
+AddExponentialToDirectProductAdjunctionMap( FinSets,
   function ( N, L, g )
     local M, MN;
     
     M := Source( g );
     
-    MN := TensorProduct( M, N );
+    MN := DirectProduct( M, N );
     
     return MapOfFinSetsNC( MN, List( MN, xy -> [ xy, g( xy[1] )( xy[2] ) ] ), L );
     
 end );
 
 ##
-AddMonoidalPreComposeMorphismWithGivenObjects( FinSets,
+AddCartesianPreComposeMorphismWithGivenObjects( FinSets,
   function ( HM_NxH_N_L, M, N, L, HM_L )
     
     return MapOfFinSetsNC( HM_NxH_N_L, List( HM_NxH_N_L, fg -> [ fg, PreCompose( fg[1], fg[2] ) ] ), HM_L );
@@ -851,7 +851,7 @@ AddMonoidalPreComposeMorphismWithGivenObjects( FinSets,
 end );
 
 ##
-AddMonoidalPostComposeMorphismWithGivenObjects( FinSets,
+AddCartesianPostComposeMorphismWithGivenObjects( FinSets,
   function ( HM_NxH_N_L, M, N, L, HM_L )
     
     return MapOfFinSetsNC( HM_NxH_N_L, List( HM_NxH_N_L, fg -> [ fg, PostCompose( fg[1], fg[2] ) ] ), HM_L );
@@ -859,14 +859,14 @@ AddMonoidalPostComposeMorphismWithGivenObjects( FinSets,
 end );
 
 ##
-AddTensorProductInternalHomCompatibilityMorphismWithGivenObjects( FinSets,
+AddDirectProductExponentialCompatibilityMorphismWithGivenObjects( FinSets,
   function ( S1, T1, S2, T2, L )
     local S1S2, T1T2;
     
-    S1S2 := TensorProduct( S1, S2 );
-    T1T2 := TensorProduct( T1, T2 );
+    S1S2 := DirectProduct( S1, S2 );
+    T1T2 := DirectProduct( T1, T2 );
     
-    return MapOfFinSetsNC( L[1], List( L[1], fg -> [ fg, TensorProductOnMorphismsWithGivenTensorProducts( S1S2, fg[1], fg[2], T1T2 ) ] ), L[2] );
+    return MapOfFinSetsNC( L[1], List( L[1], fg -> [ fg, DirectProductOnMorphismsWithGivenDirectProducts( S1S2, fg[1], fg[2], T1T2 ) ] ), L[2] );
     
 end );
 

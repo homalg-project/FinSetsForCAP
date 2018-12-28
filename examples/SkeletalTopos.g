@@ -17,19 +17,19 @@ g := MapOfFinSets( M, G_g, N );;
 IsWellDefined( g );
 #! true
 
-TensorProductOnObjects( M, N );;
-TensorProductOnMorphisms( f, g );;
-AssociatorLeftToRight( M, N, P );;
-AssociatorRightToLeft( M, N, P );;
-TensorUnit( FinSets );;
-LeftUnitor( M );;
-LeftUnitorInverse( M );;
-RightUnitor( M );;
-RightUnitorInverse( M );;
-Braiding( M, N );;
-BraidingInverse( M, N );;
-InternalHomOnObjects( M, N );;
-InternalHomOnMorphisms( f, g );;
-EvaluationMorphism( M, N );;
+DirectProduct( M, N );;
+DirectProductOnMorphisms( f, g );;
+CartesianAssociatorLeftToRight( M, N, P );;
+CartesianAssociatorRightToLeft( M, N, P );;
+TerminalObject( FinSets );;
+CartesianLeftUnitor( M );;
+CartesianLeftUnitorInverse( M );;
+CartesianRightUnitor( M );;
+CartesianRightUnitorInverse( M );;
+CartesianBraiding( M, N );;
+CartesianBraidingInverse( M, N );;
+ExponentialOnObjects( M, N );;
+ExponentialOnMorphisms( f, g );;
+CartesianEvaluationMorphism( M, N );;
 
 #! @EndExample

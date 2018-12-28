@@ -11,7 +11,7 @@ SetPackageInfo( rec(
 PackageName := "FinSetsForCAP",
 Subtitle := "The elementary topos of (skeletal) finite sets",
 Version := Maximum( [
-                   "2018.11.30", ## Mohamed's version
+                   "2019.01.18", ## Mohamed's version
                    ## this line prevents merge conflicts
                    "2017.05.26", ## Julia's version
                    ## this line prevents merge conflicts
@@ -107,8 +107,8 @@ Dependencies := rec(
   GAP := ">= 4.9.1",
   NeededOtherPackages := [
                    [ "GAPDoc", ">= 1.5" ],
-                   [ "CAP", ">= 2018.09.17" ],
-                   [ "Toposes", ">= 2018.09.17" ],
+                   [ "CAP", ">= 2019.01.16" ],
+                   [ "Toposes", ">= 2019.01.18" ],
                    ],
   SuggestedOtherPackages := [ ],
   ExternalConditions := [ ],
@@ -119,5 +119,3 @@ AvailabilityTest := function()
     end,
 
 ));
-
-

@@ -534,7 +534,7 @@ end );
 ## The cartesian monoidal structure
 
 ##
-AddLeftUnitorWithGivenTensorProduct( SkeletalFinSets,
+AddCartesianLeftUnitorWithGivenDirectProduct( SkeletalFinSets,
   function ( M, TM )
     
     return IdentityMorphism( M );
@@ -542,7 +542,7 @@ AddLeftUnitorWithGivenTensorProduct( SkeletalFinSets,
 end );
 
 ##
-AddLeftUnitorInverseWithGivenTensorProduct( SkeletalFinSets,
+AddCartesianLeftUnitorInverseWithGivenDirectProduct( SkeletalFinSets,
   function ( M, TM )
     
     return IdentityMorphism( M );
@@ -550,7 +550,7 @@ AddLeftUnitorInverseWithGivenTensorProduct( SkeletalFinSets,
 end );
 
 ##
-AddRightUnitorWithGivenTensorProduct( SkeletalFinSets,
+AddCartesianRightUnitorWithGivenDirectProduct( SkeletalFinSets,
   function ( M, MT )
     
     return IdentityMorphism( M );
@@ -558,7 +558,7 @@ AddRightUnitorWithGivenTensorProduct( SkeletalFinSets,
 end );
 
 ##
-AddRightUnitorInverseWithGivenTensorProduct( SkeletalFinSets,
+AddCartesianRightUnitorInverseWithGivenDirectProduct( SkeletalFinSets,
   function ( M, MT )
     
     return IdentityMorphism( M );
@@ -566,7 +566,7 @@ AddRightUnitorInverseWithGivenTensorProduct( SkeletalFinSets,
 end );
 
 ##
-AddBraidingInverseWithGivenTensorProducts( SkeletalFinSets,
+AddCartesianBraidingInverseWithGivenDirectProducts( SkeletalFinSets,
   function ( MN, M, N, NM )
     local m, n;
     
@@ -578,7 +578,7 @@ AddBraidingInverseWithGivenTensorProducts( SkeletalFinSets,
 end );
 
 ##
-AddInternalHomOnObjects( SkeletalFinSets,
+AddExponentialOnObjects( SkeletalFinSets,
   function ( M, N )
     local m;
     
@@ -589,7 +589,7 @@ AddInternalHomOnObjects( SkeletalFinSets,
 end );
 
 ##
-AddInternalHomOnMorphismsWithGivenInternalHoms( SkeletalFinSets,
+AddExponentialOnMorphismsWithGivenExponentials( SkeletalFinSets,
   function ( S, alpha, beta, T )
     local M, m, N, A, a, B, S_int, T_int;
     
@@ -609,7 +609,7 @@ AddInternalHomOnMorphismsWithGivenInternalHoms( SkeletalFinSets,
 end );
 
 ##
-AddEvaluationMorphismWithGivenSource( SkeletalFinSets,
+AddCartesianEvaluationMorphismWithGivenSource( SkeletalFinSets,
   function ( M, N, HM_NxM )
     local HM_N, m;
     

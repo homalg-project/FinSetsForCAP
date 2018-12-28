@@ -17,34 +17,34 @@ g := MapOfFinSets( M, G_g, N );;
 IsWellDefined( g );
 #! true
 
-TensorProductOnObjects( M, N );;
-TensorProductOnMorphisms( f, g );;
-AssociatorLeftToRight( M, N, P );;
-AssociatorRightToLeft( M, N, P );;
-TensorUnit( FinSets );;
-LeftUnitor( M );;
-LeftUnitorInverse( M );;
-RightUnitor( M );;
-RightUnitorInverse( M );;
-Braiding( M, N );;
-BraidingInverse( M, N );;
-InternalHomOnObjects( M, N );;
-InternalHomOnMorphisms( f, g );;
-EvaluationMorphism( M, N );;
-CoevaluationMorphism( M, N );;
-TensorProductToInternalHomAdjunctionMap( M, N,
-    UniversalMorphismIntoTerminalObject( TensorProductOnObjects( M, N ) )
+DirectProduct( M, N );;
+DirectProductOnMorphisms( f, g );;
+CartesianAssociatorLeftToRight( M, N, P );;
+CartesianAssociatorRightToLeft( M, N, P );;
+TerminalObject( FinSets );;
+CartesianLeftUnitor( M );;
+CartesianLeftUnitorInverse( M );;
+CartesianRightUnitor( M );;
+CartesianRightUnitorInverse( M );;
+CartesianBraiding( M, N );;
+CartesianBraidingInverse( M, N );;
+ExponentialOnObjects( M, N );;
+ExponentialOnMorphisms( f, g );;
+CartesianEvaluationMorphism( M, N );;
+CartesianCoevaluationMorphism( M, N );;
+DirectProductToExponentialAdjunctionMap( M, N,
+    UniversalMorphismIntoTerminalObject( DirectProduct( M, N ) )
 );;
-InternalHomToTensorProductAdjunctionMap( M, N,
-    UniversalMorphismFromInitialObject( InternalHomOnObjects( M, N ) )
+ExponentialToDirectProductAdjunctionMap( M, N,
+    UniversalMorphismFromInitialObject( ExponentialOnObjects( M, N ) )
 );;
 
 M := FinSet( [ 1, 2 ] );;
 N := FinSet( [ "a", "b" ] );;
 P := FinSet( [ "*" ] );;
 Q := FinSet( [ "§", "&" ] );;
-MonoidalPreComposeMorphism( M, N, P );;
-MonoidalPostComposeMorphism( M, N, P );;
-TensorProductInternalHomCompatibilityMorphism( M, N, P, Q );;
+CartesianPreComposeMorphism( M, N, P );;
+CartesianPostComposeMorphism( M, N, P );;
+DirectProductExponentialCompatibilityMorphism( M, N, P, Q );;
 
 #! @EndExample
