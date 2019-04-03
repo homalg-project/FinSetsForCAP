@@ -17,9 +17,6 @@ S = Q;
 FinSet( [ 1, 2 ] ) = FinSet( [ 2, 1 ] );
 #! true
 
-# do not add objects which are not well-defined to cache
-DeactivateCachingOfCategory( FinSets );
-
 M := FinSetNC( [ , 1, 2, 3 ] );
 #! <An object in FinSets>
 IsWellDefined( M );
@@ -28,7 +25,5 @@ M := FinSetNC( [ 1, 2, 3, 3 ] );
 #! <An object in FinSets>
 IsWellDefined( M );
 #! false
-
-SetCachingOfCategoryWeak( FinSets );
 
 #! @EndExample

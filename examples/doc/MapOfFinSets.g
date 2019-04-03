@@ -28,9 +28,6 @@ IsWellDefined( psi );
 phi = psi;
 #! true
 
-# do not add morphisms which are not well-defined to cache
-DeactivateCachingOfCategory( FinSets );
-
 psi := MapOfFinSetsNC( S, [ , [ 1, "b" ], [ 3, "b" ], [ 2, "a" ] ], T );
 #! <A morphism in FinSets>
 IsWellDefined( psi );
@@ -59,7 +56,5 @@ psi := MapOfFinSets( S, [ [ 1, "b" ], [ 2, "b" ], [ 2, "a" ] ], T );
 #! <A morphism in FinSets>
 IsWellDefined( psi );
 #! false
-
-SetCachingOfCategoryWeak( FinSets );
 
 #! @EndExample
