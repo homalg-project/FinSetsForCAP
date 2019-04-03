@@ -12,7 +12,7 @@ clean:
 	(cd doc ; ./clean)
 
 test: doc
-	gap maketest.g
+	gap tst/testall.g
 
 test-tabs:
 	! grep -RP "\t" examples/ gap/
@@ -21,9 +21,7 @@ test-overfull-hboxes:
 	gap makedoc_with_overfull_box_warnings.g | perl -pe 'END { exit $$status } $$status=1 if /Overfull \\hbox/;'
 
 test-with-coverage: doc
-	OUTPUT=$$(gap --banner --quitonbreak --cover stats maketest.g 2>&1); \
-	echo "$$OUTPUT"; \
-	! echo "$$OUTPUT" | grep -v "Running list" | grep -v "^#I  " | grep "" > /dev/null
+	gap --quitonbreak --cover stats tst/testall.g
 	echo 'LoadPackage("profiling"); OutputJsonCoverage("stats", "coverage.json");' | gap
 
 test-spacing:

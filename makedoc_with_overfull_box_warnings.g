@@ -17,11 +17,7 @@ AutoDoc(
             
             autodoc := rec( files := [ "doc/Doc.autodoc" ] ),
 
-            maketest := rec( folder := ".",
-                             commands :=
-                             [ "LoadPackage( \"FinSetsForCAP\" );",
-                             ],
-                           ),
+            extract_examples := rec( units := "Single" ),
             )
 );
 
