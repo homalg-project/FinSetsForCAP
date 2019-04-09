@@ -8,8 +8,6 @@ BindGlobal( "FinSets", CreateCapCategory( "FinSets" ) );
 
 SetIsCartesianClosedCategory( FinSets, true );
 
-DisableAddForCategoricalOperations( FinSets );
-
 AddObjectRepresentation( FinSets, IsFiniteSet );
 
 AddMorphismRepresentation( FinSets, IsFiniteSetMap );

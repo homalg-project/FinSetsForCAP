@@ -8,8 +8,6 @@ BindGlobal( "SkeletalFinSets", CreateCapCategory( "SkeletalFinSets" ) );
 
 SetIsCartesianClosedCategory( SkeletalFinSets, true );
 
-DisableAddForCategoricalOperations( SkeletalFinSets );
-
 AddObjectRepresentation( SkeletalFinSets, IsSkeletalFiniteSet );
 
 AddMorphismRepresentation( SkeletalFinSets, IsSkeletalFiniteSetMap );
