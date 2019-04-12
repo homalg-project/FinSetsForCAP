@@ -118,4 +118,6 @@ AvailabilityTest := function()
         return true;
     end,
 
+TestFile := "tst/testall.g",
+
 ));
