@@ -64,7 +64,7 @@ DeclareAttribute( "AsList",
 #! @Returns a &CAP; object
 DeclareOperation( "FinSet",
         [ IsList ] );
-#! @InsertSystem FinSet
+#! @InsertChunk FinSet
 
 #! @Description
 #!  Construct a finite set out of the duplicate-free (w.r.t. <C>IsEqualForElementsOfFinSets</C>) and dense list <A>L</A>, i.e.,
@@ -74,7 +74,7 @@ DeclareOperation( "FinSet",
 #! @Returns a &CAP; object
 DeclareOperation( "FinSetNC",
         [ IsList ] );
-#! @InsertSystem FinSetNC
+#! @InsertChunk FinSetNC
 
 #! @Description
 #!  Construct a map $\phi:$<A>S</A>$\to$<A>T</A> of the finite sets <A>S</A> and <A>T</A>,
@@ -84,7 +84,7 @@ DeclareOperation( "FinSetNC",
 #! @Returns a &CAP; morphism
 DeclareOperation( "MapOfFinSets",
         [ IsFiniteSet, IsList, IsFiniteSet ] );
-#! @InsertSystem MapOfFinSets
+#! @InsertChunk MapOfFinSets
 
 #! @Description
 #!  Construct a map $\phi:$<A>S</A>$\to$<A>T</A> of the finite sets <A>S</A> and <A>T</A>,
@@ -94,7 +94,7 @@ DeclareOperation( "MapOfFinSets",
 #! @Returns a &CAP; morphism
 DeclareOperation( "MapOfFinSetsNC",
         [ IsFiniteSet, IsList, IsFiniteSet ] );
-#! @InsertSystem MapOfFinSetsNC
+#! @InsertChunk MapOfFinSetsNC
 
 #! @Section Tools
 
@@ -111,7 +111,7 @@ DeclareOperation( "MapOfFinSetsNC",
 #! @Returns a boolean
 DeclareOperation( "IsEqualForElementsOfFinSets",
         [ IsObject, IsObject ] );
-#! @InsertSystem IsEqualForElementsOfFinSets
+#! @InsertChunk IsEqualForElementsOfFinSets
 
 #! @Description
 #!  Returns <C>true</C> if there exists an element in <C>AsList( <A>M</A> )</C> which is equal to <A>obj</A> w.r.t. <C>IsEqualForElementsOfFinSets</C> and <C>false</C> if not.

@@ -50,7 +50,7 @@ DeclareAttribute( "AsList",
 #! @Returns a &CAP; object
 DeclareOperation( "FinSet",
         [ IsInt ] );
-#! @InsertSystem Skeletal FinSet
+#! @InsertChunk Skeletal FinSet
 
 #! @Description
 #!  Construct a map $\phi:$<A>s</A>$\to$<A>t</A> of the skeletal finite sets <A>s</A> and <A>t</A>,
@@ -60,7 +60,7 @@ DeclareOperation( "FinSet",
 #! @Returns a &CAP; morphism
 DeclareOperation( "MapOfFinSets",
         [ IsSkeletalFiniteSet, IsList, IsSkeletalFiniteSet ] );
-#! @InsertSystem  SkeletalMapOfFinSets
+#! @InsertChunk  SkeletalMapOfFinSets
 
 #! @Section Skeletal Tools
 

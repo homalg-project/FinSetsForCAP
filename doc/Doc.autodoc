@@ -7,37 +7,37 @@
 @Section Examples
 
 @Subsection PreCompose
-@InsertSystem PreCompose
+@InsertChunk PreCompose
 
 @Subsection Initial and Terminal Objects
-@InsertSystem InitialTerminal
+@InsertChunk InitialTerminal
 
 @Subsection Product
-@InsertSystem DirectProduct
+@InsertChunk DirectProduct
 
 @Subsection Coproduct
-@InsertSystem Coproduct
+@InsertChunk Coproduct
 
 @Subsection Image
-@InsertSystem ImageObject
+@InsertChunk ImageObject
 
 @Subsection Equalizer
-@InsertSystem Equalizer
+@InsertChunk Equalizer
 
 @Subsection Pullback
-@InsertSystem FiberProduct
+@InsertChunk FiberProduct
 
 @Subsection Coequalizer
-@InsertSystem Coequalizer
+@InsertChunk Coequalizer
 
 @Subsection Pushout
-@InsertSystem Pushout
+@InsertChunk Pushout
 
 @Subsection Topos properties
-@InsertSystem Topos
+@InsertChunk Topos
 
 @Subsection Subobject Classifier
-@InsertSystem SubobjectClassifier
+@InsertChunk SubobjectClassifier
 
 @Chapter The category of skeletal finite sets
 
@@ -48,42 +48,42 @@
 @Section Skeletal Examples
 
 @Subsection Skeletal WellDefined
-@InsertSystem SkeletalWellDefined
+@InsertChunk SkeletalWellDefined
 
 @Subsection Skeletal PreCompose
-@InsertSystem SkeletalPreCompose
+@InsertChunk SkeletalPreCompose
 
 @Subsection Skeletal Monomophisms and Epimophisms
-@InsertSystem SkeletalMonoEpi
+@InsertChunk SkeletalMonoEpi
 
 @Subsection Skeletal Initial and Terminal Objects
-@InsertSystem SkeletalInitialTerminal
+@InsertChunk SkeletalInitialTerminal
 
 @Subsection Skeletal Product
-@InsertSystem SkeletalDirectProduct
+@InsertChunk SkeletalDirectProduct
 
 @Subsection Skeletal Coproduct
-@InsertSystem SkeletalCoproduct
+@InsertChunk SkeletalCoproduct
 
 @Subsection Skeletal Image
-@InsertSystem SkeletalImageObject
-@InsertSystem SkeletalImageEmbedding
-@InsertSystem SkeletalCoastrictionToImage
+@InsertChunk SkeletalImageObject
+@InsertChunk SkeletalImageEmbedding
+@InsertChunk SkeletalCoastrictionToImage
 
 @Subsection Skeletal Preimage
-@InsertSystem SkeletalPreimage
+@InsertChunk SkeletalPreimage
 
 @Subsection Skeletal Equalizer
-@InsertSystem SkeletalEqualizer
+@InsertChunk SkeletalEqualizer
 
 @Subsection Skeletal Pullback
-@InsertSystem SkeletalFiberProduct
+@InsertChunk SkeletalFiberProduct
 
 @Subsection Skeletal Coequalizer
-@InsertSystem SkeletalCoequalizer
+@InsertChunk SkeletalCoequalizer
 
 @Subsection Skeletal Pushout
-@InsertSystem SkeletalPushout
+@InsertChunk SkeletalPushout
 
 @Subsection Skeletal topos properties
-@InsertSystem SkeletalTopos
+@InsertChunk SkeletalTopos
