@@ -1,4 +1,4 @@
-#! @System SkeletalCoproduct
+#! @Chunk SkeletalCoproduct
 
 LoadPackage( "FinSetsForCAP" );
 

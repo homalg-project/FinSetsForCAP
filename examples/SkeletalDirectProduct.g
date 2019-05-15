@@ -1,4 +1,4 @@
-#! @System SkeletalDirectProduct
+#! @Chunk SkeletalDirectProduct
 
 LoadPackage( "FinSetsForCAP" );
 

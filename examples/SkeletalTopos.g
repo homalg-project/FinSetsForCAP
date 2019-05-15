@@ -1,4 +1,4 @@
-#! @System SkeletalTopos
+#! @Chunk SkeletalTopos
 
 LoadPackage( "FinSetsForCAP" );
 

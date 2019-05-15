@@ -1,4 +1,4 @@
-#! @System SkeletalCoastrictionToImage
+#! @Chunk SkeletalCoastrictionToImage
 
 LoadPackage( "FinSetsForCAP" );
 

@@ -1,4 +1,4 @@
-#! @System IsEqualForElementsOfFinSets
+#! @Chunk IsEqualForElementsOfFinSets
 
 LoadPackage( "FinSetsForCAP" );
 

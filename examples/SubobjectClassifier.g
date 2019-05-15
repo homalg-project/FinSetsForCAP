@@ -1,4 +1,4 @@
-#! @System SubobjectClassifier
+#! @Chunk SubobjectClassifier
 
 LoadPackage( "FinSetsForCAP" );
 

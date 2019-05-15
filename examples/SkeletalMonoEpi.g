@@ -1,4 +1,4 @@
-#! @System SkeletalMonoEpi
+#! @Chunk SkeletalMonoEpi
 
 LoadPackage( "FinSetsForCAP" );
 

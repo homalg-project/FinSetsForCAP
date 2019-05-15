@@ -1,4 +1,4 @@
-#! @System SkeletalWellDefined
+#! @Chunk SkeletalWellDefined
 
 LoadPackage( "FinSetsForCAP" );
 

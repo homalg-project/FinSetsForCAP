@@ -1,4 +1,4 @@
-#! @System SkeletalPushout
+#! @Chunk SkeletalPushout
 
 LoadPackage( "FinSetsForCAP" );
 

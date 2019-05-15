@@ -1,4 +1,4 @@
-#! @System Pushout
+#! @Chunk Pushout
 
 LoadPackage( "FinSetsForCAP" );
 

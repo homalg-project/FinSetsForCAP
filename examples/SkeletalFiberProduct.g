@@ -1,4 +1,4 @@
-#! @System SkeletalFiberProduct
+#! @Chunk SkeletalFiberProduct
 
 LoadPackage( "FinSetsForCAP" );
 

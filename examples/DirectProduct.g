@@ -1,4 +1,4 @@
-#! @System DirectProduct
+#! @Chunk DirectProduct
 
 LoadPackage( "FinSetsForCAP" );
 

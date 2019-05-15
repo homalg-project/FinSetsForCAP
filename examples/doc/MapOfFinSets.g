@@ -1,4 +1,4 @@
-#! @System MapOfFinSets
+#! @Chunk MapOfFinSets
 
 LoadPackage( "FinSetsForCAP" );
 

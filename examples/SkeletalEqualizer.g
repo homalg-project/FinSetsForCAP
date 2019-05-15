@@ -1,4 +1,4 @@
-#! @System SkeletalEqualizer
+#! @Chunk SkeletalEqualizer
 
 LoadPackage( "FinSetsForCAP" );
 

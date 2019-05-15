@@ -1,4 +1,4 @@
-#! @System Coproduct
+#! @Chunk Coproduct
 
 LoadPackage( "FinSetsForCAP" );
 

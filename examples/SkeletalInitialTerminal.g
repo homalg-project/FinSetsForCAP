@@ -1,4 +1,4 @@
-#! @System SkeletalInitialTerminal
+#! @Chunk SkeletalInitialTerminal
 
 LoadPackage( "FinSetsForCAP" );
 

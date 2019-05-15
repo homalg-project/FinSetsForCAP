@@ -1,4 +1,4 @@
-#! @System FiberProduct
+#! @Chunk FiberProduct
 
 LoadPackage( "FinSetsForCAP" );
 

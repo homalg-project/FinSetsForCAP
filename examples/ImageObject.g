@@ -1,4 +1,4 @@
-#! @System ImageObject
+#! @Chunk ImageObject
 
 LoadPackage( "FinSetsForCAP" );
 

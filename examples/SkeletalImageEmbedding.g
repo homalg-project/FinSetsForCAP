@@ -1,4 +1,4 @@
-#! @System SkeletalImageEmbedding
+#! @Chunk SkeletalImageEmbedding
 
 LoadPackage( "FinSetsForCAP" );
 

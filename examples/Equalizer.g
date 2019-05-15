@@ -1,4 +1,4 @@
-#! @System Equalizer
+#! @Chunk Equalizer
 
 LoadPackage( "FinSetsForCAP" );
 

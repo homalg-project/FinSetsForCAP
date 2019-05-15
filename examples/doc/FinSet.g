@@ -1,4 +1,4 @@
-#! @System FinSet
+#! @Chunk FinSet
 
 LoadPackage( "FinSetsForCAP" );
 

@@ -1,4 +1,4 @@
-#! @System Coequalizer
+#! @Chunk Coequalizer
 
 LoadPackage( "FinSetsForCAP" );
 

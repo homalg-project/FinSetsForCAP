@@ -1,4 +1,4 @@
-#! @System PreCompose
+#! @Chunk PreCompose
 
 LoadPackage( "FinSetsForCAP" );
 

@@ -1,4 +1,4 @@
-#! @System InitialTerminal
+#! @Chunk InitialTerminal
 
 LoadPackage( "FinSetsForCAP" );
 

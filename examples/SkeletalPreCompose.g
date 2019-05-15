@@ -1,4 +1,4 @@
-#! @System SkeletalPreCompose
+#! @Chunk SkeletalPreCompose
 
 LoadPackage( "FinSetsForCAP" );
 

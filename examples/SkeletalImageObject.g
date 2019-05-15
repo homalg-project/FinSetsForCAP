@@ -1,4 +1,4 @@
-#! @System SkeletalImageObject
+#! @Chunk SkeletalImageObject
 
 LoadPackage( "FinSetsForCAP" );
 
