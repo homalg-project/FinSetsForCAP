@@ -50,7 +50,7 @@ DeclareAttribute( "AsList",
 #! @Returns a &CAP; object
 DeclareOperation( "FinSet",
         [ IsInt ] );
-#! @InsertChunk Skeletal FinSet
+#! @InsertChunk SkeletalFinSet
 
 #! @Description
 #!  Construct a map $\phi:$<A>s</A>$\to$<A>t</A> of the skeletal finite sets <A>s</A> and <A>t</A>,
