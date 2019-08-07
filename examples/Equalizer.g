@@ -26,6 +26,9 @@ Im := ImageObject( iota );
 #! <An object in FinSets>
 Display( Im );
 #! [ 1, 5 ]
+mu := MorphismFromEqualizerToSink( D );;
+PreCompose( iota, f1 ) = mu;
+#! true
 M := FinSet( [ "a" ] );;
 phi := MapOfFinSets( M, [ [ "a", 5 ] ], S );;
 IsWellDefined( phi );

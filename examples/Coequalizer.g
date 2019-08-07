@@ -71,6 +71,9 @@ pi := ProjectionOntoCoequalizer( D );
 #! <An epimorphism in FinSets>
 AsList( pi );
 #! [ [ 1, [ 1 ] ], [ 2, [ 2 ] ], [ 3, [ 3, 4 ] ], [ 4, [ 3, 4 ] ] ]
+mu := MorphismFromSourceToCoequalizer( D );;
+PreCompose( f, pi ) = mu;
+#! true
 G_tau := [ [ 1, 2 ], [ 2, 1 ], [ 3, 2 ], [ 4, 2 ] ];;
 tau := MapOfFinSets( T, G_tau, FinSet( [ 1, 2 ] ) );
 #! <A morphism in FinSets>
@@ -103,6 +106,9 @@ pi := ProjectionOntoCoequalizer( D );
 AsList( pi );
 #! [ [ 1, [ 1 ] ], [ 2, [ 2, 3 ] ], [ 3, [ 2, 3 ] ], [ 4, [ 4 ] ] ]
 PreCompose( f, pi ) = PreCompose( g, pi );
+#! true
+mu := MorphismFromSourceToCoequalizer( D );;
+PreCompose( f, pi ) = mu;
 #! true
 G_tau := [ [ 1, 1 ], [ 2, 2 ], [ 3, 2 ], [ 4, 1 ] ];;
 tau := MapOfFinSets( T, G_tau, FinSet( [ 1, 2 ] ) );
