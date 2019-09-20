@@ -21,6 +21,9 @@
 @Subsection Image
 @InsertChunk ImageObject
 
+@Subsection Coimage
+@InsertChunk Coimage
+
 @Subsection Equalizer
 @InsertChunk Equalizer
 
