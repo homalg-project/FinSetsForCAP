@@ -6,7 +6,7 @@
 
 BindGlobal( "FinSets", CreateCapCategory( "FinSets" ) );
 
-SetIsCartesianClosedCategory( FinSets, true );
+SetIsElementaryTopos( FinSets, true );
 
 AddObjectRepresentation( FinSets, IsFiniteSet );
 
