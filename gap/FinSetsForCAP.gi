@@ -10,7 +10,7 @@ SetIsElementaryTopos( FinSets, true );
 
 AddObjectRepresentation( FinSets, IsFiniteSet );
 
-AddMorphismRepresentation( FinSets, IsFiniteSetMap );
+AddMorphismRepresentation( FinSets, IsFiniteSetMap and HasAsList );
 
 ##
 InstallMethod( IsEqualForElementsOfFinSets,
@@ -302,10 +302,10 @@ InstallMethod( MapOfFinSetsNC,
     
     map := rec( );
     
-    ObjectifyMorphismForCAPWithAttributes( map, FinSets,
-            AsList, G,
-            Source, S,
-            Range, T
+    ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( map, FinSets,
+            S,
+            T,
+            AsList, G
             );
     
     Assert( 4, IsWellDefined( map ) );

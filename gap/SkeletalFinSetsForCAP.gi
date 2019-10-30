@@ -10,7 +10,7 @@ SetIsCartesianClosedCategory( SkeletalFinSets, true );
 
 AddObjectRepresentation( SkeletalFinSets, IsSkeletalFiniteSet );
 
-AddMorphismRepresentation( SkeletalFinSets, IsSkeletalFiniteSetMap );
+AddMorphismRepresentation( SkeletalFinSets, IsSkeletalFiniteSetMap and HasAsList );
 
 ##
 InstallMethod( FinSet,
@@ -68,10 +68,10 @@ InstallMethod( MapOfFinSets,
     
     map := rec( );
     
-    ObjectifyMorphismForCAPWithAttributes( map, SkeletalFinSets,
-            AsList, G,
-            Source, s,
-            Range, t
+    ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( map, SkeletalFinSets,
+            s,
+            t,
+            AsList, G
         );
     
     Assert( 4, IsWellDefined( map ) );
