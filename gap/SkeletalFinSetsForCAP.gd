@@ -4,6 +4,9 @@
 # Declarations
 #
 
+# Technical functions
+DeclareGlobalFunction( "INSTALL_FUNCTIONS_FOR_SKELETAL_FIN_SETS" );
+
 #! @Chapter The category of skeletal finite sets
 
 #! @Section Skeletal GAP Categories

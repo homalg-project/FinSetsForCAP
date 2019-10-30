@@ -23,12 +23,13 @@ InstallMethod( CategoryOfSkeletalFinSets,
     
     AddMorphismRepresentation( cat, IsSkeletalFiniteSetMap and HasAsList );
     
+    INSTALL_FUNCTIONS_FOR_SKELETAL_FIN_SETS( cat );
+    
+    Finalize( cat );
+    
     return cat;
     
 end );
-
-##
-BindGlobal( "SkeletalFinSets", CategoryOfSkeletalFinSets() );
 
 ##
 InstallMethod( FinSetOp,
@@ -51,17 +52,6 @@ InstallMethod( FinSetOp,
 end );
 
 ##
-InstallOtherMethod( FinSet,
-        "for a nonnegative integer",
-        [ IsInt ],
-        
-  function ( n )
-    
-    return FinSet( SkeletalFinSets, n );
-    
-end );
-
-##
 InstallMethod( ListOp,
         "for a CAP skeletal finite set and a function",
         [ IsSkeletalFiniteSet, IsFunction ],
@@ -70,19 +60,6 @@ InstallMethod( ListOp,
 
     return List( AsList( s ), f );
 end );
-
-##
-AddIsWellDefinedForObjects( SkeletalFinSets,
-   n -> Length( n ) >= 0 );
-
-##
-AddIsEqualForObjects( SkeletalFinSets,
-  function ( n1, n2 )
-
-    return Length( n1 ) = Length( n2 );
-    
-end );
-
 
 ## Morphisms
 
@@ -160,6 +137,22 @@ InstallMethod( CallFuncList,
     
 end );
 
+InstallGlobalFunction( INSTALL_FUNCTIONS_FOR_SKELETAL_FIN_SETS,
+
+    function( SkeletalFinSets )
+        local ExplicitCoequalizer;
+##
+AddIsWellDefinedForObjects( SkeletalFinSets,
+   n -> Length( n ) >= 0 );
+
+##
+AddIsEqualForObjects( SkeletalFinSets,
+  function ( n1, n2 )
+
+    return Length( n1 ) = Length( n2 );
+    
+end );
+
 ##
 AddIsWellDefinedForMorphisms( SkeletalFinSets,
   function ( mor )
@@ -220,7 +213,7 @@ end );
 AddImageObject( SkeletalFinSets,
   function ( phi )
     
-    return FinSet( Length( Set( AsList( phi ) ) ) );
+    return FinSet( SkeletalFinSets, Length( Set( AsList( phi ) ) ) );
     
 end );
 
@@ -299,7 +292,7 @@ end );
 AddTerminalObject( SkeletalFinSets,
   function ( arg )
     
-    return FinSet( 1 );
+    return FinSet( SkeletalFinSets, 1 );
     
 end );
 
@@ -324,7 +317,7 @@ AddDirectProduct( SkeletalFinSets,
         int := int * Length( l );
     od;
 
-    return FinSet( int );
+    return FinSet( SkeletalFinSets, int );
     
 end );
 
@@ -388,7 +381,7 @@ AddEqualizer( SkeletalFinSets,
     
     Eq := Filtered( AsList( s ), x -> ForAll( D, fj -> f1( x ) = fj( x ) ) );
     
-    return FinSet( Length( Eq ) );
+    return FinSet( SkeletalFinSets, Length( Eq ) );
     
 end );
 
@@ -430,7 +423,7 @@ end );
 AddInitialObject( SkeletalFinSets,
   function ( arg )
     
-    return FinSet( 0 );
+    return FinSet( SkeletalFinSets, 0 );
     
 end );
 
@@ -446,7 +439,7 @@ end );
 AddCoproduct( SkeletalFinSets,
   function ( L )
     
-    return FinSet( Sum( L, x -> Length( x ) ) );
+    return FinSet( SkeletalFinSets, Sum( L, x -> Length( x ) ) );
     
 end );
 
@@ -647,8 +640,7 @@ AddCartesianEvaluationMorphismWithGivenSource( SkeletalFinSets,
     
 end );
 
- 
-Finalize( SkeletalFinSets );
+end );
 
 ##
 InstallMethod( Display,
@@ -666,4 +658,18 @@ InstallMethod( Display,
         
   function ( phi )
     Display( [ Length( Source( phi ) ), AsList( phi ), Length( Range( phi ) ) ] );
+end );
+
+##
+BindGlobal( "SkeletalFinSets", CategoryOfSkeletalFinSets() );
+
+##
+InstallOtherMethod( FinSet,
+        "for a nonnegative integer",
+        [ IsInt ],
+        
+  function ( n )
+    
+    return FinSet( SkeletalFinSets, n );
+    
 end );
