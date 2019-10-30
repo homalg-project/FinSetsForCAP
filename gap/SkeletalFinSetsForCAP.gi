@@ -4,25 +4,42 @@
 # Implementations
 #
 
-BindGlobal( "SkeletalFinSets", CreateCapCategory( "SkeletalFinSets" ) );
-
-SetIsCartesianClosedCategory( SkeletalFinSets, true );
-
-AddObjectRepresentation( SkeletalFinSets, IsSkeletalFiniteSet );
-
-AddMorphismRepresentation( SkeletalFinSets, IsSkeletalFiniteSetMap and HasAsList );
+##
+InstallMethod( CategoryOfSkeletalFinSets,
+               [ ],
+               
+  function( )
+    local overhead_option, cat;
+    
+    overhead_option := CAP_INTERNAL_RETURN_OPTION_OR_DEFAULT( "overhead", true );
+    
+    cat := CreateCapCategory( "SkeletalFinSets" : overhead := overhead_option );
+    
+    SetFilterObj( cat, IsCategoryOfSkeletalFinSets );
+    
+    SetIsElementaryTopos( cat, true );
+    
+    AddObjectRepresentation( cat, IsSkeletalFiniteSet and HasLength and HasAsList );
+    
+    AddMorphismRepresentation( cat, IsSkeletalFiniteSetMap and HasAsList );
+    
+    return cat;
+    
+end );
 
 ##
-InstallMethod( FinSet,
-        "for a nonnegative integer",
-        [ IsInt ],
+BindGlobal( "SkeletalFinSets", CategoryOfSkeletalFinSets() );
+
+##
+InstallMethod( FinSetOp,
+        [ IsCategoryOfSkeletalFinSets, IsInt ],
         
-  function ( n )
+  function ( cat, n )
     local int;
     
     int := rec( );
     
-    ObjectifyObjectForCAPWithAttributes( int, SkeletalFinSets,
+    ObjectifyObjectForCAPWithAttributes( int, cat,
         Length, n,
         AsList, [ 1 .. n ]
         );
@@ -30,6 +47,17 @@ InstallMethod( FinSet,
     Assert( 4, IsWellDefined( int ) );
     
     return int;
+    
+end );
+
+##
+InstallOtherMethod( FinSet,
+        "for a nonnegative integer",
+        [ IsInt ],
+        
+  function ( n )
+    
+    return FinSet( SkeletalFinSets, n );
     
 end );
 
@@ -68,7 +96,7 @@ InstallMethod( MapOfFinSets,
     
     map := rec( );
     
-    ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( map, SkeletalFinSets,
+    ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( map, CapCategory( s ),
             s,
             t,
             AsList, G

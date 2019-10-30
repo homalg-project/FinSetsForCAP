@@ -9,6 +9,13 @@
 #! @Section Skeletal GAP Categories
 
 #! @Description
+#! The GAP category of categories
+#! of skeletal finite sets.
+#! @Arguments object
+DeclareCategory( "IsCategoryOfSkeletalFinSets",
+                  IsCapCategory );
+
+#! @Description
 #! The GAP category of objects in the category
 #! of skeletal finite sets.
 #! @Arguments object
@@ -41,6 +48,19 @@ DeclareAttribute( "AsList",
         IsSkeletalFiniteSet );
 
 #! @Section Skeletal Constructors
+
+#! @Description
+#!  Construct a category of skeletal finite sets.
+#! @Returns a &CAP; category
+DeclareOperation( "CategoryOfSkeletalFinSets", [] );
+
+#! @Description
+#!  Construct a skeletal finite set residing in
+#!  the given category of skeletal finite sets <A>C</A>
+#!  of order given be the nonnegative integer <A>n</A>.
+#! @Arguments C, n
+#! @Returns a &CAP; object
+KeyDependentOperation( "FinSet", IsCategoryOfSkeletalFinSets, IsInt, ReturnTrue );
 
 #! @Description
 #!  Construct a skeletal finite set
