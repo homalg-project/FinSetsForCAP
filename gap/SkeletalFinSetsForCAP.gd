@@ -69,6 +69,9 @@ KeyDependentOperation( "FinSet", IsCategoryOfSkeletalFinSets, IsInt, ReturnTrue 
 #!  Construct a skeletal finite set
 #!  out of a nonnegative integer <A>n</A>, i.e.,
 #!  an object in the &CAP; category <C>SkeletalFinSets</C>.
+#!  Here, <C>SkeletalFinSets</C> denotes the global variable
+#!  that points to the initially created category of skeletal finite sets
+#!  while loading this package.
 #! @Arguments n
 #! @Returns a &CAP; object
 DeclareOperation( "FinSet",
