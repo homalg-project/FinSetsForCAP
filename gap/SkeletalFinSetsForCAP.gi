@@ -518,7 +518,7 @@ end;
 AddCoequalizer( SkeletalFinSets,
   function ( D )
   
-    return FinSet( Length( ExplicitCoequalizer( D ) ) );
+    return FinSet( SkeletalFinSets, Length( ExplicitCoequalizer( D ) ) );
     
 end );
 
@@ -603,7 +603,7 @@ AddExponentialOnObjects( SkeletalFinSets,
     
     m := Length( M );
     
-    return FinSet( Length( Tuples( AsList( N ), m ) ) );
+    return FinSet( SkeletalFinSets, Length( Tuples( AsList( N ), m ) ) );
     
 end );
 
