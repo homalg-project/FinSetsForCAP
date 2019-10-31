@@ -4,9 +4,19 @@
 # Declarations
 #
 
+# Technical functions
+DeclareGlobalFunction( "INSTALL_FUNCTIONS_FOR_SKELETAL_FIN_SETS" );
+
 #! @Chapter The category of skeletal finite sets
 
 #! @Section Skeletal GAP Categories
+
+#! @Description
+#! The GAP category of categories
+#! of skeletal finite sets.
+#! @Arguments object
+DeclareCategory( "IsCategoryOfSkeletalFinSets",
+                  IsCapCategory );
 
 #! @Description
 #! The GAP category of objects in the category
@@ -43,9 +53,25 @@ DeclareAttribute( "AsList",
 #! @Section Skeletal Constructors
 
 #! @Description
+#!  Construct a category of skeletal finite sets.
+#! @Returns a &CAP; category
+DeclareOperation( "CategoryOfSkeletalFinSets", [] );
+
+#! @Description
+#!  Construct a skeletal finite set residing in
+#!  the given category of skeletal finite sets <A>C</A>
+#!  of order given be the nonnegative integer <A>n</A>.
+#! @Arguments C, n
+#! @Returns a &CAP; object
+KeyDependentOperation( "FinSet", IsCategoryOfSkeletalFinSets, IsInt, ReturnTrue );
+
+#! @Description
 #!  Construct a skeletal finite set
 #!  out of a nonnegative integer <A>n</A>, i.e.,
 #!  an object in the &CAP; category <C>SkeletalFinSets</C>.
+#!  Here, <C>SkeletalFinSets</C> denotes the global variable
+#!  that points to the initially created category of skeletal finite sets
+#!  while loading this package.
 #! @Arguments n
 #! @Returns a &CAP; object
 DeclareOperation( "FinSet",

@@ -4,25 +4,49 @@
 # Implementations
 #
 
-BindGlobal( "SkeletalFinSets", CreateCapCategory( "SkeletalFinSets" ) );
-
-SetIsCartesianClosedCategory( SkeletalFinSets, true );
-
-AddObjectRepresentation( SkeletalFinSets, IsSkeletalFiniteSet );
-
-AddMorphismRepresentation( SkeletalFinSets, IsSkeletalFiniteSetMap and HasAsList );
+##
+InstallMethod( CategoryOfSkeletalFinSets,
+               [ ],
+               
+  function( )
+    local overhead_option, finalize_option, cat;
+    
+    overhead_option := CAP_INTERNAL_RETURN_OPTION_OR_DEFAULT( "overhead", true );
+    
+    finalize_option := CAP_INTERNAL_RETURN_OPTION_OR_DEFAULT( "FinalizeCategory", true );
+    
+    cat := CreateCapCategory( "SkeletalFinSets" : overhead := overhead_option );
+    
+    SetFilterObj( cat, IsCategoryOfSkeletalFinSets );
+    
+    SetIsElementaryTopos( cat, true );
+    
+    AddObjectRepresentation( cat, IsSkeletalFiniteSet and HasLength and HasAsList );
+    
+    AddMorphismRepresentation( cat, IsSkeletalFiniteSetMap and HasAsList );
+    
+    INSTALL_FUNCTIONS_FOR_SKELETAL_FIN_SETS( cat );
+    
+    if finalize_option then
+        
+        Finalize( cat );
+        
+    fi;
+    
+    return cat;
+    
+end );
 
 ##
-InstallMethod( FinSet,
-        "for a nonnegative integer",
-        [ IsInt ],
+InstallMethod( FinSetOp,
+        [ IsCategoryOfSkeletalFinSets, IsInt ],
         
-  function ( n )
+  function ( cat, n )
     local int;
     
     int := rec( );
     
-    ObjectifyObjectForCAPWithAttributes( int, SkeletalFinSets,
+    ObjectifyObjectForCAPWithAttributes( int, cat,
         Length, n,
         AsList, [ 1 .. n ]
         );
@@ -43,19 +67,6 @@ InstallMethod( ListOp,
     return List( AsList( s ), f );
 end );
 
-##
-AddIsWellDefinedForObjects( SkeletalFinSets,
-   n -> Length( n ) >= 0 );
-
-##
-AddIsEqualForObjects( SkeletalFinSets,
-  function ( n1, n2 )
-
-    return Length( n1 ) = Length( n2 );
-    
-end );
-
-
 ## Morphisms
 
 ##
@@ -68,7 +79,7 @@ InstallMethod( MapOfFinSets,
     
     map := rec( );
     
-    ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( map, SkeletalFinSets,
+    ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( map, CapCategory( s ),
             s,
             t,
             AsList, G
@@ -132,6 +143,22 @@ InstallMethod( CallFuncList,
     
 end );
 
+InstallGlobalFunction( INSTALL_FUNCTIONS_FOR_SKELETAL_FIN_SETS,
+
+    function( SkeletalFinSets )
+        local ExplicitCoequalizer;
+##
+AddIsWellDefinedForObjects( SkeletalFinSets,
+   n -> Length( n ) >= 0 );
+
+##
+AddIsEqualForObjects( SkeletalFinSets,
+  function ( n1, n2 )
+
+    return Length( n1 ) = Length( n2 );
+    
+end );
+
 ##
 AddIsWellDefinedForMorphisms( SkeletalFinSets,
   function ( mor )
@@ -192,7 +219,7 @@ end );
 AddImageObject( SkeletalFinSets,
   function ( phi )
     
-    return FinSet( Length( Set( AsList( phi ) ) ) );
+    return FinSet( SkeletalFinSets, Length( Set( AsList( phi ) ) ) );
     
 end );
 
@@ -271,7 +298,7 @@ end );
 AddTerminalObject( SkeletalFinSets,
   function ( arg )
     
-    return FinSet( 1 );
+    return FinSet( SkeletalFinSets, 1 );
     
 end );
 
@@ -296,7 +323,7 @@ AddDirectProduct( SkeletalFinSets,
         int := int * Length( l );
     od;
 
-    return FinSet( int );
+    return FinSet( SkeletalFinSets, int );
     
 end );
 
@@ -360,7 +387,7 @@ AddEqualizer( SkeletalFinSets,
     
     Eq := Filtered( AsList( s ), x -> ForAll( D, fj -> f1( x ) = fj( x ) ) );
     
-    return FinSet( Length( Eq ) );
+    return FinSet( SkeletalFinSets, Length( Eq ) );
     
 end );
 
@@ -402,7 +429,7 @@ end );
 AddInitialObject( SkeletalFinSets,
   function ( arg )
     
-    return FinSet( 0 );
+    return FinSet( SkeletalFinSets, 0 );
     
 end );
 
@@ -418,7 +445,7 @@ end );
 AddCoproduct( SkeletalFinSets,
   function ( L )
     
-    return FinSet( Sum( L, x -> Length( x ) ) );
+    return FinSet( SkeletalFinSets, Sum( L, x -> Length( x ) ) );
     
 end );
 
@@ -497,7 +524,7 @@ end;
 AddCoequalizer( SkeletalFinSets,
   function ( D )
   
-    return FinSet( Length( ExplicitCoequalizer( D ) ) );
+    return FinSet( SkeletalFinSets, Length( ExplicitCoequalizer( D ) ) );
     
 end );
 
@@ -582,7 +609,7 @@ AddExponentialOnObjects( SkeletalFinSets,
     
     m := Length( M );
     
-    return FinSet( Length( Tuples( AsList( N ), m ) ) );
+    return FinSet( SkeletalFinSets, Length( Tuples( AsList( N ), m ) ) );
     
 end );
 
@@ -619,8 +646,7 @@ AddCartesianEvaluationMorphismWithGivenSource( SkeletalFinSets,
     
 end );
 
- 
-Finalize( SkeletalFinSets );
+end );
 
 ##
 InstallMethod( Display,
@@ -638,4 +664,18 @@ InstallMethod( Display,
         
   function ( phi )
     Display( [ Length( Source( phi ) ), AsList( phi ), Length( Range( phi ) ) ] );
+end );
+
+##
+BindGlobal( "SkeletalFinSets", CategoryOfSkeletalFinSets() );
+
+##
+InstallOtherMethod( FinSet,
+        "for a nonnegative integer",
+        [ IsInt ],
+        
+  function ( n )
+    
+    return FinSet( SkeletalFinSets, n );
+    
 end );

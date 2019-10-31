@@ -120,7 +120,7 @@ InstallMethod( IsEqualForElementsOfFinSets,
 end );
 
 ##
-InstallMethod( FinSet,
+InstallOtherMethod( FinSet,
         "for a list",
         [ IsList ],
         
