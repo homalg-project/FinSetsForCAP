@@ -54,24 +54,20 @@ DeclareAttribute( "AsList",
 
 #! @Description
 #!  Construct a category of skeletal finite sets.
+#!  Accepts the options <C>overhead</C> (default: <C>true</C>) and
+#!  <C>FinalizeCategory</C> (default: <C>true</C>).
 #! @Returns a &CAP; category
 DeclareOperation( "CategoryOfSkeletalFinSets", [] );
 
 #! @Description
-#!  Construct a skeletal finite set residing in
-#!  the given category of skeletal finite sets <A>C</A>
-#!  of order given be the nonnegative integer <A>n</A>.
-#! @Arguments C, n
-#! @Returns a &CAP; object
-KeyDependentOperation( "FinSet", IsCategoryOfSkeletalFinSets, IsInt, ReturnTrue );
+#!  The default instance of the category of skeletal finite sets.
+#!  It is automatically created while loading this package.
+# DeclareGlobalVariable( "SkeletalFinSets" );
 
 #! @Description
-#!  Construct a skeletal finite set
-#!  out of a nonnegative integer <A>n</A>, i.e.,
-#!  an object in the &CAP; category <C>SkeletalFinSets</C>.
-#!  Here, <C>SkeletalFinSets</C> denotes the global variable
-#!  that points to the initially created category of skeletal finite sets
-#!  while loading this package.
+#!  Construct a skeletal finite set residing in
+#!  the default instance of the category of skeletal finite sets <C>SkeletalFinSets</C>
+#!  of order given by the nonnegative integer <A>n</A>.
 #! @Arguments n
 #! @Returns a &CAP; object
 DeclareOperation( "FinSet",
@@ -79,8 +75,16 @@ DeclareOperation( "FinSet",
 #! @InsertChunk SkeletalFinSet
 
 #! @Description
+#!  Construct a skeletal finite set residing in
+#!  the given category of skeletal finite sets <A>C</A>
+#!  of order given by the nonnegative integer <A>n</A>.
+#! @Arguments C, n
+#! @Returns a &CAP; object
+KeyDependentOperation( "FinSet", IsCategoryOfSkeletalFinSets, IsInt, ReturnTrue );
+
+#! @Description
 #!  Construct a map $\phi:$<A>s</A>$\to$<A>t</A> of the skeletal finite sets <A>s</A> and <A>t</A>,
-#!  i.e., a morphism in the &CAP; category <C>SkeletalFinSets</C>, where <A>G</A>
+#!  i.e., a morphism in the &CAP; category of <A>s</A>, where <A>G</A>
 #!  is a list of integers in <A>t</A> describing the graph of $\phi$.
 #! @Arguments s, G, t
 #! @Returns a &CAP; morphism
