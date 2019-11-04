@@ -8,7 +8,7 @@ BindGlobal( "FinSets", CreateCapCategory( "FinSets" ) );
 
 SetIsElementaryTopos( FinSets, true );
 
-AddObjectRepresentation( FinSets, IsFiniteSet );
+AddObjectRepresentation( FinSets, IsFiniteSet and HasAsList and HasLength );
 
 AddMorphismRepresentation( FinSets, IsFiniteSetMap and HasAsList );
 
