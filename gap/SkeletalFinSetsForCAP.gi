@@ -205,16 +205,20 @@ end );
 ##
 AddPreCompose( SkeletalFinSets,
   function ( map_pre, map_post )
-    local s, cmp;
-
+    local s, t, im_pre, im_post, cmp;
+    
     s := Source( map_pre );
-
-    cmp := List( s, i -> AsList( map_post )[ AsList( map_pre )[i] ] );
-
-    return MapOfFinSets( s, cmp, Range( map_post ) );
+    t := Range( map_post );
+    
+    im_pre := AsList( map_pre );
+    im_post := AsList( map_post );
+    
+    cmp := List( s, i -> im_post[ im_pre[i] ] );
+    
+    return MapOfFinSets( s, cmp, t );
     
 end );
-    
+
 ##
 AddImageObject( SkeletalFinSets,
   function ( phi )
