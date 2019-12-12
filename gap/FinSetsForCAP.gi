@@ -159,6 +159,17 @@ InstallMethod( FinSetNC,
 end );
 
 ##
+InstallMethod( \<,
+        "for two CAP finite sets",
+        [ IsFiniteSet, IsFiniteSet ],
+        
+  function( set1, set2 )
+    
+    return AsList( set1 ) < AsList( set2 );
+    
+end );
+    
+##
 InstallMethod( \in,
         "for an object and a CAP finite set",
         [ IsObject, IsFiniteSet ],
@@ -315,6 +326,17 @@ InstallMethod( MapOfFinSetsNC,
 end );
 
 ##
+InstallMethod( \<,
+        "for two CAP maps of finite sets",
+        [ IsFiniteSetMap, IsFiniteSetMap ],
+        
+  function( map1, map2 )
+    
+    return AsList( map1 ) < AsList( map2 ) or ( AsList( map1 ) = AsList( map2 ) and Range( map1 ) < Range( map2 ) );
+    
+end );
+    
+##
 InstallMethod( EmbeddingOfFinSets,
         "for a two CAP finite sets",
         [ IsFiniteSet, IsFiniteSet ],
@@ -431,19 +453,13 @@ AddIsWellDefinedForMorphisms( FinSets,
         return false;
     fi;
     
-    if not ForAll( rel, a -> IsList( a ) and Length( a ) = 2 and a[1] in S and a[ 2 ] in T ) then
+    if not ForAll( rel, a -> IsList( a ) and Length( a ) = 2 and a[1] in S and a[2] in T ) then
         return false;
     fi;
     
-    for i in [ 1 .. Length( rel ) ] do
-        for j in [ 1 .. ( i - 1 ) ] do
-            if IsEqualForElementsOfFinSets( rel[i][1], rel[j][1] ) then
-                return false;
-            fi;
-        od;
-    od;
-
-    # since Length( S ) = Length( rel ) and the list of first components of rel is duplicate free, any element in S has to appear as a first component in rel
+    if not IsEqualForElementsOfFinSets( List( rel, a -> a[1] ), AsList( S ) ) then
+        return false;
+    fi;
     
     return true;
     
@@ -452,13 +468,8 @@ end );
 ##
 AddIsEqualForMorphisms( FinSets,
   function ( map1, map2 )
-    local S;
     
-    S := Source( map1 );
-    
-    # if map1 and map2 are well-defined, then Length( AsList( map1 ) ) = Length( AsList( S ) ) = Length( AsList( map2 ) )
-    
-    return ForAll( AsList( S ), s -> IsEqualForElementsOfFinSets( map1( s ), map2( s ) ) );
+    return IsEqualForElementsOfFinSets( AsList( map1 ), AsList( map2 ) );
     
 end );
 
