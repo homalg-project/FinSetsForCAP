@@ -91,5 +91,8 @@
 @Subsection Skeletal Pushout
 @InsertChunk SkeletalPushout
 
+@Subsection Skeletal Lift
+@InsertChunk SkeletalLift
+
 @Subsection Skeletal topos properties
 @InsertChunk SkeletalTopos
