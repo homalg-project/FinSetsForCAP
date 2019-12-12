@@ -869,6 +869,20 @@ AddDirectProductExponentialCompatibilityMorphismWithGivenObjects( FinSets,
 end );
 
 ##
+AddCartesianLambdaIntroduction( FinSets,
+  function( map )
+    local I;
+    
+    I := TerminalObject( CapCategory( map ) );
+    
+    return MapOfFinSetsNC(
+                   I,
+                   [ [ AsList( I )[1], map ] ],
+                   ExponentialOnObjects( Source( map ), Range( map ) ) );
+    
+end );
+
+##
 AddSubobjectClassifier( FinSets,
   function ( arg )
       

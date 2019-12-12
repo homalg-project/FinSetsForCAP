@@ -36,6 +36,9 @@
 @Subsection Pushout
 @InsertChunk Pushout
 
+@Subsection Cartesian lambda introduction
+@InsertChunk CartesianLambdaIntroduction
+
 @Subsection Topos properties
 @InsertChunk Topos
 
