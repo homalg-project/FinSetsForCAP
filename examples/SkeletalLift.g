@@ -13,12 +13,14 @@ g := MapOfFinSets( n, [ 3, 2, 1, 2 ], m );
 #! <A morphism in SkeletalFinSets>
 IsLiftable( f, g );
 #! true
-IsLiftable( g, f );
-#! false
 chi := Lift( f, g );
 #! <A morphism in SkeletalFinSets>
 Display( chi );
 #! [ 3, [ 2, 2, 3 ], 4 ]
 PreCompose( Lift( f, g ), g ) = f;
 #! true
+IsLiftable( g, f );
+#! false
+Lift( g, f );
+#! fail
 #! @EndExample
