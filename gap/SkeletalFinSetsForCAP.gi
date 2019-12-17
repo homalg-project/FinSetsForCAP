@@ -265,6 +265,35 @@ AddIsMonomorphism( SkeletalFinSets,
 end );
 
 ##
+AddIsLiftable( SkeletalFinSets,
+  function ( f, g )
+    local im_g;
+    
+    im_g := AsList( g );
+    
+    return ForAll( AsList( f ), x -> x in im_g );
+    
+end );
+
+##
+AddLift( SkeletalFinSets,
+  function ( f, g )
+    local S, T;
+    
+    if not IsLiftable( f, g ) then
+        return fail;
+    fi;
+    
+    S := Source( f );
+    T := Source( g );
+    
+    g := AsList( g );
+    
+    return MapOfFinSets( S, List( AsList( S ), i -> Position( g, f(i) ) ), T );
+    
+end );
+
+##
 AddImageEmbedding( SkeletalFinSets,
   function ( phi )
     
