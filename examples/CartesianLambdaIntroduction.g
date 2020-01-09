@@ -5,16 +5,18 @@ LoadPackage( "FinSetsForCAP" );
 #! @Example
 S := FinSet( [ 1 .. 3 ] );
 #! <An object in FinSets>
-T := FinSet( [ 1 .. 2 ] );
+R := FinSet( [ 1 .. 2 ] );
 #! <An object in FinSets>
-f := MapOfFinSets( S, [ [1,2],[2,2],[3,1] ], T );
+f := MapOfFinSets( S, [ [1,2],[2,2],[3,1] ], R );
 #! <A morphism in FinSets>
 IsWellDefined( f );
 #! true
-lf := CartesianLambdaIntroduction( f );
-#! <A morphism in FinSets>
 T := TerminalObject( f );
 #! <An object in FinSets>
+IsTerminal( T );
+#! true
+lf := CartesianLambdaIntroduction( f );
+#! <A split monomorphism in FinSets>
 Source( lf ) = T;
 #! true
 Length( Range( lf ) );

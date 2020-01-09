@@ -16,7 +16,11 @@ Length( I );
 #! 2
 IsMonomorphism( phi );
 #! false
+IsSplitMonomorphism( phi );
+#! false
 IsEpimorphism( phi );
+#! false
+IsSplitEpimorphism( phi );
 #! false
 iota := ImageEmbedding( phi );
 #! <A monomorphism in FinSets>

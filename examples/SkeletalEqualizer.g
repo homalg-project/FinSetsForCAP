@@ -22,7 +22,7 @@ iota := EmbeddingOfEqualizer( D );
 #! <A monomorphism in SkeletalFinSets>
 Display( iota );
 #! [ 2, [ 1, 5 ], 5 ]
-phi := MapOfFinSets( FinSet( 1 ), [ 5 ], S );;
+phi := MapOfFinSets( FinSet( 2 ), [ 5, 1 ], S );;
 IsWellDefined( phi );
 #! true
 psi := UniversalMorphismIntoEqualizer( D, phi );
@@ -30,7 +30,7 @@ psi := UniversalMorphismIntoEqualizer( D, phi );
 IsWellDefined( psi );
 #! true
 Display( psi );
-#! [ 1, [ 2 ], 2 ]
+#! [ 2, [ 2, 1 ], 2 ]
 PreCompose( psi, iota ) = phi;
 #! true
 

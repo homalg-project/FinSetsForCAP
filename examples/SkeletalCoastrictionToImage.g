@@ -19,7 +19,8 @@ IsWellDefined( f );
 #! true
 IsEpimorphism( f );
 #! true
-
+IsSplitEpimorphism( f );
+#! true
 m := FinSet( 77 );
 #! <An object in SkeletalFinSets>
 n := FinSet( 4 );
@@ -37,6 +38,8 @@ Display( pi );
 IsWellDefined( pi );
 #! true
 IsEpimorphism( pi );
+#! true
+IsSplitEpimorphism( pi );
 #! true
 PreCompose( pi, iota ) = phi;
 #! true
