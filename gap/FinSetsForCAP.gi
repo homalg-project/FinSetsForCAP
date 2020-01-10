@@ -463,6 +463,14 @@ AddIsEqualForMorphisms( FinSets,
 end );
 
 ##
+AddIsHomSetInhabited( FinSets,
+  function ( A, B )
+    
+    return IsInitial( A ) or not IsInitial( B );
+    
+end );
+
+##
 AddIdentityMorphism( FinSets,
   function ( set )
     
