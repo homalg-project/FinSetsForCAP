@@ -108,5 +108,8 @@
 @Subsection Skeletal Lift
 @InsertChunk SkeletalLift
 
+@Subsection Skeletal Colift
+@InsertChunk SkeletalColift
+
 @Subsection Skeletal topos properties
 @InsertChunk SkeletalTopos
