@@ -23,4 +23,14 @@ IsLiftable( g, f );
 #! false
 Lift( g, f );
 #! fail
+k := FinSet( 100000 );
+#! <An object in SkeletalFinSets>
+h := ListWithIdenticalEntries( Length( k ) - 3, 3 );;
+h := Concatenation( h, [ 2, 1, 2 ] );;
+h := MapOfFinSets( k, h, m );
+#! <A morphism in SkeletalFinSets>
+IsLiftable( f, h );
+#! true
+IsLiftable( h, f );
+#! false
 #! @EndExample
