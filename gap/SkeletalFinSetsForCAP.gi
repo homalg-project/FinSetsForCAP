@@ -245,6 +245,10 @@ AddIsEpimorphism( SkeletalFinSets,
 end );
 
 ##
+AddIsSplitEpimorphism( SkeletalFinSets,
+  IsEpimorphism );
+
+##
 AddIsMonomorphism( SkeletalFinSets,
   function ( phi )
     local imgs, testList, img;
@@ -262,6 +266,12 @@ AddIsMonomorphism( SkeletalFinSets,
 
     return true;
     
+end );
+
+##
+AddIsSplitMonomorphism( SkeletalFinSets,
+  function ( phi )
+    return IsInitial( Range( phi ) ) or ( not IsInitial( Source( phi ) ) and IsMonomorphism( phi ) );
 end );
 
 ##
@@ -326,6 +336,14 @@ end );
 
 
 ## Limits
+
+##
+AddIsTerminal( SkeletalFinSets,
+  function ( M )
+    
+    return Length( M ) = 1;
+    
+end );
 
 ##
 AddTerminalObject( SkeletalFinSets,
@@ -457,6 +475,14 @@ end );
 
 
 ## Colimits
+
+##
+AddIsInitial( SkeletalFinSets,
+  function ( M )
+    
+    return Length( M ) = 0;
+    
+end );
 
 ##
 AddInitialObject( SkeletalFinSets,

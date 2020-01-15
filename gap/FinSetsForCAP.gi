@@ -484,6 +484,14 @@ AddPreCompose( FinSets,
 end );
 
 ##
+AddIsTerminal( FinSets,
+  function ( M )
+    
+    return Length( M ) = 1;
+    
+end );
+
+##
 AddTerminalObject( FinSets,
   function ( arg )
     
@@ -535,6 +543,14 @@ AddUniversalMorphismIntoDirectProductWithGivenDirectProduct( FinSets,
     Graph := List( AsList( S ), x -> [ x, List( tau, f -> f(x) ) ] );
     
     return MapOfFinSetsNC( S, Graph, T );
+    
+end );
+
+##
+AddIsInitial( FinSets,
+  function ( M )
+    
+    return Length( M ) = 0;
     
 end );
 
@@ -616,11 +632,21 @@ AddIsEpimorphism( FinSets,
 end );
 
 ##
+AddIsSplitEpimorphism( FinSets,
+  IsEpimorphism );
+
+##
 AddIsMonomorphism( FinSets,
   function ( phi )
     
     return Length( ImageObject( phi ) ) = Length( Source( phi ) );
     
+end );
+
+##
+AddIsSplitMonomorphism( FinSets,
+  function ( phi )
+    return IsInitial( Range( phi ) ) or ( not IsInitial( Source( phi ) ) and IsMonomorphism( phi ) );
 end );
 
 ##
