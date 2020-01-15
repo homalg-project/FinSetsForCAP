@@ -110,7 +110,7 @@ Dependencies := rec(
   NeededOtherPackages := [
                    [ "GAPDoc", ">= 1.5" ],
                    [ "CAP", ">= 2019.12.12" ],
-                   [ "Toposes", ">= 2019.09.17" ],
+                   [ "Toposes", ">= 2019.11.15" ],
                    ],
   SuggestedOtherPackages := [ ],
   ExternalConditions := [ ],
