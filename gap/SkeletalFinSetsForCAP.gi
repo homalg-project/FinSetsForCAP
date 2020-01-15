@@ -195,6 +195,14 @@ AddIsEqualForMorphisms( SkeletalFinSets,
 end );
 
 ##
+AddIsHomSetInhabited( SkeletalFinSets,
+  function ( A, B )
+    
+    return IsInitial( A ) or not IsInitial( B );
+    
+end );
+
+##
 AddIdentityMorphism( SkeletalFinSets,
   function ( n )
     

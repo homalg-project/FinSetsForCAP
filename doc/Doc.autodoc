@@ -6,6 +6,9 @@
 @Section Tools
 @Section Examples
 
+@Subsection IsHomSetInhabited
+@InsertChunk IsHomSetInhabited
+
 @Subsection PreCompose
 @InsertChunk PreCompose
 
@@ -52,6 +55,9 @@
 @Section Skeletal Constructors
 @Section Skeletal Tools
 @Section Skeletal Examples
+
+@Subsection SkeletalIsHomSetInhabited
+@InsertChunk SkeletalIsHomSetInhabited
 
 @Subsection Skeletal WellDefined
 @InsertChunk SkeletalWellDefined
