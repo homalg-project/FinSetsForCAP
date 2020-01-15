@@ -509,6 +509,34 @@ AddUniversalMorphismFromInitialObjectWithGivenInitialObject( SkeletalFinSets,
 end );
 
 ##
+AddIsProjective( SkeletalFinSets,
+  ReturnTrue );
+
+##
+AddEpimorphismFromSomeProjectiveObject( SkeletalFinSets,
+  IdentityMorphism );
+
+##
+AddIsInjective( SkeletalFinSets,
+  function ( M )
+    
+    return not IsInitial( M );
+    
+end );
+
+##
+AddMonomorphismIntoSomeInjectiveObject( SkeletalFinSets,
+  function ( M )
+    
+    if IsInitial( M ) then
+        return UniversalMorphismIntoTerminalObject( M );
+    fi;
+    
+    return IdentityMorphism( M );
+    
+end );
+
+##
 AddCoproduct( SkeletalFinSets,
   function ( L )
     
@@ -713,6 +741,15 @@ AddCartesianEvaluationMorphismWithGivenSource( SkeletalFinSets,
     
 end );
 
+end );
+
+##
+InstallMethod( ViewObj,
+        "for a CAP skeletal finite set",
+        [ IsSkeletalFiniteSet ],
+        
+  function ( s )
+    Print( "<An object in SkeletalFinSets>" );
 end );
 
 ##

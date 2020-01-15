@@ -579,6 +579,34 @@ AddUniversalMorphismFromInitialObjectWithGivenInitialObject( FinSets,
 end );
 
 ##
+AddIsProjective( FinSets,
+  ReturnTrue );
+
+##
+AddEpimorphismFromSomeProjectiveObject( FinSets,
+  IdentityMorphism );
+
+##
+AddIsInjective( FinSets,
+  function ( M )
+    
+    return not IsInitial( M );
+    
+end );
+
+##
+AddMonomorphismIntoSomeInjectiveObject( FinSets,
+  function ( M )
+    
+    if IsInitial( M ) then
+        return UniversalMorphismIntoTerminalObject( M );
+    fi;
+    
+    return IdentityMorphism( M );
+    
+end );
+
+##
 AddCoproduct( FinSets,
   function ( L )
     
@@ -953,6 +981,15 @@ end );
 
 ##
 Finalize( FinSets );
+
+##
+InstallMethod( ViewObj,
+        "for a CAP finite set",
+        [ IsFiniteSet ],
+        
+  function ( S )
+    Print( "<An object in FinSets>" );
+end );
 
 ##
 InstallMethod( Display,
