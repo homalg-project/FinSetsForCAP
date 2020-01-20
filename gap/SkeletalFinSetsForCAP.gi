@@ -321,6 +321,44 @@ AddLift( SkeletalFinSets,
     
 end );
 
+## g \circ f^{-1} is again an ordinary function,
+## i.e., fibers of f are mapped under g to the same element
+AddIsColiftable( SkeletalFinSets,
+  function ( f, g )
+    
+    f := AsList( f );
+    g := AsList( g );
+    
+    return ForAll( Set( f ), i -> Length( Set( g{Positions( f, i )} ) ) = 1 );
+    
+end );
+##
+AddColift( SkeletalFinSets,
+  function ( f, g )
+    local S, T, chi;
+    
+    if not IsColiftable( f, g ) then
+        return fail;
+    fi;
+    
+    S := Range( f );
+    T := Range( g );
+    
+    f := AsList( f );
+    g := AsList( g );
+    
+    chi :=
+      function( y )
+        if not y in f then
+            return 1;
+        fi;
+        return g[Position( f, y )];
+    end;
+    
+    return MapOfFinSets( S, List( AsList( S ), chi ), T );
+    
+end );
+
 ##
 AddImageEmbedding( SkeletalFinSets,
   function ( phi )
