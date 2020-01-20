@@ -114,9 +114,14 @@ InstallMethod( Preimage,
         [ IsSkeletalFiniteSetMap, IsList ],
         
   function ( phi, t )
-
-    return Filtered( AsList( Source( phi ) ), x -> phi( x ) in t );
-
+    local S;
+    
+    S := AsList( Source( phi ) );
+    
+    phi := AsList( phi );
+    
+    return Filtered( S, i -> phi[i] in t );
+    
 end );
 
 ##
@@ -285,11 +290,15 @@ end );
 ##
 AddIsLiftable( SkeletalFinSets,
   function ( f, g )
-    local im_g;
     
-    im_g := AsList( g );
+    f := AsList( f );
+    g := AsList( g );
     
-    return ForAll( AsList( f ), x -> x in im_g );
+    if 100 * Length( f ) < Length( g ) then
+        f := Set( f );
+    fi;
+    
+    return ForAll( f, y -> y in g );
     
 end );
 
@@ -306,8 +315,9 @@ AddLift( SkeletalFinSets,
     T := Source( g );
     
     g := AsList( g );
+    f := AsList( f );
     
-    return MapOfFinSets( S, List( AsList( S ), i -> Position( g, f(i) ) ), T );
+    return MapOfFinSets( S, List( AsList( S ), x -> Position( g, f[x] ) ), T );
     
 end );
 
