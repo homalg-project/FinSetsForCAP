@@ -12,6 +12,9 @@
 @Subsection PreCompose
 @InsertChunk PreCompose
 
+@Subsection IsEpimorphism and IsMonomorhism
+@InsertChunk IsEpiMono
+
 @Subsection Initial and Terminal Objects
 @InsertChunk InitialTerminal
 

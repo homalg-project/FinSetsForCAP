@@ -663,7 +663,7 @@ end );
 AddIsEpimorphism( FinSets,
   function ( phi )
     
-    return IsEqualForObjects( ImageObject( phi ), Range( phi ) );
+    return Length( ImageObject( phi ) ) = Length( Range( phi ) );
     
 end );
 
