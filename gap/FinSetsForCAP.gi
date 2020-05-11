@@ -6,6 +6,8 @@
 
 BindGlobal( "FinSets", CreateCapCategory( "FinSets" ) );
 
+CapCategorySwitchLogicOff( FinSets );
+
 SetIsElementaryTopos( FinSets, true );
 
 AddObjectRepresentation( FinSets, IsFiniteSet and HasAsList and HasLength );
