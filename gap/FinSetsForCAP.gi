@@ -1,5 +1,5 @@
 #
-# FinSetsForCAP: FinSets
+# FinSetsForCAP: The elementary topos of (skeletal) finite sets
 #
 # Implementations
 #
@@ -932,7 +932,7 @@ end );
 
 ##
 AddCartesianLambdaIntroduction( FinSets,
-  function( map )
+  function ( map )
     local I;
     
     I := TerminalObject( CapCategory( map ) );

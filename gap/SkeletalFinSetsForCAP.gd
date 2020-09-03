@@ -1,5 +1,5 @@
 #
-# SkeletalFinSetsForCAP: SkeletalFinSets
+# FinSetsForCAP: The elementary topos of (skeletal) finite sets
 #
 # Declarations
 #
@@ -57,7 +57,7 @@ DeclareAttribute( "AsList",
 #!  Accepts the options <C>overhead</C> (default: <C>true</C>) and
 #!  <C>FinalizeCategory</C> (default: <C>true</C>).
 #! @Returns a &CAP; category
-DeclareOperation( "CategoryOfSkeletalFinSets", [] );
+DeclareOperation( "CategoryOfSkeletalFinSets", [ ] );
 
 #! @Description
 #!  The default instance of the category of skeletal finite sets.

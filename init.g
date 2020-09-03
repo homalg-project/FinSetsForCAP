@@ -1,5 +1,5 @@
 #
-# FinSetsForCAP
+# FinSetsForCAP: The elementary topos of (skeletal) finite sets
 #
 # Reading the declaration part of the package.
 #
