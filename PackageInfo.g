@@ -1,5 +1,5 @@
 #
-# FinSetsForCAP
+# FinSetsForCAP: The elementary topos of (skeletal) finite sets
 #
 # This file contains package meta data. For additional information on
 # the meaning and correct usage of these fields, please consult the
@@ -22,8 +22,8 @@ Version := Maximum( [
                    "2019.10.30" ## Sepp's version
                    ] ),
 
-Date := ~.Version{[ 1 .. 10 ]},
-Date := Concatenation( ~.Date{[ 9, 10 ]}, "/", ~.Date{[ 6, 7 ]}, "/", ~.Date{[ 1 .. 4 ]} ),
+Date := Concatenation( ~.Version{[ 9, 10 ]}, "/", ~.Version{[ 6, 7 ]}, "/", ~.Version{[ 1 .. 4 ]} ),
+License := "GPL-2.0-or-later",
 
 Persons := [
   rec(
@@ -72,12 +72,12 @@ Persons := [
 
 SourceRepository := rec(
     Type := "git",
-    URL := Concatenation( "https://github.com/homalg-project/", ~.PackageName ),
+    URL := "https://github.com/homalg-project/FinSetsForCAP",
 ),
 IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
-PackageWWWHome  := Concatenation( "https://github.com/homalg-project/", ~.PackageName, "/" ),
-PackageInfoURL  := Concatenation( ~.PackageWWWHome, "blob/master/PackageInfo.g" ),
-README_URL      := Concatenation( ~.PackageWWWHome, "blob/master/README.md" ),
+PackageWWWHome  := ~.SourceRepository.URL,
+PackageInfoURL  := "https://raw.githubusercontent.com/homalg-project/FinSetsForCAP/master/PackageInfo.g",
+README_URL      := "https://raw.githubusercontent.com/homalg-project/FinSetsForCAP/master/README.md",
 ArchiveURL      := Concatenation( ~.SourceRepository.URL,
                                  "/releases/download/v", ~.Version,
                                  "/", ~.PackageName, "-", ~.Version ),

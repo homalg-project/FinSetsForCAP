@@ -1,5 +1,5 @@
 #
-# SkeletalFinSetsForCAP: SkeletalFinSets
+# FinSetsForCAP: The elementary topos of (skeletal) finite sets
 #
 # Implementations
 #
@@ -8,7 +8,7 @@
 InstallMethod( CategoryOfSkeletalFinSets,
                [ ],
                
-  function( )
+  function ( )
     local overhead_option, finalize_option, cat;
     
     overhead_option := CAP_INTERNAL_RETURN_OPTION_OR_DEFAULT( "overhead", true );
@@ -150,7 +150,7 @@ end );
 
 InstallGlobalFunction( INSTALL_FUNCTIONS_FOR_SKELETAL_FIN_SETS,
 
-    function( SkeletalFinSets )
+    function ( SkeletalFinSets )
         local ExplicitCoequalizer;
 ##
 AddIsWellDefinedForObjects( SkeletalFinSets,
@@ -348,7 +348,7 @@ AddColift( SkeletalFinSets,
     g := AsList( g );
     
     chi :=
-      function( y )
+      function ( y )
         if not y in f then
             return 1;
         fi;
@@ -819,7 +819,7 @@ InstallMethod( Display,
 end );
 
 ##
-BindGlobal( "SkeletalFinSets", CategoryOfSkeletalFinSets() );
+BindGlobal( "SkeletalFinSets", CategoryOfSkeletalFinSets( ) );
 
 ##
 InstallOtherMethod( FinSet,

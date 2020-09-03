@@ -1,5 +1,5 @@
 #
-# FinSetsForCAP: FinSets
+# FinSetsForCAP: The elementary topos of (skeletal) finite sets
 #
 # Declarations
 #
