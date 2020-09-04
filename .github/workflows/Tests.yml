@@ -31,15 +31,16 @@ jobs:
           git clone --depth 1 https://github.com/homalg-project/homalg_project.git
           git clone --depth 1 https://github.com/homalg-project/CAP_project.git
           git clone --depth 1 https://github.com/homalg-project/Toposes.git
-          cd FinSetsForCAP
-          TERM=dumb make -j $(nproc) --output-sync ci-test
+          TERM=dumb make -C FinSetsForCAP -j $(nproc) --output-sync ci-test
           curl -s https://codecov.io/bash | bash
+          cd FinSetsForCAP
           CUR_SHA=$(git rev-parse --verify HEAD)
           git worktree add branch_doc/ doc || (echo "There was an error. Make sure there is a branch named 'doc'."; exit 1)
           cp doc/manual.pdf branch_doc/FinSetsForCAP.pdf
           cd branch_doc
           git add FinSetsForCAP.pdf
           git -c user.name='Doc Bot' -c user.email='empty' commit -m "Add FinSetsForCAP.pdf for $CUR_SHA" --allow-empty
+          cd ..
           # push iff using gap-stable and if on master branch
           if [ "${{ matrix.image }}" = "gapsystem/gap-docker" ] && [ "$CUR_SHA" = "$(git rev-parse origin/master)" ]; then \
             git push https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git doc:doc; \

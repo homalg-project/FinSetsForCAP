@@ -70,17 +70,17 @@ Persons := [
   ),
 ],
 
+# BEGIN URLS
 SourceRepository := rec(
     Type := "git",
     URL := "https://github.com/homalg-project/FinSetsForCAP",
 ),
 IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
-PackageWWWHome  := ~.SourceRepository.URL,
+PackageWWWHome  := "https://github.com/homalg-project/FinSetsForCAP",
 PackageInfoURL  := "https://raw.githubusercontent.com/homalg-project/FinSetsForCAP/master/PackageInfo.g",
 README_URL      := "https://raw.githubusercontent.com/homalg-project/FinSetsForCAP/master/README.md",
-ArchiveURL      := Concatenation( ~.SourceRepository.URL,
-                                 "/releases/download/v", ~.Version,
-                                 "/", ~.PackageName, "-", ~.Version ),
+ArchiveURL      := Concatenation( "https://github.com/homalg-project/FinSetsForCAP/releases/download/v-", ~.Version, "/FinSetsForCAP-", ~.Version ),
+# END URLS
 
 ArchiveFormats := ".tar.gz",
 
