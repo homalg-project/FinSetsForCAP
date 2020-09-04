@@ -37,7 +37,8 @@ jobs:
           git branch -vvv --all
           CUR_SHA=$(git rev-parse --verify HEAD)
           git worktree add branch_doc/ doc || (echo "There was an error. Make sure there is a branch named 'doc'."; exit 1)
-          cp doc/manual.pdf branch_doc/manual.pdf
+          #cp doc/manual.pdf branch_doc/manual.pdf
+          cp doc/clean branch_doc/manual.pdf
           cd branch_doc
           git add manual.pdf
           git commit -m "Add manual.pdf for $CUR_SHA"
