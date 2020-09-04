@@ -44,4 +44,4 @@ jobs:
           git add manual.pdf
           git -c user.name='Doc Bot' -c user.email='empty' commit -m "Add manual.pdf for $CUR_SHA" --allow-empty
           # push iff using gap-stable and if on master branch
-          [ "${{ matrix.image }}" = "gapsystem/gap-docker" ] && [ "$CUR_SHA" = "$(git rev-parse origin/master)" ] && git push https://$(ENV["GITHUB_ACTOR"]):${{ secrets.GITHUB_TOKEN }}@github.com/$(ENV["GITHUB_REPOSITORY"]).git doc:doc
+          [ "${{ matrix.image }}" = "gapsystem/gap-docker" ] && [ "$CUR_SHA" = "$(git rev-parse origin/master)" ] && git push https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git doc:doc
