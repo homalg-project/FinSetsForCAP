@@ -41,5 +41,5 @@ jobs:
           cp doc/clean branch_doc/manual.pdf
           cd branch_doc
           git add manual.pdf
-          git commit -m "Add manual.pdf for $CUR_SHA"
+          git -c user.name='Doc Bot' -c user.email='empty' commit -m "Add manual.pdf for $CUR_SHA"
           git push
