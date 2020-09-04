@@ -24,19 +24,18 @@ jobs:
       - run: |
           export HOME="/home/gap"
           cd /home/gap/.gap/pkg/
-          sudo apt update
-          sudo apt dist-upgrade -y
-          sudo apt install -y texlive-latex-extra
-          git clone --depth 1 https://github.com/gap-packages/AutoDoc.git
-          git clone --depth 1 https://github.com/homalg-project/homalg_project.git
-          git clone --depth 1 https://github.com/homalg-project/CAP_project.git
-          git clone --depth 1 https://github.com/homalg-project/Toposes.git
+          #sudo apt update
+          #sudo apt dist-upgrade -y
+          #sudo apt install -y texlive-latex-extra
+          #git clone --depth 1 https://github.com/gap-packages/AutoDoc.git
+          #git clone --depth 1 https://github.com/homalg-project/homalg_project.git
+          #git clone --depth 1 https://github.com/homalg-project/CAP_project.git
+          #git clone --depth 1 https://github.com/homalg-project/Toposes.git
           cd FinSetsForCAP
-          TERM=dumb make -j $(nproc) --output-sync ci-test
-          curl -s https://codecov.io/bash | bash
-          git show-ref refs/heads/doc || (echo "Please create a branch named 'doc'."; exit 1)
+          #TERM=dumb make -j $(nproc) --output-sync ci-test
+          #curl -s https://codecov.io/bash | bash
           CUR_SHA=$(git rev-parse --verify HEAD)
-          git worktree add branch_doc/ doc
+          git worktree add branch_doc/ doc || (echo "There was an error. Make sure there is a branch named 'doc'."; exit 1)
           cp doc/manual.pdf branch_doc/manual.pdf
           cd branch_doc
           git add manual.pdf
