@@ -34,6 +34,7 @@ jobs:
           cd FinSetsForCAP
           #TERM=dumb make -j $(nproc) --output-sync ci-test
           #curl -s https://codecov.io/bash | bash
+          git branch -vvv --all
           CUR_SHA=$(git rev-parse --verify HEAD)
           git worktree add branch_doc/ doc || (echo "There was an error. Make sure there is a branch named 'doc'."; exit 1)
           cp doc/manual.pdf branch_doc/manual.pdf
