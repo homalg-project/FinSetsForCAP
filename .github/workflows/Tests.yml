@@ -35,4 +35,10 @@ jobs:
           TERM=dumb make -j $(nproc) --output-sync ci-test
           curl -s https://codecov.io/bash | bash
           git show-ref refs/heads/doc || (echo "Please create a branch named 'doc'."; exit 1)
-          
+          CUR_SHA=$(git rev-parse --verify HEAD)
+          git worktree add branch_doc/ doc
+          cp doc/manual.pdf branch_doc/manual.pdf
+          cd branch_doc
+          git add manual.pdf
+          git commit -m "Add manual.pdf for $CUR_SHA"
+          git push
