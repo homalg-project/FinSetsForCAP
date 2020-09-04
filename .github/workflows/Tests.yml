@@ -43,4 +43,4 @@ jobs:
           cd branch_doc
           git add manual.pdf
           git -c user.name='Doc Bot' -c user.email='empty' commit -m "Add manual.pdf for $CUR_SHA"
-          git push
+          git push https://$(ENV["GITHUB_ACTOR"]):${{ secrets.GITHUB_TOKEN }}@github.com/$(ENV["GITHUB_REPOSITORY"]).git doc:doc
