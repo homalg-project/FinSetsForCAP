@@ -7,7 +7,7 @@
 <!-- END HEADER -->
 
 <!-- BEGIN FOOTER -->
-[docs-img]: https://img.shields.io/badge/docs-dev-blue.svg
+[docs-img]: https://img.shields.io/badge/PDF-dev-blue.svg
 [docs-url]: /../../raw/doc/FinSetsForCAP.pdf
 
 [tests-img]: https://github.com/homalg-project/FinSetsForCAP/workflows/Tests/badge.svg
