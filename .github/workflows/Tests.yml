@@ -34,3 +34,5 @@ jobs:
           cd FinSetsForCAP
           TERM=dumb make -j $(nproc) --output-sync ci-test
           curl -s https://codecov.io/bash | bash
+          git show-ref refs/heads/doc || (echo "Please create a branch named 'doc'."; exit 1)
+          
