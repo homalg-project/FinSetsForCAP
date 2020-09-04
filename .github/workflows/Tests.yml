@@ -36,10 +36,10 @@ jobs:
           curl -s https://codecov.io/bash | bash
           CUR_SHA=$(git rev-parse --verify HEAD)
           git worktree add branch_doc/ doc || (echo "There was an error. Make sure there is a branch named 'doc'."; exit 1)
-          cp doc/manual.pdf branch_doc/manual.pdf
+          cp doc/manual.pdf branch_doc/FinSetsForCAP.pdf
           cd branch_doc
-          git add manual.pdf
-          git -c user.name='Doc Bot' -c user.email='empty' commit -m "Add manual.pdf for $CUR_SHA" --allow-empty
+          git add FinSetsForCAP.pdf
+          git -c user.name='Doc Bot' -c user.email='empty' commit -m "Add FinSetsForCAP.pdf for $CUR_SHA" --allow-empty
           # push iff using gap-stable and if on master branch
           if [ "${{ matrix.image }}" = "gapsystem/gap-docker" ] && [ "$CUR_SHA" = "$(git rev-parse origin/master)" ]; then \
             git push https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git doc:doc; \
