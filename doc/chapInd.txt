@@ -1,0 +1,45 @@
+  
+  
+  [1XIndex[101X
+  
+  [2X[][102X, for IsFiniteSet, IsInt 1.4-3 
+  [2X\in[102X, for IsObject, IsFiniteSet 1.4-2 
+  [2XAsList[102X, for IsFiniteSet 1.2-1 
+      for IsFiniteSetMap 1.2-3 
+      for IsSkeletalFiniteSet 2.2-2 
+  [2XCallFuncList[102X, for IsFiniteSetMap, IsList 1.4-13 
+      for IsSkeletalFiniteSetMap, IsList 2.4-5 
+  [2XCategoryOfSkeletalFinSets[102X 2.3-1 
+  [2XEmbeddingOfFinSets[102X, for IsFiniteSet, IsFiniteSet 1.4-9 
+      for IsSkeletalFiniteSet, IsSkeletalFiniteSet 2.4-2 
+  [2XFilteredOp[102X, for IsFiniteSet, IsFunction 1.4-7 
+  [2XFinSet[102X, for IsCategoryOfSkeletalFinSets, IsInt 2.3-4 
+      for IsInt 2.3-3 
+      for IsList 1.3-1 
+  [2XFinSetNC[102X, for IsList 1.3-2 
+  [2XFirstOp[102X, for IsFiniteSet, IsFunction 1.4-8 
+  [2XImageObject[102X, for IsFiniteSetMap, IsFiniteSet 1.4-12 
+      for IsSkeletalFiniteSetMap, IsSkeletalFiniteSet 2.4-4 
+  [2XIsCategoryOfSkeletalFinSets[102X, for IsCapCategory 2.1-1 
+  [2XIsEqualForElementsOfFinSets[102X, for IsObject, IsObject 1.4-1 
+  [2XIsFiniteSet[102X, for IsCapCategoryObject 1.1-1 
+  [2XIsFiniteSetMap[102X, for IsCapCategoryMorphism 1.1-2 
+  [2XIsSkeletalFiniteSet[102X, for IsCapCategoryObject and IsCellOfSkeletalCategory 2.1-2 
+  [2XIsSkeletalFiniteSetMap[102X, for IsCapCategoryMorphism and IsCellOfSkeletalCategory 2.1-3 
+  [2XIterator[102X, for IsFiniteSet 1.4-4 
+  [2XLength[102X, for IsFiniteSet 1.2-2 
+      for IsSkeletalFiniteSet 2.2-1 
+  [2XListOp[102X, for IsFiniteSet, IsFiniteSetMap 1.4-14 
+      for IsFiniteSet, IsFunction 1.4-6 
+      for IsSkeletalFiniteSet, IsFunction 2.4-1 
+  [2XMapOfFinSets[102X, for IsFiniteSet, IsList, IsFiniteSet 1.3-3 
+      for IsSkeletalFiniteSet, IsList, IsSkeletalFiniteSet 2.3-5 
+  [2XMapOfFinSetsNC[102X, for IsFiniteSet, IsList, IsFiniteSet 1.3-4 
+  [2XPreimage[102X, for IsFiniteSetMap, IsFiniteSet 1.4-11 
+      for IsSkeletalFiniteSetMap, IsList 2.4-3 
+  [2XProjectionOfFinSets[102X, for IsFiniteSet, IsFiniteSet 1.4-10 
+  [2XSkeletalFinSets[102X 2.3-2 
+  [2XUnionOfFinSets[102X, for IsList 1.4-5 
+  
+  
+  -------------------------------------------------------

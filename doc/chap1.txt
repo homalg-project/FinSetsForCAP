@@ -1,0 +1,1017 @@
+  
+  [1X1 [33X[0;0YThe category of finite sets[133X[101X
+  
+  
+  [1X1.1 [33X[0;0YGAP Categories[133X[101X
+  
+  [1X1.1-1 IsFiniteSet[101X
+  
+  [33X[1;0Y[29X[2XIsFiniteSet[102X( [3Xobject[103X ) [32X filter[133X
+  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  
+  [33X[0;0YThe GAP category of objects in the category of finite sets.[133X
+  
+  [1X1.1-2 IsFiniteSetMap[101X
+  
+  [33X[1;0Y[29X[2XIsFiniteSetMap[102X( [3Xobject[103X ) [32X filter[133X
+  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  
+  [33X[0;0YThe GAP category of morphisms in the category of finite sets.[133X
+  
+  
+  [1X1.2 [33X[0;0YAttributes[133X[101X
+  
+  [1X1.2-1 AsList[101X
+  
+  [33X[1;0Y[29X[2XAsList[102X( [3XM[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10Ya [5XGAP[105X set[133X
+  
+  [33X[0;0YThe  [5XGAP[105X  set  of  the  list used to construct a finite set [23XS[123X, i.e., [10XAsList(
+  FinSet( [3XL[103X[10X ) ) = Set( [3XL[103X[10X )[110X.[133X
+  
+  [1X1.2-2 Length[101X
+  
+  [33X[1;0Y[29X[2XLength[102X( [3XM[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10Yan integer[133X
+  
+  [33X[0;0YThe  length  of  the  [5XGAP[105X  set of the list used to construct a finite set [23XS[123X,
+  i.e., [10XLength( FinSet( [3XL[103X[10X ) ) = Length( Set( [3XL[103X[10X ) )[110X.[133X
+  
+  [1X1.2-3 AsList[101X
+  
+  [33X[1;0Y[29X[2XAsList[102X( [3Xf[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10Ya list[133X
+  
+  [33X[0;0YThe   relation   underlying   a  map  between  finite  sets,  i.e.,  [10XAsList(
+  MapOfFinSets( S, [3XG[103X[10X, T ) ) = [3XG[103X[10X[110X.[133X
+  
+  
+  [1X1.3 [33X[0;0YConstructors[133X[101X
+  
+  [1X1.3-1 FinSet[101X
+  
+  [33X[1;0Y[29X[2XFinSet[102X( [3XL[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X object[133X
+  
+  [33X[0;0YConstruct  a  finite  set  out  of  the  list  [3XL[103X, i.e., an object in the [5XCAP[105X
+  category  [10XFinSets[110X.  The  [5XGAP[105X  operation  [10XSet[110X must be applicable to [3XL[103X without
+  throwing an error. Equality is determined as follows: [10XFinSet( L1 ) = FinSet(
+  L2  )[110X  iff  [10XIsEqualForElementsOfFinSets(  Immutable( Set( L1 ) ), Immutable(
+  Set(  L2  )  )  )[110X. Warning: all internal operations use [10XFinSetNC[110X (see below)
+  instead  of  [10XFinSet[110X. Thus, this notion of equality is only valid for objects
+  created  by  calling  [10XFinSet[110X explicitly. Internally, [10XFinSet( L )[110X is an alias
+  for  [10XFinSetNC(  Set( L ) )[110X and equality is determined as for [10XFinSetNC[110X. Thus,
+  [10XFinSet(  L1  )  = FinSetNC( L2 )[110X iff [10XIsEqualForElementsOfFinSets( Immutable(
+  Set(  L1  )  ),  Immutable(  L2  )  )[110X  and [10XFinSetNC( L1 ) = FinSet( L2 )[110X iff
+  [10XIsEqualForElementsOfFinSets( Immutable( L1 ), Immutable( Set( L2 ) ) )[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XS := FinSet( [ 1, 3, 2, 2, 1 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( S );[127X[104X
+    [4X[28X[ 1, 2, 3 ][128X[104X
+    [4X[25Xgap>[125X [27XL := AsList( S );[127X[104X
+    [4X[28X[ 1, 2, 3 ][128X[104X
+    [4X[25Xgap>[125X [27XQ := FinSet( L );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XS = Q;[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XFinSet( [ 1, 2 ] ) = FinSet( [ 2, 1 ] );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XM := FinSetNC( [ , 1, 2, 3 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( M );[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XM := FinSetNC( [ 1, 2, 3, 3 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( M );[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  
+  [1X1.3-2 FinSetNC[101X
+  
+  [33X[1;0Y[29X[2XFinSetNC[102X( [3XL[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X object[133X
+  
+  [33X[0;0YConstruct    a    finite    set    out   of   the   duplicate-free   (w.r.t.
+  [10XIsEqualForElementsOfFinSets[110X)  and  dense  list [3XL[103X, i.e., an object in the [5XCAP[105X
+  category  [10XFinSets[110X.  Equality  is  determined  as  follows:  [10XFinSetNC( L1 ) =
+  FinSetNC(  L2 )[110X iff [10XIsEqualForElementsOfFinSets( Immutable( L1 ), Immutable(
+  L2 ) )[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XS := FinSetNC( [ 1, 3, 2 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( S );[127X[104X
+    [4X[28X[ 1, 3, 2 ][128X[104X
+    [4X[25Xgap>[125X [27XL := AsList( S );[127X[104X
+    [4X[28X[ 1, 3, 2 ][128X[104X
+    [4X[25Xgap>[125X [27XQ := FinSetNC( L );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XS = Q;[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XFinSetNC( [ 1, 2 ] ) = FinSetNC( [ 2, 1 ] );[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  
+  [1X1.3-3 MapOfFinSets[101X
+  
+  [33X[1;0Y[29X[2XMapOfFinSets[102X( [3XS[103X, [3XG[103X, [3XT[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X morphism[133X
+  
+  [33X[0;0YConstruct  a  map [23X\phi:[123X[3XS[103X[23X\to[123X[3XT[103X of the finite sets [3XS[103X and [3XT[103X, i.e., a morphism in
+  the  [5XCAP[105X category [10XFinSets[110X, where [3XG[103X is a list of pairs in [3XS[103X[23X\times[123X[3XT[103X describing
+  the graph of [23X\phi[123X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XS := FinSet( [ 1, 3, 2, 2, 1 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XT := FinSet( [ "a", "b", "c" ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XG := [ [ 1, "b" ], [ 3, "b" ], [ 2, "a" ] ];;[127X[104X
+    [4X[25Xgap>[125X [27Xphi := MapOfFinSets( S, G, T );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( phi );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xphi( 1 );[127X[104X
+    [4X[28X"b"[128X[104X
+    [4X[25Xgap>[125X [27Xphi( 2 );[127X[104X
+    [4X[28X"a"[128X[104X
+    [4X[25Xgap>[125X [27Xphi( 3 );[127X[104X
+    [4X[28X"b"[128X[104X
+    [4X[25Xgap>[125X [27XList( S, phi );[127X[104X
+    [4X[28X[ "b", "a", "b" ][128X[104X
+    [4X[25Xgap>[125X [27Xpsi := [ [ 1, "b" ], [ 2, "a" ], [ 3, "b" ] ];;[127X[104X
+    [4X[25Xgap>[125X [27Xpsi := MapOfFinSets( S, psi, T );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( psi );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xphi = psi;[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xpsi := MapOfFinSetsNC( S, [ , [ 1, "b" ], [ 3, "b" ], [ 2, "a" ] ], T );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( psi );[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27Xpsi := MapOfFinSets( S, [ [ 1, "d" ], [ 3, "b" ] ], T );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( psi );[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27Xpsi := MapOfFinSets( S, [ 1, 2, 3 ], T );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( psi );[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27Xpsi := MapOfFinSets( S, [ [ 1, "b" ], [ 3, "b" ], [ 2, "a", "b" ] ], T );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( psi );[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27Xpsi := MapOfFinSets( S, [ [ 5, "b" ], [ 3, "b" ], [ 2, "a" ] ], T );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( psi );[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27Xpsi := MapOfFinSets( S, [ [ 1, "d" ], [ 3, "b" ], [ 2, "a" ] ], T );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( psi );[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27Xpsi := MapOfFinSets( S, [ [ 1, "b" ], [ 2, "b" ], [ 2, "a" ] ], T );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( psi );[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  
+  [1X1.3-4 MapOfFinSetsNC[101X
+  
+  [33X[1;0Y[29X[2XMapOfFinSetsNC[102X( [3XS[103X, [3XG[103X, [3XT[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X morphism[133X
+  
+  [33X[0;0YConstruct  a  map [23X\phi:[123X[3XS[103X[23X\to[123X[3XT[103X of the finite sets [3XS[103X and [3XT[103X, i.e., a morphism in
+  the  [5XCAP[105X  category  [10XFinSets[110X,  where  [3XG[103X is a duplicate-free and dense list of
+  pairs in [3XS[103X[23X\times[123X[3XT[103X describing the graph of [23X\phi[123X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XS := FinSetNC( [ 1, 3, 2 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XT := FinSetNC( [ "a", "b", "c" ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XG := [ [ 1, "b" ], [ 3, "b" ], [ 2, "a" ] ];;[127X[104X
+    [4X[25Xgap>[125X [27Xphi := MapOfFinSetsNC( S, G, T );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( phi );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xphi( 1 );[127X[104X
+    [4X[28X"b"[128X[104X
+    [4X[25Xgap>[125X [27Xphi( 2 );[127X[104X
+    [4X[28X"a"[128X[104X
+    [4X[25Xgap>[125X [27Xphi( 3 );[127X[104X
+    [4X[28X"b"[128X[104X
+    [4X[25Xgap>[125X [27XList( S, phi );[127X[104X
+    [4X[28X[ "b", "b", "a" ][128X[104X
+    [4X[25Xgap>[125X [27Xpsi := [ [ 1, "b" ], [ 2, "a" ], [ 3, "b" ] ];;[127X[104X
+    [4X[25Xgap>[125X [27Xpsi := MapOfFinSetsNC( S, psi, T );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( psi );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xphi = psi;[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X1.4 [33X[0;0YTools[133X[101X
+  
+  [1X1.4-1 IsEqualForElementsOfFinSets[101X
+  
+  [33X[1;0Y[29X[2XIsEqualForElementsOfFinSets[102X( [3Xa[103X, [3Xb[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ya boolean[133X
+  
+  [33X[0;0YCompares two arbitrary objects using the following rules:[133X
+  
+  [30X    [33X[0;6Yintegers, strings and chars are compared using the operation [10X=[110X[133X
+  
+  [30X    [33X[0;6Ylists and records are compared recursively[133X
+  
+  [30X    [33X[0;6Y[5XCAP[105X   category   objects  are  compared  using  [10XIsEqualForObjects[110X  (if
+        available)[133X
+  
+  [30X    [33X[0;6Y[5XCAP[105X category morphisms are compared using [10XIsEqualForMorphismsOnMor[110X (if
+        available)[133X
+  
+  [30X    [33X[0;6Yother objects are compared using [10XIsIdenticalObj[110X[133X
+  
+  [33X[0;0YNote:  if  [5XCAP[105X category objects or [5XCAP[105X category morphisms are compared using
+  [10XIsEqualForObjects[110X or [10XIsEqualForMorphismsOnMor[110X, respectively, the result must
+  not be [10Xfail[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsEqualForElementsOfFinSets( 2, 2 );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsEqualForElementsOfFinSets( 2, "2" );[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsEqualForElementsOfFinSets( [ 2 ], [ 2 ] );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsEqualForElementsOfFinSets( [ 2 ], [ 2, 3 ] );[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsEqualForElementsOfFinSets( [ , 2 ], [ 2, 2 ] );[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsEqualForElementsOfFinSets( rec( a := "a", b := "b" ),[127X[104X
+    [4X[25X>[125X [27X                             rec( b := "b", a := "a" )[127X[104X
+    [4X[25X>[125X [27X                           );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsEqualForElementsOfFinSets( rec( a := "a", b := "b" ),[127X[104X
+    [4X[25X>[125X [27X                             rec( a := "a" )[127X[104X
+    [4X[25X>[125X [27X                           );[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsEqualForElementsOfFinSets( rec( a := "a", b := "b" ),[127X[104X
+    [4X[25X>[125X [27X                             rec( a := "a", b := "notb" )[127X[104X
+    [4X[25X>[125X [27X                           );[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XM := FinSet( [ ] );;[127X[104X
+    [4X[25Xgap>[125X [27XN := FinSet( [ ] );;[127X[104X
+    [4X[25Xgap>[125X [27Xm := FinSet( 0 );;[127X[104X
+    [4X[25Xgap>[125X [27Xid_M := IdentityMorphism( M );;[127X[104X
+    [4X[25Xgap>[125X [27Xid_N := IdentityMorphism( N );;[127X[104X
+    [4X[25Xgap>[125X [27Xid_m := IdentityMorphism( m );;[127X[104X
+    [4X[25Xgap>[125X [27XIsEqualForElementsOfFinSets( M, N );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsEqualForElementsOfFinSets( M, m );[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsEqualForElementsOfFinSets( id_M, id_N );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsEqualForElementsOfFinSets( id_M, id_m );[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsEqualForElementsOfFinSets( FinSets, SkeletalFinSets );[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  
+  [1X1.4-2 \in[101X
+  
+  [33X[1;0Y[29X[2X\in[102X( [3Xobj[103X, [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ya boolean[133X
+  
+  [33X[0;0YReturns [10Xtrue[110X if there exists an element in [10XAsList( [3XM[103X[10X )[110X which is equal to [3Xobj[103X
+  w.r.t. [10XIsEqualForElementsOfFinSets[110X and [10Xfalse[110X if not.[133X
+  
+  [1X1.4-3 [][101X
+  
+  [33X[1;0Y[29X[2X[][102X( [3XM[103X, [3Xi[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yan object[133X
+  
+  [33X[0;0YReturns the [3Xi[103X-th entry of the [5XGAP[105X set of the list used to construct a finite
+  set [23XS[123X, i.e., [10XFinSet( [3XL[103X[10X )[ i ] = Set( [3XL[103X[10X )[ i ][110X.[133X
+  
+  [1X1.4-4 Iterator[101X
+  
+  [33X[1;0Y[29X[2XIterator[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yan iterator[133X
+  
+  [33X[0;0YAn  iterator  of  the  [5XGAP[105X set of the list used to construct a finite set [23XS[123X,
+  i.e., [10XIterator( FinSet( [3XL[103X[10X ) ) = Iterator( Set( [3XL[103X[10X ) )[110X.[133X
+  
+  [1X1.4-5 UnionOfFinSets[101X
+  
+  [33X[1;0Y[29X[2XUnionOfFinSets[102X( [3XL[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X object[133X
+  
+  [33X[0;0YCompute  the  set-theoretic union of the elements of [3XL[103X, where [3XL[103X is a list of
+  finite sets.[133X
+  
+  [1X1.4-6 ListOp[101X
+  
+  [33X[1;0Y[29X[2XListOp[102X( [3XM[103X, [3Xf[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ya list[133X
+  
+  [33X[0;0YReturns [10XList( AsList( [3XM[103X[10X ), [3Xf[103X[10X )[110X.[133X
+  
+  [1X1.4-7 FilteredOp[101X
+  
+  [33X[1;0Y[29X[2XFilteredOp[102X( [3XM[103X, [3Xf[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ya list[133X
+  
+  [33X[0;0YReturns [10XFinSetNC( Filtered( AsList( [3XM[103X[10X ), [3Xf[103X[10X ) )[110X.[133X
+  
+  [1X1.4-8 FirstOp[101X
+  
+  [33X[1;0Y[29X[2XFirstOp[102X( [3XM[103X, [3Xf[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ya list[133X
+  
+  [33X[0;0YReturns [10XFirst( AsList( [3XM[103X[10X ), [3Xf[103X[10X )[110X.[133X
+  
+  [1X1.4-9 EmbeddingOfFinSets[101X
+  
+  [33X[1;0Y[29X[2XEmbeddingOfFinSets[102X( [3XS[103X, [3XT[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X morphism[133X
+  
+  [33X[0;0YConstruct the embedding [23X\iota:[123X[3XS[103X[23X\to[123X[3XT[103X of the finite sets [3XS[103X and [3XT[103X, where [3XS[103X must
+  be subset of [3XT[103X.[133X
+  
+  [1X1.4-10 ProjectionOfFinSets[101X
+  
+  [33X[1;0Y[29X[2XProjectionOfFinSets[102X( [3XS[103X, [3XT[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X morphism[133X
+  
+  [33X[0;0YConstruct  the projection [23X\pi:[123X[3XS[103X[23X\to[123X[3XT[103X of the finite sets [3XS[103X and [3XT[103X, where [3XT[103X is a
+  partition of [3XS[103X.[133X
+  
+  [1X1.4-11 Preimage[101X
+  
+  [33X[1;0Y[29X[2XPreimage[102X( [3Xf[103X, [3XT_[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X object[133X
+  
+  [33X[0;0YCompute the preimage of [3XT_[103X under the morphism [3Xf[103X.[133X
+  
+  [1X1.4-12 ImageObject[101X
+  
+  [33X[1;0Y[29X[2XImageObject[102X( [3Xf[103X, [3XS_[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X object[133X
+  
+  [33X[0;0YCompute the image of [3XS_[103X under the morphism [3Xf[103X.[133X
+  
+  [1X1.4-13 CallFuncList[101X
+  
+  [33X[1;0Y[29X[2XCallFuncList[102X( [3Xphi[103X, [3XL[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ya list[133X
+  
+  [33X[0;0YReturns  the  image of [10X[3XL[103X[10X[1][110X under the map [3Xphi[103X assuming [10X[3XL[103X[10X[1][110X is an element of
+  [10XAsList( Source( [3Xphi[103X[10X ) )[110X.[133X
+  
+  [1X1.4-14 ListOp[101X
+  
+  [33X[1;0Y[29X[2XListOp[102X( [3XF[103X, [3Xphi[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ya list[133X
+  
+  [33X[0;0YReturns [10XList( AsList( [3XF[103X[10X ), [3Xphi[103X[10X )[110X.[133X
+  
+  
+  [1X1.5 [33X[0;0YExamples[133X[101X
+  
+  
+  [1X1.5-1 [33X[0;0YIsHomSetInhabited[133X[101X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XL := FinSet( [ ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XM := FinSet( [ 2 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XN := FinSet( [ 3 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XIsHomSetInhabited( L, L );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsHomSetInhabited( M, L );[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsHomSetInhabited( L, M );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsHomSetInhabited( M, N );[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X1.5-2 [33X[0;0YPreCompose[133X[101X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XS := FinSet( [ 1, 2, 3 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XT := FinSet( [ "a", "b" ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xphi := [ [ 1, "b" ], [ 2, "a" ], [ 3, "b" ] ];;[127X[104X
+    [4X[25Xgap>[125X [27Xphi := MapOfFinSets( S, phi, T );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xpsi := [ [ "a", 3 ], [ "b", 1 ] ];;[127X[104X
+    [4X[25Xgap>[125X [27Xpsi := MapOfFinSets( T, psi, S );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xalpha := PreCompose( phi, psi );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XList( S, alpha );[127X[104X
+    [4X[28X[ 1, 3, 1 ][128X[104X
+    [4X[25Xgap>[125X [27XIsOne( alpha );[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X1.5-3 [33X[0;0YIsEpimorphism and IsMonomorhism[133X[101X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XS := FinSet( [ 1, 2, 3 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XT := S;[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xphi := [ [ 1, 2 ], [ 2, 3 ], [ 3, 1 ] ];;[127X[104X
+    [4X[25Xgap>[125X [27Xphi := MapOfFinSets( S, phi, T );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XI := ImageObject( phi );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XLength( I );[127X[104X
+    [4X[28X3[128X[104X
+    [4X[25Xgap>[125X [27XIsMonomorphism( phi );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsSplitMonomorphism( phi );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsEpimorphism( phi );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsSplitEpimorphism( phi );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xiota := ImageEmbedding( phi );[127X[104X
+    [4X[28X<A monomorphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xpi := CoastrictionToImage( phi );[127X[104X
+    [4X[28X<An epimorphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XPreCompose( pi, iota ) = phi;[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X1.5-4 [33X[0;0YInitial and Terminal Objects[133X[101X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XM := FinSet( [ 1, 2, 3 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XIsInitial( M );[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsTerminal( M );[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XI := InitialObject( M );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XIsInitial( I );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsTerminal( I );[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27Xiota := UniversalMorphismFromInitialObject( M );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( I );[127X[104X
+    [4X[28X[  ][128X[104X
+    [4X[25Xgap>[125X [27XT := TerminalObject( M );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( T );[127X[104X
+    [4X[28X[ "*" ][128X[104X
+    [4X[25Xgap>[125X [27XIsInitial( T );[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsTerminal( T );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xpi := UniversalMorphismIntoTerminalObject( M );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XIsIdenticalObj( Range( pi ), T );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xt := FinSet( [ "Julia" ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xpi_t := UniversalMorphismIntoTerminalObjectWithGivenTerminalObject( M, t );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XList( M, pi_t );[127X[104X
+    [4X[28X[ "Julia", "Julia", "Julia" ][128X[104X
+  [4X[32X[104X
+  
+  
+  [1X1.5-5 [33X[0;0YProjective and Injective Objects[133X[101X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XI := FinSet( [ ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XT := FinSet( [ 1 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XM := FinSet( [ 2 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XIsProjective( I );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsProjective( T );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsProjective( M );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsOne( EpimorphismFromSomeProjectiveObject( I ) );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsOne( EpimorphismFromSomeProjectiveObject( M ) );[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XI := FinSet( [ ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XT := FinSet( [ 1 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XM := FinSet( [ 2 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XIsInjective( I );[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsInjective( T );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsInjective( M );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsIsomorphism( MonomorphismIntoSomeInjectiveObject( I ) );[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsMonomorphism( MonomorphismIntoSomeInjectiveObject( I ) );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsOne( MonomorphismIntoSomeInjectiveObject( M ) );[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X1.5-6 [33X[0;0YProduct[133X[101X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XS := FinSet( [ 1, 2, 3 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XLength( S );[127X[104X
+    [4X[28X3[128X[104X
+    [4X[25Xgap>[125X [27XT := FinSet( [ "a", "b" ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XLength( T );[127X[104X
+    [4X[28X2[128X[104X
+    [4X[25Xgap>[125X [27XP := DirectProduct( S, T );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XLength( P );[127X[104X
+    [4X[28X6[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( P );[127X[104X
+    [4X[28X[ [ 1, "a" ], [ 1, "b" ], [ 2, "a" ], [ 2, "b" ], [ 3, "a" ], [ 3, "b" ] ][128X[104X
+  [4X[32X[104X
+  
+  
+  [1X1.5-7 [33X[0;0YCoproduct[133X[101X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XS := FinSet( [ 1, 2, 3 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XLength( S );[127X[104X
+    [4X[28X3[128X[104X
+    [4X[25Xgap>[125X [27XT := FinSet( [ "a", "b" ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XLength( T );[127X[104X
+    [4X[28X2[128X[104X
+    [4X[25Xgap>[125X [27XC := Coproduct( T, S );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XLength( C );[127X[104X
+    [4X[28X5[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( C );[127X[104X
+    [4X[28X[ [ 1, "a" ], [ 1, "b" ], [ 2, 1 ], [ 2, 2 ], [ 2, 3 ] ][128X[104X
+    [4X[25Xgap>[125X [27XM := FinSet( [ 1, 2, 3, 4, 5, 6, 7 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XN := FinSet( [ 1, 2, 3 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XP := FinSet( [ 1, 2, 3, 4 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XC := Coproduct( M, N, P );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XAsList( C );[127X[104X
+    [4X[28X[ [ 1, 1 ], [ 1, 2 ], [ 1, 3 ], [ 1, 4 ], [ 1, 5 ], [ 1, 6 ], [128X[104X
+    [4X[28X  [ 1, 7 ], [ 2, 1 ], [ 2, 2 ], [ 2, 3 ], [ 3, 1 ], [ 3, 2 ], [128X[104X
+    [4X[28X  [ 3, 3 ], [ 3, 4 ] ][128X[104X
+    [4X[25Xgap>[125X [27Xiota1 := InjectionOfCofactorOfCoproduct( [ M, N, P ], 1 );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( iota1 );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XAsList( iota1 );[127X[104X
+    [4X[28X[ [ 1, [ 1, 1 ] ], [ 2, [ 1, 2 ] ], [ 3, [ 1, 3 ] ], [ 4, [ 1, 4 ] ], [128X[104X
+    [4X[28X  [ 5, [ 1, 5 ] ], [ 6, [ 1, 6 ] ], [ 7, [ 1, 7 ] ] ][128X[104X
+    [4X[25Xgap>[125X [27Xiota2 := InjectionOfCofactorOfCoproduct( [ M, N, P ], 2 );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( iota2 );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XAsList( iota2 );[127X[104X
+    [4X[28X[ [ 1, [ 2, 1 ] ], [ 2, [ 2, 2 ] ], [ 3, [ 2, 3 ] ] ][128X[104X
+    [4X[25Xgap>[125X [27Xiota3 := InjectionOfCofactorOfCoproduct( [ M, N, P ], 3 );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( iota3 );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XAsList( iota3 );[127X[104X
+    [4X[28X[ [ 1, [ 3, 1 ] ], [ 2, [ 3, 2 ] ], [ 3, [ 3, 3 ] ], [ 4, [ 3, 4 ] ] ][128X[104X
+    [4X[25Xgap>[125X [27Xpsi := UniversalMorphismFromCoproduct( [ M, N, P ],[127X[104X
+    [4X[25X>[125X [27X                                       [ iota1, iota2, iota3 ][127X[104X
+    [4X[25X>[125X [27X                                     );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xpsi = IdentityMorphism( Coproduct( [ M, N, P ] ) );[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X1.5-8 [33X[0;0YImage[133X[101X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XS := FinSet( [ 1, 2, 3 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XT := FinSet( [ "a", "b", "c" ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xphi := [ [ 1, "b" ], [ 2, "a" ], [ 3, "b" ] ];;[127X[104X
+    [4X[25Xgap>[125X [27Xphi := MapOfFinSets( S, phi, T );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XI := ImageObject( phi );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XLength( I );[127X[104X
+    [4X[28X2[128X[104X
+    [4X[25Xgap>[125X [27XIsMonomorphism( phi );[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsSplitMonomorphism( phi );[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsEpimorphism( phi );[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsSplitEpimorphism( phi );[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27Xiota := ImageEmbedding( phi );[127X[104X
+    [4X[28X<A monomorphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xpi := CoastrictionToImage( phi );[127X[104X
+    [4X[28X<An epimorphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XPreCompose( pi, iota ) = phi;[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X1.5-9 [33X[0;0YCoimage[133X[101X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XS := FinSet( [ 1, 2, 3 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XT := FinSet( [ "a", "b", "c" ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xphi := [ [ 1, "b" ], [ 2, "a" ], [ 3, "b" ] ];;[127X[104X
+    [4X[25Xgap>[125X [27Xphi := MapOfFinSets( S, phi, T );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XI := Coimage( phi );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XLength( I );[127X[104X
+    [4X[28X2[128X[104X
+    [4X[25Xgap>[125X [27XIsMonomorphism( phi );[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsSplitMonomorphism( phi );[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsEpimorphism( phi );[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsSplitEpimorphism( phi );[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27Xiota := AstrictionToCoimage( phi );[127X[104X
+    [4X[28X<A monomorphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xpi := CoimageProjection( phi );[127X[104X
+    [4X[28X<An epimorphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XPreCompose( pi, iota ) = phi;[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X1.5-10 [33X[0;0YEqualizer[133X[101X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XS := FinSet( [ 1 .. 5 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XT := FinSet( [ 1 .. 3 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xf1 := MapOfFinSets( S, [ [1,3],[2,3],[3,1],[4,2],[5,2] ], T );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xf2 := MapOfFinSets( S, [ [1,3],[2,2],[3,3],[4,1],[5,2] ], T );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xf3 := MapOfFinSets( S, [ [1,3],[2,1],[3,2],[4,1],[5,2] ], T );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XD := [ f1, f2, f3 ];[127X[104X
+    [4X[28X[ <A morphism in FinSets>, <A morphism in FinSets>, <A morphism in FinSets> ][128X[104X
+    [4X[25Xgap>[125X [27XEq := Equalizer( D );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( Eq );[127X[104X
+    [4X[28X[ 1, 5 ][128X[104X
+    [4X[25Xgap>[125X [27Xiota := EmbeddingOfEqualizer( D );;[127X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( iota );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIm := ImageObject( iota );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( Im );[127X[104X
+    [4X[28X[ 1, 5 ][128X[104X
+    [4X[25Xgap>[125X [27Xmu := MorphismFromEqualizerToSink( D );;[127X[104X
+    [4X[25Xgap>[125X [27XPreCompose( iota, f1 ) = mu;[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XM := FinSet( [ "a" ] );;[127X[104X
+    [4X[25Xgap>[125X [27Xphi := MapOfFinSets( M, [ [ "a", 5 ] ], S );;[127X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( phi );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xpsi := UniversalMorphismIntoEqualizer( D, phi );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( psi );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( psi );[127X[104X
+    [4X[28X[ [ "a" ], [ [ "a", 5 ] ], [ 1, 5 ] ][128X[104X
+    [4X[25Xgap>[125X [27XPreCompose( psi, iota ) = phi;[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X1.5-11 [33X[0;0YPullback[133X[101X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XM := FinSet( [ 1 .. 5 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XN1 := FinSet( [ 1 .. 3 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xiota1 := EmbeddingOfFinSets( N1, M );[127X[104X
+    [4X[28X<A monomorphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XN2 := FinSet( [ 2 .. 5 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xiota2 := EmbeddingOfFinSets( N2, M );[127X[104X
+    [4X[28X<A monomorphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XD := [ iota1, iota2 ];[127X[104X
+    [4X[28X[ <A monomorphism in FinSets>, <A monomorphism in FinSets> ][128X[104X
+    [4X[25Xgap>[125X [27Xint := FiberProduct( D );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( int );[127X[104X
+    [4X[28X[ [ 2, 2 ], [ 3, 3 ] ][128X[104X
+    [4X[25Xgap>[125X [27Xpi1 := ProjectionInFactorOfFiberProduct( D, 1 );[127X[104X
+    [4X[28X<A monomorphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xint1 := ImageObject( pi1 );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( int1 );[127X[104X
+    [4X[28X[ 2, 3 ][128X[104X
+    [4X[25Xgap>[125X [27Xpi2 := ProjectionInFactorOfFiberProduct( D, 2 );[127X[104X
+    [4X[28X<A monomorphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xint2 := ImageObject( pi2 );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( int2 );[127X[104X
+    [4X[28X[ 2, 3 ][128X[104X
+  [4X[32X[104X
+  
+  
+  [1X1.5-12 [33X[0;0YCoequalizer[133X[101X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XN := FinSet( [1,3] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XM := FinSet( [1,2,4] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xf := MapOfFinSets( N, [ [1,1], [3,2] ], M );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xg := MapOfFinSets( N, [ [1,2], [3,4] ], M );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XC := Coequalizer( f, g );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XAsList( C );[127X[104X
+    [4X[28X[ [ 1, 2, 4 ] ][128X[104X
+    [4X[25Xgap>[125X [27XA := FinSet( [ 1, 2, 3, 4 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XB := FinSet( [ 1, 2, 3, 4, 5, 6, 7, 8 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xf1 := MapOfFinSets( A, [ [ 1, 1 ], [ 2, 2 ], [ 3, 3 ], [ 4, 8 ] ], B );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xf2 := MapOfFinSets( A, [ [ 1, 2 ], [ 2, 3 ], [ 3, 8 ], [ 4, 5 ] ], B );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xf3 := MapOfFinSets( A, [ [ 1, 4 ], [ 2, 2 ], [ 3, 3 ], [ 4, 8 ] ], B );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XC1 := Coequalizer( [ f1, f3 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XAsList( C1 );[127X[104X
+    [4X[28X[ [ 1, 4 ], [ 2 ], [ 3 ], [ 5 ], [ 6 ], [ 7 ], [ 8 ] ][128X[104X
+    [4X[25Xgap>[125X [27XC2 := Coequalizer( [ f1, f2, f3 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XAsList( C2 );[127X[104X
+    [4X[28X[ [ 1, 2, 3, 8, 5, 4 ], [ 6 ], [ 7 ] ][128X[104X
+    [4X[25Xgap>[125X [27XS := FinSet( [ 1 .. 5 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XT := FinSet( [ 1 .. 4 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xf := MapOfFinSets( S, [ [1,2], [2,4], [3,4], [4,3], [5,4] ], T );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xg := MapOfFinSets( S, [ [1,2], [2,3], [3,4], [4,3], [5,4] ], T );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XC := Coequalizer( f, g );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( C );[127X[104X
+    [4X[28X[ [ 1 ], [ 2 ], [ 4, 3 ] ][128X[104X
+    [4X[25Xgap>[125X [27XS := FinSet( [ 1, 2, 3, 4, 5 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XT := FinSet( [ 1, 2, 3, 4 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XG_f := [ [ 1, 3 ], [ 2, 4 ], [ 3, 4 ], [ 4, 2 ], [ 5, 4 ] ];;[127X[104X
+    [4X[25Xgap>[125X [27Xf := MapOfFinSets( S, G_f, T );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XG_g := [ [ 1, 3 ], [ 2, 3 ], [ 3, 4 ], [ 4, 2 ], [ 5, 4 ] ];;[127X[104X
+    [4X[25Xgap>[125X [27Xg := MapOfFinSets( S, G_g, T );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XD := [ f, g ];[127X[104X
+    [4X[28X[ <A morphism in FinSets>, <A morphism in FinSets> ][128X[104X
+    [4X[25Xgap>[125X [27XC := Coequalizer( D );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XAsList( C );[127X[104X
+    [4X[28X[ [ 1 ], [ 2 ], [ 3, 4 ] ][128X[104X
+    [4X[25Xgap>[125X [27Xpi := ProjectionOntoCoequalizer( D );[127X[104X
+    [4X[28X<An epimorphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XAsList( pi );[127X[104X
+    [4X[28X[ [ 1, [ 1 ] ], [ 2, [ 2 ] ], [ 3, [ 3, 4 ] ], [ 4, [ 3, 4 ] ] ][128X[104X
+    [4X[25Xgap>[125X [27Xmu := MorphismFromSourceToCoequalizer( D );;[127X[104X
+    [4X[25Xgap>[125X [27XPreCompose( f, pi ) = mu;[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XG_tau := [ [ 1, 2 ], [ 2, 1 ], [ 3, 2 ], [ 4, 2 ] ];;[127X[104X
+    [4X[25Xgap>[125X [27Xtau := MapOfFinSets( T, G_tau, FinSet( [ 1, 2 ] ) );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xphi := UniversalMorphismFromCoequalizer( D, tau );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XAsList( phi );[127X[104X
+    [4X[28X[ [ [ 1 ], 2 ], [ [ 2 ], 1 ], [ [ 3, 4 ], 2 ] ][128X[104X
+    [4X[25Xgap>[125X [27XPreCompose( pi, phi ) = tau;[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XS := FinSet( [ 1, 2, 3, 4, 5 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XT := FinSet( [ 1, 2, 3, 4 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XG_f := [ [ 1, 2 ], [ 2, 3 ], [ 3, 3 ], [ 4, 2 ], [ 5, 4 ] ];;[127X[104X
+    [4X[25Xgap>[125X [27Xf := MapOfFinSets( S, G_f, T );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XG_g := [ [ 1, 2 ], [ 2, 3 ], [ 3, 2 ], [ 4, 2 ], [ 5, 4 ] ];;[127X[104X
+    [4X[25Xgap>[125X [27Xg := MapOfFinSets( S, G_g, T );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XD := [ f, g ];[127X[104X
+    [4X[28X[ <A morphism in FinSets>, <A morphism in FinSets> ][128X[104X
+    [4X[25Xgap>[125X [27XC := Coequalizer( D );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XAsList( C );[127X[104X
+    [4X[28X[ [ 1 ], [ 2, 3 ], [ 4 ] ][128X[104X
+    [4X[25Xgap>[125X [27Xpi := ProjectionOntoCoequalizer( D );[127X[104X
+    [4X[28X<An epimorphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XAsList( pi );[127X[104X
+    [4X[28X[ [ 1, [ 1 ] ], [ 2, [ 2, 3 ] ], [ 3, [ 2, 3 ] ], [ 4, [ 4 ] ] ][128X[104X
+    [4X[25Xgap>[125X [27XPreCompose( f, pi ) = PreCompose( g, pi );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xmu := MorphismFromSourceToCoequalizer( D );;[127X[104X
+    [4X[25Xgap>[125X [27XPreCompose( f, pi ) = mu;[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XG_tau := [ [ 1, 1 ], [ 2, 2 ], [ 3, 2 ], [ 4, 1 ] ];;[127X[104X
+    [4X[25Xgap>[125X [27Xtau := MapOfFinSets( T, G_tau, FinSet( [ 1, 2 ] ) );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xphi := UniversalMorphismFromCoequalizer( D, tau );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XAsList( phi );[127X[104X
+    [4X[28X[ [ [ 1 ], 1 ], [ [ 2, 3 ], 2 ], [ [ 4 ], 1 ] ][128X[104X
+    [4X[25Xgap>[125X [27XPreCompose( pi, phi ) = tau;[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XA := FinSet( [ "A" ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XB := FinSet( [ "B" ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XM := FinSetNC( [ A, B ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xf := MapOfFinSetsNC( M, [ [ A, A ], [ B, A ] ], M );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xg := IdentityMorphism( M );[127X[104X
+    [4X[28X<An identity morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XC := Coequalizer( [ f, g ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XLength( C );[127X[104X
+    [4X[28X1[128X[104X
+    [4X[25Xgap>[125X [27XLength( AsList( C )[ 1 ] );[127X[104X
+    [4X[28X2[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( AsList( C )[ 1 ][ 1 ] );[127X[104X
+    [4X[28X[ "A" ][128X[104X
+    [4X[25Xgap>[125X [27XDisplay( AsList( C )[ 1 ][ 2 ] );[127X[104X
+    [4X[28X[ "B" ][128X[104X
+  [4X[32X[104X
+  
+  
+  [1X1.5-13 [33X[0;0YPushout[133X[101X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XM := FinSet( [ 1 .. 5 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XN1 := FinSet( [ 1, 2, 4 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xiota1 := EmbeddingOfFinSets( N1, M );[127X[104X
+    [4X[28X<A monomorphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XN2 := FinSet( [ 2, 3 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xiota2 := EmbeddingOfFinSets( N2, M );[127X[104X
+    [4X[28X<A monomorphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XD := [ iota1, iota2 ];[127X[104X
+    [4X[28X[ <A monomorphism in FinSets>, <A monomorphism in FinSets> ][128X[104X
+    [4X[25Xgap>[125X [27Xint := FiberProduct( D );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( int );[127X[104X
+    [4X[28X[ [ 2, 2 ] ][128X[104X
+    [4X[25Xgap>[125X [27Xpi1 := ProjectionInFactorOfFiberProduct( D, 1 );[127X[104X
+    [4X[28X<A monomorphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xpi2 := ProjectionInFactorOfFiberProduct( D, 2 );[127X[104X
+    [4X[28X<A monomorphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XUU := Pushout( pi1, pi2 );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( UU );[127X[104X
+    [4X[28X[ [ [ 1, 1 ] ], [ [ 1, 2 ], [ 2, 2 ] ], [ [ 1, 4 ] ], [ [ 2, 3 ] ] ][128X[104X
+    [4X[25Xgap>[125X [27Xiota := UniversalMorphismFromPushout( [ pi1, pi2 ], [ iota1, iota2 ] );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XU := ImageObject( iota );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( U );[127X[104X
+    [4X[28X[ 1, 2, 4, 3 ][128X[104X
+    [4X[25Xgap>[125X [27XUnionOfFinSets( [ N1, N2 ] ) = U;[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X1.5-14 [33X[0;0YCartesian lambda introduction[133X[101X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XS := FinSet( [ 1 .. 3 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XR := FinSet( [ 1 .. 2 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xf := MapOfFinSets( S, [ [1,2],[2,2],[3,1] ], R );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( f );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XT := TerminalObject( f );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XIsTerminal( T );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xlf := CartesianLambdaIntroduction( f );[127X[104X
+    [4X[28X<A split monomorphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XSource( lf ) = T;[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XLength( Range( lf ) );[127X[104X
+    [4X[28X8[128X[104X
+    [4X[25Xgap>[125X [27Xlf( T[1] ) = f;[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X1.5-15 [33X[0;0YTopos properties[133X[101X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XM := FinSet( [ 1 .. 5 ] );;[127X[104X
+    [4X[25Xgap>[125X [27XN := FinSet( [ 1, 2, 4 ] );;[127X[104X
+    [4X[25Xgap>[125X [27XP := FinSet( [ 1, 4, 8, 9 ] );;[127X[104X
+    [4X[25Xgap>[125X [27XG_f := [ [ 1, 1 ], [ 2, 2 ], [ 3, 1 ], [ 4, 2 ], [ 5, 4 ] ];;[127X[104X
+    [4X[25Xgap>[125X [27Xf := MapOfFinSets( M, G_f, N );;[127X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( f );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XG_g := [ [ 1, 4 ], [ 2, 4 ], [ 3, 2 ], [ 4, 2 ], [ 5, 1 ] ];;[127X[104X
+    [4X[25Xgap>[125X [27Xg := MapOfFinSets( M, G_g, N );;[127X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( g );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XDirectProduct( M, N );;[127X[104X
+    [4X[25Xgap>[125X [27XDirectProductOnMorphisms( f, g );;[127X[104X
+    [4X[25Xgap>[125X [27XCartesianAssociatorLeftToRight( M, N, P );;[127X[104X
+    [4X[25Xgap>[125X [27XCartesianAssociatorRightToLeft( M, N, P );;[127X[104X
+    [4X[25Xgap>[125X [27XTerminalObject( FinSets );;[127X[104X
+    [4X[25Xgap>[125X [27XCartesianLeftUnitor( M );;[127X[104X
+    [4X[25Xgap>[125X [27XCartesianLeftUnitorInverse( M );;[127X[104X
+    [4X[25Xgap>[125X [27XCartesianRightUnitor( M );;[127X[104X
+    [4X[25Xgap>[125X [27XCartesianRightUnitorInverse( M );;[127X[104X
+    [4X[25Xgap>[125X [27XCartesianBraiding( M, N );;[127X[104X
+    [4X[25Xgap>[125X [27XCartesianBraidingInverse( M, N );;[127X[104X
+    [4X[25Xgap>[125X [27XExponentialOnObjects( M, N );;[127X[104X
+    [4X[25Xgap>[125X [27XExponentialOnMorphisms( f, g );;[127X[104X
+    [4X[25Xgap>[125X [27XCartesianEvaluationMorphism( M, N );;[127X[104X
+    [4X[25Xgap>[125X [27XCartesianCoevaluationMorphism( M, N );;[127X[104X
+    [4X[25Xgap>[125X [27XDirectProductToExponentialAdjunctionMap( M, N,[127X[104X
+    [4X[25X>[125X [27X    UniversalMorphismIntoTerminalObject( DirectProduct( M, N ) )[127X[104X
+    [4X[25X>[125X [27X);;[127X[104X
+    [4X[25Xgap>[125X [27XExponentialToDirectProductAdjunctionMap( M, N,[127X[104X
+    [4X[25X>[125X [27X    UniversalMorphismFromInitialObject( ExponentialOnObjects( M, N ) )[127X[104X
+    [4X[25X>[125X [27X);;[127X[104X
+    [4X[25Xgap>[125X [27XM := FinSet( [ 1, 2 ] );;[127X[104X
+    [4X[25Xgap>[125X [27XN := FinSet( [ "a", "b" ] );;[127X[104X
+    [4X[25Xgap>[125X [27XP := FinSet( [ "*" ] );;[127X[104X
+    [4X[25Xgap>[125X [27XQ := FinSet( [ "§", "&" ] );;[127X[104X
+    [4X[25Xgap>[125X [27XCartesianPreComposeMorphism( M, N, P );;[127X[104X
+    [4X[25Xgap>[125X [27XCartesianPostComposeMorphism( M, N, P );;[127X[104X
+    [4X[25Xgap>[125X [27XDirectProductExponentialCompatibilityMorphism( M, N, P, Q );;[127X[104X
+  [4X[32X[104X
+  
+  
+  [1X1.5-16 [33X[0;0YSubobject Classifier[133X[101X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XS := FinSet([1,2,3,4,5]);[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XA := FinSet([1,5]);[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xm := MapOfFinSets(A, List(AsList(A), x -> [x,x]), S);[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XDisplay(TruthMorphismIntoSubobjectClassifier(FinSets));[127X[104X
+    [4X[28X[ [ "*" ], [ [ "*", "true" ] ], [ "true", "false" ] ][128X[104X
+    [4X[25Xgap>[125X [27XDisplay(ClassifyingMorphismOfSubobject(m));[127X[104X
+    [4X[28X[ [ 1, 2, 3, 4, 5 ], [ [ 1, "true" ], [ 2, "false" ], [ 3, "false" ], [128X[104X
+    [4X[28X[ 4, "false" ], [ 5, "true" ] ], [ "true", "false" ] ][128X[104X
+  [4X[32X[104X
+  
