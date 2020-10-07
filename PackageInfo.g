@@ -1,4 +1,4 @@
-#
+# SPDX-License-Identifier: GPL-2.0-or-later
 # FinSetsForCAP: The elementary topos of (skeletal) finite sets
 #
 # This file contains package meta data. For additional information on
@@ -76,9 +76,9 @@ SourceRepository := rec(
     URL := "https://github.com/homalg-project/FinSetsForCAP",
 ),
 IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
-PackageWWWHome  := "https://github.com/homalg-project/FinSetsForCAP",
-PackageInfoURL  := "https://raw.githubusercontent.com/homalg-project/FinSetsForCAP/master/PackageInfo.g",
-README_URL      := "https://raw.githubusercontent.com/homalg-project/FinSetsForCAP/master/README.md",
+PackageWWWHome  := "https://homalg-project.github.io/FinSetsForCAP",
+PackageInfoURL  := "https://homalg-project.github.io/FinSetsForCAP/PackageInfo.g",
+README_URL      := "https://homalg-project.github.io/FinSetsForCAP/README.md",
 ArchiveURL      := Concatenation( "https://github.com/homalg-project/FinSetsForCAP/releases/download/v", ~.Version, "/FinSetsForCAP-", ~.Version ),
 # END URLS
 
