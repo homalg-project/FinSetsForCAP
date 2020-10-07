@@ -31,7 +31,7 @@ Persons := [
     IsMaintainer := true,
     FirstNames := "Mohamed",
     LastName := "Barakat",
-    WWWHome := "http://www.mathematik.uni-kl.de/~barakat/",
+    WWWHome := "https://mohamed-barakat.github.io/",
     Email := "mohamed.barakat@uni-siegen.de",
     PostalAddress := Concatenation(
                "Walter-Flex-Str. 3\n",
