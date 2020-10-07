@@ -1,13 +1,13 @@
 name: FinSetsForCAP
-version: "2020.04.01"
+version: "2020.10.01"
 license: "GPL-2.0-or-later"
-date: 2020-04-01
+date: 2020-10-01
 description: |
     The elementary topos of (skeletal) finite sets
 
 authors:
     - name: Mohamed Barakat
-      url: http://www.mathematik.uni-kl.de/~barakat/
+      url: https://mohamed-barakat.github.io/
     - name: Julia Mickisch
       url: https://github.com/juliamick/
     - name: Fabian Zickgraf
@@ -15,7 +15,7 @@ authors:
 
 maintainers:
     - name: Mohamed Barakat
-      url: http://www.mathematik.uni-kl.de/~barakat/
+      url: https://mohamed-barakat.github.io/
     - name: Julia Mickisch
       url: https://github.com/juliamick/
     - name: Fabian Zickgraf
@@ -34,13 +34,13 @@ needed-pkgs:
       version: ">= 2019.11.15"
       url: "https://homalg-project.github.io/Toposes"
 
-www: https://github.com/homalg-project/FinSetsForCAP
+www: https://homalg-project.github.io/FinSetsForCAP
 readme: README.md
-packageinfo: https://raw.githubusercontent.com/homalg-project/FinSetsForCAP/master/PackageInfo.g
+packageinfo: https://homalg-project.github.io/FinSetsForCAP/PackageInfo.g
 
 downloads:
     - name: .tar.gz
-      url: https://github.com/homalg-project/FinSetsForCAP/releases/download/v2020.04.01/FinSetsForCAP-2020.04.01.tar.gz
+      url: https://github.com/homalg-project/FinSetsForCAP/releases/download/v2020.10.01/FinSetsForCAP-2020.10.01.tar.gz
 
 abstract: |
 
@@ -51,21 +51,23 @@ citeas: |
     <p class='BibEntry'>
     [<span class='BibKey'>BMZ20</span>]   <b class='BibAuthor'>Barakat, M., Mickisch, J. and Zickgraf, F.</b>,
      <i class='BibTitle'>FinSetsForCAP, The elementary topos of (skeletal) finite sets,
-             Version 2020.04.01</i>
+             Version 2020.10.01</i>
      (<span class='BibYear'>2020</span>)<br />
     (<span class='BibNote'>GAP package</span>),
-    <span class='BibHowpublished'><a href="https://github.com/homalg-project/FinSetsForCAP">https://github.com/homalg-project/FinSetsForCAP</a></span>.
+    <span class='BibHowpublished'><a href="https://homalg-project.github.io/FinSetsForCAP">https://homalg-project.github.io/FinSetsForCAP</a></span>.
     </p>
     
 
 bibtex: |
-    @misc{ FinSetsForCAP2020.04.01,
+    @misc{ FinSetsForCAP2020.10.01,
       author =           {Barakat, M. and Mickisch, J. and Zickgraf, F.},
-      title =            {{FinSetsForCAP}, The elementary topos of (skeletal) finite sets, {V}ersion 2020.04.01},
-      month =            {Apr},
+      title =            {{FinSetsForCAP},  The  elementary  topos of (skeletal)
+                          finite sets, {V}ersion 2020.10.01},
+      month =            {Oct},
       year =             {2020},
       note =             {GAP package},
-      howpublished =     {\href    {https://github.com/homalg-project/FinSetsForCAP}    {\texttt{https://github.com/}\discretionary   {}{}{}\texttt{homalg-project/}\discretionary
+      howpublished =     {\href {https://homalg-project.github.io/FinSetsForCAP}
+                          {\texttt{https://homalg-project.github.io/}\discretionary
                           {}{}{}\texttt{FinSetsForCAP}}},
       printedkey =       {BMZ20}
     }

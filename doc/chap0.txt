@@ -6,10 +6,10 @@
                 [1X The elementary topos of (skeletal) finite sets [101X
   
   
-                                   2020.04.01
+                                   2020.10.01
   
   
-                                  1 April 2020
+                                 1 October 2020
   
   
                                 Mohamed Barakat
@@ -22,7 +22,7 @@
   
   Mohamed Barakat
       Email:    [7Xmailto:mohamed.barakat@uni-siegen.de[107X
-      Homepage: [7Xhttp://www.mathematik.uni-kl.de/~barakat/[107X
+      Homepage: [7Xhttps://mohamed-barakat.github.io/[107X
       Address:  [33X[0;14YWalter-Flex-Str. 3[133X
                 [33X[0;14Y57068 Siegen[133X
                 [33X[0;14YGermany[133X
