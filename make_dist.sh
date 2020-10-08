@@ -1,3 +1,3 @@
 #!/bin/bash
 
-./release-gap-package $@
+./release-gap-package --skip-existing-release $@
