@@ -9,7 +9,7 @@ IsInitial( M );
 #! false
 IsTerminal( M );
 #! false
-I := InitialObject( M );
+I := InitialObject( FinSets );
 #! <An object in FinSets>
 IsInitial( I );
 #! true
@@ -19,7 +19,7 @@ iota := UniversalMorphismFromInitialObject( M );
 #! <A morphism in FinSets>
 Display( I );
 #! [  ]
-T := TerminalObject( M );
+T := TerminalObject( FinSets );
 #! <An object in FinSets>
 Display( T );
 #! [ "*" ]

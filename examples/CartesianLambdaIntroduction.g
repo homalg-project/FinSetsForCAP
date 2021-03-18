@@ -11,7 +11,7 @@ f := MapOfFinSets( S, [ [1,2],[2,2],[3,1] ], R );
 #! <A morphism in FinSets>
 IsWellDefined( f );
 #! true
-T := TerminalObject( f );
+T := TerminalObject( FinSets );
 #! <An object in FinSets>
 IsTerminal( T );
 #! true

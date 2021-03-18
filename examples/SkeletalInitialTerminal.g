@@ -9,7 +9,7 @@ IsInitial( m );
 #! false
 IsTerminal( m );
 #! false
-i := InitialObject( m );
+i := InitialObject( SkeletalFinSets );
 #! <An object in SkeletalFinSets>
 IsInitial( i );
 #! true
@@ -19,7 +19,7 @@ iota := UniversalMorphismFromInitialObject( m );
 #! <A morphism in SkeletalFinSets>
 AsList( i );
 #! [  ]
-t := TerminalObject( m );
+t := TerminalObject( SkeletalFinSets );
 #! <An object in SkeletalFinSets>
 AsList( t );
 #! [ 1 ]
