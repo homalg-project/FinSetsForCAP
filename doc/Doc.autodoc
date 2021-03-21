@@ -6,6 +6,9 @@
 @Section Tools
 @Section Examples
 
+@Subsection Sort
+@InsertChunk Sort
+
 @Subsection IsHomSetInhabited
 @InsertChunk IsHomSetInhabited
 

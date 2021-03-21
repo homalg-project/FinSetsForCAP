@@ -57,8 +57,8 @@ DeclareAttribute( "AsList",
 #!  Equality is determined as follows: <C>FinSet( L1 ) = FinSet( L2 )</C> iff <C>IsEqualForElementsOfFinSets( Immutable( Set( L1 ) ), Immutable( Set( L2 ) ) )</C>.
 #!  Warning: all internal operations use <C>FinSetNC</C> (see below) instead of <C>FinSet</C>.
 #!  Thus, this notion of equality is only valid for objects created by calling <C>FinSet</C> explicitly.
-#!  Internally, <C>FinSet( L )</C> is an alias for <C>FinSetNC( Set( L ) )</C> and equality is determined as for <C>FinSetNC</C>.
-#!  Thus, <C>FinSet( L1 ) = FinSetNC( L2 )</C> iff <C>IsEqualForElementsOfFinSets( Immutable( Set( L1 ) ), Immutable( L2 ) )</C> and
+#!  Internally, <C>FinSet( L )</C> is an alias for <C>FinSetNC( Set( L ) )</C> and
+#!  <C>FinSet( L1 ) = FinSetNC( L2 )</C> iff <C>IsEqualForElementsOfFinSets( Immutable( Set( L1 ) ), Immutable( L2 ) )</C> and
 #!  <C>FinSetNC( L1 ) = FinSet( L2 )</C> iff <C>IsEqualForElementsOfFinSets( Immutable( L1 ), Immutable( Set( L2 ) ) )</C>.
 #! @Arguments L
 #! @Returns a &CAP; object
@@ -80,6 +80,10 @@ DeclareOperation( "FinSetNC",
 #!  Construct a map $\phi:$<A>S</A>$\to$<A>T</A> of the finite sets <A>S</A> and <A>T</A>,
 #!  i.e., a morphism in the &CAP; category <C>FinSets</C>, where <A>G</A>
 #!  is a list of pairs in <A>S</A>$\times$<A>T</A> describing the graph of $\phi$.
+#!  The &GAP; operation <C>Set</C> must be applicable to <A>G</A> without throwing an error.
+#!  We assume that <C>AsList( </C><A>S</A><C> ) = Set( AsList( </C><A>S</A><C> ) )</C>
+#!  and <C>AsList( </C><A>T</A><C> ) = Set( AsList( </C><A>T</A><C> ) )</C>.
+#!  For example this is the case if <A>S</A> and <A>T</A> were created using <C>FinSet</C>.
 #! @Arguments S, G, T
 #! @Returns a &CAP; morphism
 DeclareOperation( "MapOfFinSets",
@@ -89,7 +93,8 @@ DeclareOperation( "MapOfFinSets",
 #! @Description
 #!  Construct a map $\phi:$<A>S</A>$\to$<A>T</A> of the finite sets <A>S</A> and <A>T</A>,
 #!  i.e., a morphism in the &CAP; category <C>FinSets</C>, where <A>G</A>
-#!  is a duplicate-free and dense list of pairs in <A>S</A>$\times$<A>T</A> describing the graph of $\phi$.
+#!  is a list of pairs in <A>S</A>$\times$<A>T</A> describing the graph of $\phi$.
+#!  We assume that <C>IsEqualForElementsOfFinSets( List( </C><A>G</A><C>, a -> a[1] ), AsList(</C><A>S</A><C>) )</C>.
 #! @Arguments S, G, T
 #! @Returns a &CAP; morphism
 DeclareOperation( "MapOfFinSetsNC",
