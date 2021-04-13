@@ -57,7 +57,7 @@
   
   [1X2.3-2 SkeletalFinSets[101X
   
-  [33X[1;0Y[29X[2XSkeletalFinSets[102X[32X global variable[133X
+  [33X[1;0Y[29X[2XSkeletalFinSets[102X [32X global variable[133X
   
   [33X[0;0YThe  default  instance  of  the  category  of  skeletal  finite  sets. It is
   automatically created while loading this package.[133X
@@ -271,7 +271,7 @@
     [4X[28Xfalse[128X[104X
     [4X[25Xgap>[125X [27XIsTerminal( m );[127X[104X
     [4X[28Xfalse[128X[104X
-    [4X[25Xgap>[125X [27Xi := InitialObject( m );[127X[104X
+    [4X[25Xgap>[125X [27Xi := InitialObject( SkeletalFinSets );[127X[104X
     [4X[28X<An object in SkeletalFinSets>[128X[104X
     [4X[25Xgap>[125X [27XIsInitial( i );[127X[104X
     [4X[28Xtrue[128X[104X
@@ -281,7 +281,7 @@
     [4X[28X<A morphism in SkeletalFinSets>[128X[104X
     [4X[25Xgap>[125X [27XAsList( i );[127X[104X
     [4X[28X[  ][128X[104X
-    [4X[25Xgap>[125X [27Xt := TerminalObject( m );[127X[104X
+    [4X[25Xgap>[125X [27Xt := TerminalObject( SkeletalFinSets );[127X[104X
     [4X[28X<An object in SkeletalFinSets>[128X[104X
     [4X[25Xgap>[125X [27XAsList( t );[127X[104X
     [4X[28X[ 1 ][128X[104X
