@@ -518,7 +518,7 @@ end );
 
 ##
 AddUniversalMorphismIntoEqualizerWithGivenEqualizer( SkeletalFinSets,
-  function ( cat, D, tau, E )
+  function ( cat, D, test_object, tau, E )
     local f1, s, Eq;
 
     f1 := D[1];
@@ -613,7 +613,7 @@ end );
 
 ##
 AddUniversalMorphismFromCoproductWithGivenCoproduct( SkeletalFinSets,
-  function ( cat, L, tau, S )
+  function ( cat, L, test_object, tau, S )
     local T, cmp;
     
     T := Range( tau[1] );
@@ -692,7 +692,7 @@ end );
 
 ##
 AddUniversalMorphismFromCoequalizerWithGivenCoequalizer( SkeletalFinSets,
-  function ( cat, D, tau, C )
+  function ( cat, D, test_object, tau, C )
     local Cq;
     
     Cq := ExplicitCoequalizer( D );

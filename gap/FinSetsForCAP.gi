@@ -543,7 +543,7 @@ end );
 
 ##
 AddUniversalMorphismIntoDirectProductWithGivenDirectProduct( FinSets,
-  function ( D, tau, T )
+  function ( D, test_object, tau, T )
     local S, Graph;
     
     S := Source( tau[1] );
@@ -629,7 +629,7 @@ end );
 
 ##
 AddUniversalMorphismFromCoproductWithGivenCoproduct( FinSets,
-  function ( D, tau, S )
+  function ( D, test_object, tau, S )
     local T;
     
     T := Range( tau[1] );
@@ -736,7 +736,7 @@ end );
 
 ##
 AddUniversalMorphismIntoEqualizerWithGivenEqualizer( FinSets,
-  function ( D, tau, E )
+  function ( D, test_object, tau, E )
     
     return MapOfFinSetsNC( Source( tau ), AsList( tau ), E );
     
@@ -781,7 +781,7 @@ end );
 
 ##
 AddUniversalMorphismFromCoequalizerWithGivenCoequalizer( FinSets,
-  function ( D, tau, C )
+  function ( D, test_object, tau, C )
     local G;
     
     G := List( C, x -> [ x, tau( x[1] ) ] );
