@@ -21,8 +21,6 @@ PreCompose( Lift( f, g ), g ) = f;
 #! true
 IsLiftable( g, f );
 #! false
-Lift( g, f );
-#! fail
 k := FinSet( 100000 );
 #! <An object in SkeletalFinSets>
 h := ListWithIdenticalEntries( Length( k ) - 3, 3 );;
