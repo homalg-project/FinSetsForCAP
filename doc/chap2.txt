@@ -805,8 +805,6 @@
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XIsColiftable( g, f );[127X[104X
     [4X[28Xfalse[128X[104X
-    [4X[25Xgap>[125X [27XColift( g, f );[127X[104X
-    [4X[28Xfail[128X[104X
   [4X[32X[104X
   
   [4X[32X  Example  [32X[104X
@@ -828,8 +826,6 @@
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XIsLiftable( g, f );[127X[104X
     [4X[28Xfalse[128X[104X
-    [4X[25Xgap>[125X [27XLift( g, f );[127X[104X
-    [4X[28Xfail[128X[104X
     [4X[25Xgap>[125X [27Xk := FinSet( 100000 );[127X[104X
     [4X[28X<An object in SkeletalFinSets>[128X[104X
     [4X[25Xgap>[125X [27Xh := ListWithIdenticalEntries( Length( k ) - 3, 3 );;[127X[104X
