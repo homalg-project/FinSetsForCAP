@@ -21,6 +21,4 @@ PreCompose( f, Colift( f, g ) ) = g;
 #! true
 IsColiftable( g, f );
 #! false
-Colift( g, f );
-#! fail
 #! @EndExample
