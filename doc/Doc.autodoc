@@ -49,6 +49,9 @@
 @Subsection Cartesian lambda introduction
 @InsertChunk CartesianLambdaIntroduction
 
+@Subsection Lift
+@InsertChunk Lift
+
 @Subsection Topos properties
 @InsertChunk Topos
 
