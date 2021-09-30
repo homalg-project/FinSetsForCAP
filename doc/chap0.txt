@@ -6,10 +6,10 @@
                 [1X The elementary topos of (skeletal) finite sets [101X
   
   
-                                   2021.07-01
+                                   2020.09-01
   
   
-                                  13 July 2021
+                               30 September 2021
   
   
                                 Mohamed Barakat
@@ -93,8 +93,9 @@
       1.5-12 [33X[0;0YCoequalizer[133X
       1.5-13 [33X[0;0YPushout[133X
       1.5-14 [33X[0;0YCartesian lambda introduction[133X
-      1.5-15 [33X[0;0YTopos properties[133X
-      1.5-16 [33X[0;0YSubobject Classifier[133X
+      1.5-15 [33X[0;0YLift[133X
+      1.5-16 [33X[0;0YTopos properties[133X
+      1.5-17 [33X[0;0YSubobject Classifier[133X
   2 [33X[0;0YThe category of skeletal finite sets[133X
     2.1 [33X[0;0YSkeletal GAP Categories[133X
       2.1-1 IsCategoryOfSkeletalFinSets

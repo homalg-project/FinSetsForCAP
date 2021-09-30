@@ -954,7 +954,41 @@
   [4X[32X[104X
   
   
-  [1X1.5-15 [33X[0;0YTopos properties[133X[101X
+  [1X1.5-15 [33X[0;0YLift[133X[101X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xm := FinSet( [ 1 .. 3 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xn := FinSet( [ 1 .. 4 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xf := MapOfFinSets( m, [ [ 1, 2 ], [ 2, 2 ], [ 3, 1 ] ], m );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xg := MapOfFinSets( n, [ [ 1, 3 ], [ 2, 2 ], [ 3, 1 ], [ 4, 2 ] ], m );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XIsLiftable( f, g );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xchi := Lift( f, g );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( chi );[127X[104X
+    [4X[28X[ [ 1 .. 3 ], [ [ 1, 2 ], [ 2, 2 ], [ 3, 3 ] ], [ 1 .. 4 ] ][128X[104X
+    [4X[25Xgap>[125X [27XPreCompose( Lift( f, g ), g ) = f;[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsLiftable( g, f );[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27Xk := FinSet( [ 1 .. 100 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xh := ListWithIdenticalEntries( Length( k ) - 3, 3 );;[127X[104X
+    [4X[25Xgap>[125X [27Xh := Concatenation( h, [ 2, 1, 2 ] );;[127X[104X
+    [4X[25Xgap>[125X [27Xh := MapOfFinSets( k, List( k, i -> [ i, h[i] ] ), m );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XIsLiftable( f, h );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsLiftable( h, f );[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X1.5-16 [33X[0;0YTopos properties[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XM := FinSet( [ 1 .. 5 ] );;[127X[104X
@@ -999,7 +1033,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-16 [33X[0;0YSubobject Classifier[133X[101X
+  [1X1.5-17 [33X[0;0YSubobject Classifier[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XS := FinSet([1,2,3,4,5]);[127X[104X

@@ -92,9 +92,11 @@
 </span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X7BFCFE167948EB2B">1.5-14 <span class="Heading">Cartesian lambda introduction</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X8093B84081CFD240">1.5-15 <span class="Heading">Topos properties</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X7DC1099D7D615250">1.5-15 <span class="Heading">Lift</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X87DA77E487F951EF">1.5-16 <span class="Heading">Subobject Classifier</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X8093B84081CFD240">1.5-16 <span class="Heading">Topos properties</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X87DA77E487F951EF">1.5-17 <span class="Heading">Subobject Classifier</span></a>
 </span>
 </div></div>
 </div>
@@ -1114,9 +1116,45 @@ true
 true
 </pre></div>
 
+<p><a id="X7DC1099D7D615250" name="X7DC1099D7D615250"></a></p>
+
+<h5>1.5-15 <span class="Heading">Lift</span></h5>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet( [ 1 .. 3 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet( [ 1 .. 4 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f := MapOfFinSets( m, [ [ 1, 2 ], [ 2, 2 ], [ 3, 1 ] ], m );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := MapOfFinSets( n, [ [ 1, 3 ], [ 2, 2 ], [ 3, 1 ], [ 4, 2 ] ], m );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLiftable( f, g );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">chi := Lift( f, g );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( chi );</span>
+[ [ 1 .. 3 ], [ [ 1, 2 ], [ 2, 2 ], [ 3, 3 ] ], [ 1 .. 4 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( Lift( f, g ), g ) = f;</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLiftable( g, f );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">k := FinSet( [ 1 .. 100 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">h := ListWithIdenticalEntries( Length( k ) - 3, 3 );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">h := Concatenation( h, [ 2, 1, 2 ] );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">h := MapOfFinSets( k, List( k, i -&gt; [ i, h[i] ] ), m );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLiftable( f, h );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLiftable( h, f );</span>
+false
+</pre></div>
+
 <p><a id="X8093B84081CFD240" name="X8093B84081CFD240"></a></p>
 
-<h5>1.5-15 <span class="Heading">Topos properties</span></h5>
+<h5>1.5-16 <span class="Heading">Topos properties</span></h5>
 
 
 <div class="example"><pre>
@@ -1163,7 +1201,7 @@ true
 
 <p><a id="X87DA77E487F951EF" name="X87DA77E487F951EF"></a></p>
 
-<h5>1.5-16 <span class="Heading">Subobject Classifier</span></h5>
+<h5>1.5-17 <span class="Heading">Subobject Classifier</span></h5>
 
 
 <div class="example"><pre>
