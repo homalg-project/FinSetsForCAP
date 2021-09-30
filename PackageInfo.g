@@ -10,17 +10,7 @@ SetPackageInfo( rec(
 
 PackageName := "FinSetsForCAP",
 Subtitle := "The elementary topos of (skeletal) finite sets",
-Version := Maximum( [
-                   "2020.04-01", ## Mohamed's version
-                   ## this line prevents merge conflicts
-                   "2017.05-26", ## Julia's version
-                   ## this line prevents merge conflicts
-                   "2021.07-01", ## Fabian's version
-                   ## this line prevents merge conflicts
-                   "2018.08-31", ## Mario's version
-                   ## this line prevents merge conflicts
-                   "2019.10-30" ## Sepp's version
-                   ] ),
+Version := "2020.09-01",
 
 Date := Concatenation( "01/", ~.Version{[ 6, 7 ]}, "/", ~.Version{[ 1 .. 4 ]} ),
 License := "GPL-2.0-or-later",

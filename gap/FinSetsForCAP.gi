@@ -686,6 +686,26 @@ AddIsSplitMonomorphism( FinSets,
 end );
 
 ##
+AddIsLiftable( FinSets,
+  function ( beta, alpha )
+    
+    return IsSubset( AsList( ImageObject( alpha ) ), AsList( ImageObject( beta ) ) );
+    
+end );
+
+##
+AddLift( FinSets,
+  function ( beta, alpha )
+    local chi;
+    
+    chi := List( AsList( beta ),
+                 pair -> [ pair[1], Preimage( alpha, FinSet( [ pair[2] ] ) )[1] ] );
+    
+    return MapOfFinSetsNC( Source( beta ), chi, Source( alpha ) );
+    
+end );
+
+##
 AddImageEmbedding( FinSets,
   function ( phi )
     local I;
