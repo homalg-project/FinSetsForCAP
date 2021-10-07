@@ -100,6 +100,7 @@ InstallMethod( IsEqualForElementsOfFinSets,
         return IsIdenticalObj( CapCategory( a ), CapCategory( b ) ) and IsEqualForObjects( a, b );
     fi;
     
+    # COVERAGE_IGNORE_NEXT_LINE
     TryNextMethod();
     
 end );
@@ -115,6 +116,7 @@ InstallMethod( IsEqualForElementsOfFinSets,
         return IsIdenticalObj( CapCategory( a ), CapCategory( b ) ) and IsEqualForMorphismsOnMor( a, b );
     fi;
     
+    # COVERAGE_IGNORE_NEXT_LINE
     TryNextMethod();
     
 end );
@@ -149,8 +151,10 @@ InstallMethod( FinSetNC,
 
     for i in [ 1 .. Length( L ) ] do
         if IsBound( L[i] ) and not IsEqualForElementsOfFinSets( L[i], AsList( set )[i] ) then
+            # COVERAGE_IGNORE_BLOCK_START
             Display( "Warning: The elements of the list passed to the constructor are not equal (w.r.t. IsEqualForElementsOfFinSets) to the elements of the resulting FinSet. Either pass an immutable copy of the list or add an additional special case to IsEqualForElementsOfFinSets to avoid this warning." );
             break;
+            # COVERAGE_IGNORE_BLOCK_END
         fi;
     od;
 
@@ -383,6 +387,7 @@ InstallMethod( CallFuncList,
     y := First( AsList( phi ), pair -> IsEqualForElementsOfFinSets( pair[1], x ) );
     
     if y = fail then
+        # COVERAGE_IGNORE_BLOCK_START
         if HasIsWellDefined( phi ) then
             if IsWellDefined( phi ) then
                 Error( "the element ", x, " is not in the source of the map\n" );
@@ -396,6 +401,7 @@ InstallMethod( CallFuncList,
         else
             Error( "the element ", x, " may not be in the source of the map, please check if the map is well-defined\n" );
         fi;
+        # COVERAGE_IGNORE_BLOCK_END
     fi;
     
     return y[2];

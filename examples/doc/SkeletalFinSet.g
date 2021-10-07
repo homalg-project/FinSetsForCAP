@@ -19,4 +19,6 @@ p := FinSet( 4 );
 #! <An object in SkeletalFinSets>
 IsWellDefined( p );
 #! true
+IsEqualForObjects( m, n );
+#! false
 #! @EndExample
