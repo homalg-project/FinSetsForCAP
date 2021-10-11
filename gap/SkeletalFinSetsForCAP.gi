@@ -309,10 +309,6 @@ AddLift( SkeletalFinSets,
   function ( cat, f, g )
     local S, T;
     
-    if not IsLiftable( f, g ) then
-        return fail;
-    fi;
-    
     S := Source( f );
     T := Source( g );
     
@@ -338,10 +334,6 @@ end );
 AddColift( SkeletalFinSets,
   function ( cat, f, g )
     local S, T, chi;
-    
-    if not IsColiftable( f, g ) then
-        return fail;
-    fi;
     
     S := Range( f );
     T := Range( g );
