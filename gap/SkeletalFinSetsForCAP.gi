@@ -21,6 +21,8 @@ InstallMethod( CategoryOfSkeletalFinSets,
     
     SetFilterObj( cat, IsCategoryOfSkeletalFinSets );
     
+    SetIsSkeletalCategory( cat, true );
+    
     SetIsElementaryTopos( cat, true );
     
     AddObjectRepresentation( cat, IsSkeletalFiniteSet and HasLength and HasAsList );
