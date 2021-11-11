@@ -52,8 +52,7 @@
   [33X[1;0Y[29X[2XCategoryOfSkeletalFinSets[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X category[133X
   
-  [33X[0;0YConstruct  a  category of skeletal finite sets. Accepts the options [10Xoverhead[110X
-  (default: [10Xtrue[110X) and [10XFinalizeCategory[110X (default: [10Xtrue[110X).[133X
+  [33X[0;0YConstruct a category of skeletal finite sets.[133X
   
   [1X2.3-2 SkeletalFinSets[101X
   
