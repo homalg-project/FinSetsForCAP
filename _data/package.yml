@@ -1,5 +1,5 @@
 name: FinSetsForCAP
-version: "2020.11-01"
+version: "2020.11-02"
 license: "GPL-2.0-or-later"
 date: 2021-11-11
 description: |
@@ -40,11 +40,11 @@ packageinfo: https://homalg-project.github.io/FinSetsForCAP/PackageInfo.g
 
 downloads:
     - name: .tar.gz
-      url: https://github.com/homalg-project/FinSetsForCAP/releases/download/v2020.11-01/FinSetsForCAP-2020.11-01.tar.gz
+      url: https://github.com/homalg-project/FinSetsForCAP/releases/download/v2020.11-02/FinSetsForCAP-2020.11-02.tar.gz
     - name: .zip
-      url: https://github.com/homalg-project/FinSetsForCAP/releases/download/v2020.11-01/FinSetsForCAP-2020.11-01.zip
+      url: https://github.com/homalg-project/FinSetsForCAP/releases/download/v2020.11-02/FinSetsForCAP-2020.11-02.zip
 
-pdf: https://github.com/homalg-project/FinSetsForCAP/releases/download/v2020.11-01/FinSetsForCAP-2020.11-01.pdf
+pdf: https://github.com/homalg-project/FinSetsForCAP/releases/download/v2020.11-02/FinSetsForCAP-2020.11-02.pdf
 
 abstract: |
 
@@ -55,7 +55,7 @@ citeas: |
     <p class='BibEntry'>
     [<span class='BibKey'>BMZ21</span>]   <b class='BibAuthor'>Barakat, M., Mickisch, J. and Zickgraf, F.</b>,
      <i class='BibTitle'>FinSetsForCAP, The elementary topos of (skeletal) finite sets,
-             Version 2020.11-01</i>
+             Version 2020.11-02</i>
      (<span class='BibYear'>2021</span>)<br />
     (<span class='BibNote'>GAP package</span>),
     <span class='BibHowpublished'><a href="https://homalg-project.github.io/pkg/FinSetsForCAP">https://homalg-project.github.io/pkg/FinSetsForCAP</a></span>.
@@ -63,10 +63,10 @@ citeas: |
     
 
 bibtex: |
-    @misc{ FinSetsForCAP2020.11-01,
+    @misc{ FinSetsForCAP2020.11-02,
       author =           {Barakat, M. and Mickisch, J. and Zickgraf, F.},
       title =            {{FinSetsForCAP},  The  elementary  topos of (skeletal)
-                          finite sets, {V}ersion 2020.11-01},
+                          finite sets, {V}ersion 2020.11-02},
       month =            {Nov},
       year =             {2021},
       note =             {GAP package},
