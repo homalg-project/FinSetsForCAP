@@ -88,6 +88,8 @@
     [4X[28X<An object in SkeletalFinSets>[128X[104X
     [4X[25Xgap>[125X [27XIsWellDefined( p );[127X[104X
     [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsEqualForObjects( m, n );[127X[104X
+    [4X[28Xfalse[128X[104X
   [4X[32X[104X
   
   [1X2.3-4 FinSet[101X

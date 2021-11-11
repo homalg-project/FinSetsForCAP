@@ -28,8 +28,9 @@
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap1_mj.html#X7D03633A7D98026B">1.1 <span class="Heading">GAP Categories</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X85479E81870B1FA8">1.1-1 IsFiniteSet</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X79499F0D8064BB87">1.1-2 IsFiniteSetMap</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X819053577FC1456D">1.1-1 IsCategoryOfFinSets</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X85479E81870B1FA8">1.1-2 IsFiniteSet</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X79499F0D8064BB87">1.1-3 IsFiniteSetMap</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap1_mj.html#X7C701DBF7BAE649A">1.2 <span class="Heading">Attributes</span></a>
 </span>
@@ -41,10 +42,13 @@
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap1_mj.html#X86EC0F0A78ECBC10">1.3 <span class="Heading">Constructors</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X7E9219EE7DD57B68">1.3-1 FinSet</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X7C86604584218090">1.3-2 FinSetNC</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X7E371F257BA747B5">1.3-3 MapOfFinSets</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X7C298890800890F2">1.3-4 MapOfFinSetsNC</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X7AF3FABF8480C0D1">1.3-1 CategoryOfFinSets</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X7FB2BD8B87970123">1.3-2 FinSet</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X7E9219EE7DD57B68">1.3-3 FinSet</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X8478AC8387766646">1.3-4 FinSetNC</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X7C86604584218090">1.3-5 FinSetNC</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X7E371F257BA747B5">1.3-6 MapOfFinSets</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X7C298890800890F2">1.3-7 MapOfFinSetsNC</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap1_mj.html#X8508AEF8845565A1">1.4 <span class="Heading">Tools</span></a>
 </span>
@@ -53,7 +57,7 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X7A17B1C7832FE90F"><code>1.4-2 \in</code></a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X7CB2EF7E7EBB0AC3">1.4-3 []</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X828E037C816BD15A">1.4-4 Iterator</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X86AF10D679D54C2D">1.4-5 UnionOfFinSets</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X85BFE3C886748EFD">1.4-5 UnionOfFinSets</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X790BC8A282059A5A">1.4-6 ListOp</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X80B6B7D17BC04DEA">1.4-7 FilteredOp</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X7A7C066D788F15F7">1.4-8 FirstOp</a></span>
@@ -110,9 +114,18 @@
 
 <h4>1.1 <span class="Heading">GAP Categories</span></h4>
 
+<p><a id="X819053577FC1456D" name="X819053577FC1456D"></a></p>
+
+<h5>1.1-1 IsCategoryOfFinSets</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsCategoryOfFinSets</code>( <var class="Arg">object</var> )</td><td class="tdright">(&nbsp;filter&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
+
+<p>The GAP category of categories of finite sets.</p>
+
 <p><a id="X85479E81870B1FA8" name="X85479E81870B1FA8"></a></p>
 
-<h5>1.1-1 IsFiniteSet</h5>
+<h5>1.1-2 IsFiniteSet</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFiniteSet</code>( <var class="Arg">object</var> )</td><td class="tdright">(&nbsp;filter&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
@@ -121,7 +134,7 @@
 
 <p><a id="X79499F0D8064BB87" name="X79499F0D8064BB87"></a></p>
 
-<h5>1.1-2 IsFiniteSetMap</h5>
+<h5>1.1-3 IsFiniteSetMap</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFiniteSetMap</code>( <var class="Arg">object</var> )</td><td class="tdright">(&nbsp;filter&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
@@ -163,14 +176,32 @@
 
 <h4>1.3 <span class="Heading">Constructors</span></h4>
 
+<p><a id="X7AF3FABF8480C0D1" name="X7AF3FABF8480C0D1"></a></p>
+
+<h5>1.3-1 CategoryOfFinSets</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CategoryOfFinSets</code>(  )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: a <strong class="pkg">CAP</strong> category</p>
+
+<p>Construct a category of finite sets. Accepts the options <code class="code">overhead</code> (default: <code class="code">true</code>) and <code class="code">FinalizeCategory</code> (default: <code class="code">true</code>).</p>
+
+<p><a id="X7FB2BD8B87970123" name="X7FB2BD8B87970123"></a></p>
+
+<h5>1.3-2 FinSet</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FinSet</code>( <var class="Arg">cat_of_fin_sets</var>, <var class="Arg">L</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: a <strong class="pkg">CAP</strong> object</p>
+
+<p>Construct a finite set out of the list <var class="Arg">L</var>, i.e., an object in the <strong class="pkg">CAP</strong> category <code class="code">cat_of_fin_sets</code>. The <strong class="pkg">GAP</strong> operation <code class="code">Set</code> must be applicable to <var class="Arg">L</var> without throwing an error. Equality is determined as follows: <code class="code">FinSet( L1 ) = FinSet( L2 )</code> iff <code class="code">IsEqualForElementsOfFinSets( Immutable( Set( L1 ) ), Immutable( Set( L2 ) ) )</code>. Warning: all internal operations use <code class="code">FinSetNC</code> (see below) instead of <code class="code">FinSet</code>. Thus, this notion of equality is only valid for objects created by calling <code class="code">FinSet</code> explicitly. Internally, <code class="code">FinSet( cat_of_fin_sets, L )</code> is an alias for <code class="code">FinSetNC( cat_of_fin_sets, Set( L ) )</code> and equality is determined as for <code class="code">FinSetNC</code>. Thus, <code class="code">FinSet( cat_of_fin_sets, L1 ) = FinSetNC( cat_of_fin_sets, L2 )</code> iff <code class="code">IsEqualForElementsOfFinSets( Immutable( Set( L1 ) ), Immutable( L2 ) )</code> and <code class="code">FinSetNC( cat_of_fin_sets, L1 ) = FinSet( cat_of_fin_sets, L2 )</code> iff <code class="code">IsEqualForElementsOfFinSets( Immutable( L1 ), Immutable( Set( L2 ) ) )</code>.</p>
+
 <p><a id="X7E9219EE7DD57B68" name="X7E9219EE7DD57B68"></a></p>
 
-<h5>1.3-1 FinSet</h5>
+<h5>1.3-3 FinSet</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FinSet</code>( <var class="Arg">L</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: a <strong class="pkg">CAP</strong> object</p>
 
-<p>Construct a finite set out of the list <var class="Arg">L</var>, i.e., an object in the <strong class="pkg">CAP</strong> category <code class="code">FinSets</code>. The <strong class="pkg">GAP</strong> operation <code class="code">Set</code> must be applicable to <var class="Arg">L</var> without throwing an error. Equality is determined as follows: <code class="code">FinSet( L1 ) = FinSet( L2 )</code> iff <code class="code">IsEqualForElementsOfFinSets( Immutable( Set( L1 ) ), Immutable( Set( L2 ) ) )</code>. Warning: all internal operations use <code class="code">FinSetNC</code> (see below) instead of <code class="code">FinSet</code>. Thus, this notion of equality is only valid for objects created by calling <code class="code">FinSet</code> explicitly. Internally, <code class="code">FinSet( L )</code> is an alias for <code class="code">FinSetNC( Set( L ) )</code> and equality is determined as for <code class="code">FinSetNC</code>. Thus, <code class="code">FinSet( L1 ) = FinSetNC( L2 )</code> iff <code class="code">IsEqualForElementsOfFinSets( Immutable( Set( L1 ) ), Immutable( L2 ) )</code> and <code class="code">FinSetNC( L1 ) = FinSet( L2 )</code> iff <code class="code">IsEqualForElementsOfFinSets( Immutable( L1 ), Immutable( Set( L2 ) ) )</code>.</p>
+<p>Return <code class="code">FinSet</code>( <code class="code">FinSets</code>, <var class="Arg">L</var> ).</p>
 
 
 <div class="example"><pre>
@@ -196,14 +227,23 @@ false
 false
 </pre></div>
 
+<p><a id="X8478AC8387766646" name="X8478AC8387766646"></a></p>
+
+<h5>1.3-4 FinSetNC</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FinSetNC</code>( <var class="Arg">cat_of_fin_sets</var>, <var class="Arg">L</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: a <strong class="pkg">CAP</strong> object</p>
+
+<p>Construct a finite set out of the duplicate-free (w.r.t. <code class="code">IsEqualForElementsOfFinSets</code>) and dense list <var class="Arg">L</var>, i.e., an object in the <strong class="pkg">CAP</strong> category <code class="code">cat_of_fin_sets,</code>. Equality is determined as follows: <code class="code">FinSetNC( cat_of_fin_sets, L1 ) = FinSetNC( cat_of_fin_sets, L2 )</code> iff <code class="code">IsEqualForElementsOfFinSets( Immutable( L1 ), Immutable( L2 ) )</code>.</p>
+
 <p><a id="X7C86604584218090" name="X7C86604584218090"></a></p>
 
-<h5>1.3-2 FinSetNC</h5>
+<h5>1.3-5 FinSetNC</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FinSetNC</code>( <var class="Arg">L</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: a <strong class="pkg">CAP</strong> object</p>
 
-<p>Construct a finite set out of the duplicate-free (w.r.t. <code class="code">IsEqualForElementsOfFinSets</code>) and dense list <var class="Arg">L</var>, i.e., an object in the <strong class="pkg">CAP</strong> category <code class="code">FinSets</code>. Equality is determined as follows: <code class="code">FinSetNC( L1 ) = FinSetNC( L2 )</code> iff <code class="code">IsEqualForElementsOfFinSets( Immutable( L1 ), Immutable( L2 ) )</code>.</p>
+<p>Return <code class="code">FinSetNC</code>( <code class="code">FinSets</code>, <var class="Arg">L</var> ).</p>
 
 
 <div class="example"><pre>
@@ -223,7 +263,7 @@ false
 
 <p><a id="X7E371F257BA747B5" name="X7E371F257BA747B5"></a></p>
 
-<h5>1.3-3 MapOfFinSets</h5>
+<h5>1.3-6 MapOfFinSets</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MapOfFinSets</code>( <var class="Arg">S</var>, <var class="Arg">G</var>, <var class="Arg">T</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: a <strong class="pkg">CAP</strong> morphism</p>
@@ -288,7 +328,7 @@ false
 
 <p><a id="X7C298890800890F2" name="X7C298890800890F2"></a></p>
 
-<h5>1.3-4 MapOfFinSetsNC</h5>
+<h5>1.3-7 MapOfFinSetsNC</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MapOfFinSetsNC</code>( <var class="Arg">S</var>, <var class="Arg">G</var>, <var class="Arg">T</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: a <strong class="pkg">CAP</strong> morphism</p>
@@ -425,14 +465,14 @@ false
 
 <p>An iterator of the <strong class="pkg">GAP</strong> set of the list used to construct a finite set <span class="SimpleMath">\(S\)</span>, i.e., <code class="code">Iterator( FinSet( <var class="Arg">L</var> ) ) = Iterator( Set( <var class="Arg">L</var> ) )</code>.</p>
 
-<p><a id="X86AF10D679D54C2D" name="X86AF10D679D54C2D"></a></p>
+<p><a id="X85BFE3C886748EFD" name="X85BFE3C886748EFD"></a></p>
 
 <h5>1.4-5 UnionOfFinSets</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UnionOfFinSets</code>( <var class="Arg">L</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UnionOfFinSets</code>( <var class="Arg">cat_of_fin_sets</var>, <var class="Arg">L</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: a <strong class="pkg">CAP</strong> object</p>
 
-<p>Compute the set-theoretic union of the elements of <var class="Arg">L</var>, where <var class="Arg">L</var> is a list of finite sets.</p>
+<p>Compute the set-theoretic union of the elements of <var class="Arg">L</var>, where <var class="Arg">L</var> is a list of finite sets in the category <var class="Arg">cat_of_fin_sets</var>.</p>
 
 <p><a id="X790BC8A282059A5A" name="X790BC8A282059A5A"></a></p>
 
@@ -1087,7 +1127,7 @@ true
 &lt;An object in FinSets&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( U );</span>
 [ 1, 2, 4, 3 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UnionOfFinSets( [ N1, N2 ] ) = U;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UnionOfFinSets( FinSets, [ N1, N2 ] ) = U;</span>
 true
 </pre></div>
 
