@@ -9,13 +9,9 @@ InstallMethod( CategoryOfFinSets,
                [ ],
                
   function ( )
-    local overhead_option, finalize_option, FinSets;
+    local FinSets;
     
-    overhead_option := CAP_INTERNAL_RETURN_OPTION_OR_DEFAULT( "overhead", true );
-    
-    finalize_option := CAP_INTERNAL_RETURN_OPTION_OR_DEFAULT( "FinalizeCategory", true );
-    
-    FinSets := CreateCapCategory( "FinSets" : overhead := overhead_option );
+    FinSets := CreateCapCategory( "FinSets" );
     
     FinSets!.category_as_first_argument := true;
     
@@ -29,11 +25,7 @@ InstallMethod( CategoryOfFinSets,
     
     INSTALL_FUNCTIONS_FOR_FIN_SETS( FinSets );
     
-    if finalize_option then
-        
-        Finalize( FinSets );
-        
-    fi;
+    Finalize( FinSets );
     
     return FinSets;
     

@@ -62,8 +62,6 @@ DeclareAttribute( "AsList",
 
 #! @Description
 #!  Construct a category of finite sets.
-#!  Accepts the options <C>overhead</C> (default: <C>true</C>) and
-#!  <C>FinalizeCategory</C> (default: <C>true</C>).
 #! @Returns a &CAP; category
 DeclareOperation( "CategoryOfFinSets", [ ] );
 
