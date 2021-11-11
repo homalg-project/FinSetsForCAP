@@ -9,13 +9,9 @@ InstallMethod( CategoryOfSkeletalFinSets,
                [ ],
                
   function ( )
-    local overhead_option, finalize_option, cat;
+    local cat;
     
-    overhead_option := CAP_INTERNAL_RETURN_OPTION_OR_DEFAULT( "overhead", true );
-    
-    finalize_option := CAP_INTERNAL_RETURN_OPTION_OR_DEFAULT( "FinalizeCategory", true );
-    
-    cat := CreateCapCategory( "SkeletalFinSets" : overhead := overhead_option );
+    cat := CreateCapCategory( "SkeletalFinSets" );
     
     cat!.category_as_first_argument := true;
     
@@ -31,11 +27,7 @@ InstallMethod( CategoryOfSkeletalFinSets,
     
     INSTALL_FUNCTIONS_FOR_SKELETAL_FIN_SETS( cat );
     
-    if finalize_option then
-        
-        Finalize( cat );
-        
-    fi;
+    Finalize( cat );
     
     return cat;
     
