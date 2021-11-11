@@ -4,9 +4,19 @@
 # Declarations
 #
 
+# Technical functions
+DeclareGlobalFunction( "INSTALL_FUNCTIONS_FOR_FIN_SETS" );
+
 #! @Chapter The category of finite sets
 
 #! @Section GAP Categories
+
+#! @Description
+#! The GAP category of categories
+#! of finite sets.
+#! @Arguments object
+DeclareCategory( "IsCategoryOfFinSets",
+                  IsCapCategory );
 
 #! @Description
 #! The GAP category of objects in the category
@@ -51,15 +61,29 @@ DeclareAttribute( "AsList",
 #! @Section Constructors
 
 #! @Description
+#!  Construct a category of finite sets.
+#!  Accepts the options <C>overhead</C> (default: <C>true</C>) and
+#!  <C>FinalizeCategory</C> (default: <C>true</C>).
+#! @Returns a &CAP; category
+DeclareOperation( "CategoryOfFinSets", [ ] );
+
+#! @Description
 #!  Construct a finite set out of the list <A>L</A>, i.e.,
-#!  an object in the &CAP; category <C>FinSets</C>.
+#!  an object in the &CAP; category <C>cat_of_fin_sets</C>.
 #!  The &GAP; operation <C>Set</C> must be applicable to <A>L</A> without throwing an error.
 #!  Equality is determined as follows: <C>FinSet( L1 ) = FinSet( L2 )</C> iff <C>IsEqualForElementsOfFinSets( Immutable( Set( L1 ) ), Immutable( Set( L2 ) ) )</C>.
 #!  Warning: all internal operations use <C>FinSetNC</C> (see below) instead of <C>FinSet</C>.
 #!  Thus, this notion of equality is only valid for objects created by calling <C>FinSet</C> explicitly.
-#!  Internally, <C>FinSet( L )</C> is an alias for <C>FinSetNC( Set( L ) )</C> and equality is determined as for <C>FinSetNC</C>.
-#!  Thus, <C>FinSet( L1 ) = FinSetNC( L2 )</C> iff <C>IsEqualForElementsOfFinSets( Immutable( Set( L1 ) ), Immutable( L2 ) )</C> and
-#!  <C>FinSetNC( L1 ) = FinSet( L2 )</C> iff <C>IsEqualForElementsOfFinSets( Immutable( L1 ), Immutable( Set( L2 ) ) )</C>.
+#!  Internally, <C>FinSet( cat_of_fin_sets, L )</C> is an alias for <C>FinSetNC( cat_of_fin_sets, Set( L ) )</C> and equality is determined as for <C>FinSetNC</C>.
+#!  Thus, <C>FinSet( cat_of_fin_sets, L1 ) = FinSetNC( cat_of_fin_sets, L2 )</C> iff <C>IsEqualForElementsOfFinSets( Immutable( Set( L1 ) ), Immutable( L2 ) )</C> and
+#!  <C>FinSetNC( cat_of_fin_sets, L1 ) = FinSet( cat_of_fin_sets, L2 )</C> iff <C>IsEqualForElementsOfFinSets( Immutable( L1 ), Immutable( Set( L2 ) ) )</C>.
+#! @Arguments cat_of_fin_sets, L
+#! @Returns a &CAP; object
+DeclareOperation( "FinSet",
+        [ IsCategoryOfFinSets, IsList ] );
+
+#! @Description
+#!  Return <C>FinSet</C>( <C>FinSets</C>, <A>L</A> ).
 #! @Arguments L
 #! @Returns a &CAP; object
 DeclareOperation( "FinSet",
@@ -68,8 +92,16 @@ DeclareOperation( "FinSet",
 
 #! @Description
 #!  Construct a finite set out of the duplicate-free (w.r.t. <C>IsEqualForElementsOfFinSets</C>) and dense list <A>L</A>, i.e.,
-#!  an object in the &CAP; category <C>FinSets</C>.
-#!  Equality is determined as follows: <C>FinSetNC( L1 ) = FinSetNC( L2 )</C> iff <C>IsEqualForElementsOfFinSets( Immutable( L1 ), Immutable( L2 ) )</C>.
+#!  an object in the &CAP; category <C>cat_of_fin_sets,</C>.
+#!  Equality is determined as follows: <C>FinSetNC( cat_of_fin_sets, L1 ) = FinSetNC( cat_of_fin_sets, L2 )</C>
+#!  iff <C>IsEqualForElementsOfFinSets( Immutable( L1 ), Immutable( L2 ) )</C>.
+#! @Arguments cat_of_fin_sets, L
+#! @Returns a &CAP; object
+DeclareOperation( "FinSetNC",
+        [ IsCategoryOfFinSets, IsList ] );
+
+#! @Description
+#!  Return <C>FinSetNC</C>( <C>FinSets</C>, <A>L</A> ).
 #! @Arguments L
 #! @Returns a &CAP; object
 DeclareOperation( "FinSetNC",
@@ -137,11 +169,11 @@ DeclareOperation( "Iterator",
         [ IsFiniteSet ] );
 
 #! @Description
-#!  Compute the set-theoretic union of the elements of <A>L</A>, where <A>L</A> is a list of finite sets.
-#! @Arguments L
+#!  Compute the set-theoretic union of the elements of <A>L</A>, where <A>L</A> is a list of finite sets in the category <A>cat_of_fin_sets</A>.
+#! @Arguments cat_of_fin_sets, L
 #! @Returns a &CAP; object
 DeclareOperation( "UnionOfFinSets",
-        [ IsList ] );
+        [ IsCategoryOfFinSets, IsList ] );
 
 #! @Description
 #!  Returns <C>List( AsList( <A>M</A> ), <A>f</A> )</C>.

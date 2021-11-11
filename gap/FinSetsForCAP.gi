@@ -4,13 +4,41 @@
 # Implementations
 #
 
-BindGlobal( "FinSets", CreateCapCategory( "FinSets" ) );
+##
+InstallMethod( CategoryOfFinSets,
+               [ ],
+               
+  function ( )
+    local overhead_option, finalize_option, FinSets;
+    
+    overhead_option := CAP_INTERNAL_RETURN_OPTION_OR_DEFAULT( "overhead", true );
+    
+    finalize_option := CAP_INTERNAL_RETURN_OPTION_OR_DEFAULT( "FinalizeCategory", true );
+    
+    FinSets := CreateCapCategory( "FinSets" : overhead := overhead_option );
+    
+    FinSets!.category_as_first_argument := true;
+    
+    SetFilterObj( FinSets, IsCategoryOfFinSets );
+    
+    SetIsElementaryTopos( FinSets, true );
+    
+    AddObjectRepresentation( FinSets, IsFiniteSet and HasAsList and HasLength );
+    
+    AddMorphismRepresentation( FinSets, IsFiniteSetMap and HasAsList );
+    
+    INSTALL_FUNCTIONS_FOR_FIN_SETS( FinSets );
+    
+    if finalize_option then
+        
+        Finalize( FinSets );
+        
+    fi;
+    
+    return FinSets;
+    
+end );
 
-SetIsElementaryTopos( FinSets, true );
-
-AddObjectRepresentation( FinSets, IsFiniteSet and HasAsList and HasLength );
-
-AddMorphismRepresentation( FinSets, IsFiniteSetMap and HasAsList );
 
 ##
 InstallMethod( IsEqualForElementsOfFinSets,
@@ -122,27 +150,16 @@ InstallMethod( IsEqualForElementsOfFinSets,
 end );
 
 ##
-InstallOtherMethod( FinSet,
-        "for a list",
-        [ IsList ],
-        
-  function ( L )
-    
-    return FinSetNC( Set( L ) );
-    
-end );
-
-##
 InstallMethod( FinSetNC,
-        "for a list",
-        [ IsList ],
+        "for a category of finite sets and a list",
+        [ IsCategoryOfFinSets, IsList ],
         
-  function ( L )
+  function ( category_of_finite_sets, L )
     local set, i;
     
     set := rec( );
     
-    ObjectifyObjectForCAPWithAttributes( set, FinSets,
+    ObjectifyObjectForCAPWithAttributes( set, category_of_finite_sets,
             AsList, L,
             Length, Length( L )
             );
@@ -159,6 +176,17 @@ InstallMethod( FinSetNC,
     od;
 
     return set;
+    
+end );
+
+##
+InstallOtherMethod( FinSet,
+        "for a category of finite sets and a list",
+        [ IsCategoryOfFinSets, IsList ],
+        
+  function ( category_of_finite_sets, L )
+    
+    return FinSetNC( category_of_finite_sets, Set( L ) );
     
 end );
 
@@ -197,19 +225,19 @@ end );
 
 ##
 InstallMethod( UnionOfFinSets,
-        "for a list of CAP finite sets",
-        [ IsList ],
+        "for a category of finite sets and a list of CAP finite sets",
+        [ IsCategoryOfFinSets, IsList ],
         
-  function ( L )
+  function ( category_of_finite_sets, L )
     local union, M, m;
     
-    union := FinSet( [ ] );
+    union := FinSet( category_of_finite_sets, [ ] );
     for M in L do
         for m in M do
             if not m in union then
                 union := ShallowCopy( AsList( union ) );
                 Add( union, m );
-                union := FinSetNC( union );
+                union := FinSetNC( category_of_finite_sets, union );
             fi;
         od;
     od;
@@ -236,7 +264,7 @@ InstallMethod( FilteredOp,
         
   function ( M, f )
     
-    return FinSetNC( Filtered( AsList( M ), f ) );
+    return FinSetNC( CapCategory( M ), Filtered( AsList( M ), f ) );
     
 end );
 
@@ -248,40 +276,6 @@ InstallMethod( FirstOp,
   function ( M, f )
     
     return First( AsList( M ), f );
-    
-end );
-
-##
-AddIsWellDefinedForObjects( FinSets,
-  function ( set )
-    local L, i, j;
-    
-    L := AsList( set );
-    
-    if not IsDenseList( L ) then
-        return false;
-    fi;
-    
-    for i in [ 1 .. Length( L ) ] do
-        for j in [ 1 .. ( i - 1 ) ] do
-            if IsEqualForElementsOfFinSets( L[i], L[j] ) then
-                return false;
-            fi;
-        od;
-    od;
-    
-    return true;
-  
-end );
-
-##
-AddIsEqualForObjects( FinSets,
-  function ( set1, set2 )
-    if not Length( set1 ) = Length( set2 ) then
-        return false;
-    fi;
-    
-    return IsEqualForElementsOfFinSets( AsList( set1 ), AsList( set2 ) );
     
 end );
 
@@ -306,7 +300,7 @@ InstallMethod( MapOfFinSetsNC,
     
     map := rec( );
     
-    ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( map, FinSets,
+    ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( map, CapCategory( S ),
             S,
             T,
             AsList, G
@@ -419,9 +413,36 @@ InstallMethod( ListOp,
     
 end );
 
+InstallGlobalFunction( INSTALL_FUNCTIONS_FOR_FIN_SETS,
+
+    function ( category_of_finite_sets )
+
 ##
-AddIsWellDefinedForMorphisms( FinSets,
-  function ( mor )
+AddIsWellDefinedForObjects( category_of_finite_sets,
+  function ( category_of_finite_sets, set )
+    local L, i, j;
+    
+    L := AsList( set );
+    
+    if not IsDenseList( L ) then
+        return false;
+    fi;
+    
+    for i in [ 1 .. Length( L ) ] do
+        for j in [ 1 .. ( i - 1 ) ] do
+            if IsEqualForElementsOfFinSets( L[i], L[j] ) then
+                return false;
+            fi;
+        od;
+    od;
+    
+    return true;
+  
+end );
+
+##
+AddIsWellDefinedForMorphisms( category_of_finite_sets,
+  function ( category_of_finite_sets, mor )
     local S, T, rel, i, j;
     
     S := Source( mor );
@@ -456,8 +477,19 @@ AddIsWellDefinedForMorphisms( FinSets,
 end );
 
 ##
-AddIsEqualForMorphisms( FinSets,
-  function ( map1, map2 )
+AddIsEqualForObjects( category_of_finite_sets,
+  function ( category_of_finite_sets, set1, set2 )
+    if not Length( set1 ) = Length( set2 ) then
+        return false;
+    fi;
+    
+    return IsEqualForElementsOfFinSets( AsList( set1 ), AsList( set2 ) );
+    
+end );
+
+##
+AddIsEqualForMorphisms( category_of_finite_sets,
+  function ( category_of_finite_sets, map1, map2 )
     local S;
     
     S := Source( map1 );
@@ -469,24 +501,24 @@ AddIsEqualForMorphisms( FinSets,
 end );
 
 ##
-AddIsHomSetInhabited( FinSets,
-  function ( A, B )
+AddIsHomSetInhabited( category_of_finite_sets,
+  function ( category_of_finite_sets, A, B )
     
     return IsInitial( A ) or not IsInitial( B );
     
 end );
 
 ##
-AddIdentityMorphism( FinSets,
-  function ( set )
+AddIdentityMorphism( category_of_finite_sets,
+  function ( category_of_finite_sets, set )
     
     return MapOfFinSetsNC( set, List( set, e -> [ e, e ] ), set );
     
 end );
 
 ##
-AddPreCompose( FinSets,
-  function ( map_pre, map_post )
+AddPreCompose( category_of_finite_sets,
+  function ( category_of_finite_sets, map_pre, map_post )
     local S, cmp;
     
     S := Source( map_pre );
@@ -498,24 +530,24 @@ AddPreCompose( FinSets,
 end );
 
 ##
-AddIsTerminal( FinSets,
-  function ( M )
+AddIsTerminal( category_of_finite_sets,
+  function ( category_of_finite_sets, M )
     
     return Length( M ) = 1;
     
 end );
 
 ##
-AddTerminalObject( FinSets,
-  function ( arg )
+AddTerminalObject( category_of_finite_sets,
+  function ( category_of_finite_sets )
     
-    return FinSetNC( [ "*" ] );
+    return FinSetNC( category_of_finite_sets, [ "*" ] );
     
 end );
 
 ##
-AddUniversalMorphismIntoTerminalObjectWithGivenTerminalObject( FinSets,
-  function ( M, T )
+AddUniversalMorphismIntoTerminalObjectWithGivenTerminalObject( category_of_finite_sets,
+  function ( category_of_finite_sets, M, T )
     local t;
     
     t := AsList( T );
@@ -527,16 +559,16 @@ AddUniversalMorphismIntoTerminalObjectWithGivenTerminalObject( FinSets,
 end );
 
 ##
-AddDirectProduct( FinSets,
-  function ( L )
+AddDirectProduct( category_of_finite_sets,
+  function ( category_of_finite_sets, L )
     
-    return FinSetNC( Cartesian( List( L, AsList ) ) );
+    return FinSetNC( category_of_finite_sets, Cartesian( List( L, AsList ) ) );
     
 end );
 
 ##
-AddProjectionInFactorOfDirectProductWithGivenDirectProduct( FinSets,
-  function ( L, i, S )
+AddProjectionInFactorOfDirectProductWithGivenDirectProduct( category_of_finite_sets,
+  function ( category_of_finite_sets, L, i, S )
     local T, Graph;
     
     T := L[i];
@@ -548,8 +580,8 @@ AddProjectionInFactorOfDirectProductWithGivenDirectProduct( FinSets,
 end );
 
 ##
-AddUniversalMorphismIntoDirectProductWithGivenDirectProduct( FinSets,
-  function ( D, test_object, tau, T )
+AddUniversalMorphismIntoDirectProductWithGivenDirectProduct( category_of_finite_sets,
+  function ( category_of_finite_sets, D, test_object, tau, T )
     local S, Graph;
     
     S := Source( tau[1] );
@@ -561,48 +593,48 @@ AddUniversalMorphismIntoDirectProductWithGivenDirectProduct( FinSets,
 end );
 
 ##
-AddIsInitial( FinSets,
-  function ( M )
+AddIsInitial( category_of_finite_sets,
+  function ( category_of_finite_sets, M )
     
     return Length( M ) = 0;
     
 end );
 
 ##
-AddInitialObject( FinSets,
-  function ( arg )
+AddInitialObject( category_of_finite_sets,
+  function ( category_of_finite_sets )
     
-    return FinSetNC( [  ] );
+    return FinSetNC( category_of_finite_sets, [ ] );
     
 end );
 
 ##
-AddUniversalMorphismFromInitialObjectWithGivenInitialObject( FinSets,
-  function ( M, I )
+AddUniversalMorphismFromInitialObjectWithGivenInitialObject( category_of_finite_sets,
+  function ( category_of_finite_sets, M, I )
     
     return MapOfFinSetsNC( I, [ ], M );
     
 end );
 
 ##
-AddIsProjective( FinSets,
-  ReturnTrue );
+AddIsProjective( category_of_finite_sets,
+  { category_of_finite_sets, M } -> true );
 
 ##
-AddEpimorphismFromSomeProjectiveObject( FinSets,
-  IdentityMorphism );
+AddEpimorphismFromSomeProjectiveObject( category_of_finite_sets,
+  { category_of_finite_sets, M } -> IdentityMorphism( category_of_finite_sets, M ) );
 
 ##
-AddIsInjective( FinSets,
-  function ( M )
+AddIsInjective( category_of_finite_sets,
+  function ( category_of_finite_sets, M )
     
     return not IsInitial( M );
     
 end );
 
 ##
-AddMonomorphismIntoSomeInjectiveObject( FinSets,
-  function ( M )
+AddMonomorphismIntoSomeInjectiveObject( category_of_finite_sets,
+  function ( category_of_finite_sets, M )
     
     if IsInitial( M ) then
         return UniversalMorphismIntoTerminalObject( M );
@@ -613,18 +645,18 @@ AddMonomorphismIntoSomeInjectiveObject( FinSets,
 end );
 
 ##
-AddCoproduct( FinSets,
-  function ( L )
+AddCoproduct( category_of_finite_sets,
+  function ( category_of_finite_sets, L )
     
     L := List( [ 1 .. Length( L ) ], i -> Cartesian( [i], AsList( L[i] ) ) );
     
-    return FinSetNC( Concatenation( L ) );
+    return FinSetNC( category_of_finite_sets, Concatenation( L ) );
     
 end );
 
 ##
-AddInjectionOfCofactorOfCoproductWithGivenCoproduct( FinSets,
-  function ( L, i, T )
+AddInjectionOfCofactorOfCoproductWithGivenCoproduct( category_of_finite_sets,
+  function ( category_of_finite_sets, L, i, T )
     local S;
     
     S := L[i];
@@ -634,8 +666,8 @@ AddInjectionOfCofactorOfCoproductWithGivenCoproduct( FinSets,
 end );
 
 ##
-AddUniversalMorphismFromCoproductWithGivenCoproduct( FinSets,
-  function ( D, test_object, tau, S )
+AddUniversalMorphismFromCoproductWithGivenCoproduct( category_of_finite_sets,
+  function ( category_of_finite_sets, D, test_object, tau, S )
     local T;
     
     T := Range( tau[1] );
@@ -645,19 +677,19 @@ AddUniversalMorphismFromCoproductWithGivenCoproduct( FinSets,
 end );
 
 ##
-AddImageObject( FinSets,
-  function ( phi )
+AddImageObject( category_of_finite_sets,
+  function ( category_of_finite_sets, phi )
     local S, T, I, s;
     
     S := Source( phi );
     T := Range( phi );
 
-    I := FinSetNC( [ ] );
+    I := FinSetNC( category_of_finite_sets, [ ] );
     for s in S do
         if not phi( s ) in I then
             I := ShallowCopy( AsList( I ) );
             Add( I, phi( s ) );
-            I := FinSetNC( I );
+            I := FinSetNC( category_of_finite_sets, I );
         fi;
     od;
     
@@ -666,54 +698,54 @@ AddImageObject( FinSets,
 end );
 
 ##
-AddIsEpimorphism( FinSets,
-  function ( phi )
+AddIsEpimorphism( category_of_finite_sets,
+  function ( category_of_finite_sets, phi )
     
     return Length( ImageObject( phi ) ) = Length( Range( phi ) );
     
 end );
 
 ##
-AddIsSplitEpimorphism( FinSets,
-  IsEpimorphism );
+AddIsSplitEpimorphism( category_of_finite_sets,
+  { category_of_finite_sets, phi } -> IsEpimorphism( category_of_finite_sets, phi ) );
 
 ##
-AddIsMonomorphism( FinSets,
-  function ( phi )
+AddIsMonomorphism( category_of_finite_sets,
+  function ( category_of_finite_sets, phi )
     
     return Length( ImageObject( phi ) ) = Length( Source( phi ) );
     
 end );
 
 ##
-AddIsSplitMonomorphism( FinSets,
-  function ( phi )
+AddIsSplitMonomorphism( category_of_finite_sets,
+  function ( category_of_finite_sets, phi )
     return IsInitial( Range( phi ) ) or ( not IsInitial( Source( phi ) ) and IsMonomorphism( phi ) );
 end );
 
 ##
-AddIsLiftable( FinSets,
-  function ( beta, alpha )
+AddIsLiftable( category_of_finite_sets,
+  function ( category_of_finite_sets, beta, alpha )
     
     return IsSubset( AsList( ImageObject( alpha ) ), AsList( ImageObject( beta ) ) );
     
 end );
 
 ##
-AddLift( FinSets,
-  function ( beta, alpha )
+AddLift( category_of_finite_sets,
+  function ( category_of_finite_sets, beta, alpha )
     local chi;
     
     chi := List( AsList( beta ),
-                 pair -> [ pair[1], Preimage( alpha, FinSet( [ pair[2] ] ) )[1] ] );
+                 pair -> [ pair[1], Preimage( alpha, FinSet( category_of_finite_sets, [ pair[2] ] ) )[1] ] );
     
     return MapOfFinSetsNC( Source( beta ), chi, Source( alpha ) );
     
 end );
 
 ##
-AddImageEmbedding( FinSets,
-  function ( phi )
+AddImageEmbedding( category_of_finite_sets,
+  function ( category_of_finite_sets, phi )
     local I;
     
     I := ImageObject( phi );
@@ -723,8 +755,8 @@ AddImageEmbedding( FinSets,
 end );
 
 ##
-AddCoastrictionToImage( FinSets,
-  function ( phi )
+AddCoastrictionToImage( category_of_finite_sets,
+  function ( category_of_finite_sets, phi )
     local pi;
     
     pi := MapOfFinSetsNC( Source( phi ), AsList( phi ), ImageObject( phi ) );
@@ -738,8 +770,8 @@ AddCoastrictionToImage( FinSets,
 end );
 
 ##
-AddEqualizer( FinSets,
-  function ( D )
+AddEqualizer( category_of_finite_sets,
+  function ( category_of_finite_sets, D )
     local f1, S;
     
     f1 := D[1];
@@ -753,24 +785,24 @@ AddEqualizer( FinSets,
 end );
 
 ##
-AddEmbeddingOfEqualizerWithGivenEqualizer( FinSets,
-  function ( D, E )
+AddEmbeddingOfEqualizerWithGivenEqualizer( category_of_finite_sets,
+  function ( category_of_finite_sets, D, E )
     
     return EmbeddingOfFinSets( E, Source( D[1] ) );
     
 end );
 
 ##
-AddUniversalMorphismIntoEqualizerWithGivenEqualizer( FinSets,
-  function ( D, test_object, tau, E )
+AddUniversalMorphismIntoEqualizerWithGivenEqualizer( category_of_finite_sets,
+  function ( category_of_finite_sets, D, test_object, tau, E )
     
     return MapOfFinSetsNC( Source( tau ), AsList( tau ), E );
     
 end );
 
 ##
-AddCoequalizer( FinSets,
-  function ( D )
+AddCoequalizer( category_of_finite_sets,
+  function ( category_of_finite_sets, D )
     local T, C, images, previousImages, preimages;
     
     T := Range( D[1] );
@@ -779,13 +811,13 @@ AddCoequalizer( FinSets,
     C := [ ];
     
     while not IsEmpty( T ) do
-        images := FinSetNC( [ T[1] ] );
-        previousImages := FinSetNC( [ ] );
+        images := FinSetNC( category_of_finite_sets, [ T[1] ] );
+        previousImages := FinSetNC( category_of_finite_sets, [ ] );
         while previousImages <> images do
             previousImages := images;
-            preimages := UnionOfFinSets( List( D, f_i -> Preimage( f_i, images ) ) );
+            preimages := UnionOfFinSets( category_of_finite_sets, List( D, f_i -> Preimage( f_i, images ) ) );
             if Length( preimages ) > 0 then
-                images := UnionOfFinSets( List( D, f_j -> ImageObject( f_j, preimages ) ) );
+                images := UnionOfFinSets( category_of_finite_sets, List( D, f_j -> ImageObject( f_j, preimages ) ) );
             fi;
         od;
         
@@ -793,21 +825,21 @@ AddCoequalizer( FinSets,
         T := Filtered( T, t -> not t in images );
     od;
 
-    return FinSetNC( C );
+    return FinSetNC( category_of_finite_sets, C );
     
 end );
 
 ##
-AddProjectionOntoCoequalizerWithGivenCoequalizer( FinSets,
-  function ( D, C )
+AddProjectionOntoCoequalizerWithGivenCoequalizer( category_of_finite_sets,
+  function ( category_of_finite_sets, D, C )
     
     return ProjectionOfFinSets( Range( D[1] ), C );
     
 end );
 
 ##
-AddUniversalMorphismFromCoequalizerWithGivenCoequalizer( FinSets,
-  function ( D, test_object, tau, C )
+AddUniversalMorphismFromCoequalizerWithGivenCoequalizer( category_of_finite_sets,
+  function ( category_of_finite_sets, D, test_object, tau, C )
     local G;
     
     G := List( C, x -> [ x, tau( x[1] ) ] );
@@ -819,83 +851,83 @@ end );
 ## The cartesian monoidal structure
 
 ##
-AddCartesianLeftUnitorWithGivenDirectProduct( FinSets,
-  function ( M, TM )
+AddCartesianLeftUnitorWithGivenDirectProduct( category_of_finite_sets,
+  function ( category_of_finite_sets, M, TM )
     
     return MapOfFinSetsNC( TM, List( TM, x -> [ x, x[2] ] ), M );
     
 end );
 
 ##
-AddCartesianLeftUnitorInverseWithGivenDirectProduct( FinSets,
-  function ( M, TM )
+AddCartesianLeftUnitorInverseWithGivenDirectProduct( category_of_finite_sets,
+  function ( category_of_finite_sets, M, TM )
     
     return MapOfFinSetsNC( M, List( TM, x -> [ x[2], x ] ), TM );
     
 end );
 
 ##
-AddCartesianRightUnitorWithGivenDirectProduct( FinSets,
-  function ( M, MT )
+AddCartesianRightUnitorWithGivenDirectProduct( category_of_finite_sets,
+  function ( category_of_finite_sets, M, MT )
     
     return MapOfFinSetsNC( MT, List( MT, x -> [ x, x[1] ] ), M );
     
 end );
 
 ##
-AddCartesianRightUnitorInverseWithGivenDirectProduct( FinSets,
-  function ( M, MT )
+AddCartesianRightUnitorInverseWithGivenDirectProduct( category_of_finite_sets,
+  function ( category_of_finite_sets, M, MT )
     
     return MapOfFinSetsNC( M, List( MT, x -> [ x[1], x ] ), MT );
     
 end );
 
 ##
-AddCartesianBraidingWithGivenDirectProducts( FinSets,
-  function ( MN, M, N, NM )
+AddCartesianBraidingWithGivenDirectProducts( category_of_finite_sets,
+  function ( category_of_finite_sets, MN, M, N, NM )
     
     return MapOfFinSetsNC( MN, List( MN, x -> [ x, x{[2,1]} ] ), NM );
     
 end );
 
 ##
-AddCartesianBraidingInverseWithGivenDirectProducts( FinSets,
-  function ( NM, M, N, MN )
+AddCartesianBraidingInverseWithGivenDirectProducts( category_of_finite_sets,
+  function ( category_of_finite_sets, NM, M, N, MN )
     
     return MapOfFinSetsNC( NM, List( NM, x -> [ x, x{[2,1]} ] ), MN );
     
 end );
 
 ##
-AddExponentialOnObjects( FinSets,
-  function ( M, N )
+AddExponentialOnObjects( category_of_finite_sets,
+  function ( category_of_finite_sets, M, N )
     local m;
     
     m := Length( M );
     
-    return FinSetNC( List( Tuples( AsList( N ), m ), L -> MapOfFinSetsNC( M, List( [ 1 .. m ], i -> [ M[i], L[i] ] ), N ) ) );
+    return FinSetNC( category_of_finite_sets, List( Tuples( AsList( N ), m ), L -> MapOfFinSetsNC( M, List( [ 1 .. m ], i -> [ M[i], L[i] ] ), N ) ) );
     
 end );
 
 ##
-AddExponentialOnMorphismsWithGivenExponentials( FinSets,
-  function ( S, alpha, beta, T )
+AddExponentialOnMorphismsWithGivenExponentials( category_of_finite_sets,
+  function ( category_of_finite_sets, S, alpha, beta, T )
     
     return MapOfFinSetsNC( S, List( S, f -> [ f, PreCompose( [ alpha, f, beta ] ) ] ), T );
     
 end );
 
 ##
-AddCartesianEvaluationMorphismWithGivenSource( FinSets,
-  function ( M, N, HM_NxM )
+AddCartesianEvaluationMorphismWithGivenSource( category_of_finite_sets,
+  function ( category_of_finite_sets, M, N, HM_NxM )
     
     return MapOfFinSetsNC( HM_NxM, List( HM_NxM, fx -> [ fx, fx[1](fx[2]) ] ), N );
     
 end );
 
 ##
-AddCartesianCoevaluationMorphismWithGivenRange( FinSets,
-  function ( M, N, HN_MxN )
+AddCartesianCoevaluationMorphismWithGivenRange( category_of_finite_sets,
+  function ( category_of_finite_sets, M, N, HN_MxN )
     local MN;
     
     MN := DirectProduct( M, N );
@@ -905,8 +937,8 @@ AddCartesianCoevaluationMorphismWithGivenRange( FinSets,
 end );
 
 ##
-AddDirectProductToExponentialAdjunctionMap( FinSets,
-  function ( M, N, f )
+AddDirectProductToExponentialAdjunctionMap( category_of_finite_sets,
+  function ( category_of_finite_sets, M, N, f )
     local L;
     
     L := Range( f );
@@ -916,8 +948,8 @@ AddDirectProductToExponentialAdjunctionMap( FinSets,
 end );
 
 ##
-AddExponentialToDirectProductAdjunctionMap( FinSets,
-  function ( N, L, g )
+AddExponentialToDirectProductAdjunctionMap( category_of_finite_sets,
+  function ( category_of_finite_sets, N, L, g )
     local M, MN;
     
     M := Source( g );
@@ -929,24 +961,24 @@ AddExponentialToDirectProductAdjunctionMap( FinSets,
 end );
 
 ##
-AddCartesianPreComposeMorphismWithGivenObjects( FinSets,
-  function ( HM_NxH_N_L, M, N, L, HM_L )
+AddCartesianPreComposeMorphismWithGivenObjects( category_of_finite_sets,
+  function ( category_of_finite_sets, HM_NxH_N_L, M, N, L, HM_L )
     
     return MapOfFinSetsNC( HM_NxH_N_L, List( HM_NxH_N_L, fg -> [ fg, PreCompose( fg[1], fg[2] ) ] ), HM_L );
     
 end );
 
 ##
-AddCartesianPostComposeMorphismWithGivenObjects( FinSets,
-  function ( HM_NxH_N_L, M, N, L, HM_L )
+AddCartesianPostComposeMorphismWithGivenObjects( category_of_finite_sets,
+  function ( category_of_finite_sets, HM_NxH_N_L, M, N, L, HM_L )
     
     return MapOfFinSetsNC( HM_NxH_N_L, List( HM_NxH_N_L, fg -> [ fg, PostCompose( fg[1], fg[2] ) ] ), HM_L );
     
 end );
 
 ##
-AddDirectProductExponentialCompatibilityMorphismWithGivenObjects( FinSets,
-  function ( S1, T1, S2, T2, L )
+AddDirectProductExponentialCompatibilityMorphismWithGivenObjects( category_of_finite_sets,
+  function ( category_of_finite_sets, S1, T1, S2, T2, L )
     local S1S2, T1T2;
     
     S1S2 := DirectProduct( S1, S2 );
@@ -957,8 +989,8 @@ AddDirectProductExponentialCompatibilityMorphismWithGivenObjects( FinSets,
 end );
 
 ##
-AddCartesianLambdaIntroduction( FinSets,
-  function ( map )
+AddCartesianLambdaIntroduction( category_of_finite_sets,
+  function ( category_of_finite_sets, map )
     local I;
     
     I := TerminalObject( CapCategory( map ) );
@@ -971,24 +1003,24 @@ AddCartesianLambdaIntroduction( FinSets,
 end );
 
 ##
-AddSubobjectClassifier( FinSets,
-  function ( arg )
+AddSubobjectClassifier( category_of_finite_sets,
+  function ( category_of_finite_sets )
       
-      return FinSetNC( [ "true" , "false" ] );
+      return FinSetNC( category_of_finite_sets, [ "true", "false" ] );
       
 end );
 
 ##
-AddTruthMorphismIntoSubobjectClassifierWithGivenObjects( FinSets,
-  function ( terminal, subobject )
+AddTruthMorphismIntoSubobjectClassifierWithGivenObjects( category_of_finite_sets,
+  function ( category_of_finite_sets, terminal, subobject )
       
       return MapOfFinSets( terminal, [ [ "*", "true" ] ], subobject );
       
 end );
 
 ##
-AddClassifyingMorphismOfSubobjectWithGivenSubobjectClassifier( FinSets,
-  function ( monomorphism, omega )
+AddClassifyingMorphismOfSubobjectWithGivenSubobjectClassifier( category_of_finite_sets,
+  function ( category_of_finite_sets, monomorphism, omega )
       local range, image, r, x;
 
       r := [ ];
@@ -1005,8 +1037,7 @@ AddClassifyingMorphismOfSubobjectWithGivenSubobjectClassifier( FinSets,
       return MapOfFinSets( range, r, omega );
 end );
 
-##
-Finalize( FinSets );
+end );
 
 ##
 InstallMethod( ViewObj,
@@ -1014,7 +1045,7 @@ InstallMethod( ViewObj,
         [ IsFiniteSet ],
         
   function ( S )
-    Print( "<An object in FinSets>" );
+    Print( "<An object in ", Name( CapCategory( S ) ), ">" );
 end );
 
 ##
@@ -1033,4 +1064,25 @@ InstallMethod( Display,
         
   function ( phi )
     Print( [ AsList( Source( phi ) ), AsList( phi ), AsList( Range( phi ) ) ], "\n" );
+end );
+
+##
+BindGlobal( "FinSets", CategoryOfFinSets( ) );
+
+##
+InstallMethod( FinSetNC,
+        "for a list",
+        [ IsList ],
+        
+  function ( L )
+    return FinSetNC( FinSets, L );
+end );
+
+##
+InstallOtherMethod( FinSet,
+        "for a list",
+        [ IsList ],
+        
+  function ( L )
+    return FinSet( FinSets, L );
 end );
