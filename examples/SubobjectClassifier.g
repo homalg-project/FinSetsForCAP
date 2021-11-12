@@ -16,6 +16,12 @@ Display( TruthMorphismOfFalse( FinSets ) );
 Display( CartesianSquareOfSubobjectClassifier( FinSets ) );
 #! [ [ "true", "true" ], [ "true", "false" ],
 #!   [ "false", "true" ],  [ "false", "false" ] ]
+Display( TruthMorphismOfAnd( FinSets ) );
+#! [ [ [ "true", "true" ], [ "true", "false" ],
+#!     [ "false", "true" ], [ "false", "false" ] ],
+#!   [ [ [ "false", "false" ], "false" ], [ [ "false", "true" ], "false" ],
+#!     [ [ "true", "false" ], "false" ], [ [ "true", "true" ], "true" ] ],
+#!   [ "true", "false" ] ]
 m := MapOfFinSets( A, List( AsList( A ), x -> [ x, x ] ), S );
 #! <A morphism in FinSets>
 Display( ClassifyingMorphismOfSubobject( m ) );
