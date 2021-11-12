@@ -11,6 +11,8 @@ Display( SubobjectClassifier( FinSets ) );
 #! [ "true", "false" ]
 Display( TruthMorphismOfTrue( FinSets ) );
 #! [ [ "*" ], [ [ "*", "true" ] ], [ "true", "false" ] ]
+Display( TruthMorphismOfFalse( FinSets ) );
+#! [ [ "*" ], [ [ "*", "false" ] ], [ "true", "false" ] ]
 m := MapOfFinSets( A, List( AsList( A ), x -> [ x, x ] ), S );
 #! <A morphism in FinSets>
 Display( ClassifyingMorphismOfSubobject( m ) );
