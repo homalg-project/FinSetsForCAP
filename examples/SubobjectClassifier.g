@@ -22,10 +22,15 @@ Display( TruthMorphismOfAnd( FinSets ) );
 #!   [ [ [ "false", "false" ], "false" ], [ [ "false", "true" ], "false" ],
 #!     [ [ "true", "false" ], "false" ], [ [ "true", "true" ], "true" ] ],
 #!   [ "true", "false" ] ]
+Display( TruthMorphismOfOr( FinSets ) );
+#! [ [ [ "true", "true" ], [ "true", "false" ],
+#!     [ "false", "true" ], [ "false", "false" ] ],
+#!   [ [ [ "false", "false" ], "false" ], [ [ "false", "true" ], "true" ],
+#!    [ [ "true", "false" ], "true" ], [ [ "true", "true" ], "true" ] ],
+#!   [ "true", "false" ] ]
 m := MapOfFinSets( A, List( AsList( A ), x -> [ x, x ] ), S );
 #! <A morphism in FinSets>
 Display( ClassifyingMorphismOfSubobject( m ) );
 #! [ [ 1, 2, 3, 4, 5 ], [ [ 1, "true" ], [ 2, "false" ], [ 3, "false" ],
 #! [ 4, "false" ], [ 5, "true" ] ], [ "true", "false" ] ]
-
 #! @EndExample
