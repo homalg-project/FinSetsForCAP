@@ -10,9 +10,9 @@ SetPackageInfo( rec(
 
 PackageName := "FinSetsForCAP",
 Subtitle := "The elementary topos of (skeletal) finite sets",
-Version := "2020.11-03",
+Version := "2020.11-04",
 
-Date := "11/11/2021",
+Date := "12/11/2021",
 License := "GPL-2.0-or-later",
 
 Persons := [
@@ -100,7 +100,7 @@ Dependencies := rec(
   NeededOtherPackages := [
                    [ "GAPDoc", ">= 1.5" ],
                    [ "CAP", ">= 2021.05-02" ],
-                   [ "Toposes", ">= 2021.03-01" ],
+                   [ "Toposes", ">= 2021.11-03" ],
                    ],
   SuggestedOtherPackages := [ ],
   ExternalConditions := [ ],
