@@ -1003,14 +1003,6 @@ AddSubobjectClassifier( category_of_finite_sets,
 end );
 
 ##
-AddTruthMorphismOfTrueWithGivenObjects( category_of_finite_sets,
-  function ( category_of_finite_sets, terminal, subobject )
-      
-      return MapOfFinSets( terminal, [ [ "*", "true" ] ], subobject );
-      
-end );
-
-##
 AddClassifyingMorphismOfSubobjectWithGivenSubobjectClassifier( category_of_finite_sets,
   function ( category_of_finite_sets, monomorphism, omega )
       local range, image, r, x;
