@@ -2,6 +2,10 @@
 
 LoadPackage( "FinSetsForCAP" );
 
+# Below we see that the internal logic
+# of the category FinSets is classical logic,
+# i.e., the topos FinSets is Boolean.
+
 #! @Example
 S := FinSet( [ 1, 2, 3, 4, 5 ] );
 #! <An object in FinSets>
@@ -27,6 +31,12 @@ Display( TruthMorphismOfOr( FinSets ) );
 #!     [ "false", "true" ], [ "false", "false" ] ],
 #!   [ [ [ "false", "false" ], "false" ], [ [ "false", "true" ], "true" ],
 #!    [ [ "true", "false" ], "true" ], [ [ "true", "true" ], "true" ] ],
+#!   [ "true", "false" ] ]
+Display( TruthMorphismOfImplies( FinSets ) );
+#! [ [ [ "true", "true" ], [ "true", "false" ],
+#!     [ "false", "true" ], [ "false", "false" ] ],
+#!   [ [ [ "false", "false" ], "true" ], [ [ "false", "true" ], "true" ],
+#!     [ [ "true", "false" ], "false" ], [ [ "true", "true" ], "true" ] ],
 #!   [ "true", "false" ] ]
 m := MapOfFinSets( A, List( AsList( A ), x -> [ x, x ] ), S );
 #! <A morphism in FinSets>
