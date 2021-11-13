@@ -777,6 +777,36 @@ AddCartesianEvaluationMorphismWithGivenSource( SkeletalFinSets,
     
 end );
 
+##
+AddSubobjectClassifier( SkeletalFinSets,
+  function ( cat )
+      
+      return FinSet( cat, 2 );
+      
+end );
+
+##
+AddClassifyingMorphismOfSubobjectWithGivenSubobjectClassifier( SkeletalFinSets,
+  function ( cat, monomorphism, Omega )
+    local range, images;
+    
+    range := Range( monomorphism );
+    
+    images := List( range,
+                    function ( x )
+                      
+                      if x in AsList( monomorphism ) then
+                          return 1;
+                      fi;
+                      
+                      return 2;
+                      
+                  end );
+      
+      return MapOfFinSets( range, images, Omega );
+      
+end );
+
 end );
 
 ##
