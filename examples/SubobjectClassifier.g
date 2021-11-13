@@ -7,10 +7,6 @@ LoadPackage( "FinSetsForCAP" );
 # i.e., the topos FinSets is Boolean.
 
 #! @Example
-S := FinSet( [ 1, 2, 3, 4, 5 ] );
-#! <An object in FinSets>
-A := FinSet( [ 1, 5 ] );
-#! <An object in FinSets>
 Display( SubobjectClassifier( FinSets ) );
 #! [ "true", "false" ]
 Display( TruthMorphismOfTrue( FinSets ) );
@@ -42,8 +38,12 @@ Display( TruthMorphismOfImplies( FinSets ) );
 #!   [ [ [ "false", "false" ], "true" ], [ [ "false", "true" ], "true" ],
 #!     [ [ "true", "false" ], "false" ], [ [ "true", "true" ], "true" ] ],
 #!   [ "true", "false" ] ]
-m := MapOfFinSets( A, List( AsList( A ), x -> [ x, x ] ), S );
-#! <A morphism in FinSets>
+S := FinSet( [ 1, 2, 3, 4, 5 ] );
+#! <An object in FinSets>
+A := FinSet( [ 1, 5 ] );
+#! <An object in FinSets>
+m := EmbeddingOfFinSets( A, S );
+#! <A monomorphism in FinSets>
 Display( ClassifyingMorphismOfSubobject( m ) );
 #! [ [ 1, 2, 3, 4, 5 ], [ [ 1, "true" ], [ 2, "false" ], [ 3, "false" ],
 #! [ 4, "false" ], [ 5, "true" ] ], [ "true", "false" ] ]
