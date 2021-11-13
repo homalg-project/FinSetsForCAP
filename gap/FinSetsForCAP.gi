@@ -1004,21 +1004,24 @@ end );
 
 ##
 AddClassifyingMorphismOfSubobjectWithGivenSubobjectClassifier( category_of_finite_sets,
-  function ( category_of_finite_sets, monomorphism, omega )
-      local range, image, r, x;
-
-      r := [ ];
-      range := Range( monomorphism );
-
-      for x in range do
-          if x in ImageObject( monomorphism ) then
-              Add( r, [ x, "true" ] );
-          else
-              Add( r, [ x, "false" ] );
-          fi;
-      od;
-            
-      return MapOfFinSets( range, r, omega );
+  function ( category_of_finite_sets, monomorphism, Omega )
+    local range, images;
+    
+    range := Range( monomorphism );
+    
+    images := List( range,
+                    function ( x )
+                      
+                      if x in ImageObject( monomorphism ) then
+                          return [ x, "true" ];
+                      fi;
+                      
+                      return [ x, "false" ];
+                      
+                  end );
+      
+      return MapOfFinSets( range, images, Omega );
+      
 end );
 
 end );
