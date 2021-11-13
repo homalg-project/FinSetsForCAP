@@ -17,6 +17,10 @@ Display( TruthMorphismOfTrue( FinSets ) );
 #! [ [ "*" ], [ [ "*", "true" ] ], [ "true", "false" ] ]
 Display( TruthMorphismOfFalse( FinSets ) );
 #! [ [ "*" ], [ [ "*", "false" ] ], [ "true", "false" ] ]
+Display( TruthMorphismOfNot( FinSets ) );
+#! [ [ "true", "false" ],
+#!   [ [ "false", "true" ], [ "true", "false" ] ],
+#!   [ "true", "false" ] ]
 Display( CartesianSquareOfSubobjectClassifier( FinSets ) );
 #! [ [ "true", "true" ], [ "true", "false" ],
 #!   [ "false", "true" ],  [ "false", "false" ] ]
