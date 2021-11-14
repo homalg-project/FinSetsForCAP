@@ -970,13 +970,13 @@ end );
 
 ##
 AddDirectProductExponentialCompatibilityMorphismWithGivenObjects( category_of_finite_sets,
-  function ( category_of_finite_sets, S1, T1, S2, T2, L )
+  function ( category_of_finite_sets, source, L, range )
     local S1S2, T1T2;
     
-    S1S2 := DirectProduct( S1, S2 );
-    T1T2 := DirectProduct( T1, T2 );
+    S1S2 := DirectProduct( L{[ 1, 3 ]} );
+    T1T2 := DirectProduct( L{[ 2, 4 ]} );
     
-    return MapOfFinSetsNC( L[1], List( L[1], fg -> [ fg, DirectProductOnMorphismsWithGivenDirectProducts( S1S2, fg[1], fg[2], T1T2 ) ] ), L[2] );
+    return MapOfFinSetsNC( source, List( source, fg -> [ fg, DirectProductOnMorphismsWithGivenDirectProducts( S1S2, fg[1], fg[2], T1T2 ) ] ), range );
     
 end );
 
