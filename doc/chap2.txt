@@ -873,3 +873,33 @@
     [4X[25Xgap>[125X [27XCartesianEvaluationMorphism( M, N );;[127X[104X
   [4X[32X[104X
   
+  
+  [1X2.5-18 [33X[0;0YSkeletal Subobject Classifier[133X[101X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XDisplay( SubobjectClassifier( SkeletalFinSets ) );[127X[104X
+    [4X[28X2[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( TruthMorphismOfTrue( SkeletalFinSets ) );[127X[104X
+    [4X[28X[ 1, [ 1 ], 2 ][128X[104X
+    [4X[25Xgap>[125X [27XDisplay( TruthMorphismOfFalse( SkeletalFinSets ) );[127X[104X
+    [4X[28X[ 1, [ 2 ], 2 ][128X[104X
+    [4X[25Xgap>[125X [27XDisplay( TruthMorphismOfNot( SkeletalFinSets ) );[127X[104X
+    [4X[28X[ 2, [ 2, 1 ], 2 ][128X[104X
+    [4X[25Xgap>[125X [27XDisplay( CartesianSquareOfSubobjectClassifier( SkeletalFinSets ) );[127X[104X
+    [4X[28X4[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( TruthMorphismOfAnd( SkeletalFinSets ) );[127X[104X
+    [4X[28X[ 4, [ 1, 2, 2, 2 ], 2 ][128X[104X
+    [4X[25Xgap>[125X [27XDisplay( TruthMorphismOfOr( SkeletalFinSets ) );[127X[104X
+    [4X[28X[ 4, [ 1, 1, 1, 2 ], 2 ][128X[104X
+    [4X[25Xgap>[125X [27XDisplay( TruthMorphismOfImplies( SkeletalFinSets ) );[127X[104X
+    [4X[28X[ 4, [ 1, 2, 1, 1 ], 2 ][128X[104X
+    [4X[25Xgap>[125X [27XS := FinSet( 5 );[127X[104X
+    [4X[28X<An object in SkeletalFinSets>[128X[104X
+    [4X[25Xgap>[125X [27XA := FinSet( 2 );[127X[104X
+    [4X[28X<An object in SkeletalFinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xm := MapOfFinSets( A, [ 1, 5 ], S );[127X[104X
+    [4X[28X<A morphism in SkeletalFinSets>[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( ClassifyingMorphismOfSubobject( m ) );[127X[104X
+    [4X[28X[ 5, [ 1, 2, 2, 2, 1 ], 2 ][128X[104X
+  [4X[32X[104X
+  

@@ -93,6 +93,8 @@
 </span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X874FC170817287FF">2.5-17 <span class="Heading">Skeletal topos properties</span></a>
 </span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X855F57B6818322EB">2.5-18 <span class="Heading">Skeletal Subobject Classifier</span></a>
+</span>
 </div></div>
 </div>
 
@@ -1031,6 +1033,38 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ExponentialOnObjects( M, N );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ExponentialOnMorphisms( f, g );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CartesianEvaluationMorphism( M, N );;</span>
+</pre></div>
+
+<p><a id="X855F57B6818322EB" name="X855F57B6818322EB"></a></p>
+
+<h5>2.5-18 <span class="Heading">Skeletal Subobject Classifier</span></h5>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( SubobjectClassifier( SkeletalFinSets ) );</span>
+2
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfTrue( SkeletalFinSets ) );</span>
+[ 1, [ 1 ], 2 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfFalse( SkeletalFinSets ) );</span>
+[ 1, [ 2 ], 2 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfNot( SkeletalFinSets ) );</span>
+[ 2, [ 2, 1 ], 2 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( CartesianSquareOfSubobjectClassifier( SkeletalFinSets ) );</span>
+4
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfAnd( SkeletalFinSets ) );</span>
+[ 4, [ 1, 2, 2, 2 ], 2 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfOr( SkeletalFinSets ) );</span>
+[ 4, [ 1, 1, 1, 2 ], 2 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfImplies( SkeletalFinSets ) );</span>
+[ 4, [ 1, 2, 1, 1 ], 2 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S := FinSet( 5 );</span>
+&lt;An object in SkeletalFinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">A := FinSet( 2 );</span>
+&lt;An object in SkeletalFinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := MapOfFinSets( A, [ 1, 5 ], S );</span>
+&lt;A morphism in SkeletalFinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( ClassifyingMorphismOfSubobject( m ) );</span>
+[ 5, [ 1, 2, 2, 2, 1 ], 2 ]
 </pre></div>
 
 
