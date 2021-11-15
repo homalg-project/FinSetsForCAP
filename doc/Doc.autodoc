@@ -119,3 +119,6 @@
 
 @Subsection Skeletal topos properties
 @InsertChunk SkeletalTopos
+
+@Subsection Skeletal Subobject Classifier
+@InsertChunk SkeletalSubobjectClassifier
