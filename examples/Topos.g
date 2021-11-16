@@ -45,6 +45,6 @@ P := FinSet( [ "*" ] );;
 Q := FinSet( [ "§", "&" ] );;
 CartesianPreComposeMorphism( M, N, P );;
 CartesianPostComposeMorphism( M, N, P );;
-DirectProductExponentialCompatibilityMorphism( M, N, P, Q );;
+DirectProductExponentialCompatibilityMorphism( [ M, N, P, Q  ] );;
 
 #! @EndExample
