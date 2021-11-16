@@ -1059,7 +1059,7 @@
     [4X[25Xgap>[125X [27XQ := FinSet( [ "§", "&" ] );;[127X[104X
     [4X[25Xgap>[125X [27XCartesianPreComposeMorphism( M, N, P );;[127X[104X
     [4X[25Xgap>[125X [27XCartesianPostComposeMorphism( M, N, P );;[127X[104X
-    [4X[25Xgap>[125X [27XDirectProductExponentialCompatibilityMorphism( M, N, P, Q );;[127X[104X
+    [4X[25Xgap>[125X [27XDirectProductExponentialCompatibilityMorphism( [ M, N, P, Q  ] );;[127X[104X
   [4X[32X[104X
   
   
