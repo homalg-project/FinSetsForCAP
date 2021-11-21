@@ -25,6 +25,9 @@ InstallMethod( CategoryOfFinSets,
     
     INSTALL_FUNCTIONS_FOR_FIN_SETS( FinSets );
     
+    AddTheoremFileToCategory( FinSets,
+            Filename( DirectoriesPackageLibrary( "Toposes", "LogicForToposes" ), "PropositionsForToposes.tex" ) );
+    
     Finalize( FinSets );
     
     return FinSets;
