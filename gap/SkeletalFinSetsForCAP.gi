@@ -148,6 +148,39 @@ end );
 InstallGlobalFunction( INSTALL_FUNCTIONS_FOR_SKELETAL_FIN_SETS,
     function ( SkeletalFinSets )
         local ExplicitCoequalizer;
+
+##
+AddObjectConstructor( SkeletalFinSets,
+  function ( SkeletalFinSets, n )
+    
+    return FinSet( SkeletalFinSets, n );
+    
+end );
+
+##
+AddObjectDatum( SkeletalFinSets,
+  function ( SkeletalFinSets, n )
+    
+    return Length( n );
+    
+end );
+
+##
+AddMorphismConstructor( SkeletalFinSets,
+  function ( SkeletalFinSets, source, map, range )
+    
+    return MapOfFinSets( source, map, range );
+    
+end );
+
+##
+AddMorphismDatum( SkeletalFinSets,
+  function ( SkeletalFinSets, map )
+    
+    return AsList( map );
+    
+end );
+
 ##
 AddIsWellDefinedForObjects( SkeletalFinSets,
    { cat, n } -> Length( n ) >= 0 );

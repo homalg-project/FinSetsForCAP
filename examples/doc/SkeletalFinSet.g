@@ -7,6 +7,15 @@ m := FinSet( 7 );
 #! <An object in SkeletalFinSets>
 IsWellDefined( m );
 #! true
+L := ObjectDatum( m );
+#! 7
+Display( m );
+#! 7
+mm := ObjectConstructor( SkeletalFinSets, 7 );
+#! <An object in SkeletalFinSets>
+m = mm;
+#! true
+
 n := FinSet( -2 );
 #! <An object in SkeletalFinSets>
 IsWellDefined( n );
