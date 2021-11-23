@@ -405,8 +405,8 @@ InstallMethod( ListOp,
     
 end );
 
+##
 InstallGlobalFunction( INSTALL_FUNCTIONS_FOR_FIN_SETS,
-
     function ( category_of_finite_sets )
 
 ##

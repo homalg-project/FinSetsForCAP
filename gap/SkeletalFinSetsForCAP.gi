@@ -144,8 +144,8 @@ InstallMethod( CallFuncList,
     
 end );
 
+##
 InstallGlobalFunction( INSTALL_FUNCTIONS_FOR_SKELETAL_FIN_SETS,
-
     function ( SkeletalFinSets )
         local ExplicitCoequalizer;
 ##
