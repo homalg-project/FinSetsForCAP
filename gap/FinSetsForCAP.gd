@@ -218,6 +218,13 @@ DeclareOperation( "Preimage",
         [ IsFiniteSetMap, IsFiniteSet ] );
 
 #! @Description
+#!  Compute an element of the preimage of the element <A>y</A> under the morphism <A>f</A>.
+#! @Arguments f, y
+#! @Returns a GAP object
+DeclareOperation( "ElementOfPreimage",
+        [ IsFiniteSetMap, IsObject ] );
+
+#! @Description
 #!  Compute the image of <A>S_</A> under the morphism <A>f</A>.
 #! @Arguments f, S_
 #! @Returns a &CAP; object
