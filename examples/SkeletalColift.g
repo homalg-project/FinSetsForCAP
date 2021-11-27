@@ -1,4 +1,4 @@
-#! @Chunk SkeletalLift
+#! @Chunk SkeletalColift
 
 LoadPackage( "FinSetsForCAP" );
 
