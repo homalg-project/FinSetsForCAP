@@ -1126,3 +1126,56 @@
     [4X[28X[ 4, "false" ], [ 5, "true" ] ], [ "true", "false" ] ][128X[104X
   [4X[32X[104X
   
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XM := FinSet( [ 1 .. 7 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XN := FinSet( [ 2, 3, 5 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XiotaN := EmbeddingOfFinSets( N, M );[127X[104X
+    [4X[28X<A monomorphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XNC := PseudoComplementSubobject( iotaN );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( NC );[127X[104X
+    [4X[28X[ [ 1, "*" ], [ 4, "*" ], [ 6, "*" ], [ 7, "*" ] ][128X[104X
+    [4X[25Xgap>[125X [27XtauN := EmbeddingOfPseudoComplementSubobject( iotaN );[127X[104X
+    [4X[28X<A monomorphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XNc := ImageObject( tauN );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( Nc );[127X[104X
+    [4X[28X[ 1, 4, 6, 7 ][128X[104X
+    [4X[25Xgap>[125X [27XL := FinSet( [ 2, 4, 5, 7 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XiotaL := EmbeddingOfFinSets( L, M );[127X[104X
+    [4X[28X<A monomorphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XNIL := IntersectionSubobject( iotaN, iotaL );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( NIL );[127X[104X
+    [4X[28X[ [ 2, 2 ], [ 5, 5 ] ][128X[104X
+    [4X[25Xgap>[125X [27XiotaNiL := EmbeddingOfIntersectionSubobject( iotaN, iotaL );[127X[104X
+    [4X[28X<A monomorphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XNiL := ImageObject( iotaNiL );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( NiL );[127X[104X
+    [4X[28X[ 2, 5 ][128X[104X
+    [4X[25Xgap>[125X [27XNUL := UnionSubobject( iotaN, iotaL );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( NUL );[127X[104X
+    [4X[28X[ 2, 3, 5, 4, 7 ][128X[104X
+    [4X[25Xgap>[125X [27XiotaNuL := EmbeddingOfUnionSubobject( iotaN, iotaL );[127X[104X
+    [4X[28X<A monomorphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XNuL := ImageObject( iotaNuL );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( NuL );[127X[104X
+    [4X[28X[ 2, 3, 5, 4, 7 ][128X[104X
+    [4X[25Xgap>[125X [27XNPL := RelativePseudoComplementSuboject( iotaN, iotaL );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( NPL );[127X[104X
+    [4X[28X[ [ 1, "*" ], [ 2, "*" ], [ 4, "*" ], [ 5, "*" ], [ 6, "*" ], [ 7, "*" ] ][128X[104X
+    [4X[25Xgap>[125X [27XiotaNpL := EmbeddingOfRelativePseudoComplementSuboject( iotaN, iotaL );[127X[104X
+    [4X[28X<A monomorphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XNpL := ImageObject( iotaNpL );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( NpL );[127X[104X
+    [4X[28X[ 1, 2, 4, 5, 6, 7 ][128X[104X
+  [4X[32X[104X
+  

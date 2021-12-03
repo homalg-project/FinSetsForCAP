@@ -1087,6 +1087,52 @@ true
 </pre></div>
 
 
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSet( 7 );</span>
+&lt;An object in SkeletalFinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">N := FinSet( 3 );</span>
+&lt;An object in SkeletalFinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iotaN := MapOfFinSets( N, [ 2, 3, 5 ], M );</span>
+&lt;A morphism in SkeletalFinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NC := PseudoComplementSubobject( iotaN );</span>
+&lt;An object in SkeletalFinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( NC );</span>
+4
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">tauN := EmbeddingOfPseudoComplementSubobject( iotaN );</span>
+&lt;A monomorphism in SkeletalFinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( tauN );</span>
+[ 4, [ 1, 4, 6, 7 ], 7 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := FinSet( 4 );</span>
+&lt;An object in SkeletalFinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iotaL := MapOfFinSets( L, [ 2, 4, 5, 7 ], M );</span>
+&lt;A morphism in SkeletalFinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NIL := IntersectionSubobject( iotaN, iotaL );</span>
+&lt;An object in SkeletalFinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( NIL );</span>
+2
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iotaNiL := EmbeddingOfIntersectionSubobject( iotaN, iotaL );</span>
+&lt;A morphism in SkeletalFinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( iotaNiL );</span>
+[ 2, [ 2, 5 ], 7 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NUL := UnionSubobject( iotaN, iotaL );</span>
+&lt;An object in SkeletalFinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( NUL );</span>
+5
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iotaNuL := EmbeddingOfUnionSubobject( iotaN, iotaL );</span>
+&lt;A monomorphism in SkeletalFinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( iotaNuL );</span>
+[ 5, [ 2, 3, 4, 5, 7 ], 7 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NPL := RelativePseudoComplementSuboject( iotaN, iotaL );</span>
+&lt;An object in SkeletalFinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( NPL );</span>
+6
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iotaNpL := EmbeddingOfRelativePseudoComplementSuboject( iotaN, iotaL );</span>
+&lt;A monomorphism in SkeletalFinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( iotaNpL );</span>
+[ 6, [ 1, 2, 4, 5, 6, 7 ], 7 ]
+</pre></div>
+
+
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap1.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chapInd.html">[Next Chapter]</a>&nbsp;  </div>
 
 
