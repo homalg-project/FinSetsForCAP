@@ -140,6 +140,16 @@
     [4X[28X<An object in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XS = Q;[127X[104X
     [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XS := ObjectConstructor( FinSets, [ 1, 3, 2 ] );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( S );[127X[104X
+    [4X[28X[ 1, 3, 2 ][128X[104X
+    [4X[25Xgap>[125X [27XL := ObjectDatum( S );[127X[104X
+    [4X[28X[ 1, 3, 2 ][128X[104X
+    [4X[25Xgap>[125X [27XQ := ObjectConstructor( FinSets, L );[127X[104X
+    [4X[28X<An object in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XS = Q;[127X[104X
+    [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XFinSetNC( [ 1, 2 ] ) = FinSetNC( [ 2, 1 ] );[127X[104X
     [4X[28Xfalse[128X[104X
   [4X[32X[104X
@@ -162,6 +172,14 @@
     [4X[25Xgap>[125X [27Xphi := MapOfFinSets( S, G, T );[127X[104X
     [4X[28X<A morphism in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XIsWellDefined( phi );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XAsList( phi );[127X[104X
+    [4X[28X[ [ 1, "b" ], [ 2, "a" ], [ 3, "b" ] ][128X[104X
+    [4X[25Xgap>[125X [27Xphi2 := MorphismConstructor( S, G, T );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XMorphismDatum( phi2 );[127X[104X
+    [4X[28X[ [ 1, "b" ], [ 2, "a" ], [ 3, "b" ] ][128X[104X
+    [4X[25Xgap>[125X [27Xphi = phi2;[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27Xphi( 1 );[127X[104X
     [4X[28X"b"[128X[104X

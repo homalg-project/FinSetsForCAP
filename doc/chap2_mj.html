@@ -188,6 +188,14 @@
 &lt;An object in SkeletalFinSets&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( m );</span>
 true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := ObjectDatum( m );</span>
+7
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( m );</span>
+7
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">mm := ObjectConstructor( SkeletalFinSets, 7 );</span>
+&lt;An object in SkeletalFinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m = mm;</span>
+true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet( -2 );</span>
 &lt;An object in SkeletalFinSets&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( n );</span>
@@ -228,8 +236,22 @@ false
 &lt;An object in SkeletalFinSets&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">t := FinSet( 7 );</span>
 &lt;An object in SkeletalFinSets&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( s, [7, 5, 5] ,t );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( s, [7, 5, 5], t );</span>
 &lt;A morphism in SkeletalFinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsList( phi );</span>
+[ 7, 5, 5 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( phi );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( phi );</span>
+[ 3, [ 7, 5, 5 ], 7 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s := ObjectConstructor( SkeletalFinSets, 3 );</span>
+&lt;An object in SkeletalFinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">t := ObjectConstructor( SkeletalFinSets, 7 );</span>
+&lt;An object in SkeletalFinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MorphismConstructor( s, [7, 5, 5], t );</span>
+&lt;A morphism in SkeletalFinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MorphismDatum( phi );</span>
+[ 7, 5, 5 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( phi );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( phi );</span>
