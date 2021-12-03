@@ -360,6 +360,7 @@ AddIsColiftable( SkeletalFinSets,
     return ForAll( Set( f ), i -> Length( Set( g{Positions( f, i )} ) ) = 1 );
     
 end );
+
 ##
 AddColift( SkeletalFinSets,
   function ( cat, f, g )
