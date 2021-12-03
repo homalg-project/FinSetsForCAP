@@ -405,9 +405,41 @@ InstallMethod( ListOp,
     
 end );
 
+##
 InstallGlobalFunction( INSTALL_FUNCTIONS_FOR_FIN_SETS,
-
     function ( category_of_finite_sets )
+
+##
+AddObjectConstructor( category_of_finite_sets,
+  function ( category_of_finite_sets, set )
+    
+    return FinSetNC( category_of_finite_sets, set );
+    
+end );
+
+##
+AddObjectDatum( category_of_finite_sets,
+  function ( category_of_finite_sets, set )
+    
+    return AsList( set );
+    
+end );
+
+##
+AddMorphismConstructor( category_of_finite_sets,
+  function ( category_of_finite_sets, source, map, range )
+    
+    return MapOfFinSets( source, map, range );
+    
+end );
+
+##
+AddMorphismDatum( category_of_finite_sets,
+  function ( category_of_finite_sets, map )
+    
+    return AsList( map );
+    
+end );
 
 ##
 AddIsWellDefinedForObjects( category_of_finite_sets,
