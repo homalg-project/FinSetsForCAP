@@ -57,6 +57,7 @@
 
 @Subsection Subobject Classifier
 @InsertChunk SubobjectClassifier
+@InsertChunk HeytingAlgebraOfSubobjects
 
 @Chapter The category of skeletal finite sets
 
@@ -122,3 +123,4 @@
 
 @Subsection Skeletal Subobject Classifier
 @InsertChunk SkeletalSubobjectClassifier
+@InsertChunk SkeletalHeytingAlgebraOfSubobjects
