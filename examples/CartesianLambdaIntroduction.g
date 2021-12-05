@@ -23,4 +23,8 @@ Length( Range( lf ) );
 #! 8
 lf( T[1] ) = f;
 #! true
+elf := CartesianLambdaElimination( S, R, lf );
+#! <A morphism in FinSets>
+elf = f;
+#! true
 #! @EndExample
