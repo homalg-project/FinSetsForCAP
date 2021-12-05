@@ -46,7 +46,7 @@
 @Subsection Pushout
 @InsertChunk Pushout
 
-@Subsection Cartesian lambda introduction
+@Subsection Cartesian Lambda Introduction
 @InsertChunk CartesianLambdaIntroduction
 
 @Subsection Lift
