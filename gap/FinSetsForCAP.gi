@@ -1020,7 +1020,7 @@ AddCartesianLambdaIntroduction( category_of_finite_sets,
   function ( category_of_finite_sets, map )
     local I;
     
-    I := TerminalObject( CapCategory( map ) );
+    I := TerminalObject( category_of_finite_sets );
     
     return MapOfFinSetsNC(
                    I,
