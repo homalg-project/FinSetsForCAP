@@ -859,6 +859,18 @@ AddCartesianEvaluationMorphismWithGivenSource( SkeletalFinSets,
 end );
 
 ##
+AddCartesianCoevaluationMorphismWithGivenRange( SkeletalFinSets,
+  function ( cat, M, N, HN_MxN )
+    local m, n;
+    
+    m := Length( M );
+    n := Length( N );
+    
+    return MapOfFinSets( cat, M, List( [ 0 .. m - 1 ], i -> 1 + Sum( [ 0 .. n - 1 ], j -> ( i * n + j ) * (m*n)^(n - j - 1) ) ), HN_MxN );
+    
+end );
+
+##
 AddSubobjectClassifier( SkeletalFinSets,
   function ( cat )
       

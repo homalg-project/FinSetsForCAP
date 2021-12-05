@@ -23,6 +23,30 @@ end
     , 100 );
     
     ##
+    AddCartesianCoevaluationMorphismWithGivenRange( cat,
+        
+########
+function ( cat_1, a_1, b_1, r_1 )
+    local hoisted_1_1, hoisted_2_1, hoisted_3_1, deduped_4_1, deduped_5_1;
+    deduped_5_1 := Length( b_1 );
+    deduped_4_1 := Length( a_1 );
+    hoisted_3_1 := [ 0 .. deduped_5_1 - 1 ];
+    hoisted_2_1 := deduped_4_1 * deduped_5_1;
+    hoisted_1_1 := deduped_5_1;
+    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
+           ), cat_1, a_1, r_1, AsList, List( [ 0 .. deduped_4_1 - 1 ], function ( i_2 )
+              local hoisted_1_2;
+              hoisted_1_2 := i_2 * hoisted_1_1;
+              return 1 + Sum( hoisted_3_1, function ( j_3 )
+                        return (hoisted_1_2 + j_3) * hoisted_2_1 ^ (hoisted_1_1 - j_3 - 1);
+                    end );
+          end ) );
+end
+########
+        
+    , 100 );
+    
+    ##
     AddCartesianEvaluationMorphismWithGivenSource( cat,
         
 ########
