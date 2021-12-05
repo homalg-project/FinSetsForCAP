@@ -815,6 +815,26 @@ AddCartesianEvaluationMorphismWithGivenSource( SkeletalFinSets,
 end );
 
 ##
+AddCartesianLambdaIntroduction( SkeletalFinSets,
+  function ( cat, map )
+    local S, T, images, a, b;
+    
+    S := Source( map );
+    T := Range( map );
+    
+    images := AsList( map );
+    
+    a := Length( S );
+    b := Length( T );
+    
+    return MapOfFinSets(
+                   TerminalObject( cat ),
+                   [ 1 + Sum( [ 1 .. a ], i -> ( images[i] - 1 ) * b^(a - i) ) ],
+                   ExponentialOnObjects( S, T ) );
+    
+end );
+
+##
 AddSubobjectClassifier( SkeletalFinSets,
   function ( cat )
       
