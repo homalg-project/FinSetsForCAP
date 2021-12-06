@@ -30,6 +30,12 @@ InstallMethod( CategoryOfSkeletalFinSets,
     AddTheoremFileToCategory( FinSets,
             Filename( DirectoriesPackageLibrary( "Toposes", "LogicForToposes" ), "PropositionsForToposes.tex" ) );
     
+    if not IsIdenticalObj( ValueOption( "no_precompiled_code" ), true ) then
+        
+        ADD_FUNCTIONS_FOR_CategoryOfSkeletalFinSetsPrecompiled( cat );
+        
+    fi;
+    
     Finalize( cat );
     
     return cat;
@@ -148,10 +154,84 @@ InstallMethod( CallFuncList,
 end );
 
 ##
-InstallGlobalFunction( INSTALL_FUNCTIONS_FOR_SKELETAL_FIN_SETS,
-    function ( SkeletalFinSets )
-        local ExplicitCoequalizer;
+InstallGlobalFunction( SKELETAL_FIN_SETS_Coequalizer,
+  function ( D )
+    local T, Cq, t, L, i;
+    
+    T := Range( D[1] );
+    T := AsList( T );
+    
+    Cq := [ ];
+    
+    while not IsEmpty( T ) do
+        t := T[1];
+        t := Union( List( D, f_j -> List( Union( List( D, f_i -> Preimage( f_i, [ t ] ) ) ), f_j ) ) );
+        t := AsList( t );
+        if IsEmpty( t ) then
+            t := [ T[1] ];
+        fi;
+        Add( Cq, t );
+        T := Difference( T, t );
+    od;
+    
+    T := AsList( Range( D[1] ) );
+    
+    if not Concatenation( Cq ) = T then
+        for t in T do
+            L := [ ];
+            for i in [ 1 .. Length( Cq ) ] do
+                if t in Cq[i] then
+                    Add( L, Cq[i] );
+                fi;
+            od;
+            if Length( L ) > 1 then
+                Cq := Difference( Cq, L );
+                Add( Cq, Set( Concatenation( L ) ) );
+            fi;
+        od;
+    fi;
+    
+    return Set( Cq );
 
+end );
+
+##
+InstallGlobalFunction( SKELETAL_FIN_SETS_IsEpimorphism,
+  function ( imgs, t )
+    local testList, img;
+    
+    testList := ListWithIdenticalEntries( t, false );
+    
+    for img in imgs do
+        testList[img] := true;
+    od;
+    
+    return testList;
+    
+end );
+
+##
+InstallGlobalFunction( SKELETAL_FIN_SETS_IsMonomorphism,
+  function ( imgs, t )
+    local testList, img;
+    
+    testList := ListWithIdenticalEntries( t, false );
+    
+    for img in imgs do
+        if testList[img] then
+            return false;
+        fi;
+        testList[img] := true;
+    od;
+    
+    return true;
+    
+end );
+
+##
+InstallGlobalFunction( INSTALL_FUNCTIONS_FOR_SKELETAL_FIN_SETS,
+  function ( SkeletalFinSets )
+    
 ##
 AddObjectConstructor( SkeletalFinSets,
   function ( SkeletalFinSets, n )
@@ -205,21 +285,18 @@ AddIsWellDefinedForMorphisms( SkeletalFinSets,
     
     rel := AsList( mor );
     
-    if not ForAll( rel, a -> IsPosInt( a ) ) then
-        return false;
-    fi;
-    
-    if not s = Length( rel ) then
-        return false;
-    fi;
-    
     t := Length( Range( mor ) );
     
-    if not ForAll( rel, a -> a <= t ) then
+    ## For CompilerForCAP we need if-elif-else with the same structure
+    if not ForAll( rel, a -> IsPosInt( a ) ) then
         return false;
+    elif not s = Length( rel ) then
+        return false;
+    elif not ForAll( rel, a -> a <= t ) then
+        return false;
+    else
+        return true;
     fi;
-    
-    return true;
     
 end );
 
@@ -235,7 +312,7 @@ end );
 AddIsHomSetInhabited( SkeletalFinSets,
   function ( cat, A, B )
     
-    return IsInitial( A ) or not IsInitial( B );
+    return IsInitial( cat, A ) or not IsInitial( cat, B );
     
 end );
 
@@ -272,20 +349,21 @@ AddImageObject( SkeletalFinSets,
     
 end );
 
-##
+## the function SKELETAL_FIN_SETS_IsEpimorphism
+## has linear runtime complexity
 AddIsEpimorphism( SkeletalFinSets,
   function ( cat, phi )
-    local imgs, testList, img;
+    local imgs, t;
     
     imgs := AsList( phi );
     
-    testList := ListWithIdenticalEntries( Length( Range( phi ) ), 0 );
+    t := Length( Range( phi ) );
     
-    for img in imgs do
-        testList[img] := 1;
-    od;
-
-    return ForAll( testList, test -> test = 1 );
+    ## we do not have a linear purely functional test (yet),
+    ## the following linear runtime function works with side effects,
+    ## so we hide it from the compiler
+    
+    return not false in SKELETAL_FIN_SETS_IsEpimorphism( imgs, t );
     
 end );
 
@@ -296,56 +374,56 @@ AddIsSplitEpimorphism( SkeletalFinSets,
 ##
 AddIsMonomorphism( SkeletalFinSets,
   function ( cat, phi )
-    local imgs, testList, img;
+    local imgs, t;
     
     imgs := AsList( phi );
     
-    testList := ListWithIdenticalEntries( Length( Range( phi ) ), 0 );
+    t := Length( Range( phi ) );
     
-    for img in imgs do
-        if testList[img] = 1 then
-            return false;
-        fi;
-        testList[img] := 1;
-    od;
-
-    return true;
+    ## we do not have a linear purely functional test (yet),
+    ## the following linear runtime function works with side effects,
+    ## so we hide it from the compiler
+    
+    return SKELETAL_FIN_SETS_IsMonomorphism( imgs, t );
     
 end );
 
 ##
 AddIsSplitMonomorphism( SkeletalFinSets,
   function ( cat, phi )
-    return IsInitial( Range( phi ) ) or ( not IsInitial( Source( phi ) ) and IsMonomorphism( phi ) );
+    return IsInitial( cat, Range( phi ) ) or ( not IsInitial( cat, Source( phi ) ) and IsMonomorphism( cat, phi ) );
 end );
 
 ##
 AddIsLiftable( SkeletalFinSets,
   function ( cat, f, g )
+    local ff, gg, fff;
     
-    f := AsList( f );
-    g := AsList( g );
+    ff := AsList( f );
+    gg := AsList( g );
     
-    if 100 * Length( f ) < Length( g ) then
-        f := Set( f );
+    if 100 * Length( ff ) < Length( gg ) then
+        fff := Set( ff );
+    else ## this is for CompilerForCAP
+        fff := ff;
     fi;
     
-    return ForAll( f, y -> y in g );
+    return ForAll( fff, y -> y in gg );
     
 end );
 
 ##
 AddLift( SkeletalFinSets,
   function ( cat, f, g )
-    local S, T;
+    local S, T, gg, ff;
     
     S := Source( f );
     T := Source( g );
     
-    g := AsList( g );
-    f := AsList( f );
+    gg := AsList( g );
+    ff := AsList( f );
     
-    return MapOfFinSets( S, List( AsList( S ), x -> Position( g, f[x] ) ), T );
+    return MapOfFinSets( S, List( AsList( S ), x -> Position( gg, ff[x] ) ), T );
     
 end );
 
@@ -353,31 +431,32 @@ end );
 ## i.e., fibers of f are mapped under g to the same element
 AddIsColiftable( SkeletalFinSets,
   function ( cat, f, g )
+    local ff, gg;
     
-    f := AsList( f );
-    g := AsList( g );
+    ff := AsList( f );
+    gg := AsList( g );
     
-    return ForAll( Set( f ), i -> Length( Set( g{Positions( f, i )} ) ) = 1 );
+    return ForAll( Set( ff ), i -> Length( Set( gg{Positions( ff, i )} ) ) = 1 );
     
 end );
 
 ##
 AddColift( SkeletalFinSets,
   function ( cat, f, g )
-    local S, T, chi;
+    local S, T, ff, gg, chi;
     
     S := Range( f );
     T := Range( g );
     
-    f := AsList( f );
-    g := AsList( g );
+    ff := AsList( f );
+    gg := AsList( g );
     
     chi :=
       function ( y )
-        if not y in f then
+        if not y in ff then
             return 1;
         fi;
-        return g[Position( f, y )];
+        return gg[Position( ff, y )];
     end;
     
     return MapOfFinSets( S, List( AsList( S ), chi ), T );
@@ -385,10 +464,10 @@ AddColift( SkeletalFinSets,
 end );
 
 ##
-AddImageEmbedding( SkeletalFinSets,
-  function ( cat, phi )
+AddImageEmbeddingWithGivenImageObject( SkeletalFinSets,
+  function ( cat, phi, image )
     
-    return MapOfFinSets( ImageObject( phi ), Set( AsList( phi ) ), Range( phi ) );
+    return MapOfFinSets( image, Set( AsList( phi ) ), Range( phi ) );
 
 end );
 
@@ -399,16 +478,14 @@ AddCoastrictionToImage( SkeletalFinSets,
     
     G := AsList( phi );
     
-    L := [ ];
+    L := List( G, l -> Position( Set( G ), l ) );
     
-    for l in G do
-        Add( L, Position( Set( G ), l ) );
-    od;
+    pi := MapOfFinSets( Source( phi ), L, ImageObject( cat, phi ) );
+
+    #% CAP_JIT_DROP_NEXT_STATEMENT
+    Assert( 3, IsEpimorphism( cat, pi ) );
     
-    pi := MapOfFinSets( Source( phi ), L, ImageObject( phi ) );
-    
-    Assert( 3, IsEpimorphism( pi ) );
-    
+    #% CAP_JIT_DROP_NEXT_STATEMENT
     SetIsEpimorphism( pi, true );
     
     return pi;
@@ -448,14 +525,8 @@ end );
 ##
 AddDirectProduct( SkeletalFinSets,
   function ( cat, L )
-    local int, l;
-
-    int := 1;
-    for l in L do
-        int := int * Length( l );
-    od;
-
-    return FinSet( SkeletalFinSets, int );
+    
+    return FinSet( SkeletalFinSets, Product( List( L, o -> Length( o ) ) ) );
     
 end );
 
@@ -509,15 +580,15 @@ end ) );
 ##
 AddEqualizer( SkeletalFinSets,
   function ( cat, D )
-    local f1, s, Eq;
+    local f1, s, D2, Eq;
     
     f1 := D[1];
     
     s := Source( f1 );
     
-    D := D{[ 2 .. Length( D ) ]};
+    D2 := D{[ 2 .. Length( D ) ]};
     
-    Eq := Filtered( AsList( s ), x -> ForAll( D, fj -> f1( x ) = fj( x ) ) );
+    Eq := Filtered( AsList( s ), x -> ForAll( D2, fj -> f1( x ) = fj( x ) ) );
     
     return FinSet( SkeletalFinSets, Length( Eq ) );
     
@@ -526,15 +597,15 @@ end );
 ##
 AddEmbeddingOfEqualizerWithGivenEqualizer( SkeletalFinSets,
   function ( cat, D, E )
-    local f1, s, cmp;
+    local f1, s, D2, cmp;
     
     f1 := D[1];
     
     s := Source( f1 );
-    D := D{[ 2 .. Length( D ) ]};
-
-    cmp := Filtered( AsList( s ), x -> ForAll( D, fj -> f1( x ) = fj( x ) ) );
-
+    D2 := D{[ 2 .. Length( D ) ]};
+    
+    cmp := Filtered( AsList( s ), x -> ForAll( D2, fj -> f1( x ) = fj( x ) ) );
+    
     return MapOfFinSets( E, cmp, s );
     
 end );
@@ -583,7 +654,11 @@ end );
 
 ##
 AddIsProjective( SkeletalFinSets,
-  ReturnTrue );
+  function ( cat, M )
+    
+    return true;
+    
+end );
 
 ##
 AddEpimorphismFromSomeProjectiveObject( SkeletalFinSets,
@@ -593,7 +668,7 @@ AddEpimorphismFromSomeProjectiveObject( SkeletalFinSets,
 AddIsInjective( SkeletalFinSets,
   function ( cat, M )
     
-    return not IsInitial( M );
+    return not IsInitial( cat, M );
     
 end );
 
@@ -601,11 +676,11 @@ end );
 AddMonomorphismIntoSomeInjectiveObject( SkeletalFinSets,
   function ( cat, M )
     
-    if IsInitial( M ) then
-        return UniversalMorphismIntoTerminalObject( M );
+    if IsInitial( cat, M ) then
+        return UniversalMorphismIntoTerminalObject( cat, M );
     fi;
     
-    return IdentityMorphism( M );
+    return IdentityMorphism( cat, M );
     
 end );
 
@@ -618,8 +693,8 @@ AddCoproduct( SkeletalFinSets,
 end );
 
 ##
-AddInjectionOfCofactorOfCoproduct( SkeletalFinSets,
-  function ( cat, L, i )
+AddInjectionOfCofactorOfCoproductWithGivenCoproduct( SkeletalFinSets,
+  function ( cat, L, i, coproduct )
     local s, O, sum, cmp;
     
     O := L{[ 1 .. i - 1 ]};
@@ -630,7 +705,7 @@ AddInjectionOfCofactorOfCoproduct( SkeletalFinSets,
     
     cmp := List( s, x -> sum + x );
     
-    return MapOfFinSets( s, cmp, Coproduct( L ) );
+    return MapOfFinSets( s, cmp, coproduct );
 
 end );
 
@@ -648,51 +723,10 @@ AddUniversalMorphismFromCoproductWithGivenCoproduct( SkeletalFinSets,
 end );
 
 ##
-ExplicitCoequalizer := function ( D )
-    local T, Cq, t, L, i;
-    
-    T := Range( D[1] );
-    T := AsList( T );
-    
-    Cq := [ ];
-    
-    while not IsEmpty( T ) do
-        t := T[1];
-        t := Union( List( D, f_j -> List( Union( List( D, f_i -> Preimage( f_i, [ t ] ) ) ), f_j ) ) );
-        t := AsList( t );
-        if IsEmpty( t ) then
-            t := [ T[1] ];
-        fi;
-        Add( Cq, t );
-        T := Difference( T, t );
-    od;
-    
-    T := AsList( Range( D[1] ) );
-    
-    if not Concatenation( Cq ) = T then
-        for t in T do
-            L := [ ];
-            for i in [ 1 .. Length( Cq ) ] do
-                if t in Cq[i] then
-                    Add( L, Cq[i] );
-                fi;
-            od;
-            if Length( L ) > 1 then
-                Cq := Difference( Cq, L );
-                Add( Cq, Set( Concatenation( L ) ) );
-            fi;
-        od;
-    fi;
-    
-    return Set( Cq );
-
-end;
-
-##
 AddCoequalizer( SkeletalFinSets,
   function ( cat, D )
   
-    return FinSet( SkeletalFinSets, Length( ExplicitCoequalizer( D ) ) );
+    return FinSet( SkeletalFinSets, Length( SKELETAL_FIN_SETS_Coequalizer( D ) ) );
     
 end );
 
@@ -701,7 +735,7 @@ AddProjectionOntoCoequalizerWithGivenCoequalizer( SkeletalFinSets,
   function ( cat, D, C )
     local Cq, s, cmp;
 
-    Cq := ExplicitCoequalizer( D );
+    Cq := SKELETAL_FIN_SETS_Coequalizer( D );
     
     s := Range( D[1] );
     
@@ -718,7 +752,7 @@ AddUniversalMorphismFromCoequalizerWithGivenCoequalizer( SkeletalFinSets,
   function ( cat, D, test_object, tau, C )
     local Cq;
     
-    Cq := ExplicitCoequalizer( D );
+    Cq := SKELETAL_FIN_SETS_Coequalizer( D );
 
     return MapOfFinSets( C, List( Cq, x -> tau( x[1] ) ), Range( tau ) );
     
@@ -730,7 +764,7 @@ end );
 AddCartesianLeftUnitorWithGivenDirectProduct( SkeletalFinSets,
   function ( cat, M, TM )
     
-    return IdentityMorphism( M );
+    return IdentityMorphism( cat, M );
     
 end );
 
@@ -738,7 +772,7 @@ end );
 AddCartesianLeftUnitorInverseWithGivenDirectProduct( SkeletalFinSets,
   function ( cat, M, TM )
     
-    return IdentityMorphism( M );
+    return IdentityMorphism( cat, M );
     
 end );
 
@@ -746,7 +780,7 @@ end );
 AddCartesianRightUnitorWithGivenDirectProduct( SkeletalFinSets,
   function ( cat, M, MT )
     
-    return IdentityMorphism( M );
+    return IdentityMorphism( cat, M );
     
 end );
 
@@ -754,7 +788,7 @@ end );
 AddCartesianRightUnitorInverseWithGivenDirectProduct( SkeletalFinSets,
   function ( cat, M, MT )
     
-    return IdentityMorphism( M );
+    return IdentityMorphism( cat, M );
     
 end );
 
@@ -797,7 +831,7 @@ AddExponentialOnMorphismsWithGivenExponentials( SkeletalFinSets,
     S_int := List( Tuples( AsList( N ), m ), x -> MapOfFinSets( M, x, N ) );
     T_int := List( Tuples( AsList( B ), a ), x -> MapOfFinSets( A, x, B ) );
     
-    return MapOfFinSets( S, List( List( S_int, f -> PreCompose( [ alpha, f, beta ] ) ), f -> Position( T_int, f ) ), T );
+    return MapOfFinSets( S, List( List( S_int, f -> PreComposeList( cat, [ alpha, f, beta ] ) ), f -> Position( T_int, f ) ), T );
     
 end );
 
@@ -830,7 +864,7 @@ AddCartesianLambdaIntroduction( SkeletalFinSets,
     return MapOfFinSets(
                    TerminalObject( cat ),
                    [ 1 + Sum( [ 1 .. a ], i -> ( images[i] - 1 ) * b^(a - i) ) ],
-                   ExponentialOnObjects( S, T ) );
+                   ExponentialOnObjects( cat, S, T ) );
     
 end );
 

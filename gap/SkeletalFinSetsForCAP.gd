@@ -7,6 +7,12 @@
 # Technical functions
 DeclareGlobalFunction( "INSTALL_FUNCTIONS_FOR_SKELETAL_FIN_SETS" );
 
+DeclareGlobalFunction( "SKELETAL_FIN_SETS_Coequalizer" );
+
+DeclareGlobalFunction( "SKELETAL_FIN_SETS_IsMonomorphism" );
+
+DeclareGlobalFunction( "SKELETAL_FIN_SETS_IsEpimorphism" );
+
 #! @Chapter The category of skeletal finite sets
 
 #! @Section Skeletal GAP Categories

@@ -12,7 +12,7 @@ phi := MapOfFinSets( n, [ 7, 5, 5 ], m );
 IsWellDefined( phi );
 #! true
 f := CoastrictionToImage( phi );
-#! <An epimorphism in SkeletalFinSets>
+#! <A morphism in SkeletalFinSets>
 Display( f );
 #! [ 3, [ 2, 1, 1 ], 2 ]
 IsWellDefined( f );
@@ -32,7 +32,7 @@ IsWellDefined( phi );
 iota := ImageEmbedding( phi );
 #! <A monomorphism in SkeletalFinSets>
 pi := CoastrictionToImage( phi );
-#! <An epimorphism in SkeletalFinSets>
+#! <A morphism in SkeletalFinSets>
 Display( pi );
 #! [ 4, [ 3, 1, 2, 1 ], 3 ]
 IsWellDefined( pi );
