@@ -33,7 +33,7 @@ test-with-coverage: doc
 
 test-spacing:
 	grep -R "[^ [\"]  " gap/*.gi && echo "Duplicate spaces found" && exit 1 || exit 0
-	grep -RE '[^ ] +$$' gap/* && echo "Trailing whitespace found" && exit 1 || exit 0
+	grep --exclude-dir='gap/precompiled_categories' -RE '[^ ] +$$' gap/* && echo "Trailing whitespace found" && exit 1 || exit 0
 	for filename in gap/*; do \
 		echo $$filename; \
 		echo "LoadPackage(\"FinSetsForCAP\"); SizeScreen([4096]); func := ReadAsFunction(\"$$filename\"); FileString(\"gap_spacing\", DisplayString(func));" | gap --quitonbreak --banner; \
