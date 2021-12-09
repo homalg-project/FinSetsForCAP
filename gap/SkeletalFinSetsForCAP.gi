@@ -485,9 +485,6 @@ AddCoastrictionToImageWithGivenImageObject( SkeletalFinSets,
     #% CAP_JIT_DROP_NEXT_STATEMENT
     Assert( 3, IsEpimorphism( cat, pi ) );
     
-    #% CAP_JIT_DROP_NEXT_STATEMENT
-    SetIsEpimorphism( pi, true );
-    
     return pi;
     
 end );
@@ -673,14 +670,26 @@ AddIsInjective( SkeletalFinSets,
 end );
 
 ##
-AddMonomorphismIntoSomeInjectiveObject( SkeletalFinSets,
+AddSomeInjectiveObject( SkeletalFinSets,
   function ( cat, M )
     
     if IsInitial( cat, M ) then
-        return UniversalMorphismIntoTerminalObject( cat, M );
+        
+        return TerminalObject( cat );
+        
+    else
+        
+        return M;
+        
     fi;
     
-    return IdentityMorphism( cat, M );
+end );
+
+##
+AddMonomorphismIntoSomeInjectiveObjectWithGivenSomeInjectiveObject( SkeletalFinSets,
+  function ( cat, M, injective_object )
+    
+    return MapOfFinSets( M, List( M, x -> x ), injective_object );
     
 end );
 

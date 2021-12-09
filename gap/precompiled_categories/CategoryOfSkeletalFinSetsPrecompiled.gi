@@ -563,22 +563,13 @@ end
     , 100 );
     
     ##
-    AddMonomorphismIntoSomeInjectiveObject( cat,
+    AddMonomorphismIntoSomeInjectiveObjectWithGivenSomeInjectiveObject( cat,
         
 ########
-function ( cat_1, A_1 )
-    local hoisted_1_1, deduped_2_1, deduped_3_1;
-    deduped_2_1 := Length( A_1 );
-    if deduped_2_1 = 0 then
-        deduped_3_1 := FinSet( cat_1, 1 );
-        hoisted_1_1 := Length( deduped_3_1 );
-        return MapOfFinSets( A_1, List( AsList( A_1 ), function ( a_2 )
-                  return hoisted_1_1;
-              end ), deduped_3_1 );
-    else
-        return MapOfFinSets( A_1, [ 1 .. deduped_2_1 ], A_1 );
-    fi;
-    return;
+function ( cat_1, A_1, I_1 )
+    return MapOfFinSets( A_1, List( A_1, function ( x_2 )
+              return x_2;
+          end ), I_1 );
 end
 ########
         
@@ -658,6 +649,22 @@ function ( cat_1, morphisms_1, P_1 )
                         return logic_new_func_x_2 in c_3;
                     end ) );
           end ), P_1 );
+end
+########
+        
+    , 100 );
+    
+    ##
+    AddSomeInjectiveObject( cat,
+        
+########
+function ( cat_1, arg2_1 )
+    if Length( arg2_1 ) = 0 then
+        return FinSet( cat_1, 1 );
+    else
+        return arg2_1;
+    fi;
+    return;
 end
 ########
         

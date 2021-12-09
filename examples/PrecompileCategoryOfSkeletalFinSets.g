@@ -40,8 +40,11 @@ cat := CategoryOfSkeletalFinSets( );
 # Now we check whether the compiled code is loaded automatically.
 # For this we use the name of the argument of `InitialObject`;
 # for non-compiled code it is "cat", while for compiled code it is "cat_1":
-NamesLocalVariablesFunction(
-        Last( cat!.added_functions.InitialObject )[1] )[1];
-#! "cat_1"
+argument_name := NamesLocalVariablesFunction(
+    Last( cat!.added_functions.InitialObject )[1] )[1];;
+
+(ValueOption( "no_precompiled_code" ) = true and argument_name = "cat") or
+    (ValueOption( "no_precompiled_code" ) = fail and argument_name = "cat_1");
+#! true
 
 #! @EndExample
