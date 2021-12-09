@@ -30,7 +30,7 @@ InstallMethod( CategoryOfSkeletalFinSets,
     AddTheoremFileToCategory( FinSets,
             Filename( DirectoriesPackageLibrary( "Toposes", "LogicForToposes" ), "PropositionsForToposes.tex" ) );
     
-    if not IsIdenticalObj( ValueOption( "no_precompiled_code" ), true ) then
+    if ValueOption( "no_precompiled_code" ) <> true then
         
         ADD_FUNCTIONS_FOR_CategoryOfSkeletalFinSetsPrecompiled( cat );
         
@@ -154,7 +154,7 @@ InstallMethod( CallFuncList,
 end );
 
 ##
-InstallGlobalFunction( SKELETAL_FIN_SETS_Coequalizer,
+InstallGlobalFunction( SKELETAL_FIN_SETS_ExplicitCoequalizer,
   function ( D )
     local T, Cq, t, L, i;
     
@@ -472,15 +472,15 @@ AddImageEmbeddingWithGivenImageObject( SkeletalFinSets,
 end );
 
 ##
-AddCoastrictionToImage( SkeletalFinSets,
-  function ( cat, phi )
+AddCoastrictionToImageWithGivenImageObject( SkeletalFinSets,
+  function ( cat, phi, image_object )
     local G, L, l, pi;
     
     G := AsList( phi );
     
     L := List( G, l -> Position( Set( G ), l ) );
     
-    pi := MapOfFinSets( Source( phi ), L, ImageObject( cat, phi ) );
+    pi := MapOfFinSets( Source( phi ), L, image_object );
 
     #% CAP_JIT_DROP_NEXT_STATEMENT
     Assert( 3, IsEpimorphism( cat, pi ) );
@@ -726,7 +726,7 @@ end );
 AddCoequalizer( SkeletalFinSets,
   function ( cat, D )
   
-    return FinSet( SkeletalFinSets, Length( SKELETAL_FIN_SETS_Coequalizer( D ) ) );
+    return FinSet( SkeletalFinSets, Length( SKELETAL_FIN_SETS_ExplicitCoequalizer( D ) ) );
     
 end );
 
@@ -735,7 +735,7 @@ AddProjectionOntoCoequalizerWithGivenCoequalizer( SkeletalFinSets,
   function ( cat, D, C )
     local Cq, s, cmp;
 
-    Cq := SKELETAL_FIN_SETS_Coequalizer( D );
+    Cq := SKELETAL_FIN_SETS_ExplicitCoequalizer( D );
     
     s := Range( D[1] );
     
@@ -752,7 +752,7 @@ AddUniversalMorphismFromCoequalizerWithGivenCoequalizer( SkeletalFinSets,
   function ( cat, D, test_object, tau, C )
     local Cq;
     
-    Cq := SKELETAL_FIN_SETS_Coequalizer( D );
+    Cq := SKELETAL_FIN_SETS_ExplicitCoequalizer( D );
 
     return MapOfFinSets( C, List( Cq, x -> tau( x[1] ) ), Range( tau ) );
     

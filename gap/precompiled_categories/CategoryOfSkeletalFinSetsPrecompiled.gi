@@ -6,6 +6,24 @@
 BindGlobal( "ADD_FUNCTIONS_FOR_CategoryOfSkeletalFinSetsPrecompiled", function ( cat )
     
     ##
+    AddCartesianBraidingInverseWithGivenDirectProducts( cat,
+        
+########
+function ( cat_1, s_1, a_1, b_1, r_1 )
+    local hoisted_1_1, hoisted_2_1;
+    hoisted_2_1 := Length( a_1 );
+    hoisted_1_1 := Length( b_1 );
+    return MapOfFinSets( s_1, List( AsList( s_1 ), function ( k_2 )
+              local deduped_1_2;
+              deduped_1_2 := k_2 - 1;
+              return deduped_1_2 mod hoisted_1_1 * hoisted_2_1 + Int( deduped_1_2 / hoisted_1_1 ) + 1;
+          end ), r_1 );
+end
+########
+        
+    , 100 );
+    
+    ##
     AddCartesianEvaluationMorphismWithGivenSource( cat,
         
 ########
@@ -15,25 +33,6 @@ function ( cat_1, a_1, b_1, s_1 )
               end ), AsList( a_1 ) ), function ( fx_2 )
               return fx_2[1]( fx_2[2] );
           end ), b_1 );
-end
-########
-        
-    , 100 );
-    
-    ##
-    AddCartesianLambdaIntroduction( cat,
-        
-########
-function ( cat_1, alpha_1 )
-    local hoisted_1_1, hoisted_2_1, hoisted_3_1, deduped_4_1, deduped_5_1;
-    deduped_5_1 := Range( alpha_1 );
-    deduped_4_1 := Length( Source( alpha_1 ) );
-    hoisted_3_1 := Length( deduped_5_1 );
-    hoisted_2_1 := deduped_4_1;
-    hoisted_1_1 := AsList( alpha_1 );
-    return MapOfFinSets( FinSet( cat_1, 1 ), [ 1 + Sum( [ 1 .. deduped_4_1 ], function ( i_2 )
-                    return (hoisted_1_1[i_2] - 1) * hoisted_3_1 ^ (hoisted_2_1 - i_2);
-                end ) ], FinSet( cat_1, Length( Tuples( AsList( deduped_5_1 ), deduped_4_1 ) ) ) );
 end
 ########
         
@@ -105,17 +104,16 @@ end
     , 100 );
     
     ##
-    AddCoastrictionToImage( cat,
+    AddCoastrictionToImageWithGivenImageObject( cat,
         
 ########
-function ( cat_1, alpha_1 )
-    local hoisted_1_1, deduped_2_1, deduped_3_1;
-    deduped_3_1 := AsList( alpha_1 );
-    deduped_2_1 := SSortedList( deduped_3_1 );
-    hoisted_1_1 := deduped_2_1;
-    return MapOfFinSets( Source( alpha_1 ), List( deduped_3_1, function ( l_2 )
+function ( cat_1, alpha_1, I_1 )
+    local hoisted_1_1, deduped_2_1;
+    deduped_2_1 := AsList( alpha_1 );
+    hoisted_1_1 := SSortedList( deduped_2_1 );
+    return MapOfFinSets( Source( alpha_1 ), List( deduped_2_1, function ( l_2 )
               return Position( hoisted_1_1, l_2 );
-          end ), FinSet( cat_1, Length( deduped_2_1 ) ) );
+          end ), I_1 );
 end
 ########
         
@@ -126,7 +124,7 @@ end
         
 ########
 function ( cat_1, arg2_1 )
-    return FinSet( cat_1, Length( SKELETAL_FIN_SETS_Coequalizer( arg2_1 ) ) );
+    return FinSet( cat_1, Length( SKELETAL_FIN_SETS_ExplicitCoequalizer( arg2_1 ) ) );
 end
 ########
         
@@ -654,7 +652,7 @@ end
 function ( cat_1, morphisms_1, P_1 )
     local hoisted_1_1, deduped_2_1;
     deduped_2_1 := Range( morphisms_1[1] );
-    hoisted_1_1 := SKELETAL_FIN_SETS_Coequalizer( morphisms_1 );
+    hoisted_1_1 := SKELETAL_FIN_SETS_ExplicitCoequalizer( morphisms_1 );
     return MapOfFinSets( deduped_2_1, List( deduped_2_1, function ( logic_new_func_x_2 )
               return Position( hoisted_1_1, First( hoisted_1_1, function ( c_3 )
                         return logic_new_func_x_2 in c_3;
@@ -692,7 +690,7 @@ end
         
 ########
 function ( cat_1, morphisms_1, T_1, tau_1, P_1 )
-    return MapOfFinSets( P_1, List( SKELETAL_FIN_SETS_Coequalizer( morphisms_1 ), function ( x_2 )
+    return MapOfFinSets( P_1, List( SKELETAL_FIN_SETS_ExplicitCoequalizer( morphisms_1 ), function ( x_2 )
               return tau_1( x_2[1] );
           end ), Range( tau_1 ) );
 end
