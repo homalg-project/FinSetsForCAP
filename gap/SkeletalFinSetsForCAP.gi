@@ -816,11 +816,12 @@ end );
 ##
 AddExponentialOnObjects( SkeletalFinSets,
   function ( cat, M, N )
-    local m;
+    local m, n;
     
     m := Length( M );
+    n := Length( N );
     
-    return FinSet( SkeletalFinSets, Length( Tuples( AsList( N ), m ) ) );
+    return FinSet( SkeletalFinSets, n ^ m );
     
 end );
 

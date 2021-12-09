@@ -274,7 +274,7 @@ end
         
 ########
 function ( cat_1, a_1, b_1 )
-    return FinSet( cat_1, Length( Tuples( AsList( b_1 ), Length( a_1 ) ) ) );
+    return FinSet( cat_1, Length( b_1 ) ^ Length( a_1 ) );
 end
 ########
         
