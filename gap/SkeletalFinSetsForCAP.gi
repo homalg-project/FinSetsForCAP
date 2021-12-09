@@ -271,7 +271,7 @@ AddIsWellDefinedForObjects( SkeletalFinSets,
 ##
 AddIsEqualForObjects( SkeletalFinSets,
   function ( cat, n1, n2 )
-
+    
     return Length( n1 ) = Length( n2 );
     
 end );
