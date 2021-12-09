@@ -6,10 +6,10 @@
                 [1X The elementary topos of (skeletal) finite sets [101X
   
   
-                                   2021.11-16
+                                   2021.12-02
   
   
-                                3 December 2021
+                                9 December 2021
   
   
                                 Mohamed Barakat
@@ -139,6 +139,8 @@
       2.5-16 [33X[0;0YSkeletal Colift[133X
       2.5-17 [33X[0;0YSkeletal topos properties[133X
       2.5-18 [33X[0;0YSkeletal Subobject Classifier[133X
+  3 [33X[0;0YPrecompilation[133X
+    3.1 [33X[0;0YPrecompiling the category of skeletal finite sets[133X
   
   
   [32X

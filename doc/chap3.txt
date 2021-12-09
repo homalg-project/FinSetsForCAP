@@ -1,0 +1,44 @@
+  
+  [1X3 [33X[0;0YPrecompilation[133X[101X
+  
+  
+  [1X3.1 [33X[0;0YPrecompiling the category of skeletal finite sets[133X[101X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xcategory_constructor := {} -> CategoryOfSkeletalFinSets( );;[127X[104X
+    [4X[25Xgap>[125X [27Xgiven_arguments := [ ];;[127X[104X
+    [4X[25Xgap>[125X [27Xcompiled_category_name := "CategoryOfSkeletalFinSetsPrecompiled";;[127X[104X
+    [4X[25Xgap>[125X [27Xpackage_name := "FinSetsForCAP";;[127X[104X
+    [4X[25Xgap>[125X [27Xuncompiled_SkeletalFinSets :=[127X[104X
+    [4X[25X>[125X [27X    CategoryOfSkeletalFinSets( : no_precompiled_code := true );;[127X[104X
+    [4X[25Xgap>[125X [27XCapJitPrecompileCategoryAndCompareResult([127X[104X
+    [4X[25X>[125X [27X    category_constructor,[127X[104X
+    [4X[25X>[125X [27X    given_arguments,[127X[104X
+    [4X[25X>[125X [27X    package_name,[127X[104X
+    [4X[25X>[125X [27X    compiled_category_name[127X[104X
+    [4X[25X>[125X [27X    : operations := Difference([127X[104X
+    [4X[25X>[125X [27X        ListPrimitivelyInstalledOperationsOfCategory([127X[104X
+    [4X[25X>[125X [27X            uncompiled_SkeletalFinSets[127X[104X
+    [4X[25X>[125X [27X        ),[127X[104X
+    [4X[25X>[125X [27X        [[127X[104X
+    [4X[25X>[125X [27X            "ProjectionInFactorOfDirectProduct", # uses CAP prepare functions[127X[104X
+    [4X[25X>[125X [27X            "UniversalMorphismIntoDirectProduct", # uses CAP prepare functions[127X[104X
+    [4X[25X>[125X [27X        ][127X[104X
+    [4X[25X>[125X [27X    )[127X[104X
+    [4X[25X>[125X [27X);;[127X[104X
+    [4X[25Xgap>[125X [27XCategoryOfSkeletalFinSetsPrecompiled( );[127X[104X
+    [4X[28XSkeletalFinSets[128X[104X
+    [4X[25Xgap>[125X [27Xcat := CategoryOfSkeletalFinSets( );[127X[104X
+    [4X[28XSkeletalFinSets[128X[104X
+    [4X[25Xgap>[125X [27X# Now we check whether the compiled code is loaded automatically.[127X[104X
+    [4X[25X>[125X [27X# For this we use the name of the argument of `InitialObject`;[127X[104X
+    [4X[25Xgap>[125X [27X# for non-compiled code it is "cat", while for compiled code it is "cat_1":[127X[104X
+    [4X[25X>[125X [27Xargument_name := NamesLocalVariablesFunction([127X[104X
+    [4X[25X>[125X [27X    Last( cat!.added_functions.InitialObject )[1] )[1];;[127X[104X
+    [4X[25Xgap>[125X [27X(ValueOption( "no_precompiled_code" ) = true and argument_name = "cat") or[127X[104X
+    [4X[25X>[125X [27X    (ValueOption( "no_precompiled_code" ) = fail and argument_name = "cat_1");[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
