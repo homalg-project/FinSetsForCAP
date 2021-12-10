@@ -721,13 +721,11 @@ end );
 ##
 AddUniversalMorphismFromCoproductWithGivenCoproduct( SkeletalFinSets,
   function ( cat, L, test_object, tau, S )
-    local T, cmp;
+    local cmp;
     
-    T := Range( tau[1] );
-
-    cmp := Concatenation( List( [ 1 .. Length( tau ) ], x -> AsList( tau[x] ) ) );
-
-    return MapOfFinSets( S, cmp, T );
+    cmp := Concatenation( List( tau, t -> AsList( t ) ) );
+    
+    return MapOfFinSets( S, cmp, test_object );
     
 end );
 

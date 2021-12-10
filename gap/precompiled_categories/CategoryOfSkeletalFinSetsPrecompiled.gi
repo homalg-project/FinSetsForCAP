@@ -708,9 +708,9 @@ end
         
 ########
 function ( cat_1, objects_1, T_1, tau_1, P_1 )
-    return MapOfFinSets( P_1, Concatenation( List( [ 1 .. Length( tau_1 ) ], function ( x_2 )
-                return AsList( tau_1[x_2] );
-            end ) ), Range( tau_1[1] ) );
+    return MapOfFinSets( P_1, Concatenation( List( tau_1, function ( t_2 )
+                return AsList( t_2 );
+            end ) ), T_1 );
 end
 ########
         
