@@ -10,13 +10,12 @@ BindGlobal( "ADD_FUNCTIONS_FOR_CategoryOfSkeletalFinSetsPrecompiled", function (
         
 ########
 function ( cat_1, s_1, a_1, b_1, r_1 )
-    local hoisted_1_1, hoisted_2_1;
-    hoisted_2_1 := Length( a_1 );
-    hoisted_1_1 := Length( b_1 );
-    return MapOfFinSets( s_1, List( AsList( s_1 ), function ( k_2 )
-              local deduped_1_2;
-              deduped_1_2 := k_2 - 1;
-              return deduped_1_2 mod hoisted_1_1 * hoisted_2_1 + Int( deduped_1_2 / hoisted_1_1 ) + 1;
+    local hoisted_1_1, hoisted_2_1, deduped_3_1;
+    deduped_3_1 := Length( s_1 );
+    hoisted_2_1 := Length( b_1 );
+    hoisted_1_1 := deduped_3_1;
+    return MapOfFinSets( s_1, List( [ 0 .. deduped_3_1 - 1 ], function ( i_2 )
+              return 1 + i_2 mod hoisted_1_1 + QUO_INT( i_2, hoisted_2_1 );
           end ), r_1 );
 end
 ########
