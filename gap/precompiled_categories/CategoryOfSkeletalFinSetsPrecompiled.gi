@@ -567,9 +567,7 @@ end
         
 ########
 function ( cat_1, A_1, I_1 )
-    return MapOfFinSets( A_1, List( A_1, function ( x_2 )
-              return x_2;
-          end ), I_1 );
+    return MapOfFinSets( A_1, AsList( A_1 ), I_1 );
 end
 ########
         

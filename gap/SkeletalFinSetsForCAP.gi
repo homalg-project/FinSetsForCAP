@@ -689,7 +689,7 @@ end );
 AddMonomorphismIntoSomeInjectiveObjectWithGivenSomeInjectiveObject( SkeletalFinSets,
   function ( cat, M, injective_object )
     
-    return MapOfFinSets( M, List( M, x -> x ), injective_object );
+    return MapOfFinSets( M, AsList( M ), injective_object );
     
 end );
 
