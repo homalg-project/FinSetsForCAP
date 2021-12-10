@@ -847,13 +847,12 @@ end );
 ##
 AddCartesianEvaluationMorphismWithGivenSource( SkeletalFinSets,
   function ( cat, M, N, HM_NxM )
-    local HM_N, m;
+    local m, n;
     
     m := Length( M );
+    n := Length( N );
     
-    HM_N := List( Tuples( AsList( N ), m ), x -> MapOfFinSets( M, x, N ) );
-    
-    return MapOfFinSets( HM_NxM, List( Cartesian( HM_N, AsList( M ) ), fx -> fx[1](fx[2]) ), N );
+    return MapOfFinSets( HM_NxM, List( [ 0 .. Length( HM_NxM ) - 1 ], i -> 1 + RemInt( QuoInt( QuoInt( i, m ), n^(m - RemInt( i, m ) - 1 ) ), n ) ), N );
     
 end );
 

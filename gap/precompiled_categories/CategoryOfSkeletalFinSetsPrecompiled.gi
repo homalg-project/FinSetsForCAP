@@ -27,10 +27,11 @@ end
         
 ########
 function ( cat_1, a_1, b_1, s_1 )
-    return MapOfFinSets( s_1, List( Cartesian( List( Tuples( AsList( b_1 ), Length( a_1 ) ), function ( x_2 )
-                  return MapOfFinSets( a_1, x_2, b_1 );
-              end ), AsList( a_1 ) ), function ( fx_2 )
-              return fx_2[1]( fx_2[2] );
+    local hoisted_1_1, hoisted_2_1;
+    hoisted_2_1 := Length( b_1 );
+    hoisted_1_1 := Length( a_1 );
+    return MapOfFinSets( s_1, List( [ 0 .. Length( s_1 ) - 1 ], function ( i_2 )
+              return 1 + REM_INT( QUO_INT( QUO_INT( i_2, hoisted_1_1 ), hoisted_2_1 ^ (hoisted_1_1 - REM_INT( i_2, hoisted_1_1 ) - 1) ), hoisted_2_1 );
           end ), b_1 );
 end
 ########
