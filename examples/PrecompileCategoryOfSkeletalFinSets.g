@@ -12,22 +12,12 @@ given_arguments := [ ];;
 compiled_category_name := "CategoryOfSkeletalFinSetsPrecompiled";;
 package_name := "FinSetsForCAP";;
 
-uncompiled_SkeletalFinSets :=
-    CategoryOfSkeletalFinSets( : no_precompiled_code := true );;
-
 CapJitPrecompileCategoryAndCompareResult(
     category_constructor,
     given_arguments,
     package_name,
     compiled_category_name
-    : operations := Difference(
-        ListPrimitivelyInstalledOperationsOfCategory(
-            uncompiled_SkeletalFinSets
-        ),
-        [
-            "UniversalMorphismIntoDirectProduct", # uses CAP prepare functions
-        ]
-    )
+    : operations := "primitive"
 );;
 
 CategoryOfSkeletalFinSetsPrecompiled( );

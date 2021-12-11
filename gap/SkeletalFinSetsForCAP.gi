@@ -543,23 +543,21 @@ AddProjectionInFactorOfDirectProductWithGivenDirectProduct( SkeletalFinSets,
 end );
 
 ##
-AddUniversalMorphismIntoDirectProduct( SkeletalFinSets, CAPOperationPrepareFunction( "UniversalMorphismIntoBinaryDirectProductToUniversalMorphismIntoDirectProduct", SkeletalFinSets, function ( cat, tau1, tau2 )
-    local S, T, n, imgs, i;
+AddUniversalMorphismIntoDirectProductWithGivenDirectProduct( SkeletalFinSets,
+  function ( cat, D, T, tau, P )
+    local l, d, dd, taus;
     
-    S := Source( tau1 );
-    T := DirectProduct( [ Range( tau1 ), Range( tau2 ) ] );
+    l := Length( D );
     
-    n := Length( Range( tau2 ) );
+    d := List( D, x -> Length( x ) );
     
-    imgs := [ ];
+    dd := List( [ 1 .. l ], i -> Product( d{[ i + 1 .. l ]} ) );
     
-    for i in AsList( S ) do
-        Add( imgs, (AsList( tau1 )[i] - 1) * n + AsList( tau2 )[i] );
-    od;
+    taus := List( tau, x -> AsList( x ) );
     
-    return MapOfFinSets( S, imgs, T );
+    return MapOfFinSets( T, List( AsList( T ), i -> 1 + Sum( [ 1 .. l ], j -> ( taus[j][i] - 1 ) * dd[j] ) ), P );
     
-end ) );
+end );
 
 ##
 AddEqualizer( SkeletalFinSets,

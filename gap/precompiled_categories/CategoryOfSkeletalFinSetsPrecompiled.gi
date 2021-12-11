@@ -747,6 +747,35 @@ end
     , 100 );
     
     ##
+    AddUniversalMorphismIntoDirectProductWithGivenDirectProduct( cat,
+        
+########
+function ( cat_1, objects_1, T_1, tau_1, P_1 )
+    local hoisted_1_1, hoisted_2_1, hoisted_3_1, hoisted_4_1, hoisted_5_1, deduped_6_1, deduped_7_1;
+    deduped_7_1 := Length( objects_1 );
+    deduped_6_1 := [ 1 .. deduped_7_1 ];
+    hoisted_5_1 := deduped_6_1;
+    hoisted_3_1 := List( objects_1, function ( x_2 )
+            return Length( x_2 );
+        end );
+    hoisted_2_1 := deduped_7_1;
+    hoisted_4_1 := List( deduped_6_1, function ( i_2 )
+            return Product( hoisted_3_1{[ i_2 + 1 .. hoisted_2_1 ]} );
+        end );
+    hoisted_1_1 := List( tau_1, function ( x_2 )
+            return AsList( x_2 );
+        end );
+    return MapOfFinSets( T_1, List( AsList( T_1 ), function ( i_2 )
+              return 1 + Sum( hoisted_5_1, function ( j_3 )
+                        return (hoisted_1_1[j_3][i_2] - 1) * hoisted_4_1[j_3];
+                    end );
+          end ), P_1 );
+end
+########
+        
+    , 100 );
+    
+    ##
     AddUniversalMorphismIntoEqualizerWithGivenEqualizer( cat,
         
 ########
