@@ -104,7 +104,7 @@ InstallMethod( EmbeddingOfFinSets,
   function ( s, t )
     local iota;
     
-    iota := MapOfFinSets( s, List( s, x -> x ), t );
+    iota := MapOfFinSets( s, AsList( s ), t );
     
     Assert( 3, IsMonomorphism( iota ) );
     SetIsMonomorphism( iota, true );
