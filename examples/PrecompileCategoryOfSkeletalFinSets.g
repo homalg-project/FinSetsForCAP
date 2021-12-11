@@ -25,7 +25,6 @@ CapJitPrecompileCategoryAndCompareResult(
             uncompiled_SkeletalFinSets
         ),
         [
-            "ProjectionInFactorOfDirectProduct", # uses CAP prepare functions
             "UniversalMorphismIntoDirectProduct", # uses CAP prepare functions
         ]
     )

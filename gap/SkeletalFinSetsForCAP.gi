@@ -528,32 +528,19 @@ AddDirectProduct( SkeletalFinSets,
 end );
 
 ##
-AddProjectionInFactorOfDirectProduct( SkeletalFinSets, CAPOperationPrepareFunction( "ProjectionInFactorOfBinaryDirectProductToProjectionInFactorOfDirectProduct", SkeletalFinSets, function ( cat, M, N, pos )
-    local S, T, n, imgs, i;
+AddProjectionInFactorOfDirectProductWithGivenDirectProduct( SkeletalFinSets,
+  function ( cat, D, k, P )
+    local T, l, a;
     
-    S := DirectProduct( [ M, N ] );
-    if pos = 1 then
-        T := M;
-    else
-        T := N;
-    fi;
+    T := D[k];
     
-    n := Length( N );
+    l := Length( T );
     
-    imgs := [ ];
-
-    for i in AsList( S ) do
-        if pos = 2 then
-            Add( imgs, (i - 1) mod n );
-        else
-            Add( imgs, Int( (i - 1) / n ) );
-        fi;
-    od;
+    a := Product( D{[ k + 1 .. Length( D ) ]}, M -> Length( M ) );
     
-    imgs := List( imgs, img -> img + 1 );
-
-    return MapOfFinSets( S, imgs, T );
-end ) );
+    return MapOfFinSets( P, List( [ 0 .. Length( P ) - 1 ], i -> 1 + RemInt( QuoInt( i, a ), l ) ), T );
+    
+end );
 
 ##
 AddUniversalMorphismIntoDirectProduct( SkeletalFinSets, CAPOperationPrepareFunction( "UniversalMorphismIntoBinaryDirectProductToUniversalMorphismIntoDirectProduct", SkeletalFinSets, function ( cat, tau1, tau2 )

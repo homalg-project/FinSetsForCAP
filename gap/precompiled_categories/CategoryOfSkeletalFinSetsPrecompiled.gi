@@ -635,6 +635,25 @@ end
     , 100 );
     
     ##
+    AddProjectionInFactorOfDirectProductWithGivenDirectProduct( cat,
+        
+########
+function ( cat_1, objects_1, k_1, P_1 )
+    local hoisted_1_1, hoisted_2_1, deduped_3_1;
+    deduped_3_1 := objects_1[k_1];
+    hoisted_2_1 := Length( deduped_3_1 );
+    hoisted_1_1 := Product( objects_1{[ k_1 + 1 .. Length( objects_1 ) ]}, function ( M_2 )
+            return Length( M_2 );
+        end );
+    return MapOfFinSets( P_1, List( [ 0 .. Length( P_1 ) - 1 ], function ( i_2 )
+              return 1 + REM_INT( QUO_INT( i_2, hoisted_1_1 ), hoisted_2_1 );
+          end ), deduped_3_1 );
+end
+########
+        
+    , 100 );
+    
+    ##
     AddProjectionOntoCoequalizerWithGivenCoequalizer( cat,
         
 ########
