@@ -10,13 +10,13 @@ n1 := FinSet( 3 );
 iota1 := EmbeddingOfFinSets( n1, m );
 #! <A monomorphism in SkeletalFinSets>
 Display( iota1 );
-#! [ 3, [ 1, 2, 3 ], 5 ]
+#! [ 3, [ 1 .. 3 ], 5 ]
 n2 := FinSet( 4 );
 #! <An object in SkeletalFinSets>
 iota2 := EmbeddingOfFinSets( n2, m );
 #! <A monomorphism in SkeletalFinSets>
 Display( iota2 );
-#! [ 4, [ 1, 2, 3, 4 ], 5 ]
+#! [ 4, [ 1 .. 4 ], 5 ]
 D := [ iota1, iota2 ];
 #! [ <A monomorphism in SkeletalFinSets>, <A monomorphism in SkeletalFinSets> ]
 Fib := FiberProduct( D );

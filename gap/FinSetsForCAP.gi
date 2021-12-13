@@ -609,13 +609,11 @@ end );
 ##
 AddUniversalMorphismIntoDirectProductWithGivenDirectProduct( category_of_finite_sets,
   function ( category_of_finite_sets, D, test_object, tau, T )
-    local S, Graph;
+    local Graph;
     
-    S := Source( tau[1] );
+    Graph := List( AsList( test_object ), x -> [ x, List( tau, f -> f(x) ) ] );
     
-    Graph := List( AsList( S ), x -> [ x, List( tau, f -> f(x) ) ] );
-    
-    return MapOfFinSetsNC( S, Graph, T );
+    return MapOfFinSetsNC( test_object, Graph, T );
     
 end );
 

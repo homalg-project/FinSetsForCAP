@@ -104,7 +104,7 @@ InstallMethod( EmbeddingOfFinSets,
   function ( s, t )
     local iota;
     
-    iota := MapOfFinSets( s, List( s, x -> x ), t );
+    iota := MapOfFinSets( s, AsList( s ), t );
     
     Assert( 3, IsMonomorphism( iota ) );
     SetIsMonomorphism( iota, true );
@@ -528,51 +528,36 @@ AddDirectProduct( SkeletalFinSets,
 end );
 
 ##
-AddProjectionInFactorOfDirectProduct( SkeletalFinSets, CAPOperationPrepareFunction( "ProjectionInFactorOfBinaryDirectProductToProjectionInFactorOfDirectProduct", SkeletalFinSets, function ( cat, M, N, pos )
-    local S, T, n, imgs, i;
+AddProjectionInFactorOfDirectProductWithGivenDirectProduct( SkeletalFinSets,
+  function ( cat, D, k, P )
+    local T, l, a;
     
-    S := DirectProduct( [ M, N ] );
-    if pos = 1 then
-        T := M;
-    else
-        T := N;
-    fi;
+    T := D[k];
     
-    n := Length( N );
+    l := Length( T );
     
-    imgs := [ ];
-
-    for i in AsList( S ) do
-        if pos = 2 then
-            Add( imgs, (i - 1) mod n );
-        else
-            Add( imgs, Int( (i - 1) / n ) );
-        fi;
-    od;
+    a := Product( D{[ k + 1 .. Length( D ) ]}, M -> Length( M ) );
     
-    imgs := List( imgs, img -> img + 1 );
-
-    return MapOfFinSets( S, imgs, T );
-end ) );
+    return MapOfFinSets( P, List( [ 0 .. Length( P ) - 1 ], i -> 1 + RemInt( QuoInt( i, a ), l ) ), T );
+    
+end );
 
 ##
-AddUniversalMorphismIntoDirectProduct( SkeletalFinSets, CAPOperationPrepareFunction( "UniversalMorphismIntoBinaryDirectProductToUniversalMorphismIntoDirectProduct", SkeletalFinSets, function ( cat, tau1, tau2 )
-    local S, T, n, imgs, i;
+AddUniversalMorphismIntoDirectProductWithGivenDirectProduct( SkeletalFinSets,
+  function ( cat, D, T, tau, P )
+    local l, d, dd, taus;
     
-    S := Source( tau1 );
-    T := DirectProduct( [ Range( tau1 ), Range( tau2 ) ] );
+    l := Length( D );
     
-    n := Length( Range( tau2 ) );
+    d := List( D, x -> Length( x ) );
     
-    imgs := [ ];
+    dd := List( [ 1 .. l ], i -> Product( d{[ i + 1 .. l ]} ) );
     
-    for i in AsList( S ) do
-        Add( imgs, (AsList( tau1 )[i] - 1) * n + AsList( tau2 )[i] );
-    od;
+    taus := List( tau, x -> AsList( x ) );
     
-    return MapOfFinSets( S, imgs, T );
+    return MapOfFinSets( T, List( AsList( T ), i -> 1 + Sum( [ 1 .. l ], j -> ( taus[j][i] - 1 ) * dd[j] ) ), P );
     
-end ) );
+end );
 
 ##
 AddEqualizer( SkeletalFinSets,
