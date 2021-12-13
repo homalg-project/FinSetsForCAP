@@ -689,7 +689,7 @@ end );
 AddMonomorphismIntoSomeInjectiveObjectWithGivenSomeInjectiveObject( SkeletalFinSets,
   function ( cat, M, injective_object )
     
-    return MapOfFinSets( M, List( M, x -> x ), injective_object );
+    return MapOfFinSets( M, AsList( M ), injective_object );
     
 end );
 
@@ -721,13 +721,11 @@ end );
 ##
 AddUniversalMorphismFromCoproductWithGivenCoproduct( SkeletalFinSets,
   function ( cat, L, test_object, tau, S )
-    local T, cmp;
+    local cmp;
     
-    T := Range( tau[1] );
-
-    cmp := Concatenation( List( [ 1 .. Length( tau ) ], x -> AsList( tau[x] ) ) );
-
-    return MapOfFinSets( S, cmp, T );
+    cmp := Concatenation( List( tau, t -> AsList( t ) ) );
+    
+    return MapOfFinSets( S, cmp, test_object );
     
 end );
 
@@ -804,12 +802,13 @@ end );
 ##
 AddCartesianBraidingInverseWithGivenDirectProducts( SkeletalFinSets,
   function ( cat, MN, M, N, NM )
-    local m, n;
+    local n, mn;
     
-    m := Length( M );
     n := Length( N );
     
-    return MapOfFinSets( MN, List( AsList( MN ), k -> ( k-1 ) mod n * m + Int( ( k-1 ) / n ) + 1 ), NM );
+    mn := Length( MN );
+    
+    return MapOfFinSets( MN, List( [ 0 .. mn - 1 ] , i -> 1 + ( i mod mn ) + QuoInt( i, n ) ), NM );
     
 end );
 
@@ -848,13 +847,12 @@ end );
 ##
 AddCartesianEvaluationMorphismWithGivenSource( SkeletalFinSets,
   function ( cat, M, N, HM_NxM )
-    local HM_N, m;
+    local m, n;
     
     m := Length( M );
+    n := Length( N );
     
-    HM_N := List( Tuples( AsList( N ), m ), x -> MapOfFinSets( M, x, N ) );
-    
-    return MapOfFinSets( HM_NxM, List( Cartesian( HM_N, AsList( M ) ), fx -> fx[1](fx[2]) ), N );
+    return MapOfFinSets( HM_NxM, List( [ 0 .. Length( HM_NxM ) - 1 ], i -> 1 + RemInt( QuoInt( QuoInt( i, m ), n^(m - RemInt( i, m ) - 1 ) ), n ) ), N );
     
 end );
 
