@@ -607,13 +607,13 @@
     [4X[25Xgap>[125X [27Xiota1 := EmbeddingOfFinSets( n1, m );[127X[104X
     [4X[28X<A monomorphism in SkeletalFinSets>[128X[104X
     [4X[25Xgap>[125X [27XDisplay( iota1 );[127X[104X
-    [4X[28X[ 3, [ 1, 2, 3 ], 5 ][128X[104X
+    [4X[28X[ 3, [ 1 .. 3 ], 5 ][128X[104X
     [4X[25Xgap>[125X [27Xn2 := FinSet( 4 );[127X[104X
     [4X[28X<An object in SkeletalFinSets>[128X[104X
     [4X[25Xgap>[125X [27Xiota2 := EmbeddingOfFinSets( n2, m );[127X[104X
     [4X[28X<A monomorphism in SkeletalFinSets>[128X[104X
     [4X[25Xgap>[125X [27XDisplay( iota2 );[127X[104X
-    [4X[28X[ 4, [ 1, 2, 3, 4 ], 5 ][128X[104X
+    [4X[28X[ 4, [ 1 .. 4 ], 5 ][128X[104X
     [4X[25Xgap>[125X [27XD := [ iota1, iota2 ];[127X[104X
     [4X[28X[ <A monomorphism in SkeletalFinSets>, <A monomorphism in SkeletalFinSets> ][128X[104X
     [4X[25Xgap>[125X [27XFib := FiberProduct( D );[127X[104X
@@ -729,13 +729,13 @@
     [4X[25Xgap>[125X [27Xiota1 := EmbeddingOfFinSets( N1, M );[127X[104X
     [4X[28X<A monomorphism in SkeletalFinSets>[128X[104X
     [4X[25Xgap>[125X [27XDisplay( iota1 );[127X[104X
-    [4X[28X[ 3, [ 1, 2, 3 ], 5 ][128X[104X
+    [4X[28X[ 3, [ 1 .. 3 ], 5 ][128X[104X
     [4X[25Xgap>[125X [27XN2 := FinSet( 2 );[127X[104X
     [4X[28X<An object in SkeletalFinSets>[128X[104X
     [4X[25Xgap>[125X [27Xiota2 := EmbeddingOfFinSets( N2, M );[127X[104X
     [4X[28X<A monomorphism in SkeletalFinSets>[128X[104X
     [4X[25Xgap>[125X [27XDisplay( iota2 );[127X[104X
-    [4X[28X[ 2, [ 1, 2 ], 5 ][128X[104X
+    [4X[28X[ 2, [ 1 .. 2 ], 5 ][128X[104X
     [4X[25Xgap>[125X [27XD := [ iota1, iota2 ];[127X[104X
     [4X[28X[ <A monomorphism in SkeletalFinSets>, <A monomorphism in SkeletalFinSets> ][128X[104X
     [4X[25Xgap>[125X [27XFib := FiberProduct( D );[127X[104X

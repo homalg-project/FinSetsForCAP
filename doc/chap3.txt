@@ -11,22 +11,12 @@
     [4X[25Xgap>[125X [27Xgiven_arguments := [ ];;[127X[104X
     [4X[25Xgap>[125X [27Xcompiled_category_name := "CategoryOfSkeletalFinSetsPrecompiled";;[127X[104X
     [4X[25Xgap>[125X [27Xpackage_name := "FinSetsForCAP";;[127X[104X
-    [4X[25Xgap>[125X [27Xuncompiled_SkeletalFinSets :=[127X[104X
-    [4X[25X>[125X [27X    CategoryOfSkeletalFinSets( : no_precompiled_code := true );;[127X[104X
     [4X[25Xgap>[125X [27XCapJitPrecompileCategoryAndCompareResult([127X[104X
     [4X[25X>[125X [27X    category_constructor,[127X[104X
     [4X[25X>[125X [27X    given_arguments,[127X[104X
     [4X[25X>[125X [27X    package_name,[127X[104X
     [4X[25X>[125X [27X    compiled_category_name[127X[104X
-    [4X[25X>[125X [27X    : operations := Difference([127X[104X
-    [4X[25X>[125X [27X        ListPrimitivelyInstalledOperationsOfCategory([127X[104X
-    [4X[25X>[125X [27X            uncompiled_SkeletalFinSets[127X[104X
-    [4X[25X>[125X [27X        ),[127X[104X
-    [4X[25X>[125X [27X        [[127X[104X
-    [4X[25X>[125X [27X            "ProjectionInFactorOfDirectProduct", # uses CAP prepare functions[127X[104X
-    [4X[25X>[125X [27X            "UniversalMorphismIntoDirectProduct", # uses CAP prepare functions[127X[104X
-    [4X[25X>[125X [27X        ][127X[104X
-    [4X[25X>[125X [27X    )[127X[104X
+    [4X[25X>[125X [27X    : operations := "primitive"[127X[104X
     [4X[25X>[125X [27X);;[127X[104X
     [4X[25Xgap>[125X [27XCategoryOfSkeletalFinSetsPrecompiled( );[127X[104X
     [4X[28XSkeletalFinSets[128X[104X

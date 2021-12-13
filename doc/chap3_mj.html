@@ -44,22 +44,12 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">given_arguments := [ ];;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">compiled_category_name := "CategoryOfSkeletalFinSetsPrecompiled";;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">package_name := "FinSetsForCAP";;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">uncompiled_SkeletalFinSets :=</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">    CategoryOfSkeletalFinSets( : no_precompiled_code := true );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CapJitPrecompileCategoryAndCompareResult(</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">    category_constructor,</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">    given_arguments,</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">    package_name,</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">    compiled_category_name</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">    : operations := Difference(</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">        ListPrimitivelyInstalledOperationsOfCategory(</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">            uncompiled_SkeletalFinSets</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">        ),</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">        [</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">            "ProjectionInFactorOfDirectProduct", # uses CAP prepare functions</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">            "UniversalMorphismIntoDirectProduct", # uses CAP prepare functions</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">        ]</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">    )</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    : operations := "primitive"</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CategoryOfSkeletalFinSetsPrecompiled( );</span>
 SkeletalFinSets
