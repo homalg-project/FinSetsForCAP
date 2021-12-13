@@ -14,9 +14,10 @@ function ( cat_1, s_1, a_1, b_1, r_1 )
     deduped_3_1 := Length( s_1 );
     hoisted_2_1 := Length( b_1 );
     hoisted_1_1 := deduped_3_1;
-    return MapOfFinSets( s_1, List( [ 0 .. deduped_3_1 - 1 ], function ( i_2 )
+    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
+           ), cat_1, s_1, r_1, AsList, List( [ 0 .. deduped_3_1 - 1 ], function ( i_2 )
               return 1 + i_2 mod hoisted_1_1 + QUO_INT( i_2, hoisted_2_1 );
-          end ), r_1 );
+          end ) );
 end
 ########
         
@@ -30,9 +31,10 @@ function ( cat_1, a_1, b_1, s_1 )
     local hoisted_1_1, hoisted_2_1;
     hoisted_2_1 := Length( b_1 );
     hoisted_1_1 := Length( a_1 );
-    return MapOfFinSets( s_1, List( [ 0 .. Length( s_1 ) - 1 ], function ( i_2 )
+    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
+           ), cat_1, s_1, b_1, AsList, List( [ 0 .. Length( s_1 ) - 1 ], function ( i_2 )
               return 1 + REM_INT( QUO_INT( QUO_INT( i_2, hoisted_1_1 ), hoisted_2_1 ^ (hoisted_1_1 - REM_INT( i_2, hoisted_1_1 ) - 1) ), hoisted_2_1 );
-          end ), b_1 );
+          end ) );
 end
 ########
         
@@ -43,7 +45,8 @@ end
         
 ########
 function ( cat_1, a_1, r_1 )
-    return MapOfFinSets( a_1, [ 1 .. Length( a_1 ) ], a_1 );
+    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
+           ), cat_1, a_1, a_1, AsList, [ 1 .. Length( a_1 ) ] );
 end
 ########
         
@@ -54,7 +57,8 @@ end
         
 ########
 function ( cat_1, a_1, s_1 )
-    return MapOfFinSets( a_1, [ 1 .. Length( a_1 ) ], a_1 );
+    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
+           ), cat_1, a_1, a_1, AsList, [ 1 .. Length( a_1 ) ] );
 end
 ########
         
@@ -65,7 +69,8 @@ end
         
 ########
 function ( cat_1, a_1, r_1 )
-    return MapOfFinSets( a_1, [ 1 .. Length( a_1 ) ], a_1 );
+    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
+           ), cat_1, a_1, a_1, AsList, [ 1 .. Length( a_1 ) ] );
 end
 ########
         
@@ -76,7 +81,8 @@ end
         
 ########
 function ( cat_1, a_1, s_1 )
-    return MapOfFinSets( a_1, [ 1 .. Length( a_1 ) ], a_1 );
+    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
+           ), cat_1, a_1, a_1, AsList, [ 1 .. Length( a_1 ) ] );
 end
 ########
         
@@ -90,14 +96,15 @@ function ( cat_1, alpha_1, Omega_1 )
     local hoisted_1_1, deduped_2_1;
     deduped_2_1 := Range( alpha_1 );
     hoisted_1_1 := AsList( alpha_1 );
-    return MapOfFinSets( deduped_2_1, List( deduped_2_1, function ( x_2 )
+    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
+           ), cat_1, deduped_2_1, Omega_1, AsList, List( deduped_2_1, function ( x_2 )
               if x_2 in hoisted_1_1 then
                   return 1;
               else
                   return 2;
               fi;
               return;
-          end ), Omega_1 );
+          end ) );
 end
 ########
         
@@ -111,9 +118,10 @@ function ( cat_1, alpha_1, I_1 )
     local hoisted_1_1, deduped_2_1;
     deduped_2_1 := AsList( alpha_1 );
     hoisted_1_1 := SSortedList( deduped_2_1 );
-    return MapOfFinSets( Source( alpha_1 ), List( deduped_2_1, function ( l_2 )
+    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
+           ), cat_1, Source( alpha_1 ), I_1, AsList, List( deduped_2_1, function ( l_2 )
               return Position( hoisted_1_1, l_2 );
-          end ), I_1 );
+          end ) );
 end
 ########
         
@@ -124,7 +132,8 @@ end
         
 ########
 function ( cat_1, arg2_1 )
-    return FinSet( cat_1, Length( SKELETAL_FIN_SETS_ExplicitCoequalizer( arg2_1 ) ) );
+    return ObjectifyObjectForCAPWithAttributes( rec(
+           ), cat_1, Length, Length( SKELETAL_FIN_SETS_ExplicitCoequalizer( arg2_1 ) ) );
 end
 ########
         
@@ -139,14 +148,15 @@ function ( cat_1, alpha_1, beta_1 )
     deduped_3_1 := Range( alpha_1 );
     hoisted_2_1 := AsList( beta_1 );
     hoisted_1_1 := AsList( alpha_1 );
-    return MapOfFinSets( deduped_3_1, List( AsList( deduped_3_1 ), function ( y_2 )
+    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
+           ), cat_1, deduped_3_1, Range( beta_1 ), AsList, List( AsList( deduped_3_1 ), function ( y_2 )
               if not y_2 in hoisted_1_1 then
                   return 1;
               else
                   return hoisted_2_1[Position( hoisted_1_1, y_2 )];
               fi;
               return;
-          end ), Range( beta_1 ) );
+          end ) );
 end
 ########
         
@@ -157,7 +167,8 @@ end
         
 ########
 function ( cat_1, arg2_1 )
-    return FinSet( cat_1, Sum( arg2_1, function ( x_2 )
+    return ObjectifyObjectForCAPWithAttributes( rec(
+           ), cat_1, Length, Sum( arg2_1, function ( x_2 )
               return Length( x_2 );
           end ) );
 end
@@ -170,7 +181,8 @@ end
         
 ########
 function ( cat_1, arg2_1 )
-    return FinSet( cat_1, Product( List( arg2_1, function ( o_2 )
+    return ObjectifyObjectForCAPWithAttributes( rec(
+           ), cat_1, Length, Product( List( arg2_1, function ( o_2 )
                 return Length( o_2 );
             end ) ) );
 end
@@ -188,13 +200,14 @@ function ( cat_1, morphisms_1, P_1 )
     deduped_3_1 := Source( deduped_4_1 );
     hoisted_2_1 := morphisms_1{[ 2 .. Length( morphisms_1 ) ]};
     hoisted_1_1 := deduped_4_1;
-    return MapOfFinSets( P_1, Filtered( AsList( deduped_3_1 ), function ( x_2 )
+    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
+           ), cat_1, P_1, deduped_3_1, AsList, Filtered( AsList( deduped_3_1 ), function ( x_2 )
               local hoisted_1_2;
               hoisted_1_2 := hoisted_1_1( x_2 );
               return ForAll( hoisted_2_1, function ( fj_3 )
                       return hoisted_1_2 = fj_3( x_2 );
                   end );
-          end ), deduped_3_1 );
+          end ) );
 end
 ########
         
@@ -205,7 +218,8 @@ end
         
 ########
 function ( cat_1, A_1 )
-    return MapOfFinSets( A_1, [ 1 .. Length( A_1 ) ], A_1 );
+    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
+           ), cat_1, A_1, A_1, AsList, [ 1 .. Length( A_1 ) ] );
 end
 ########
         
@@ -220,7 +234,8 @@ function ( cat_1, arg2_1 )
     deduped_3_1 := arg2_1[1];
     hoisted_2_1 := arg2_1{[ 2 .. Length( arg2_1 ) ]};
     hoisted_1_1 := deduped_3_1;
-    return FinSet( cat_1, Length( Filtered( AsList( Source( deduped_3_1 ) ), function ( x_2 )
+    return ObjectifyObjectForCAPWithAttributes( rec(
+           ), cat_1, Length, Length( Filtered( AsList( Source( deduped_3_1 ) ), function ( x_2 )
                 local hoisted_1_2;
                 hoisted_1_2 := hoisted_1_1( x_2 );
                 return ForAll( hoisted_2_1, function ( fj_3 )
@@ -237,33 +252,28 @@ end
         
 ########
 function ( cat_1, s_1, alpha_1, beta_1, r_1 )
-    local hoisted_1_1, hoisted_2_1, hoisted_3_1, hoisted_4_1, hoisted_5_1, hoisted_6_1, hoisted_7_1, deduped_8_1, deduped_9_1, deduped_10_1, deduped_11_1;
-    deduped_11_1 := Range( beta_1 );
-    deduped_10_1 := Source( alpha_1 );
-    deduped_9_1 := Range( alpha_1 );
-    deduped_8_1 := Source( beta_1 );
-    hoisted_2_1 := deduped_11_1;
-    hoisted_1_1 := deduped_10_1;
-    hoisted_7_1 := List( Tuples( AsList( deduped_11_1 ), Length( deduped_10_1 ) ), function ( x_2 )
-            return MapOfFinSets( hoisted_1_1, x_2, hoisted_2_1 );
+    local hoisted_1_1, hoisted_2_1, hoisted_3_1, hoisted_4_1, hoisted_5_1, deduped_6_1, deduped_7_1;
+    deduped_7_1 := Range( beta_1 );
+    deduped_6_1 := Source( alpha_1 );
+    hoisted_2_1 := deduped_7_1;
+    hoisted_1_1 := deduped_6_1;
+    hoisted_5_1 := List( Tuples( AsList( deduped_7_1 ), Length( deduped_6_1 ) ), function ( x_2 )
+            return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
+                   ), cat_1, hoisted_1_1, hoisted_2_1, AsList, x_2 );
         end );
-    hoisted_6_1 := AsList( beta_1 );
-    hoisted_5_1 := AsList( alpha_1 );
-    hoisted_4_1 := deduped_8_1;
-    hoisted_3_1 := deduped_9_1;
-    return MapOfFinSets( s_1, List( Tuples( AsList( deduped_8_1 ), Length( deduped_9_1 ) ), function ( logic_new_func_x_2 )
-              local hoisted_1_2, hoisted_2_2, deduped_3_2, deduped_4_2, deduped_5_2;
-              deduped_5_2 := MapOfFinSets( hoisted_3_1, logic_new_func_x_2, hoisted_4_1 );
-              hoisted_1_2 := AsList( deduped_5_2 );
-              deduped_4_2 := MapOfFinSets( hoisted_1_1, List( hoisted_1_1, function ( i_3 )
-                        return hoisted_1_2[hoisted_5_1[i_3]];
-                    end ), Range( deduped_5_2 ) );
-              deduped_3_2 := Source( deduped_4_2 );
-              hoisted_2_2 := AsList( deduped_4_2 );
-              return Position( hoisted_7_1, MapOfFinSets( deduped_3_2, List( deduped_3_2, function ( i_3 )
-                          return hoisted_6_1[hoisted_2_2[i_3]];
-                      end ), hoisted_2_1 ) );
-          end ), r_1 );
+    hoisted_4_1 := AsList( beta_1 );
+    hoisted_3_1 := AsList( alpha_1 );
+    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
+           ), cat_1, s_1, r_1, AsList, List( Tuples( AsList( Source( beta_1 ) ), Length( Range( alpha_1 ) ) ), function ( logic_new_func_x_2 )
+              local hoisted_1_2;
+              hoisted_1_2 := List( hoisted_1_1, function ( i_3 )
+                      return logic_new_func_x_2[hoisted_3_1[i_3]];
+                  end );
+              return Position( hoisted_5_1, ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
+                       ), cat_1, hoisted_1_1, hoisted_2_1, AsList, List( hoisted_1_1, function ( i_3 )
+                          return hoisted_4_1[hoisted_1_2[i_3]];
+                      end ) ) );
+          end ) );
 end
 ########
         
@@ -274,7 +284,8 @@ end
         
 ########
 function ( cat_1, a_1, b_1 )
-    return FinSet( cat_1, Length( b_1 ) ^ Length( a_1 ) );
+    return ObjectifyObjectForCAPWithAttributes( rec(
+           ), cat_1, Length, Length( b_1 ) ^ Length( a_1 ) );
 end
 ########
         
@@ -285,7 +296,8 @@ end
         
 ########
 function ( cat_1, a_1 )
-    return MapOfFinSets( a_1, [ 1 .. Length( a_1 ) ], a_1 );
+    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
+           ), cat_1, a_1, a_1, AsList, [ 1 .. Length( a_1 ) ] );
 end
 ########
         
@@ -296,7 +308,8 @@ end
         
 ########
 function ( cat_1, alpha_1, I_1 )
-    return MapOfFinSets( I_1, SSortedList( AsList( alpha_1 ) ), Range( alpha_1 ) );
+    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
+           ), cat_1, I_1, Range( alpha_1 ), AsList, SSortedList( AsList( alpha_1 ) ) );
 end
 ########
         
@@ -307,7 +320,8 @@ end
         
 ########
 function ( cat_1, arg2_1 )
-    return FinSet( cat_1, Length( SSortedList( AsList( arg2_1 ) ) ) );
+    return ObjectifyObjectForCAPWithAttributes( rec(
+           ), cat_1, Length, Length( SSortedList( AsList( arg2_1 ) ) ) );
 end
 ########
         
@@ -318,7 +332,8 @@ end
         
 ########
 function ( cat_1 )
-    return FinSet( cat_1, 0 );
+    return ObjectifyObjectForCAPWithAttributes( rec(
+           ), cat_1, Length, 0 );
 end
 ########
         
@@ -333,11 +348,12 @@ function ( cat_1, objects_1, k_1, P_1 )
     hoisted_1_1 := Sum( objects_1{[ 1 .. k_1 - 1 ]}, function ( x_2 )
             return Length( x_2 );
         end );
-    return MapOfFinSets( objects_1[k_1], List( objects_1, function ( logic_new_func_list_2 )
+    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
+           ), cat_1, objects_1[k_1], P_1, AsList, List( objects_1, function ( logic_new_func_list_2 )
                 return List( logic_new_func_list_2, function ( x_3 )
                         return hoisted_1_1 + x_3;
                     end );
-            end )[k_1], P_1 );
+            end )[k_1] );
 end
 ########
         
@@ -554,9 +570,10 @@ function ( cat_1, alpha_1, beta_1 )
     deduped_3_1 := Source( alpha_1 );
     hoisted_2_1 := AsList( beta_1 );
     hoisted_1_1 := AsList( alpha_1 );
-    return MapOfFinSets( deduped_3_1, List( AsList( deduped_3_1 ), function ( x_2 )
+    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
+           ), cat_1, deduped_3_1, Source( beta_1 ), AsList, List( AsList( deduped_3_1 ), function ( x_2 )
               return Position( hoisted_2_1, hoisted_1_1[x_2] );
-          end ), Source( beta_1 ) );
+          end ) );
 end
 ########
         
@@ -567,7 +584,8 @@ end
         
 ########
 function ( cat_1, A_1, I_1 )
-    return MapOfFinSets( A_1, AsList( A_1 ), I_1 );
+    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
+           ), cat_1, A_1, I_1, AsList, AsList( A_1 ) );
 end
 ########
         
@@ -578,7 +596,8 @@ end
         
 ########
 function ( cat_1, arg2_1, arg3_1, arg4_1 )
-    return MapOfFinSets( arg2_1, arg3_1, arg4_1 );
+    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
+           ), cat_1, arg2_1, arg4_1, AsList, arg3_1 );
 end
 ########
         
@@ -600,7 +619,8 @@ end
         
 ########
 function ( cat_1, arg2_1 )
-    return FinSet( cat_1, arg2_1 );
+    return ObjectifyObjectForCAPWithAttributes( rec(
+           ), cat_1, Length, arg2_1 );
 end
 ########
         
@@ -626,9 +646,10 @@ function ( cat_1, alpha_1, beta_1 )
     deduped_3_1 := Source( alpha_1 );
     hoisted_2_1 := AsList( beta_1 );
     hoisted_1_1 := AsList( alpha_1 );
-    return MapOfFinSets( deduped_3_1, List( deduped_3_1, function ( i_2 )
+    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
+           ), cat_1, deduped_3_1, Range( beta_1 ), AsList, List( deduped_3_1, function ( i_2 )
               return hoisted_2_1[hoisted_1_1[i_2]];
-          end ), Range( beta_1 ) );
+          end ) );
 end
 ########
         
@@ -645,9 +666,10 @@ function ( cat_1, objects_1, k_1, P_1 )
     hoisted_1_1 := Product( objects_1{[ k_1 + 1 .. Length( objects_1 ) ]}, function ( M_2 )
             return Length( M_2 );
         end );
-    return MapOfFinSets( P_1, List( [ 0 .. Length( P_1 ) - 1 ], function ( i_2 )
+    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
+           ), cat_1, P_1, deduped_3_1, AsList, List( [ 0 .. Length( P_1 ) - 1 ], function ( i_2 )
               return 1 + REM_INT( QUO_INT( i_2, hoisted_1_1 ), hoisted_2_1 );
-          end ), deduped_3_1 );
+          end ) );
 end
 ########
         
@@ -661,11 +683,12 @@ function ( cat_1, morphisms_1, P_1 )
     local hoisted_1_1, deduped_2_1;
     deduped_2_1 := Range( morphisms_1[1] );
     hoisted_1_1 := SKELETAL_FIN_SETS_ExplicitCoequalizer( morphisms_1 );
-    return MapOfFinSets( deduped_2_1, List( deduped_2_1, function ( logic_new_func_x_2 )
+    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
+           ), cat_1, deduped_2_1, P_1, AsList, List( deduped_2_1, function ( logic_new_func_x_2 )
               return Position( hoisted_1_1, First( hoisted_1_1, function ( c_3 )
                         return logic_new_func_x_2 in c_3;
                     end ) );
-          end ), P_1 );
+          end ) );
 end
 ########
         
@@ -677,7 +700,8 @@ end
 ########
 function ( cat_1, arg2_1 )
     if Length( arg2_1 ) = 0 then
-        return FinSet( cat_1, 1 );
+        return ObjectifyObjectForCAPWithAttributes( rec(
+               ), cat_1, Length, 1 );
     else
         return arg2_1;
     fi;
@@ -692,7 +716,8 @@ end
         
 ########
 function ( cat_1 )
-    return FinSet( cat_1, 2 );
+    return ObjectifyObjectForCAPWithAttributes( rec(
+           ), cat_1, Length, 2 );
 end
 ########
         
@@ -703,7 +728,8 @@ end
         
 ########
 function ( cat_1 )
-    return FinSet( cat_1, 1 );
+    return ObjectifyObjectForCAPWithAttributes( rec(
+           ), cat_1, Length, 1 );
 end
 ########
         
@@ -714,9 +740,10 @@ end
         
 ########
 function ( cat_1, morphisms_1, T_1, tau_1, P_1 )
-    return MapOfFinSets( P_1, List( SKELETAL_FIN_SETS_ExplicitCoequalizer( morphisms_1 ), function ( x_2 )
+    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
+           ), cat_1, P_1, Range( tau_1 ), AsList, List( SKELETAL_FIN_SETS_ExplicitCoequalizer( morphisms_1 ), function ( x_2 )
               return tau_1( x_2[1] );
-          end ), Range( tau_1 ) );
+          end ) );
 end
 ########
         
@@ -727,9 +754,10 @@ end
         
 ########
 function ( cat_1, objects_1, T_1, tau_1, P_1 )
-    return MapOfFinSets( P_1, Concatenation( List( tau_1, function ( t_2 )
+    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
+           ), cat_1, P_1, T_1, AsList, Concatenation( List( tau_1, function ( t_2 )
                 return AsList( t_2 );
-            end ) ), T_1 );
+            end ) ) );
 end
 ########
         
@@ -740,7 +768,8 @@ end
         
 ########
 function ( cat_1, T_1, P_1 )
-    return MapOfFinSets( P_1, [  ], T_1 );
+    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
+           ), cat_1, P_1, T_1, AsList, [  ] );
 end
 ########
         
@@ -765,11 +794,12 @@ function ( cat_1, objects_1, T_1, tau_1, P_1 )
     hoisted_1_1 := List( tau_1, function ( x_2 )
             return AsList( x_2 );
         end );
-    return MapOfFinSets( T_1, List( AsList( T_1 ), function ( i_2 )
+    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
+           ), cat_1, T_1, P_1, AsList, List( AsList( T_1 ), function ( i_2 )
               return 1 + Sum( hoisted_5_1, function ( j_3 )
                         return (hoisted_1_1[j_3][i_2] - 1) * hoisted_4_1[j_3];
                     end );
-          end ), P_1 );
+          end ) );
 end
 ########
         
@@ -791,9 +821,10 @@ function ( cat_1, morphisms_1, T_1, tau_1, P_1 )
                     return hoisted_1_2 = fj_3( x_2 );
                 end );
         end );
-    return MapOfFinSets( deduped_3_1, List( deduped_3_1, function ( x_2 )
+    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
+           ), cat_1, deduped_3_1, P_1, AsList, List( deduped_3_1, function ( x_2 )
               return Position( hoisted_2_1, tau_1( x_2 ) );
-          end ), P_1 );
+          end ) );
 end
 ########
         
@@ -806,9 +837,10 @@ end
 function ( cat_1, T_1, P_1 )
     local hoisted_1_1;
     hoisted_1_1 := Length( P_1 );
-    return MapOfFinSets( T_1, List( AsList( T_1 ), function ( a_2 )
+    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
+           ), cat_1, T_1, P_1, AsList, List( AsList( T_1 ), function ( a_2 )
               return hoisted_1_1;
-          end ), P_1 );
+          end ) );
 end
 ########
         
