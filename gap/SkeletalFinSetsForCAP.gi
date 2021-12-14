@@ -804,13 +804,13 @@ end );
 ##
 AddCartesianBraidingInverseWithGivenDirectProducts( SkeletalFinSets,
   function ( cat, MN, M, N, NM )
-    local n, mn;
+    local m, n;
+    
+    m := Length( M );
     
     n := Length( N );
     
-    mn := Length( MN );
-    
-    return MapOfFinSets( cat, MN, List( [ 0 .. mn - 1 ] , i -> 1 + ( i mod mn ) + QuoInt( i, n ) ), NM );
+    return MapOfFinSets( cat, MN, List( [ 0 .. Length( MN ) - 1 ] , i -> 1 + ( i mod n ) * m + QuoInt( i, n ) ), NM );
     
 end );
 
