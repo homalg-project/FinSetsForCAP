@@ -804,13 +804,13 @@ end );
 ##
 AddCartesianBraidingInverseWithGivenDirectProducts( SkeletalFinSets,
   function ( cat, MN, M, N, NM )
-    local n, mn;
+    local m, n;
+    
+    m := Length( M );
     
     n := Length( N );
     
-    mn := Length( MN );
-    
-    return MapOfFinSets( cat, MN, List( [ 0 .. mn - 1 ] , i -> 1 + ( i mod mn ) + QuoInt( i, n ) ), NM );
+    return MapOfFinSets( cat, MN, List( [ 0 .. Length( MN ) - 1 ] , i -> 1 + ( i mod n ) * m + QuoInt( i, n ) ), NM );
     
 end );
 
@@ -855,6 +855,18 @@ AddCartesianEvaluationMorphismWithGivenSource( SkeletalFinSets,
     n := Length( N );
     
     return MapOfFinSets( cat, HM_NxM, List( [ 0 .. Length( HM_NxM ) - 1 ], i -> 1 + RemInt( QuoInt( QuoInt( i, m ), n^(m - RemInt( i, m ) - 1 ) ), n ) ), N );
+    
+end );
+
+##
+AddCartesianCoevaluationMorphismWithGivenRange( SkeletalFinSets,
+  function ( cat, M, N, HN_MxN )
+    local m, n;
+    
+    m := Length( M );
+    n := Length( N );
+    
+    return MapOfFinSets( cat, M, List( [ 0 .. m - 1 ], i -> 1 + Sum( [ 0 .. n - 1 ], j -> ( i * n + j ) * (m*n)^(n - j - 1) ) ), HN_MxN );
     
 end );
 

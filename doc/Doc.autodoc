@@ -46,7 +46,7 @@
 @Subsection Pushout
 @InsertChunk Pushout
 
-@Subsection Cartesian lambda introduction
+@Subsection Cartesian Lambda Introduction
 @InsertChunk CartesianLambdaIntroduction
 
 @Subsection Lift
@@ -111,6 +111,9 @@
 
 @Subsection Skeletal Pushout
 @InsertChunk SkeletalPushout
+
+@Subsection Skeletal Cartesian Lambda Introduction
+@InsertChunk SkeletalCartesianLambdaIntroduction
 
 @Subsection Skeletal Lift
 @InsertChunk SkeletalLift
