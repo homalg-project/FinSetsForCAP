@@ -807,7 +807,37 @@
   [4X[32X[104X
   
   
-  [1X2.5-15 [33X[0;0YSkeletal Lift[133X[101X
+  [1X2.5-15 [33X[0;0YSkeletal Cartesian Lambda Introduction[133X[101X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XS := FinSet( 3 );[127X[104X
+    [4X[28X<An object in SkeletalFinSets>[128X[104X
+    [4X[25Xgap>[125X [27XR := FinSet( 2 );[127X[104X
+    [4X[28X<An object in SkeletalFinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xf := MapOfFinSets( S, [ 2, 2, 1 ], R );[127X[104X
+    [4X[28X<A morphism in SkeletalFinSets>[128X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( f );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XT := TerminalObject( SkeletalFinSets );[127X[104X
+    [4X[28X<An object in SkeletalFinSets>[128X[104X
+    [4X[25Xgap>[125X [27XIsTerminal( T );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xlf := CartesianLambdaIntroduction( f );[127X[104X
+    [4X[28X<A split monomorphism in SkeletalFinSets>[128X[104X
+    [4X[25Xgap>[125X [27XSource( lf ) = T;[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( Range( lf ) );[127X[104X
+    [4X[28X8[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( lf );[127X[104X
+    [4X[28X[ 1, [ 7 ], 8 ][128X[104X
+    [4X[25Xgap>[125X [27Xelf := CartesianLambdaElimination( S, R, lf );[127X[104X
+    [4X[28X<A morphism in SkeletalFinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xelf = f;[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X2.5-16 [33X[0;0YSkeletal Lift[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27Xm := FinSet( 3 );[127X[104X
@@ -841,7 +871,7 @@
   [4X[32X[104X
   
   
-  [1X2.5-16 [33X[0;0YSkeletal Colift[133X[101X
+  [1X2.5-17 [33X[0;0YSkeletal Colift[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27Xm := FinSet( 5 );[127X[104X
@@ -865,7 +895,7 @@
   [4X[32X[104X
   
   
-  [1X2.5-17 [33X[0;0YSkeletal topos properties[133X[101X
+  [1X2.5-18 [33X[0;0YSkeletal topos properties[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XM := FinSet( 4 );;[127X[104X
@@ -893,10 +923,24 @@
     [4X[25Xgap>[125X [27XExponentialOnObjects( M, N );;[127X[104X
     [4X[25Xgap>[125X [27XExponentialOnMorphisms( f, g );;[127X[104X
     [4X[25Xgap>[125X [27XCartesianEvaluationMorphism( M, N );;[127X[104X
+    [4X[25Xgap>[125X [27XCartesianCoevaluationMorphism( M, N );;[127X[104X
+    [4X[25Xgap>[125X [27XDirectProductToExponentialAdjunctionMap( M, N,[127X[104X
+    [4X[25X>[125X [27X    UniversalMorphismIntoTerminalObject( DirectProduct( M, N ) )[127X[104X
+    [4X[25X>[125X [27X);;[127X[104X
+    [4X[25Xgap>[125X [27XExponentialToDirectProductAdjunctionMap( M, N,[127X[104X
+    [4X[25X>[125X [27X    UniversalMorphismFromInitialObject( ExponentialOnObjects( M, N ) )[127X[104X
+    [4X[25X>[125X [27X);;[127X[104X
+    [4X[25Xgap>[125X [27XM := FinSet( 2 );;[127X[104X
+    [4X[25Xgap>[125X [27XN := FinSet( 2 );;[127X[104X
+    [4X[25Xgap>[125X [27XP := FinSet( 1 );;[127X[104X
+    [4X[25Xgap>[125X [27XQ := FinSet( 2 );;[127X[104X
+    [4X[25Xgap>[125X [27XCartesianPreComposeMorphism( M, N, P );;[127X[104X
+    [4X[25Xgap>[125X [27XCartesianPostComposeMorphism( M, N, P );;[127X[104X
+    [4X[25Xgap>[125X [27XDirectProductExponentialCompatibilityMorphism( [ M, N, P, Q ] );;[127X[104X
   [4X[32X[104X
   
   
-  [1X2.5-18 [33X[0;0YSkeletal Subobject Classifier[133X[101X
+  [1X2.5-19 [33X[0;0YSkeletal Subobject Classifier[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XDisplay( SubobjectClassifier( SkeletalFinSets ) );[127X[104X
