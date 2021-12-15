@@ -52,6 +52,9 @@
 @Subsection Lift
 @InsertChunk Lift
 
+@Subsection Colift
+@InsertChunk Colift
+
 @Subsection Topos properties
 @InsertChunk Topos
 
