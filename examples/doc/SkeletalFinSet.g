@@ -7,6 +7,8 @@ m := FinSet( 7 );
 #! <An object in SkeletalFinSets>
 IsWellDefined( m );
 #! true
+List( m, x -> x^2 );
+#! [ 1, 4, 9, 16, 25, 36, 49 ]
 L := ObjectDatum( m );
 #! 7
 Display( m );
