@@ -275,29 +275,33 @@ end
         
 ########
 function ( cat_1, s_1, alpha_1, beta_1, r_1 )
-    local hoisted_1_1, hoisted_2_1, hoisted_3_1, hoisted_4_1, hoisted_5_1, hoisted_6_1, deduped_7_1, deduped_8_1, deduped_9_1;
-    deduped_9_1 := Range( beta_1 );
-    deduped_8_1 := Source( alpha_1 );
-    deduped_7_1 := Length( deduped_8_1 );
+    local hoisted_1_1, hoisted_2_1, hoisted_3_1, hoisted_4_1, hoisted_5_1, hoisted_6_1, hoisted_7_1, hoisted_8_1, deduped_9_1, deduped_10_1, deduped_11_1;
+    deduped_11_1 := Length( Source( alpha_1 ) );
+    deduped_10_1 := Length( Range( alpha_1 ) );
+    deduped_9_1 := Length( Source( beta_1 ) );
+    hoisted_8_1 := Length( Range( beta_1 ) );
+    hoisted_7_1 := deduped_11_1;
+    hoisted_6_1 := AsList( beta_1 );
+    hoisted_5_1 := [ 1 .. deduped_11_1 ];
+    hoisted_4_1 := AsList( alpha_1 );
+    hoisted_3_1 := [ 1 .. deduped_10_1 ];
     hoisted_2_1 := deduped_9_1;
-    hoisted_1_1 := deduped_8_1;
-    hoisted_6_1 := List( Tuples( AsList( deduped_9_1 ), deduped_7_1 ), function ( x_2 )
-            return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-                   ), cat_1, hoisted_1_1, hoisted_2_1, AsList, x_2 );
-        end );
-    hoisted_5_1 := AsList( beta_1 );
-    hoisted_4_1 := [ 1 .. deduped_7_1 ];
-    hoisted_3_1 := AsList( alpha_1 );
+    hoisted_1_1 := deduped_10_1;
     return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-           ), cat_1, s_1, r_1, AsList, List( Tuples( AsList( Source( beta_1 ) ), Length( Range( alpha_1 ) ) ), function ( logic_new_func_x_2 )
-              local hoisted_1_2;
-              hoisted_1_2 := List( hoisted_4_1, function ( i_3 )
-                      return logic_new_func_x_2[hoisted_3_1[i_3]];
+           ), cat_1, s_1, r_1, AsList, List( [ 0 .. deduped_9_1 ^ deduped_10_1 - 1 ], function ( i_2 )
+              local hoisted_1_2, hoisted_2_2, hoisted_3_2;
+              hoisted_1_2 := List( hoisted_3_1, function ( j_3 )
+                      return 1 + REM_INT( QUO_INT( i_2, hoisted_2_1 ^ (hoisted_1_1 - j_3) ), hoisted_2_1 );
                   end );
-              return Position( hoisted_6_1, ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-                       ), cat_1, hoisted_1_1, hoisted_2_1, AsList, List( hoisted_4_1, function ( i_3 )
-                          return hoisted_5_1[hoisted_1_2[i_3]];
-                      end ) ) );
+              hoisted_2_2 := List( hoisted_5_1, function ( i_3 )
+                      return hoisted_1_2[hoisted_4_1[i_3]];
+                  end );
+              hoisted_3_2 := List( hoisted_5_1, function ( i_3 )
+                      return hoisted_6_1[hoisted_2_2[i_3]];
+                  end );
+              return 1 + Sum( hoisted_5_1, function ( i_3 )
+                        return (hoisted_3_2[i_3] - 1) * hoisted_8_1 ^ (hoisted_7_1 - i_3);
+                    end );
           end ) );
 end
 ########

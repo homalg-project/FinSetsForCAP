@@ -827,20 +827,43 @@ end );
 ##
 AddExponentialOnMorphismsWithGivenExponentials( SkeletalFinSets,
   function ( cat, S, alpha, beta, T )
-    local M, m, N, A, a, B, S_int, T_int;
+    local M, m, N, n, A, a, B, b;
     
     M := Range( alpha );
     m := Length( M );
     N := Source( beta );
+    n := Length( N );
     
     A := Source( alpha );
     a := Length( A );
     B := Range( beta );
+    b := Length( B );
     
-    S_int := List( Tuples( AsList( N ), m ), x -> MapOfFinSets( cat, M, x, N ) );
-    T_int := List( Tuples( AsList( B ), a ), x -> MapOfFinSets( cat, A, x, B ) );
-    
-    return MapOfFinSets( cat, S, List( List( S_int, f -> PreComposeList( cat, [ alpha, f, beta ] ) ), f -> Position( T_int, f ) ), T );
+    return
+      MapOfFinSets(
+              cat,
+              S,
+              List( [ 0 .. n ^ m - 1 ],
+                function ( i )
+                  local composition, images;
+                  
+                  composition :=
+                    PreComposeList(
+                            cat,
+                            [ alpha,
+                              MapOfFinSets(
+                                      cat,
+                                      M,
+                                      List( [ 1 .. m ], j -> 1 + RemInt( QuoInt( i, n^(m - j) ), n ) ),
+                                      N ),
+                              beta ] );
+                  
+                  images := AsList( composition );
+                  
+                  return 1 + Sum( [ 1 .. a ], i -> ( images[i] - 1 ) * b^(a - i) );
+                  
+              end ),
+              T );
     
 end );
 
