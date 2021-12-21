@@ -15,7 +15,7 @@ function ( cat_1, s_1, a_1, b_1, r_1 )
     hoisted_1_1 := Length( b_1 );
     return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
            ), cat_1, s_1, r_1, AsList, List( [ 0 .. Length( s_1 ) - 1 ], function ( i_2 )
-              return 1 + i_2 mod hoisted_1_1 * hoisted_2_1 + QUO_INT( i_2, hoisted_1_1 );
+              return 1 + REM_INT( i_2, hoisted_1_1 ) * hoisted_2_1 + QUO_INT( i_2, hoisted_1_1 );
           end ) );
 end
 ########
