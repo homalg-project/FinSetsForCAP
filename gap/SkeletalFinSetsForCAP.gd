@@ -4,15 +4,6 @@
 # Declarations
 #
 
-# Technical functions
-DeclareGlobalFunction( "INSTALL_FUNCTIONS_FOR_SKELETAL_FIN_SETS" );
-
-DeclareGlobalFunction( "SKELETAL_FIN_SETS_ExplicitCoequalizer" );
-
-DeclareGlobalFunction( "SKELETAL_FIN_SETS_IsMonomorphism" );
-
-DeclareGlobalFunction( "SKELETAL_FIN_SETS_IsEpimorphism" );
-
 #! @Chapter The category of skeletal finite sets
 
 #! @Section Skeletal GAP Categories
@@ -47,6 +38,7 @@ DeclareCategory( "IsSkeletalFiniteSetMap",
 #! @Returns an integer
 DeclareAttribute( "Length",
         IsSkeletalFiniteSet );
+CapJitAddTypeSignature( "Length", [ IsSkeletalFiniteSet ], IsInt );
 
 #! @Description
 #!  The list associated to a skeletal finite set, i.e.,
@@ -55,6 +47,15 @@ DeclareAttribute( "Length",
 #! @Returns a list
 DeclareAttribute( "AsList",
         IsSkeletalFiniteSet );
+CapJitAddTypeSignature( "AsList", [ IsSkeletalFiniteSet ], rec( filter := IsList, element_type := rec( filter := IsInt ) ) );
+
+#! @Description
+#!  The graph defining the skeletal finite set morphism <A>phi</A>, see <Ref Oper="MapOfFinSets" Label="for IsSkeletalFiniteSet, IsList, IsSkeletalFiniteSet" />.
+#! @Arguments phi
+#! @Returns a list
+DeclareAttribute( "AsList",
+        IsSkeletalFiniteSetMap );
+CapJitAddTypeSignature( "AsList", [ IsSkeletalFiniteSetMap ], rec( filter := IsList, element_type := rec( filter := IsInt ) ) );
 
 #! @Section Skeletal Constructors
 
@@ -133,3 +134,15 @@ DeclareOperation( "ImageObject",
 #! @Returns a list
 # DeclareOperation( "CallFuncList",
 #         [ IsSkeletalFiniteSetMap, IsList ] );
+
+# Technical functions
+DeclareGlobalFunction( "INSTALL_FUNCTIONS_FOR_SKELETAL_FIN_SETS" );
+
+DeclareGlobalFunction( "SKELETAL_FIN_SETS_ExplicitCoequalizer" );
+CapJitAddTypeSignature( "SKELETAL_FIN_SETS_ExplicitCoequalizer", [ IsList ], rec( filter := IsList, element_type := rec( filter := IsList, element_type := rec( filter := IsInt ) ) ) );
+
+DeclareGlobalFunction( "SKELETAL_FIN_SETS_IsMonomorphism" );
+CapJitAddTypeSignature( "SKELETAL_FIN_SETS_IsMonomorphism", [ IsList, IsInt ], IsBool );
+
+DeclareGlobalFunction( "SKELETAL_FIN_SETS_IsEpimorphism" );
+CapJitAddTypeSignature( "SKELETAL_FIN_SETS_IsEpimorphism", [ IsList, IsInt ], rec( filter := IsList, element_type := rec( filter := IsBool ) ) );
