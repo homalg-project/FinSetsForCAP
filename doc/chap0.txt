@@ -6,10 +6,10 @@
                 [1X The elementary topos of (skeletal) finite sets [101X
   
   
-                                   2021.12-09
+                                   2022.01-01
   
   
-                                15 December 2021
+                                27 January 2022
   
   
                                 Mohamed Barakat
@@ -108,6 +108,7 @@
     2.2 [33X[0;0YSkeletal Attributes[133X
       2.2-1 Length
       2.2-2 AsList
+      2.2-3 AsList
     2.3 [33X[0;0YSkeletal Constructors[133X
       2.3-1 CategoryOfSkeletalFinSets
       2.3-2 SkeletalFinSets
