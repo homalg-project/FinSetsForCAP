@@ -218,11 +218,10 @@ end
         
 ########
 function ( cat_1, morphisms_1, P_1 )
-    local hoisted_1_1, hoisted_2_1, deduped_3_1, deduped_4_1;
-    deduped_4_1 := morphisms_1[1];
-    deduped_3_1 := Source( deduped_4_1 );
+    local hoisted_1_1, hoisted_2_1, deduped_3_1;
+    deduped_3_1 := List( morphisms_1, Source )[1];
     hoisted_2_1 := morphisms_1{[ 2 .. Length( morphisms_1 ) ]};
-    hoisted_1_1 := deduped_4_1;
+    hoisted_1_1 := morphisms_1[1];
     return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
            ), cat_1, P_1, deduped_3_1, AsList, Filtered( [ 1 .. Length( deduped_3_1 ) ], function ( x_2 )
               local hoisted_1_2;
@@ -253,12 +252,11 @@ end
         
 ########
 function ( cat_1, arg2_1 )
-    local hoisted_1_1, hoisted_2_1, deduped_3_1;
-    deduped_3_1 := arg2_1[1];
+    local hoisted_1_1, hoisted_2_1;
     hoisted_2_1 := arg2_1{[ 2 .. Length( arg2_1 ) ]};
-    hoisted_1_1 := deduped_3_1;
+    hoisted_1_1 := arg2_1[1];
     return ObjectifyObjectForCAPWithAttributes( rec(
-           ), cat_1, Length, Length( Filtered( [ 1 .. Length( Source( deduped_3_1 ) ) ], function ( x_2 )
+           ), cat_1, Length, Length( Filtered( [ 1 .. Length( List( arg2_1, Source )[1] ) ], function ( x_2 )
                 local hoisted_1_2;
                 hoisted_1_2 := hoisted_1_1( x_2 );
                 return ForAll( hoisted_2_1, function ( fj_3 )
@@ -373,13 +371,12 @@ end
         
 ########
 function ( cat_1, objects_1, k_1, P_1 )
-    local hoisted_1_1, deduped_2_1;
-    deduped_2_1 := objects_1[k_1];
+    local hoisted_1_1;
     hoisted_1_1 := Sum( objects_1{[ 1 .. k_1 - 1 ]}, function ( x_2 )
             return Length( x_2 );
         end );
     return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-           ), cat_1, deduped_2_1, P_1, AsList, List( [ 1 .. Length( deduped_2_1 ) ], function ( x_2 )
+           ), cat_1, objects_1[k_1], P_1, AsList, List( [ 1 .. List( objects_1, Length )[k_1] ], function ( x_2 )
               return hoisted_1_1 + x_2;
           end ) );
 end
@@ -688,14 +685,13 @@ end
         
 ########
 function ( cat_1, objects_1, k_1, P_1 )
-    local hoisted_1_1, hoisted_2_1, deduped_3_1;
-    deduped_3_1 := objects_1[k_1];
-    hoisted_2_1 := Length( deduped_3_1 );
+    local hoisted_1_1, hoisted_2_1;
+    hoisted_2_1 := List( objects_1, Length )[k_1];
     hoisted_1_1 := Product( objects_1{[ k_1 + 1 .. Length( objects_1 ) ]}, function ( M_2 )
             return Length( M_2 );
         end );
     return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-           ), cat_1, P_1, deduped_3_1, AsList, List( [ 0 .. Length( P_1 ) - 1 ], function ( i_2 )
+           ), cat_1, P_1, objects_1[k_1], AsList, List( [ 0 .. Length( P_1 ) - 1 ], function ( i_2 )
               return 1 + REM_INT( QUO_INT( i_2, hoisted_1_1 ), hoisted_2_1 );
           end ) );
 end
@@ -709,7 +705,7 @@ end
 ########
 function ( cat_1, morphisms_1, P_1 )
     local hoisted_1_1, deduped_2_1;
-    deduped_2_1 := Range( morphisms_1[1] );
+    deduped_2_1 := List( morphisms_1, Range )[1];
     hoisted_1_1 := SKELETAL_FIN_SETS_ExplicitCoequalizer( morphisms_1 );
     return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
            ), cat_1, deduped_2_1, P_1, AsList, List( [ 1 .. Length( deduped_2_1 ) ], function ( logic_new_func_x_2 )
