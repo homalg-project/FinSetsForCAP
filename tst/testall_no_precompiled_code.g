@@ -3,16 +3,18 @@
 #
 # This file runs package tests without precompiled code.
 #
+PushOptions(
+    rec(
+        no_precompiled_code := true,
+    )
+);
+
 options := rec(
     exitGAP := true,
     testOptions := rec(
         compareFunction := "uptowhitespace",
     ),
 );
-
-PushOptions( rec(
-    no_precompiled_code := true,
-) );
 
 TestDirectory( DirectoriesPackageLibrary( "FinSetsForCAP", "tst" ), options );
 
