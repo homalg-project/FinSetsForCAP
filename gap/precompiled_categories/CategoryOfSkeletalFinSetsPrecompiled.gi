@@ -834,10 +834,9 @@ end
         
 ########
 function ( cat_1, morphisms_1, T_1, tau_1, P_1 )
-    local hoisted_1_1, hoisted_2_1, deduped_3_1;
-    deduped_3_1 := morphisms_1[1];
-    hoisted_1_1 := deduped_3_1;
-    hoisted_2_1 := Filtered( [ 1 .. Length( Source( deduped_3_1 ) ) ], function ( x_2 )
+    local hoisted_1_1, hoisted_2_1;
+    hoisted_1_1 := morphisms_1[1];
+    hoisted_2_1 := Filtered( [ 1 .. Length( List( morphisms_1, Source )[1] ) ], function ( x_2 )
             local hoisted_1_2;
             hoisted_1_2 := hoisted_1_1( x_2 );
             return ForAll( morphisms_1, function ( fj_3 )
