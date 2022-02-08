@@ -10,9 +10,9 @@ SetPackageInfo( rec(
 
 PackageName := "FinSetsForCAP",
 Subtitle := "The elementary topos of (skeletal) finite sets",
-Version := "2022.01-02",
+Version := "2022.02-01",
 
-Date := "28/01/2022",
+Date := "08/02/2022",
 License := "GPL-2.0-or-later",
 
 Persons := [
