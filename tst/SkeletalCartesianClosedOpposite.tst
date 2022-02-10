@@ -3,7 +3,7 @@
 # of finite sets and the cocartesian coclosed structure of its opposite.
 ##################################################################################
 
-gap> START_TEST("CartesianClosedOpposite.tst");
+gap> START_TEST("SkeletalCartesianClosedOpposite.tst");
 
 gap> LoadPackage("FinSets", false);
 true
@@ -12,15 +12,15 @@ true
 # CartesianCategoriesTest
 ##############################################
 
-gap> a := FinSet( [ 1 .. 2 ] );;
-gap> b := FinSet( [ 3 .. 5 ] );;
-gap> c := FinSet( [ 6 .. 8 ] );;
-gap> d := FinSet( [ 12 .. 13 ] );; 
+gap> a := FinSet( 2 );;
+gap> b := FinSet( 3 );;
+gap> c := FinSet( 3 );;
+gap> d := FinSet( 2 );;
 
 gap> finsets := CapCategory( a );;
 
-gap> alpha := MapOfFinSets( a, [ [ 1, 3 ], [ 2, 5 ] ], b );;
-gap> beta := MapOfFinSets( c, [ [ 6, 12 ], [ 7, 12 ], [ 8, 13 ] ], d );;
+gap> alpha := MapOfFinSets( a, [ 3, 2 ], b );;
+gap> beta := MapOfFinSets( c, [ 1, 1, 2 ], d );;
 
 gap> CartesianCategoriesTest( finsets, a, b, c, alpha, beta );;
 gap> CartesianCategoriesTest( finsets, a, b, c, alpha, beta : only_primitive_operations := true );;
@@ -41,13 +41,13 @@ gap> CartesianCategoriesTest( finsets, a, t, i, beta, alpha : only_primitive_ope
 # CoartesianCategoriesTest
 ##############################################
 
-gap> a := FinSet( [ 1 .. 2 ] );;
-gap> b := FinSet( [ 3 .. 5 ] );;
-gap> c := FinSet( [ 6 .. 8 ] );;
-gap> d := FinSet( [ 12 .. 13 ] );;
+gap> a := FinSet( 2 );;
+gap> b := FinSet( 3 );;
+gap> c := FinSet( 3 );;
+gap> d := FinSet( 2 );;
 
-gap> alpha := MapOfFinSets( a, [ [ 1, 3 ], [ 2, 5 ] ], b );;
-gap> beta := MapOfFinSets( c, [ [ 6, 12 ], [ 7, 12 ], [ 8, 13 ] ], d );;
+gap> alpha := MapOfFinSets( a, [ 3, 2 ], b );;
+gap> beta := MapOfFinSets( c, [ 1, 1, 2 ], d );;
 
 gap> CocartesianCategoriesTest( finsets, a, b, c, alpha, beta );;
 gap> CocartesianCategoriesTest( finsets, a, b, c, alpha, beta : only_primitive_operations := true );;
@@ -68,29 +68,29 @@ gap> CocartesianCategoriesTest( finsets, a, t, i, beta, alpha : only_primitive_o
 # BraidedCartesianCategoriesTest
 ##############################################
 
-gap> a := FinSet( [ 1 .. 2 ] );;
-gap> b := FinSet( [ 3 .. 5 ] );;
+gap> a := FinSet( 2 );;
+gap> b := FinSet( 3 );;
 
 gap> BraidedCartesianCategoriesTest( finsets, a, b );;
 gap> BraidedCartesianCategoriesTest( finsets, a, b : only_primitive_operations := true );;
 
-gap> a := FinSet( [ 6 .. 8 ] );;
-gap> b := FinSet( [ 12 .. 13 ] );;
+gap> a := FinSet( 3 );;
+gap> b := FinSet( 2 );;
 
 gap> BraidedCartesianCategoriesTest( finsets, a, b );;
 gap> BraidedCartesianCategoriesTest( finsets, a, b : only_primitive_operations := true );;
 
 gap> i := InitialObject( finsets );;
-gap> a := FinSet( [ 5 .. 8 ] );;
+gap> a := FinSet( 4 );;
 
 gap> BraidedCartesianCategoriesTest( finsets, i, a );;
-gap> BraidedCartesianCategoriesTest( finsets, i, a : only_primitive_operations := true );;
+gap> BraidedCartesianCategoriesTest( finsets, i, a );;
 
 gap> BraidedCartesianCategoriesTest( finsets, a, i );;
 gap> BraidedCartesianCategoriesTest( finsets, a, i : only_primitive_operations := true );;
 
 gap> t := TerminalObject( finsets );;
-gap> a := FinSet( [ 1 .. 3 ] );;
+gap> a := FinSet( 3 );;
 
 gap> BraidedCartesianCategoriesTest( finsets, t, a );;
 gap> BraidedCartesianCategoriesTest( finsets, t, a : only_primitive_operations := true );;
@@ -102,20 +102,20 @@ gap> BraidedCartesianCategoriesTest( finsets, a, t : only_primitive_operations :
 # BraidedCocartesianCategoriesTest
 ##############################################
 
-gap> a := FinSet( [ 1 .. 2 ] );;
-gap> b := FinSet( [ 3 .. 5 ] );;
+gap> a := FinSet( 2 );;
+gap> b := FinSet( 3 );;
 
 gap> BraidedCocartesianCategoriesTest( finsets, a, b );;
 gap> BraidedCocartesianCategoriesTest( finsets, a, b : only_primitive_operations := true );;
 
-gap> a := FinSet( [ 6 .. 8 ] );;
-gap> b := FinSet( [ 12 .. 13 ] );;
+gap> a := FinSet( 3 );;
+gap> b := FinSet( 2 );;
 
 gap> BraidedCocartesianCategoriesTest( finsets, a, b );;
 gap> BraidedCocartesianCategoriesTest( finsets, a, b : only_primitive_operations := true );;
 
 gap> i := InitialObject( finsets );;
-gap> a := FinSet( [ 5 .. 8 ] );;
+gap> a := FinSet( 4 );;
 
 gap> BraidedCocartesianCategoriesTest( finsets, i, a );;
 gap> BraidedCocartesianCategoriesTest( finsets, i, a : only_primitive_operations := true );;
@@ -124,7 +124,7 @@ gap> BraidedCocartesianCategoriesTest( finsets, a, i );;
 gap> BraidedCocartesianCategoriesTest( finsets, a, i : only_primitive_operations := true );;
 
 gap> t := TerminalObject( finsets );;
-gap> a := FinSet( [ 1 .. 3 ] );;
+gap> a := FinSet( 3 );;
 
 gap> BraidedCocartesianCategoriesTest( finsets, t, a );;
 gap> BraidedCocartesianCategoriesTest( finsets, t, a : only_primitive_operations := true );;
@@ -136,10 +136,11 @@ gap> BraidedCocartesianCategoriesTest( finsets, a, t : only_primitive_operations
 # CartesianClosedCategoriesTest
 ##############################################
 
-gap> a := FinSet( [ 1 .. 2 ] );;
-gap> b := FinSet( [ 3 ] );;
-gap> c := FinSet( [ 6 .. 7 ] );;
-gap> d := FinSet( [ 12 .. 13 ] );;
+#@if ValueOption( "no_precompiled_code" ) <> true
+gap> a := FinSet( 2 );;
+gap> b := FinSet( 1 );;
+gap> c := FinSet( 2 );;
+gap> d := FinSet( 2 );;
 gap> t := TerminalObject( finsets );;
 
 gap> a_product_b := DirectProduct( a, b );;
@@ -148,12 +149,12 @@ gap> c_product_d := DirectProduct( c, d );;
 gap> exp_ab := Exponential( a, b );;
 gap> exp_cd := Exponential( c, d );;
 
-gap> alpha := MapOfFinSets( a, [ [ 1, 3 ], [ 2, 3 ] ], b );;
-gap> beta := MapOfFinSets( c, [ [ 6, 12 ], [ 7, 13 ] ], d );;
+gap> alpha := MapOfFinSets( a, [ 1, 1 ], b );;
+gap> beta := MapOfFinSets( c, [ 2, 1 ], d );;
 gap> gamma := UniversalMorphismIntoTerminalObject( a_product_b );;
 gap> delta := UniversalMorphismIntoTerminalObject( c_product_d );;
-gap> epsilon := MapOfFinSets( t, [ [ t[1], exp_ab[1] ] ], exp_ab );;
-gap> zeta := MapOfFinSets( t, [ [ t[1], exp_cd[2] ] ], exp_cd );;
+gap> epsilon := MapOfFinSets( t, [ 1 ], exp_ab );;
+gap> zeta := MapOfFinSets( t, [ 2 ], exp_cd );;
 
 gap> CartesianClosedCategoriesTest( finsets, a, b, c, d, alpha, beta, gamma, delta, epsilon, zeta );;
 gap> CartesianClosedCategoriesTest( finsets, a, b, c, d, alpha, beta, gamma, delta, epsilon, zeta : only_primitive_operations := true );;
@@ -170,12 +171,11 @@ gap> alpha := UniversalMorphismFromInitialObject( a );;
 gap> beta := UniversalMorphismIntoTerminalObject( a );;
 gap> gamma := UniversalMorphismIntoTerminalObject( i_product_a );;
 gap> delta := UniversalMorphismIntoTerminalObject( a_product_t );;
-gap> epsilon := MapOfFinSets( t, [ [ t[1], exp_ia[1] ] ], exp_ia );;
-gap> zeta := MapOfFinSets( t, [ [ t[1], exp_at[1] ] ], exp_at );;
+gap> epsilon := MapOfFinSets( t, [ 1 ], exp_ia );;
+gap> zeta := MapOfFinSets( t, [ 1 ], exp_at );;
 
 gap> CartesianClosedCategoriesTest( finsets, i, a, a, t, alpha, beta, gamma, delta, epsilon, zeta );;
 gap> CartesianClosedCategoriesTest( finsets, i, a, a, t, alpha, beta, gamma, delta, epsilon, zeta : only_primitive_operations := true );;
 
-##############################################
-
-gap> STOP_TEST("CartesianClosedOpposite.tst", 1);
+#@fi
+gap> STOP_TEST("SkeletalCartesianClosedOpposite.tst", 1);
