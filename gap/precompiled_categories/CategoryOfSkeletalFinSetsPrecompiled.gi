@@ -297,8 +297,8 @@ function ( cat_1, s_1, alpha_1, beta_1, r_1 )
               hoisted_3_2 := List( hoisted_5_1, function ( i_3 )
                       return hoisted_6_1[hoisted_2_2[i_3]];
                   end );
-              return 1 + Sum( hoisted_5_1, function ( i_3 )
-                        return (hoisted_3_2[i_3] - 1) * hoisted_8_1 ^ (hoisted_7_1 - i_3);
+              return 1 + Sum( hoisted_5_1, function ( k_3 )
+                        return (hoisted_3_2[k_3] - 1) * hoisted_8_1 ^ (hoisted_7_1 - k_3);
                     end );
           end ) );
 end

@@ -860,7 +860,7 @@ AddExponentialOnMorphismsWithGivenExponentials( SkeletalFinSets,
                   
                   images := AsList( composition );
                   
-                  return 1 + Sum( [ 1 .. a ], i -> ( images[i] - 1 ) * b^(a - i) );
+                  return 1 + Sum( [ 1 .. a ], k -> ( images[k] - 1 ) * b^(a - k) );
                   
               end ),
               T );
