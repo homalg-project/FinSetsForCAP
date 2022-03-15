@@ -577,15 +577,13 @@ end );
 ##
 AddEqualizer( SkeletalFinSets,
   function ( cat, D )
-    local f1, s, D2, Eq;
+    local f1, D2, Eq;
     
-    f1 := D[1];
+    f1 := AsList( D[1] );
     
-    s := Source( f1 );
+    D2 := List( D{[ 2 .. Length( D ) ]}, fj -> AsList( fj ) );
     
-    D2 := D{[ 2 .. Length( D ) ]};
-    
-    Eq := Filtered( [ 1 .. Length( s ) ], x -> ForAll( D2, fj -> f1( x ) = fj( x ) ) );
+    Eq := Filtered( [ 1 .. Length( f1 ) ], x -> ForAll( D2, fj -> f1[x] = fj[x] ) );
     
     return FinSet( SkeletalFinSets, Length( Eq ) );
     

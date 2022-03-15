@@ -253,14 +253,18 @@ end
 ########
 function ( cat_1, arg2_1 )
     local hoisted_1_1, hoisted_2_1;
-    hoisted_2_1 := arg2_1{[ 2 .. Length( arg2_1 ) ]};
-    hoisted_1_1 := arg2_1[1];
+    hoisted_2_1 := List( arg2_1, function ( fj_2 )
+              return AsList( fj_2 );
+          end ){[ 2 .. Length( arg2_1 ) ]};
+    hoisted_1_1 := List( arg2_1, AsList )[1];
     return ObjectifyObjectForCAPWithAttributes( rec(
-           ), cat_1, Length, Length( Filtered( [ 1 .. Length( List( arg2_1, Source )[1] ) ], function ( x_2 )
+           ), cat_1, Length, Length( Filtered( [ 1 .. List( arg2_1, function ( logic_new_func_x_2 )
+                        return Length( AsList( logic_new_func_x_2 ) );
+                    end )[1] ], function ( x_2 )
                 local hoisted_1_2;
-                hoisted_1_2 := hoisted_1_1( x_2 );
+                hoisted_1_2 := hoisted_1_1[x_2];
                 return ForAll( hoisted_2_1, function ( fj_3 )
-                        return hoisted_1_2 = fj_3( x_2 );
+                        return hoisted_1_2 = fj_3[x_2];
                     end );
             end ) ) );
 end
