@@ -930,7 +930,7 @@ AddExponentialOnObjects( category_of_finite_sets,
     
     m := Length( M );
     
-    return FinSetNC( category_of_finite_sets, List( Tuples( AsList( N ), m ), L -> MapOfFinSetsNC( M, List( [ 1 .. m ], i -> [ M[i], L[i] ] ), N ) ) );
+    return FinSetNC( category_of_finite_sets, List( TuplesK( AsList( N ), m, [ ], 1 ), L -> MapOfFinSetsNC( M, List( [ 1 .. m ], i -> [ M[i], L[i] ] ), N ) ) );
     
 end );
 
