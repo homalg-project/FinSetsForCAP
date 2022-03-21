@@ -592,31 +592,36 @@ end );
 ##
 AddEmbeddingOfEqualizerWithGivenEqualizer( SkeletalFinSets,
   function ( cat, D, E )
-    local f1, s, D2, cmp;
+    local s, f1, D2, Eq;
     
-    f1 := D[1];
+    s := Source( D[1] );
     
-    s := Source( f1 );
-    D2 := D{[ 2 .. Length( D ) ]};
+    f1 := AsList( D[1] );
     
-    cmp := Filtered( [ 1 .. Length( s ) ], x -> ForAll( D2, fj -> f1( x ) = fj( x ) ) );
+    D2 := List( D{[ 2 .. Length( D ) ]}, fj -> AsList( fj ) );
     
-    return MapOfFinSets( cat, E, cmp, s );
+    Eq := Filtered( [ 1 .. Length( f1 ) ], x -> ForAll( D2, fj -> f1[x] = fj[x] ) );
+    
+    return MapOfFinSets( cat, E, Eq, s );
     
 end );
 
 ##
 AddUniversalMorphismIntoEqualizerWithGivenEqualizer( SkeletalFinSets,
   function ( cat, D, test_object, tau, E )
-    local f1, s, Eq;
-
-    f1 := D[1];
+    local s, f1, D2, Eq, t;
     
-    s := Source( f1 );
-
-    Eq := Filtered( [ 1 .. Length( s ) ], x -> ForAll( D, fj -> f1( x ) = fj( x ) ) );
-
-    return MapOfFinSets( cat, test_object, List( [ 1 .. Length( test_object ) ], x -> Position( Eq, tau( x ) ) ), E );
+    s := Source( D[1] );
+    
+    f1 := AsList( D[1] );
+    
+    D2 := List( D{[ 2 .. Length( D ) ]}, fj -> AsList( fj ) );
+    
+    Eq := Filtered( [ 1 .. Length( f1 ) ], x -> ForAll( D2, fj -> f1[x] = fj[x] ) );
+    
+    t := AsList( tau );
+    
+    return MapOfFinSets( cat, test_object, List( [ 1 .. Length( test_object ) ], x -> Position( Eq, t[x] ) ), E );
     
 end );
 

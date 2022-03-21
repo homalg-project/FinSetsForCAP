@@ -218,16 +218,19 @@ end
         
 ########
 function ( cat_1, morphisms_1, P_1 )
-    local hoisted_1_1, hoisted_2_1, deduped_3_1;
-    deduped_3_1 := List( morphisms_1, Source )[1];
-    hoisted_2_1 := morphisms_1{[ 2 .. Length( morphisms_1 ) ]};
-    hoisted_1_1 := morphisms_1[1];
+    local hoisted_1_1, hoisted_2_1;
+    hoisted_2_1 := List( morphisms_1, function ( fj_2 )
+              return AsList( fj_2 );
+          end ){[ 2 .. Length( morphisms_1 ) ]};
+    hoisted_1_1 := List( morphisms_1, AsList )[1];
     return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-           ), cat_1, P_1, deduped_3_1, AsList, Filtered( [ 1 .. Length( deduped_3_1 ) ], function ( x_2 )
+           ), cat_1, P_1, List( morphisms_1, Source )[1], AsList, Filtered( [ 1 .. List( morphisms_1, function ( logic_new_func_x_2 )
+                      return Length( AsList( logic_new_func_x_2 ) );
+                  end )[1] ], function ( x_2 )
               local hoisted_1_2;
-              hoisted_1_2 := hoisted_1_1( x_2 );
+              hoisted_1_2 := hoisted_1_1[x_2];
               return ForAll( hoisted_2_1, function ( fj_3 )
-                      return hoisted_1_2 = fj_3( x_2 );
+                      return hoisted_1_2 = fj_3[x_2];
                   end );
           end ) );
 end
@@ -838,18 +841,23 @@ end
         
 ########
 function ( cat_1, morphisms_1, T_1, tau_1, P_1 )
-    local hoisted_1_1, hoisted_2_1;
-    hoisted_1_1 := morphisms_1[1];
-    hoisted_2_1 := Filtered( [ 1 .. Length( List( morphisms_1, Source )[1] ) ], function ( x_2 )
+    local hoisted_1_1, hoisted_2_1, hoisted_3_1, hoisted_4_1, deduped_5_1;
+    deduped_5_1 := List( morphisms_1, AsList )[1];
+    hoisted_2_1 := List( morphisms_1, function ( fj_2 )
+              return AsList( fj_2 );
+          end ){[ 2 .. Length( morphisms_1 ) ]};
+    hoisted_1_1 := deduped_5_1;
+    hoisted_4_1 := Filtered( [ 1 .. Length( deduped_5_1 ) ], function ( x_2 )
             local hoisted_1_2;
-            hoisted_1_2 := hoisted_1_1( x_2 );
-            return ForAll( morphisms_1, function ( fj_3 )
-                    return hoisted_1_2 = fj_3( x_2 );
+            hoisted_1_2 := hoisted_1_1[x_2];
+            return ForAll( hoisted_2_1, function ( fj_3 )
+                    return hoisted_1_2 = fj_3[x_2];
                 end );
         end );
+    hoisted_3_1 := AsList( tau_1 );
     return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
            ), cat_1, T_1, P_1, AsList, List( [ 1 .. Length( T_1 ) ], function ( x_2 )
-              return Position( hoisted_2_1, tau_1( x_2 ) );
+              return Position( hoisted_4_1, hoisted_3_1[x_2] );
           end ) );
 end
 ########
