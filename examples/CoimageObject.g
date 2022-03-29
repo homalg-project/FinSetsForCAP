@@ -1,4 +1,4 @@
-#! @Chunk Coimage
+#! @Chunk CoimageObject
 
 LoadPackage( "FinSetsForCAP" );
 
@@ -10,7 +10,7 @@ T := FinSet( [ "a", "b", "c" ] );
 phi := [ [ 1, "b" ], [ 2, "a" ], [ 3, "b" ] ];;
 phi := MapOfFinSets( S, phi, T );
 #! <A morphism in FinSets>
-I := Coimage( phi );
+I := CoimageObject( phi );
 #! <An object in FinSets>
 Length( I );
 #! 2
