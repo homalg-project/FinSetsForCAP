@@ -32,7 +32,7 @@
 @InsertChunk ImageObject
 
 @Subsection Coimage
-@InsertChunk Coimage
+@InsertChunk CoimageObject
 
 @Subsection Equalizer
 @InsertChunk Equalizer
