@@ -1106,3 +1106,10 @@ InstallOtherMethod( FinSet,
   function ( L )
     return FinSet( FinSets, L );
 end );
+
+asd := function ( )
+    
+    # COVERAGE_IGNORE_NEXT_LINE
+    Error( "asd" );
+    
+end;
