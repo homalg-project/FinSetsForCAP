@@ -40,11 +40,11 @@ iotaNuL := EmbeddingOfUnionSubobject( iotaN, iotaL );
 #! <A monomorphism in SkeletalFinSets>
 Display( iotaNuL );
 #! [ 5, [ 2, 3, 4, 5, 7 ], 7 ]
-NPL := RelativePseudoComplementSuboject( iotaN, iotaL );
+NPL := RelativePseudoComplementSubobject( iotaN, iotaL );
 #! <An object in SkeletalFinSets>
 Display( NPL );
 #! 6
-iotaNpL := EmbeddingOfRelativePseudoComplementSuboject( iotaN, iotaL );
+iotaNpL := EmbeddingOfRelativePseudoComplementSubobject( iotaN, iotaL );
 #! <A monomorphism in SkeletalFinSets>
 Display( iotaNpL );
 #! [ 6, [ 1, 2, 4, 5, 6, 7 ], 7 ]
