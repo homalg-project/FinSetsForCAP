@@ -46,11 +46,11 @@ NuL := ImageObject( iotaNuL );
 #! <An object in FinSets>
 Display( NuL );
 #! [ 2, 3, 5, 4, 7 ]
-NPL := RelativePseudoComplementSuboject( iotaN, iotaL );
+NPL := RelativePseudoComplementSubobject( iotaN, iotaL );
 #! <An object in FinSets>
 Display( NPL );
 #! [ [ 1, "*" ], [ 2, "*" ], [ 4, "*" ], [ 5, "*" ], [ 6, "*" ], [ 7, "*" ] ]
-iotaNpL := EmbeddingOfRelativePseudoComplementSuboject( iotaN, iotaL );
+iotaNpL := EmbeddingOfRelativePseudoComplementSubobject( iotaN, iotaL );
 #! <A monomorphism in FinSets>
 NpL := ImageObject( iotaNpL );
 #! <An object in FinSets>
