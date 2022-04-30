@@ -29,7 +29,7 @@ NIL := IntersectionSubobject( iotaN, iotaL );
 Display( NIL );
 #! 2
 iotaNiL := EmbeddingOfIntersectionSubobject( iotaN, iotaL );
-#! <A morphism in SkeletalFinSets>
+#! <A monomorphism in SkeletalFinSets>
 Display( iotaNiL );
 #! [ 2, [ 2, 5 ], 7 ]
 NUL := UnionSubobject( iotaN, iotaL );
