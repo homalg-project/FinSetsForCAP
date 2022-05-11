@@ -60,11 +60,11 @@ Display( Co );
 iota_1 := InjectionOfCofactorOfCoproduct( [ N1, N2 ], 1 );
 #! <A morphism in SkeletalFinSets>
 Display( iota_1 );
-#! [ 3, [ 1, 2, 3 ], 5 ]
+#! [ 3, [ 1 .. 3 ], 5 ]
 iota_2 := InjectionOfCofactorOfCoproduct( [ N1, N2 ], 2 );
 #! <A morphism in SkeletalFinSets>
 Display( iota_2 );
-#! [ 2, [ 4, 5 ], 5 ]
+#! [ 2, [ 4 .. 5 ], 5 ]
 alpha := PreCompose( pi1, iota_1 );
 #! <A morphism in SkeletalFinSets>
 Display( alpha );

@@ -717,10 +717,10 @@ AddInjectionOfCofactorOfCoproductWithGivenCoproduct( SkeletalFinSets,
     
     s := L[i];
     
-    cmp := List( [ 1 .. Length( s ) ], x -> sum + x );
+    cmp := [ sum + 1 .. sum + Length( s ) ];
     
     return MapOfFinSets( cat, s, cmp, coproduct );
-
+    
 end );
 
 ##

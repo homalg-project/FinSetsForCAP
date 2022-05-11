@@ -378,14 +378,12 @@ end
         
 ########
 function ( cat_1, objects_1, k_1, P_1 )
-    local hoisted_1_1;
-    hoisted_1_1 := Sum( objects_1{[ 1 .. k_1 - 1 ]}, function ( x_2 )
+    local deduped_1_1;
+    deduped_1_1 := Sum( objects_1{[ 1 .. k_1 - 1 ]}, function ( x_2 )
             return Length( x_2 );
         end );
     return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-           ), cat_1, objects_1[k_1], P_1, AsList, List( [ 1 .. List( objects_1, Length )[k_1] ], function ( x_2 )
-              return hoisted_1_1 + x_2;
-          end ) );
+           ), cat_1, objects_1[k_1], P_1, AsList, [ deduped_1_1 + 1 .. deduped_1_1 + List( objects_1, Length )[k_1] ] );
 end
 ########
         
