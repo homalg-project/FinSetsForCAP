@@ -8,11 +8,11 @@ M := FinSet( 4 );;
 N := FinSet( 3 );;
 P := FinSet( 4 );;
 
-G_f := [ 1, 2, 1, 3 ];;
+G_f := [ 0, 1, 0, 2 ];;
 f := MapOfFinSets( M, G_f, N );;
 IsWellDefined( f );
 #! true
-G_g := [ 3, 3, 2, 1 ];;
+G_g := [ 2, 2, 1, 0 ];;
 g := MapOfFinSets( M, G_g, N );;
 IsWellDefined( g );
 #! true

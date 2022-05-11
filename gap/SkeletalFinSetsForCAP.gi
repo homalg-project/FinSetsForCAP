@@ -65,7 +65,7 @@ InstallMethod( AsList,
         
   function ( s )
     
-    return [ 1 .. Length( s ) ];
+    return [ 0 .. Length( s ) - 1 ];
     
 end );
 
@@ -143,7 +143,7 @@ InstallMethod( Preimage,
     
     phi := AsList( phi );
     
-    return Filtered( S, i -> phi[i] in t );
+    return Filtered( S, i -> phi[1 + i] in t );
     
 end );
 
@@ -167,7 +167,7 @@ InstallMethod( CallFuncList,
     
     x := L[1];
     
-    return AsList( phi )[x];
+    return AsList( phi )[1 + x];
     
 end );
 
@@ -221,7 +221,7 @@ InstallGlobalFunction( SKELETAL_FIN_SETS_IsEpimorphism,
     testList := ListWithIdenticalEntries( t, false );
     
     for img in imgs do
-        testList[img] := true;
+        testList[1 + img] := true;
     od;
     
     return testList;
@@ -236,10 +236,10 @@ InstallGlobalFunction( SKELETAL_FIN_SETS_IsMonomorphism,
     testList := ListWithIdenticalEntries( t, false );
     
     for img in imgs do
-        if testList[img] then
+        if testList[1 + img] then
             return false;
         fi;
-        testList[img] := true;
+        testList[1 + img] := true;
     od;
     
     return true;
@@ -306,11 +306,11 @@ AddIsWellDefinedForMorphisms( SkeletalFinSets,
     t := Length( Range( mor ) );
     
     ## For CompilerForCAP we need if-elif-else with the same structure
-    if not ForAll( rel, a -> IsPosInt( a ) ) then
+    if not ForAll( rel, a -> IsInt( a ) and a >= 0 ) then
         return false;
     elif not s = Length( rel ) then
         return false;
-    elif not ForAll( rel, a -> a <= t ) then
+    elif not ForAll( rel, a -> a < t ) then
         return false;
     else
         return true;
@@ -338,7 +338,7 @@ end );
 AddIdentityMorphism( SkeletalFinSets,
   function ( cat, n )
     
-    return MapOfFinSets( cat, n, [ 1 .. Length( n ) ], n );
+    return MapOfFinSets( cat, n, [ 0 .. Length( n ) - 1 ], n );
     
 end );
 
@@ -353,7 +353,7 @@ AddPreCompose( SkeletalFinSets,
     im_pre := AsList( map_pre );
     im_post := AsList( map_post );
     
-    cmp := List( [ 1 .. Length( s ) ], i -> im_post[ im_pre[i] ] );
+    cmp := List( [ 1 .. Length( s ) ], i -> im_post[1 + im_pre[i]] );
     
     return MapOfFinSets( cat, s, cmp, t );
     
@@ -441,7 +441,7 @@ AddLift( SkeletalFinSets,
     gg := AsList( g );
     ff := AsList( f );
     
-    return MapOfFinSets( cat, S, List( [ 1 .. Length( S ) ], x -> Position( gg, ff[x] ) ), T );
+    return MapOfFinSets( cat, S, List( [ 1 .. Length( S ) ], x -> -1 + Position( gg, ff[x] ) ), T );
     
 end );
 
@@ -472,12 +472,12 @@ AddColift( SkeletalFinSets,
     chi :=
       function ( y )
         if not y in ff then
-            return 1;
+            return 0;
         fi;
         return gg[Position( ff, y )];
     end;
     
-    return MapOfFinSets( cat, S, List( [ 1 .. Length( S ) ], y -> chi(y) ), T );
+    return MapOfFinSets( cat, S, List( [ 0 .. Length( S ) - 1 ], y -> chi(y) ), T );
     
 end );
 
@@ -498,10 +498,10 @@ AddCoastrictionToImageWithGivenImageObject( SkeletalFinSets,
     
     images := Set( G );
     
-    L := List( G, l -> Position( images, l ) );
+    L := List( G, l -> -1 + Position( images, l ) );
     
     pi := MapOfFinSets( cat, Source( phi ), L, image_object );
-
+    
     #% CAP_JIT_DROP_NEXT_STATEMENT
     Assert( 3, IsEpimorphism( cat, pi ) );
     
@@ -532,7 +532,7 @@ end );
 AddUniversalMorphismIntoTerminalObjectWithGivenTerminalObject( SkeletalFinSets,
   function ( cat, m, t )
     
-    return MapOfFinSets( cat, m, List( [ 1 .. Length( m ) ], a -> 1 ), t );
+    return MapOfFinSets( cat, m, List( [ 1 .. Length( m ) ], a -> 0 ), t );
     
 end );
 
@@ -555,7 +555,7 @@ AddProjectionInFactorOfDirectProductWithGivenDirectProduct( SkeletalFinSets,
     
     a := Product( D{[ k + 1 .. Length( D ) ]}, M -> Length( M ) );
     
-    return MapOfFinSets( cat, P, List( [ 0 .. Length( P ) - 1 ], i -> 1 + RemInt( QuoInt( i, a ), l ) ), T );
+    return MapOfFinSets( cat, P, List( [ 0 .. Length( P ) - 1 ], i -> RemInt( QuoInt( i, a ), l ) ), T );
     
 end );
 
@@ -572,7 +572,7 @@ AddUniversalMorphismIntoDirectProductWithGivenDirectProduct( SkeletalFinSets,
     
     taus := List( tau, x -> AsList( x ) );
     
-    return MapOfFinSets( cat, T, List( [ 1 .. Length( T ) ], i -> 1 + Sum( [ 1 .. l ], j -> ( taus[j][i] - 1 ) * dd[j] ) ), P );
+    return MapOfFinSets( cat, T, List( [ 1 .. Length( T ) ], i -> Sum( [ 1 .. l ], j -> taus[j][i] * dd[j] ) ), P );
     
 end );
 
@@ -585,7 +585,7 @@ AddEqualizer( SkeletalFinSets,
     
     D2 := List( D{[ 2 .. Length( D ) ]}, fj -> AsList( fj ) );
     
-    Eq := Filtered( [ 1 .. Length( f1 ) ], x -> ForAll( D2, fj -> f1[x] = fj[x] ) );
+    Eq := Filtered( [ 0 .. Length( f1 ) - 1 ], x -> ForAll( D2, fj -> f1[1 + x] = fj[1 + x] ) );
     
     return FinSet( SkeletalFinSets, Length( Eq ) );
     
@@ -602,7 +602,7 @@ AddEmbeddingOfEqualizerWithGivenEqualizer( SkeletalFinSets,
     
     D2 := List( D{[ 2 .. Length( D ) ]}, fj -> AsList( fj ) );
     
-    Eq := Filtered( [ 1 .. Length( f1 ) ], x -> ForAll( D2, fj -> f1[x] = fj[x] ) );
+    Eq := Filtered( [ 0 .. Length( f1 ) - 1 ], x -> ForAll( D2, fj -> f1[1 + x] = fj[1 + x] ) );
     
     return MapOfFinSets( cat, E, Eq, s );
     
@@ -619,11 +619,11 @@ AddUniversalMorphismIntoEqualizerWithGivenEqualizer( SkeletalFinSets,
     
     D2 := List( D{[ 2 .. Length( D ) ]}, fj -> AsList( fj ) );
     
-    Eq := Filtered( [ 1 .. Length( f1 ) ], x -> ForAll( D2, fj -> f1[x] = fj[x] ) );
+    Eq := Filtered( [ 0 .. Length( f1 ) - 1 ], x -> ForAll( D2, fj -> f1[1 + x] = fj[1 + x] ) );
     
     t := AsList( tau );
     
-    return MapOfFinSets( cat, test_object, List( [ 1 .. Length( test_object ) ], x -> Position( Eq, t[x] ) ), E );
+    return MapOfFinSets( cat, test_object, List( [ 1 .. Length( test_object ) ], x -> -1 + Position( Eq, t[x] ) ), E );
     
 end );
 
@@ -694,7 +694,7 @@ end );
 AddMonomorphismIntoSomeInjectiveObjectWithGivenSomeInjectiveObject( SkeletalFinSets,
   function ( cat, M, injective_object )
     
-    return MapOfFinSets( cat, M, [ 1 .. Length( M ) ], injective_object );
+    return MapOfFinSets( cat, M, [ 0 .. Length( M ) - 1 ], injective_object );
     
 end );
 
@@ -717,7 +717,7 @@ AddInjectionOfCofactorOfCoproductWithGivenCoproduct( SkeletalFinSets,
     
     s := L[i];
     
-    cmp := [ sum + 1 .. sum + Length( s ) ];
+    cmp := [ sum .. sum + Length( s ) - 1 ];
     
     return MapOfFinSets( cat, s, cmp, coproduct );
     
@@ -751,9 +751,9 @@ AddProjectionOntoCoequalizerWithGivenCoequalizer( SkeletalFinSets,
     
     s := Range( D[1] );
     
-    cmp := List( [ 1 .. Length( s ) ], x -> First( Cq, c -> x in c ) );
+    cmp := List( [ 0 .. Length( s ) - 1 ], x -> First( Cq, c -> x in c ) );
     
-    cmp := List( cmp, x -> Position( Cq, x ) );
+    cmp := List( cmp, x -> -1 + Position( Cq, x ) );
     
     return MapOfFinSets( cat, s, cmp, C );
     
@@ -813,7 +813,7 @@ AddCartesianBraidingInverseWithGivenDirectProducts( SkeletalFinSets,
     
     n := Length( N );
     
-    return MapOfFinSets( cat, MN, List( [ 0 .. Length( MN ) - 1 ] , i -> 1 + RemInt( i, n ) * m + QuoInt( i, n ) ), NM );
+    return MapOfFinSets( cat, MN, List( [ 0 .. Length( MN ) - 1 ] , i -> RemInt( i, n ) * m + QuoInt( i, n ) ), NM );
     
 end );
 
@@ -859,13 +859,13 @@ AddExponentialOnMorphismsWithGivenExponentials( SkeletalFinSets,
                               MapOfFinSets(
                                       cat,
                                       M,
-                                      List( [ 1 .. m ], j -> 1 + RemInt( QuoInt( i, n^(m - j) ), n ) ),
+                                      List( [ 1 .. m ], j -> RemInt( QuoInt( i, n^(m - j) ), n ) ),
                                       N ),
                               beta ] );
                   
                   images := AsList( composition );
                   
-                  return 1 + Sum( [ 1 .. a ], k -> ( images[k] - 1 ) * b^(a - k) );
+                  return Sum( [ 1 .. a ], k -> images[k] * b^(a - k) );
                   
               end ),
               T );
@@ -880,7 +880,7 @@ AddCartesianEvaluationMorphismWithGivenSource( SkeletalFinSets,
     m := Length( M );
     n := Length( N );
     
-    return MapOfFinSets( cat, HM_NxM, List( [ 0 .. Length( HM_NxM ) - 1 ], i -> 1 + RemInt( QuoInt( QuoInt( i, m ), n^(m - RemInt( i, m ) - 1 ) ), n ) ), N );
+    return MapOfFinSets( cat, HM_NxM, List( [ 0 .. Length( HM_NxM ) - 1 ], i -> RemInt( QuoInt( QuoInt( i, m ), n^(m - RemInt( i, m ) - 1 ) ), n ) ), N );
     
 end );
 
@@ -892,7 +892,7 @@ AddCartesianCoevaluationMorphismWithGivenRange( SkeletalFinSets,
     m := Length( M );
     n := Length( N );
     
-    return MapOfFinSets( cat, M, List( [ 0 .. m - 1 ], i -> 1 + Sum( [ 0 .. n - 1 ], j -> ( i * n + j ) * (m*n)^(n - j - 1) ) ), HN_MxN );
+    return MapOfFinSets( cat, M, List( [ 0 .. m - 1 ], i -> Sum( [ 0 .. n - 1 ], j -> ( i * n + j ) * (m*n)^(n - j - 1) ) ), HN_MxN );
     
 end );
 
@@ -911,14 +911,14 @@ AddClassifyingMorphismOfSubobjectWithGivenSubobjectClassifier( SkeletalFinSets,
     
     range := Range( monomorphism );
     
-    images := List( [ 1 .. Length( range ) ],
+    images := List( [ 0 .. Length( range ) - 1 ],
                     function ( x )
                       
                       if x in AsList( monomorphism ) then
                           return 1;
                       fi;
                       
-                      return 2;
+                      return 0;
                       
                   end );
       

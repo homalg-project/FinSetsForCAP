@@ -7,11 +7,11 @@ S := FinSet( 5 );
 #! <An object in SkeletalFinSets>
 T := FinSet( 3 );
 #! <An object in SkeletalFinSets>
-f1 := MapOfFinSets( S, [ 3, 3, 1, 2, 2 ], T );
+f1 := MapOfFinSets( S, [ 2, 2, 0, 1, 1 ], T );
 #! <A morphism in SkeletalFinSets>
-f2 := MapOfFinSets( S, [ 3, 2, 3, 1, 2 ], T );
+f2 := MapOfFinSets( S, [ 2, 1, 2, 0, 1 ], T );
 #! <A morphism in SkeletalFinSets>
-f3 := MapOfFinSets( S, [ 3, 1, 2, 1, 2 ], T );
+f3 := MapOfFinSets( S, [ 2, 0, 1, 0, 1 ], T );
 #! <A morphism in SkeletalFinSets>
 D := [ f1, f2, f3 ];;
 Eq := Equalizer( D );
@@ -21,8 +21,8 @@ Length( Eq );
 iota := EmbeddingOfEqualizer( D );
 #! <A monomorphism in SkeletalFinSets>
 Display( iota );
-#! [ 2, [ 1, 5 ], 5 ]
-phi := MapOfFinSets( FinSet( 2 ), [ 5, 1 ], S );;
+#! [ 2, [ 0, 4 ], 5 ]
+phi := MapOfFinSets( FinSet( 2 ), [ 4, 0 ], S );;
 IsWellDefined( phi );
 #! true
 psi := UniversalMorphismIntoEqualizer( D, phi );
@@ -30,7 +30,7 @@ psi := UniversalMorphismIntoEqualizer( D, phi );
 IsWellDefined( psi );
 #! true
 Display( psi );
-#! [ 2, [ 2, 1 ], 2 ]
+#! [ 2, [ 1, 0 ], 2 ]
 PreCompose( psi, iota ) = phi;
 #! true
 
@@ -44,5 +44,5 @@ Length( Eq );
 psi := EmbeddingOfEqualizer( D );
 #! <A monomorphism in SkeletalFinSets>
 Display( psi );
-#! [ 3, [ 1, 4, 5 ], 5 ]
+#! [ 3, [ 0, 3, 4 ], 5 ]
 #! @EndExample

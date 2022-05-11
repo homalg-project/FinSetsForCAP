@@ -9,7 +9,7 @@ n := FinSet( 5 );
 #! <An object in SkeletalFinSets>
 p := FinSet( 7 );
 #! <An object in SkeletalFinSets>
-psi := MapOfFinSets( m, [ 1, 3, 5 ], n );
+psi := MapOfFinSets( m, [ 0, 2, 4 ], n );
 #! <A morphism in SkeletalFinSets>
 IsEpimorphism( psi );
 #! false
@@ -19,7 +19,7 @@ IsMonomorphism( psi );
 #! true
 IsSplitMonomorphism( psi );
 #! true
-psi := MapOfFinSets( p, [ 1, 3, 2, 3, 3, 2, 1 ], m );
+psi := MapOfFinSets( p, [ 0, 2, 1, 2, 2, 1, 0 ], m );
 #! <A morphism in SkeletalFinSets>
 IsEpimorphism( psi );
 #! true

@@ -10,13 +10,13 @@ n1 := FinSet( 3 );
 iota1 := EmbeddingOfFinSets( n1, m );
 #! <A monomorphism in SkeletalFinSets>
 Display( iota1 );
-#! [ 3, [ 1 .. 3 ], 5 ]
+#! [ 3, [ 0 .. 2 ], 5 ]
 n2 := FinSet( 4 );
 #! <An object in SkeletalFinSets>
 iota2 := EmbeddingOfFinSets( n2, m );
 #! <A monomorphism in SkeletalFinSets>
 Display( iota2 );
-#! [ 4, [ 1 .. 4 ], 5 ]
+#! [ 4, [ 0 .. 3 ], 5 ]
 D := [ iota1, iota2 ];
 #! [ <A monomorphism in SkeletalFinSets>, <A monomorphism in SkeletalFinSets> ]
 Fib := FiberProduct( D );
@@ -26,7 +26,7 @@ Display( Fib );
 pi1 := ProjectionInFactorOfFiberProduct( D, 1 );
 #! <A monomorphism in SkeletalFinSets>
 Display( pi1 );
-#! [ 3, [ 1, 2, 3 ], 3 ]
+#! [ 3, [ 0, 1, 2 ], 3 ]
 int1 := ImageObject( pi1 );
 #! <An object in SkeletalFinSets>
 Display( int1 );
@@ -34,7 +34,7 @@ Display( int1 );
 pi2 := ProjectionInFactorOfFiberProduct( D, 2 );
 #! <A monomorphism in SkeletalFinSets>
 Display( pi2 );
-#! [ 3, [ 1, 2, 3 ], 4 ]
+#! [ 3, [ 0, 1, 2 ], 4 ]
 int2 := ImageObject( pi2 );
 #! <An object in SkeletalFinSets>
 Display( int2 );
@@ -46,5 +46,5 @@ omega2 := PreCompose( pi2, iota2 );
 omega1 = omega2;
 #! true
 Display( omega1 );
-#! [ 3, [ 1, 2, 3 ], 5 ]
+#! [ 3, [ 0, 1, 2 ], 5 ]
 #! @EndExample
