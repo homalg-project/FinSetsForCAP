@@ -492,11 +492,13 @@ end );
 ##
 AddCoastrictionToImageWithGivenImageObject( SkeletalFinSets,
   function ( cat, phi, image_object )
-    local G, L, l, pi;
+    local G, images, L, l, pi;
     
     G := AsList( phi );
     
-    L := List( G, l -> Position( Set( G ), l ) );
+    images := Set( G );
+    
+    L := List( G, l -> Position( images, l ) );
     
     pi := MapOfFinSets( cat, Source( phi ), L, image_object );
 
