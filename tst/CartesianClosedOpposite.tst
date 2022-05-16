@@ -133,6 +133,40 @@ gap> BraidedCocartesianCategoriesTest( finsets, a, t );;
 gap> BraidedCocartesianCategoriesTest( finsets, a, t : only_primitive_operations := true );;
 
 ##############################################
+# DistributiveCartesianCategoriesTest
+##############################################
+
+gap> a := FinSet( [ 1 .. 2 ] );;
+gap> L := [ FinSet( [ 2 .. 5 ] ), FinSet( [ 6 .. 7 ] ), FinSet( [ 3 .. 8 ] ) ];;
+
+gap> DistributiveCartesianCategoriesTest( finsets, a, L : only_primitive_operations := true );;
+gap> DistributiveCartesianCategoriesTest( finsets, a, L );;
+
+gap> a := InitialObject( finsets );;
+gap> L := [ FinSet( [ 2 .. 5 ] ), FinSet( [ 6 .. 7 ] ), FinSet( [ 3 .. 8 ] ) ];;
+
+gap> DistributiveCartesianCategoriesTest( finsets, a, L : only_primitive_operations := true );;
+gap> DistributiveCartesianCategoriesTest( finsets, a, L );;
+
+gap> a := FinSet( [ 1 .. 2 ] );;
+gap> L := [ FinSet( [ 2 .. 5 ] ), InitialObject( finsets ), FinSet( [ 3 .. 8 ] ) ];;
+
+gap> DistributiveCartesianCategoriesTest( finsets, a, L : only_primitive_operations := true );;
+gap> DistributiveCartesianCategoriesTest( finsets, a, L );;
+
+gap> a := TerminalObject( finsets );;
+gap> L := [ FinSet( [ 2 .. 5 ] ), FinSet( [ 6 .. 7 ] ), FinSet( [ 3 .. 8 ] ) ];;
+
+gap> DistributiveCartesianCategoriesTest( finsets, a, L : only_primitive_operations := true );;
+gap> DistributiveCartesianCategoriesTest( finsets, a, L );;
+
+gap> a := FinSet( [ 1 .. 2 ] );;
+gap> L := [ FinSet( [ 2 .. 5 ] ), TerminalObject( finsets ), FinSet( [ 3 .. 8 ] ) ];;
+
+gap> DistributiveCartesianCategoriesTest( finsets, a, L : only_primitive_operations := true );;
+gap> DistributiveCartesianCategoriesTest( finsets, a, L );;
+
+##############################################
 # CartesianClosedCategoriesTest
 ##############################################
 
