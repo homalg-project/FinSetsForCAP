@@ -19,8 +19,8 @@ gap> d := FinSet( 2 );;
 
 gap> finsets := CapCategory( a );;
 
-gap> alpha := MapOfFinSets( a, [ 3, 2 ], b );;
-gap> beta := MapOfFinSets( c, [ 1, 1, 2 ], d );;
+gap> alpha := MapOfFinSets( a, [ 2, 1 ], b );;
+gap> beta := MapOfFinSets( c, [ 0, 0, 1 ], d );;
 
 gap> CartesianCategoriesTest( finsets, a, b, c, alpha, beta );;
 gap> CartesianCategoriesTest( finsets, a, b, c, alpha, beta : only_primitive_operations := true );;
@@ -46,8 +46,8 @@ gap> b := FinSet( 3 );;
 gap> c := FinSet( 3 );;
 gap> d := FinSet( 2 );;
 
-gap> alpha := MapOfFinSets( a, [ 3, 2 ], b );;
-gap> beta := MapOfFinSets( c, [ 1, 1, 2 ], d );;
+gap> alpha := MapOfFinSets( a, [ 2, 1 ], b );;
+gap> beta := MapOfFinSets( c, [ 0, 0, 1 ], d );;
 
 gap> CocartesianCategoriesTest( finsets, a, b, c, alpha, beta );;
 gap> CocartesianCategoriesTest( finsets, a, b, c, alpha, beta : only_primitive_operations := true );;
@@ -149,12 +149,12 @@ gap> c_product_d := DirectProduct( c, d );;
 gap> exp_ab := Exponential( a, b );;
 gap> exp_cd := Exponential( c, d );;
 
-gap> alpha := MapOfFinSets( a, [ 1, 1 ], b );;
-gap> beta := MapOfFinSets( c, [ 2, 1 ], d );;
+gap> alpha := MapOfFinSets( a, [ 0, 0 ], b );;
+gap> beta := MapOfFinSets( c, [ 1, 0 ], d );;
 gap> gamma := UniversalMorphismIntoTerminalObject( a_product_b );;
 gap> delta := UniversalMorphismIntoTerminalObject( c_product_d );;
-gap> epsilon := MapOfFinSets( t, [ 1 ], exp_ab );;
-gap> zeta := MapOfFinSets( t, [ 2 ], exp_cd );;
+gap> epsilon := MapOfFinSets( t, [ 0 ], exp_ab );;
+gap> zeta := MapOfFinSets( t, [ 1 ], exp_cd );;
 
 gap> CartesianClosedCategoriesTest( finsets, a, b, c, d, alpha, beta, gamma, delta, epsilon, zeta );;
 gap> CartesianClosedCategoriesTest( finsets, a, b, c, d, alpha, beta, gamma, delta, epsilon, zeta : only_primitive_operations := true );;
@@ -171,8 +171,8 @@ gap> alpha := UniversalMorphismFromInitialObject( a );;
 gap> beta := UniversalMorphismIntoTerminalObject( a );;
 gap> gamma := UniversalMorphismIntoTerminalObject( i_product_a );;
 gap> delta := UniversalMorphismIntoTerminalObject( a_product_t );;
-gap> epsilon := MapOfFinSets( t, [ 1 ], exp_ia );;
-gap> zeta := MapOfFinSets( t, [ 1 ], exp_at );;
+gap> epsilon := MapOfFinSets( t, [ 0 ], exp_ia );;
+gap> zeta := MapOfFinSets( t, [ 0 ], exp_at );;
 
 gap> CartesianClosedCategoriesTest( finsets, i, a, a, t, alpha, beta, gamma, delta, epsilon, zeta );;
 gap> CartesianClosedCategoriesTest( finsets, i, a, a, t, alpha, beta, gamma, delta, epsilon, zeta : only_primitive_operations := true );;

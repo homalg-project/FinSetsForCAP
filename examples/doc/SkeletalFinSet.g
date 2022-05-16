@@ -8,7 +8,7 @@ m := FinSet( 7 );
 IsWellDefined( m );
 #! true
 List( m, x -> x^2 );
-#! [ 1, 4, 9, 16, 25, 36, 49 ]
+#! [ 0, 1, 4, 9, 16, 25, 36 ]
 L := ObjectDatum( m );
 #! 7
 Display( m );

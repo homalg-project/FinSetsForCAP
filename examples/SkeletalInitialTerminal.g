@@ -22,7 +22,7 @@ AsList( i );
 t := TerminalObject( SkeletalFinSets );
 #! <An object in SkeletalFinSets>
 AsList( t );
-#! [ 1 ]
+#! [ 0 ]
 IsInitial( t );
 #! false
 IsTerminal( t );
@@ -34,7 +34,7 @@ IsIdenticalObj( Range( pi ), t );
 pi_t := UniversalMorphismIntoTerminalObjectWithGivenTerminalObject( m, t );
 #! <A morphism in SkeletalFinSets>
 AsList( pi_t );
-#! [ 1, 1, 1, 1, 1, 1, 1, 1 ]
+#! [ 0, 0, 0, 0, 0, 0, 0, 0 ]
 pi = pi_t;
 #! true
 #! @EndExample

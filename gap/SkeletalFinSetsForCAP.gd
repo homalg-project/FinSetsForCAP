@@ -42,7 +42,7 @@ CapJitAddTypeSignature( "Length", [ IsSkeletalFiniteSet ], IsInt );
 
 #! @Description
 #!  The list associated to a skeletal finite set, i.e.,
-#!  <C>AsList( FinSet( n ) ) = [ 1 .. n ]</C>.
+#!  <C>AsList( FinSet( n ) ) = [ 0 .. n - 1 ]</C>.
 #! @Arguments M
 #! @Returns a list
 DeclareAttribute( "AsList",
@@ -129,7 +129,7 @@ DeclareOperation( "ImageObject",
         [ IsSkeletalFiniteSetMap, IsSkeletalFiniteSet ] );
 
 #! @Description
-#!  Returns the image of <C><A>L</A>[1]</C> under the map <A>phi</A> assuming <C><A>L</A>[1]</C> is a positive integer smaller or equal to <C>Length( Source( <A>phi</A> ) )</C>.
+#!  Returns the image of <C><A>L</A>[1]</C> under the map <A>phi</A> assuming <C><A>L</A>[1]</C> is a nonnegative integer smaller than <C>Length( Source( <A>phi</A> ) )</C>.
 #! @Arguments phi, L
 #! @Returns a list
 # DeclareOperation( "CallFuncList",

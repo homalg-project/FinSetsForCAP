@@ -7,7 +7,7 @@ m := FinSet( 7 );
 #! <An object in SkeletalFinSets>
 n := FinSet( 3 );
 #! <An object in SkeletalFinSets>
-phi := MapOfFinSets( n, [7, 5, 5], m );
+phi := MapOfFinSets( n, [ 6, 4, 4 ], m );
 #! <A morphism in SkeletalFinSets>
 IsWellDefined( phi );
 #! true

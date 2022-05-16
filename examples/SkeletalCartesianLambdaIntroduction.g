@@ -7,7 +7,7 @@ S := FinSet( 3 );
 #! <An object in SkeletalFinSets>
 R := FinSet( 2 );
 #! <An object in SkeletalFinSets>
-f := MapOfFinSets( S, [ 2, 2, 1 ], R );
+f := MapOfFinSets( S, [ 1, 1, 0 ], R );
 #! <A morphism in SkeletalFinSets>
 IsWellDefined( f );
 #! true
@@ -22,7 +22,7 @@ Source( lf ) = T;
 Display( Range( lf ) );
 #! 8
 Display( lf );
-#! [ 1, [ 7 ], 8 ]
+#! [ 1, [ 6 ], 8 ]
 elf := CartesianLambdaElimination( S, R, lf );
 #! <A morphism in SkeletalFinSets>
 elf = f;
