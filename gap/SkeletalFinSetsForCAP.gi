@@ -441,7 +441,7 @@ AddLift( SkeletalFinSets,
     gg := AsList( g );
     ff := AsList( f );
     
-    return MapOfFinSets( cat, S, List( [ 1 .. Length( S ) ], x -> -1 + Position( gg, ff[x] ) ), T );
+    return MapOfFinSets( cat, S, List( [ 1 .. Length( S ) ], x -> -1 + SafePosition( gg, ff[x] ) ), T );
     
 end );
 
@@ -474,7 +474,7 @@ AddColift( SkeletalFinSets,
         if not y in ff then
             return 0;
         fi;
-        return gg[Position( ff, y )];
+        return gg[SafePosition( ff, y )];
     end;
     
     return MapOfFinSets( cat, S, List( [ 0 .. Length( S ) - 1 ], y -> chi(y) ), T );
@@ -498,7 +498,7 @@ AddCoastrictionToImageWithGivenImageObject( SkeletalFinSets,
     
     images := Set( G );
     
-    L := List( G, l -> -1 + Position( images, l ) );
+    L := List( G, l -> -1 + SafePosition( images, l ) );
     
     pi := MapOfFinSets( cat, Source( phi ), L, image_object );
     
@@ -623,7 +623,7 @@ AddUniversalMorphismIntoEqualizerWithGivenEqualizer( SkeletalFinSets,
     
     t := AsList( tau );
     
-    return MapOfFinSets( cat, test_object, List( [ 1 .. Length( test_object ) ], x -> -1 + Position( Eq, t[x] ) ), E );
+    return MapOfFinSets( cat, test_object, List( [ 1 .. Length( test_object ) ], x -> -1 + SafePosition( Eq, t[x] ) ), E );
     
 end );
 
@@ -753,7 +753,7 @@ AddProjectionOntoCoequalizerWithGivenCoequalizer( SkeletalFinSets,
     
     cmp := List( [ 0 .. Length( s ) - 1 ], x -> First( Cq, c -> x in c ) );
     
-    cmp := List( cmp, x -> -1 + Position( Cq, x ) );
+    cmp := List( cmp, x -> -1 + SafePosition( Cq, x ) );
     
     return MapOfFinSets( cat, s, cmp, C );
     

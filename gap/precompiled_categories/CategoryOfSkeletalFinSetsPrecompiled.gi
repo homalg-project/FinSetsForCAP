@@ -143,7 +143,7 @@ function ( cat_1, alpha_1, I_1 )
     hoisted_1_1 := SSortedList( deduped_2_1 );
     return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
            ), cat_1, Source( alpha_1 ), I_1, AsList, List( deduped_2_1, function ( l_2 )
-              return -1 + Position( hoisted_1_1, l_2 );
+              return -1 + SafePosition( hoisted_1_1, l_2 );
           end ) );
 end
 ########
@@ -176,7 +176,7 @@ function ( cat_1, alpha_1, beta_1 )
               if not y_2 in hoisted_1_1 then
                   return 0;
               else
-                  return hoisted_2_1[Position( hoisted_1_1, y_2 )];
+                  return hoisted_2_1[SafePosition( hoisted_1_1, y_2 )];
               fi;
               return;
           end ) );
@@ -606,7 +606,7 @@ function ( cat_1, alpha_1, beta_1 )
     hoisted_1_1 := AsList( alpha_1 );
     return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
            ), cat_1, deduped_3_1, Source( beta_1 ), AsList, List( [ 1 .. Length( deduped_3_1 ) ], function ( x_2 )
-              return -1 + Position( hoisted_2_1, hoisted_1_1[x_2] );
+              return -1 + SafePosition( hoisted_2_1, hoisted_1_1[x_2] );
           end ) );
 end
 ########
@@ -718,7 +718,7 @@ function ( cat_1, morphisms_1, P_1 )
     hoisted_1_1 := SKELETAL_FIN_SETS_ExplicitCoequalizer( morphisms_1 );
     return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
            ), cat_1, deduped_2_1, P_1, AsList, List( [ 0 .. Length( deduped_2_1 ) - 1 ], function ( logic_new_func_x_2 )
-              return -1 + Position( hoisted_1_1, First( hoisted_1_1, function ( c_3 )
+              return -1 + SafePosition( hoisted_1_1, First( hoisted_1_1, function ( c_3 )
                           return (logic_new_func_x_2 in c_3);
                       end ) );
           end ) );
@@ -843,13 +843,14 @@ end
         
 ########
 function ( cat_1, morphisms_1, T_1, tau_1, P_1 )
-    local hoisted_1_1, hoisted_2_1, hoisted_3_1, hoisted_4_1, deduped_5_1;
-    deduped_5_1 := List( morphisms_1, AsList )[1];
+    local hoisted_1_1, hoisted_2_1, hoisted_3_1, hoisted_4_1;
     hoisted_2_1 := List( morphisms_1, function ( fj_2 )
               return AsList( fj_2 );
           end ){[ 2 .. Length( morphisms_1 ) ]};
-    hoisted_1_1 := deduped_5_1;
-    hoisted_4_1 := Filtered( [ 0 .. Length( deduped_5_1 ) - 1 ], function ( x_2 )
+    hoisted_1_1 := List( morphisms_1, AsList )[1];
+    hoisted_4_1 := Filtered( [ 0 .. List( morphisms_1, function ( logic_new_func_x_2 )
+                      return Length( AsList( logic_new_func_x_2 ) );
+                  end )[1] - 1 ], function ( x_2 )
             local hoisted_1_2, hoisted_2_2, deduped_3_2;
             deduped_3_2 := 1 + x_2;
             hoisted_2_2 := hoisted_1_1[deduped_3_2];
@@ -861,7 +862,7 @@ function ( cat_1, morphisms_1, T_1, tau_1, P_1 )
     hoisted_3_1 := AsList( tau_1 );
     return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
            ), cat_1, T_1, P_1, AsList, List( [ 1 .. Length( T_1 ) ], function ( x_2 )
-              return -1 + Position( hoisted_4_1, hoisted_3_1[x_2] );
+              return -1 + SafePosition( hoisted_4_1, hoisted_3_1[x_2] );
           end ) );
 end
 ########
