@@ -43,7 +43,7 @@ test-notebooks:
 		mv out.ipynb out; \
 		cat "$$filename" | grep -v '"version": "' | grep -v 'CapAndHomalg v' > modified_in; \
 		cat out | grep -v '"version": "' | grep -v 'CapAndHomalg v' > modified_out; \
-		diff modified_in modified_out || exit; \
+		diff modified_in modified_out || exit 1; \
 		rm modified_in out modified_out; \
 	done
 
