@@ -4,19 +4,19 @@ LoadPackage( "FinSetsForCAP" );
 
 #! @Example
 m := FinSet( 5 );
-#! <An object in SkeletalFinSets>
+#! |5|
 n := FinSet( 4 );
-#! <An object in SkeletalFinSets>
+#! |4|
 f := MapOfFinSets( m, [ 1, 1, 0, 0, 2 ], n );
-#! <A morphism in SkeletalFinSets>
+#! |5| → |4|
 g := MapOfFinSets( m, [ 4, 4, 3, 3, 4 ], m );
-#! <A morphism in SkeletalFinSets>
+#! |5| → |5|
 IsColiftable( f, g );
 #! true
 chi := Colift( f, g );
-#! <A morphism in SkeletalFinSets>
+#! |4| → |5|
 Display( chi );
-#! [ 4, [ 3, 4, 4, 0 ], 5 ]
+#! { 0,..., 3 } ⱶ[ 3, 4, 4, 0 ]→ { 0,..., 4 }
 PreCompose( f, Colift( f, g ) ) = g;
 #! true
 IsColiftable( g, f );

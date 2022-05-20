@@ -4,23 +4,25 @@ LoadPackage( "FinSetsForCAP" );
 
 #! @Example
 m := FinSet( 8 );
-#! <An object in SkeletalFinSets>
+#! |8|
 IsInitial( m );
 #! false
 IsTerminal( m );
 #! false
 i := InitialObject( SkeletalFinSets );
-#! <An object in SkeletalFinSets>
+#! |0|
+Display( i );
+#! ∅
 IsInitial( i );
 #! true
 IsTerminal( i );
 #! false
 iota := UniversalMorphismFromInitialObject( m );
-#! <A morphism in SkeletalFinSets>
+#! |0| → |8|
 AsList( i );
 #! [  ]
 t := TerminalObject( SkeletalFinSets );
-#! <An object in SkeletalFinSets>
+#! |1|
 AsList( t );
 #! [ 0 ]
 IsInitial( t );
@@ -28,11 +30,11 @@ IsInitial( t );
 IsTerminal( t );
 #! true
 pi := UniversalMorphismIntoTerminalObject( m );
-#! <A morphism in SkeletalFinSets>
+#! |8| → |1|
 IsIdenticalObj( Range( pi ), t );
 #! true
 pi_t := UniversalMorphismIntoTerminalObjectWithGivenTerminalObject( m, t );
-#! <A morphism in SkeletalFinSets>
+#! |8| → |1|
 AsList( pi_t );
 #! [ 0, 0, 0, 0, 0, 0, 0, 0 ]
 pi = pi_t;

@@ -4,17 +4,17 @@ LoadPackage( "FinSetsForCAP" );
 
 #! @Example
 m := FinSet( 7 );
-#! <An object in SkeletalFinSets>
+#! |7|
 n := FinSet( 3 );
-#! <An object in SkeletalFinSets>
+#! |3|
 phi := MapOfFinSets( n, [ 6, 4, 4 ], m );
-#! <A morphism in SkeletalFinSets>
+#! |3| → |7|
 IsWellDefined( phi );
 #! true
 f := CoastrictionToImage( phi );
-#! <A morphism in SkeletalFinSets>
+#! |3| → |2|
 Display( f );
-#! [ 3, [ 1, 0, 0 ], 2 ]
+#! { 0, 1, 2 } ⱶ[ 1, 0, 0 ]→ { 0, 1 }
 IsWellDefined( f );
 #! true
 IsEpimorphism( f );
@@ -22,19 +22,19 @@ IsEpimorphism( f );
 IsSplitEpimorphism( f );
 #! true
 m := FinSet( 77 );
-#! <An object in SkeletalFinSets>
+#! |77|
 n := FinSet( 4 );
-#! <An object in SkeletalFinSets>
+#! |4|
 phi := MapOfFinSets( n, [ 76, 1, 24, 1 ], m );
-#! <A morphism in SkeletalFinSets>
+#! |4| → |77|
 IsWellDefined( phi );
 #! true
 iota := ImageEmbedding( phi );
-#! <A monomorphism in SkeletalFinSets>
+#! |3| ↪ |77|
 pi := CoastrictionToImage( phi );
-#! <A morphism in SkeletalFinSets>
+#! |4| → |3|
 Display( pi );
-#! [ 4, [ 2, 0, 1, 0 ], 3 ]
+#! { 0,..., 3 } ⱶ[ 2, 0, 1, 0 ]→ { 0, 1, 2 }
 IsWellDefined( pi );
 #! true
 IsEpimorphism( pi );

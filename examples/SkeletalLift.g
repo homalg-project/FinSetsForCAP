@@ -4,29 +4,29 @@ LoadPackage( "FinSetsForCAP" );
 
 #! @Example
 m := FinSet( 3 );
-#! <An object in SkeletalFinSets>
+#! |3|
 n := FinSet( 4 );
-#! <An object in SkeletalFinSets>
+#! |4|
 f := MapOfFinSets( m, [ 1, 1, 0 ], m );
-#! <A morphism in SkeletalFinSets>
+#! |3| → |3|
 g := MapOfFinSets( n, [ 2, 1, 0, 1 ], m );
-#! <A morphism in SkeletalFinSets>
+#! |4| → |3|
 IsLiftable( f, g );
 #! true
 chi := Lift( f, g );
-#! <A morphism in SkeletalFinSets>
+#! |3| → |4|
 Display( chi );
-#! [ 3, [ 1, 1, 2 ], 4 ]
+#! { 0, 1, 2 } ⱶ[ 1, 1, 2 ]→ { 0,..., 3 }
 PreCompose( Lift( f, g ), g ) = f;
 #! true
 IsLiftable( g, f );
 #! false
 k := FinSet( 100000 );
-#! <An object in SkeletalFinSets>
+#! |100000|
 h := ListWithIdenticalEntries( Length( k ) - 3, 2 );;
 h := Concatenation( h, [ 1, 0, 1 ] );;
 h := MapOfFinSets( k, h, m );
-#! <A morphism in SkeletalFinSets>
+#! |100000| → |3|
 IsLiftable( f, h );
 #! true
 IsLiftable( h, f );

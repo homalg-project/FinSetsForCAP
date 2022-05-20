@@ -4,21 +4,21 @@ LoadPackage( "FinSetsForCAP" );
 
 #! @Example
 m := FinSet( 7 );
-#! <An object in SkeletalFinSets>
+#! |7|
 n := FinSet( 3 );
-#! <An object in SkeletalFinSets>
+#! |3|
 phi := MapOfFinSets( n, [ 6, 4, 4 ], m );
-#! <A morphism in SkeletalFinSets>
+#! |3| → |7|
 IsWellDefined( phi );
 #! true
 ImageObject( phi );
-#! <An object in SkeletalFinSets>
+#! |2|
 Length( ImageObject( phi ) );
 #! 2
 s := FinSet( 2 );
-#! <An object in SkeletalFinSets>
+#! |2|
 I := ImageObject( phi, s );
-#! <An object in SkeletalFinSets>
+#! |2|
 Length( I );
 #! 2
 #! @EndExample

@@ -4,27 +4,27 @@ LoadPackage( "FinSetsForCAP" );
 
 #! @Example
 S := FinSet( 3 );
-#! <An object in SkeletalFinSets>
+#! |3|
 R := FinSet( 2 );
-#! <An object in SkeletalFinSets>
+#! |2|
 f := MapOfFinSets( S, [ 1, 1, 0 ], R );
-#! <A morphism in SkeletalFinSets>
+#! |3| → |2|
 IsWellDefined( f );
 #! true
 T := TerminalObject( SkeletalFinSets );
-#! <An object in SkeletalFinSets>
+#! |1|
 IsTerminal( T );
 #! true
 lf := CartesianLambdaIntroduction( f );
-#! <A split monomorphism in SkeletalFinSets>
+#! |1| ↪ |8|
 Source( lf ) = T;
 #! true
 Display( Range( lf ) );
-#! 8
+#! { 0,..., 7 }
 Display( lf );
-#! [ 1, [ 6 ], 8 ]
+#! { 0 } ⱶ[ 6 ]→ { 0,..., 7 }
 elf := CartesianLambdaElimination( S, R, lf );
-#! <A morphism in SkeletalFinSets>
+#! |3| → |2|
 elf = f;
 #! true
 #! @EndExample
