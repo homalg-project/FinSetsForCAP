@@ -934,7 +934,67 @@ InstallMethod( ViewObj,
         [ IsSkeletalFiniteSet ],
         
   function ( s )
-    Print( "<An object in SkeletalFinSets>" );
+    Print( "|", Length( s ), "|" );
+end );
+
+##
+InstallMethod( ViewObj,
+    "for a CAP map of skeletal finite sets",
+        [ IsSkeletalFiniteSetMap ],
+        
+  function ( phi )
+    Print( "|", Length( Source( phi ) ), "| → |", Length( Range( phi ) ), "|" );
+end );
+
+##
+InstallMethod( ViewObj,
+    "for a CAP map of skeletal finite sets",
+        [ IsSkeletalFiniteSetMap and IsMonomorphism ],
+        
+  function ( phi )
+    Print( "|", Length( Source( phi ) ), "| ↪ |", Length( Range( phi ) ), "|" );
+end );
+
+##
+InstallMethod( ViewObj,
+    "for a CAP map of skeletal finite sets",
+        [ IsSkeletalFiniteSetMap and IsEpimorphism ],
+        
+  function ( phi )
+    Print( "|", Length( Source( phi ) ), "| ↠ |", Length( Range( phi ) ), "|" );
+end );
+
+##
+InstallMethod( ViewObj,
+    "for a CAP map of skeletal finite sets",
+        [ IsSkeletalFiniteSetMap and IsIsomorphism ],
+        
+  function ( phi )
+    Print( "|", Length( Source( phi ) ), "| ⭇ |", Length( Range( phi ) ), "|" );
+end );
+
+##
+InstallMethod( PrintString,
+        "for a CAP skeletal finite set",
+        [ IsSkeletalFiniteSet ],
+        
+  function ( s )
+    local l, string;
+    
+    l := Length( s );
+    
+    if l = 0 then
+        return "∅";
+    elif l = 1 then
+        return "{ 0 }";
+    elif l = 2 then
+        return "{ 0, 1 }";
+    elif l = 3 then
+        return "{ 0, 1, 2 }";
+    fi;
+    
+    return Concatenation( "{ 0,..., ", String( Length( s ) - 1 ), " }" );
+    
 end );
 
 ##
@@ -943,7 +1003,7 @@ InstallMethod( Display,
         [ IsSkeletalFiniteSet ],
         
   function ( s )
-    Display( Length( s ) );
+    Print( PrintString( s ), "\n" );
 end );
 
 ##
@@ -952,7 +1012,9 @@ InstallMethod( Display,
         [ IsSkeletalFiniteSetMap ],
         
   function ( phi )
-    Display( [ Length( Source( phi ) ), AsList( phi ), Length( Range( phi ) ) ] );
+    Print( PrintString( Source( phi ) ) );
+    Print( " ⱶ", AsList( phi ), "→ " );
+    Print( PrintString( Range( phi ) ), "\n" );
 end );
 
 ##

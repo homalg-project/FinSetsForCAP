@@ -4,11 +4,11 @@ LoadPackage( "FinSetsForCAP" );
 
 #! @Example
 I := FinSet( 0 );
-#! <An object in SkeletalFinSets>
+#! |0|
 T := FinSet( 1 );
-#! <An object in SkeletalFinSets>
+#! |1|
 M := FinSet( 2 );
-#! <An object in SkeletalFinSets>
+#! |2|
 IsProjective( I );
 #! true
 IsProjective( T );

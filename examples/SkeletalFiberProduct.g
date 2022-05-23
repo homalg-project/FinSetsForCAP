@@ -4,47 +4,41 @@ LoadPackage( "FinSetsForCAP" );
 
 #! @Example
 m := FinSet( 5 );
-#! <An object in SkeletalFinSets>
+#! |5|
 n1 := FinSet( 3 );
-#! <An object in SkeletalFinSets>
+#! |3|
 iota1 := EmbeddingOfFinSets( n1, m );
-#! <A monomorphism in SkeletalFinSets>
+#! |3| ↪ |5|
 Display( iota1 );
-#! [ 3, [ 0 .. 2 ], 5 ]
+#! { 0, 1, 2 } ⱶ[ 0 .. 2 ]→ { 0,..., 4 }
 n2 := FinSet( 4 );
-#! <An object in SkeletalFinSets>
+#! |4|
 iota2 := EmbeddingOfFinSets( n2, m );
-#! <A monomorphism in SkeletalFinSets>
+#! |4| ↪ |5|
 Display( iota2 );
-#! [ 4, [ 0 .. 3 ], 5 ]
+#! { 0,..., 3 } ⱶ[ 0 .. 3 ]→ { 0,..., 4 }
 D := [ iota1, iota2 ];
-#! [ <A monomorphism in SkeletalFinSets>, <A monomorphism in SkeletalFinSets> ]
+#! [ |3| ↪ |5|, |4| ↪ |5| ]
 Fib := FiberProduct( D );
-#! <An object in SkeletalFinSets>
-Display( Fib );
-#! 3
+#! |3|
 pi1 := ProjectionInFactorOfFiberProduct( D, 1 );
-#! <A monomorphism in SkeletalFinSets>
+#! |3| ↪ |3|
 Display( pi1 );
-#! [ 3, [ 0, 1, 2 ], 3 ]
+#! { 0, 1, 2 } ⱶ[ 0, 1, 2 ]→ { 0, 1, 2 }
 int1 := ImageObject( pi1 );
-#! <An object in SkeletalFinSets>
-Display( int1 );
-#! 3
+#! |3|
 pi2 := ProjectionInFactorOfFiberProduct( D, 2 );
-#! <A monomorphism in SkeletalFinSets>
+#! |3| ↪ |4|
 Display( pi2 );
-#! [ 3, [ 0, 1, 2 ], 4 ]
+#! { 0, 1, 2 } ⱶ[ 0, 1, 2 ]→ { 0,..., 3 }
 int2 := ImageObject( pi2 );
-#! <An object in SkeletalFinSets>
-Display( int2 );
-#! 3
+#! |3|
 omega1 := PreCompose( pi1, iota1 );
-#! <A monomorphism in SkeletalFinSets>
+#! |3| ↪ |5|
 omega2 := PreCompose( pi2, iota2 );
-#! <A monomorphism in SkeletalFinSets>
+#! |3| ↪ |5|
 omega1 = omega2;
 #! true
 Display( omega1 );
-#! [ 3, [ 0, 1, 2 ], 5 ]
+#! { 0, 1, 2 } ⱶ[ 0, 1, 2 ]→ { 0,..., 4 }
 #! @EndExample

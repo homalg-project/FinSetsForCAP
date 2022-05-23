@@ -4,11 +4,11 @@ LoadPackage( "FinSetsForCAP" );
 
 #! @Example
 L := FinSet( 0 );
-#! <An object in SkeletalFinSets>
+#! |0|
 M := FinSet( 2 );
-#! <An object in SkeletalFinSets>
+#! |2|
 N := FinSet( 3 );
-#! <An object in SkeletalFinSets>
+#! |3|
 IsHomSetInhabited( L, L );
 #! true
 IsHomSetInhabited( M, L );

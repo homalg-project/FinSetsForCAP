@@ -7,45 +7,37 @@ LoadPackage( "FinSetsForCAP" );
 
 #! @Example
 M := FinSet( 7 );
-#! <An object in SkeletalFinSets>
+#! |7|
 N := FinSet( 3 );
-#! <An object in SkeletalFinSets>
+#! |3|
 iotaN := MapOfFinSets( N, [ 1, 2, 4 ], M );
-#! <A morphism in SkeletalFinSets>
+#! |3| → |7|
 NC := PseudoComplementSubobject( iotaN );
-#! <An object in SkeletalFinSets>
-Display( NC );
-#! 4
+#! |4|
 tauN := EmbeddingOfPseudoComplementSubobject( iotaN );
-#! <A monomorphism in SkeletalFinSets>
+#! |4| ↪ |7|
 Display( tauN );
-#! [ 4, [ 0, 3, 5, 6 ], 7 ]
+#! { 0,..., 3 } ⱶ[ 0, 3, 5, 6 ]→ { 0,..., 6 }
 L := FinSet( 4 );
-#! <An object in SkeletalFinSets>
+#! |4|
 iotaL := MapOfFinSets( L, [ 1, 3, 4, 6 ], M );
-#! <A morphism in SkeletalFinSets>
+#! |4| → |7|
 NIL := IntersectionSubobject( iotaN, iotaL );
-#! <An object in SkeletalFinSets>
-Display( NIL );
-#! 2
+#! |2|
 iotaNiL := EmbeddingOfIntersectionSubobject( iotaN, iotaL );
-#! <A monomorphism in SkeletalFinSets>
+#! |2| ↪ |7|
 Display( iotaNiL );
-#! [ 2, [ 1, 4 ], 7 ]
+#! { 0, 1 } ⱶ[ 1, 4 ]→ { 0,..., 6 }
 NUL := UnionSubobject( iotaN, iotaL );
-#! <An object in SkeletalFinSets>
-Display( NUL );
-#! 5
+#! |5|
 iotaNuL := EmbeddingOfUnionSubobject( iotaN, iotaL );
-#! <A monomorphism in SkeletalFinSets>
+#! |5| ↪ |7|
 Display( iotaNuL );
-#! [ 5, [ 1, 2, 3, 4, 6 ], 7 ]
+#! { 0,..., 4 } ⱶ[ 1, 2, 3, 4, 6 ]→ { 0,..., 6 }
 NPL := RelativePseudoComplementSubobject( iotaN, iotaL );
-#! <An object in SkeletalFinSets>
-Display( NPL );
-#! 6
+#! |6|
 iotaNpL := EmbeddingOfRelativePseudoComplementSubobject( iotaN, iotaL );
-#! <A monomorphism in SkeletalFinSets>
+#! |6| ↪ |7|
 Display( iotaNpL );
-#! [ 6, [ 0, 1, 3, 4, 5, 6 ], 7 ]
+#! { 0,..., 5 } ⱶ[ 0, 1, 3, 4, 5, 6 ]→ { 0,..., 6 }
 #! @EndExample

@@ -4,13 +4,13 @@ LoadPackage( "FinSetsForCAP" );
 
 #! @Example
 m := FinSet( 3 );
-#! <An object in SkeletalFinSets>
+#! |3|
 n := FinSet( 5 );
-#! <An object in SkeletalFinSets>
+#! |5|
 p := FinSet( 7 );
-#! <An object in SkeletalFinSets>
+#! |7|
 psi := MapOfFinSets( m, [ 0, 2, 4 ], n );
-#! <A morphism in SkeletalFinSets>
+#! |3| → |5|
 IsEpimorphism( psi );
 #! false
 IsSplitEpimorphism( psi );
@@ -20,7 +20,7 @@ IsMonomorphism( psi );
 IsSplitMonomorphism( psi );
 #! true
 psi := MapOfFinSets( p, [ 0, 2, 1, 2, 2, 1, 0 ], m );
-#! <A morphism in SkeletalFinSets>
+#! |7| → |3|
 IsEpimorphism( psi );
 #! true
 IsSplitEpimorphism( psi );

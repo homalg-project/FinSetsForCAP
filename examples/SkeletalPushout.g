@@ -4,87 +4,85 @@ LoadPackage( "FinSetsForCAP" );
 
 #! @Example
 M := FinSet( 5 );
-#! <An object in SkeletalFinSets>
+#! |5|
 N1 := FinSet( 3 );
-#! <An object in SkeletalFinSets>
+#! |3|
 iota1 := EmbeddingOfFinSets( N1, M );
-#! <A monomorphism in SkeletalFinSets>
+#! |3| ↪ |5|
 Display( iota1 );
-#! [ 3, [ 0 .. 2 ], 5 ]
+#! { 0, 1, 2 } ⱶ[ 0 .. 2 ]→ { 0,..., 4 }
 N2 := FinSet( 2 );
-#! <An object in SkeletalFinSets>
+#! |2|
 iota2 := EmbeddingOfFinSets( N2, M );
-#! <A monomorphism in SkeletalFinSets>
+#! |2| ↪ |5|
 Display( iota2 );
-#! [ 2, [ 0 .. 1 ], 5 ]
+#! { 0, 1 } ⱶ[ 0 .. 1 ]→ { 0,..., 4 }
 D := [ iota1, iota2 ];
-#! [ <A monomorphism in SkeletalFinSets>, <A monomorphism in SkeletalFinSets> ]
+#! [ |3| ↪ |5|, |2| ↪ |5| ]
 Fib := FiberProduct( D );
-#! <An object in SkeletalFinSets>
-Display( Fib );
-#! 2
+#! |2|
 pi1 := ProjectionInFactorOfFiberProduct( D, 1 );
-#! <A monomorphism in SkeletalFinSets>
+#! |2| ↪ |3|
 Display( pi1 );
-#! [ 2, [ 0, 1 ], 3 ]
+#! { 0, 1 } ⱶ[ 0, 1 ]→ { 0, 1, 2 }
 pi2 := ProjectionInFactorOfFiberProduct( D, 2 );
-#! <A monomorphism in SkeletalFinSets>
+#! |2| ↪ |2|
 Display( pi2 );
-#! [ 2, [ 0, 1 ], 2 ]
+#! { 0, 1 } ⱶ[ 0, 1 ]→ { 0, 1 }
+#! @EndExample
 
-## The easy way
+#! The easy way
 
+#! @Example
 D := [ pi1, pi2 ];
-#! [ <A monomorphism in SkeletalFinSets>, <A monomorphism in SkeletalFinSets> ]
+#! [ |2| ↪ |3|, |2| ↪ |2| ]
 UU := Pushout( D );
-#! <An object in SkeletalFinSets>
-Display( UU );
-#! 3
+#! |3|
 kappa1 := InjectionOfCofactorOfPushout( D, 1 );
-#! <A morphism in SkeletalFinSets>
+#! |3| → |3|
 Display( kappa1 );
-#! [ 3, [ 0, 1, 2 ], 3 ]
+#! { 0, 1, 2 } ⱶ[ 0, 1, 2 ]→ { 0, 1, 2 }
 kappa2 := InjectionOfCofactorOfPushout( D, 2 );
-#! <A morphism in SkeletalFinSets>
+#! |2| → |3|
 Display( kappa2 );
-#! [ 2, [ 0, 1 ], 3 ]
+#! { 0, 1 } ⱶ[ 0, 1 ]→ { 0, 1, 2 }
 PreCompose( pi1, kappa1 ) = PreCompose( pi2, kappa2 );
 #! true
+#! @EndExample
 
-## The long way
+#! The long way
 
+#! @Example
 Co := Coproduct( N1, N2 );
-#! <An object in SkeletalFinSets>
+#! |5|
 Display( Co );
-#! 5
+#! { 0,..., 4 }
 iota_1 := InjectionOfCofactorOfCoproduct( [ N1, N2 ], 1 );
-#! <A morphism in SkeletalFinSets>
+#! |3| → |5|
 Display( iota_1 );
-#! [ 3, [ 0 .. 2 ], 5 ]
+#! { 0, 1, 2 } ⱶ[ 0 .. 2 ]→ { 0,..., 4 }
 iota_2 := InjectionOfCofactorOfCoproduct( [ N1, N2 ], 2 );
-#! <A morphism in SkeletalFinSets>
+#! |2| → |5|
 Display( iota_2 );
-#! [ 2, [ 3 .. 4 ], 5 ]
+#! { 0, 1 } ⱶ[ 3 .. 4 ]→ { 0,..., 4 }
 alpha := PreCompose( pi1, iota_1 );
-#! <A morphism in SkeletalFinSets>
+#! |2| → |5|
 Display( alpha );
-#! [ 2, [ 0, 1 ], 5 ]
+#! { 0, 1 } ⱶ[ 0, 1 ]→ { 0,..., 4 }
 beta := PreCompose( pi2, iota_2 );
-#! <A morphism in SkeletalFinSets>
+#! |2| → |5|
 Display( beta );
-#! [ 2, [ 3, 4 ], 5 ]
+#! { 0, 1 } ⱶ[ 3, 4 ]→ { 0,..., 4 }
 Cq := Coequalizer( [ alpha, beta ] );
-#! <An object in SkeletalFinSets>
-Display( Cq );
-#! 3
+#! |3|
 psi := ProjectionOntoCoequalizer( [ alpha, beta ] );
-#! <An epimorphism in SkeletalFinSets>
+#! |5| ↠ |3|
 Display( psi );
-#! [ 5, [ 0, 1, 2, 0, 1 ], 3 ]
+#! { 0,..., 4 } ⱶ[ 0, 1, 2, 0, 1 ]→ { 0, 1, 2 }
 Display( PreCompose( iota_1, psi ) );
-#! [ 3, [ 0, 1, 2 ], 3 ]
+#! { 0, 1, 2 } ⱶ[ 0, 1, 2 ]→ { 0, 1, 2 }
 Display( PreCompose( iota_2, psi ) );
-#! [ 2, [ 0, 1 ], 3 ]
+#! { 0, 1 } ⱶ[ 0, 1 ]→ { 0, 1, 2 }
 PreCompose( alpha, psi ) = PreCompose( beta, psi );
 #! true
 #! @EndExample

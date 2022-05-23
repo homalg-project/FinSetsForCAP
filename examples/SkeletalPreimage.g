@@ -4,11 +4,11 @@ LoadPackage( "FinSetsForCAP" );
 
 #! @Example
 m := FinSet( 7 );
-#! <An object in SkeletalFinSets>
+#! |7|
 n := FinSet( 3 );
-#! <An object in SkeletalFinSets>
+#! |3|
 phi := MapOfFinSets( n, [ 6, 4, 4 ], m );
-#! <A morphism in SkeletalFinSets>
+#! |3| → |7|
 P := Preimage( phi, [ 2 ] );
 #! [  ]
 P := Preimage( phi, AsList( FinSet( 5 ) ) );

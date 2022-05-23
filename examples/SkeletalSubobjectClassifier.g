@@ -7,28 +7,28 @@ LoadPackage( "FinSetsForCAP" );
 # i.e., the topos SkeletalFinSets is Boolean.
 
 #! @Example
-Display( SubobjectClassifier( SkeletalFinSets ) );
-#! 2
-Display( TruthMorphismOfTrue( SkeletalFinSets ) );
-#! [ 1, [ 1 ], 2 ]
+SubobjectClassifier( SkeletalFinSets );
+#! |2|
 Display( TruthMorphismOfFalse( SkeletalFinSets ) );
-#! [ 1, [ 0 ], 2 ]
+#! { 0 } ⱶ[ 0 ]→ { 0, 1 }
+Display( TruthMorphismOfTrue( SkeletalFinSets ) );
+#! { 0 } ⱶ[ 1 ]→ { 0, 1 }
 Display( TruthMorphismOfNot( SkeletalFinSets ) );
-#! [ 2, [ 1, 0 ], 2 ]
-Display( CartesianSquareOfSubobjectClassifier( SkeletalFinSets ) );
-#! 4
+#! { 0, 1 } ⱶ[ 1, 0 ]→ { 0, 1 }
+CartesianSquareOfSubobjectClassifier( SkeletalFinSets );
+#! |4|
 Display( TruthMorphismOfAnd( SkeletalFinSets ) );
-#! [ 4, [ 0, 0, 0, 1 ], 2 ]
+#! { 0,..., 3 } ⱶ[ 0, 0, 0, 1 ]→ { 0, 1 }
 Display( TruthMorphismOfOr( SkeletalFinSets ) );
-#! [ 4, [ 0, 1, 1, 1 ], 2 ]
+#! { 0,..., 3 } ⱶ[ 0, 1, 1, 1 ]→ { 0, 1 }
 Display( TruthMorphismOfImplies( SkeletalFinSets ) );
-#! [ 4, [ 1, 1, 0, 1 ], 2 ]
+#! { 0,..., 3 } ⱶ[ 1, 1, 0, 1 ]→ { 0, 1 }
 S := FinSet( 5 );
-#! <An object in SkeletalFinSets>
+#! |5|
 A := FinSet( 2 );
-#! <An object in SkeletalFinSets>
+#! |2|
 m := MapOfFinSets( A, [ 0, 4 ], S );
-#! <A morphism in SkeletalFinSets>
+#! |2| → |5|
 Display( ClassifyingMorphismOfSubobject( m ) );
-#! [ 5, [ 1, 0, 0, 0, 1 ], 2 ]
+#! { 0,..., 4 } ⱶ[ 1, 0, 0, 0, 1 ]→ { 0, 1 }
 #! @EndExample

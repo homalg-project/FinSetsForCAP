@@ -6,6 +6,8 @@
 
 LoadPackage( "FinSetsForCAP", false );
 #! true
+LoadPackage( "CompilerForCAP", false );
+#! true
 
 category_constructor := {} -> CategoryOfSkeletalFinSets( );;
 given_arguments := [ ];;

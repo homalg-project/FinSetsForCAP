@@ -4,13 +4,13 @@ LoadPackage( "FinSetsForCAP" );
 
 #! @Example
 m := FinSet( 7 );
-#! <An object in SkeletalFinSets>
+#! |7|
 n := FinSet( 3 );
-#! <An object in SkeletalFinSets>
+#! |3|
 phi := MapOfFinSets( n, [ 6, 4, 4 ], m );
-#! <A morphism in SkeletalFinSets>
+#! |3| → |7|
 pi := ImageEmbedding( phi );
-#! <A monomorphism in SkeletalFinSets>
+#! |2| ↪ |7|
 Display( pi );
-#! [ 2, [ 4, 6 ], 7 ]
+#! { 0, 1 } ⱶ[ 4, 6 ]→ { 0,..., 6 }
 #! @EndExample

@@ -4,23 +4,23 @@ LoadPackage( "FinSetsForCAP" );
 
 #! @Example
 s := FinSet( 7 );
-#! <An object in SkeletalFinSets>
+#! |7|
 t := FinSet( 4 );
-#! <An object in SkeletalFinSets>
+#! |4|
 psi := MapOfFinSets( s, [ 0, 2, 1, 2, 1, 3 ], t );
-#! <A morphism in SkeletalFinSets>
+#! |7| → |4|
 IsWellDefined( psi );
 #! false
 psi := MapOfFinSets( s, [ 0, 2, 1, 2, 1, 3, -2 ], t );
-#! <A morphism in SkeletalFinSets>
+#! |7| → |4|
 IsWellDefined( psi );
 #! false
 psi := MapOfFinSets( s, [ 1, 2, 1, 4, 2, 1, 3 ], t );
-#! <A morphism in SkeletalFinSets>
+#! |7| → |4|
 IsWellDefined( psi );
 #! false
 psi:= MapOfFinSets( s, [ 0, 2, 1, 3, 2, 1, 3 ], t );
-#! <A morphism in SkeletalFinSets>
+#! |7| → |4|
 IsWellDefined( psi );
 #! true
 #! @EndExample
