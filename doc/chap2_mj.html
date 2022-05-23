@@ -197,29 +197,29 @@
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet( 7 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|7|
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( m );</span>
+{ 0,..., 6 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( m );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">List( m, x -&gt; x^2 );</span>
 [ 0, 1, 4, 9, 16, 25, 36 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := ObjectDatum( m );</span>
 7
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( m );</span>
-7
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">mm := ObjectConstructor( SkeletalFinSets, 7 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m = mm;</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet( -2 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|-2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( n );</span>
 false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet( 3 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( n );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p := FinSet( 4 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( p );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEqualForObjects( m, n );</span>
@@ -247,29 +247,29 @@ false
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s := FinSet( 3 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">t := FinSet( 7 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( s, [ 6, 4, 4 ], t );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|3| → |7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsList( phi );</span>
 [ 6, 4, 4 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( phi );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( phi );</span>
-[ 3, [ 6, 4, 4 ], 7 ]
+{ 0, 1, 2 } ⱶ[ 6, 4, 4 ]→ { 0,..., 6 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s := ObjectConstructor( SkeletalFinSets, 3 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">t := ObjectConstructor( SkeletalFinSets, 7 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MorphismConstructor( s, [ 6, 4, 4 ], t );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|3| → |7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MorphismDatum( phi );</span>
 [ 6, 4, 4 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( phi );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( phi );</span>
-[ 3, [ 6, 4, 4 ], 7 ]
+{ 0, 1, 2 } ⱶ[ 6, 4, 4 ]→ { 0,..., 6 }
 </pre></div>
 
 <p><a id="X7E5452E286C1F608" name="X7E5452E286C1F608"></a></p>
@@ -332,11 +332,11 @@ true
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := FinSet( 0 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|0|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSet( 2 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">N := FinSet( 3 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsHomSetInhabited( L, L );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsHomSetInhabited( M, L );</span>
@@ -354,23 +354,23 @@ true
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s := FinSet( 7 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">t := FinSet( 4 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := MapOfFinSets( s, [ 0, 2, 1, 2, 1, 3 ], t );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|7| → |4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( psi );</span>
 false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := MapOfFinSets( s, [ 0, 2, 1, 2, 1, 3, -2 ], t );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|7| → |4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( psi );</span>
 false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := MapOfFinSets( s, [ 1, 2, 1, 4, 2, 1, 3 ], t );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|7| → |4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( psi );</span>
 false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi:= MapOfFinSets( s, [ 0, 2, 1, 3, 2, 1, 3 ], t );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|7| → |4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( psi );</span>
 true
 </pre></div>
@@ -382,19 +382,19 @@ true
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet( 3 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet( 5 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p := FinSet( 7 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := MapOfFinSets( m, [ 1, 4, 2 ], n );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|3| → |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( n, [ 0, 3, 5, 5, 2 ], p );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|5| → |7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">alpha := PreCompose( psi, phi );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|3| → |7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( alpha );</span>
-[ 3, [ 3, 2, 5 ], 7 ]
+{ 0, 1, 2 } ⱶ[ 3, 2, 5 ]→ { 0,..., 6 }
 </pre></div>
 
 <p><a id="X7CD5C95A8292CF34" name="X7CD5C95A8292CF34"></a></p>
@@ -404,13 +404,13 @@ true
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet( 3 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet( 5 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p := FinSet( 7 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := MapOfFinSets( m, [ 0, 2, 4 ], n );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|3| → |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEpimorphism( psi );</span>
 false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSplitEpimorphism( psi );</span>
@@ -420,7 +420,7 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSplitMonomorphism( psi );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := MapOfFinSets( p, [ 0, 2, 1, 2, 2, 1, 0 ], m );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|7| → |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEpimorphism( psi );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSplitEpimorphism( psi );</span>
@@ -438,23 +438,25 @@ false
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet( 8 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|8|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInitial( m );</span>
 false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsTerminal( m );</span>
 false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">i := InitialObject( SkeletalFinSets );</span>
-&lt;An object in SkeletalFinSets&gt;
+|0|
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( i );</span>
+∅
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInitial( i );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsTerminal( i );</span>
 false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota := UniversalMorphismFromInitialObject( m );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|0| → |8|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsList( i );</span>
 [  ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">t := TerminalObject( SkeletalFinSets );</span>
-&lt;An object in SkeletalFinSets&gt;
+|1|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsList( t );</span>
 [ 0 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInitial( t );</span>
@@ -462,11 +464,11 @@ false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsTerminal( t );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi := UniversalMorphismIntoTerminalObject( m );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|8| → |1|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIdenticalObj( Range( pi ), t );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi_t := UniversalMorphismIntoTerminalObjectWithGivenTerminalObject( m, t );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|8| → |1|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsList( pi_t );</span>
 [ 0, 0, 0, 0, 0, 0, 0, 0 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi = pi_t;</span>
@@ -480,11 +482,11 @@ true
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">I := FinSet( 0 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|0|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">T := FinSet( 1 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|1|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSet( 2 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsProjective( I );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsProjective( T );</span>
@@ -500,11 +502,11 @@ true
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">I := FinSet( 0 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|0|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">T := FinSet( 1 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|1|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSet( 2 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInjective( I );</span>
 false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInjective( T );</span>
@@ -526,44 +528,44 @@ true
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet( 7 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet( 3 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p := FinSet( 4 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">d := DirectProduct( [ m, n, p ] );</span>
-&lt;An object in SkeletalFinSets&gt;
+|84|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsList( d );</span>
 [ 0 .. 83 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi1 := ProjectionInFactorOfDirectProduct( [ m, n, p ], 1 );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|84| → |7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( pi1 );</span>
-[ 84, 
-  [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
-      1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 
-      3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 
-      5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6 ], 7 
- ]
+{ 0,..., 83 } ⱶ[ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,
+                 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2,
+                 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3,
+                 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4,
+                 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5,
+                 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6 ]→ { 0,..., 6 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi2 := ProjectionInFactorOfDirectProduct( [ m, n, p ], 2 );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|84| → |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( pi2 );</span>
-[ 84, 
-  [ 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 
-      2, 2, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 0, 0, 0, 0, 1, 1, 1, 
-      1, 2, 2, 2, 2, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 0, 0, 0, 0, 
-      1, 1, 1, 1, 2, 2, 2, 2, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2 ], 3 
- ]
+{ 0,..., 83 } ⱶ[ 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 0, 0,
+                 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 0, 0, 0, 0,
+                 1, 1, 1, 1, 2, 2, 2, 2, 0, 0, 0, 0, 1, 1,
+                 1, 1, 2, 2, 2, 2, 0, 0, 0, 0, 1, 1, 1, 1,
+                 2, 2, 2, 2, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2,
+                 2, 2, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2 ]→ { 0, 1, 2 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi3 := ProjectionInFactorOfDirectProduct( [ m, n, p ], 3 );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|84| → |4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( pi3 );</span>
-[ 84, 
-  [ 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 
-      2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 
-      3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 
-      0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3 ], 4 
- ]
+{ 0,..., 83 } ⱶ[ 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1,
+                 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3,
+                 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1,
+                 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3,
+                 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1,
+                 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3 ]→ { 0,..., 3 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := UniversalMorphismIntoDirectProduct( [ m, n, p ], [ pi1, pi2, pi3 ] );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|84| → |84|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi = IdentityMorphism( d );</span>
 true
 </pre></div>
@@ -575,38 +577,39 @@ true
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet( 7 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet( 3 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p := FinSet( 4 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c := Coproduct( m, n, p );</span>
-&lt;An object in SkeletalFinSets&gt;
+|14|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsList( c );</span>
 [ 0 .. 13 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota1 := InjectionOfCofactorOfCoproduct( [ m, n, p ], 1 );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|7| → |14|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( iota1 );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( iota1 );</span>
-[ 7, [ 0 .. 6 ], 14 ]
+{ 0,..., 6 } ⱶ[ 0 .. 6 ]→ { 0,..., 13 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota2 := InjectionOfCofactorOfCoproduct( [ m, n, p ], 2 );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|3| → |14|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( iota2 );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( iota2 );</span>
-[ 3, [ 7 .. 9 ], 14 ]
+{ 0, 1, 2 } ⱶ[ 7 .. 9 ]→ { 0,..., 13 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota3 := InjectionOfCofactorOfCoproduct( [ m, n, p ], 3 );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|4| → |14|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( iota3 );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( iota3 );</span>
-[ 4, [ 10 .. 13 ], 14 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := UniversalMorphismFromCoproduct( [ m, n, p ],</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">                                       [ iota1, iota2, iota3 ]</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">                                     );</span>
-&lt;A morphism in SkeletalFinSets&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi = IdentityMorphism( Coproduct( [ m, n, p ] ) );</span>
+{ 0,..., 3 } ⱶ[ 10 .. 13 ]→ { 0,..., 13 }
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := UniversalMorphismFromCoproduct(</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">               [ m, n, p ], [ iota1, iota2, iota3 ] );</span>
+|14| → |14|
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">id := IdentityMorphism( Coproduct( [ m, n, p ] ) );</span>
+|14| ⭇ |14|
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi = id;</span>
 true
 </pre></div>
 
@@ -617,21 +620,21 @@ true
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet( 7 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet( 3 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( n, [ 6, 4, 4 ], m );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|3| → |7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( phi );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ImageObject( phi );</span>
-&lt;An object in SkeletalFinSets&gt;
+|2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Length( ImageObject( phi ) );</span>
 2
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s := FinSet( 2 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">I := ImageObject( phi, s );</span>
-&lt;An object in SkeletalFinSets&gt;
+|2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Length( I );</span>
 2
 </pre></div>
@@ -639,31 +642,31 @@ true
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet( 7 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet( 3 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( n, [ 6, 4, 4 ], m );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|3| → |7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi := ImageEmbedding( phi );</span>
-&lt;A monomorphism in SkeletalFinSets&gt;
+|2| ↪ |7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( pi );</span>
-[ 2, [ 4, 6 ], 7 ]
+{ 0, 1 } ⱶ[ 4, 6 ]→ { 0,..., 6 }
 </pre></div>
 
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet( 7 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet( 3 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( n, [ 6, 4, 4 ], m );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|3| → |7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( phi );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f := CoastrictionToImage( phi );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|3| → |2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( f );</span>
-[ 3, [ 1, 0, 0 ], 2 ]
+{ 0, 1, 2 } ⱶ[ 1, 0, 0 ]→ { 0, 1 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( f );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEpimorphism( f );</span>
@@ -671,19 +674,19 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSplitEpimorphism( f );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet( 77 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|77|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet( 4 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( n, [ 76, 1, 24, 1 ], m );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|4| → |77|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( phi );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota := ImageEmbedding( phi );</span>
-&lt;A monomorphism in SkeletalFinSets&gt;
+|3| ↪ |77|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi := CoastrictionToImage( phi );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|4| → |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( pi );</span>
-[ 4, [ 2, 0, 1, 0 ], 3 ]
+{ 0,..., 3 } ⱶ[ 2, 0, 1, 0 ]→ { 0, 1, 2 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( pi );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEpimorphism( pi );</span>
@@ -701,11 +704,11 @@ true
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet( 7 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet( 3 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( n, [ 6, 4, 4 ], m );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|3| → |7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := Preimage( phi, [ 2 ] );</span>
 [  ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := Preimage( phi, AsList( FinSet( 5 ) ) );</span>
@@ -719,45 +722,41 @@ true
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S := FinSet( 5 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">T := FinSet( 3 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f1 := MapOfFinSets( S, [ 2, 2, 0, 1, 1 ], T );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|5| → |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f2 := MapOfFinSets( S, [ 2, 1, 2, 0, 1 ], T );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|5| → |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f3 := MapOfFinSets( S, [ 2, 0, 1, 0, 1 ], T );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|5| → |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D := [ f1, f2, f3 ];;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Eq := Equalizer( D );</span>
-&lt;An object in SkeletalFinSets&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Length( Eq );</span>
-2
+|2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota := EmbeddingOfEqualizer( D );</span>
-&lt;A monomorphism in SkeletalFinSets&gt;
+|2| ↪ |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( iota );</span>
-[ 2, [ 0, 4 ], 5 ]
+{ 0, 1 } ⱶ[ 0, 4 ]→ { 0,..., 4 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( FinSet( 2 ), [ 4, 0 ], S );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( phi );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := UniversalMorphismIntoEqualizer( D, phi );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|2| → |2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( psi );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( psi );</span>
-[ 2, [ 1, 0 ], 2 ]
+{ 0, 1 } ⱶ[ 1, 0 ]→ { 0, 1 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( psi, iota ) = phi;</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D := [ f2, f3 ];</span>
-[ &lt;A morphism in SkeletalFinSets&gt;, &lt;A morphism in SkeletalFinSets&gt; ]
+[ |5| → |3|, |5| → |3| ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Eq := Equalizer( D );</span>
-&lt;An object in SkeletalFinSets&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Length( Eq );</span>
-3
+|3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := EmbeddingOfEqualizer( D );</span>
-&lt;A monomorphism in SkeletalFinSets&gt;
+|3| ↪ |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( psi );</span>
-[ 3, [ 0, 3, 4 ], 5 ]
+{ 0, 1, 2 } ⱶ[ 0, 3, 4 ]→ { 0,..., 4 }
 </pre></div>
 
 <p><a id="X7CAD01387C12A9E8" name="X7CAD01387C12A9E8"></a></p>
@@ -767,49 +766,43 @@ true
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet( 5 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n1 := FinSet( 3 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota1 := EmbeddingOfFinSets( n1, m );</span>
-&lt;A monomorphism in SkeletalFinSets&gt;
+|3| ↪ |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( iota1 );</span>
-[ 3, [ 0 .. 2 ], 5 ]
+{ 0, 1, 2 } ⱶ[ 0 .. 2 ]→ { 0,..., 4 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n2 := FinSet( 4 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota2 := EmbeddingOfFinSets( n2, m );</span>
-&lt;A monomorphism in SkeletalFinSets&gt;
+|4| ↪ |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( iota2 );</span>
-[ 4, [ 0 .. 3 ], 5 ]
+{ 0,..., 3 } ⱶ[ 0 .. 3 ]→ { 0,..., 4 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D := [ iota1, iota2 ];</span>
-[ &lt;A monomorphism in SkeletalFinSets&gt;, &lt;A monomorphism in SkeletalFinSets&gt; ]
+[ |3| ↪ |5|, |4| ↪ |5| ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Fib := FiberProduct( D );</span>
-&lt;An object in SkeletalFinSets&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( Fib );</span>
-3
+|3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi1 := ProjectionInFactorOfFiberProduct( D, 1 );</span>
-&lt;A monomorphism in SkeletalFinSets&gt;
+|3| ↪ |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( pi1 );</span>
-[ 3, [ 0, 1, 2 ], 3 ]
+{ 0, 1, 2 } ⱶ[ 0, 1, 2 ]→ { 0, 1, 2 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">int1 := ImageObject( pi1 );</span>
-&lt;An object in SkeletalFinSets&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( int1 );</span>
-3
+|3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi2 := ProjectionInFactorOfFiberProduct( D, 2 );</span>
-&lt;A monomorphism in SkeletalFinSets&gt;
+|3| ↪ |4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( pi2 );</span>
-[ 3, [ 0, 1, 2 ], 4 ]
+{ 0, 1, 2 } ⱶ[ 0, 1, 2 ]→ { 0,..., 3 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">int2 := ImageObject( pi2 );</span>
-&lt;An object in SkeletalFinSets&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( int2 );</span>
-3
+|3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">omega1 := PreCompose( pi1, iota1 );</span>
-&lt;A monomorphism in SkeletalFinSets&gt;
+|3| ↪ |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">omega2 := PreCompose( pi2, iota2 );</span>
-&lt;A monomorphism in SkeletalFinSets&gt;
+|3| ↪ |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">omega1 = omega2;</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( omega1 );</span>
-[ 3, [ 0, 1, 2 ], 5 ]
+{ 0, 1, 2 } ⱶ[ 0, 1, 2 ]→ { 0,..., 4 }
 </pre></div>
 
 <p><a id="X83BC64A980FE2B98" name="X83BC64A980FE2B98"></a></p>
@@ -819,57 +812,53 @@ true
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s := FinSet( 5 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">t := FinSet( 4 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f := MapOfFinSets( s, [ 2, 3, 3, 1, 3 ], t );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|5| → |4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := MapOfFinSets( s, [ 2, 2, 3, 1, 3 ], t );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|5| → |4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D := [ f, g ];</span>
-[ &lt;A morphism in SkeletalFinSets&gt;, &lt;A morphism in SkeletalFinSets&gt; ]
+[ |5| → |4|, |5| → |4| ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := Coequalizer( D );</span>
-&lt;An object in SkeletalFinSets&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Length( C );</span>
-3
+|3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi := ProjectionOntoCoequalizer( D );</span>
-&lt;An epimorphism in SkeletalFinSets&gt;
+|4| ↠ |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( pi );</span>
-[ 4, [ 0, 1, 2, 2 ], 3 ]
+{ 0,..., 3 } ⱶ[ 0, 1, 2, 2 ]→ { 0, 1, 2 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">tau := MapOfFinSets( t, [ 1, 0, 1, 1 ], FinSet( 2 ) );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|4| → |2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := UniversalMorphismFromCoequalizer( D, tau );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|3| → |2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( phi );</span>
-[ 3, [ 1, 0, 1 ], 2 ]
+{ 0, 1, 2 } ⱶ[ 1, 0, 1 ]→ { 0, 1 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( pi, phi ) = tau;</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s := FinSet( 5 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">t := FinSet( 4 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f := MapOfFinSets( s, [ 1, 2, 2, 1, 3 ], t );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|5| → |4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := MapOfFinSets( s, [ 1, 2, 1, 1, 3 ], t );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|5| → |4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D := [ f, g ];</span>
-[ &lt;A morphism in SkeletalFinSets&gt;, &lt;A morphism in SkeletalFinSets&gt; ]
+[ |5| → |4|, |5| → |4| ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := Coequalizer( D );</span>
-&lt;An object in SkeletalFinSets&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Length( C );</span>
-3
+|3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi := ProjectionOntoCoequalizer( D );</span>
-&lt;An epimorphism in SkeletalFinSets&gt;
+|4| ↠ |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( pi );</span>
-[ 4, [ 0, 1, 1, 2 ], 3 ]
+{ 0,..., 3 } ⱶ[ 0, 1, 1, 2 ]→ { 0, 1, 2 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( f, pi ) = PreCompose( g, pi );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">tau := MapOfFinSets( t, [ 0, 1, 1, 0 ], FinSet( 2 ) );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|4| → |2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := UniversalMorphismFromCoequalizer( D, tau );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|3| → |2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( phi );</span>
-[ 3, [ 0, 1, 0 ], 2 ]
+{ 0, 1, 2 } ⱶ[ 0, 1, 0 ]→ { 0, 1 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( pi, phi ) = tau;</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s := FinSet( 2 );;</span>
@@ -881,9 +870,7 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( g );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := Coequalizer( [ f, g ] );</span>
-&lt;An object in SkeletalFinSets&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Length( C );</span>
-1
+|1|
 </pre></div>
 
 <p><a id="X7A2A65A58651651A" name="X7A2A65A58651651A"></a></p>
@@ -893,85 +880,87 @@ true
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSet( 5 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">N1 := FinSet( 3 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota1 := EmbeddingOfFinSets( N1, M );</span>
-&lt;A monomorphism in SkeletalFinSets&gt;
+|3| ↪ |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( iota1 );</span>
-[ 3, [ 0 .. 2 ], 5 ]
+{ 0, 1, 2 } ⱶ[ 0 .. 2 ]→ { 0,..., 4 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">N2 := FinSet( 2 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota2 := EmbeddingOfFinSets( N2, M );</span>
-&lt;A monomorphism in SkeletalFinSets&gt;
+|2| ↪ |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( iota2 );</span>
-[ 2, [ 0 .. 1 ], 5 ]
+{ 0, 1 } ⱶ[ 0 .. 1 ]→ { 0,..., 4 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D := [ iota1, iota2 ];</span>
-[ &lt;A monomorphism in SkeletalFinSets&gt;, &lt;A monomorphism in SkeletalFinSets&gt; ]
+[ |3| ↪ |5|, |2| ↪ |5| ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Fib := FiberProduct( D );</span>
-&lt;An object in SkeletalFinSets&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( Fib );</span>
-2
+|2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi1 := ProjectionInFactorOfFiberProduct( D, 1 );</span>
-&lt;A monomorphism in SkeletalFinSets&gt;
+|2| ↪ |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( pi1 );</span>
-[ 2, [ 0, 1 ], 3 ]
+{ 0, 1 } ⱶ[ 0, 1 ]→ { 0, 1, 2 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi2 := ProjectionInFactorOfFiberProduct( D, 2 );</span>
-&lt;A monomorphism in SkeletalFinSets&gt;
+|2| ↪ |2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( pi2 );</span>
-[ 2, [ 0, 1 ], 2 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">## The easy way</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput"></span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">D := [ pi1, pi2 ];</span>
-[ &lt;A monomorphism in SkeletalFinSets&gt;, &lt;A monomorphism in SkeletalFinSets&gt; ]
+{ 0, 1 } ⱶ[ 0, 1 ]→ { 0, 1 }
+</pre></div>
+
+<p>The easy way</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D := [ pi1, pi2 ];</span>
+[ |2| ↪ |3|, |2| ↪ |2| ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UU := Pushout( D );</span>
-&lt;An object in SkeletalFinSets&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( UU );</span>
-3
+|3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">kappa1 := InjectionOfCofactorOfPushout( D, 1 );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|3| → |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( kappa1 );</span>
-[ 3, [ 0, 1, 2 ], 3 ]
+{ 0, 1, 2 } ⱶ[ 0, 1, 2 ]→ { 0, 1, 2 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">kappa2 := InjectionOfCofactorOfPushout( D, 2 );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|2| → |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( kappa2 );</span>
-[ 2, [ 0, 1 ], 3 ]
+{ 0, 1 } ⱶ[ 0, 1 ]→ { 0, 1, 2 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( pi1, kappa1 ) = PreCompose( pi2, kappa2 );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">## The long way</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput"></span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">Co := Coproduct( N1, N2 );</span>
-&lt;An object in SkeletalFinSets&gt;
+</pre></div>
+
+<p>The long way</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Co := Coproduct( N1, N2 );</span>
+|5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( Co );</span>
-5
+{ 0,..., 4 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota_1 := InjectionOfCofactorOfCoproduct( [ N1, N2 ], 1 );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|3| → |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( iota_1 );</span>
-[ 3, [ 0 .. 2 ], 5 ]
+{ 0, 1, 2 } ⱶ[ 0 .. 2 ]→ { 0,..., 4 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota_2 := InjectionOfCofactorOfCoproduct( [ N1, N2 ], 2 );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|2| → |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( iota_2 );</span>
-[ 2, [ 3 .. 4 ], 5 ]
+{ 0, 1 } ⱶ[ 3 .. 4 ]→ { 0,..., 4 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">alpha := PreCompose( pi1, iota_1 );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|2| → |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( alpha );</span>
-[ 2, [ 0, 1 ], 5 ]
+{ 0, 1 } ⱶ[ 0, 1 ]→ { 0,..., 4 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">beta := PreCompose( pi2, iota_2 );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|2| → |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( beta );</span>
-[ 2, [ 3, 4 ], 5 ]
+{ 0, 1 } ⱶ[ 3, 4 ]→ { 0,..., 4 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Cq := Coequalizer( [ alpha, beta ] );</span>
-&lt;An object in SkeletalFinSets&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( Cq );</span>
-3
+|3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := ProjectionOntoCoequalizer( [ alpha, beta ] );</span>
-&lt;An epimorphism in SkeletalFinSets&gt;
+|5| ↠ |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( psi );</span>
-[ 5, [ 0, 1, 2, 0, 1 ], 3 ]
+{ 0,..., 4 } ⱶ[ 0, 1, 2, 0, 1 ]→ { 0, 1, 2 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( PreCompose( iota_1, psi ) );</span>
-[ 3, [ 0, 1, 2 ], 3 ]
+{ 0, 1, 2 } ⱶ[ 0, 1, 2 ]→ { 0, 1, 2 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( PreCompose( iota_2, psi ) );</span>
-[ 2, [ 0, 1 ], 3 ]
+{ 0, 1 } ⱶ[ 0, 1 ]→ { 0, 1, 2 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( alpha, psi ) = PreCompose( beta, psi );</span>
 true
 </pre></div>
@@ -983,27 +972,27 @@ true
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S := FinSet( 3 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R := FinSet( 2 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f := MapOfFinSets( S, [ 1, 1, 0 ], R );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|3| → |2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( f );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">T := TerminalObject( SkeletalFinSets );</span>
-&lt;An object in SkeletalFinSets&gt;
+|1|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsTerminal( T );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">lf := CartesianLambdaIntroduction( f );</span>
-&lt;A split monomorphism in SkeletalFinSets&gt;
+|1| ↪ |8|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Source( lf ) = T;</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( Range( lf ) );</span>
-8
+{ 0,..., 7 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( lf );</span>
-[ 1, [ 6 ], 8 ]
+{ 0 } ⱶ[ 6 ]→ { 0,..., 7 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">elf := CartesianLambdaElimination( S, R, lf );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|3| → |2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">elf = f;</span>
 true
 </pre></div>
@@ -1015,29 +1004,29 @@ true
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet( 3 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet( 4 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f := MapOfFinSets( m, [ 1, 1, 0 ], m );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|3| → |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := MapOfFinSets( n, [ 2, 1, 0, 1 ], m );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|4| → |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLiftable( f, g );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">chi := Lift( f, g );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|3| → |4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( chi );</span>
-[ 3, [ 1, 1, 2 ], 4 ]
+{ 0, 1, 2 } ⱶ[ 1, 1, 2 ]→ { 0,..., 3 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( Lift( f, g ), g ) = f;</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLiftable( g, f );</span>
 false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">k := FinSet( 100000 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|100000|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">h := ListWithIdenticalEntries( Length( k ) - 3, 2 );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">h := Concatenation( h, [ 1, 0, 1 ] );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">h := MapOfFinSets( k, h, m );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|100000| → |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLiftable( f, h );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLiftable( h, f );</span>
@@ -1051,19 +1040,19 @@ false
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet( 5 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet( 4 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f := MapOfFinSets( m, [ 1, 1, 0, 0, 2 ], n );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|5| → |4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := MapOfFinSets( m, [ 4, 4, 3, 3, 4 ], m );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|5| → |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsColiftable( f, g );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">chi := Colift( f, g );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|4| → |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( chi );</span>
-[ 4, [ 3, 4, 4, 0 ], 5 ]
+{ 0,..., 3 } ⱶ[ 3, 4, 4, 0 ]→ { 0,..., 4 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( f, Colift( f, g ) ) = g;</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsColiftable( g, f );</span>
@@ -1123,76 +1112,68 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( SubobjectClassifier( SkeletalFinSets ) );</span>
-2
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfTrue( SkeletalFinSets ) );</span>
-[ 1, [ 1 ], 2 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SubobjectClassifier( SkeletalFinSets );</span>
+|2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfFalse( SkeletalFinSets ) );</span>
-[ 1, [ 0 ], 2 ]
+{ 0 } ⱶ[ 0 ]→ { 0, 1 }
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfTrue( SkeletalFinSets ) );</span>
+{ 0 } ⱶ[ 1 ]→ { 0, 1 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfNot( SkeletalFinSets ) );</span>
-[ 2, [ 1, 0 ], 2 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( CartesianSquareOfSubobjectClassifier( SkeletalFinSets ) );</span>
-4
+{ 0, 1 } ⱶ[ 1, 0 ]→ { 0, 1 }
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CartesianSquareOfSubobjectClassifier( SkeletalFinSets );</span>
+|4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfAnd( SkeletalFinSets ) );</span>
-[ 4, [ 0, 0, 0, 1 ], 2 ]
+{ 0,..., 3 } ⱶ[ 0, 0, 0, 1 ]→ { 0, 1 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfOr( SkeletalFinSets ) );</span>
-[ 4, [ 0, 1, 1, 1 ], 2 ]
+{ 0,..., 3 } ⱶ[ 0, 1, 1, 1 ]→ { 0, 1 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfImplies( SkeletalFinSets ) );</span>
-[ 4, [ 1, 1, 0, 1 ], 2 ]
+{ 0,..., 3 } ⱶ[ 1, 1, 0, 1 ]→ { 0, 1 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S := FinSet( 5 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">A := FinSet( 2 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := MapOfFinSets( A, [ 0, 4 ], S );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|2| → |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( ClassifyingMorphismOfSubobject( m ) );</span>
-[ 5, [ 1, 0, 0, 0, 1 ], 2 ]
+{ 0,..., 4 } ⱶ[ 1, 0, 0, 0, 1 ]→ { 0, 1 }
 </pre></div>
 
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSet( 7 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">N := FinSet( 3 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iotaN := MapOfFinSets( N, [ 1, 2, 4 ], M );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|3| → |7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NC := PseudoComplementSubobject( iotaN );</span>
-&lt;An object in SkeletalFinSets&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( NC );</span>
-4
+|4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">tauN := EmbeddingOfPseudoComplementSubobject( iotaN );</span>
-&lt;A monomorphism in SkeletalFinSets&gt;
+|4| ↪ |7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( tauN );</span>
-[ 4, [ 0, 3, 5, 6 ], 7 ]
+{ 0,..., 3 } ⱶ[ 0, 3, 5, 6 ]→ { 0,..., 6 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := FinSet( 4 );</span>
-&lt;An object in SkeletalFinSets&gt;
+|4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iotaL := MapOfFinSets( L, [ 1, 3, 4, 6 ], M );</span>
-&lt;A morphism in SkeletalFinSets&gt;
+|4| → |7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NIL := IntersectionSubobject( iotaN, iotaL );</span>
-&lt;An object in SkeletalFinSets&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( NIL );</span>
-2
+|2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iotaNiL := EmbeddingOfIntersectionSubobject( iotaN, iotaL );</span>
-&lt;A monomorphism in SkeletalFinSets&gt;
+|2| ↪ |7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( iotaNiL );</span>
-[ 2, [ 1, 4 ], 7 ]
+{ 0, 1 } ⱶ[ 1, 4 ]→ { 0,..., 6 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NUL := UnionSubobject( iotaN, iotaL );</span>
-&lt;An object in SkeletalFinSets&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( NUL );</span>
-5
+|5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iotaNuL := EmbeddingOfUnionSubobject( iotaN, iotaL );</span>
-&lt;A monomorphism in SkeletalFinSets&gt;
+|5| ↪ |7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( iotaNuL );</span>
-[ 5, [ 1, 2, 3, 4, 6 ], 7 ]
+{ 0,..., 4 } ⱶ[ 1, 2, 3, 4, 6 ]→ { 0,..., 6 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NPL := RelativePseudoComplementSubobject( iotaN, iotaL );</span>
-&lt;An object in SkeletalFinSets&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( NPL );</span>
-6
+|6|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iotaNpL := EmbeddingOfRelativePseudoComplementSubobject( iotaN, iotaL );</span>
-&lt;A monomorphism in SkeletalFinSets&gt;
+|6| ↪ |7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( iotaNpL );</span>
-[ 6, [ 0, 1, 3, 4, 5, 6 ], 7 ]
+{ 0,..., 5 } ⱶ[ 0, 1, 3, 4, 5, 6 ]→ { 0,..., 6 }
 </pre></div>
 
 
