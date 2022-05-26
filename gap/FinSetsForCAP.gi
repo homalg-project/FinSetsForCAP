@@ -15,6 +15,12 @@ InstallMethod( CategoryOfFinSets,
     
     FinSets!.category_as_first_argument := true;
     
+    FinSets!.compiler_hints := rec(
+        category_filter := IsCategoryOfFinSets,
+        object_filter := IsFiniteSet,
+        morphism_filter := IsFiniteSetMap,
+    );
+    
     SetFilterObj( FinSets, IsCategoryOfFinSets );
     
     SetIsElementaryTopos( FinSets, true );

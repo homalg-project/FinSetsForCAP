@@ -15,6 +15,12 @@ InstallMethod( CategoryOfSkeletalFinSets,
     
     cat!.category_as_first_argument := true;
     
+    cat!.compiler_hints := rec(
+        category_filter := IsCategoryOfSkeletalFinSets,
+        object_filter := IsSkeletalFiniteSet,
+        morphism_filter := IsSkeletalFiniteSetMap,
+    );
+    
     SetFilterObj( cat, IsCategoryOfSkeletalFinSets );
     
     SetIsSkeletalCategory( cat, true );
