@@ -649,6 +649,49 @@ end
     , 100 );
     
     ##
+    AddMorphismsOfExternalHom( cat,
+        
+########
+function ( cat_1, arg2_1, arg3_1 )
+    local hoisted_1_1, hoisted_2_1, hoisted_3_1, hoisted_4_1, hoisted_5_1, hoisted_6_1, hoisted_7_1, deduped_8_1, deduped_9_1, deduped_10_1, deduped_11_1, deduped_12_1;
+    deduped_12_1 := Length( arg2_1 );
+    deduped_11_1 := Length( arg3_1 );
+    deduped_10_1 := [ 1 .. deduped_12_1 ];
+    deduped_9_1 := deduped_11_1 ^ deduped_12_1;
+    deduped_8_1 := [ 0 .. deduped_12_1 - 1 ];
+    hoisted_2_1 := deduped_11_1;
+    hoisted_1_1 := deduped_12_1;
+    hoisted_7_1 := List( [ 0 .. deduped_9_1 * deduped_12_1 - 1 ], function ( i_2 )
+            return REM_INT( QUO_INT( QUO_INT( i_2, hoisted_1_1 ), hoisted_2_1 ^ (hoisted_1_1 - REM_INT( i_2, hoisted_1_1 ) - 1) ), hoisted_2_1 );
+        end );
+    hoisted_6_1 := deduped_10_1;
+    hoisted_4_1 := deduped_8_1;
+    hoisted_3_1 := List( deduped_8_1, function ( i_2 )
+            return REM_INT( QUO_INT( i_2, 1 ), hoisted_1_1 );
+        end );
+    hoisted_5_1 := List( deduped_10_1, function ( i_2 )
+            return hoisted_4_1[1 + hoisted_3_1[i_2]];
+        end );
+    return List( [ 0 .. deduped_9_1 - 1 ], function ( i_2 )
+            local hoisted_1_2, hoisted_2_2, hoisted_3_2;
+            hoisted_1_2 := i_2 * hoisted_1_1;
+            hoisted_2_2 := List( hoisted_6_1, function ( i_3 )
+                    return hoisted_1_2 + hoisted_5_1[i_3];
+                end );
+            hoisted_3_2 := List( hoisted_6_1, function ( i_3 )
+                    return hoisted_7_1[1 + hoisted_2_2[i_3]];
+                end );
+            return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
+                   ), cat_1, arg2_1, arg3_1, AsList, List( hoisted_6_1, function ( i_3 )
+                      return hoisted_3_2[1 + hoisted_4_1[i_3]];
+                  end ) );
+        end );
+end
+########
+        
+    , 100 );
+    
+    ##
     AddObjectConstructor( cat,
         
 ########

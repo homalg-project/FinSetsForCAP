@@ -9,6 +9,9 @@ LoadPackage( "FinSetsForCAP", false );
 LoadPackage( "CompilerForCAP", false );
 #! true
 
+ReadPackage( "FinSetsForCAP", "gap/CompilerLogic.gi" );
+#! true
+
 category_constructor := {} -> CategoryOfSkeletalFinSets( );;
 given_arguments := [ ];;
 compiled_category_name := "CategoryOfSkeletalFinSetsPrecompiled";;

@@ -932,6 +932,23 @@ AddClassifyingMorphismOfSubobjectWithGivenSubobjectClassifier( SkeletalFinSets,
       
 end );
 
+##
+AddMorphismsOfExternalHom( SkeletalFinSets,
+  function ( cat, A, B )
+    local hom_A_B, T;
+    
+    hom_A_B := ExponentialOnObjects( cat, A, B );
+    
+    T := TerminalObject( cat );
+    
+    return List( [ 0 .. Length( hom_A_B ) - 1 ],
+                 i -> CartesianLambdaElimination( cat,
+                         A,
+                         B,
+                         MapOfFinSets( cat, T, [ i ], hom_A_B ) ) );
+    
+end );
+
 end );
 
 ##

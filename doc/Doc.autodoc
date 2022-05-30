@@ -9,6 +9,9 @@
 @Subsection IsHomSetInhabited
 @InsertChunk IsHomSetInhabited
 
+@Subsection Morphisms of external Hom
+@InsertChunk MorphismsOfExternalHom
+
 @Subsection PreCompose
 @InsertChunk PreCompose
 
