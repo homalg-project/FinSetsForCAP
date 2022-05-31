@@ -18,26 +18,26 @@ Display( TruthMorphismOfNot( FinSets ) );
 #!   [ [ "false", "true" ], [ "true", "false" ] ],
 #!   [ "true", "false" ] ]
 Display( CartesianSquareOfSubobjectClassifier( FinSets ) );
-#! [ [ "true", "true" ], [ "true", "false" ],
-#!   [ "false", "true" ],  [ "false", "false" ] ]
+#! [ [ "true", "true" ], [ "false", "true" ],
+#!   [ "true", "false" ],  [ "false", "false" ] ]
 Display( TruthMorphismOfAnd( FinSets ) );
-#! [ [ [ "true", "true" ], [ "true", "false" ],
-#!     [ "false", "true" ], [ "false", "false" ] ],
+#! [ [ [ "true", "true" ], [ "false", "true" ],
+#!     [ "true", "false" ], [ "false", "false" ] ],
 #!   [ [ [ "false", "false" ], "false" ], [ [ "false", "true" ], "false" ],
 #!     [ [ "true", "false" ], "false" ], [ [ "true", "true" ], "true" ] ],
 #!   [ "true", "false" ] ]
 Display( TruthMorphismOfOr( FinSets ) );
-#! [ [ [ "true", "true" ], [ "true", "false" ],
-#!     [ "false", "true" ], [ "false", "false" ] ],
+#! [ [ [ "true", "true" ], [ "false", "true" ],
+#!     [ "true", "false" ], [ "false", "false" ] ],
 #!   [ [ [ "false", "false" ], "false" ], [ [ "false", "true" ], "true" ],
-#!    [ [ "true", "false" ], "true" ], [ [ "true", "true" ], "true" ] ],
+#!     [ [ "true", "false" ], "true" ], [ [ "true", "true" ], "true" ] ],
 #!   [ "true", "false" ] ]
 Display( TruthMorphismOfImplies( FinSets ) );
-#! [ [ [ "true", "true" ], [ "true", "false" ],
-#!     [ "false", "true" ], [ "false", "false" ] ],
+#! [ [ [ "true", "true" ], [ "false", "true" ],
+#!     [ "true", "false" ], [ "false", "false" ] ],
 #!   [ [ [ "false", "false" ], "true" ], [ [ "false", "true" ], "true" ],
 #!     [ [ "true", "false" ], "false" ], [ [ "true", "true" ], "true" ] ],
-#!   [ "true", "false" ] ]
+#!     [ "true", "false" ] ]
 S := FinSet( [ 1, 2, 3, 4, 5 ] );
 #! <An object in FinSets>
 A := FinSet( [ 1, 5 ] );

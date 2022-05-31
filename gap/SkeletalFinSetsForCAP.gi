@@ -559,7 +559,7 @@ AddProjectionInFactorOfDirectProductWithGivenDirectProduct( SkeletalFinSets,
     
     l := Length( T );
     
-    a := Product( D{[ k + 1 .. Length( D ) ]}, M -> Length( M ) );
+    a := Product( D{[ 1 .. k - 1 ]}, M -> Length( M ) );
     
     return MapOfFinSets( cat, P, List( [ 0 .. Length( P ) - 1 ], i -> RemInt( QuoInt( i, a ), l ) ), T );
     
@@ -574,7 +574,7 @@ AddUniversalMorphismIntoDirectProductWithGivenDirectProduct( SkeletalFinSets,
     
     d := List( D, x -> Length( x ) );
     
-    dd := List( [ 1 .. l ], i -> Product( d{[ i + 1 .. l ]} ) );
+    dd := List( [ 0 .. l - 1 ], j -> Product( d{[ 1 .. j ]} ) );
     
     taus := List( tau, x -> AsList( x ) );
     
@@ -865,13 +865,13 @@ AddExponentialOnMorphismsWithGivenExponentials( SkeletalFinSets,
                               MapOfFinSets(
                                       cat,
                                       M,
-                                      List( [ 1 .. m ], j -> RemInt( QuoInt( i, n^(m - j) ), n ) ),
+                                      List( [ 0 .. m - 1 ], j -> RemInt( QuoInt( i, n^j ), n ) ),
                                       N ),
                               beta ] );
                   
                   images := AsList( composition );
                   
-                  return Sum( [ 1 .. a ], k -> images[k] * b^(a - k) );
+                  return Sum( [ 0 .. a - 1 ], k -> images[1 + k] * b^k );
                   
               end ),
               T );
@@ -881,12 +881,14 @@ end );
 ##
 AddCartesianEvaluationMorphismWithGivenSource( SkeletalFinSets,
   function ( cat, M, N, HM_NxM )
-    local m, n;
+    local m, n, exp;
     
     m := Length( M );
     n := Length( N );
     
-    return MapOfFinSets( cat, HM_NxM, List( [ 0 .. Length( HM_NxM ) - 1 ], i -> RemInt( QuoInt( QuoInt( i, m ), n^(m - RemInt( i, m ) - 1 ) ), n ) ), N );
+    exp := n ^ m;
+    
+    return MapOfFinSets( cat, HM_NxM, List( [ 0 .. ( n^m * m ) - 1 ], i -> RemInt( QuoInt( i, n^QuoInt( i, exp ) ), n ) ), N );
     
 end );
 
@@ -898,7 +900,7 @@ AddCartesianCoevaluationMorphismWithGivenRange( SkeletalFinSets,
     m := Length( M );
     n := Length( N );
     
-    return MapOfFinSets( cat, M, List( [ 0 .. m - 1 ], i -> Sum( [ 0 .. n - 1 ], j -> ( i * n + j ) * (m*n)^(n - j - 1) ) ), HN_MxN );
+    return MapOfFinSets( cat, M, List( [ 0 .. m - 1 ], i -> Sum( [ 0 .. n - 1 ], j -> ( i + m * j ) * (m*n)^j ) ), HN_MxN );
     
 end );
 

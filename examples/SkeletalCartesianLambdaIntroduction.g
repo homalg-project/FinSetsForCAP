@@ -22,7 +22,7 @@ Source( lf ) = T;
 Display( Range( lf ) );
 #! { 0,..., 7 }
 Display( lf );
-#! { 0 } ⱶ[ 6 ]→ { 0,..., 7 }
+#! { 0 } ⱶ[ 3 ]→ { 0,..., 7 }
 elf := CartesianLambdaElimination( S, R, lf );
 #! |3| → |2|
 elf = f;
