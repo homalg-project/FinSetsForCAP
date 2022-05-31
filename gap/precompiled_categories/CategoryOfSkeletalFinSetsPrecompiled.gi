@@ -875,9 +875,7 @@ end
 ########
 function ( cat_1, T_1, P_1 )
     return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-           ), cat_1, T_1, P_1, AsList, List( [ 1 .. Length( T_1 ) ], function ( a_2 )
-              return 0;
-          end ) );
+           ), cat_1, T_1, P_1, AsList, ListWithIdenticalEntries( Length( T_1 ), 0 ) );
 end
 ########
         

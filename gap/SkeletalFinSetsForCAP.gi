@@ -538,7 +538,7 @@ end );
 AddUniversalMorphismIntoTerminalObjectWithGivenTerminalObject( SkeletalFinSets,
   function ( cat, m, t )
     
-    return MapOfFinSets( cat, m, List( [ 1 .. Length( m ) ], a -> 0 ), t );
+    return MapOfFinSets( cat, m, ListWithIdenticalEntries( Length( m ), 0 ), t );
     
 end );
 
