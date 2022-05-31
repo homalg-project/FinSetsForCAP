@@ -992,6 +992,14 @@ true
 |3| → |2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">elf = f;</span>
 true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := MorphismsOfExternalHom( S, R );</span>
+[ |3| → |2|, |3| → |2|, |3| → |2|, |3| → |2|,
+  |3| → |2|, |3| → |2|, |3| → |2|, |3| → |2| ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Li := List( L, phi -&gt; CartesianLambdaIntroduction( phi ) );</span>
+[ |1| ↪ |8|, |1| ↪ |8|, |1| ↪ |8|, |1| ↪ |8|,
+  |1| ↪ |8|, |1| ↪ |8|, |1| ↪ |8|, |1| ↪ |8| ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L = List( Li, psi -&gt; CartesianLambdaElimination( S, R, psi ) );</span>
+true
 </pre></div>
 
 <p><a id="X7C31E02684CC5BE8" name="X7C31E02684CC5BE8"></a></p>
