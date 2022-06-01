@@ -22,7 +22,7 @@ Display( TruthMorphismOfAnd( SkeletalFinSets ) );
 Display( TruthMorphismOfOr( SkeletalFinSets ) );
 #! { 0,..., 3 } ⱶ[ 0, 1, 1, 1 ]→ { 0, 1 }
 Display( TruthMorphismOfImplies( SkeletalFinSets ) );
-#! { 0,..., 3 } ⱶ[ 1, 1, 0, 1 ]→ { 0, 1 }
+#! { 0,..., 3 } ⱶ[ 1, 0, 1, 1 ]→ { 0, 1 }
 S := FinSet( 5 );
 #! |5|
 A := FinSet( 2 );

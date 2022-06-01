@@ -7,16 +7,8 @@
 CapJitAddLogicTemplate(
     rec(
         variable_names := [ ],
-        src_template := "1 + 1",
-        dst_template := "2",
-    )
-);
-
-CapJitAddLogicTemplate(
-    rec(
-        variable_names := [ ],
-        src_template := "2 + 1",
-        dst_template := "3",
+        src_template := "2 - 1",
+        dst_template := "1",
     )
 );
 
@@ -47,8 +39,8 @@ CapJitAddLogicTemplate(
 CapJitAddLogicTemplate(
     rec(
         variable_names := [ "list" ],
-        src_template := "list{[ 2 ]}",
-        dst_template := "[ list[2] ]",
+        src_template := "list{[ 1 ]}",
+        dst_template := "[ list[1] ]",
     )
 );
 
@@ -80,14 +72,6 @@ CapJitAddLogicTemplate(
     rec(
         variable_names := [ "entry" ],
         src_template := "Product( [ entry ] )",
-        dst_template := "entry",
-    )
-);
-
-CapJitAddLogicTemplate(
-    rec(
-        variable_names := [ "entry" ],
-        src_template := "Product( [ 1, entry ] )",
         dst_template := "entry",
     )
 );

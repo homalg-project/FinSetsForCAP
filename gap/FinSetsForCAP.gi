@@ -595,7 +595,7 @@ end );
 AddDirectProduct( category_of_finite_sets,
   function ( category_of_finite_sets, L )
     
-    return FinSetNC( category_of_finite_sets, Cartesian( List( L, AsList ) ) );
+    return FinSetNC( category_of_finite_sets, List( Cartesian( List( Reversed( L ), AsList ) ), Reversed ) );
     
 end );
 
@@ -936,7 +936,7 @@ AddExponentialOnObjects( category_of_finite_sets,
     
     m := Length( M );
     
-    return FinSetNC( category_of_finite_sets, List( TuplesK( AsList( N ), m, [ ], 1 ), L -> MapOfFinSetsNC( M, List( [ 1 .. m ], i -> [ M[i], L[i] ] ), N ) ) );
+    return FinSetNC( category_of_finite_sets, List( List( TuplesK( AsList( N ), m, [ ], 1 ), Reversed ), L -> MapOfFinSetsNC( M, List( [ 1 .. m ], i -> [ M[i], L[i] ] ), N ) ) );
     
 end );
 
