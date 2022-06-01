@@ -540,30 +540,30 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi1 := ProjectionInFactorOfDirectProduct( [ m, n, p ], 1 );</span>
 |84| → |7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( pi1 );</span>
-{ 0,..., 83 } ⱶ[ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,
-                 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2,
-                 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3,
-                 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4,
-                 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5,
-                 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6 ]→ { 0,..., 6 }
+{ 0,..., 83 } ⱶ[ 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6,
+                 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6,
+                 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6,
+                 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6,
+                 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6,
+                 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6 ]→ { 0,..., 6 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi2 := ProjectionInFactorOfDirectProduct( [ m, n, p ], 2 );</span>
 |84| → |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( pi2 );</span>
-{ 0,..., 83 } ⱶ[ 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 0, 0,
-                 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 0, 0, 0, 0,
-                 1, 1, 1, 1, 2, 2, 2, 2, 0, 0, 0, 0, 1, 1,
-                 1, 1, 2, 2, 2, 2, 0, 0, 0, 0, 1, 1, 1, 1,
-                 2, 2, 2, 2, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2,
-                 2, 2, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2 ]→ { 0, 1, 2 }
+{ 0,..., 83 } ⱶ[ 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1,
+                 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0,
+                 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2,
+                 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1,
+                 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0,
+                 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2 ]→ { 0, 1, 2 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi3 := ProjectionInFactorOfDirectProduct( [ m, n, p ], 3 );</span>
 |84| → |4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( pi3 );</span>
-{ 0,..., 83 } ⱶ[ 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1,
-                 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3,
-                 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1,
-                 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3,
-                 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1,
-                 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3 ]→ { 0,..., 3 }
+{ 0,..., 83 } ⱶ[ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1,
+                 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+                 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3,
+                 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3 ]→ { 0,..., 3 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := UniversalMorphismIntoDirectProduct( [ m, n, p ], [ pi1, pi2, pi3 ] );</span>
 |84| → |84|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi = IdentityMorphism( d );</span>
@@ -990,7 +990,7 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( Range( lf ) );</span>
 { 0,..., 7 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( lf );</span>
-{ 0 } ⱶ[ 6 ]→ { 0,..., 7 }
+{ 0 } ⱶ[ 3 ]→ { 0,..., 7 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">elf := CartesianLambdaElimination( S, R, lf );</span>
 |3| → |2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">elf = f;</span>
@@ -1135,7 +1135,7 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfOr( SkeletalFinSets ) );</span>
 { 0,..., 3 } ⱶ[ 0, 1, 1, 1 ]→ { 0, 1 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfImplies( SkeletalFinSets ) );</span>
-{ 0,..., 3 } ⱶ[ 1, 1, 0, 1 ]→ { 0, 1 }
+{ 0,..., 3 } ⱶ[ 1, 0, 1, 1 ]→ { 0, 1 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S := FinSet( 5 );</span>
 |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">A := FinSet( 2 );</span>

@@ -766,7 +766,7 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Length( P );</span>
 6
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( P );</span>
-[ [ 1, "a" ], [ 1, "b" ], [ 2, "a" ], [ 2, "b" ], [ 3, "a" ], [ 3, "b" ] ]
+[ [ 1, "a" ], [ 2, "a" ], [ 3, "a" ], [ 1, "b" ], [ 2, "b" ], [ 3, "b" ] ]
 </pre></div>
 
 <p><a id="X7E8036DF7AC65994" name="X7E8036DF7AC65994"></a></p>
@@ -1285,26 +1285,26 @@ true
   [ [ "false", "true" ], [ "true", "false" ] ],
   [ "true", "false" ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( CartesianSquareOfSubobjectClassifier( FinSets ) );</span>
-[ [ "true", "true" ], [ "true", "false" ],
-  [ "false", "true" ],  [ "false", "false" ] ]
+[ [ "true", "true" ], [ "false", "true" ],
+  [ "true", "false" ],  [ "false", "false" ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfAnd( FinSets ) );</span>
-[ [ [ "true", "true" ], [ "true", "false" ],
-    [ "false", "true" ], [ "false", "false" ] ],
+[ [ [ "true", "true" ], [ "false", "true" ],
+    [ "true", "false" ], [ "false", "false" ] ],
   [ [ [ "false", "false" ], "false" ], [ [ "false", "true" ], "false" ],
     [ [ "true", "false" ], "false" ], [ [ "true", "true" ], "true" ] ],
   [ "true", "false" ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfOr( FinSets ) );</span>
-[ [ [ "true", "true" ], [ "true", "false" ],
-    [ "false", "true" ], [ "false", "false" ] ],
+[ [ [ "true", "true" ], [ "false", "true" ],
+    [ "true", "false" ], [ "false", "false" ] ],
   [ [ [ "false", "false" ], "false" ], [ [ "false", "true" ], "true" ],
-   [ [ "true", "false" ], "true" ], [ [ "true", "true" ], "true" ] ],
+    [ [ "true", "false" ], "true" ], [ [ "true", "true" ], "true" ] ],
   [ "true", "false" ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfImplies( FinSets ) );</span>
-[ [ [ "true", "true" ], [ "true", "false" ],
-    [ "false", "true" ], [ "false", "false" ] ],
+[ [ [ "true", "true" ], [ "false", "true" ],
+    [ "true", "false" ], [ "false", "false" ] ],
   [ [ [ "false", "false" ], "true" ], [ [ "false", "true" ], "true" ],
     [ [ "true", "false" ], "false" ], [ [ "true", "true" ], "true" ] ],
-  [ "true", "false" ] ]
+    [ "true", "false" ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S := FinSet( [ 1, 2, 3, 4, 5 ] );</span>
 &lt;An object in FinSets&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">A := FinSet( [ 1, 5 ] );</span>

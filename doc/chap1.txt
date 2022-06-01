@@ -606,7 +606,7 @@
     [4X[25Xgap>[125X [27XLength( P );[127X[104X
     [4X[28X6[128X[104X
     [4X[25Xgap>[125X [27XDisplay( P );[127X[104X
-    [4X[28X[ [ 1, "a" ], [ 1, "b" ], [ 2, "a" ], [ 2, "b" ], [ 3, "a" ], [ 3, "b" ] ][128X[104X
+    [4X[28X[ [ 1, "a" ], [ 2, "a" ], [ 3, "a" ], [ 1, "b" ], [ 2, "b" ], [ 3, "b" ] ][128X[104X
   [4X[32X[104X
   
   
@@ -1103,26 +1103,26 @@
     [4X[28X  [ [ "false", "true" ], [ "true", "false" ] ],[128X[104X
     [4X[28X  [ "true", "false" ] ][128X[104X
     [4X[25Xgap>[125X [27XDisplay( CartesianSquareOfSubobjectClassifier( FinSets ) );[127X[104X
-    [4X[28X[ [ "true", "true" ], [ "true", "false" ],[128X[104X
-    [4X[28X  [ "false", "true" ],  [ "false", "false" ] ][128X[104X
+    [4X[28X[ [ "true", "true" ], [ "false", "true" ],[128X[104X
+    [4X[28X  [ "true", "false" ],  [ "false", "false" ] ][128X[104X
     [4X[25Xgap>[125X [27XDisplay( TruthMorphismOfAnd( FinSets ) );[127X[104X
-    [4X[28X[ [ [ "true", "true" ], [ "true", "false" ],[128X[104X
-    [4X[28X    [ "false", "true" ], [ "false", "false" ] ],[128X[104X
+    [4X[28X[ [ [ "true", "true" ], [ "false", "true" ],[128X[104X
+    [4X[28X    [ "true", "false" ], [ "false", "false" ] ],[128X[104X
     [4X[28X  [ [ [ "false", "false" ], "false" ], [ [ "false", "true" ], "false" ],[128X[104X
     [4X[28X    [ [ "true", "false" ], "false" ], [ [ "true", "true" ], "true" ] ],[128X[104X
     [4X[28X  [ "true", "false" ] ][128X[104X
     [4X[25Xgap>[125X [27XDisplay( TruthMorphismOfOr( FinSets ) );[127X[104X
-    [4X[28X[ [ [ "true", "true" ], [ "true", "false" ],[128X[104X
-    [4X[28X    [ "false", "true" ], [ "false", "false" ] ],[128X[104X
+    [4X[28X[ [ [ "true", "true" ], [ "false", "true" ],[128X[104X
+    [4X[28X    [ "true", "false" ], [ "false", "false" ] ],[128X[104X
     [4X[28X  [ [ [ "false", "false" ], "false" ], [ [ "false", "true" ], "true" ],[128X[104X
-    [4X[28X   [ [ "true", "false" ], "true" ], [ [ "true", "true" ], "true" ] ],[128X[104X
+    [4X[28X    [ [ "true", "false" ], "true" ], [ [ "true", "true" ], "true" ] ],[128X[104X
     [4X[28X  [ "true", "false" ] ][128X[104X
     [4X[25Xgap>[125X [27XDisplay( TruthMorphismOfImplies( FinSets ) );[127X[104X
-    [4X[28X[ [ [ "true", "true" ], [ "true", "false" ],[128X[104X
-    [4X[28X    [ "false", "true" ], [ "false", "false" ] ],[128X[104X
+    [4X[28X[ [ [ "true", "true" ], [ "false", "true" ],[128X[104X
+    [4X[28X    [ "true", "false" ], [ "false", "false" ] ],[128X[104X
     [4X[28X  [ [ [ "false", "false" ], "true" ], [ [ "false", "true" ], "true" ],[128X[104X
     [4X[28X    [ [ "true", "false" ], "false" ], [ [ "true", "true" ], "true" ] ],[128X[104X
-    [4X[28X  [ "true", "false" ] ][128X[104X
+    [4X[28X    [ "true", "false" ] ][128X[104X
     [4X[25Xgap>[125X [27XS := FinSet( [ 1, 2, 3, 4, 5 ] );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XA := FinSet( [ 1, 5 ] );[127X[104X
