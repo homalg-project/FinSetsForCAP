@@ -4,6 +4,7 @@ LoadPackage( "FinSetsForCAP" );
 
 #! @Example
 
+T := TerminalObject( SkeletalFinSets );;
 M := FinSet( 4 );;
 N := FinSet( 3 );;
 P := FinSet( 4 );;
@@ -32,6 +33,7 @@ ExponentialOnObjects( M, N );;
 ExponentialOnMorphisms( f, g );;
 CartesianEvaluationMorphism( M, N );;
 CartesianCoevaluationMorphism( M, N );;
+CartesianCoevaluationMorphism( T, T );;
 DirectProductToExponentialAdjunctionMap( M, N,
     UniversalMorphismIntoTerminalObject( DirectProduct( M, N ) )
 );;
