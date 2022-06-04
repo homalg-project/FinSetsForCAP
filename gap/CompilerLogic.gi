@@ -7,8 +7,24 @@
 CapJitAddLogicTemplate(
     rec(
         variable_names := [ ],
+        src_template := "1 - 1",
+        dst_template := "0",
+    )
+);
+
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ ],
         src_template := "2 - 1",
         dst_template := "1",
+    )
+);
+
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "number" ],
+        src_template := "0 + number",
+        dst_template := "number",
     )
 );
 
@@ -24,6 +40,14 @@ CapJitAddLogicTemplate(
     rec(
         variable_names := [ "number" ],
         src_template := "number * 1",
+        dst_template := "number",
+    )
+);
+
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "number" ],
+        src_template := "QUO_INT( number, 1 )",
         dst_template := "number",
     )
 );

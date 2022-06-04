@@ -15,6 +15,8 @@ T := TerminalObject( SkeletalFinSets );
 #! |1|
 IsTerminal( T );
 #! true
+IsOne( CartesianLambdaIntroduction( IdentityMorphism( T ) ) );
+#! true
 lf := CartesianLambdaIntroduction( f );
 #! |1| → |8|
 Source( lf ) = T;
