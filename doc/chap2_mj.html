@@ -419,6 +419,8 @@ false
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSplitMonomorphism( psi );</span>
 true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi;</span>
+|3| ↪ |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := MapOfFinSets( p, [ 0, 2, 1, 2, 2, 1, 0 ], m );</span>
 |7| → |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEpimorphism( psi );</span>
@@ -429,6 +431,14 @@ true
 false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSplitMonomorphism( psi );</span>
 false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi;</span>
+|7| ↠ |3|
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">id := IdentityMorphism( m );</span>
+|3| → |3|
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIsomorphism( id );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">id;</span>
+|3| ⭇ |3|
 </pre></div>
 
 <p><a id="X8671AA4181FFF519" name="X8671AA4181FFF519"></a></p>
@@ -608,7 +618,7 @@ true
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">               [ m, n, p ], [ iota1, iota2, iota3 ] );</span>
 |14| → |14|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">id := IdentityMorphism( Coproduct( [ m, n, p ] ) );</span>
-|14| ⭇ |14|
+|14| → |14|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi = id;</span>
 true
 </pre></div>
@@ -648,7 +658,7 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( n, [ 6, 4, 4 ], m );</span>
 |3| → |7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi := ImageEmbedding( phi );</span>
-|2| ↪ |7|
+|2| → |7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( pi );</span>
 { 0, 1 } ⱶ[ 4, 6 ]→ { 0,..., 6 }
 </pre></div>
@@ -682,7 +692,7 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( phi );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota := ImageEmbedding( phi );</span>
-|3| ↪ |77|
+|3| → |77|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi := CoastrictionToImage( phi );</span>
 |4| → |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( pi );</span>
@@ -735,7 +745,7 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Eq := Equalizer( D );</span>
 |2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota := EmbeddingOfEqualizer( D );</span>
-|2| ↪ |5|
+|2| → |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( iota );</span>
 { 0, 1 } ⱶ[ 0, 4 ]→ { 0,..., 4 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( FinSet( 2 ), [ 4, 0 ], S );;</span>
@@ -754,7 +764,7 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Eq := Equalizer( D );</span>
 |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := EmbeddingOfEqualizer( D );</span>
-|3| ↪ |5|
+|3| → |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( psi );</span>
 { 0, 1, 2 } ⱶ[ 0, 3, 4 ]→ { 0,..., 4 }
 </pre></div>
@@ -784,21 +794,21 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Fib := FiberProduct( D );</span>
 |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi1 := ProjectionInFactorOfFiberProduct( D, 1 );</span>
-|3| ↪ |3|
+|3| → |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( pi1 );</span>
 { 0, 1, 2 } ⱶ[ 0, 1, 2 ]→ { 0, 1, 2 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">int1 := ImageObject( pi1 );</span>
 |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi2 := ProjectionInFactorOfFiberProduct( D, 2 );</span>
-|3| ↪ |4|
+|3| → |4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( pi2 );</span>
 { 0, 1, 2 } ⱶ[ 0, 1, 2 ]→ { 0,..., 3 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">int2 := ImageObject( pi2 );</span>
 |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">omega1 := PreCompose( pi1, iota1 );</span>
-|3| ↪ |5|
+|3| → |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">omega2 := PreCompose( pi2, iota2 );</span>
-|3| ↪ |5|
+|3| → |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">omega1 = omega2;</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( omega1 );</span>
@@ -824,7 +834,7 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := Coequalizer( D );</span>
 |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi := ProjectionOntoCoequalizer( D );</span>
-|4| ↠ |3|
+|4| → |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( pi );</span>
 { 0,..., 3 } ⱶ[ 0, 1, 2, 2 ]→ { 0, 1, 2 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">tau := MapOfFinSets( t, [ 1, 0, 1, 1 ], FinSet( 2 ) );</span>
@@ -848,7 +858,7 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := Coequalizer( D );</span>
 |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi := ProjectionOntoCoequalizer( D );</span>
-|4| ↠ |3|
+|4| → |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( pi );</span>
 { 0,..., 3 } ⱶ[ 0, 1, 1, 2 ]→ { 0, 1, 2 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( f, pi ) = PreCompose( g, pi );</span>
@@ -898,11 +908,11 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Fib := FiberProduct( D );</span>
 |2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi1 := ProjectionInFactorOfFiberProduct( D, 1 );</span>
-|2| ↪ |3|
+|2| → |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( pi1 );</span>
 { 0, 1 } ⱶ[ 0, 1 ]→ { 0, 1, 2 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi2 := ProjectionInFactorOfFiberProduct( D, 2 );</span>
-|2| ↪ |2|
+|2| → |2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( pi2 );</span>
 { 0, 1 } ⱶ[ 0, 1 ]→ { 0, 1 }
 </pre></div>
@@ -912,7 +922,7 @@ true
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D := [ pi1, pi2 ];</span>
-[ |2| ↪ |3|, |2| ↪ |2| ]
+[ |2| → |3|, |2| → |2| ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UU := Pushout( D );</span>
 |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">kappa1 := InjectionOfCofactorOfPushout( D, 1 );</span>
@@ -954,7 +964,7 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Cq := Coequalizer( [ alpha, beta ] );</span>
 |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := ProjectionOntoCoequalizer( [ alpha, beta ] );</span>
-|5| ↠ |3|
+|5| → |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( psi );</span>
 { 0,..., 4 } ⱶ[ 0, 1, 2, 0, 1 ]→ { 0, 1, 2 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( PreCompose( iota_1, psi ) );</span>
@@ -984,7 +994,7 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsTerminal( T );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">lf := CartesianLambdaIntroduction( f );</span>
-|1| ↪ |8|
+|1| → |8|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Source( lf ) = T;</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( Range( lf ) );</span>
@@ -999,8 +1009,8 @@ true
 [ |3| → |2|, |3| → |2|, |3| → |2|, |3| → |2|,
   |3| → |2|, |3| → |2|, |3| → |2|, |3| → |2| ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Li := List( L, phi -&gt; CartesianLambdaIntroduction( phi ) );</span>
-[ |1| ↪ |8|, |1| ↪ |8|, |1| ↪ |8|, |1| ↪ |8|,
-  |1| ↪ |8|, |1| ↪ |8|, |1| ↪ |8|, |1| ↪ |8| ]
+[ |1| → |8|, |1| → |8|, |1| → |8|, |1| → |8|,
+  |1| → |8|, |1| → |8|, |1| → |8|, |1| → |8| ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L = List( Li, psi -&gt; CartesianLambdaElimination( S, R, psi ) );</span>
 true
 </pre></div>
@@ -1173,7 +1183,7 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NUL := UnionSubobject( iotaN, iotaL );</span>
 |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iotaNuL := EmbeddingOfUnionSubobject( iotaN, iotaL );</span>
-|5| ↪ |7|
+|5| → |7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( iotaNuL );</span>
 { 0,..., 4 } ⱶ[ 1, 2, 3, 4, 6 ]→ { 0,..., 6 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NPL := RelativePseudoComplementSubobject( iotaN, iotaL );</span>

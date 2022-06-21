@@ -282,6 +282,8 @@
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XIsSplitMonomorphism( psi );[127X[104X
     [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xpsi;[127X[104X
+    [4X[28X|3| ↪ |5|[128X[104X
     [4X[25Xgap>[125X [27Xpsi := MapOfFinSets( p, [ 0, 2, 1, 2, 2, 1, 0 ], m );[127X[104X
     [4X[28X|7| → |3|[128X[104X
     [4X[25Xgap>[125X [27XIsEpimorphism( psi );[127X[104X
@@ -292,6 +294,14 @@
     [4X[28Xfalse[128X[104X
     [4X[25Xgap>[125X [27XIsSplitMonomorphism( psi );[127X[104X
     [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27Xpsi;[127X[104X
+    [4X[28X|7| ↠ |3|[128X[104X
+    [4X[25Xgap>[125X [27Xid := IdentityMorphism( m );[127X[104X
+    [4X[28X|3| → |3|[128X[104X
+    [4X[25Xgap>[125X [27XIsIsomorphism( id );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xid;[127X[104X
+    [4X[28X|3| ⭇ |3|[128X[104X
   [4X[32X[104X
   
   
@@ -462,7 +472,7 @@
     [4X[25X>[125X [27X               [ m, n, p ], [ iota1, iota2, iota3 ] );[127X[104X
     [4X[28X|14| → |14|[128X[104X
     [4X[25Xgap>[125X [27Xid := IdentityMorphism( Coproduct( [ m, n, p ] ) );[127X[104X
-    [4X[28X|14| ⭇ |14|[128X[104X
+    [4X[28X|14| → |14|[128X[104X
     [4X[25Xgap>[125X [27Xpsi = id;[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
@@ -499,7 +509,7 @@
     [4X[25Xgap>[125X [27Xphi := MapOfFinSets( n, [ 6, 4, 4 ], m );[127X[104X
     [4X[28X|3| → |7|[128X[104X
     [4X[25Xgap>[125X [27Xpi := ImageEmbedding( phi );[127X[104X
-    [4X[28X|2| ↪ |7|[128X[104X
+    [4X[28X|2| → |7|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( pi );[127X[104X
     [4X[28X{ 0, 1 } ⱶ[ 4, 6 ]→ { 0,..., 6 }[128X[104X
   [4X[32X[104X
@@ -532,7 +542,7 @@
     [4X[25Xgap>[125X [27XIsWellDefined( phi );[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27Xiota := ImageEmbedding( phi );[127X[104X
-    [4X[28X|3| ↪ |77|[128X[104X
+    [4X[28X|3| → |77|[128X[104X
     [4X[25Xgap>[125X [27Xpi := CoastrictionToImage( phi );[127X[104X
     [4X[28X|4| → |3|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( pi );[127X[104X
@@ -581,7 +591,7 @@
     [4X[25Xgap>[125X [27XEq := Equalizer( D );[127X[104X
     [4X[28X|2|[128X[104X
     [4X[25Xgap>[125X [27Xiota := EmbeddingOfEqualizer( D );[127X[104X
-    [4X[28X|2| ↪ |5|[128X[104X
+    [4X[28X|2| → |5|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( iota );[127X[104X
     [4X[28X{ 0, 1 } ⱶ[ 0, 4 ]→ { 0,..., 4 }[128X[104X
     [4X[25Xgap>[125X [27Xphi := MapOfFinSets( FinSet( 2 ), [ 4, 0 ], S );;[127X[104X
@@ -600,7 +610,7 @@
     [4X[25Xgap>[125X [27XEq := Equalizer( D );[127X[104X
     [4X[28X|3|[128X[104X
     [4X[25Xgap>[125X [27Xpsi := EmbeddingOfEqualizer( D );[127X[104X
-    [4X[28X|3| ↪ |5|[128X[104X
+    [4X[28X|3| → |5|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( psi );[127X[104X
     [4X[28X{ 0, 1, 2 } ⱶ[ 0, 3, 4 ]→ { 0,..., 4 }[128X[104X
   [4X[32X[104X
@@ -628,21 +638,21 @@
     [4X[25Xgap>[125X [27XFib := FiberProduct( D );[127X[104X
     [4X[28X|3|[128X[104X
     [4X[25Xgap>[125X [27Xpi1 := ProjectionInFactorOfFiberProduct( D, 1 );[127X[104X
-    [4X[28X|3| ↪ |3|[128X[104X
+    [4X[28X|3| → |3|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( pi1 );[127X[104X
     [4X[28X{ 0, 1, 2 } ⱶ[ 0, 1, 2 ]→ { 0, 1, 2 }[128X[104X
     [4X[25Xgap>[125X [27Xint1 := ImageObject( pi1 );[127X[104X
     [4X[28X|3|[128X[104X
     [4X[25Xgap>[125X [27Xpi2 := ProjectionInFactorOfFiberProduct( D, 2 );[127X[104X
-    [4X[28X|3| ↪ |4|[128X[104X
+    [4X[28X|3| → |4|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( pi2 );[127X[104X
     [4X[28X{ 0, 1, 2 } ⱶ[ 0, 1, 2 ]→ { 0,..., 3 }[128X[104X
     [4X[25Xgap>[125X [27Xint2 := ImageObject( pi2 );[127X[104X
     [4X[28X|3|[128X[104X
     [4X[25Xgap>[125X [27Xomega1 := PreCompose( pi1, iota1 );[127X[104X
-    [4X[28X|3| ↪ |5|[128X[104X
+    [4X[28X|3| → |5|[128X[104X
     [4X[25Xgap>[125X [27Xomega2 := PreCompose( pi2, iota2 );[127X[104X
-    [4X[28X|3| ↪ |5|[128X[104X
+    [4X[28X|3| → |5|[128X[104X
     [4X[25Xgap>[125X [27Xomega1 = omega2;[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XDisplay( omega1 );[127X[104X
@@ -666,7 +676,7 @@
     [4X[25Xgap>[125X [27XC := Coequalizer( D );[127X[104X
     [4X[28X|3|[128X[104X
     [4X[25Xgap>[125X [27Xpi := ProjectionOntoCoequalizer( D );[127X[104X
-    [4X[28X|4| ↠ |3|[128X[104X
+    [4X[28X|4| → |3|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( pi );[127X[104X
     [4X[28X{ 0,..., 3 } ⱶ[ 0, 1, 2, 2 ]→ { 0, 1, 2 }[128X[104X
     [4X[25Xgap>[125X [27Xtau := MapOfFinSets( t, [ 1, 0, 1, 1 ], FinSet( 2 ) );[127X[104X
@@ -690,7 +700,7 @@
     [4X[25Xgap>[125X [27XC := Coequalizer( D );[127X[104X
     [4X[28X|3|[128X[104X
     [4X[25Xgap>[125X [27Xpi := ProjectionOntoCoequalizer( D );[127X[104X
-    [4X[28X|4| ↠ |3|[128X[104X
+    [4X[28X|4| → |3|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( pi );[127X[104X
     [4X[28X{ 0,..., 3 } ⱶ[ 0, 1, 1, 2 ]→ { 0, 1, 2 }[128X[104X
     [4X[25Xgap>[125X [27XPreCompose( f, pi ) = PreCompose( g, pi );[127X[104X
@@ -738,11 +748,11 @@
     [4X[25Xgap>[125X [27XFib := FiberProduct( D );[127X[104X
     [4X[28X|2|[128X[104X
     [4X[25Xgap>[125X [27Xpi1 := ProjectionInFactorOfFiberProduct( D, 1 );[127X[104X
-    [4X[28X|2| ↪ |3|[128X[104X
+    [4X[28X|2| → |3|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( pi1 );[127X[104X
     [4X[28X{ 0, 1 } ⱶ[ 0, 1 ]→ { 0, 1, 2 }[128X[104X
     [4X[25Xgap>[125X [27Xpi2 := ProjectionInFactorOfFiberProduct( D, 2 );[127X[104X
-    [4X[28X|2| ↪ |2|[128X[104X
+    [4X[28X|2| → |2|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( pi2 );[127X[104X
     [4X[28X{ 0, 1 } ⱶ[ 0, 1 ]→ { 0, 1 }[128X[104X
   [4X[32X[104X
@@ -751,7 +761,7 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XD := [ pi1, pi2 ];[127X[104X
-    [4X[28X[ |2| ↪ |3|, |2| ↪ |2| ][128X[104X
+    [4X[28X[ |2| → |3|, |2| → |2| ][128X[104X
     [4X[25Xgap>[125X [27XUU := Pushout( D );[127X[104X
     [4X[28X|3|[128X[104X
     [4X[25Xgap>[125X [27Xkappa1 := InjectionOfCofactorOfPushout( D, 1 );[127X[104X
@@ -792,7 +802,7 @@
     [4X[25Xgap>[125X [27XCq := Coequalizer( [ alpha, beta ] );[127X[104X
     [4X[28X|3|[128X[104X
     [4X[25Xgap>[125X [27Xpsi := ProjectionOntoCoequalizer( [ alpha, beta ] );[127X[104X
-    [4X[28X|5| ↠ |3|[128X[104X
+    [4X[28X|5| → |3|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( psi );[127X[104X
     [4X[28X{ 0,..., 4 } ⱶ[ 0, 1, 2, 0, 1 ]→ { 0, 1, 2 }[128X[104X
     [4X[25Xgap>[125X [27XDisplay( PreCompose( iota_1, psi ) );[127X[104X
@@ -820,7 +830,7 @@
     [4X[25Xgap>[125X [27XIsTerminal( T );[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27Xlf := CartesianLambdaIntroduction( f );[127X[104X
-    [4X[28X|1| ↪ |8|[128X[104X
+    [4X[28X|1| → |8|[128X[104X
     [4X[25Xgap>[125X [27XSource( lf ) = T;[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XDisplay( Range( lf ) );[127X[104X
@@ -835,8 +845,8 @@
     [4X[28X[ |3| → |2|, |3| → |2|, |3| → |2|, |3| → |2|,[128X[104X
     [4X[28X  |3| → |2|, |3| → |2|, |3| → |2|, |3| → |2| ][128X[104X
     [4X[25Xgap>[125X [27XLi := List( L, phi -> CartesianLambdaIntroduction( phi ) );[127X[104X
-    [4X[28X[ |1| ↪ |8|, |1| ↪ |8|, |1| ↪ |8|, |1| ↪ |8|,[128X[104X
-    [4X[28X  |1| ↪ |8|, |1| ↪ |8|, |1| ↪ |8|, |1| ↪ |8| ][128X[104X
+    [4X[28X[ |1| → |8|, |1| → |8|, |1| → |8|, |1| → |8|,[128X[104X
+    [4X[28X  |1| → |8|, |1| → |8|, |1| → |8|, |1| → |8| ][128X[104X
     [4X[25Xgap>[125X [27XL = List( Li, psi -> CartesianLambdaElimination( S, R, psi ) );[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
@@ -1000,7 +1010,7 @@
     [4X[25Xgap>[125X [27XNUL := UnionSubobject( iotaN, iotaL );[127X[104X
     [4X[28X|5|[128X[104X
     [4X[25Xgap>[125X [27XiotaNuL := EmbeddingOfUnionSubobject( iotaN, iotaL );[127X[104X
-    [4X[28X|5| ↪ |7|[128X[104X
+    [4X[28X|5| → |7|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( iotaNuL );[127X[104X
     [4X[28X{ 0,..., 4 } ⱶ[ 1, 2, 3, 4, 6 ]→ { 0,..., 6 }[128X[104X
     [4X[25Xgap>[125X [27XNPL := RelativePseudoComplementSubobject( iotaN, iotaL );[127X[104X
