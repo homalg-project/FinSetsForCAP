@@ -35,7 +35,7 @@ psi := UniversalMorphismFromCoproduct(
                [ m, n, p ], [ iota1, iota2, iota3 ] );
 #! |14| → |14|
 id := IdentityMorphism( Coproduct( [ m, n, p ] ) );
-#! |14| ⭇ |14|
+#! |14| → |14|
 psi = id;
 #! true
 #! @EndExample

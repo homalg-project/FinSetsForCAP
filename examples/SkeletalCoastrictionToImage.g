@@ -30,7 +30,7 @@ phi := MapOfFinSets( n, [ 76, 1, 24, 1 ], m );
 IsWellDefined( phi );
 #! true
 iota := ImageEmbedding( phi );
-#! |3| ↪ |77|
+#! |3| → |77|
 pi := CoastrictionToImage( phi );
 #! |4| → |3|
 Display( pi );
