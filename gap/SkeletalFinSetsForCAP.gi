@@ -21,6 +21,9 @@ InstallMethod( CategoryOfSkeletalFinSets,
         morphism_filter := IsSkeletalFiniteSetMap,
     );
     
+    # this is a workhorse category -> no logic and caching only via IsIdenticalObj
+    CapCategorySwitchLogicOff( cat );
+    
     SetFilterObj( cat, IsCategoryOfSkeletalFinSets );
     
     SetIsSkeletalCategory( cat, true );

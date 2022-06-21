@@ -16,7 +16,7 @@ D := [ f, g ];
 C := Coequalizer( D );
 #! |3|
 pi := ProjectionOntoCoequalizer( D );
-#! |4| ↠ |3|
+#! |4| → |3|
 Display( pi );
 #! { 0,..., 3 } ⱶ[ 0, 1, 2, 2 ]→ { 0, 1, 2 }
 tau := MapOfFinSets( t, [ 1, 0, 1, 1 ], FinSet( 2 ) );
@@ -41,7 +41,7 @@ D := [ f, g ];
 C := Coequalizer( D );
 #! |3|
 pi := ProjectionOntoCoequalizer( D );
-#! |4| ↠ |3|
+#! |4| → |3|
 Display( pi );
 #! { 0,..., 3 } ⱶ[ 0, 1, 1, 2 ]→ { 0, 1, 2 }
 PreCompose( f, pi ) = PreCompose( g, pi );

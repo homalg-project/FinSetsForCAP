@@ -31,7 +31,7 @@ Display( iotaNiL );
 NUL := UnionSubobject( iotaN, iotaL );
 #! |5|
 iotaNuL := EmbeddingOfUnionSubobject( iotaN, iotaL );
-#! |5| ↪ |7|
+#! |5| → |7|
 Display( iotaNuL );
 #! { 0,..., 4 } ⱶ[ 1, 2, 3, 4, 6 ]→ { 0,..., 6 }
 NPL := RelativePseudoComplementSubobject( iotaN, iotaL );

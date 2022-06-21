@@ -17,7 +17,7 @@ D := [ f1, f2, f3 ];;
 Eq := Equalizer( D );
 #! |2|
 iota := EmbeddingOfEqualizer( D );
-#! |2| ↪ |5|
+#! |2| → |5|
 Display( iota );
 #! { 0, 1 } ⱶ[ 0, 4 ]→ { 0,..., 4 }
 phi := MapOfFinSets( FinSet( 2 ), [ 4, 0 ], S );;
@@ -38,7 +38,7 @@ D := [ f2, f3 ];
 Eq := Equalizer( D );
 #! |3|
 psi := EmbeddingOfEqualizer( D );
-#! |3| ↪ |5|
+#! |3| → |5|
 Display( psi );
 #! { 0, 1, 2 } ⱶ[ 0, 3, 4 ]→ { 0,..., 4 }
 #! @EndExample

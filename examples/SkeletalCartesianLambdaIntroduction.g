@@ -16,7 +16,7 @@ T := TerminalObject( SkeletalFinSets );
 IsTerminal( T );
 #! true
 lf := CartesianLambdaIntroduction( f );
-#! |1| ↪ |8|
+#! |1| → |8|
 Source( lf ) = T;
 #! true
 Display( Range( lf ) );
@@ -31,8 +31,8 @@ L := MorphismsOfExternalHom( S, R );
 #! [ |3| → |2|, |3| → |2|, |3| → |2|, |3| → |2|,
 #!   |3| → |2|, |3| → |2|, |3| → |2|, |3| → |2| ]
 Li := List( L, phi -> CartesianLambdaIntroduction( phi ) );
-#! [ |1| ↪ |8|, |1| ↪ |8|, |1| ↪ |8|, |1| ↪ |8|,
-#!   |1| ↪ |8|, |1| ↪ |8|, |1| ↪ |8|, |1| ↪ |8| ]
+#! [ |1| → |8|, |1| → |8|, |1| → |8|, |1| → |8|,
+#!   |1| → |8|, |1| → |8|, |1| → |8|, |1| → |8| ]
 L = List( Li, psi -> CartesianLambdaElimination( S, R, psi ) );
 #! true
 #! @EndExample

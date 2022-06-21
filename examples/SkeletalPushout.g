@@ -22,11 +22,11 @@ D := [ iota1, iota2 ];
 Fib := FiberProduct( D );
 #! |2|
 pi1 := ProjectionInFactorOfFiberProduct( D, 1 );
-#! |2| ↪ |3|
+#! |2| → |3|
 Display( pi1 );
 #! { 0, 1 } ⱶ[ 0, 1 ]→ { 0, 1, 2 }
 pi2 := ProjectionInFactorOfFiberProduct( D, 2 );
-#! |2| ↪ |2|
+#! |2| → |2|
 Display( pi2 );
 #! { 0, 1 } ⱶ[ 0, 1 ]→ { 0, 1 }
 #! @EndExample
@@ -35,7 +35,7 @@ Display( pi2 );
 
 #! @Example
 D := [ pi1, pi2 ];
-#! [ |2| ↪ |3|, |2| ↪ |2| ]
+#! [ |2| → |3|, |2| → |2| ]
 UU := Pushout( D );
 #! |3|
 kappa1 := InjectionOfCofactorOfPushout( D, 1 );
@@ -76,7 +76,7 @@ Display( beta );
 Cq := Coequalizer( [ alpha, beta ] );
 #! |3|
 psi := ProjectionOntoCoequalizer( [ alpha, beta ] );
-#! |5| ↠ |3|
+#! |5| → |3|
 Display( psi );
 #! { 0,..., 4 } ⱶ[ 0, 1, 2, 0, 1 ]→ { 0, 1, 2 }
 Display( PreCompose( iota_1, psi ) );

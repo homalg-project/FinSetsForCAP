@@ -22,21 +22,21 @@ D := [ iota1, iota2 ];
 Fib := FiberProduct( D );
 #! |3|
 pi1 := ProjectionInFactorOfFiberProduct( D, 1 );
-#! |3| ↪ |3|
+#! |3| → |3|
 Display( pi1 );
 #! { 0, 1, 2 } ⱶ[ 0, 1, 2 ]→ { 0, 1, 2 }
 int1 := ImageObject( pi1 );
 #! |3|
 pi2 := ProjectionInFactorOfFiberProduct( D, 2 );
-#! |3| ↪ |4|
+#! |3| → |4|
 Display( pi2 );
 #! { 0, 1, 2 } ⱶ[ 0, 1, 2 ]→ { 0,..., 3 }
 int2 := ImageObject( pi2 );
 #! |3|
 omega1 := PreCompose( pi1, iota1 );
-#! |3| ↪ |5|
+#! |3| → |5|
 omega2 := PreCompose( pi2, iota2 );
-#! |3| ↪ |5|
+#! |3| → |5|
 omega1 = omega2;
 #! true
 Display( omega1 );
