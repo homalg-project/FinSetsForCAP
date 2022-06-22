@@ -65,6 +65,99 @@ end
     , 100 );
     
     ##
+    AddCartesianLambdaElimination( cat,
+        
+########
+function ( cat_1, a_1, b_1, alpha_1 )
+    local hoisted_1_1, hoisted_2_1, hoisted_3_1, hoisted_4_1, hoisted_5_1, hoisted_6_1, hoisted_7_1, hoisted_8_1, hoisted_9_1, hoisted_10_1, hoisted_11_1, hoisted_12_1, hoisted_13_1, hoisted_14_1, deduped_15_1, deduped_16_1, deduped_17_1, deduped_18_1, deduped_19_1, deduped_20_1, deduped_21_1;
+    deduped_21_1 := Length( b_1 );
+    deduped_20_1 := Length( a_1 );
+    deduped_19_1 := Length( Source( alpha_1 ) );
+    deduped_18_1 := deduped_21_1 ^ deduped_20_1;
+    deduped_17_1 := deduped_19_1 * deduped_20_1;
+    deduped_16_1 := [ 1 .. deduped_17_1 ];
+    deduped_15_1 := [ 0 .. deduped_17_1 - 1 ];
+    hoisted_2_1 := deduped_21_1;
+    hoisted_1_1 := deduped_18_1;
+    hoisted_13_1 := List( [ 0 .. deduped_18_1 * deduped_20_1 - 1 ], function ( i_2 )
+            return REM_INT( QUO_INT( i_2, hoisted_2_1 ^ QUO_INT( i_2, hoisted_1_1 ) ), hoisted_2_1 );
+        end );
+    hoisted_11_1 := Length( Range( alpha_1 ) );
+    hoisted_9_1 := [ 0 .. deduped_20_1 - 1 ];
+    hoisted_7_1 := deduped_20_1;
+    hoisted_3_1 := deduped_19_1;
+    hoisted_8_1 := List( deduped_15_1, function ( i_2 )
+            return REM_INT( QUO_INT( i_2, hoisted_3_1 ), hoisted_7_1 );
+        end );
+    hoisted_10_1 := List( deduped_16_1, function ( i_2 )
+            return hoisted_9_1[1 + hoisted_8_1[i_2]];
+        end );
+    hoisted_5_1 := AsList( alpha_1 );
+    hoisted_4_1 := List( deduped_15_1, function ( i_2 )
+            return REM_INT( i_2, hoisted_3_1 );
+        end );
+    hoisted_6_1 := List( deduped_16_1, function ( i_2 )
+            return hoisted_5_1[1 + hoisted_4_1[i_2]];
+        end );
+    hoisted_12_1 := List( deduped_16_1, function ( i_2 )
+            return hoisted_6_1[i_2] + hoisted_10_1[i_2] * hoisted_11_1;
+        end );
+    hoisted_14_1 := List( deduped_16_1, function ( i_2 )
+            return hoisted_13_1[1 + hoisted_12_1[i_2]];
+        end );
+    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
+           ), cat_1, a_1, b_1, AsList, List( [ 1 .. deduped_20_1 ], function ( i_2 )
+              return hoisted_14_1[1 + hoisted_9_1[i_2]];
+          end ) );
+end
+########
+        
+    , 1107 : IsPrecompiledDerivation := true );
+    
+    ##
+    AddCartesianLambdaIntroduction( cat,
+        
+########
+function ( cat_1, alpha_1 )
+    local hoisted_1_1, hoisted_2_1, hoisted_3_1, hoisted_4_1, hoisted_5_1, hoisted_6_1, deduped_7_1, deduped_8_1, deduped_9_1, deduped_10_1;
+    deduped_10_1 := Length( Source( alpha_1 ) );
+    deduped_9_1 := Length( Range( alpha_1 ) );
+    deduped_8_1 := [ 1 .. deduped_10_1 ];
+    deduped_7_1 := [ 0 .. deduped_10_1 - 1 ];
+    hoisted_6_1 := deduped_9_1;
+    hoisted_2_1 := AsList( alpha_1 );
+    hoisted_1_1 := deduped_7_1;
+    hoisted_5_1 := List( deduped_8_1, function ( i_2 )
+            return hoisted_2_1[1 + hoisted_1_1[i_2]];
+        end );
+    hoisted_4_1 := deduped_8_1;
+    hoisted_3_1 := deduped_10_1;
+    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
+           ), cat_1, ObjectifyObjectForCAPWithAttributes( rec(
+             ), cat_1, Length, 1 ), ObjectifyObjectForCAPWithAttributes( rec(
+             ), cat_1, Length, deduped_9_1 ^ deduped_10_1 ), AsList, [ List( [ 0 .. deduped_10_1 ^ deduped_10_1 - 1 ], function ( i_2 )
+                    local hoisted_1_2, hoisted_2_2, hoisted_3_2;
+                    hoisted_1_2 := List( hoisted_1_1, function ( j_3 )
+                            return REM_INT( QUO_INT( i_2, hoisted_3_1 ^ j_3 ), hoisted_3_1 );
+                        end );
+                    hoisted_2_2 := List( hoisted_4_1, function ( i_3 )
+                            return hoisted_1_2[1 + hoisted_1_1[i_3]];
+                        end );
+                    hoisted_3_2 := List( hoisted_4_1, function ( i_3 )
+                            return hoisted_5_1[1 + hoisted_2_2[i_3]];
+                        end );
+                    return Sum( hoisted_1_1, function ( k_3 )
+                            return hoisted_3_2[(1 + k_3)] * hoisted_6_1 ^ k_3;
+                        end );
+                end )[1 + Sum( deduped_7_1, function ( j_2 )
+                     return j_2 * hoisted_3_1 ^ j_2;
+                 end )] ] );
+end
+########
+        
+    , 1005 : IsPrecompiledDerivation := true );
+    
+    ##
     AddCartesianLeftUnitorInverseWithGivenDirectProduct( cat,
         
 ########
@@ -668,7 +761,7 @@ function ( cat_1, arg2_1, arg3_1 )
     hoisted_5_1 := deduped_9_1;
     hoisted_3_1 := deduped_13_1;
     hoisted_4_1 := List( deduped_9_1, function ( i_2 )
-            return REM_INT( QUO_INT( i_2, 1 ), hoisted_3_1 );
+            return REM_INT( i_2, hoisted_3_1 );
         end );
     hoisted_6_1 := List( deduped_11_1, function ( i_2 )
             return hoisted_5_1[1 + hoisted_4_1[i_2]];

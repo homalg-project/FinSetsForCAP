@@ -16,13 +16,20 @@ category_constructor := {} -> CategoryOfSkeletalFinSets( );;
 given_arguments := [ ];;
 compiled_category_name := "CategoryOfSkeletalFinSetsPrecompiled";;
 package_name := "FinSetsForCAP";;
+primitive_operations :=
+  ListPrimitivelyInstalledOperationsOfCategory( category_constructor() );;
+list_of_operations :=
+  SortedList( Concatenation( primitive_operations, [
+          "CartesianLambdaIntroduction",
+          "CartesianLambdaElimination",
+          ] ) );;
 
 CapJitPrecompileCategoryAndCompareResult(
-    category_constructor,
-    given_arguments,
-    package_name,
-    compiled_category_name
-    : operations := "primitive"
+        category_constructor,
+        given_arguments,
+        package_name,
+        compiled_category_name
+        : operations := list_of_operations
 );;
 
 CategoryOfSkeletalFinSetsPrecompiled( );
