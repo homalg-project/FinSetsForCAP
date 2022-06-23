@@ -4,6 +4,8 @@
 # Reading the implementation part of the package.
 #
 
+ReadPackage( "FinSetsForCAP", "gap/Tools.gi" );
+
 ReadPackage( "FinSetsForCAP", "gap/precompiled_categories/CategoryOfSkeletalFinSetsPrecompiled.gi" );
 
 ReadPackage( "FinSetsForCAP", "gap/FinSetsForCAP.gi" );

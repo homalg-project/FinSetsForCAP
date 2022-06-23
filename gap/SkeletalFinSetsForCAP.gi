@@ -898,12 +898,16 @@ end );
 ##
 AddCartesianCoevaluationMorphismWithGivenRange( SkeletalFinSets,
   function ( cat, M, N, HN_MxN )
-    local m, n;
+    local m, n, mn;
     
     m := Length( M );
     n := Length( N );
     
-    return MapOfFinSets( cat, M, List( [ 0 .. m - 1 ], i -> Sum( [ 0 .. n - 1 ], j -> ( i + m * j ) * (m*n)^j ) ), HN_MxN );
+    mn := m * n;
+    
+    #return MapOfFinSets( cat, M, List( [ 0 .. m - 1 ], i -> Sum( [ 0 .. n - 1 ], j -> ( i + m * j ) * (m*n)^j ) ), HN_MxN );
+    
+    return MapOfFinSets( cat, M, List( [ 0 .. m - 1 ], i -> i * GeometricSum( mn, n ) + m * mn * GeometricSumDiff1( mn, n ) ), HN_MxN );
     
 end );
 
