@@ -48,12 +48,19 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">given_arguments := [ ];;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">compiled_category_name := "CategoryOfSkeletalFinSetsPrecompiled";;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">package_name := "FinSetsForCAP";;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">primitive_operations :=</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">  ListPrimitivelyInstalledOperationsOfCategory( category_constructor() );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">list_of_operations :=</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">  SortedList( Concatenation( primitive_operations, [</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">          "CartesianLambdaIntroduction",</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">          "CartesianLambdaElimination",</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">          ] ) );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CapJitPrecompileCategoryAndCompareResult(</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">    category_constructor,</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">    given_arguments,</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">    package_name,</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">    compiled_category_name</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">    : operations := "primitive"</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        category_constructor,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        given_arguments,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        package_name,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        compiled_category_name</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        : operations := list_of_operations</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CategoryOfSkeletalFinSetsPrecompiled( );</span>
 SkeletalFinSets
