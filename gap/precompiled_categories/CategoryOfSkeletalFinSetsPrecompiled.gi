@@ -112,7 +112,7 @@ function ( cat_1, a_1, b_1, alpha_1 )
 end
 ########
         
-    , 1107 : IsPrecompiledDerivation := true );
+    , 1407 : IsPrecompiledDerivation := true );
     
     ##
     AddCartesianLambdaIntroduction( cat,
@@ -155,7 +155,7 @@ function ( cat_1, alpha_1 )
 end
 ########
         
-    , 1005 : IsPrecompiledDerivation := true );
+    , 1105 : IsPrecompiledDerivation := true );
     
     ##
     AddCartesianLeftUnitorInverseWithGivenDirectProduct( cat,
