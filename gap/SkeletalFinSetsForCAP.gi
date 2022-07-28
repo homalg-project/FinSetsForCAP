@@ -998,7 +998,7 @@ end );
 
 ##
 InstallMethod( ViewObj,
-    "for a CAP map of skeletal finite sets",
+        "for a CAP map of skeletal finite sets",
         [ IsSkeletalFiniteSetMap and IsIsomorphism ],
         
   function ( phi )
@@ -1025,7 +1025,7 @@ InstallMethod( PrintString,
         return "{ 0, 1, 2 }";
     fi;
     
-    return Concatenation( "{ 0,..., ", String( Length( s ) - 1 ), " }" );
+    return Concatenation( "{ 0,..., ", String( l - 1 ), " }" );
     
 end );
 
