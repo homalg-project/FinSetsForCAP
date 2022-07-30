@@ -562,7 +562,7 @@ AddProjectionInFactorOfDirectProductWithGivenDirectProduct( SkeletalFinSets,
     
     l := Length( T );
     
-    a := Product( D{[ 1 .. k - 1 ]}, M -> Length( M ) );
+    a := Product( List( D{[ 1 .. k - 1 ]}, Length ) );
     
     return MapOfFinSets( cat, P, List( [ 0 .. Length( P ) - 1 ], i -> RemInt( QuoInt( i, a ), l ) ), T );
     
