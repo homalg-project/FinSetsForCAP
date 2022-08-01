@@ -825,11 +825,10 @@ end
         
 ########
 function ( cat_1, objects_1, k_1, P_1 )
-    local hoisted_1_1, hoisted_2_1;
-    hoisted_2_1 := List( objects_1, Length )[k_1];
-    hoisted_1_1 := Product( objects_1{[ 1 .. k_1 - 1 ]}, function ( M_2 )
-            return Length( M_2 );
-        end );
+    local hoisted_1_1, hoisted_2_1, deduped_3_1;
+    deduped_3_1 := List( objects_1, Length );
+    hoisted_2_1 := deduped_3_1[k_1];
+    hoisted_1_1 := Product( deduped_3_1{[ 1 .. k_1 - 1 ]} );
     return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
            ), cat_1, P_1, objects_1[k_1], AsList, List( [ 0 .. Length( P_1 ) - 1 ], function ( i_2 )
               return REM_INT( QUO_INT( i_2, hoisted_1_1 ), hoisted_2_1 );
