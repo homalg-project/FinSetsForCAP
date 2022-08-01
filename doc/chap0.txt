@@ -6,10 +6,10 @@
                 [1X The elementary topos of (skeletal) finite sets [101X
   
   
-                                   2022.06-03
+                                   2022.07-01
   
   
-                                  23 June 2022
+                                 1 August 2022
   
   
                                 Mohamed Barakat
@@ -122,6 +122,8 @@
       2.4-3 Preimage
       2.4-4 ImageObject
       2.4-5 CallFuncList
+      2.4-6 GeometricSum
+      2.4-7 GeometricSumDiff1
     2.5 [33X[0;0YSkeletal Examples[133X
       2.5-1 [33X[0;0YSkeletalIsHomSetInhabited[133X
       2.5-2 [33X[0;0YSkeletal WellDefined[133X

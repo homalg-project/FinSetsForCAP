@@ -56,6 +56,8 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X82ECBA5B85A5D4FC">2.4-3 Preimage</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X7DE05C5C78979236">2.4-4 ImageObject</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X7A7247267FD1CF73">2.4-5 CallFuncList</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X8633460184DFFD21">2.4-6 GeometricSum</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X80E7C32E7CBD19D1">2.4-7 GeometricSumDiff1</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2_mj.html#X7A95C44F85102748">2.5 <span class="Heading">Skeletal Examples</span></a>
 </span>
@@ -320,6 +322,24 @@ true
 <p>Returns: a list</p>
 
 <p>Returns the image of <code class="code"><var class="Arg">L</var>[1]</code> under the map <var class="Arg">phi</var> assuming <code class="code"><var class="Arg">L</var>[1]</code> is a nonnegative integer smaller than <code class="code">Length( Source( <var class="Arg">phi</var> ) )</code>.</p>
+
+<p><a id="X8633460184DFFD21" name="X8633460184DFFD21"></a></p>
+
+<h5>2.4-6 GeometricSum</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GeometricSum</code>( <var class="Arg">q</var>, <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: an integer</p>
+
+<p>Returns <span class="SimpleMath">\((q^n-1)/(q-1)\)</span> = <code class="code">Sum</code>( [ 0 .. <var class="Arg">n</var> - 1 ], i -&gt; <var class="Arg">q</var>^i ), taking the corner case <var class="Arg">q</var><span class="SimpleMath">\(= 1\)</span> into account.</p>
+
+<p><a id="X80E7C32E7CBD19D1" name="X80E7C32E7CBD19D1"></a></p>
+
+<h5>2.4-7 GeometricSumDiff1</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GeometricSumDiff1</code>( <var class="Arg">q</var>, <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: an integer</p>
+
+<p>Returns <span class="SimpleMath">\((1+((n-1)*q-n)*q^(n-1))/(q-1)^2\)</span> = <code class="code">Sum</code>( [ 0 .. <var class="Arg">n</var> - 1 ], i -&gt; i * <var class="Arg">q</var>^(i - 1) ), taking the corner case <var class="Arg">q</var><span class="SimpleMath">\(= 1\)</span> into account.</p>
 
 <p><a id="X7A95C44F85102748" name="X7A95C44F85102748"></a></p>
 
@@ -1085,6 +1105,7 @@ false
 
 
 <div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">T := TerminalObject( SkeletalFinSets );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSet( 4 );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">N := FinSet( 3 );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := FinSet( 4 );;</span>
@@ -1111,6 +1132,7 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ExponentialOnMorphisms( f, g );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CartesianEvaluationMorphism( M, N );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CartesianCoevaluationMorphism( M, N );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CartesianCoevaluationMorphism( T, T );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DirectProductToExponentialAdjunctionMap( M, N,</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">    UniversalMorphismIntoTerminalObject( DirectProduct( M, N ) )</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">);;</span>

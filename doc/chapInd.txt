@@ -22,6 +22,8 @@
   [2XFinSetNC[102X, for IsCategoryOfFinSets, IsList 1.3-4 
       for IsList 1.3-5 
   [2XFirstOp[102X, for IsFiniteSet, IsFunction 1.4-8 
+  [2XGeometricSum[102X, for IsRingElement, IsInt 2.4-6 
+  [2XGeometricSumDiff1[102X, for IsRingElement, IsInt 2.4-7 
   [2XImageObject[102X, for IsFiniteSetMap, IsFiniteSet 1.4-12 
       for IsSkeletalFiniteSetMap, IsSkeletalFiniteSet 2.4-4 
   [2XIsCategoryOfFinSets[102X, for IsCapCategory 1.1-1 
