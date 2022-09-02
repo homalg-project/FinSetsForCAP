@@ -15,6 +15,8 @@ IsLiftable( f, g );
 #! true
 chi := Lift( f, g );
 #! |3| → |4|
+Display( chi : lazy );
+#! { 0, 1, 2 } ⱶ[  ].?.→ { 0,..., 3 }
 Display( chi );
 #! { 0, 1, 2 } ⱶ[ 1, 1, 2 ]→ { 0,..., 3 }
 PreCompose( Lift( f, g ), g ) = f;

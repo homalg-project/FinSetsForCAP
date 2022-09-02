@@ -6,7 +6,8 @@
 
 LoadPackage( "FinSetsForCAP", false );
 #! true
-LoadPackage( "CompilerForCAP", false );
+
+LoadPackage( "CompilerForCAP", ">= 2022.09-03", false );
 #! true
 
 ReadPackage( "FinSetsForCAP", "gap/CompilerLogic.gi" );

@@ -23,11 +23,11 @@ Fib := FiberProduct( D );
 #! |2|
 pi1 := ProjectionInFactorOfFiberProduct( D, 1 );
 #! |2| → |3|
-Display( pi1 );
+AsList( pi1 );; Display( pi1 );
 #! { 0, 1 } ⱶ[ 0, 1 ]→ { 0, 1, 2 }
 pi2 := ProjectionInFactorOfFiberProduct( D, 2 );
 #! |2| → |2|
-Display( pi2 );
+AsList( pi2 );; Display( pi2 );
 #! { 0, 1 } ⱶ[ 0, 1 ]→ { 0, 1 }
 #! @EndExample
 
@@ -40,12 +40,12 @@ UU := Pushout( D );
 #! |3|
 kappa1 := InjectionOfCofactorOfPushout( D, 1 );
 #! |3| → |3|
-Display( kappa1 );
-#! { 0, 1, 2 } ⱶ[ 0, 1, 2 ]→ { 0, 1, 2 }
+Display( kappa1 : lazy );
+#! { 0, 1, 2 } ⱶ[  ].?.→ { 0, 1, 2 }
 kappa2 := InjectionOfCofactorOfPushout( D, 2 );
 #! |2| → |3|
-Display( kappa2 );
-#! { 0, 1 } ⱶ[ 0, 1 ]→ { 0, 1, 2 }
+Display( kappa2 : lazy );
+#! { 0, 1 } ⱶ[  ].?.→ { 0, 1, 2 }
 PreCompose( pi1, kappa1 ) = PreCompose( pi2, kappa2 );
 #! true
 #! @EndExample
@@ -64,7 +64,7 @@ Display( iota_1 );
 iota_2 := InjectionOfCofactorOfCoproduct( [ N1, N2 ], 2 );
 #! |2| → |5|
 Display( iota_2 );
-#! { 0, 1 } ⱶ[ 3 .. 4 ]→ { 0,..., 4 }
+#! { 0, 1 } ⱶ[ 3, 4 ]→ { 0,..., 4 }
 alpha := PreCompose( pi1, iota_1 );
 #! |2| → |5|
 Display( alpha );
@@ -77,8 +77,16 @@ Cq := Coequalizer( [ alpha, beta ] );
 #! |3|
 psi := ProjectionOntoCoequalizer( [ alpha, beta ] );
 #! |5| → |3|
+Display( psi : lazy );
+#! { 0,..., 4 } ⱶ[ 0, 1,, 0, 1 ]→ { 0, 1, 2 }
 Display( psi );
 #! { 0,..., 4 } ⱶ[ 0, 1, 2, 0, 1 ]→ { 0, 1, 2 }
+Display( kappa1 : lazy );
+#! { 0, 1, 2 } ⱶ[ 0, 1 ].?.→ { 0, 1, 2 }
+Display( kappa1 );
+#! { 0, 1, 2 } ⱶ[ 0, 1, 2 ]→ { 0, 1, 2 }
+Display( kappa2 : lazy );
+#! { 0, 1 } ⱶ[ 0, 1 ]→ { 0, 1, 2 }
 Display( PreCompose( iota_1, psi ) );
 #! { 0, 1, 2 } ⱶ[ 0, 1, 2 ]→ { 0, 1, 2 }
 Display( PreCompose( iota_2, psi ) );

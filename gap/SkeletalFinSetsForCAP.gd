@@ -38,6 +38,7 @@ DeclareCategory( "IsSkeletalFiniteSetMap",
 #! @Returns an integer
 DeclareAttribute( "Length",
         IsSkeletalFiniteSet );
+
 CapJitAddTypeSignature( "Length", [ IsSkeletalFiniteSet ], IsInt );
 
 #! @Description
@@ -47,7 +48,17 @@ CapJitAddTypeSignature( "Length", [ IsSkeletalFiniteSet ], IsInt );
 #! @Returns a list
 DeclareAttribute( "AsList",
         IsSkeletalFiniteSet );
+
 CapJitAddTypeSignature( "AsList", [ IsSkeletalFiniteSet ], rec( filter := IsList, element_type := rec( filter := IsInt ) ) );
+
+#! @Description
+#!  The graph defining the skeletal finite set morphism <A>phi</A>, see <Ref Oper="MapOfFinSets" Label="for IsSkeletalFiniteSet, IsList, IsSkeletalFiniteSet" />.
+#! @Arguments phi
+#! @Returns a lazy array
+DeclareAttribute( "AsLazyArray",
+        IsSkeletalFiniteSetMap );
+
+CapJitAddTypeSignature( "AsLazyArray", [ IsSkeletalFiniteSetMap ], rec( filter := IsLazyArray, element_type := rec( filter := IsInt ) ) );
 
 #! @Description
 #!  The graph defining the skeletal finite set morphism <A>phi</A>, see <Ref Oper="MapOfFinSets" Label="for IsSkeletalFiniteSet, IsList, IsSkeletalFiniteSet" />.
@@ -55,7 +66,6 @@ CapJitAddTypeSignature( "AsList", [ IsSkeletalFiniteSet ], rec( filter := IsList
 #! @Returns a list
 DeclareAttribute( "AsList",
         IsSkeletalFiniteSetMap );
-CapJitAddTypeSignature( "AsList", [ IsSkeletalFiniteSetMap ], rec( filter := IsList, element_type := rec( filter := IsInt ) ) );
 
 #! @Section Skeletal Constructors
 

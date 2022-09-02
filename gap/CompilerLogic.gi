@@ -4,6 +4,32 @@
 # Implementations
 #
 
+# evaluate SafePosition( [ gvar_1, ..., gvar_n ], gvar )
+CapJitAddLogicFunction( function ( tree )
+  local pre_func;
+    
+    Info( InfoCapJit, 1, "####" );
+    Info( InfoCapJit, 1, "Apply logic for evaluating SafePosition on global variables." );
+    
+    pre_func := function ( tree, additional_arguments )
+        
+        if CapJitIsCallToGlobalFunction( tree, "SafePosition" ) and tree.args.1.type = "EXPR_LIST" and ForAll( tree.args.1.list, x -> x.type = "EXPR_REF_GVAR" ) and tree.args.2.type = "EXPR_REF_GVAR" then
+            
+            return rec(
+                type := "EXPR_INT",
+                value := SafePosition( AsListMut( List( tree.args.1.list, x -> ValueGlobal( x.gvar ) ) ), ValueGlobal( tree.args.2.gvar ) ),
+            );
+            
+        fi;
+        
+        return tree;
+        
+    end;
+    
+    return CapJitIterateOverTree( tree, pre_func, CapJitResultFuncCombineChildren, ReturnTrue, true );
+    
+end );
+
 CapJitAddLogicTemplate(
     rec(
         variable_names := [ ],
@@ -134,16 +160,16 @@ CapJitAddLogicTemplate(
 
 CapJitAddLogicTemplate(
     rec(
-        variable_names := [ "list", "constant" ],
-        src_template := "List( list, i -> constant )",
-        dst_template := "ListWithIdenticalEntries( Length( list ), constant )",
+        variable_names := [ "length", "constant" ],
+        src_template := "LazyArray( length, i -> constant )",
+        dst_template := "LazyConstantArray( length, constant )",
     )
 );
 
 CapJitAddLogicTemplate(
     rec(
         variable_names := [ "length", "constant", "pos" ],
-        src_template := "ListWithIdenticalEntries( length, constant )[pos]",
+        src_template := "LazyConstantArray( length, constant )[pos]",
         dst_template := "constant",
     )
 );

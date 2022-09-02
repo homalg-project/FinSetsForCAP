@@ -20,10 +20,10 @@ s := ObjectConstructor( SkeletalFinSets, 3 );
 #! |3|
 t := ObjectConstructor( SkeletalFinSets, 7 );
 #! |7|
-phi := MorphismConstructor( s, [ 6, 4, 4 ], t );
+phi := MorphismConstructor( s, LazyArrayFromList( [ 6, 4, 4 ] ), t );
 #! |3| → |7|
 MorphismDatum( phi );
-#! [ 6, 4, 4 ]
+#! LazyArray of length 3 and evaluated values: [ 6, 4, 4 ]
 IsWellDefined( phi );
 #! true
 Display( phi );
