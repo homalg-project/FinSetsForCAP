@@ -847,9 +847,9 @@ function ( cat_1, morphisms_1, P_1 )
     deduped_2_1 := List( morphisms_1, Range )[1];
     hoisted_1_1 := SKELETAL_FIN_SETS_ExplicitCoequalizer( morphisms_1 );
     return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-           ), cat_1, deduped_2_1, P_1, AsList, List( [ 0 .. Length( deduped_2_1 ) - 1 ], function ( logic_new_func_x_2 )
+           ), cat_1, deduped_2_1, P_1, AsList, List( [ 0 .. Length( deduped_2_1 ) - 1 ], function ( x_2 )
               return -1 + SafePosition( hoisted_1_1, First( hoisted_1_1, function ( c_3 )
-                          return (logic_new_func_x_2 in c_3);
+                          return (x_2 in c_3);
                       end ) );
           end ) );
 end
