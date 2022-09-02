@@ -755,14 +755,12 @@ end );
 AddProjectionOntoCoequalizerWithGivenCoequalizer( SkeletalFinSets,
   function ( cat, D, C )
     local Cq, s, cmp;
-
+    
     Cq := SKELETAL_FIN_SETS_ExplicitCoequalizer( D );
     
     s := Range( D[1] );
     
-    cmp := List( [ 0 .. Length( s ) - 1 ], x -> First( Cq, c -> x in c ) );
-    
-    cmp := List( cmp, x -> -1 + SafePosition( Cq, x ) );
+    cmp := List( [ 0 .. Length( s ) - 1 ], x -> -1 + SafePosition( Cq, First( Cq, c -> x in c ) ) );
     
     return MapOfFinSets( cat, s, cmp, C );
     
