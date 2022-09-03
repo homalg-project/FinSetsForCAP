@@ -549,7 +549,7 @@ end );
 AddDirectProduct( SkeletalFinSets,
   function ( cat, L )
     
-    return FinSet( SkeletalFinSets, Product( List( L, o -> Length( o ) ) ) );
+    return FinSet( SkeletalFinSets, Product( List( L, Length ) ) );
     
 end );
 
@@ -575,11 +575,11 @@ AddUniversalMorphismIntoDirectProductWithGivenDirectProduct( SkeletalFinSets,
     
     l := Length( D );
     
-    d := List( D, x -> Length( x ) );
+    d := List( D, Length );
     
     dd := List( [ 0 .. l - 1 ], j -> Product( d{[ 1 .. j ]} ) );
     
-    taus := List( tau, x -> AsList( x ) );
+    taus := List( tau, AsList );
     
     return MapOfFinSets( cat, T, List( [ 1 .. Length( T ) ], i -> Sum( [ 1 .. l ], j -> taus[j][i] * dd[j] ) ), P );
     
@@ -592,7 +592,7 @@ AddEqualizer( SkeletalFinSets,
     
     f1 := AsList( D[1] );
     
-    D2 := List( D{[ 2 .. Length( D ) ]}, fj -> AsList( fj ) );
+    D2 := List( D{[ 2 .. Length( D ) ]}, AsList );
     
     Eq := Filtered( [ 0 .. Length( f1 ) - 1 ], x -> ForAll( D2, fj -> f1[1 + x] = fj[1 + x] ) );
     
@@ -609,7 +609,7 @@ AddEmbeddingOfEqualizerWithGivenEqualizer( SkeletalFinSets,
     
     f1 := AsList( D[1] );
     
-    D2 := List( D{[ 2 .. Length( D ) ]}, fj -> AsList( fj ) );
+    D2 := List( D{[ 2 .. Length( D ) ]}, AsList );
     
     Eq := Filtered( [ 0 .. Length( f1 ) - 1 ], x -> ForAll( D2, fj -> f1[1 + x] = fj[1 + x] ) );
     
@@ -626,7 +626,7 @@ AddUniversalMorphismIntoEqualizerWithGivenEqualizer( SkeletalFinSets,
     
     f1 := AsList( D[1] );
     
-    D2 := List( D{[ 2 .. Length( D ) ]}, fj -> AsList( fj ) );
+    D2 := List( D{[ 2 .. Length( D ) ]}, AsList );
     
     Eq := Filtered( [ 0 .. Length( f1 ) - 1 ], x -> ForAll( D2, fj -> f1[1 + x] = fj[1 + x] ) );
     
@@ -711,7 +711,7 @@ end );
 AddCoproduct( SkeletalFinSets,
   function ( cat, L )
     
-    return FinSet( SkeletalFinSets, Sum( L, x -> Length( x ) ) );
+    return FinSet( SkeletalFinSets, Sum( L, Length ) );
     
 end );
 
@@ -722,7 +722,7 @@ AddInjectionOfCofactorOfCoproductWithGivenCoproduct( SkeletalFinSets,
     
     O := L{[ 1 .. i - 1 ]};
     
-    sum := Sum( O, x -> Length( x ) );
+    sum := Sum( O, Length );
     
     s := L[i];
     
@@ -737,7 +737,7 @@ AddUniversalMorphismFromCoproductWithGivenCoproduct( SkeletalFinSets,
   function ( cat, L, test_object, tau, S )
     local cmp;
     
-    cmp := Concatenation( List( tau, t -> AsList( t ) ) );
+    cmp := Concatenation( List( tau, AsList ) );
     
     return MapOfFinSets( cat, S, cmp, test_object );
     

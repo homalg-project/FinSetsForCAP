@@ -280,9 +280,7 @@ end
 ########
 function ( cat_1, arg2_1 )
     return ObjectifyObjectForCAPWithAttributes( rec(
-           ), cat_1, Length, Sum( arg2_1, function ( x_2 )
-              return Length( x_2 );
-          end ) );
+           ), cat_1, Length, Sum( arg2_1, Length ) );
 end
 ########
         
@@ -294,9 +292,7 @@ end
 ########
 function ( cat_1, arg2_1 )
     return ObjectifyObjectForCAPWithAttributes( rec(
-           ), cat_1, Length, Product( List( arg2_1, function ( o_2 )
-                return Length( o_2 );
-            end ) ) );
+           ), cat_1, Length, Product( List( arg2_1, Length ) ) );
 end
 ########
         
@@ -307,11 +303,10 @@ end
         
 ########
 function ( cat_1, morphisms_1, P_1 )
-    local hoisted_1_1, hoisted_2_1;
-    hoisted_2_1 := List( morphisms_1, function ( fj_2 )
-              return AsList( fj_2 );
-          end ){[ 2 .. Length( morphisms_1 ) ]};
-    hoisted_1_1 := List( morphisms_1, AsList )[1];
+    local hoisted_1_1, hoisted_2_1, deduped_3_1;
+    deduped_3_1 := List( morphisms_1, AsList );
+    hoisted_2_1 := deduped_3_1{[ 2 .. Length( morphisms_1 ) ]};
+    hoisted_1_1 := deduped_3_1[1];
     return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
            ), cat_1, P_1, List( morphisms_1, Source )[1], AsList, Filtered( [ 0 .. List( morphisms_1, function ( logic_new_func_x_2 )
                         return Length( AsList( logic_new_func_x_2 ) );
@@ -346,11 +341,10 @@ end
         
 ########
 function ( cat_1, arg2_1 )
-    local hoisted_1_1, hoisted_2_1;
-    hoisted_2_1 := List( arg2_1, function ( fj_2 )
-              return AsList( fj_2 );
-          end ){[ 2 .. Length( arg2_1 ) ]};
-    hoisted_1_1 := List( arg2_1, AsList )[1];
+    local hoisted_1_1, hoisted_2_1, deduped_3_1;
+    deduped_3_1 := List( arg2_1, AsList );
+    hoisted_2_1 := deduped_3_1{[ 2 .. Length( arg2_1 ) ]};
+    hoisted_1_1 := deduped_3_1[1];
     return ObjectifyObjectForCAPWithAttributes( rec(
            ), cat_1, Length, Length( Filtered( [ 0 .. List( arg2_1, function ( logic_new_func_x_2 )
                           return Length( AsList( logic_new_func_x_2 ) );
@@ -471,9 +465,7 @@ end
 ########
 function ( cat_1, objects_1, k_1, P_1 )
     local deduped_1_1;
-    deduped_1_1 := Sum( objects_1{[ 1 .. k_1 - 1 ]}, function ( x_2 )
-            return Length( x_2 );
-        end );
+    deduped_1_1 := Sum( objects_1{[ 1 .. k_1 - 1 ]}, Length );
     return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
            ), cat_1, objects_1[k_1], P_1, AsList, [ deduped_1_1 .. deduped_1_1 + List( objects_1, Length )[k_1] - 1 ] );
 end
@@ -918,9 +910,7 @@ end
 ########
 function ( cat_1, objects_1, T_1, tau_1, P_1 )
     return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-           ), cat_1, P_1, T_1, AsList, Concatenation( List( tau_1, function ( t_2 )
-                return AsList( t_2 );
-            end ) ) );
+           ), cat_1, P_1, T_1, AsList, Concatenation( List( tau_1, AsList ) ) );
 end
 ########
         
@@ -946,15 +936,11 @@ function ( cat_1, objects_1, T_1, tau_1, P_1 )
     local hoisted_1_1, hoisted_2_1, hoisted_3_1, hoisted_4_1, deduped_5_1;
     deduped_5_1 := Length( objects_1 );
     hoisted_4_1 := [ 1 .. deduped_5_1 ];
-    hoisted_2_1 := List( objects_1, function ( x_2 )
-            return Length( x_2 );
-        end );
+    hoisted_2_1 := List( objects_1, Length );
     hoisted_3_1 := List( [ 0 .. deduped_5_1 - 1 ], function ( j_2 )
             return Product( hoisted_2_1{[ 1 .. j_2 ]} );
         end );
-    hoisted_1_1 := List( tau_1, function ( x_2 )
-            return AsList( x_2 );
-        end );
+    hoisted_1_1 := List( tau_1, AsList );
     return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
            ), cat_1, T_1, P_1, AsList, List( [ 1 .. Length( T_1 ) ], function ( i_2 )
               return Sum( hoisted_4_1, function ( j_3 )
@@ -971,11 +957,10 @@ end
         
 ########
 function ( cat_1, morphisms_1, T_1, tau_1, P_1 )
-    local hoisted_1_1, hoisted_2_1, hoisted_3_1, hoisted_4_1;
-    hoisted_2_1 := List( morphisms_1, function ( fj_2 )
-              return AsList( fj_2 );
-          end ){[ 2 .. Length( morphisms_1 ) ]};
-    hoisted_1_1 := List( morphisms_1, AsList )[1];
+    local hoisted_1_1, hoisted_2_1, hoisted_3_1, hoisted_4_1, deduped_5_1;
+    deduped_5_1 := List( morphisms_1, AsList );
+    hoisted_2_1 := deduped_5_1{[ 2 .. Length( morphisms_1 ) ]};
+    hoisted_1_1 := deduped_5_1[1];
     hoisted_4_1 := Filtered( [ 0 .. List( morphisms_1, function ( logic_new_func_x_2 )
                       return Length( AsList( logic_new_func_x_2 ) );
                   end )[1] - 1 ], function ( x_2 )
