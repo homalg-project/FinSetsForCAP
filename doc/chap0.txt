@@ -6,10 +6,10 @@
                 [1X The elementary topos of (skeletal) finite sets [101X
   
   
-                                   2022.09-01
+                                   2022.09-02
   
   
-                                5 September 2022
+                               15 September 2022
   
   
                                 Mohamed Barakat
