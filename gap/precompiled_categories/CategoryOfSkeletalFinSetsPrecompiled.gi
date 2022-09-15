@@ -13,8 +13,7 @@ function ( cat_1, s_1, a_1, b_1, r_1 )
     local hoisted_1_1, hoisted_2_1;
     hoisted_2_1 := Length( a_1 );
     hoisted_1_1 := Length( b_1 );
-    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-           ), cat_1, s_1, r_1, AsList, List( [ 0 .. Length( s_1 ) - 1 ], function ( i_2 )
+    return CreateCapCategoryMorphismWithAttributes( cat_1, s_1, r_1, AsList, List( [ 0 .. Length( s_1 ) - 1 ], function ( i_2 )
               return REM_INT( i_2, hoisted_1_1 ) * hoisted_2_1 + QUO_INT( i_2, hoisted_1_1 );
           end ) );
 end
@@ -33,8 +32,7 @@ function ( cat_1, a_1, b_1, r_1 )
     deduped_3_1 := deduped_4_1 * deduped_5_1;
     hoisted_2_1 := deduped_4_1 * deduped_3_1 * GeometricSumDiff1( deduped_3_1, deduped_5_1 );
     hoisted_1_1 := GeometricSum( deduped_3_1, deduped_5_1 );
-    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-           ), cat_1, a_1, r_1, AsList, List( [ 0 .. deduped_4_1 - 1 ], function ( i_2 )
+    return CreateCapCategoryMorphismWithAttributes( cat_1, a_1, r_1, AsList, List( [ 0 .. deduped_4_1 - 1 ], function ( i_2 )
               return i_2 * hoisted_1_1 + hoisted_2_1;
           end ) );
 end
@@ -53,8 +51,7 @@ function ( cat_1, a_1, b_1, s_1 )
     deduped_3_1 := deduped_4_1 ^ deduped_5_1;
     hoisted_2_1 := deduped_4_1;
     hoisted_1_1 := deduped_3_1;
-    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-           ), cat_1, s_1, b_1, AsList, List( [ 0 .. deduped_3_1 * deduped_5_1 - 1 ], function ( i_2 )
+    return CreateCapCategoryMorphismWithAttributes( cat_1, s_1, b_1, AsList, List( [ 0 .. deduped_3_1 * deduped_5_1 - 1 ], function ( i_2 )
               return REM_INT( QUO_INT( i_2, hoisted_2_1 ^ QUO_INT( i_2, hoisted_1_1 ) ), hoisted_2_1 );
           end ) );
 end
@@ -103,8 +100,7 @@ function ( cat_1, a_1, b_1, alpha_1 )
     hoisted_14_1 := List( deduped_16_1, function ( i_2 )
             return hoisted_13_1[1 + hoisted_12_1[i_2]];
         end );
-    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-           ), cat_1, a_1, b_1, AsList, List( [ 1 .. deduped_20_1 ], function ( i_2 )
+    return CreateCapCategoryMorphismWithAttributes( cat_1, a_1, b_1, AsList, List( [ 1 .. deduped_20_1 ], function ( i_2 )
               return hoisted_14_1[1 + hoisted_9_1[i_2]];
           end ) );
 end
@@ -129,10 +125,7 @@ function ( cat_1, alpha_1 )
         end );
     hoisted_4_1 := deduped_7_1;
     hoisted_3_1 := deduped_9_1;
-    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-           ), cat_1, ObjectifyObjectForCAPWithAttributes( rec(
-             ), cat_1, Length, 1 ), ObjectifyObjectForCAPWithAttributes( rec(
-             ), cat_1, Length, deduped_8_1 ^ deduped_9_1 ), AsList, [ List( [ 0 .. deduped_9_1 ^ deduped_9_1 - 1 ], function ( i_2 )
+    return CreateCapCategoryMorphismWithAttributes( cat_1, CreateCapCategoryObjectWithAttributes( cat_1, Length, 1 ), CreateCapCategoryObjectWithAttributes( cat_1, Length, deduped_8_1 ^ deduped_9_1 ), AsList, [ List( [ 0 .. deduped_9_1 ^ deduped_9_1 - 1 ], function ( i_2 )
                     local hoisted_1_2, hoisted_2_2, hoisted_3_2;
                     hoisted_1_2 := List( hoisted_1_1, function ( j_3 )
                             return REM_INT( QUO_INT( i_2, hoisted_3_1 ^ j_3 ), hoisted_3_1 );
@@ -157,8 +150,7 @@ end
         
 ########
 function ( cat_1, a_1, r_1 )
-    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-           ), cat_1, a_1, a_1, AsList, [ 0 .. Length( a_1 ) - 1 ] );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, a_1, a_1, AsList, [ 0 .. Length( a_1 ) - 1 ] );
 end
 ########
         
@@ -169,8 +161,7 @@ end
         
 ########
 function ( cat_1, a_1, s_1 )
-    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-           ), cat_1, a_1, a_1, AsList, [ 0 .. Length( a_1 ) - 1 ] );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, a_1, a_1, AsList, [ 0 .. Length( a_1 ) - 1 ] );
 end
 ########
         
@@ -181,8 +172,7 @@ end
         
 ########
 function ( cat_1, a_1, r_1 )
-    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-           ), cat_1, a_1, a_1, AsList, [ 0 .. Length( a_1 ) - 1 ] );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, a_1, a_1, AsList, [ 0 .. Length( a_1 ) - 1 ] );
 end
 ########
         
@@ -193,8 +183,7 @@ end
         
 ########
 function ( cat_1, a_1, s_1 )
-    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-           ), cat_1, a_1, a_1, AsList, [ 0 .. Length( a_1 ) - 1 ] );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, a_1, a_1, AsList, [ 0 .. Length( a_1 ) - 1 ] );
 end
 ########
         
@@ -208,8 +197,7 @@ function ( cat_1, alpha_1, Omega_1 )
     local hoisted_1_1, deduped_2_1;
     deduped_2_1 := Range( alpha_1 );
     hoisted_1_1 := AsList( alpha_1 );
-    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-           ), cat_1, deduped_2_1, Omega_1, AsList, List( [ 0 .. Length( deduped_2_1 ) - 1 ], function ( x_2 )
+    return CreateCapCategoryMorphismWithAttributes( cat_1, deduped_2_1, Omega_1, AsList, List( [ 0 .. Length( deduped_2_1 ) - 1 ], function ( x_2 )
               if x_2 in hoisted_1_1 then
                   return 1;
               else
@@ -230,8 +218,7 @@ function ( cat_1, alpha_1, I_1 )
     local hoisted_1_1, deduped_2_1;
     deduped_2_1 := AsList( alpha_1 );
     hoisted_1_1 := SSortedList( deduped_2_1 );
-    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-           ), cat_1, Source( alpha_1 ), I_1, AsList, List( deduped_2_1, function ( l_2 )
+    return CreateCapCategoryMorphismWithAttributes( cat_1, Source( alpha_1 ), I_1, AsList, List( deduped_2_1, function ( l_2 )
               return -1 + SafePosition( hoisted_1_1, l_2 );
           end ) );
 end
@@ -244,8 +231,7 @@ end
         
 ########
 function ( cat_1, arg2_1 )
-    return ObjectifyObjectForCAPWithAttributes( rec(
-           ), cat_1, Length, Length( SKELETAL_FIN_SETS_ExplicitCoequalizer( arg2_1 ) ) );
+    return CreateCapCategoryObjectWithAttributes( cat_1, Length, Length( SKELETAL_FIN_SETS_ExplicitCoequalizer( arg2_1 ) ) );
 end
 ########
         
@@ -260,8 +246,7 @@ function ( cat_1, alpha_1, beta_1 )
     deduped_3_1 := Range( alpha_1 );
     hoisted_2_1 := AsList( beta_1 );
     hoisted_1_1 := AsList( alpha_1 );
-    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-           ), cat_1, deduped_3_1, Range( beta_1 ), AsList, List( [ 0 .. Length( deduped_3_1 ) - 1 ], function ( y_2 )
+    return CreateCapCategoryMorphismWithAttributes( cat_1, deduped_3_1, Range( beta_1 ), AsList, List( [ 0 .. Length( deduped_3_1 ) - 1 ], function ( y_2 )
               if not y_2 in hoisted_1_1 then
                   return 0;
               else
@@ -279,8 +264,7 @@ end
         
 ########
 function ( cat_1, arg2_1 )
-    return ObjectifyObjectForCAPWithAttributes( rec(
-           ), cat_1, Length, Sum( arg2_1, Length ) );
+    return CreateCapCategoryObjectWithAttributes( cat_1, Length, Sum( arg2_1, Length ) );
 end
 ########
         
@@ -291,8 +275,7 @@ end
         
 ########
 function ( cat_1, arg2_1 )
-    return ObjectifyObjectForCAPWithAttributes( rec(
-           ), cat_1, Length, Product( List( arg2_1, Length ) ) );
+    return CreateCapCategoryObjectWithAttributes( cat_1, Length, Product( List( arg2_1, Length ) ) );
 end
 ########
         
@@ -307,8 +290,7 @@ function ( cat_1, morphisms_1, P_1 )
     deduped_3_1 := List( morphisms_1, AsList );
     hoisted_2_1 := deduped_3_1{[ 2 .. Length( morphisms_1 ) ]};
     hoisted_1_1 := deduped_3_1[1];
-    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-           ), cat_1, P_1, List( morphisms_1, Source )[1], AsList, Filtered( [ 0 .. List( morphisms_1, function ( logic_new_func_x_2 )
+    return CreateCapCategoryMorphismWithAttributes( cat_1, P_1, List( morphisms_1, Source )[1], AsList, Filtered( [ 0 .. List( morphisms_1, function ( logic_new_func_x_2 )
                         return Length( AsList( logic_new_func_x_2 ) );
                     end )[1] - 1 ], function ( x_2 )
               local hoisted_1_2, hoisted_2_2, deduped_3_2;
@@ -329,8 +311,7 @@ end
         
 ########
 function ( cat_1, A_1 )
-    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-           ), cat_1, A_1, A_1, AsList, [ 0 .. Length( A_1 ) - 1 ] );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, A_1, A_1, AsList, [ 0 .. Length( A_1 ) - 1 ] );
 end
 ########
         
@@ -345,8 +326,7 @@ function ( cat_1, arg2_1 )
     deduped_3_1 := List( arg2_1, AsList );
     hoisted_2_1 := deduped_3_1{[ 2 .. Length( arg2_1 ) ]};
     hoisted_1_1 := deduped_3_1[1];
-    return ObjectifyObjectForCAPWithAttributes( rec(
-           ), cat_1, Length, Length( Filtered( [ 0 .. List( arg2_1, function ( logic_new_func_x_2 )
+    return CreateCapCategoryObjectWithAttributes( cat_1, Length, Length( Filtered( [ 0 .. List( arg2_1, function ( logic_new_func_x_2 )
                           return Length( AsList( logic_new_func_x_2 ) );
                       end )[1] - 1 ], function ( x_2 )
                 local hoisted_1_2, hoisted_2_2, deduped_3_2;
@@ -378,8 +358,7 @@ function ( cat_1, s_1, alpha_1, beta_1, r_1 )
     hoisted_3_1 := AsList( alpha_1 );
     hoisted_2_1 := [ 0 .. deduped_9_1 - 1 ];
     hoisted_1_1 := deduped_8_1;
-    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-           ), cat_1, s_1, r_1, AsList, List( [ 0 .. deduped_8_1 ^ deduped_9_1 - 1 ], function ( i_2 )
+    return CreateCapCategoryMorphismWithAttributes( cat_1, s_1, r_1, AsList, List( [ 0 .. deduped_8_1 ^ deduped_9_1 - 1 ], function ( i_2 )
               local hoisted_1_2, hoisted_2_2, hoisted_3_2;
               hoisted_1_2 := List( hoisted_2_1, function ( j_3 )
                       return REM_INT( QUO_INT( i_2, hoisted_1_1 ^ j_3 ), hoisted_1_1 );
@@ -404,8 +383,7 @@ end
         
 ########
 function ( cat_1, a_1, b_1 )
-    return ObjectifyObjectForCAPWithAttributes( rec(
-           ), cat_1, Length, Length( b_1 ) ^ Length( a_1 ) );
+    return CreateCapCategoryObjectWithAttributes( cat_1, Length, Length( b_1 ) ^ Length( a_1 ) );
 end
 ########
         
@@ -416,8 +394,7 @@ end
         
 ########
 function ( cat_1, a_1 )
-    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-           ), cat_1, a_1, a_1, AsList, [ 0 .. Length( a_1 ) - 1 ] );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, a_1, a_1, AsList, [ 0 .. Length( a_1 ) - 1 ] );
 end
 ########
         
@@ -428,8 +405,7 @@ end
         
 ########
 function ( cat_1, alpha_1, I_1 )
-    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-           ), cat_1, I_1, Range( alpha_1 ), AsList, SSortedList( AsList( alpha_1 ) ) );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, I_1, Range( alpha_1 ), AsList, SSortedList( AsList( alpha_1 ) ) );
 end
 ########
         
@@ -440,8 +416,7 @@ end
         
 ########
 function ( cat_1, arg2_1 )
-    return ObjectifyObjectForCAPWithAttributes( rec(
-           ), cat_1, Length, Length( SSortedList( AsList( arg2_1 ) ) ) );
+    return CreateCapCategoryObjectWithAttributes( cat_1, Length, Length( SSortedList( AsList( arg2_1 ) ) ) );
 end
 ########
         
@@ -452,8 +427,7 @@ end
         
 ########
 function ( cat_1 )
-    return ObjectifyObjectForCAPWithAttributes( rec(
-           ), cat_1, Length, 0 );
+    return CreateCapCategoryObjectWithAttributes( cat_1, Length, 0 );
 end
 ########
         
@@ -466,8 +440,7 @@ end
 function ( cat_1, objects_1, k_1, P_1 )
     local deduped_1_1;
     deduped_1_1 := Sum( objects_1{[ 1 .. k_1 - 1 ]}, Length );
-    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-           ), cat_1, objects_1[k_1], P_1, AsList, [ deduped_1_1 .. deduped_1_1 + List( objects_1, Length )[k_1] - 1 ] );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, objects_1[k_1], P_1, AsList, [ deduped_1_1 .. deduped_1_1 + List( objects_1, Length )[k_1] - 1 ] );
 end
 ########
         
@@ -684,8 +657,7 @@ function ( cat_1, alpha_1, beta_1 )
     deduped_3_1 := Source( alpha_1 );
     hoisted_2_1 := AsList( beta_1 );
     hoisted_1_1 := AsList( alpha_1 );
-    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-           ), cat_1, deduped_3_1, Source( beta_1 ), AsList, List( [ 1 .. Length( deduped_3_1 ) ], function ( x_2 )
+    return CreateCapCategoryMorphismWithAttributes( cat_1, deduped_3_1, Source( beta_1 ), AsList, List( [ 1 .. Length( deduped_3_1 ) ], function ( x_2 )
               return -1 + SafePosition( hoisted_2_1, hoisted_1_1[x_2] );
           end ) );
 end
@@ -698,8 +670,7 @@ end
         
 ########
 function ( cat_1, A_1, I_1 )
-    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-           ), cat_1, A_1, I_1, AsList, [ 0 .. Length( A_1 ) - 1 ] );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, A_1, I_1, AsList, [ 0 .. Length( A_1 ) - 1 ] );
 end
 ########
         
@@ -710,8 +681,7 @@ end
         
 ########
 function ( cat_1, arg2_1, arg3_1, arg4_1 )
-    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-           ), cat_1, arg2_1, arg4_1, AsList, arg3_1 );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, arg2_1, arg4_1, AsList, arg3_1 );
 end
 ########
         
@@ -761,8 +731,7 @@ function ( cat_1, arg2_1, arg3_1 )
             hoisted_2_2 := List( hoisted_7_1, function ( i_3 )
                     return hoisted_8_1[1 + hoisted_1_2[i_3]];
                 end );
-            return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-                   ), cat_1, arg2_1, arg3_1, AsList, List( hoisted_7_1, function ( i_3 )
+            return CreateCapCategoryMorphismWithAttributes( cat_1, arg2_1, arg3_1, AsList, List( hoisted_7_1, function ( i_3 )
                       return hoisted_2_2[1 + hoisted_5_1[i_3]];
                   end ) );
         end );
@@ -776,8 +745,7 @@ end
         
 ########
 function ( cat_1, arg2_1 )
-    return ObjectifyObjectForCAPWithAttributes( rec(
-           ), cat_1, Length, arg2_1 );
+    return CreateCapCategoryObjectWithAttributes( cat_1, Length, arg2_1 );
 end
 ########
         
@@ -803,8 +771,7 @@ function ( cat_1, alpha_1, beta_1 )
     deduped_3_1 := Source( alpha_1 );
     hoisted_2_1 := AsList( beta_1 );
     hoisted_1_1 := AsList( alpha_1 );
-    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-           ), cat_1, deduped_3_1, Range( beta_1 ), AsList, List( [ 1 .. Length( deduped_3_1 ) ], function ( i_2 )
+    return CreateCapCategoryMorphismWithAttributes( cat_1, deduped_3_1, Range( beta_1 ), AsList, List( [ 1 .. Length( deduped_3_1 ) ], function ( i_2 )
               return hoisted_2_1[1 + hoisted_1_1[i_2]];
           end ) );
 end
@@ -821,8 +788,7 @@ function ( cat_1, objects_1, k_1, P_1 )
     deduped_3_1 := List( objects_1, Length );
     hoisted_2_1 := deduped_3_1[k_1];
     hoisted_1_1 := Product( deduped_3_1{[ 1 .. k_1 - 1 ]} );
-    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-           ), cat_1, P_1, objects_1[k_1], AsList, List( [ 0 .. Length( P_1 ) - 1 ], function ( i_2 )
+    return CreateCapCategoryMorphismWithAttributes( cat_1, P_1, objects_1[k_1], AsList, List( [ 0 .. Length( P_1 ) - 1 ], function ( i_2 )
               return REM_INT( QUO_INT( i_2, hoisted_1_1 ), hoisted_2_1 );
           end ) );
 end
@@ -838,8 +804,7 @@ function ( cat_1, morphisms_1, P_1 )
     local hoisted_1_1, deduped_2_1;
     deduped_2_1 := List( morphisms_1, Range )[1];
     hoisted_1_1 := SKELETAL_FIN_SETS_ExplicitCoequalizer( morphisms_1 );
-    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-           ), cat_1, deduped_2_1, P_1, AsList, List( [ 0 .. Length( deduped_2_1 ) - 1 ], function ( x_2 )
+    return CreateCapCategoryMorphismWithAttributes( cat_1, deduped_2_1, P_1, AsList, List( [ 0 .. Length( deduped_2_1 ) - 1 ], function ( x_2 )
               return -1 + SafePosition( hoisted_1_1, First( hoisted_1_1, function ( c_3 )
                           return (x_2 in c_3);
                       end ) );
@@ -855,8 +820,7 @@ end
 ########
 function ( cat_1, arg2_1 )
     if Length( arg2_1 ) = 0 then
-        return ObjectifyObjectForCAPWithAttributes( rec(
-               ), cat_1, Length, 1 );
+        return CreateCapCategoryObjectWithAttributes( cat_1, Length, 1 );
     else
         return arg2_1;
     fi;
@@ -871,8 +835,7 @@ end
         
 ########
 function ( cat_1 )
-    return ObjectifyObjectForCAPWithAttributes( rec(
-           ), cat_1, Length, 2 );
+    return CreateCapCategoryObjectWithAttributes( cat_1, Length, 2 );
 end
 ########
         
@@ -883,8 +846,7 @@ end
         
 ########
 function ( cat_1 )
-    return ObjectifyObjectForCAPWithAttributes( rec(
-           ), cat_1, Length, 1 );
+    return CreateCapCategoryObjectWithAttributes( cat_1, Length, 1 );
 end
 ########
         
@@ -895,8 +857,7 @@ end
         
 ########
 function ( cat_1, morphisms_1, T_1, tau_1, P_1 )
-    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-           ), cat_1, P_1, Range( tau_1 ), AsList, List( SKELETAL_FIN_SETS_ExplicitCoequalizer( morphisms_1 ), function ( x_2 )
+    return CreateCapCategoryMorphismWithAttributes( cat_1, P_1, Range( tau_1 ), AsList, List( SKELETAL_FIN_SETS_ExplicitCoequalizer( morphisms_1 ), function ( x_2 )
               return tau_1( x_2[1] );
           end ) );
 end
@@ -909,8 +870,7 @@ end
         
 ########
 function ( cat_1, objects_1, T_1, tau_1, P_1 )
-    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-           ), cat_1, P_1, T_1, AsList, Concatenation( List( tau_1, AsList ) ) );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, P_1, T_1, AsList, Concatenation( List( tau_1, AsList ) ) );
 end
 ########
         
@@ -921,8 +881,7 @@ end
         
 ########
 function ( cat_1, T_1, P_1 )
-    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-           ), cat_1, P_1, T_1, AsList, [  ] );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, P_1, T_1, AsList, [  ] );
 end
 ########
         
@@ -941,8 +900,7 @@ function ( cat_1, objects_1, T_1, tau_1, P_1 )
             return Product( hoisted_2_1{[ 1 .. j_2 ]} );
         end );
     hoisted_1_1 := List( tau_1, AsList );
-    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-           ), cat_1, T_1, P_1, AsList, List( [ 1 .. Length( T_1 ) ], function ( i_2 )
+    return CreateCapCategoryMorphismWithAttributes( cat_1, T_1, P_1, AsList, List( [ 1 .. Length( T_1 ) ], function ( i_2 )
               return Sum( hoisted_4_1, function ( j_3 )
                       return hoisted_1_1[j_3][i_2] * hoisted_3_1[j_3];
                   end );
@@ -973,8 +931,7 @@ function ( cat_1, morphisms_1, T_1, tau_1, P_1 )
                 end );
         end );
     hoisted_3_1 := AsList( tau_1 );
-    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-           ), cat_1, T_1, P_1, AsList, List( [ 1 .. Length( T_1 ) ], function ( x_2 )
+    return CreateCapCategoryMorphismWithAttributes( cat_1, T_1, P_1, AsList, List( [ 1 .. Length( T_1 ) ], function ( x_2 )
               return -1 + SafePosition( hoisted_4_1, hoisted_3_1[x_2] );
           end ) );
 end
@@ -987,8 +944,7 @@ end
         
 ########
 function ( cat_1, T_1, P_1 )
-    return ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec(
-           ), cat_1, T_1, P_1, AsList, ListWithIdenticalEntries( Length( T_1 ), 0 ) );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, T_1, P_1, AsList, ListWithIdenticalEntries( Length( T_1 ), 0 ) );
 end
 ########
         
