@@ -135,9 +135,9 @@ function ( cat_1, alpha_1 )
     hoisted_8_1 := List( deduped_11_1, function ( i_2 )
             return hoisted_7_1[1 + hoisted_6_1[i_2]];
         end );
-    return CreateCapCategoryMorphismWithAttributes( cat_1, CreateCapCategoryObjectWithAttributes( cat_1, Length, 1 ), CreateCapCategoryObjectWithAttributes( cat_1, Length, deduped_12_1 ^ deduped_13_1 ), AsList, [ Sum( deduped_10_1, function ( k_2 )
-                  return hoisted_8_1[(1 + k_2)] * hoisted_9_1 ^ k_2;
-              end ) ] );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, CreateCapCategoryObjectWithAttributes( cat_1, Length, 1 ), CreateCapCategoryObjectWithAttributes( cat_1, Length, deduped_12_1 ^ deduped_13_1 ), AsList, [ Sum( List( deduped_10_1, function ( k_2 )
+                    return hoisted_8_1[(1 + k_2)] * hoisted_9_1 ^ k_2;
+                end ) ) ] );
 end
 ########
         
@@ -262,7 +262,7 @@ end
         
 ########
 function ( cat_1, arg2_1 )
-    return CreateCapCategoryObjectWithAttributes( cat_1, Length, Sum( arg2_1, Length ) );
+    return CreateCapCategoryObjectWithAttributes( cat_1, Length, Sum( List( arg2_1, Length ) ) );
 end
 ########
         
@@ -364,9 +364,9 @@ function ( cat_1, s_1, alpha_1, beta_1, r_1 )
               hoisted_3_2 := List( hoisted_4_1, function ( i_3 )
                       return hoisted_5_1[1 + hoisted_2_2[i_3]];
                   end );
-              return Sum( hoisted_7_1, function ( k_3 )
-                      return hoisted_3_2[(1 + k_3)] * hoisted_6_1 ^ k_3;
-                  end );
+              return Sum( List( hoisted_7_1, function ( k_3 )
+                        return hoisted_3_2[(1 + k_3)] * hoisted_6_1 ^ k_3;
+                    end ) );
           end ) );
 end
 ########
@@ -434,9 +434,9 @@ end
 ########
 function ( cat_1, objects_1, k_1, P_1 )
     local deduped_1_1, deduped_2_1;
-    deduped_2_1 := objects_1[k_1];
-    deduped_1_1 := Sum( objects_1{[ 1 .. k_1 - 1 ]}, Length );
-    return CreateCapCategoryMorphismWithAttributes( cat_1, deduped_2_1, P_1, AsList, [ deduped_1_1 .. deduped_1_1 + Length( deduped_2_1 ) - 1 ] );
+    deduped_2_1 := List( objects_1, Length );
+    deduped_1_1 := Sum( deduped_2_1{[ 1 .. k_1 - 1 ]} );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, objects_1[k_1], P_1, AsList, [ deduped_1_1 .. deduped_1_1 + deduped_2_1[k_1] - 1 ] );
 end
 ########
         
