@@ -711,7 +711,7 @@ end );
 AddCoproduct( SkeletalFinSets,
   function ( cat, L )
     
-    return FinSet( SkeletalFinSets, Sum( L, Length ) );
+    return FinSet( SkeletalFinSets, Sum( List( L, Length ) ) );
     
 end );
 
@@ -722,7 +722,7 @@ AddInjectionOfCofactorOfCoproductWithGivenCoproduct( SkeletalFinSets,
     
     O := L{[ 1 .. i - 1 ]};
     
-    sum := Sum( O, Length );
+    sum := Sum( List( O, Length ) );
     
     s := L[i];
     
@@ -872,7 +872,7 @@ AddExponentialOnMorphismsWithGivenExponentials( SkeletalFinSets,
                   
                   images := AsList( composition );
                   
-                  return Sum( [ 0 .. a - 1 ], k -> images[1 + k] * b^k );
+                  return Sum( List( [ 0 .. a - 1 ], k -> images[1 + k] * b^k ) );
                   
               end ),
               T );
