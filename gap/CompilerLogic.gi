@@ -147,3 +147,21 @@ CapJitAddLogicTemplate(
         dst_template := "constant",
     )
 );
+
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "pos_end", "index" ],
+        variable_filters := [ IsInt, IsInt ],
+        src_template := "[ 0 .. pos_end ][index]",
+        dst_template := "index - 1",
+    )
+);
+
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "number" ],
+        variable_filters := [ IsInt ],
+        src_template := "(1 + number) - 1",
+        dst_template := "number",
+    )
+);
