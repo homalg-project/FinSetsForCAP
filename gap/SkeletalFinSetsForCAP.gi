@@ -362,7 +362,7 @@ AddPreCompose( SkeletalFinSets,
     im_pre := AsList( map_pre );
     im_post := AsList( map_post );
     
-    cmp := List( [ 1 .. Length( s ) ], i -> im_post[1 + im_pre[i]] );
+    cmp := List( [ 0 .. Length( s ) - 1 ], i -> im_post[1 + im_pre[1 + i]] );
     
     return MapOfFinSets( cat, s, cmp, t );
     
@@ -450,7 +450,7 @@ AddLift( SkeletalFinSets,
     gg := AsList( g );
     ff := AsList( f );
     
-    return MapOfFinSets( cat, S, List( [ 1 .. Length( S ) ], x -> -1 + SafePosition( gg, ff[x] ) ), T );
+    return MapOfFinSets( cat, S, List( [ 0 .. Length( S ) - 1 ], x -> -1 + SafePosition( gg, ff[1 + x] ) ), T );
     
 end );
 
@@ -581,7 +581,7 @@ AddUniversalMorphismIntoDirectProductWithGivenDirectProduct( SkeletalFinSets,
     
     taus := List( tau, AsList );
     
-    return MapOfFinSets( cat, T, List( [ 1 .. Length( T ) ], i -> Sum( [ 1 .. l ], j -> taus[j][i] * dd[j] ) ), P );
+    return MapOfFinSets( cat, T, List( [ 0 .. Length( T ) - 1 ], i -> Sum( [ 1 .. l ], j -> taus[j][1 + i] * dd[j] ) ), P );
     
 end );
 
@@ -632,7 +632,7 @@ AddUniversalMorphismIntoEqualizerWithGivenEqualizer( SkeletalFinSets,
     
     t := AsList( tau );
     
-    return MapOfFinSets( cat, test_object, List( [ 1 .. Length( test_object ) ], x -> -1 + SafePosition( Eq, t[x] ) ), E );
+    return MapOfFinSets( cat, test_object, List( [ 0 .. Length( test_object ) - 1 ], x -> -1 + SafePosition( Eq, t[1 + x] ) ), E );
     
 end );
 
