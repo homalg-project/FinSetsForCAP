@@ -121,7 +121,7 @@ function ( cat_1, alpha_1 )
     hoisted_6_1 := List( deduped_9_1, function ( i_2 )
             return hoisted_1_1[1 + i_2];
         end );
-    hoisted_3_1 := [ 0 .. deduped_11_1 ^ deduped_11_1 - 1 ][1 + deduped_11_1 * GeometricSumDiff1( deduped_11_1, deduped_11_1 )];
+    hoisted_3_1 := CAP_JIT_INCOMPLETE_LOGIC( [ 0 .. deduped_11_1 ^ deduped_11_1 - 1 ][1 + deduped_11_1 * GeometricSumDiff1( deduped_11_1, deduped_11_1 )] );
     hoisted_2_1 := deduped_11_1;
     hoisted_4_1 := List( deduped_9_1, function ( j_2 )
             return REM_INT( QUO_INT( hoisted_3_1, hoisted_2_1 ^ j_2 ), hoisted_2_1 );
@@ -283,7 +283,7 @@ end
 function ( cat_1, morphisms_1, P_1 )
     local hoisted_1_1, hoisted_2_1, deduped_3_1, deduped_4_1;
     deduped_4_1 := List( morphisms_1, AsList );
-    deduped_3_1 := morphisms_1[1];
+    deduped_3_1 := CAP_JIT_INCOMPLETE_LOGIC( morphisms_1[1] );
     hoisted_2_1 := deduped_4_1{[ 2 .. Length( morphisms_1 ) ]};
     hoisted_1_1 := deduped_4_1[1];
     return CreateCapCategoryMorphismWithAttributes( cat_1, P_1, Source( deduped_3_1 ), AsList, Filtered( [ 0 .. Length( AsList( deduped_3_1 ) ) - 1 ], function ( x_2 )
@@ -320,7 +320,7 @@ function ( cat_1, arg2_1 )
     deduped_3_1 := List( arg2_1, AsList );
     hoisted_2_1 := deduped_3_1{[ 2 .. Length( arg2_1 ) ]};
     hoisted_1_1 := deduped_3_1[1];
-    return CreateCapCategoryObjectWithAttributes( cat_1, Length, Length( Filtered( [ 0 .. Length( AsList( arg2_1[1] ) ) - 1 ], function ( x_2 )
+    return CreateCapCategoryObjectWithAttributes( cat_1, Length, Length( Filtered( [ 0 .. Length( AsList( CAP_JIT_INCOMPLETE_LOGIC( arg2_1[1] ) ) ) - 1 ], function ( x_2 )
                 local hoisted_1_2, hoisted_2_2, deduped_3_2;
                 deduped_3_2 := 1 + x_2;
                 hoisted_2_2 := hoisted_1_1[deduped_3_2];
@@ -791,7 +791,7 @@ end
 ########
 function ( cat_1, morphisms_1, P_1 )
     local hoisted_1_1, deduped_2_1;
-    deduped_2_1 := Range( morphisms_1[1] );
+    deduped_2_1 := Range( CAP_JIT_INCOMPLETE_LOGIC( morphisms_1[1] ) );
     hoisted_1_1 := SKELETAL_FIN_SETS_ExplicitCoequalizer( morphisms_1 );
     return CreateCapCategoryMorphismWithAttributes( cat_1, deduped_2_1, P_1, AsList, List( [ 0 .. Length( deduped_2_1 ) - 1 ], function ( x_2 )
               return -1 + SafePosition( hoisted_1_1, First( hoisted_1_1, function ( c_3 )
@@ -910,7 +910,7 @@ function ( cat_1, morphisms_1, T_1, tau_1, P_1 )
     deduped_5_1 := List( morphisms_1, AsList );
     hoisted_2_1 := deduped_5_1{[ 2 .. Length( morphisms_1 ) ]};
     hoisted_1_1 := deduped_5_1[1];
-    hoisted_4_1 := Filtered( [ 0 .. Length( AsList( morphisms_1[1] ) ) - 1 ], function ( x_2 )
+    hoisted_4_1 := Filtered( [ 0 .. Length( AsList( CAP_JIT_INCOMPLETE_LOGIC( morphisms_1[1] ) ) ) - 1 ], function ( x_2 )
             local hoisted_1_2, hoisted_2_2, deduped_3_2;
             deduped_3_2 := 1 + x_2;
             hoisted_2_2 := hoisted_1_1[deduped_3_2];
