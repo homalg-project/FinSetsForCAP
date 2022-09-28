@@ -15,7 +15,7 @@ iotaN := EmbeddingOfFinSets( N, M );
 NC := PseudoComplementSubobject( iotaN );
 #! <An object in FinSets>
 Display( NC );
-#! [ [ 1, "*" ], [ 4, "*" ], [ 6, "*" ], [ 7, "*" ] ]
+#! [ [ 1, [  ] ], [ 4, [  ] ], [ 6, [  ] ], [ 7, [  ] ] ]
 tauN := EmbeddingOfPseudoComplementSubobject( iotaN );
 #! <A monomorphism in FinSets>
 Nc := ImageObject( tauN );
@@ -49,7 +49,8 @@ Display( NuL );
 NPL := RelativePseudoComplementSubobject( iotaN, iotaL );
 #! <An object in FinSets>
 Display( NPL );
-#! [ [ 1, "*" ], [ 2, "*" ], [ 4, "*" ], [ 5, "*" ], [ 6, "*" ], [ 7, "*" ] ]
+#! [ [ 1, [  ] ], [ 2, [  ] ], [ 4, [  ] ], [ 5, [  ] ], [ 6, [  ] ], 
+#!   [ 7, [  ] ] ]
 iotaNpL := EmbeddingOfRelativePseudoComplementSubobject( iotaN, iotaL );
 #! <A monomorphism in FinSets>
 NpL := ImageObject( iotaNpL );

@@ -22,7 +22,7 @@ Display( I );
 T := TerminalObject( FinSets );
 #! <An object in FinSets>
 Display( T );
-#! [ "*" ]
+#! [ [  ] ]
 IsInitial( T );
 #! false
 IsTerminal( T );
