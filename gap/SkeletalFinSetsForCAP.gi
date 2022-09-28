@@ -15,6 +15,12 @@ InstallMethod( CategoryOfSkeletalFinSets,
     
     cat!.category_as_first_argument := true;
     
+    # SkeletalFinSets supports empty limits except of the following problem:
+    # In `Equalizer`, we compute `D2[1]` inside a loop over `D2{[ 2 .. Length( D ) ]}`.
+    # This code can deal with empty `D` because in this case the loop body is never executed.
+    # However, CompilerForCAP would hoist `D2[1]` out of the loop, so the compiled code will not be valid anymore for empty `D`.
+    #cat!.supports_empty_limits := true;
+    
     cat!.compiler_hints := rec(
         category_filter := IsCategoryOfSkeletalFinSets,
         object_filter := IsSkeletalFiniteSet,
@@ -182,11 +188,10 @@ end );
 
 ##
 InstallGlobalFunction( SKELETAL_FIN_SETS_ExplicitCoequalizer,
-  function ( D )
+  function ( s, D )
     local T, Cq, t, L, i;
     
-    T := Range( D[1] );
-    T := AsList( T );
+    T := AsList( s );
     
     Cq := [ ];
     
@@ -201,7 +206,7 @@ InstallGlobalFunction( SKELETAL_FIN_SETS_ExplicitCoequalizer,
         T := Difference( T, t );
     od;
     
-    T := AsList( Range( D[1] ) );
+    T := AsList( s );
     
     if not Concatenation( Cq ) = T then
         for t in T do
@@ -581,20 +586,19 @@ AddUniversalMorphismIntoDirectProductWithGivenDirectProduct( SkeletalFinSets,
     
     taus := List( tau, AsList );
     
+    # if l = 0, then Sum( [ 1 .. l ], j -> ... ) = 0 ∈ TerminalObject = P
     return MapOfFinSets( cat, T, List( [ 0 .. Length( T ) - 1 ], i -> Sum( [ 1 .. l ], j -> taus[j][1 + i] * dd[j] ) ), P );
     
 end );
 
 ##
 AddEqualizer( SkeletalFinSets,
-  function ( cat, D )
-    local f1, D2, Eq;
+  function ( cat, s, D )
+    local D2, Eq;
     
-    f1 := AsList( D[1] );
+    D2 := List( D, AsList );
     
-    D2 := List( D{[ 2 .. Length( D ) ]}, AsList );
-    
-    Eq := Filtered( [ 0 .. Length( f1 ) - 1 ], x -> ForAll( D2, fj -> f1[1 + x] = fj[1 + x] ) );
+    Eq := Filtered( [ 0 .. Length( s ) - 1 ], x -> ForAll( D2{[ 2 .. Length( D ) ]}, fj -> D2[1][1 + x] = fj[1 + x] ) );
     
     return FinSet( SkeletalFinSets, Length( Eq ) );
     
@@ -602,16 +606,12 @@ end );
 
 ##
 AddEmbeddingOfEqualizerWithGivenEqualizer( SkeletalFinSets,
-  function ( cat, D, E )
-    local s, f1, D2, Eq;
+  function ( cat, s, D, E )
+    local D2, Eq;
     
-    s := Source( D[1] );
+    D2 := List( D, AsList );
     
-    f1 := AsList( D[1] );
-    
-    D2 := List( D{[ 2 .. Length( D ) ]}, AsList );
-    
-    Eq := Filtered( [ 0 .. Length( f1 ) - 1 ], x -> ForAll( D2, fj -> f1[1 + x] = fj[1 + x] ) );
+    Eq := Filtered( [ 0 .. Length( s ) - 1 ], x -> ForAll( D2{[ 2 .. Length( D ) ]}, fj -> D2[1][1 + x] = fj[1 + x] ) );
     
     return MapOfFinSets( cat, E, Eq, s );
     
@@ -619,16 +619,12 @@ end );
 
 ##
 AddUniversalMorphismIntoEqualizerWithGivenEqualizer( SkeletalFinSets,
-  function ( cat, D, test_object, tau, E )
-    local s, f1, D2, Eq, t;
+  function ( cat, s, D, test_object, tau, E )
+    local D2, Eq, t;
     
-    s := Source( D[1] );
+    D2 := List( D, AsList );
     
-    f1 := AsList( D[1] );
-    
-    D2 := List( D{[ 2 .. Length( D ) ]}, AsList );
-    
-    Eq := Filtered( [ 0 .. Length( f1 ) - 1 ], x -> ForAll( D2, fj -> f1[1 + x] = fj[1 + x] ) );
+    Eq := Filtered( [ 0 .. Length( s ) - 1 ], x -> ForAll( D2{[ 2 .. Length( D ) ]}, fj -> D2[1][1 + x] = fj[1 + x] ) );
     
     t := AsList( tau );
     
@@ -745,20 +741,18 @@ end );
 
 ##
 AddCoequalizer( SkeletalFinSets,
-  function ( cat, D )
+  function ( cat, s, D )
   
-    return FinSet( SkeletalFinSets, Length( SKELETAL_FIN_SETS_ExplicitCoequalizer( D ) ) );
+    return FinSet( SkeletalFinSets, Length( SKELETAL_FIN_SETS_ExplicitCoequalizer( s, D ) ) );
     
 end );
 
 ##
 AddProjectionOntoCoequalizerWithGivenCoequalizer( SkeletalFinSets,
-  function ( cat, D, C )
-    local Cq, s, cmp;
+  function ( cat, s, D, C )
+    local Cq, cmp;
     
-    Cq := SKELETAL_FIN_SETS_ExplicitCoequalizer( D );
-    
-    s := Range( D[1] );
+    Cq := SKELETAL_FIN_SETS_ExplicitCoequalizer( s, D );
     
     cmp := List( [ 0 .. Length( s ) - 1 ], x -> -1 + SafePosition( Cq, First( Cq, c -> x in c ) ) );
     
@@ -768,10 +762,10 @@ end );
 
 ##
 AddUniversalMorphismFromCoequalizerWithGivenCoequalizer( SkeletalFinSets,
-  function ( cat, D, test_object, tau, C )
+  function ( cat, s, D, test_object, tau, C )
     local Cq;
     
-    Cq := SKELETAL_FIN_SETS_ExplicitCoequalizer( D );
+    Cq := SKELETAL_FIN_SETS_ExplicitCoequalizer( s, D );
 
     return MapOfFinSets( cat, C, List( Cq, x -> tau( x[1] ) ), Range( tau ) );
     

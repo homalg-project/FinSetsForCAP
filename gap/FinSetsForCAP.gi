@@ -15,6 +15,12 @@ InstallMethod( CategoryOfFinSets,
     
     FinSets!.category_as_first_argument := true;
     
+    # FinSets supports empty limits except of the following problem:
+    # In `Equalizer`, we compute `D[1]` inside a loop over `D{[ 2 .. Length( D ) ]}`.
+    # This code can deal with empty `D` because in this case the loop body is never executed.
+    # However, CompilerForCAP would hoist `D[1]` out of the loop, so the compiled code will not be valid anymore for empty `D`.
+    #FinSets!.supports_empty_limits := true;
+    
     FinSets!.compiler_hints := rec(
         category_filter := IsCategoryOfFinSets,
         object_filter := IsFiniteSet,
@@ -800,30 +806,23 @@ end );
 
 ##
 AddEqualizer( category_of_finite_sets,
-  function ( category_of_finite_sets, D )
-    local f1, S;
+  function ( category_of_finite_sets, S, D )
     
-    f1 := D[1];
-    
-    S := Source( f1 );
-    
-    D := D{[ 2 .. Length( D ) ]};
-    
-    return Filtered( S, x -> ForAll( D, fj -> IsEqualForElementsOfFinSets( f1( x ), fj( x ) ) ) );
+    return Filtered( S, x -> ForAll( D{[ 2 .. Length( D ) ]}, fj -> IsEqualForElementsOfFinSets( D[1]( x ), fj( x ) ) ) );
     
 end );
 
 ##
 AddEmbeddingOfEqualizerWithGivenEqualizer( category_of_finite_sets,
-  function ( category_of_finite_sets, D, E )
+  function ( category_of_finite_sets, S, D, E )
     
-    return EmbeddingOfFinSets( E, Source( D[1] ) );
+    return EmbeddingOfFinSets( E, S );
     
 end );
 
 ##
 AddUniversalMorphismIntoEqualizerWithGivenEqualizer( category_of_finite_sets,
-  function ( category_of_finite_sets, D, test_object, tau, E )
+  function ( category_of_finite_sets, S, D, test_object, tau, E )
     
     return MapOfFinSetsNC( Source( tau ), AsList( tau ), E );
     
@@ -831,10 +830,9 @@ end );
 
 ##
 AddCoequalizer( category_of_finite_sets,
-  function ( category_of_finite_sets, D )
-    local T, C, images, previousImages, preimages;
+  function ( category_of_finite_sets, T, D )
+    local C, images, previousImages, preimages;
     
-    T := Range( D[1] );
     T := AsList( T );
     
     C := [ ];
@@ -860,15 +858,15 @@ end );
 
 ##
 AddProjectionOntoCoequalizerWithGivenCoequalizer( category_of_finite_sets,
-  function ( category_of_finite_sets, D, C )
+  function ( category_of_finite_sets, T, D, C )
     
-    return ProjectionOfFinSets( Range( D[1] ), C );
+    return ProjectionOfFinSets( T, C );
     
 end );
 
 ##
 AddUniversalMorphismFromCoequalizerWithGivenCoequalizer( category_of_finite_sets,
-  function ( category_of_finite_sets, D, test_object, tau, C )
+  function ( category_of_finite_sets, T, D, test_object, tau, C )
     local G;
     
     G := List( C, x -> [ x, tau( x[1] ) ] );
