@@ -281,17 +281,14 @@ end
         
 ########
 function ( cat_1, Y_1, morphisms_1, P_1 )
-    local hoisted_1_1, hoisted_2_1, deduped_3_1;
-    deduped_3_1 := List( morphisms_1, AsList );
-    hoisted_2_1 := deduped_3_1{[ 2 .. Length( morphisms_1 ) ]};
-    hoisted_1_1 := deduped_3_1[1];
+    local hoisted_1_1, hoisted_2_1;
+    hoisted_2_1 := [ 1 .. Length( morphisms_1 ) - 1 ];
+    hoisted_1_1 := List( morphisms_1, AsList );
     return CreateCapCategoryMorphismWithAttributes( cat_1, P_1, Y_1, AsList, Filtered( [ 0 .. Length( Y_1 ) - 1 ], function ( x_2 )
-              local hoisted_1_2, hoisted_2_2, deduped_3_2;
-              deduped_3_2 := 1 + x_2;
-              hoisted_2_2 := hoisted_1_1[deduped_3_2];
-              hoisted_1_2 := deduped_3_2;
-              return ForAll( hoisted_2_1, function ( fj_3 )
-                      return hoisted_2_2 = fj_3[hoisted_1_2];
+              local hoisted_1_2;
+              hoisted_1_2 := 1 + x_2;
+              return ForAll( hoisted_2_1, function ( j_3 )
+                      return hoisted_1_1[j_3][hoisted_1_2] = hoisted_1_1[j_3 + 1][hoisted_1_2];
                   end );
           end ) );
 end
@@ -315,17 +312,14 @@ end
         
 ########
 function ( cat_1, arg2_1, arg3_1 )
-    local hoisted_1_1, hoisted_2_1, deduped_3_1;
-    deduped_3_1 := List( arg3_1, AsList );
-    hoisted_2_1 := deduped_3_1{[ 2 .. Length( arg3_1 ) ]};
-    hoisted_1_1 := deduped_3_1[1];
+    local hoisted_1_1, hoisted_2_1;
+    hoisted_2_1 := [ 1 .. Length( arg3_1 ) - 1 ];
+    hoisted_1_1 := List( arg3_1, AsList );
     return CreateCapCategoryObjectWithAttributes( cat_1, Length, Length( Filtered( [ 0 .. Length( arg2_1 ) - 1 ], function ( x_2 )
-                local hoisted_1_2, hoisted_2_2, deduped_3_2;
-                deduped_3_2 := 1 + x_2;
-                hoisted_2_2 := hoisted_1_1[deduped_3_2];
-                hoisted_1_2 := deduped_3_2;
-                return ForAll( hoisted_2_1, function ( fj_3 )
-                        return hoisted_2_2 = fj_3[hoisted_1_2];
+                local hoisted_1_2;
+                hoisted_1_2 := 1 + x_2;
+                return ForAll( hoisted_2_1, function ( j_3 )
+                        return hoisted_1_1[j_3][hoisted_1_2] = hoisted_1_1[j_3 + 1][hoisted_1_2];
                     end );
             end ) ) );
 end
@@ -904,17 +898,14 @@ end
         
 ########
 function ( cat_1, Y_1, morphisms_1, T_1, tau_1, P_1 )
-    local hoisted_1_1, hoisted_2_1, hoisted_3_1, hoisted_4_1, deduped_5_1;
-    deduped_5_1 := List( morphisms_1, AsList );
-    hoisted_2_1 := deduped_5_1{[ 2 .. Length( morphisms_1 ) ]};
-    hoisted_1_1 := deduped_5_1[1];
+    local hoisted_1_1, hoisted_2_1, hoisted_3_1, hoisted_4_1;
+    hoisted_2_1 := [ 1 .. Length( morphisms_1 ) - 1 ];
+    hoisted_1_1 := List( morphisms_1, AsList );
     hoisted_4_1 := Filtered( [ 0 .. Length( Y_1 ) - 1 ], function ( x_2 )
-            local hoisted_1_2, hoisted_2_2, deduped_3_2;
-            deduped_3_2 := 1 + x_2;
-            hoisted_2_2 := hoisted_1_1[deduped_3_2];
-            hoisted_1_2 := deduped_3_2;
-            return ForAll( hoisted_2_1, function ( fj_3 )
-                    return hoisted_2_2 = fj_3[hoisted_1_2];
+            local hoisted_1_2;
+            hoisted_1_2 := 1 + x_2;
+            return ForAll( hoisted_2_1, function ( j_3 )
+                    return hoisted_1_1[j_3][hoisted_1_2] = hoisted_1_1[j_3 + 1][hoisted_1_2];
                 end );
         end );
     hoisted_3_1 := AsList( tau_1 );

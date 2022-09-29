@@ -15,11 +15,7 @@ InstallMethod( CategoryOfSkeletalFinSets,
     
     cat!.category_as_first_argument := true;
     
-    # SkeletalFinSets supports empty limits except of the following problem:
-    # In `Equalizer`, we compute `D2[1]` inside a loop over `D2{[ 2 .. Length( D ) ]}`.
-    # This code can deal with empty `D` because in this case the loop body is never executed.
-    # However, CompilerForCAP would hoist `D2[1]` out of the loop, so the compiled code will not be valid anymore for empty `D`.
-    #cat!.supports_empty_limits := true;
+    cat!.supports_empty_limits := true;
     
     cat!.compiler_hints := rec(
         category_filter := IsCategoryOfSkeletalFinSets,
@@ -598,7 +594,7 @@ AddEqualizer( SkeletalFinSets,
     
     D2 := List( D, AsList );
     
-    Eq := Filtered( [ 0 .. Length( s ) - 1 ], x -> ForAll( D2{[ 2 .. Length( D ) ]}, fj -> D2[1][1 + x] = fj[1 + x] ) );
+    Eq := Filtered( [ 0 .. Length( s ) - 1 ], x -> ForAll( [ 1 .. Length( D ) - 1 ], j -> D2[j][1 + x] = D2[j + 1][1 + x] ) );
     
     return FinSet( SkeletalFinSets, Length( Eq ) );
     
@@ -611,7 +607,7 @@ AddEmbeddingOfEqualizerWithGivenEqualizer( SkeletalFinSets,
     
     D2 := List( D, AsList );
     
-    Eq := Filtered( [ 0 .. Length( s ) - 1 ], x -> ForAll( D2{[ 2 .. Length( D ) ]}, fj -> D2[1][1 + x] = fj[1 + x] ) );
+    Eq := Filtered( [ 0 .. Length( s ) - 1 ], x -> ForAll( [ 1 .. Length( D ) - 1 ], j -> D2[j][1 + x] = D2[j + 1][1 + x] ) );
     
     return MapOfFinSets( cat, E, Eq, s );
     
@@ -624,7 +620,7 @@ AddUniversalMorphismIntoEqualizerWithGivenEqualizer( SkeletalFinSets,
     
     D2 := List( D, AsList );
     
-    Eq := Filtered( [ 0 .. Length( s ) - 1 ], x -> ForAll( D2{[ 2 .. Length( D ) ]}, fj -> D2[1][1 + x] = fj[1 + x] ) );
+    Eq := Filtered( [ 0 .. Length( s ) - 1 ], x -> ForAll( [ 1 .. Length( D ) - 1 ], j -> D2[j][1 + x] = D2[j + 1][1 + x] ) );
     
     t := AsList( tau );
     
