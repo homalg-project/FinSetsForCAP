@@ -574,7 +574,8 @@ end );
 AddTerminalObject( category_of_finite_sets,
   function ( category_of_finite_sets )
     
-    return FinSetNC( category_of_finite_sets, [ "*" ] );
+    # the terminal object consists of the empty list to coincide with the empty direct product
+    return FinSetNC( category_of_finite_sets, [ [ ] ] );
     
 end );
 
@@ -699,11 +700,8 @@ end );
 ##
 AddUniversalMorphismFromCoproductWithGivenCoproduct( category_of_finite_sets,
   function ( category_of_finite_sets, D, test_object, tau, S )
-    local T;
     
-    T := Range( tau[1] );
-    
-    return MapOfFinSetsNC( S, List( S, i_x -> [ i_x, tau[i_x[1]]( i_x[2] ) ] ), T );
+    return MapOfFinSetsNC( S, List( S, i_x -> [ i_x, tau[i_x[1]]( i_x[2] ) ] ), test_object );
     
 end );
 

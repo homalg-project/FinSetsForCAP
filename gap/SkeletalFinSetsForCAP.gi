@@ -36,7 +36,7 @@ InstallMethod( CategoryOfSkeletalFinSets,
     
     INSTALL_FUNCTIONS_FOR_SKELETAL_FIN_SETS( cat );
     
-    AddTheoremFileToCategory( FinSets,
+    AddTheoremFileToCategory( cat,
             Filename( DirectoriesPackageLibrary( "Toposes", "LogicForToposes" ), "PropositionsForToposes.tex" ) );
     
     if ValueOption( "no_precompiled_code" ) <> true then
