@@ -15,11 +15,7 @@ InstallMethod( CategoryOfFinSets,
     
     FinSets!.category_as_first_argument := true;
     
-    # FinSets supports empty limits except of the following problem:
-    # In `Equalizer`, we compute `D[1]` inside a loop over `D{[ 2 .. Length( D ) ]}`.
-    # This code can deal with empty `D` because in this case the loop body is never executed.
-    # However, CompilerForCAP would hoist `D[1]` out of the loop, so the compiled code will not be valid anymore for empty `D`.
-    #FinSets!.supports_empty_limits := true;
+    FinSets!.supports_empty_limits := true;
     
     FinSets!.compiler_hints := rec(
         category_filter := IsCategoryOfFinSets,
@@ -808,7 +804,7 @@ end );
 AddEqualizer( category_of_finite_sets,
   function ( category_of_finite_sets, S, D )
     
-    return Filtered( S, x -> ForAll( D{[ 2 .. Length( D ) ]}, fj -> IsEqualForElementsOfFinSets( D[1]( x ), fj( x ) ) ) );
+    return Filtered( S, x -> ForAll( [ 1 .. Length( D ) - 1 ], j -> IsEqualForElementsOfFinSets( D[j]( x ), D[j + 1]( x ) ) ) );
     
 end );
 
