@@ -139,7 +139,7 @@ DeclareOperation( "ImageObject",
 DeclareGlobalFunction( "INSTALL_FUNCTIONS_FOR_SKELETAL_FIN_SETS" );
 
 DeclareGlobalFunction( "SKELETAL_FIN_SETS_ExplicitCoequalizer" );
-CapJitAddTypeSignature( "SKELETAL_FIN_SETS_ExplicitCoequalizer", [ IsList ], rec( filter := IsList, element_type := rec( filter := IsList, element_type := rec( filter := IsInt ) ) ) );
+CapJitAddTypeSignature( "SKELETAL_FIN_SETS_ExplicitCoequalizer", [ IsSkeletalFiniteSet, IsList ], rec( filter := IsList, element_type := rec( filter := IsList, element_type := rec( filter := IsInt ) ) ) );
 
 DeclareGlobalFunction( "SKELETAL_FIN_SETS_IsMonomorphism" );
 CapJitAddTypeSignature( "SKELETAL_FIN_SETS_IsMonomorphism", [ IsList, IsInt ], IsBool );
