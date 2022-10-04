@@ -210,11 +210,13 @@ end
         
 ########
 function ( cat_1, alpha_1, I_1 )
-    local hoisted_1_1, deduped_2_1;
-    deduped_2_1 := AsList( alpha_1 );
-    hoisted_1_1 := SSortedList( deduped_2_1 );
-    return CreateCapCategoryMorphismWithAttributes( cat_1, Source( alpha_1 ), I_1, AsList, List( deduped_2_1, function ( l_2 )
-              return -1 + SafePosition( hoisted_1_1, l_2 );
+    local hoisted_1_1, hoisted_2_1, deduped_3_1, deduped_4_1;
+    deduped_4_1 := AsList( alpha_1 );
+    deduped_3_1 := Source( alpha_1 );
+    hoisted_2_1 := SSortedList( deduped_4_1 );
+    hoisted_1_1 := deduped_4_1;
+    return CreateCapCategoryMorphismWithAttributes( cat_1, deduped_3_1, I_1, AsList, List( [ 0 .. Length( deduped_3_1 ) - 1 ], function ( i_2 )
+              return -1 + SafePosition( hoisted_2_1, hoisted_1_1[(1 + i_2)] );
           end ) );
 end
 ########
