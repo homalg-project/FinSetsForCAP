@@ -502,15 +502,17 @@ end );
 ##
 AddCoastrictionToImageWithGivenImageObject( SkeletalFinSets,
   function ( cat, phi, image_object )
-    local G, images, L, l, pi;
+    local G, images, s, L, l, pi;
     
     G := AsList( phi );
     
     images := Set( G );
     
-    L := List( G, l -> -1 + SafePosition( images, l ) );
+    s := Source( phi );
     
-    pi := MapOfFinSets( cat, Source( phi ), L, image_object );
+    L := List( [ 0 .. Length( s ) - 1 ], i -> -1 + SafePosition( images, G[1 + i] ) );
+    
+    pi := MapOfFinSets( cat, s, L, image_object );
     
     #% CAP_JIT_DROP_NEXT_STATEMENT
     Assert( 3, IsEpimorphism( cat, pi ) );
