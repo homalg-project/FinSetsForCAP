@@ -798,6 +798,177 @@ end
     , 100 );
     
     ##
+    AddPushoutComplement( cat,
+        
+########
+function ( cat_1, l_1, m_1 )
+    local hoisted_1_1, hoisted_2_1, hoisted_3_1, hoisted_4_1, hoisted_5_1, hoisted_6_1, hoisted_7_1, hoisted_8_1, hoisted_9_1, hoisted_10_1, hoisted_11_1, hoisted_12_1, hoisted_13_1, hoisted_14_1, hoisted_15_1, hoisted_16_1, hoisted_17_1, hoisted_18_1, hoisted_19_1, hoisted_20_1, hoisted_21_1, hoisted_22_1, hoisted_23_1, hoisted_24_1, hoisted_25_1, hoisted_26_1, hoisted_27_1, hoisted_28_1, hoisted_29_1, hoisted_30_1, hoisted_31_1, hoisted_32_1, hoisted_33_1, hoisted_34_1, hoisted_35_1, hoisted_36_1, hoisted_37_1, hoisted_38_1, hoisted_39_1, hoisted_40_1, hoisted_41_1, hoisted_42_1, hoisted_43_1, hoisted_44_1, hoisted_45_1, deduped_46_1, deduped_47_1, deduped_48_1, deduped_49_1, deduped_50_1, deduped_51_1, deduped_52_1, deduped_53_1, deduped_54_1, deduped_55_1, deduped_56_1, deduped_57_1, deduped_58_1, deduped_59_1, deduped_60_1, deduped_61_1, deduped_62_1, deduped_63_1;
+    deduped_63_1 := Range( m_1 );
+    deduped_62_1 := Length( Source( l_1 ) );
+    deduped_61_1 := Length( Source( m_1 ) );
+    deduped_60_1 := Length( deduped_63_1 );
+    deduped_59_1 := [ 0 .. deduped_60_1 - 1 ];
+    deduped_58_1 := [ 0 .. deduped_61_1 * deduped_62_1 - 1 ];
+    deduped_57_1 := [ 0 .. deduped_61_1 * deduped_61_1 - 1 ];
+    hoisted_17_1 := AsList( l_1 );
+    hoisted_15_1 := deduped_62_1;
+    hoisted_1_1 := deduped_61_1;
+    hoisted_16_1 := List( deduped_58_1, function ( i_2 )
+            return REM_INT( QUO_INT( i_2, hoisted_1_1 ), hoisted_15_1 );
+        end );
+    hoisted_18_1 := List( deduped_58_1, function ( i_2 )
+            return hoisted_17_1[1 + hoisted_16_1[(1 + i_2)]];
+        end );
+    hoisted_13_1 := List( deduped_58_1, function ( i_2 )
+            return REM_INT( i_2, hoisted_1_1 );
+        end );
+    hoisted_14_1 := List( deduped_58_1, function ( i_2 )
+            return hoisted_13_1[1 + i_2];
+        end );
+    deduped_55_1 := Filtered( deduped_58_1, function ( x_2 )
+            local deduped_1_2;
+            deduped_1_2 := 1 + x_2;
+            return hoisted_14_1[deduped_1_2] = hoisted_18_1[deduped_1_2];
+        end );
+    hoisted_4_1 := List( deduped_57_1, function ( i_2 )
+            return REM_INT( QUO_INT( i_2, hoisted_1_1 ), hoisted_1_1 );
+        end );
+    hoisted_5_1 := List( deduped_57_1, function ( i_2 )
+            return hoisted_4_1[1 + i_2];
+        end );
+    hoisted_2_1 := List( deduped_57_1, function ( i_2 )
+            return REM_INT( i_2, hoisted_1_1 );
+        end );
+    hoisted_3_1 := List( deduped_57_1, function ( i_2 )
+            return hoisted_2_1[1 + i_2];
+        end );
+    deduped_54_1 := Filtered( deduped_57_1, function ( x_2 )
+            local deduped_1_2;
+            deduped_1_2 := 1 + x_2;
+            return hoisted_3_1[deduped_1_2] = hoisted_5_1[deduped_1_2];
+        end );
+    deduped_53_1 := Length( deduped_55_1 );
+    deduped_51_1 := [ 0 .. deduped_53_1 - 1 ];
+    deduped_50_1 := [ 0 .. Length( deduped_54_1 ) - 1 ];
+    deduped_49_1 := [ 0 .. deduped_53_1 * deduped_62_1 - 1 ];
+    hoisted_22_1 := deduped_53_1;
+    hoisted_26_1 := List( deduped_49_1, function ( i_2 )
+            return REM_INT( QUO_INT( i_2, hoisted_22_1 ), hoisted_15_1 );
+        end );
+    hoisted_27_1 := List( deduped_49_1, function ( i_2 )
+            return hoisted_26_1[1 + i_2];
+        end );
+    hoisted_19_1 := deduped_55_1;
+    hoisted_20_1 := List( deduped_51_1, function ( i_2 )
+            return hoisted_16_1[1 + hoisted_19_1[(1 + i_2)]];
+        end );
+    hoisted_21_1 := List( deduped_51_1, function ( i_2 )
+            return hoisted_20_1[1 + i_2];
+        end );
+    hoisted_24_1 := List( deduped_51_1, function ( i_2 )
+            return hoisted_21_1[1 + i_2];
+        end );
+    hoisted_23_1 := List( deduped_49_1, function ( i_2 )
+            return REM_INT( i_2, hoisted_22_1 );
+        end );
+    hoisted_25_1 := List( deduped_49_1, function ( i_2 )
+            return hoisted_24_1[1 + hoisted_23_1[(1 + i_2)]];
+        end );
+    deduped_47_1 := Filtered( deduped_49_1, function ( x_2 )
+            local deduped_1_2;
+            deduped_1_2 := 1 + x_2;
+            return hoisted_25_1[deduped_1_2] = hoisted_27_1[deduped_1_2];
+        end );
+    deduped_46_1 := [ 0 .. Length( deduped_47_1 ) - 1 ];
+    hoisted_38_1 := [ 1, 0, 1, 1 ];
+    hoisted_28_1 := List( deduped_51_1, function ( i_2 )
+            return hoisted_13_1[1 + hoisted_19_1[(1 + i_2)]];
+        end );
+    hoisted_29_1 := List( deduped_51_1, function ( i_2 )
+            return hoisted_28_1[1 + i_2];
+        end );
+    hoisted_9_1 := AsList( m_1 );
+    hoisted_33_1 := List( deduped_51_1, function ( i_2 )
+            return hoisted_9_1[1 + hoisted_29_1[(1 + i_2)]];
+        end );
+    hoisted_30_1 := deduped_47_1;
+    hoisted_31_1 := List( deduped_46_1, function ( i_2 )
+            return hoisted_23_1[1 + hoisted_30_1[(1 + i_2)]];
+        end );
+    hoisted_32_1 := List( deduped_46_1, function ( i_2 )
+            return hoisted_31_1[1 + i_2];
+        end );
+    hoisted_34_1 := List( deduped_46_1, function ( i_2 )
+            return hoisted_33_1[1 + hoisted_32_1[(1 + i_2)]];
+        end );
+    hoisted_35_1 := List( deduped_46_1, function ( i_2 )
+            return hoisted_34_1[1 + i_2];
+        end );
+    hoisted_36_1 := List( deduped_59_1, function ( x_2 )
+            if x_2 in hoisted_35_1 then
+                return 1;
+            else
+                return 0;
+            fi;
+            return;
+        end );
+    hoisted_6_1 := deduped_54_1;
+    hoisted_7_1 := List( deduped_50_1, function ( i_2 )
+            return hoisted_2_1[1 + hoisted_6_1[(1 + i_2)]];
+        end );
+    hoisted_8_1 := List( deduped_50_1, function ( i_2 )
+            return hoisted_7_1[1 + i_2];
+        end );
+    hoisted_10_1 := List( deduped_50_1, function ( i_2 )
+            return hoisted_9_1[1 + hoisted_8_1[(1 + i_2)]];
+        end );
+    hoisted_11_1 := List( deduped_50_1, function ( i_2 )
+            return hoisted_10_1[1 + i_2];
+        end );
+    hoisted_12_1 := List( deduped_59_1, function ( x_2 )
+            if x_2 in hoisted_11_1 then
+                return 1;
+            else
+                return 0;
+            fi;
+            return;
+        end );
+    hoisted_37_1 := List( deduped_59_1, function ( i_2 )
+            local deduped_1_2;
+            deduped_1_2 := 1 + i_2;
+            return hoisted_12_1[deduped_1_2] + hoisted_36_1[deduped_1_2] * 2;
+        end );
+    hoisted_41_1 := List( deduped_59_1, function ( i_2 )
+            return hoisted_38_1[1 + hoisted_37_1[(1 + i_2)]];
+        end );
+    hoisted_39_1 := deduped_60_1;
+    hoisted_40_1 := List( deduped_59_1, function ( i_2 )
+            return REM_INT( i_2, hoisted_39_1 );
+        end );
+    hoisted_42_1 := List( deduped_59_1, function ( i_2 )
+            return hoisted_41_1[1 + hoisted_40_1[(1 + i_2)]];
+        end );
+    deduped_56_1 := Filtered( deduped_59_1, function ( x_2 )
+            return hoisted_42_1[1 + x_2] = 1;
+        end );
+    deduped_52_1 := [ 0 .. Length( deduped_56_1 ) - 1 ];
+    hoisted_43_1 := deduped_56_1;
+    hoisted_44_1 := List( deduped_52_1, function ( i_2 )
+            return hoisted_40_1[1 + hoisted_43_1[(1 + i_2)]];
+        end );
+    hoisted_45_1 := List( deduped_52_1, function ( i_2 )
+            return hoisted_44_1[1 + i_2];
+        end );
+    deduped_48_1 := SSortedList( List( deduped_52_1, function ( i_2 )
+              return hoisted_40_1[1 + hoisted_45_1[(1 + i_2)]];
+          end ) );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, CreateCapCategoryObjectWithAttributes( cat_1, Length, Length( deduped_48_1 ) ), deduped_63_1, AsList, deduped_48_1 );
+end
+########
+        
+    , 5723 : IsPrecompiledDerivation := true );
+    
+    ##
     AddSomeInjectiveObject( cat,
         
 ########
