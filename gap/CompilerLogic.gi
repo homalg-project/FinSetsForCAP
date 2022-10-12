@@ -52,7 +52,7 @@ end );
 CapJitAddLogicTemplate(
     rec(
         variable_names := [ ],
-        src_template := "Filtered( [ 0, 1, 2, 3 ], x -> [ 0, 0, 0, 1 ][1 + x] = [ 0, 1, 0, 1 ][1 + x] )",
+        src_template := "Filtered( [ 0, 1, 2, 3 ], x -> CAP_JIT_INTERNAL_EXPR_CASE( x = 3, 1, true, 0 ) = REM_INT( x, 2 ) )",
         dst_template := "[ 0, 2, 3 ]",
     )
 );
@@ -90,6 +90,31 @@ CapJitAddLogicTemplate(
         variable_names := [ ],
         src_template := "3 in [ 0, 2, 3 ]",
         dst_template := "true",
+    )
+);
+
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "last", "func" ],
+        src_template := "List( [ 0 .. last ], x -> List( [ 0 .. last ], func )[1 + x] )",
+        dst_template := "List( [ 0 .. last ], func )", # actually: List( List( [ 0 .. last ], func ), x -> x )
+    )
+);
+
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "last", "list_independent_of_x", "func" ],
+        src_template := "List( [ 0 .. last ], x -> list_independent_of_x[1 + List( [ 0 .. last ], func )[1 + x]] )",
+        dst_template := "List( List( [ 0 .. last ], func ), y -> list_independent_of_x[1 + y] )",
+        new_funcs := [ [ "y" ] ],
+    )
+);
+
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "last", "func1", "func2" ],
+        src_template := "Filtered( [ 0 .. last ], x -> List( [ 0 .. last ], func1 )[1 + x] = List( [ 0 .. last ], func2 )[1 + x] )",
+        dst_template := "Filtered( [ 0 .. last ], x -> func1( x ) = func2( x ) )",
     )
 );
 
