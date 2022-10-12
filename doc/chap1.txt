@@ -1188,3 +1188,40 @@
     [4X[28X[ 1, 2, 4, 5, 6, 7 ][128X[104X
   [4X[32X[104X
   
+  
+  [1X1.5-19 [33X[0;0YPushout Complement[133X[101X
+  
+  [33X[0;0YDefine    two    composable    monos   [23XK   \stackrel{l}{\hookrightarrow}   L
+  \stackrel{m}{\hookrightarrow} G[123X in [10XFinSets[110X:[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP" );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XK := FinSet( [ 2, 3, 5 ] );;[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( K );[127X[104X
+    [4X[28X[ 2, 3, 5 ][128X[104X
+    [4X[25Xgap>[125X [27XL := FinSet( [ 0, 1, 2, 3, 5, 6 ] );;[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( L );[127X[104X
+    [4X[28X[ 0, 1, 2, 3, 5, 6 ][128X[104X
+    [4X[25Xgap>[125X [27Xl := EmbeddingOfFinSets( K, L );[127X[104X
+    [4X[28X<A monomorphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XG := FinSet( [ 0, 1, 2, 3, 4, 5, 6, 10 ] );;[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( G );[127X[104X
+    [4X[28X[ 0, 1, 2, 3, 4, 5, 6, 10 ][128X[104X
+    [4X[25Xgap>[125X [27Xm := EmbeddingOfFinSets( L, G );[127X[104X
+    [4X[28X<A monomorphism in FinSets>[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YNow we compute the pushout complement [23XD \stackrel{c}{\hookrightarrow} G[123X of [23XK
+  \stackrel{l}{\hookrightarrow} L \stackrel{m}{\hookrightarrow} G[123X:[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XHasPushoutComplement( l, m );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xc := PushoutComplement( l, m );[127X[104X
+    [4X[28X<A monomorphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27XD := Source( c );;[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( D );[127X[104X
+    [4X[28X[ 2, 3, 4, 5, 10 ][128X[104X
+  [4X[32X[104X
+  

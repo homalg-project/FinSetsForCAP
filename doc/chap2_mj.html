@@ -100,6 +100,8 @@
 </span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X855F57B6818322EB">2.5-19 <span class="Heading">Skeletal Subobject Classifier</span></a>
 </span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X7A714DD6853DF4FB">2.5-20 <span class="Heading">Skeletal Pushout Complement</span></a>
+</span>
 </div></div>
 </div>
 
@@ -1216,6 +1218,46 @@ true
 |6| ↪ |7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( iotaNpL );</span>
 { 0,..., 5 } ⱶ[ 0, 1, 3, 4, 5, 6 ]→ { 0,..., 6 }
+</pre></div>
+
+<p><a id="X7A714DD6853DF4FB" name="X7A714DD6853DF4FB"></a></p>
+
+<h5>2.5-20 <span class="Heading">Skeletal Pushout Complement</span></h5>
+
+<p>Define two composable monos <span class="SimpleMath">\(K \stackrel{l}{\hookrightarrow} L \stackrel{m}{\hookrightarrow} G\)</span> in <code class="code">SkeletalFinSets</code>:</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP" );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">K := FinSet( 3 );</span>
+|3|
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := FinSet( 6 );</span>
+|6|
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">l := MapOfFinSets( K, [ 2, 3, 4 ], L );; IsMonomorphism( l );; l;</span>
+|3| ↪ |6|
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( l );</span>
+{ 0, 1, 2 } ⱶ[ 2, 3, 4 ]→ { 0,..., 5 }
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := FinSet( 8 );</span>
+|8|
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( G );</span>
+{ 0,..., 7 }
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := MapOfFinSets( L, [ 0, 1, 2, 3, 5, 6 ], G );</span>
+|6| → |8|
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( m );</span>
+{ 0,..., 5 } ⱶ[ 0, 1, 2, 3, 5, 6 ]→ { 0,..., 7 }
+</pre></div>
+
+<p>Now we compute the pushout complement <span class="SimpleMath">\(D \stackrel{c}{\hookrightarrow} G\)</span> of <span class="SimpleMath">\(K \stackrel{l}{\hookrightarrow} L \stackrel{m}{\hookrightarrow} G\)</span>:</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">HasPushoutComplement( l, m );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c := PushoutComplement( l, m );</span>
+|5| → |8|
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( c );</span>
+{ 0,..., 4 } ⱶ[ 2, 3, 4, 5, 7 ]→ { 0,..., 7 }
 </pre></div>
 
 

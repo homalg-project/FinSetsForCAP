@@ -107,6 +107,8 @@
 </span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X87DA77E487F951EF">1.5-18 <span class="Heading">Subobject Classifier</span></a>
 </span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X81FD0D9179A75F88">1.5-19 <span class="Heading">Pushout Complement</span></a>
+</span>
 </div></div>
 </div>
 
@@ -1372,6 +1374,44 @@ true
 &lt;An object in FinSets&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( NpL );</span>
 [ 1, 2, 4, 5, 6, 7 ]
+</pre></div>
+
+<p><a id="X81FD0D9179A75F88" name="X81FD0D9179A75F88"></a></p>
+
+<h5>1.5-19 <span class="Heading">Pushout Complement</span></h5>
+
+<p>Define two composable monos <span class="SimpleMath">\(K \stackrel{l}{\hookrightarrow} L \stackrel{m}{\hookrightarrow} G\)</span> in <code class="code">FinSets</code>:</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP" );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">K := FinSet( [ 2, 3, 5 ] );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( K );</span>
+[ 2, 3, 5 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := FinSet( [ 0, 1, 2, 3, 5, 6 ] );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( L );</span>
+[ 0, 1, 2, 3, 5, 6 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">l := EmbeddingOfFinSets( K, L );</span>
+&lt;A monomorphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := FinSet( [ 0, 1, 2, 3, 4, 5, 6, 10 ] );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( G );</span>
+[ 0, 1, 2, 3, 4, 5, 6, 10 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := EmbeddingOfFinSets( L, G );</span>
+&lt;A monomorphism in FinSets&gt;
+</pre></div>
+
+<p>Now we compute the pushout complement <span class="SimpleMath">\(D \stackrel{c}{\hookrightarrow} G\)</span> of <span class="SimpleMath">\(K \stackrel{l}{\hookrightarrow} L \stackrel{m}{\hookrightarrow} G\)</span>:</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">HasPushoutComplement( l, m );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c := PushoutComplement( l, m );</span>
+&lt;A monomorphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D := Source( c );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( D );</span>
+[ 2, 3, 4, 5, 10 ]
 </pre></div>
 
 
