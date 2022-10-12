@@ -22,6 +22,8 @@ list_of_operations :=
   SortedList( Concatenation( primitive_operations, [
           "CartesianLambdaIntroduction",
           "CartesianLambdaElimination",
+          #"HasPushoutComplement",
+          "PushoutComplement",
           ] ) );;
 
 CapJitPrecompileCategoryAndCompareResult(

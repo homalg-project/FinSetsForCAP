@@ -62,6 +62,9 @@
 @InsertChunk SubobjectClassifier
 @InsertChunk HeytingAlgebraOfSubobjects
 
+@Subsection Pushout Complement
+@InsertChunk PushoutComplement
+
 @Chapter The category of skeletal finite sets
 
 @Section Skeletal GAP Categories
@@ -130,3 +133,6 @@
 @Subsection Skeletal Subobject Classifier
 @InsertChunk SkeletalSubobjectClassifier
 @InsertChunk SkeletalHeytingAlgebraOfSubobjects
+
+@Subsection Skeletal Pushout Complement
+@InsertChunk SkeletalPushoutComplement

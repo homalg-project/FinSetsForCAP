@@ -4,25 +4,99 @@
 # Implementations
 #
 
+CapJitAddLogicFunction( function ( tree )
+  local pre_func;
+    
+    Info( InfoCapJit, 1, "####" );
+    Info( InfoCapJit, 1, "Apply logic for global functions applied to literal integers" );
+    
+    pre_func := function ( tree, additional_arguments )
+        local args;
+        
+        if CapJitIsCallToGlobalFunction( tree, ReturnTrue ) then
+            
+            args := tree.args;
+            
+            if ForAll( args, a -> a.type = "EXPR_INT" ) then
+                
+                if tree.funcref.gvar in [ "+", "-", "*", "QUO_INT", "REM_INT" ] then
+                    
+                    return rec(
+                               type := "EXPR_INT",
+                               value := CallFuncList( ValueGlobal( tree.funcref.gvar ), AsListMut( List( args, a -> a.value ) ) ),
+                               );
+                    
+                # elif tree.funcref.gvar in [ "=" ] then
+                #
+                # if CallFuncList( ValueGlobal( tree.funcref.gvar ), AsListMut( List( args, a -> a.value ) ) ) then
+                # return rec( type := "EXPR_TRUE" );
+                # else
+                # return rec( type := "EXPR_FALSE" );
+                # fi;
+                    
+                fi;
+                
+            fi;
+            
+        fi;
+        
+        return tree;
+        
+    end;
+    
+    return CapJitIterateOverTree( tree, pre_func, CapJitResultFuncCombineChildren, ReturnTrue, true );
+    
+end );
+
+## for PushoutComplement
 CapJitAddLogicTemplate(
     rec(
         variable_names := [ ],
-        src_template := "1 - 1",
-        dst_template := "0",
+        src_template := "Filtered( [ 0, 1, 2, 3 ], x -> [ 0, 0, 0, 1 ][1 + x] = [ 0, 1, 0, 1 ][1 + x] )",
+        dst_template := "[ 0, 2, 3 ]",
     )
 );
 
+## for PushoutComplement
 CapJitAddLogicTemplate(
     rec(
         variable_names := [ ],
-        src_template := "2 - 1",
-        dst_template := "1",
+        src_template := "0 in [ 0, 2, 3 ]",
+        dst_template := "true",
+    )
+);
+
+## for PushoutComplement
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ ],
+        src_template := "1 in [ 0, 2, 3 ]",
+        dst_template := "false",
+    )
+);
+
+## for PushoutComplement
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ ],
+        src_template := "2 in [ 0, 2, 3 ]",
+        dst_template := "true",
+    )
+);
+
+## for PushoutComplement
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ ],
+        src_template := "3 in [ 0, 2, 3 ]",
+        dst_template := "true",
     )
 );
 
 CapJitAddLogicTemplate(
     rec(
         variable_names := [ "number" ],
+        variable_filters := [ IsInt ],
         src_template := "0 + number",
         dst_template := "number",
     )
@@ -31,15 +105,8 @@ CapJitAddLogicTemplate(
 CapJitAddLogicTemplate(
     rec(
         variable_names := [ "number" ],
-        src_template := "0 * number",
-        dst_template := "0",
-    )
-);
-
-CapJitAddLogicTemplate(
-    rec(
-        variable_names := [ "number" ],
-        src_template := "1 * number",
+        variable_filters := [ IsInt ],
+        src_template := "number + 0",
         dst_template := "number",
     )
 );
@@ -47,6 +114,7 @@ CapJitAddLogicTemplate(
 CapJitAddLogicTemplate(
     rec(
         variable_names := [ "number" ],
+        variable_filters := [ IsInt ],
         src_template := "number * 1",
         dst_template := "number",
     )
@@ -55,6 +123,25 @@ CapJitAddLogicTemplate(
 CapJitAddLogicTemplate(
     rec(
         variable_names := [ "number" ],
+        variable_filters := [ IsInt ],
+        src_template := "1 * number",
+        dst_template := "number",
+    )
+);
+
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "number" ],
+        variable_filters := [ IsInt ],
+        src_template := "0 * number",
+        dst_template := "0",
+    )
+);
+
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "number" ],
+        variable_filters := [ IsInt ],
         src_template := "QUO_INT( number, 1 )",
         dst_template := "number",
     )
@@ -163,5 +250,30 @@ CapJitAddLogicTemplate(
         variable_filters := [ IsInt ],
         src_template := "(1 + number) - 1",
         dst_template := "number",
+    )
+);
+
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "number1", "number2" ],
+        variable_filters := [ IsInt, IsInt ],
+        src_template := "number1 in [ number2 ]",
+        dst_template := "number1 = number2",
+    )
+);
+
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "entry", "func" ],
+        src_template := "ForAll( [ entry ], func )",
+        dst_template := "func( entry )",
+    )
+);
+
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "entry", "list" ],
+        src_template := "entry in SSortedList( list )",
+        dst_template := "entry in list",
     )
 );
