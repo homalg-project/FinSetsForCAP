@@ -780,21 +780,21 @@ function ( cat_1, l_1, m_1 )
     deduped_36_1 := Length( Source( m_1 ) );
     deduped_35_1 := Length( deduped_38_1 );
     deduped_34_1 := [ 0 .. deduped_35_1 - 1 ];
-    deduped_33_1 := [ 0 .. deduped_36_1 * deduped_36_1 - 1 ];
-    deduped_32_1 := [ 0 .. deduped_36_1 * deduped_37_1 - 1 ];
+    deduped_33_1 := [ 0 .. deduped_36_1 * deduped_37_1 - 1 ];
+    deduped_32_1 := [ 0 .. deduped_36_1 * deduped_36_1 - 1 ];
     hoisted_1_1 := deduped_36_1;
-    deduped_31_1 := Filtered( deduped_33_1, function ( x_2 )
+    deduped_31_1 := Filtered( deduped_32_1, function ( x_2 )
             return REM_INT( x_2, hoisted_1_1 ) = REM_INT( QUO_INT( x_2, hoisted_1_1 ), hoisted_1_1 );
         end );
     hoisted_8_1 := AsList( l_1 );
     hoisted_7_1 := deduped_37_1;
-    deduped_29_1 := Filtered( deduped_32_1, function ( x_2 )
+    deduped_29_1 := Filtered( deduped_33_1, function ( x_2 )
             return REM_INT( x_2, hoisted_1_1 ) = hoisted_8_1[1 + REM_INT( QUO_INT( x_2, hoisted_1_1 ), hoisted_7_1 )];
         end );
     deduped_28_1 := Length( deduped_29_1 );
     deduped_27_1 := [ 0 .. deduped_28_1 - 1 ];
     deduped_26_1 := [ 0 .. deduped_28_1 * deduped_37_1 - 1 ];
-    hoisted_10_1 := List( deduped_32_1, function ( i_2 )
+    hoisted_10_1 := List( deduped_33_1, function ( i_2 )
             return REM_INT( QUO_INT( i_2, hoisted_1_1 ), hoisted_7_1 );
         end );
     hoisted_9_1 := deduped_29_1;
@@ -806,7 +806,7 @@ function ( cat_1, l_1, m_1 )
             return hoisted_12_1[1 + REM_INT( x_2, hoisted_11_1 )] = REM_INT( QUO_INT( x_2, hoisted_11_1 ), hoisted_7_1 );
         end );
     hoisted_19_1 := [ 1, 0, 1, 1 ];
-    hoisted_13_1 := List( deduped_32_1, function ( i_2 )
+    hoisted_13_1 := List( deduped_33_1, function ( i_2 )
             return REM_INT( i_2, hoisted_1_1 );
         end );
     hoisted_4_1 := AsList( m_1 );
@@ -828,7 +828,7 @@ function ( cat_1, l_1, m_1 )
             fi;
             return;
         end );
-    hoisted_3_1 := List( deduped_33_1, function ( i_2 )
+    hoisted_3_1 := List( deduped_32_1, function ( i_2 )
             return REM_INT( i_2, hoisted_1_1 );
         end );
     hoisted_2_1 := deduped_31_1;
