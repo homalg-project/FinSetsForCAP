@@ -64,34 +64,29 @@ end
         
 ########
 function ( cat_1, a_1, b_1, alpha_1 )
-    local hoisted_1_1, hoisted_2_1, hoisted_3_1, hoisted_4_1, hoisted_5_1, hoisted_6_1, hoisted_7_1, hoisted_8_1, hoisted_9_1, hoisted_10_1, deduped_11_1, deduped_12_1, deduped_13_1, deduped_14_1, deduped_15_1;
-    deduped_15_1 := Length( b_1 );
-    deduped_14_1 := Length( a_1 );
-    deduped_13_1 := Length( Source( alpha_1 ) );
-    deduped_12_1 := deduped_15_1 ^ deduped_14_1;
-    deduped_11_1 := [ 0 .. deduped_13_1 * deduped_14_1 - 1 ];
-    hoisted_2_1 := deduped_15_1;
-    hoisted_1_1 := deduped_12_1;
-    hoisted_9_1 := List( [ 0 .. deduped_12_1 * deduped_14_1 - 1 ], function ( i_2 )
+    local hoisted_1_1, hoisted_2_1, hoisted_3_1, hoisted_4_1, hoisted_5_1, hoisted_6_1, hoisted_7_1, hoisted_8_1, hoisted_9_1, deduped_10_1, deduped_11_1, deduped_12_1, deduped_13_1, deduped_14_1;
+    deduped_14_1 := Length( b_1 );
+    deduped_13_1 := Length( a_1 );
+    deduped_12_1 := Length( Source( alpha_1 ) );
+    deduped_11_1 := deduped_14_1 ^ deduped_13_1;
+    deduped_10_1 := [ 0 .. deduped_12_1 * deduped_13_1 - 1 ];
+    hoisted_2_1 := deduped_14_1;
+    hoisted_1_1 := deduped_11_1;
+    hoisted_8_1 := List( [ 0 .. deduped_11_1 * deduped_13_1 - 1 ], function ( i_2 )
             return REM_INT( QUO_INT( i_2, hoisted_2_1 ^ QUO_INT( i_2, hoisted_1_1 ) ), hoisted_2_1 );
         end );
-    hoisted_8_1 := Length( Range( alpha_1 ) );
-    hoisted_6_1 := deduped_14_1;
-    hoisted_3_1 := deduped_13_1;
-    hoisted_7_1 := List( deduped_11_1, function ( logic_new_func_x_2 )
-            return REM_INT( QUO_INT( logic_new_func_x_2, hoisted_3_1 ), hoisted_6_1 );
-        end );
-    hoisted_4_1 := AsList( alpha_1 );
-    hoisted_5_1 := List( deduped_11_1, function ( logic_new_func_x_2 )
-            return hoisted_4_1[1 + REM_INT( logic_new_func_x_2, hoisted_3_1 )];
-        end );
-    hoisted_10_1 := List( deduped_11_1, function ( logic_new_func_x_2 )
+    hoisted_7_1 := Length( Range( alpha_1 ) );
+    hoisted_6_1 := deduped_13_1;
+    hoisted_5_1 := AsList( alpha_1 );
+    hoisted_4_1 := deduped_12_1;
+    hoisted_3_1 := deduped_10_1;
+    hoisted_9_1 := List( deduped_10_1, function ( logic_new_func_x_2 )
             local deduped_1_2;
-            deduped_1_2 := 1 + logic_new_func_x_2;
-            return hoisted_9_1[1 + (hoisted_5_1[deduped_1_2] + hoisted_7_1[deduped_1_2] * hoisted_8_1)];
+            deduped_1_2 := CAP_JIT_INCOMPLETE_LOGIC( hoisted_3_1[1 + logic_new_func_x_2] );
+            return hoisted_8_1[1 + (hoisted_5_1[1 + REM_INT( deduped_1_2, hoisted_4_1 )] + REM_INT( QUO_INT( deduped_1_2, hoisted_4_1 ), hoisted_6_1 ) * hoisted_7_1)];
         end );
-    return CreateCapCategoryMorphismWithAttributes( cat_1, a_1, b_1, AsList, List( [ 0 .. deduped_14_1 - 1 ], function ( i_2 )
-              return hoisted_10_1[1 + i_2];
+    return CreateCapCategoryMorphismWithAttributes( cat_1, a_1, b_1, AsList, List( [ 0 .. deduped_13_1 - 1 ], function ( i_2 )
+              return hoisted_9_1[1 + i_2];
           end ) );
 end
 ########
@@ -103,22 +98,17 @@ end
         
 ########
 function ( cat_1, alpha_1 )
-    local hoisted_1_1, hoisted_2_1, hoisted_3_1, hoisted_4_1, hoisted_5_1, hoisted_6_1, deduped_7_1, deduped_8_1, deduped_9_1;
-    deduped_9_1 := Length( Source( alpha_1 ) );
-    deduped_8_1 := Length( Range( alpha_1 ) );
-    deduped_7_1 := [ 0 .. deduped_9_1 - 1 ];
-    hoisted_6_1 := deduped_8_1;
-    hoisted_1_1 := AsList( alpha_1 );
-    hoisted_4_1 := List( deduped_7_1, function ( i_2 )
-            return hoisted_1_1[1 + i_2];
-        end );
-    hoisted_3_1 := CAP_JIT_INCOMPLETE_LOGIC( [ 0 .. deduped_9_1 ^ deduped_9_1 - 1 ][1 + deduped_9_1 * GeometricSumDiff1( deduped_9_1, deduped_9_1 )] );
-    hoisted_2_1 := deduped_9_1;
-    hoisted_5_1 := List( deduped_7_1, function ( logic_new_func_x_2 )
-            return hoisted_4_1[1 + REM_INT( QUO_INT( hoisted_3_1, hoisted_2_1 ^ logic_new_func_x_2 ), hoisted_2_1 )];
-        end );
-    return CreateCapCategoryMorphismWithAttributes( cat_1, CreateCapCategoryObjectWithAttributes( cat_1, Length, 1 ), CreateCapCategoryObjectWithAttributes( cat_1, Length, deduped_8_1 ^ deduped_9_1 ), AsList, [ Sum( List( deduped_7_1, function ( k_2 )
-                    return hoisted_5_1[(1 + k_2)] * hoisted_6_1 ^ k_2;
+    local hoisted_1_1, hoisted_2_1, hoisted_3_1, hoisted_4_1, hoisted_5_1, deduped_6_1, deduped_7_1, deduped_8_1;
+    deduped_8_1 := Length( Source( alpha_1 ) );
+    deduped_7_1 := Length( Range( alpha_1 ) );
+    deduped_6_1 := [ 0 .. deduped_8_1 - 1 ];
+    hoisted_5_1 := deduped_7_1;
+    hoisted_4_1 := AsList( alpha_1 );
+    hoisted_3_1 := CAP_JIT_INCOMPLETE_LOGIC( [ 0 .. deduped_8_1 ^ deduped_8_1 - 1 ][1 + deduped_8_1 * GeometricSumDiff1( deduped_8_1, deduped_8_1 )] );
+    hoisted_2_1 := deduped_8_1;
+    hoisted_1_1 := deduped_6_1;
+    return CreateCapCategoryMorphismWithAttributes( cat_1, CreateCapCategoryObjectWithAttributes( cat_1, Length, 1 ), CreateCapCategoryObjectWithAttributes( cat_1, Length, deduped_7_1 ^ deduped_8_1 ), AsList, [ Sum( List( deduped_6_1, function ( k_2 )
+                    return hoisted_4_1[(1 + CAP_JIT_INCOMPLETE_LOGIC( hoisted_1_1[(1 + REM_INT( QUO_INT( hoisted_3_1, hoisted_2_1 ^ CAP_JIT_INCOMPLETE_LOGIC( hoisted_1_1[(1 + k_2)] ) ), hoisted_2_1 ))] ))] * hoisted_5_1 ^ k_2;
                 end ) ) ] );
 end
 ########
@@ -323,21 +313,18 @@ function ( cat_1, s_1, alpha_1, beta_1, r_1 )
     deduped_8_1 := Length( Range( alpha_1 ) );
     deduped_7_1 := Length( Source( beta_1 ) );
     hoisted_6_1 := Length( Range( beta_1 ) );
-    hoisted_5_1 := [ 0 .. Length( Source( alpha_1 ) ) - 1 ];
-    hoisted_4_1 := AsList( beta_1 );
-    hoisted_3_1 := AsList( alpha_1 );
+    hoisted_5_1 := AsList( beta_1 );
+    hoisted_4_1 := AsList( alpha_1 );
+    hoisted_3_1 := [ 0 .. Length( Source( alpha_1 ) ) - 1 ];
     hoisted_2_1 := [ 0 .. deduped_8_1 - 1 ];
     hoisted_1_1 := deduped_7_1;
     return CreateCapCategoryMorphismWithAttributes( cat_1, s_1, r_1, AsList, List( [ 0 .. deduped_7_1 ^ deduped_8_1 - 1 ], function ( i_2 )
-              local hoisted_1_2, hoisted_2_2;
+              local hoisted_1_2;
               hoisted_1_2 := List( hoisted_2_1, function ( j_3 )
                       return REM_INT( QUO_INT( i_2, hoisted_1_1 ^ j_3 ), hoisted_1_1 );
                   end );
-              hoisted_2_2 := List( hoisted_5_1, function ( logic_new_func_x_3 )
-                      return hoisted_4_1[1 + hoisted_1_2[(1 + hoisted_3_1[(1 + logic_new_func_x_3)])]];
-                  end );
-              return Sum( List( hoisted_5_1, function ( k_3 )
-                        return hoisted_2_2[(1 + k_3)] * hoisted_6_1 ^ k_3;
+              return Sum( List( hoisted_3_1, function ( k_3 )
+                        return hoisted_5_1[(1 + hoisted_1_2[(1 + hoisted_4_1[(1 + CAP_JIT_INCOMPLETE_LOGIC( hoisted_3_1[(1 + k_3)] ))])])] * hoisted_6_1 ^ k_3;
                     end ) );
           end ) );
 end
@@ -774,92 +761,76 @@ end
         
 ########
 function ( cat_1, l_1, m_1 )
-    local hoisted_1_1, hoisted_2_1, hoisted_3_1, hoisted_4_1, hoisted_5_1, hoisted_6_1, hoisted_7_1, hoisted_8_1, hoisted_9_1, hoisted_10_1, hoisted_11_1, hoisted_12_1, hoisted_13_1, hoisted_14_1, hoisted_15_1, hoisted_16_1, hoisted_17_1, hoisted_18_1, hoisted_19_1, hoisted_20_1, hoisted_21_1, hoisted_22_1, hoisted_23_1, deduped_24_1, deduped_25_1, deduped_26_1, deduped_27_1, deduped_28_1, deduped_29_1, deduped_30_1, deduped_31_1, deduped_32_1, deduped_33_1, deduped_34_1, deduped_35_1, deduped_36_1, deduped_37_1, deduped_38_1;
-    deduped_38_1 := Range( m_1 );
-    deduped_37_1 := Length( Source( l_1 ) );
-    deduped_36_1 := Length( Source( m_1 ) );
-    deduped_35_1 := Length( deduped_38_1 );
-    deduped_34_1 := [ 0 .. deduped_35_1 - 1 ];
-    deduped_33_1 := [ 0 .. deduped_36_1 * deduped_37_1 - 1 ];
-    deduped_32_1 := [ 0 .. deduped_36_1 * deduped_36_1 - 1 ];
-    hoisted_1_1 := deduped_36_1;
-    deduped_31_1 := Filtered( deduped_32_1, function ( x_2 )
-            return REM_INT( x_2, hoisted_1_1 ) = REM_INT( QUO_INT( x_2, hoisted_1_1 ), hoisted_1_1 );
+    local hoisted_1_1, hoisted_2_1, hoisted_3_1, hoisted_4_1, hoisted_5_1, hoisted_6_1, hoisted_7_1, hoisted_8_1, hoisted_9_1, hoisted_10_1, hoisted_11_1, hoisted_12_1, hoisted_13_1, hoisted_14_1, hoisted_15_1, hoisted_16_1, hoisted_17_1, hoisted_18_1, hoisted_19_1, deduped_20_1, deduped_21_1, deduped_22_1, deduped_23_1, deduped_24_1, deduped_25_1, deduped_26_1, deduped_27_1, deduped_28_1, deduped_29_1, deduped_30_1, deduped_31_1, deduped_32_1, deduped_33_1, deduped_34_1;
+    deduped_34_1 := Range( m_1 );
+    deduped_33_1 := Length( Source( l_1 ) );
+    deduped_32_1 := Length( Source( m_1 ) );
+    deduped_31_1 := Length( deduped_34_1 );
+    deduped_30_1 := [ 0 .. deduped_31_1 - 1 ];
+    deduped_29_1 := [ 0 .. deduped_32_1 * deduped_33_1 - 1 ];
+    deduped_28_1 := [ 0 .. deduped_32_1 * deduped_32_1 - 1 ];
+    hoisted_3_1 := deduped_32_1;
+    deduped_27_1 := Filtered( deduped_28_1, function ( x_2 )
+            return REM_INT( x_2, hoisted_3_1 ) = REM_INT( QUO_INT( x_2, hoisted_3_1 ), hoisted_3_1 );
         end );
-    hoisted_8_1 := AsList( l_1 );
-    hoisted_7_1 := deduped_37_1;
-    deduped_29_1 := Filtered( deduped_33_1, function ( x_2 )
-            return REM_INT( x_2, hoisted_1_1 ) = hoisted_8_1[1 + REM_INT( QUO_INT( x_2, hoisted_1_1 ), hoisted_7_1 )];
+    hoisted_9_1 := AsList( l_1 );
+    hoisted_8_1 := deduped_33_1;
+    deduped_26_1 := Filtered( deduped_29_1, function ( x_2 )
+            return REM_INT( x_2, hoisted_3_1 ) = hoisted_9_1[1 + REM_INT( QUO_INT( x_2, hoisted_3_1 ), hoisted_8_1 )];
         end );
-    deduped_28_1 := Length( deduped_29_1 );
-    deduped_27_1 := [ 0 .. deduped_28_1 - 1 ];
-    deduped_26_1 := [ 0 .. deduped_28_1 * deduped_37_1 - 1 ];
-    hoisted_10_1 := List( deduped_33_1, function ( i_2 )
-            return REM_INT( QUO_INT( i_2, hoisted_1_1 ), hoisted_7_1 );
+    deduped_25_1 := Length( deduped_26_1 );
+    deduped_24_1 := [ 0 .. deduped_25_1 - 1 ];
+    deduped_23_1 := [ 0 .. deduped_25_1 * deduped_33_1 - 1 ];
+    hoisted_11_1 := deduped_29_1;
+    hoisted_10_1 := deduped_26_1;
+    hoisted_13_1 := List( deduped_24_1, function ( logic_new_func_x_2 )
+            return REM_INT( QUO_INT( CAP_JIT_INCOMPLETE_LOGIC( hoisted_11_1[1 + hoisted_10_1[(1 + logic_new_func_x_2)]] ), hoisted_3_1 ), hoisted_8_1 );
         end );
-    hoisted_9_1 := deduped_29_1;
-    hoisted_12_1 := List( deduped_27_1, function ( logic_new_func_x_2 )
-            return hoisted_10_1[1 + hoisted_9_1[(1 + logic_new_func_x_2)]];
+    hoisted_12_1 := deduped_25_1;
+    deduped_22_1 := Filtered( deduped_23_1, function ( x_2 )
+            return hoisted_13_1[1 + REM_INT( x_2, hoisted_12_1 )] = REM_INT( QUO_INT( x_2, hoisted_12_1 ), hoisted_8_1 );
         end );
-    hoisted_11_1 := deduped_28_1;
-    deduped_24_1 := Filtered( deduped_26_1, function ( x_2 )
-            return hoisted_12_1[1 + REM_INT( x_2, hoisted_11_1 )] = REM_INT( QUO_INT( x_2, hoisted_11_1 ), hoisted_7_1 );
+    hoisted_18_1 := [ 1, 0, 1, 1 ];
+    hoisted_6_1 := AsList( m_1 );
+    hoisted_16_1 := List( deduped_24_1, function ( logic_new_func_x_2 )
+            return hoisted_6_1[1 + REM_INT( CAP_JIT_INCOMPLETE_LOGIC( hoisted_11_1[(1 + hoisted_10_1[(1 + logic_new_func_x_2)])] ), hoisted_3_1 )];
         end );
-    hoisted_19_1 := [ 1, 0, 1, 1 ];
-    hoisted_13_1 := List( deduped_33_1, function ( i_2 )
-            return REM_INT( i_2, hoisted_1_1 );
+    hoisted_15_1 := deduped_23_1;
+    hoisted_14_1 := deduped_22_1;
+    hoisted_17_1 := List( [ 0 .. Length( deduped_22_1 ) - 1 ], function ( logic_new_func_x_2 )
+            return hoisted_16_1[1 + REM_INT( CAP_JIT_INCOMPLETE_LOGIC( hoisted_15_1[(1 + hoisted_14_1[(1 + logic_new_func_x_2)])] ), hoisted_12_1 )];
         end );
-    hoisted_4_1 := AsList( m_1 );
-    hoisted_16_1 := List( deduped_27_1, function ( logic_new_func_x_2 )
-            return hoisted_4_1[1 + hoisted_13_1[(1 + hoisted_9_1[(1 + logic_new_func_x_2)])]];
+    hoisted_5_1 := deduped_28_1;
+    hoisted_4_1 := deduped_27_1;
+    hoisted_7_1 := List( [ 0 .. Length( deduped_27_1 ) - 1 ], function ( logic_new_func_x_2 )
+            return hoisted_6_1[1 + REM_INT( CAP_JIT_INCOMPLETE_LOGIC( hoisted_5_1[(1 + hoisted_4_1[(1 + logic_new_func_x_2)])] ), hoisted_3_1 )];
         end );
-    hoisted_15_1 := List( deduped_26_1, function ( i_2 )
-            return REM_INT( i_2, hoisted_11_1 );
-        end );
-    hoisted_14_1 := deduped_24_1;
-    hoisted_17_1 := List( [ 0 .. Length( deduped_24_1 ) - 1 ], function ( logic_new_func_x_2 )
-            return hoisted_16_1[1 + hoisted_15_1[(1 + hoisted_14_1[(1 + logic_new_func_x_2)])]];
-        end );
-    hoisted_18_1 := List( deduped_34_1, function ( x_2 )
-            if x_2 in hoisted_17_1 then
-                return 1;
-            else
-                return 0;
-            fi;
-            return;
-        end );
-    hoisted_3_1 := List( deduped_32_1, function ( i_2 )
-            return REM_INT( i_2, hoisted_1_1 );
-        end );
-    hoisted_2_1 := deduped_31_1;
-    hoisted_5_1 := List( [ 0 .. Length( deduped_31_1 ) - 1 ], function ( logic_new_func_x_2 )
-            return hoisted_4_1[1 + hoisted_3_1[(1 + hoisted_2_1[(1 + logic_new_func_x_2)])]];
-        end );
-    hoisted_6_1 := List( deduped_34_1, function ( x_2 )
-            if x_2 in hoisted_5_1 then
-                return 1;
-            else
-                return 0;
-            fi;
-            return;
-        end );
-    hoisted_21_1 := List( deduped_34_1, function ( logic_new_func_x_2 )
+    hoisted_2_1 := deduped_30_1;
+    hoisted_1_1 := deduped_31_1;
+    deduped_21_1 := Filtered( deduped_30_1, function ( x_2 )
             local deduped_1_2;
-            deduped_1_2 := 1 + logic_new_func_x_2;
-            return hoisted_19_1[1 + (hoisted_6_1[deduped_1_2] + hoisted_18_1[deduped_1_2] * 2)];
+            deduped_1_2 := CAP_JIT_INCOMPLETE_LOGIC( hoisted_2_1[1 + CAP_JIT_INCOMPLETE_LOGIC( hoisted_2_1[(1 + REM_INT( x_2, hoisted_1_1 ))] )] );
+            return hoisted_18_1[1 + (function (  )
+                           if (deduped_1_2 in hoisted_7_1) then
+                               return 1;
+                           else
+                               return 0;
+                           fi;
+                           return;
+                       end(  ) + function (  )
+                             if (deduped_1_2 in hoisted_17_1) then
+                                 return 1;
+                             else
+                                 return 0;
+                             fi;
+                             return;
+                         end(  ) * 2)] = 1;
         end );
-    hoisted_20_1 := deduped_35_1;
-    deduped_30_1 := Filtered( deduped_34_1, function ( x_2 )
-            return hoisted_21_1[1 + REM_INT( x_2, hoisted_20_1 )] = 1;
-        end );
-    hoisted_23_1 := List( deduped_34_1, function ( i_2 )
-            return REM_INT( i_2, hoisted_20_1 );
-        end );
-    hoisted_22_1 := deduped_30_1;
-    deduped_25_1 := SSortedList( List( [ 0 .. Length( deduped_30_1 ) - 1 ], function ( logic_new_func_x_2 )
-              return hoisted_23_1[1 + hoisted_23_1[(1 + hoisted_22_1[(1 + logic_new_func_x_2)])]];
+    hoisted_19_1 := deduped_21_1;
+    deduped_20_1 := SSortedList( List( [ 0 .. Length( deduped_21_1 ) - 1 ], function ( logic_new_func_x_2 )
+              return REM_INT( CAP_JIT_INCOMPLETE_LOGIC( hoisted_2_1[1 + REM_INT( CAP_JIT_INCOMPLETE_LOGIC( hoisted_2_1[(1 + hoisted_19_1[(1 + logic_new_func_x_2)])] ), hoisted_1_1 )] ), hoisted_1_1 );
           end ) );
-    return CreateCapCategoryMorphismWithAttributes( cat_1, CreateCapCategoryObjectWithAttributes( cat_1, Length, Length( deduped_25_1 ) ), deduped_38_1, AsList, deduped_25_1 );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, CreateCapCategoryObjectWithAttributes( cat_1, Length, Length( deduped_20_1 ) ), deduped_34_1, AsList, deduped_20_1 );
 end
 ########
         
@@ -997,6 +968,15 @@ end
 ########
         
     , 100 );
+    
+    if IsBound( cat!.precompiled_functions_added ) then
+        
+        # COVERAGE_IGNORE_NEXT_LINE
+        Error( "precompiled functions have already been added before" );
+        
+    fi;
+    
+    cat!.precompiled_functions_added := true;
     
 end );
 
