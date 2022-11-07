@@ -4,6 +4,7 @@
 # Implementations
 #
 
+##
 CapJitAddLogicFunction( function ( tree )
   local pre_func;
     
@@ -47,6 +48,36 @@ CapJitAddLogicFunction( function ( tree )
     return CapJitIterateOverTree( tree, pre_func, CapJitResultFuncCombineChildren, ReturnTrue, true );
     
 end );
+
+## Teach CompilerForCAP about the input type of the function so it can correctly type the function,
+## that can be done with the following code (adapted from the existing List type signature):
+##
+CapJitAddTypeSignature( "List", [ IsSkeletalFiniteSet, IsFunction ], function ( args, func_stack )
+    
+    args := ShallowCopy( args );
+    
+    args.2 := CAP_JIT_INTERNAL_INFERRED_DATA_TYPES_OF_FUNCTION_BY_ARGUMENTS_TYPES( args.2, [ rec( filter := IsInt ) ], func_stack );
+    
+    if args.2 = fail then
+        
+        #Error( "could not determine output type" );
+        return fail;
+        
+    fi;
+    
+    return rec( args := args, output_type := rec( filter := IsList, element_type := args.2.data_type.signature[2] ) );
+    
+end );
+
+##
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "M", "func" ],
+        variable_filters := [ IsSkeletalFiniteSet, IsObject ],
+        src_template := "List( M, func )",
+        dst_template := "List( [ 0 .. Length( M ) - 1 ], func )",
+    )
+);
 
 ## for PushoutComplement
 CapJitAddLogicTemplate(
