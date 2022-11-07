@@ -60,7 +60,7 @@ InstallMethodForCompilerForCAP( FinSetOp,
   function ( cat, n )
     local int;
     
-    int := ObjectifyObjectForCAPWithAttributes( rec( ), cat, Length, n );
+    int := CreateCapCategoryObjectWithAttributes( cat, Length, n );
     
     #% CAP_JIT_DROP_NEXT_STATEMENT
     Assert( 4, IsWellDefined( int ) );
@@ -108,15 +108,14 @@ end );
 InstallOtherMethodForCompilerForCAP( MapOfFinSets,
         "for a category of skeletal finite sets, two CAP skeletal finite sets and a list",
         [ IsCategoryOfSkeletalFinSets, IsSkeletalFiniteSet, IsList, IsSkeletalFiniteSet ],
-                                     
+        
   function ( cat, s, G, t )
     local map;
     
-    map := ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( rec( ), cat,
+    map := CreateCapCategoryMorphismWithAttributes( cat,
             s,
             t,
-            AsList, G
-        );
+            AsList, G );
     
     #% CAP_JIT_DROP_NEXT_STATEMENT
     Assert( 4, IsWellDefined( map ) );
