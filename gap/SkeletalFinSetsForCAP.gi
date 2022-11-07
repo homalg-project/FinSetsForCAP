@@ -811,7 +811,7 @@ AddCartesianBraidingInverseWithGivenDirectProducts( SkeletalFinSets,
     
     n := Length( N );
     
-    return MapOfFinSets( cat, MN, List( [ 0 .. Length( MN ) - 1 ] , i -> RemInt( i, n ) * m + QuoInt( i, n ) ), NM );
+    return MapOfFinSets( cat, MN, List( [ 0 .. Length( MN ) - 1 ], i -> RemInt( i, n ) * m + QuoInt( i, n ) ), NM );
     
 end );
 
