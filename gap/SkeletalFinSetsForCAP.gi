@@ -584,8 +584,8 @@ AddUniversalMorphismIntoDirectProductWithGivenDirectProduct( SkeletalFinSets,
     
     taus := List( tau, AsList );
     
-    # if l = 0, then Sum( [ 1 .. l ], j -> ... ) = 0 ∈ TerminalObject = P
-    return MapOfFinSets( cat, T, List( [ 0 .. Length( T ) - 1 ], i -> Sum( [ 1 .. l ], j -> taus[j][1 + i] * dd[j] ) ), P );
+    # if l = 0, then Sum( [ 0 .. l - 1 ], j -> ... ) = 0 ∈ TerminalObject = P
+    return MapOfFinSets( cat, T, List( [ 0 .. Length( T ) - 1 ], i -> Sum( [ 0 .. l - 1 ], j -> taus[1 + j][1 + i] * dd[1 + j] ) ), P );
     
 end );
 
