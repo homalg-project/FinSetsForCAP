@@ -72,10 +72,10 @@ end );
 ##
 CapJitAddLogicTemplate(
     rec(
-        variable_names := [ "M", "func" ],
-        variable_filters := [ IsSkeletalFiniteSet, IsObject ],
-        src_template := "List( M, func )",
-        dst_template := "List( [ 0 .. Length( M ) - 1 ], func )",
+        variable_names := [ "M", "func", "index" ],
+        variable_filters := [ IsSkeletalFiniteSet, IsObject, IsInt ],
+        src_template := "List( M, func )[1 + index]",
+        dst_template := "func( index )",
     )
 );
 
