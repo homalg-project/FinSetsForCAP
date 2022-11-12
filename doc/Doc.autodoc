@@ -12,6 +12,9 @@
 @Subsection Morphisms of external Hom
 @InsertChunk SkeletalMorphismsOfExternalHom
 
+@Subsection Exact cover with global elements
+@InsertChunk SkeletalExactCoverWithGlobalElements
+
 @Subsection PreCompose
 @InsertChunk PreCompose
 

@@ -949,6 +949,14 @@ AddMorphismsOfExternalHom( SkeletalFinSets,
 end );
 # =#
 
+##
+AddExactCoverWithGlobalElements( SkeletalFinSets,
+  function ( cat, A )
+    
+    return MorphismsOfExternalHom( cat, TerminalObject( cat ), A );
+    
+end );
+
 end );
 
 ##
