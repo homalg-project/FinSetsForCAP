@@ -31,8 +31,8 @@
   [2XIsEqualForElementsOfFinSets[102X, for IsObject, IsObject 1.4-1 
   [2XIsFiniteSet[102X, for IsCapCategoryObject 1.1-2 
   [2XIsFiniteSetMap[102X, for IsCapCategoryMorphism 1.1-3 
-  [2XIsSkeletalFiniteSet[102X, for IsCapCategoryObject and IsCellOfSkeletalCategory 2.1-2 
-  [2XIsSkeletalFiniteSetMap[102X, for IsCapCategoryMorphism and IsCellOfSkeletalCategory 2.1-3 
+  [2XIsSkeletalFiniteSet[102X, for IsCapCategoryObject 2.1-2 
+  [2XIsSkeletalFiniteSetMap[102X, for IsCapCategoryMorphism 2.1-3 
   [2XIterator[102X, for IsFiniteSet 1.4-4 
   [2XLength[102X, for IsFiniteSet 1.2-2 
       for IsSkeletalFiniteSet 2.2-1 
