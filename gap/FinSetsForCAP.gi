@@ -11,7 +11,7 @@ InstallMethod( CategoryOfFinSets,
   function ( )
     local FinSets;
     
-    FinSets := CreateCapCategory( "FinSets" );
+    FinSets := CreateCapCategory( "FinSets", IsCategoryOfFinSets, IsFiniteSet, IsFiniteSetMap, IsCapCategoryTwoCell );
     
     FinSets!.category_as_first_argument := true;
     
@@ -23,18 +23,16 @@ InstallMethod( CategoryOfFinSets,
         morphism_filter := IsFiniteSetMap,
     );
     
-    SetFilterObj( FinSets, IsCategoryOfFinSets );
-    
+    #= comment for Julia
     SetIsElementaryTopos( FinSets, true );
-    
-    AddObjectRepresentation( FinSets, IsFiniteSet and HasAsList and HasLength );
-    
-    AddMorphismRepresentation( FinSets, IsFiniteSetMap and HasAsList );
+    # =#
     
     INSTALL_FUNCTIONS_FOR_FIN_SETS( FinSets );
     
+    #= comment for Julia
     AddTheoremFileToCategory( FinSets,
             Filename( DirectoriesPackageLibrary( "Toposes", "LogicForToposes" ), "PropositionsForToposes.tex" ) );
+    # =#
     
     Finalize( FinSets );
     
@@ -48,19 +46,19 @@ InstallMethod( IsEqualForElementsOfFinSets,
         "for two integers",
         [ IsInt, IsInt ],
         
-  \= );
+  { int1, int2 } -> int1 = int2 );
 
 InstallMethod( IsEqualForElementsOfFinSets,
         "for two chars",
         [ IsChar, IsChar ],
         
-  \= );
+  { char1, char2 } -> char1 = char2 );
 
 InstallMethod( IsEqualForElementsOfFinSets,
         "for two strings",
         [ IsString, IsString ],
         
-  \= );
+  { string1, string2 } -> string1 = string2 );
 
 InstallMethod( IsEqualForElementsOfFinSets,
         "for two objects",
@@ -872,6 +870,7 @@ AddUniversalMorphismFromCoequalizerWithGivenCoequalizer( category_of_finite_sets
 end );
 
 ## The cartesian monoidal structure
+#= comment for Julia
 
 ##
 AddCartesianLeftUnitorWithGivenDirectProduct( category_of_finite_sets,
@@ -1054,6 +1053,7 @@ AddClassifyingMorphismOfSubobjectWithGivenSubobjectClassifier( category_of_finit
       return MapOfFinSets( range, images, Omega );
       
 end );
+# =#
 
 end );
 

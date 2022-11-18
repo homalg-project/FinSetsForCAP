@@ -20,14 +20,14 @@ DeclareCategory( "IsCategoryOfSkeletalFinSets",
 #! of skeletal finite sets.
 #! @Arguments object
 DeclareCategory( "IsSkeletalFiniteSet",
-                 IsCapCategoryObject and IsCellOfSkeletalCategory );
+                 IsCapCategoryObject );
 
 #! @Description
 #! The GAP category of morphisms in the category
 #! of skeletal finite sets.
 #! @Arguments object
 DeclareCategory( "IsSkeletalFiniteSetMap",
-                 IsCapCategoryMorphism and IsCellOfSkeletalCategory );
+                 IsCapCategoryMorphism );
 
 #! @Section Skeletal Attributes
 

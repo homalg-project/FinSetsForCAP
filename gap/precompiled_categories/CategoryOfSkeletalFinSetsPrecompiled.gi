@@ -493,14 +493,14 @@ function ( cat_1, arg2_1, arg3_1 )
     deduped_3_1 := AsList( arg3_1 );
     deduped_2_1 := AsList( arg2_1 );
     hoisted_1_1 := deduped_3_1;
-    return ForAll( function (  )
-              if 100 * Length( deduped_2_1 ) < Length( deduped_3_1 ) then
-                  return SSortedList( deduped_2_1 );
-              else
-                  return deduped_2_1;
-              fi;
-              return;
-          end(  ), function ( y_2 )
+    return ForAll( IdFunc( function (  )
+                if 100 * Length( deduped_2_1 ) < Length( deduped_3_1 ) then
+                    return SSortedList( deduped_2_1 );
+                else
+                    return deduped_2_1;
+                fi;
+                return;
+            end )(  ), function ( y_2 )
             return y_2 in hoisted_1_1;
         end );
 end
@@ -577,7 +577,7 @@ function ( cat_1, arg2_1 )
                  return (IsInt( a_2 ) and a_2 >= 0);
              end ) then
         return false;
-    elif not Length( Source( arg2_1 ) ) = Length( deduped_2_1 ) then
+    elif Length( Source( arg2_1 ) ) <> Length( deduped_2_1 ) then
         return false;
     elif not ForAll( deduped_2_1, function ( a_2 )
                  return a_2 < hoisted_1_1;
@@ -810,21 +810,21 @@ function ( cat_1, l_1, m_1 )
     deduped_21_1 := Filtered( deduped_30_1, function ( x_2 )
             local deduped_1_2;
             deduped_1_2 := CAP_JIT_INCOMPLETE_LOGIC( hoisted_2_1[1 + CAP_JIT_INCOMPLETE_LOGIC( hoisted_2_1[(1 + REM_INT( x_2, hoisted_1_1 ))] )] );
-            return hoisted_18_1[1 + (function (  )
-                           if (deduped_1_2 in hoisted_7_1) then
-                               return 1;
-                           else
-                               return 0;
-                           fi;
-                           return;
-                       end(  ) + function (  )
-                             if (deduped_1_2 in hoisted_17_1) then
+            return hoisted_18_1[1 + (IdFunc( function (  )
+                             if (deduped_1_2 in hoisted_7_1) then
                                  return 1;
                              else
                                  return 0;
                              fi;
                              return;
-                         end(  ) * 2)] = 1;
+                         end )(  ) + IdFunc( function (  )
+                               if (deduped_1_2 in hoisted_17_1) then
+                                   return 1;
+                               else
+                                   return 0;
+                               fi;
+                               return;
+                           end )(  ) * 2)] = 1;
         end );
     hoisted_19_1 := deduped_21_1;
     deduped_20_1 := SSortedList( List( [ 0 .. Length( deduped_21_1 ) - 1 ], function ( logic_new_func_x_2 )

@@ -8,6 +8,10 @@ IsEqualForElementsOfFinSets( 2, 2 );
 #! true
 IsEqualForElementsOfFinSets( 2, "2" );
 #! false
+IsEqualForElementsOfFinSets( 'a', 'a' );
+#! true
+IsEqualForElementsOfFinSets( 'a', 'b' );
+#! false
 IsEqualForElementsOfFinSets( [ 2 ], [ 2 ] );
 #! true
 IsEqualForElementsOfFinSets( [ 2 ], [ 2, 3 ] );
