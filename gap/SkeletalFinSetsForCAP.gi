@@ -11,7 +11,7 @@ InstallMethod( CategoryOfSkeletalFinSets,
   function ( )
     local cat;
     
-    cat := CreateCapCategory( "SkeletalFinSets" );
+    cat := CreateCapCategory( "SkeletalFinSets", IsCategoryOfSkeletalFinSets, IsSkeletalFiniteSet, IsSkeletalFiniteSetMap, IsCapCategoryTwoCell );
     
     cat!.category_as_first_argument := true;
     
@@ -26,24 +26,24 @@ InstallMethod( CategoryOfSkeletalFinSets,
     # this is a workhorse category -> no logic and caching only via IsIdenticalObj
     CapCategorySwitchLogicOff( cat );
     
-    SetFilterObj( cat, IsCategoryOfSkeletalFinSets );
-    
     SetIsSkeletalCategory( cat, true );
     
+    #= comment for Julia
     SetIsElementaryTopos( cat, true );
-    
-    AddObjectRepresentation( cat, IsSkeletalFiniteSet and HasLength );
-    
-    AddMorphismRepresentation( cat, IsSkeletalFiniteSetMap and HasAsList );
+    # =#
     
     INSTALL_FUNCTIONS_FOR_SKELETAL_FIN_SETS( cat );
     
+    #= comment for Julia
     AddTheoremFileToCategory( cat,
             Filename( DirectoriesPackageLibrary( "Toposes", "LogicForToposes" ), "PropositionsForToposes.tex" ) );
+    # =#
     
     if ValueOption( "no_precompiled_code" ) <> true then
         
+        #= comment for Julia
         ADD_FUNCTIONS_FOR_CategoryOfSkeletalFinSetsPrecompiled( cat );
+        # =#
         
     fi;
     
@@ -203,7 +203,7 @@ InstallGlobalFunction( SKELETAL_FIN_SETS_ExplicitCoequalizer,
     
     T := AsList( s );
     
-    if not Concatenation( Cq ) = T then
+    if Concatenation( Cq ) <> T then
         for t in T do
             L := [ ];
             for i in [ 1 .. Length( Cq ) ] do
@@ -317,7 +317,7 @@ AddIsWellDefinedForMorphisms( SkeletalFinSets,
     ## For CompilerForCAP we need if-elif-else with the same structure
     if not ForAll( rel, a -> IsInt( a ) and a >= 0 ) then
         return false;
-    elif not s = Length( rel ) then
+    elif s <> Length( rel ) then
         return false;
     elif not ForAll( rel, a -> a < t ) then
         return false;
@@ -390,7 +390,7 @@ AddIsEpimorphism( SkeletalFinSets,
     ## the following linear runtime function works with side effects,
     ## so we hide it from the compiler
     
-    return not false in SKELETAL_FIN_SETS_IsEpimorphism( imgs, t );
+    return not (false in SKELETAL_FIN_SETS_IsEpimorphism( imgs, t ));
     
 end );
 
@@ -769,6 +769,7 @@ AddUniversalMorphismFromCoequalizerWithGivenCoequalizer( SkeletalFinSets,
 end );
 
 ## The cartesian monoidal structure
+#= comment for Julia
 
 ##
 AddCartesianLeftUnitorWithGivenDirectProduct( SkeletalFinSets,
@@ -946,6 +947,7 @@ AddMorphismsOfExternalHom( SkeletalFinSets,
                          MapOfFinSets( cat, T, [ i ], hom_A_B ) ) );
     
 end );
+# =#
 
 end );
 
@@ -964,34 +966,28 @@ InstallMethod( ViewObj,
         [ IsSkeletalFiniteSetMap ],
         
   function ( phi )
-    Print( "|", Length( Source( phi ) ), "| → |", Length( Range( phi ) ), "|" );
-end );
-
-##
-InstallMethod( ViewObj,
-    "for a CAP map of skeletal finite sets",
-        [ IsSkeletalFiniteSetMap and IsMonomorphism ],
+    local arrow;
+    
+    if HasIsIsomorphism( phi ) and IsIsomorphism( phi ) then
         
-  function ( phi )
-    Print( "|", Length( Source( phi ) ), "| ↪ |", Length( Range( phi ) ), "|" );
-end );
-
-##
-InstallMethod( ViewObj,
-    "for a CAP map of skeletal finite sets",
-        [ IsSkeletalFiniteSetMap and IsEpimorphism ],
+        arrow := "⭇";
         
-  function ( phi )
-    Print( "|", Length( Source( phi ) ), "| ↠ |", Length( Range( phi ) ), "|" );
-end );
-
-##
-InstallMethod( ViewObj,
-        "for a CAP map of skeletal finite sets",
-        [ IsSkeletalFiniteSetMap and IsIsomorphism ],
+    elif HasIsMonomorphism( phi ) and IsMonomorphism( phi ) then
         
-  function ( phi )
-    Print( "|", Length( Source( phi ) ), "| ⭇ |", Length( Range( phi ) ), "|" );
+        arrow := "↪";
+        
+    elif HasIsEpimorphism( phi ) and IsEpimorphism( phi ) then
+        
+        arrow := "↠";
+        
+    else
+        
+        arrow := "→";
+        
+    fi;
+    
+    Print( "|", Length( Source( phi ) ), "| ", arrow, " |", Length( Range( phi ) ), "|" );
+    
 end );
 
 ##

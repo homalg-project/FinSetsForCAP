@@ -6,13 +6,17 @@
 
 ReadPackage( "FinSetsForCAP", "gap/Tools.gi" );
 
+#= comment for Julia
 ReadPackage( "FinSetsForCAP", "gap/precompiled_categories/CategoryOfSkeletalFinSetsPrecompiled.gi" );
+# =#
 
 ReadPackage( "FinSetsForCAP", "gap/FinSetsForCAP.gi" );
 
 ReadPackage( "FinSetsForCAP", "gap/SkeletalFinSetsForCAP.gi" );
 
+#= comment for Julia
 if IsPackageMarkedForLoading( "JuliaInterface", ">= 0.2" ) then
     # COVERAGE_IGNORE_NEXT_LINE
     ReadPackage( "FinSetsForCAP", "gap/Julia.gi" );
 fi;
+# =#
