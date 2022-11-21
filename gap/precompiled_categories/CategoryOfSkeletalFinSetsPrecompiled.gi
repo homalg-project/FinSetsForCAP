@@ -305,6 +305,27 @@ end
     , 100 );
     
     ##
+    AddExactCoverWithGlobalElements( cat,
+        
+########
+function ( cat_1, arg2_1 )
+    local hoisted_1_1, hoisted_2_1, hoisted_3_1, deduped_4_1, deduped_5_1;
+    deduped_5_1 := Length( arg2_1 );
+    deduped_4_1 := [ 0 .. deduped_5_1 - 1 ];
+    hoisted_3_1 := CreateCapCategoryObjectWithAttributes( cat_1, Length, 1 );
+    hoisted_2_1 := deduped_5_1;
+    hoisted_1_1 := deduped_4_1;
+    return List( deduped_4_1, function ( i_2 )
+            local deduped_1_2;
+            deduped_1_2 := CAP_JIT_INCOMPLETE_LOGIC( hoisted_1_1[1 + i_2] );
+            return CreateCapCategoryMorphismWithAttributes( cat_1, hoisted_3_1, arg2_1, AsList, [ REM_INT( QUO_INT( deduped_1_2, hoisted_2_1 ^ QUO_INT( deduped_1_2, hoisted_2_1 ) ), hoisted_2_1 ) ] );
+        end );
+end
+########
+        
+    , 100 );
+    
+    ##
     AddExponentialOnMorphismsWithGivenExponentials( cat,
         
 ########

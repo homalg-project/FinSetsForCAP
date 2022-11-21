@@ -10,7 +10,10 @@
 @InsertChunk IsHomSetInhabited
 
 @Subsection Morphisms of external Hom
-@InsertChunk MorphismsOfExternalHom
+@InsertChunk SkeletalMorphismsOfExternalHom
+
+@Subsection Exact cover with global elements
+@InsertChunk SkeletalExactCoverWithGlobalElements
 
 @Subsection PreCompose
 @InsertChunk PreCompose

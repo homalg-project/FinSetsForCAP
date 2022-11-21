@@ -320,6 +320,15 @@ CapJitAddLogicTemplate(
 
 CapJitAddLogicTemplate(
     rec(
+        variable_names := [ "number" ],
+        variable_filters := [ IsInt ],
+        src_template := "number ^ 1",
+        dst_template := "number",
+    )
+);
+
+CapJitAddLogicTemplate(
+    rec(
         variable_names := [ "entry", "func" ],
         src_template := "ForAll( [ entry ], func )",
         dst_template := "func( entry )",
