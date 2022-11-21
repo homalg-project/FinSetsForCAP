@@ -1,7 +1,7 @@
 name: FinSetsForCAP
-version: "2022.11-05"
+version: "2022.11-06"
 license: "GPL-2.0-or-later"
-date: 2022-11-18
+date: 2022-11-21
 description: |
     The elementary topos of (skeletal) finite sets
 
@@ -28,7 +28,7 @@ needed-pkgs:
       version: ">= 2022.11-10"
       url: "https://homalg-project.github.io/pkg/CAP"
     - name: "Toposes"
-      version: ">= 2022.10-05"
+      version: ">= 2022.11-03"
       url: "https://homalg-project.github.io/pkg/Toposes"
 
 www: https://homalg-project.github.io/pkg/FinSetsForCAP
@@ -37,11 +37,11 @@ packageinfo: https://homalg-project.github.io/FinSetsForCAP/PackageInfo.g
 
 downloads:
     - name: .tar.gz
-      url: https://github.com/homalg-project/FinSetsForCAP/releases/download/v2022.11-05/FinSetsForCAP-2022.11-05.tar.gz
+      url: https://github.com/homalg-project/FinSetsForCAP/releases/download/v2022.11-06/FinSetsForCAP-2022.11-06.tar.gz
     - name: .zip
-      url: https://github.com/homalg-project/FinSetsForCAP/releases/download/v2022.11-05/FinSetsForCAP-2022.11-05.zip
+      url: https://github.com/homalg-project/FinSetsForCAP/releases/download/v2022.11-06/FinSetsForCAP-2022.11-06.zip
 
-pdf: https://github.com/homalg-project/FinSetsForCAP/releases/download/v2022.11-05/FinSetsForCAP-2022.11-05.pdf
+pdf: https://github.com/homalg-project/FinSetsForCAP/releases/download/v2022.11-06/FinSetsForCAP-2022.11-06.pdf
 
 abstract: |
 
@@ -52,7 +52,7 @@ citeas: |
     <p class='BibEntry'>
     [<span class='BibKey'>BMZ22</span>]   <b class='BibAuthor'>Barakat, M., Mickisch, J. and Zickgraf, F.</b>,
      <i class='BibTitle'>FinSetsForCAP, The elementary topos of (skeletal) finite sets,
-             Version 2022.11-05</i>
+             Version 2022.11-06</i>
      (<span class='BibYear'>2022</span>)<br />
     (<span class='BibNote'>GAP package</span>),
     <span class='BibHowpublished'><a href="https://homalg-project.github.io/pkg/FinSetsForCAP">https://homalg-project.github.io/pkg/FinSetsForCAP</a></span>.
@@ -60,10 +60,10 @@ citeas: |
     
 
 bibtex: |
-    @misc{ FinSetsForCAP2022.11-05,
+    @misc{ FinSetsForCAP2022.11-06,
       author =           {Barakat, M. and Mickisch, J. and Zickgraf, F.},
       title =            {{FinSetsForCAP},  The  elementary  topos of (skeletal)
-                          finite sets, {V}ersion 2022.11-05},
+                          finite sets, {V}ersion 2022.11-06},
       month =            {Nov},
       year =             {2022},
       note =             {GAP package},

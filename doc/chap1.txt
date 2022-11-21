@@ -457,8 +457,45 @@
   
   [1X1.5-2 [33X[0;0YMorphisms of external Hom[133X[101X
   
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XL := FinSet( 0 );[127X[104X
+    [4X[28X|0|[128X[104X
+    [4X[25Xgap>[125X [27XM := FinSet( 2 );[127X[104X
+    [4X[28X|2|[128X[104X
+    [4X[25Xgap>[125X [27XN := FinSet( 3 );[127X[104X
+    [4X[28X|3|[128X[104X
+    [4X[25Xgap>[125X [27XMorphismsOfExternalHom( L, L );[127X[104X
+    [4X[28X[ |0| → |0| ][128X[104X
+    [4X[25Xgap>[125X [27XMorphismsOfExternalHom( M, L );[127X[104X
+    [4X[28X[  ][128X[104X
+    [4X[25Xgap>[125X [27XMorphismsOfExternalHom( L, M );[127X[104X
+    [4X[28X[ |0| → |2| ][128X[104X
+    [4X[25Xgap>[125X [27XMorphismsOfExternalHom( M, N );[127X[104X
+    [4X[28X[ |2| → |3|, |2| → |3|, |2| → |3|, |2| → |3|, |2| → |3|,[128X[104X
+    [4X[28X  |2| → |3|, |2| → |3|, |2| → |3|, |2| → |3| ][128X[104X
+  [4X[32X[104X
   
-  [1X1.5-3 [33X[0;0YPreCompose[133X[101X
+  
+  [1X1.5-3 [33X[0;0YExact cover with global elements[133X[101X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XL := FinSet( 0 );[127X[104X
+    [4X[28X|0|[128X[104X
+    [4X[25Xgap>[125X [27XM := FinSet( 2 );[127X[104X
+    [4X[28X|2|[128X[104X
+    [4X[25Xgap>[125X [27XExactCoverWithGlobalElements( L );[127X[104X
+    [4X[28X[ ][128X[104X
+    [4X[25Xgap>[125X [27Xg := ExactCoverWithGlobalElements( M );[127X[104X
+    [4X[28X[ |1| → |2|, |1| → |2| ][128X[104X
+    [4X[25Xgap>[125X [27XPerform( g, Display );[127X[104X
+    [4X[28X{ 0 } ⱶ[ 0 ]→ { 0, 1 }[128X[104X
+    [4X[28X{ 0 } ⱶ[ 1 ]→ { 0, 1 }[128X[104X
+    [4X[25Xgap>[125X [27XIsOne( UniversalMorphismFromCoproduct( g ) );[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X1.5-4 [33X[0;0YPreCompose[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XS := FinSet( [ 1, 2, 3 ] );[127X[104X
@@ -480,7 +517,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-4 [33X[0;0YIsEpimorphism and IsMonomorhism[133X[101X
+  [1X1.5-5 [33X[0;0YIsEpimorphism and IsMonomorhism[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XS := FinSet( [ 1, 2, 3 ] );[127X[104X
@@ -511,7 +548,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-5 [33X[0;0YInitial and Terminal Objects[133X[101X
+  [1X1.5-6 [33X[0;0YInitial and Terminal Objects[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XM := FinSet( [ 1, 2, 3 ] );[127X[104X
@@ -551,7 +588,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-6 [33X[0;0YProjective and Injective Objects[133X[101X
+  [1X1.5-7 [33X[0;0YProjective and Injective Objects[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XI := FinSet( [ ] );[127X[104X
@@ -594,7 +631,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-7 [33X[0;0YProduct[133X[101X
+  [1X1.5-8 [33X[0;0YProduct[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XS := FinSet( [ 1, 2, 3 ] );[127X[104X
@@ -614,7 +651,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-8 [33X[0;0YCoproduct[133X[101X
+  [1X1.5-9 [33X[0;0YCoproduct[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XS := FinSet( [ 1, 2, 3 ] );[127X[104X
@@ -671,7 +708,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-9 [33X[0;0YImage[133X[101X
+  [1X1.5-10 [33X[0;0YImage[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XS := FinSet( [ 1, 2, 3 ] );[127X[104X
@@ -702,7 +739,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-10 [33X[0;0YCoimage[133X[101X
+  [1X1.5-11 [33X[0;0YCoimage[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XS := FinSet( [ 1, 2, 3 ] );[127X[104X
@@ -733,7 +770,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-11 [33X[0;0YEqualizer[133X[101X
+  [1X1.5-12 [33X[0;0YEqualizer[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XS := FinSet( [ 1 .. 5 ] );[127X[104X
@@ -777,7 +814,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-12 [33X[0;0YPullback[133X[101X
+  [1X1.5-13 [33X[0;0YPullback[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XM := FinSet( [ 1 .. 5 ] );[127X[104X
@@ -811,7 +848,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-13 [33X[0;0YCoequalizer[133X[101X
+  [1X1.5-14 [33X[0;0YCoequalizer[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XN := FinSet( [1,3] );[127X[104X
@@ -945,7 +982,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-14 [33X[0;0YPushout[133X[101X
+  [1X1.5-15 [33X[0;0YPushout[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XM := FinSet( [ 1 .. 5 ] );[127X[104X
@@ -983,7 +1020,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-15 [33X[0;0YCartesian Lambda Introduction[133X[101X
+  [1X1.5-16 [33X[0;0YCartesian Lambda Introduction[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XS := FinSet( [ 1 .. 3 ] );[127X[104X
@@ -1013,7 +1050,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-16 [33X[0;0YLift[133X[101X
+  [1X1.5-17 [33X[0;0YLift[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27Xm := FinSet( [ 1 .. 3 ] );[127X[104X
@@ -1047,7 +1084,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-17 [33X[0;0YTopos properties[133X[101X
+  [1X1.5-18 [33X[0;0YTopos properties[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XM := FinSet( [ 1 .. 5 ] );;[127X[104X
@@ -1093,7 +1130,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-18 [33X[0;0YSubobject Classifier[133X[101X
+  [1X1.5-19 [33X[0;0YSubobject Classifier[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XDisplay( SubobjectClassifier( FinSets ) );[127X[104X
@@ -1193,7 +1230,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-19 [33X[0;0YPushout Complement[133X[101X
+  [1X1.5-20 [33X[0;0YPushout Complement[133X[101X
   
   [33X[0;0YDefine    two    composable    monos   [23XK   \stackrel{l}{\hookrightarrow}   L
   \stackrel{m}{\hookrightarrow} G[123X in [10XFinSets[110X:[133X

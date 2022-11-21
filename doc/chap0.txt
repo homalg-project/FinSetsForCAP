@@ -6,10 +6,10 @@
                 [1X The elementary topos of (skeletal) finite sets [101X
   
   
-                                   2022.11-05
+                                   2022.11-06
   
   
-                                18 November 2022
+                                21 November 2022
   
   
                                 Mohamed Barakat
@@ -85,23 +85,24 @@
     1.5 [33X[0;0YExamples[133X
       1.5-1 [33X[0;0YIsHomSetInhabited[133X
       1.5-2 [33X[0;0YMorphisms of external Hom[133X
-      1.5-3 [33X[0;0YPreCompose[133X
-      1.5-4 [33X[0;0YIsEpimorphism and IsMonomorhism[133X
-      1.5-5 [33X[0;0YInitial and Terminal Objects[133X
-      1.5-6 [33X[0;0YProjective and Injective Objects[133X
-      1.5-7 [33X[0;0YProduct[133X
-      1.5-8 [33X[0;0YCoproduct[133X
-      1.5-9 [33X[0;0YImage[133X
-      1.5-10 [33X[0;0YCoimage[133X
-      1.5-11 [33X[0;0YEqualizer[133X
-      1.5-12 [33X[0;0YPullback[133X
-      1.5-13 [33X[0;0YCoequalizer[133X
-      1.5-14 [33X[0;0YPushout[133X
-      1.5-15 [33X[0;0YCartesian Lambda Introduction[133X
-      1.5-16 [33X[0;0YLift[133X
-      1.5-17 [33X[0;0YTopos properties[133X
-      1.5-18 [33X[0;0YSubobject Classifier[133X
-      1.5-19 [33X[0;0YPushout Complement[133X
+      1.5-3 [33X[0;0YExact cover with global elements[133X
+      1.5-4 [33X[0;0YPreCompose[133X
+      1.5-5 [33X[0;0YIsEpimorphism and IsMonomorhism[133X
+      1.5-6 [33X[0;0YInitial and Terminal Objects[133X
+      1.5-7 [33X[0;0YProjective and Injective Objects[133X
+      1.5-8 [33X[0;0YProduct[133X
+      1.5-9 [33X[0;0YCoproduct[133X
+      1.5-10 [33X[0;0YImage[133X
+      1.5-11 [33X[0;0YCoimage[133X
+      1.5-12 [33X[0;0YEqualizer[133X
+      1.5-13 [33X[0;0YPullback[133X
+      1.5-14 [33X[0;0YCoequalizer[133X
+      1.5-15 [33X[0;0YPushout[133X
+      1.5-16 [33X[0;0YCartesian Lambda Introduction[133X
+      1.5-17 [33X[0;0YLift[133X
+      1.5-18 [33X[0;0YTopos properties[133X
+      1.5-19 [33X[0;0YSubobject Classifier[133X
+      1.5-20 [33X[0;0YPushout Complement[133X
   2 [33X[0;0YThe category of skeletal finite sets[133X
     2.1 [33X[0;0YSkeletal GAP Categories[133X
       2.1-1 IsCategoryOfSkeletalFinSets
