@@ -711,7 +711,7 @@ end );
 ##
 AddInjectionOfCofactorOfCoproductWithGivenCoproduct( SkeletalFinSets,
   function ( cat, L, i, coproduct )
-    local s, O, sum, cmp;
+    local O, sum, s;
     
     O := L{[ 1 .. i - 1 ]};
     
@@ -719,20 +719,18 @@ AddInjectionOfCofactorOfCoproductWithGivenCoproduct( SkeletalFinSets,
     
     s := L[i];
     
-    cmp := [ sum .. sum + Length( s ) - 1 ];
-    
-    return MapOfFinSets( cat, s, cmp, coproduct );
+    return MapOfFinSets( cat, s, [ sum .. sum + Length( s ) - 1 ], coproduct );
     
 end );
 
 ##
 AddUniversalMorphismFromCoproductWithGivenCoproduct( SkeletalFinSets,
   function ( cat, L, test_object, tau, S )
-    local cmp;
+    local concat;
     
-    cmp := Concatenation( List( tau, AsList ) );
+    concat := Concatenation( List( tau, AsList ) );
     
-    return MapOfFinSets( cat, S, cmp, test_object );
+    return MapOfFinSets( cat, S, concat, test_object );
     
 end );
 
@@ -912,22 +910,24 @@ end );
 ##
 AddClassifyingMorphismOfSubobjectWithGivenSubobjectClassifier( SkeletalFinSets,
   function ( cat, monomorphism, Omega )
-    local range, images;
+    local range, images, chi;
     
     range := Range( monomorphism );
     
-    images := List( range,
-                    function ( x )
-                      
-                      if x in AsList( monomorphism ) then
-                          return 1;
-                      fi;
-                      
-                      return 0;
-                      
-                  end );
+    images := AsList( monomorphism );
+    
+    chi := List( range,
+                 function ( x )
+                   
+                   if x in images then
+                       return 1;
+                   fi;
+                   
+                   return 0;
+                   
+               end );
       
-      return MapOfFinSets( cat, range, images, Omega );
+      return MapOfFinSets( cat, range, chi, Omega );
       
 end );
 
