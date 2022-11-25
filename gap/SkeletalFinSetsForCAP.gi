@@ -947,7 +947,6 @@ AddMorphismsOfExternalHom( SkeletalFinSets,
                          MapOfFinSets( cat, T, [ i ], hom_A_B ) ) );
     
 end );
-# =#
 
 ##
 AddExactCoverWithGlobalElements( SkeletalFinSets,
@@ -956,6 +955,7 @@ AddExactCoverWithGlobalElements( SkeletalFinSets,
     return MorphismsOfExternalHom( cat, TerminalObject( cat ), A );
     
 end );
+# =#
 
 end );
 
