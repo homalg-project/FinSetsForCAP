@@ -66,6 +66,11 @@ DeclareAttribute( "AsList",
 DeclareOperation( "CategoryOfFinSets", [ ] );
 
 #! @Description
+#!  The default instance of the category of finite sets.
+#!  It is automatically created while loading this package.
+DeclareGlobalName( "FinSets" );
+
+#! @Description
 #!  Construct a finite set out of the list <A>L</A>, i.e.,
 #!  an object in the &CAP; category <C>cat_of_fin_sets</C>.
 #!  The &GAP; operation <C>Set</C> must be applicable to <A>L</A> without throwing an error.

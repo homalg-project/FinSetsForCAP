@@ -1085,9 +1085,6 @@ InstallMethod( Display,
 end );
 
 ##
-BindGlobal( "FinSets", CategoryOfFinSets( ) );
-
-##
 InstallMethod( FinSetNC,
         "for a list",
         [ IsList ],
