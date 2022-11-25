@@ -158,9 +158,7 @@ InstallMethod( FinSetNC,
   function ( category_of_finite_sets, L )
     local set, i;
     
-    set := rec( );
-    
-    ObjectifyObjectForCAPWithAttributes( set, category_of_finite_sets,
+    set := CreateCapCategoryObjectWithAttributes( category_of_finite_sets,
             AsList, L,
             Length, Length( L )
             );
@@ -299,9 +297,7 @@ InstallMethod( MapOfFinSetsNC,
   function ( S, G, T )
     local map;
     
-    map := rec( );
-    
-    ObjectifyMorphismWithSourceAndRangeForCAPWithAttributes( map, CapCategory( S ),
+    map := CreateCapCategoryMorphismWithAttributes( CapCategory( S ),
             S,
             T,
             AsList, G
