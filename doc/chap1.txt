@@ -62,7 +62,14 @@
   
   [33X[0;0YConstruct a category of finite sets.[133X
   
-  [1X1.3-2 FinSet[101X
+  [1X1.3-2 FinSets[101X
+  
+  [33X[1;0Y[29X[2XFinSets[102X [32X global variable[133X
+  
+  [33X[0;0YThe  default  instance  of  the category of finite sets. It is automatically
+  created while loading this package.[133X
+  
+  [1X1.3-3 FinSet[101X
   
   [33X[1;0Y[29X[2XFinSet[102X( [3Xcat_of_fin_sets[103X, [3XL[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X object[133X
@@ -81,7 +88,7 @@
   )   =   FinSet(   cat_of_fin_sets,  L2  )[110X  iff  [10XIsEqualForElementsOfFinSets(
   Immutable( L1 ), Immutable( Set( L2 ) ) )[110X.[133X
   
-  [1X1.3-3 FinSet[101X
+  [1X1.3-4 FinSet[101X
   
   [33X[1;0Y[29X[2XFinSet[102X( [3XL[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X object[133X
@@ -111,7 +118,7 @@
     [4X[28Xfalse[128X[104X
   [4X[32X[104X
   
-  [1X1.3-4 FinSetNC[101X
+  [1X1.3-5 FinSetNC[101X
   
   [33X[1;0Y[29X[2XFinSetNC[102X( [3Xcat_of_fin_sets[103X, [3XL[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X object[133X
@@ -122,7 +129,7 @@
   cat_of_fin_sets,    L1   )   =   FinSetNC(   cat_of_fin_sets,   L2   )[110X   iff
   [10XIsEqualForElementsOfFinSets( Immutable( L1 ), Immutable( L2 ) )[110X.[133X
   
-  [1X1.3-5 FinSetNC[101X
+  [1X1.3-6 FinSetNC[101X
   
   [33X[1;0Y[29X[2XFinSetNC[102X( [3XL[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X object[133X
@@ -154,7 +161,7 @@
     [4X[28Xfalse[128X[104X
   [4X[32X[104X
   
-  [1X1.3-6 MapOfFinSets[101X
+  [1X1.3-7 MapOfFinSets[101X
   
   [33X[1;0Y[29X[2XMapOfFinSets[102X( [3XS[103X, [3XG[103X, [3XT[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X morphism[133X
@@ -226,7 +233,7 @@
     [4X[28Xfalse[128X[104X
   [4X[32X[104X
   
-  [1X1.3-7 MapOfFinSetsNC[101X
+  [1X1.3-8 MapOfFinSetsNC[101X
   
   [33X[1;0Y[29X[2XMapOfFinSetsNC[102X( [3XS[103X, [3XG[103X, [3XT[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X morphism[133X

@@ -6,10 +6,10 @@
                 [1X The elementary topos of (skeletal) finite sets [101X
   
   
-                                   2022.11-06
+                                   2022.11-07
   
   
-                                21 November 2022
+                                28 November 2022
   
   
                                 Mohamed Barakat
@@ -61,12 +61,13 @@
       1.2-3 AsList
     1.3 [33X[0;0YConstructors[133X
       1.3-1 CategoryOfFinSets
-      1.3-2 FinSet
+      1.3-2 FinSets
       1.3-3 FinSet
-      1.3-4 FinSetNC
+      1.3-4 FinSet
       1.3-5 FinSetNC
-      1.3-6 MapOfFinSets
-      1.3-7 MapOfFinSetsNC
+      1.3-6 FinSetNC
+      1.3-7 MapOfFinSets
+      1.3-8 MapOfFinSetsNC
     1.4 [33X[0;0YTools[133X
       1.4-1 IsEqualForElementsOfFinSets
       1.4-2 \in
