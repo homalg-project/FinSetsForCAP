@@ -1043,9 +1043,6 @@ InstallMethod( Display,
 end );
 
 ##
-BindGlobal( "SkeletalFinSets", CategoryOfSkeletalFinSets( ) );
-
-##
 InstallOtherMethod( FinSet,
         "for a nonnegative integer",
         [ IsInt ],

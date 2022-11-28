@@ -20,3 +20,5 @@ if IsPackageMarkedForLoading( "JuliaInterface", ">= 0.2" ) then
     ReadPackage( "FinSetsForCAP", "gap/Julia.gi" );
 fi;
 # =#
+
+ReadPackage( "FinSetsForCAP", "gap/init.gi" );

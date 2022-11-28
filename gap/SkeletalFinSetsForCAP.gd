@@ -67,7 +67,7 @@ DeclareOperation( "CategoryOfSkeletalFinSets", [ ] );
 #! @Description
 #!  The default instance of the category of skeletal finite sets.
 #!  It is automatically created while loading this package.
-# DeclareGlobalVariable( "SkeletalFinSets" );
+DeclareGlobalName( "SkeletalFinSets" );
 
 #! @Description
 #!  Construct a skeletal finite set residing in
