@@ -768,9 +768,9 @@ function ( cat_1, Y_1, morphisms_1, P_1 )
     local hoisted_1_1;
     hoisted_1_1 := SKELETAL_FIN_SETS_ExplicitCoequalizer( Y_1, morphisms_1 );
     return CreateCapCategoryMorphismWithAttributes( cat_1, Y_1, P_1, AsList, List( [ 0 .. Length( Y_1 ) - 1 ], function ( x_2 )
-              return -1 + SafePosition( hoisted_1_1, SafeFirst( hoisted_1_1, function ( c_3 )
-                          return (x_2 in c_3);
-                      end ) );
+              return -1 + SafeUniquePositionProperty( hoisted_1_1, function ( c_3 )
+                        return (x_2 in c_3);
+                    end );
           end ) );
 end
 ########
