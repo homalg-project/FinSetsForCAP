@@ -19,7 +19,7 @@ end );
 
 ##
 InstallMethod( MapOfFinSets,
-        [ IsCapCategoryObject, IsJuliaObject, IsCapCategoryObject ],
+        [ IsFiniteSet, IsJuliaObject, IsFiniteSet ],
         
   function ( source, graph, range )
     
@@ -28,5 +28,15 @@ InstallMethod( MapOfFinSets,
     graph := List( graph, x -> JuliaToGAP( IsList, x ) );
     
     return MapOfFinSets( source, graph, range );
+    
+end );
+
+##
+InstallMethod( MapOfFinSets,
+        [ IsSkeletalFiniteSet, IsJuliaObject, IsSkeletalFiniteSet ],
+        
+  function ( source, graph, range )
+    
+    return MapOfFinSets( source, ConvertJuliaToGAP( graph ), range );
     
 end );
