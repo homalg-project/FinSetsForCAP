@@ -11,7 +11,11 @@ InstallMethod( CategoryOfSkeletalFinSets,
   function ( )
     local cat;
     
-    cat := CreateCapCategory( "SkeletalFinSets", IsCategoryOfSkeletalFinSets, IsSkeletalFiniteSet, IsSkeletalFiniteSetMap, IsCapCategoryTwoCell );
+    cat := CreateCapCategoryWithDataTypes(
+        "SkeletalFinSets", IsCategoryOfSkeletalFinSets,
+        IsSkeletalFiniteSet, IsSkeletalFiniteSetMap, IsCapCategoryTwoCell,
+        IsInt, rec( filter := IsList, element_type := rec( filter := IsInt ) ), fail
+    );
     
     cat!.category_as_first_argument := true;
     
