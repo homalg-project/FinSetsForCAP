@@ -860,12 +860,14 @@ AddExponentialOnMorphismsWithGivenExponentials( SkeletalFinSets,
                               MapOfFinSets(
                                       cat,
                                       M,
+                                      ## λ-elimination = InterpretMorphismFromDistinguishedObjectToHomomorphismStructureAsMorphism
                                       List( [ 0 .. m - 1 ], j -> RemInt( QuoInt( i, n^j ), n ) ),
                                       N ),
                               beta ] );
                   
                   images := AsList( composition );
                   
+                  ## λ-introduction = InterpretMorphismAsMorphismFromDistinguishedObjectToHomomorphismStructure
                   return Sum( List( [ 0 .. a - 1 ], k -> images[1 + k] * b^k ) );
                   
               end ),
