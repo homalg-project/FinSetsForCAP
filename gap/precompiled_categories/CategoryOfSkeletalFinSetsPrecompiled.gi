@@ -861,7 +861,7 @@ function ( cat_1, l_1, m_1 )
 end
 ########
         
-    , 5723 : IsPrecompiledDerivation := true );
+    , 5320 : IsPrecompiledDerivation := true );
     
     ##
     AddSomeInjectiveObject( cat,
