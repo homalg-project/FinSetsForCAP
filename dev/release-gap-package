@@ -503,7 +503,7 @@ find . -name .DS_Store -exec rm -f {} +
 # * build the package manual in a custom way;
 # * perform additional sanity checks;
 # * ...
-if [ "x$RELEASE_SCRIPT" != x ] then
+if [ "x$RELEASE_SCRIPT" != x ] ; then
 	. "$RELEASE_SCRIPT"
 elif [ -f .release ] ; then
     . ./.release
