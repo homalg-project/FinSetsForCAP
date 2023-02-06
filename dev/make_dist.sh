@@ -2,6 +2,4 @@
 
 set -e
 
-cp dev/.release .
-
-../ReleaseTools/release-gap-package --skip-existing-release $@
+./dev/release-gap-package --skip-existing-release --release-script dev/.release $@
