@@ -33,10 +33,6 @@ jobs:
           # the persisted token interferes with the subsplit token used below
           persist-credentials: false
           fetch-depth: 0
-      # recompile Julia packages
-      # this is necessary for Julia nightly due to the new pkgimage system, otherwise we get timeouts when testing notebooks
-      # run Julia with JULIA_DEBUG=loading and observe messages like "Rejecting cache file ... since pkgimage can't be loaded on this target"
-      - run: julia -e 'using Pkg; Pkg.precompile("IJulia"); Pkg.precompile("CapAndHomalg");'
       - run: cp -a $GITHUB_WORKSPACE /home/gap/.gap/pkg/
       - run: |
           export HOME="/home/gap"

@@ -37,7 +37,6 @@ test-with-coverage-without-precompiled-code: doc
 
 test-notebooks:
 	cd examples/notebooks/; \
-	#julia -e 'using Pkg; Pkg.precompile("IJulia"); Pkg.precompile("CapAndHomalg"); using IJulia; using CapAndHomalg;'; \
 	for filename in *.ipynb; do \
 		jupyter nbconvert --ExecutePreprocessor.startup_timeout=15 --ExecutePreprocessor.kernel_name=julia-$$(julia -e 'print(VERSION.major); print("."); print(VERSION.minor)') --ExecutePreprocessor.record_timing=False --to notebook --execute "$$filename" --output=out; \
 		# remove "ipynb" extension to exclude this from loops in reruns in case the diff fails \
