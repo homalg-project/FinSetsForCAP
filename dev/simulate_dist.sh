@@ -2,4 +2,4 @@
 
 set -e
 
-./dev/release-gap-package --skip-existing-release --release-script dev/.release --only-tarball
+./dev/release-gap-package --release-script dev/.release --only-tarball
