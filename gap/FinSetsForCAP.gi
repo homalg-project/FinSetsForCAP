@@ -27,6 +27,9 @@ InstallMethod( CategoryOfFinSets,
     SetIsElementaryTopos( FinSets, true );
     # =#
     
+    SetRangeCategoryOfHomomorphismStructure( FinSets, FinSets );
+    SetIsEquippedWithHomomorphismStructure( FinSets, true );
+    
     INSTALL_FUNCTIONS_FOR_FIN_SETS( FinSets );
     
     #= comment for Julia
