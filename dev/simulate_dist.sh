@@ -2,4 +2,4 @@
 
 set -e
 
-./dev/release-gap-package --release-script dev/.release --only-tarball
+GAP_PKG_RELEASE_DATE=$(date -I) ./dev/release-gap-package --release-script dev/.release --only-tarball
