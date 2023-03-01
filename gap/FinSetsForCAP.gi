@@ -17,12 +17,6 @@ InstallMethod( CategoryOfFinSets,
     
     FinSets!.supports_empty_limits := true;
     
-    FinSets!.compiler_hints := rec(
-        category_filter := IsCategoryOfFinSets,
-        object_filter := IsFiniteSet,
-        morphism_filter := IsFiniteSetMap,
-    );
-    
     #= comment for Julia
     SetIsElementaryTopos( FinSets, true );
     # =#
