@@ -21,12 +21,6 @@ InstallMethod( CategoryOfSkeletalFinSets,
     
     cat!.supports_empty_limits := true;
     
-    cat!.compiler_hints := rec(
-        category_filter := IsCategoryOfSkeletalFinSets,
-        object_filter := IsSkeletalFiniteSet,
-        morphism_filter := IsSkeletalFiniteSetMap,
-    );
-    
     # this is a workhorse category -> no logic and caching only via IsIdenticalObj
     CapCategorySwitchLogicOff( cat );
     
