@@ -1035,14 +1035,24 @@ InstallMethod( Display,
 end );
 
 ##
+InstallMethod( PrintString,
+    "for a CAP map of skeletal finite sets",
+        [ IsSkeletalFiniteSetMap ],
+        
+  function ( phi )
+    return Concatenation(
+                   PrintString( Source( phi ) ),
+                   " ⱶ", PrintString( AsList( phi ) ), "→ ",
+                   PrintString( Range( phi ) ) );
+end );
+
+##
 InstallMethod( Display,
     "for a CAP map of skeletal finite sets",
         [ IsSkeletalFiniteSetMap ],
         
   function ( phi )
-    Print( PrintString( Source( phi ) ) );
-    Print( " ⱶ", AsList( phi ), "→ " );
-    Print( PrintString( Range( phi ) ), "\n" );
+    Print( PrintString( phi ), "\n" );
 end );
 
 ##
