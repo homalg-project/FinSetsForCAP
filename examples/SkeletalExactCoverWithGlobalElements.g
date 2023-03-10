@@ -11,9 +11,8 @@ ExactCoverWithGlobalElements( L );
 #! [ ]
 g := ExactCoverWithGlobalElements( M );
 #! [ |1| → |2|, |1| → |2| ]
-Perform( g, Display );
-#! { 0 } ⱶ[ 0 ]→ { 0, 1 }
-#! { 0 } ⱶ[ 1 ]→ { 0, 1 }
+Display( g );
+#! [ { 0 } ⱶ[ 0 ]→ { 0, 1 }, { 0 } ⱶ[ 1 ]→ { 0, 1 } ]
 IsOne( UniversalMorphismFromCoproduct( g ) );
 #! true
 #! @EndExample
