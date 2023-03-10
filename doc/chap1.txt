@@ -494,9 +494,8 @@
     [4X[28X[ ][128X[104X
     [4X[25Xgap>[125X [27Xg := ExactCoverWithGlobalElements( M );[127X[104X
     [4X[28X[ |1| → |2|, |1| → |2| ][128X[104X
-    [4X[25Xgap>[125X [27XPerform( g, Display );[127X[104X
-    [4X[28X{ 0 } ⱶ[ 0 ]→ { 0, 1 }[128X[104X
-    [4X[28X{ 0 } ⱶ[ 1 ]→ { 0, 1 }[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( g );[127X[104X
+    [4X[28X[ { 0 } ⱶ[ 0 ]→ { 0, 1 }, { 0 } ⱶ[ 1 ]→ { 0, 1 } ][128X[104X
     [4X[25Xgap>[125X [27XIsOne( UniversalMorphismFromCoproduct( g ) );[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
