@@ -1036,7 +1036,7 @@ end );
 
 ##
 InstallMethod( PrintString,
-    "for a CAP map of skeletal finite sets",
+        "for a CAP map of skeletal finite sets",
         [ IsSkeletalFiniteSetMap ],
         
   function ( phi )
