@@ -480,7 +480,7 @@ AddIsWellDefinedForMorphisms( category_of_finite_sets,
         return false;
     fi;
     
-    if not Length( S ) = Length( rel ) then
+    if Length( S ) <> Length( rel ) then
         return false;
     fi;
     
@@ -505,8 +505,11 @@ end );
 ##
 AddIsEqualForObjects( category_of_finite_sets,
   function ( category_of_finite_sets, set1, set2 )
-    if not Length( set1 ) = Length( set2 ) then
+    
+    if Length( set1 ) <> Length( set2 ) then
+        
         return false;
+        
     fi;
     
     return IsEqualForElementsOfFinSets( AsList( set1 ), AsList( set2 ) );
