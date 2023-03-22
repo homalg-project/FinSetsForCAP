@@ -2,9 +2,9 @@
 # Compare FinSets and SkeletalFinSets
 ##################################################################################
 
-gap> START_TEST("compare.tst");
+gap> START_TEST( "compare.tst" );
 
-gap> LoadPackage("FinSets", false);
+gap> LoadPackage( "FinSets", false );
 true
 
 gap> T := TerminalObject( SkeletalFinSets );;
@@ -62,4 +62,4 @@ gap> Coev := List( AsList( Coev_set ), i -> -1 + Position( AsList( Range( Coev_s
 gap> coev := AsList( CartesianCoevaluationMorphism( m, n ) ); ## m, k
 [ 156, 199 ]
 
-gap> STOP_TEST("compare.tst", 1);
+gap> STOP_TEST( "compare.tst" );

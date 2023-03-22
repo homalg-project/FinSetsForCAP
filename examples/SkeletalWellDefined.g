@@ -19,7 +19,7 @@ psi := MapOfFinSets( s, [ 1, 2, 1, 4, 2, 1, 3 ], t );
 #! |7| → |4|
 IsWellDefined( psi );
 #! false
-psi:= MapOfFinSets( s, [ 0, 2, 1, 3, 2, 1, 3 ], t );
+psi := MapOfFinSets( s, [ 0, 2, 1, 3, 2, 1, 3 ], t );
 #! |7| → |4|
 IsWellDefined( psi );
 #! true
