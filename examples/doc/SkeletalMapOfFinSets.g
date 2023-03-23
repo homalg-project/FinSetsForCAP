@@ -15,6 +15,9 @@ IsWellDefined( phi );
 #! true
 Display( phi );
 #! { 0, 1, 2 } ⱶ[ 6, 4, 4 ]→ { 0,..., 6 }
+String( phi );
+#! "MapOfFinSets( SkeletalFinSets, FinSet( SkeletalFinSets, 3 ), [ 6, 4, 4 ], Fin\
+#! Set( SkeletalFinSets, 7 ) )"
 
 s := ObjectConstructor( SkeletalFinSets, 3 );
 #! |3|

@@ -1054,30 +1054,21 @@ end );
 end );
 
 ##
-InstallMethod( ViewObj,
+InstallMethod( DisplayString,
         "for a CAP finite set",
         [ IsFiniteSet ],
         
   function ( S )
-    Print( "<An object in ", Name( CapCategory( S ) ), ">" );
+    return Concatenation( PrintString( AsList( S ) ), "\n" );
 end );
 
 ##
-InstallMethod( Display,
-        "for a CAP finite set",
-        [ IsFiniteSet ],
-        
-  function ( S )
-    Print( AsList( S ), "\n" );
-end );
-
-##
-InstallMethod( Display,
+InstallMethod( DisplayString,
         "for a CAP map of finite sets",
         [ IsFiniteSetMap ],
         
   function ( phi )
-    Print( [ AsList( Source( phi ) ), AsList( phi ), AsList( Range( phi ) ) ], "\n" );
+    return Concatenation( PrintString( [ AsList( Source( phi ) ), AsList( phi ), AsList( Range( phi ) ) ] ), "\n" );
 end );
 
 ##

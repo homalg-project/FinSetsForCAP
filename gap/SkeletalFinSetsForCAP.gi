@@ -963,17 +963,35 @@ end );
 end );
 
 ##
-InstallMethod( ViewObj,
+InstallMethod( String,
         "for a CAP skeletal finite set",
         [ IsSkeletalFiniteSet ],
         
   function ( s )
-    Print( "|", Length( s ), "|" );
+    return Concatenation( "FinSet( SkeletalFinSets, ", String( Length( s ) ), " )" );
 end );
 
 ##
-InstallMethod( ViewObj,
-    "for a CAP map of skeletal finite sets",
+InstallMethod( String,
+        "for a CAP map of skeletal finite sets",
+        [ IsSkeletalFiniteSetMap ],
+        
+  function ( phi )
+    return Concatenation( "MapOfFinSets( SkeletalFinSets, ", String( Source( phi ) ), ", ", String( AsList( phi ) ), ", ", String( Range( phi ) ), " )" );
+end );
+
+##
+InstallMethod( ViewString,
+        "for a CAP skeletal finite set",
+        [ IsSkeletalFiniteSet ],
+        
+  function ( s )
+    return Concatenation( "|", String( Length( s ) ), "|" );
+end );
+
+##
+InstallMethod( ViewString,
+        "for a CAP map of skeletal finite sets",
         [ IsSkeletalFiniteSetMap ],
         
   function ( phi )
@@ -997,9 +1015,13 @@ InstallMethod( ViewObj,
         
     fi;
     
-    Print( "|", Length( Source( phi ) ), "| ", arrow, " |", Length( Range( phi ) ), "|" );
+    return Concatenation( ViewString( Source( phi ) ), " ", arrow, " ", ViewString( Range( phi ) ) );
     
 end );
+
+# We want lists of skeletal finite sets and maps to be displayed in a "fancy" way.
+# Since `Display` of list redirects to `Print`, we have to make `PrintString` "fancy",
+# even if the documentation of `PrintString` suggests that it should not be "fancy".
 
 ##
 InstallMethod( PrintString,
@@ -1026,33 +1048,39 @@ InstallMethod( PrintString,
 end );
 
 ##
-InstallMethod( Display,
-        "for a CAP skeletal finite set",
-        [ IsSkeletalFiniteSet ],
-        
-  function ( s )
-    Print( PrintString( s ), "\n" );
-end );
-
-##
 InstallMethod( PrintString,
         "for a CAP map of skeletal finite sets",
         [ IsSkeletalFiniteSetMap ],
         
   function ( phi )
+    
     return Concatenation(
                    PrintString( Source( phi ) ),
                    " ⱶ", PrintString( AsList( phi ) ), "→ ",
                    PrintString( Range( phi ) ) );
+    
 end );
 
 ##
-InstallMethod( Display,
-    "for a CAP map of skeletal finite sets",
+InstallMethod( DisplayString,
+        "for a CAP skeletal finite set",
+        [ IsSkeletalFiniteSet ],
+        
+  function ( s )
+    
+    return Concatenation( PrintString( s ), "\n" );
+    
+end );
+
+##
+InstallMethod( DisplayString,
+        "for a CAP map of skeletal finite sets",
         [ IsSkeletalFiniteSetMap ],
         
   function ( phi )
-    Print( PrintString( phi ), "\n" );
+    
+    return Concatenation( PrintString( phi ), "\n" );
+    
 end );
 
 ##
