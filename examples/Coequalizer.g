@@ -13,7 +13,7 @@ g := MapOfFinSets( N, [ [1,2], [3,4] ], M );
 #! <A morphism in FinSets>
 C := Coequalizer( f, g );
 #! <An object in FinSets>
-AsList( C );
+Display( AsList( C ) );
 #! [ [ 1, 2, 4 ] ]
 
 
@@ -29,11 +29,11 @@ f3 := MapOfFinSets( A, [ [ 1, 4 ], [ 2, 2 ], [ 3, 3 ], [ 4, 8 ] ], B );
 #! <A morphism in FinSets>
 C1 := Coequalizer( [ f1, f3 ] );
 #! <An object in FinSets>
-AsList( C1 );
+Display( AsList( C1 ) );
 #! [ [ 1, 4 ], [ 2 ], [ 3 ], [ 5 ], [ 6 ], [ 7 ], [ 8 ] ]
 C2 := Coequalizer( [ f1, f2, f3 ] );
 #! <An object in FinSets>
-AsList( C2 );
+Display( AsList( C2 ) );
 #! [ [ 1, 2, 3, 8, 5, 4 ], [ 6 ], [ 7 ] ]
 
 
@@ -65,11 +65,11 @@ D := [ f, g ];
 #! [ <A morphism in FinSets>, <A morphism in FinSets> ]
 C := Coequalizer( D );
 #! <An object in FinSets>
-AsList( C );
+Display( AsList( C ) );
 #! [ [ 1 ], [ 2 ], [ 3, 4 ] ]
 pi := ProjectionOntoCoequalizer( D );
 #! <An epimorphism in FinSets>
-AsList( pi );
+Display( AsList( pi ) );
 #! [ [ 1, [ 1 ] ], [ 2, [ 2 ] ], [ 3, [ 3, 4 ] ], [ 4, [ 3, 4 ] ] ]
 mu := MorphismFromSourceToCoequalizer( D );;
 PreCompose( f, pi ) = mu;
@@ -79,7 +79,7 @@ tau := MapOfFinSets( T, G_tau, FinSet( [ 1, 2 ] ) );
 #! <A morphism in FinSets>
 phi := UniversalMorphismFromCoequalizer( D, tau );
 #! <A morphism in FinSets>
-AsList( phi );
+Display( AsList( phi ) );
 #! [ [ [ 1 ], 2 ], [ [ 2 ], 1 ], [ [ 3, 4 ], 2 ] ]
 PreCompose( pi, phi ) = tau;
 #! true
@@ -99,11 +99,11 @@ D := [ f, g ];
 #! [ <A morphism in FinSets>, <A morphism in FinSets> ]
 C := Coequalizer( D );
 #! <An object in FinSets>
-AsList( C );
+Display( AsList( C ) );
 #! [ [ 1 ], [ 2, 3 ], [ 4 ] ]
 pi := ProjectionOntoCoequalizer( D );
 #! <An epimorphism in FinSets>
-AsList( pi );
+Display( AsList( pi ) );
 #! [ [ 1, [ 1 ] ], [ 2, [ 2, 3 ] ], [ 3, [ 2, 3 ] ], [ 4, [ 4 ] ] ]
 PreCompose( f, pi ) = PreCompose( g, pi );
 #! true
@@ -115,7 +115,7 @@ tau := MapOfFinSets( T, G_tau, FinSet( [ 1, 2 ] ) );
 #! <A morphism in FinSets>
 phi := UniversalMorphismFromCoequalizer( D, tau );
 #! <A morphism in FinSets>
-AsList( phi );
+Display( AsList( phi ) );
 #! [ [ [ 1 ], 1 ], [ [ 2, 3 ], 2 ], [ [ 4 ], 1 ] ]
 PreCompose( pi, phi ) = tau;
 #! true

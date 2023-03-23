@@ -25,7 +25,7 @@ P := FinSet( [ 1, 2, 3, 4 ] );
 #! <An object in FinSets>
 C := Coproduct( M, N, P );
 #! <An object in FinSets>
-AsList( C );
+Display( AsList( C ) );
 #! [ [ 1, 1 ], [ 1, 2 ], [ 1, 3 ], [ 1, 4 ], [ 1, 5 ], [ 1, 6 ], 
 #!   [ 1, 7 ], [ 2, 1 ], [ 2, 2 ], [ 2, 3 ], [ 3, 1 ], [ 3, 2 ], 
 #!   [ 3, 3 ], [ 3, 4 ] ]
@@ -33,20 +33,20 @@ iota1 := InjectionOfCofactorOfCoproduct( [ M, N, P ], 1 );
 #! <A morphism in FinSets>
 IsWellDefined( iota1 );
 #! true
-AsList( iota1 );
+Display( AsList( iota1 ) );
 #! [ [ 1, [ 1, 1 ] ], [ 2, [ 1, 2 ] ], [ 3, [ 1, 3 ] ], [ 4, [ 1, 4 ] ], 
 #!   [ 5, [ 1, 5 ] ], [ 6, [ 1, 6 ] ], [ 7, [ 1, 7 ] ] ]
 iota2 := InjectionOfCofactorOfCoproduct( [ M, N, P ], 2 );
 #! <A morphism in FinSets>
 IsWellDefined( iota2 );
 #! true
-AsList( iota2 );
+Display( AsList( iota2 ) );
 #! [ [ 1, [ 2, 1 ] ], [ 2, [ 2, 2 ] ], [ 3, [ 2, 3 ] ] ]
 iota3 := InjectionOfCofactorOfCoproduct( [ M, N, P ], 3 );
 #! <A morphism in FinSets>
 IsWellDefined( iota3 );
 #! true
-AsList( iota3 );
+Display( AsList( iota3 ) );
 #! [ [ 1, [ 3, 1 ] ], [ 2, [ 3, 2 ] ], [ 3, [ 3, 3 ] ], [ 4, [ 3, 4 ] ] ]
 psi := UniversalMorphismFromCoproduct( [ M, N, P ],
                                        [ iota1, iota2, iota3 ]

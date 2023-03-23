@@ -11,7 +11,7 @@ p := FinSet( 4 );
 #! |4|
 c := Coproduct( m, n, p );
 #! |14|
-AsList( c );
+Display( AsList( c ) );
 #! [ 0 .. 13 ]
 iota1 := InjectionOfCofactorOfCoproduct( [ m, n, p ], 1 );
 #! |7| → |14|

@@ -9,7 +9,7 @@ t := FinSet( 7 );
 #! |7|
 phi := MapOfFinSets( s, [ 6, 4, 4 ], t );
 #! |3| → |7|
-AsList( phi );
+Display( AsList( phi ) );
 #! [ 6, 4, 4 ]
 IsWellDefined( phi );
 #! true
@@ -25,7 +25,7 @@ t := ObjectConstructor( SkeletalFinSets, 7 );
 #! |7|
 phi := MorphismConstructor( s, [ 6, 4, 4 ], t );
 #! |3| → |7|
-MorphismDatum( phi );
+Display( MorphismDatum( phi ) );
 #! [ 6, 4, 4 ]
 IsWellDefined( phi );
 #! true

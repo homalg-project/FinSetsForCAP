@@ -11,7 +11,7 @@ p := FinSet( 4 );
 #! |4|
 d := DirectProduct( [ m, n, p ] );
 #! |84|
-AsList( d );
+Display( AsList( d ) );
 #! [ 0 .. 83 ]
 pi1 := ProjectionInFactorOfDirectProduct( [ m, n, p ], 1 );
 #! |84| → |7|
