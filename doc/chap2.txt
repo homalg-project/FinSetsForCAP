@@ -85,6 +85,8 @@
     [4X[28X{ 0,..., 6 }[128X[104X
     [4X[25Xgap>[125X [27XIsWellDefined( m );[127X[104X
     [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XString( m );[127X[104X
+    [4X[28X"FinSet( SkeletalFinSets, 7 )"[128X[104X
     [4X[25Xgap>[125X [27XList( m, x -> x^2 );[127X[104X
     [4X[28X[ 0, 1, 4, 9, 16, 25, 36 ][128X[104X
     [4X[25Xgap>[125X [27XL := ObjectDatum( m );[127X[104X
@@ -139,6 +141,9 @@
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XDisplay( phi );[127X[104X
     [4X[28X{ 0, 1, 2 } ⱶ[ 6, 4, 4 ]→ { 0,..., 6 }[128X[104X
+    [4X[25Xgap>[125X [27XString( phi );[127X[104X
+    [4X[28X"MapOfFinSets( SkeletalFinSets, FinSet( SkeletalFinSets, 3 ), [ 6, 4, 4 ], Fin\[128X[104X
+    [4X[28XSet( SkeletalFinSets, 7 ) )"[128X[104X
     [4X[25Xgap>[125X [27Xs := ObjectConstructor( SkeletalFinSets, 3 );[127X[104X
     [4X[28X|3|[128X[104X
     [4X[25Xgap>[125X [27Xt := ObjectConstructor( SkeletalFinSets, 7 );[127X[104X
@@ -252,7 +257,7 @@
     [4X[28X|7| → |4|[128X[104X
     [4X[25Xgap>[125X [27XIsWellDefined( psi );[127X[104X
     [4X[28Xfalse[128X[104X
-    [4X[25Xgap>[125X [27Xpsi:= MapOfFinSets( s, [ 0, 2, 1, 3, 2, 1, 3 ], t );[127X[104X
+    [4X[25Xgap>[125X [27Xpsi := MapOfFinSets( s, [ 0, 2, 1, 3, 2, 1, 3 ], t );[127X[104X
     [4X[28X|7| → |4|[128X[104X
     [4X[25Xgap>[125X [27XIsWellDefined( psi );[127X[104X
     [4X[28Xtrue[128X[104X
