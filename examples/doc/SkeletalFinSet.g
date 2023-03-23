@@ -9,6 +9,8 @@ Display( m );
 #! { 0,..., 6 }
 IsWellDefined( m );
 #! true
+String( m );
+#! "FinSet( SkeletalFinSets, 7 )"
 List( m, x -> x^2 );
 #! [ 0, 1, 4, 9, 16, 25, 36 ]
 L := ObjectDatum( m );
