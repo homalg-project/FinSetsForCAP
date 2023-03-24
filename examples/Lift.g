@@ -1,8 +1,8 @@
 #! @Chunk Lift
 
-LoadPackage( "FinSetsForCAP" );
-
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 m := FinSet( [ 1 .. 3 ] );
 #! <An object in FinSets>
 n := FinSet( [ 1 .. 4 ] );

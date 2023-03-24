@@ -1,12 +1,12 @@
 #! @Chunk SubobjectClassifier
 
-LoadPackage( "FinSetsForCAP" );
-
 # Below we see that the internal logic
 # of the category FinSets is classical logic,
 # i.e., the topos FinSets is Boolean.
 
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 Display( SubobjectClassifier( FinSets ) );
 #! [ "true", "false" ]
 Display( TruthMorphismOfTrue( FinSets ) );

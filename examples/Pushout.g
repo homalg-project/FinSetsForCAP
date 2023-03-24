@@ -1,8 +1,8 @@
 #! @Chunk Pushout
 
-LoadPackage( "FinSetsForCAP" );
-
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 M := FinSet( [ 1 .. 5 ] );
 #! <An object in FinSets>
 N1 := FinSet( [ 1, 2, 4 ] );

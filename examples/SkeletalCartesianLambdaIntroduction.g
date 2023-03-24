@@ -1,8 +1,8 @@
 #! @Chunk SkeletalCartesianLambdaIntroduction
 
-LoadPackage( "FinSetsForCAP" );
-
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 S := FinSet( 3 );
 #! |3|
 R := FinSet( 2 );

@@ -1,8 +1,8 @@
 #! @Chunk FinSetNC
 
-LoadPackage( "FinSetsForCAP" );
-
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 S := FinSetNC( [ 1, 3, 2 ] );
 #! <An object in FinSets>
 Display( S );

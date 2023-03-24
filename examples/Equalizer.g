@@ -1,8 +1,8 @@
 #! @Chunk Equalizer
 
-LoadPackage( "FinSetsForCAP" );
-
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 S := FinSet( [ 1 .. 5 ] );
 #! <An object in FinSets>
 T := FinSet( [ 1 .. 3 ] );

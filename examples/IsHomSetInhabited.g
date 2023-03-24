@@ -1,8 +1,8 @@
 #! @Chunk IsHomSetInhabited
 
-LoadPackage( "FinSetsForCAP" );
-
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 L := FinSet( [ ] );
 #! <An object in FinSets>
 M := FinSet( [ 2 ] );

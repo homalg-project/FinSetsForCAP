@@ -1,8 +1,8 @@
 #! @Chunk SkeletalPushout
 
-LoadPackage( "FinSetsForCAP" );
-
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 M := FinSet( 5 );
 #! |5|
 N1 := FinSet( 3 );
@@ -34,6 +34,8 @@ Display( pi2 );
 #! The easy way
 
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 D := [ pi1, pi2 ];
 #! [ |2| → |3|, |2| → |2| ]
 UU := Pushout( D );
@@ -53,6 +55,8 @@ PreCompose( pi1, kappa1 ) = PreCompose( pi2, kappa2 );
 #! The long way
 
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 Co := Coproduct( N1, N2 );
 #! |5|
 Display( Co );

@@ -1,8 +1,8 @@
 #! @Chunk Several categories
 
-LoadPackage( "FinSetsForCAP" );
-
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 S := FinSet( 3 );;
 cat := CategoryOfSkeletalFinSets();;
 T := FinSet( cat, 3 );;

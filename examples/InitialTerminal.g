@@ -1,8 +1,8 @@
 #! @Chunk InitialTerminal
 
-LoadPackage( "FinSetsForCAP" );
-
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 M := FinSet( [ 1, 2, 3 ] );
 #! <An object in FinSets>
 IsInitial( M );

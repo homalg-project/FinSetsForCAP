@@ -1,8 +1,8 @@
 #! @Chunk CartesianLambdaIntroduction
 
-LoadPackage( "FinSetsForCAP" );
-
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 S := FinSet( [ 1 .. 3 ] );
 #! <An object in FinSets>
 R := FinSet( [ 1 .. 2 ] );

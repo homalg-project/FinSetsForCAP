@@ -1,8 +1,8 @@
 #! @Chunk Topos
 
-LoadPackage( "FinSetsForCAP" );
-
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 
 M := FinSet( [ 1 .. 5 ] );;
 N := FinSet( [ 1, 2, 4 ] );;

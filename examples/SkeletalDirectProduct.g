@@ -1,8 +1,8 @@
 #! @Chunk SkeletalDirectProduct
 
-LoadPackage( "FinSetsForCAP" );
-
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 m := FinSet( 7 );
 #! |7|
 n := FinSet( 3 );

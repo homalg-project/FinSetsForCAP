@@ -1,8 +1,8 @@
 #! @Chunk MapOfFinSets
 
-LoadPackage( "FinSetsForCAP" );
-
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 S := FinSet( [ 1, 3, 2, 2, 1 ] );
 #! <An object in FinSets>
 T := FinSet( [ "a", "b", "c" ] );

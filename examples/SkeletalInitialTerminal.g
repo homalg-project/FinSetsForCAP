@@ -1,8 +1,8 @@
 #! @Chunk SkeletalInitialTerminal
 
-LoadPackage( "FinSetsForCAP" );
-
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 m := FinSet( 8 );
 #! |8|
 IsInitial( m );

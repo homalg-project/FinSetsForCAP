@@ -1,8 +1,8 @@
 #! @Chunk SkeletalExactCoverWithGlobalElements
 
-LoadPackage( "FinSetsForCAP" );
-
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 L := FinSet( 0 );
 #! |0|
 M := FinSet( 2 );

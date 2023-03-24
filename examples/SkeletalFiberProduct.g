@@ -1,8 +1,8 @@
 #! @Chunk SkeletalFiberProduct
 
-LoadPackage( "FinSetsForCAP" );
-
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 m := FinSet( 5 );
 #! |5|
 n1 := FinSet( 3 );

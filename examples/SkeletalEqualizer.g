@@ -1,8 +1,8 @@
 #! @Chunk SkeletalEqualizer
 
-LoadPackage( "FinSetsForCAP" );
-
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 S := FinSet( 5 );
 #! |5|
 T := FinSet( 3 );

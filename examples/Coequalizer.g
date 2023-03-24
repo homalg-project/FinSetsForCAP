@@ -1,8 +1,8 @@
 #! @Chunk Coequalizer
 
-LoadPackage( "FinSetsForCAP" );
-
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 N := FinSet( [1,3] );
 #! <An object in FinSets>
 M := FinSet( [1,2,4] );
