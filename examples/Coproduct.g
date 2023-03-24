@@ -26,16 +26,16 @@ P := FinSet( [ 1, 2, 3, 4 ] );
 C := Coproduct( M, N, P );
 #! <An object in FinSets>
 Display( AsList( C ) );
-#! [ [ 1, 1 ], [ 1, 2 ], [ 1, 3 ], [ 1, 4 ], [ 1, 5 ], [ 1, 6 ], 
-#!   [ 1, 7 ], [ 2, 1 ], [ 2, 2 ], [ 2, 3 ], [ 3, 1 ], [ 3, 2 ], 
-#!   [ 3, 3 ], [ 3, 4 ] ]
+#! [ [ 1, 1 ], [ 1, 2 ], [ 1, 3 ], [ 1, 4 ], [ 1, 5 ], [ 1, 6 ],\
+#!  [ 1, 7 ], [ 2, 1 ], [ 2, 2 ], [ 2, 3 ], [ 3, 1 ], [ 3, 2 ],\
+#!  [ 3, 3 ], [ 3, 4 ] ]
 iota1 := InjectionOfCofactorOfCoproduct( [ M, N, P ], 1 );
 #! <A morphism in FinSets>
 IsWellDefined( iota1 );
 #! true
 Display( AsList( iota1 ) );
-#! [ [ 1, [ 1, 1 ] ], [ 2, [ 1, 2 ] ], [ 3, [ 1, 3 ] ], [ 4, [ 1, 4 ] ], 
-#!   [ 5, [ 1, 5 ] ], [ 6, [ 1, 6 ] ], [ 7, [ 1, 7 ] ] ]
+#! [ [ 1, [ 1, 1 ] ], [ 2, [ 1, 2 ] ], [ 3, [ 1, 3 ] ], [ 4, [ 1, 4 ] ],\
+#!  [ 5, [ 1, 5 ] ], [ 6, [ 1, 6 ] ], [ 7, [ 1, 7 ] ] ]
 iota2 := InjectionOfCofactorOfCoproduct( [ M, N, P ], 2 );
 #! <A morphism in FinSets>
 IsWellDefined( iota2 );
