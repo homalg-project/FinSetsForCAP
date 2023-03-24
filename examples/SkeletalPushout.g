@@ -17,8 +17,7 @@ iota2 := EmbeddingOfFinSets( N2, M );
 #! |2| ↪ |5|
 Display( iota2 );
 #! { 0, 1 } ⱶ[ 0 .. 1 ]→ { 0,..., 4 }
-D := [ iota1, iota2 ];
-#! [ |3| ↪ |5|, |2| ↪ |5| ]
+D := [ iota1, iota2 ];;
 Fib := FiberProduct( D );
 #! |2|
 pi1 := ProjectionInFactorOfFiberProduct( D, 1 );
@@ -36,8 +35,7 @@ Display( pi2 );
 #! @Example
 LoadPackage( "FinSetsForCAP", false );
 #! true
-D := [ pi1, pi2 ];
-#! [ |2| → |3|, |2| → |2| ]
+D := [ pi1, pi2 ];;
 UU := Pushout( D );
 #! |3|
 kappa1 := InjectionOfCofactorOfPushout( D, 1 );

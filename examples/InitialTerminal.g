@@ -35,6 +35,6 @@ t := FinSet( [ "Julia" ] );
 #! <An object in FinSets>
 pi_t := UniversalMorphismIntoTerminalObjectWithGivenTerminalObject( M, t );
 #! <A morphism in FinSets>
-List( M, pi_t );
+Display( List( M, pi_t ) );
 #! [ "Julia", "Julia", "Julia" ]
 #! @EndExample

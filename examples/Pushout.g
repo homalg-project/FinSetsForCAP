@@ -13,8 +13,7 @@ N2 := FinSet( [ 2, 3 ] );
 #! <An object in FinSets>
 iota2 := EmbeddingOfFinSets( N2, M );
 #! <A monomorphism in FinSets>
-D := [ iota1, iota2 ];
-#! [ <A monomorphism in FinSets>, <A monomorphism in FinSets> ]
+D := [ iota1, iota2 ];;
 int := FiberProduct( D );
 #! <An object in FinSets>
 Display( int );

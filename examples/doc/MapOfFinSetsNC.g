@@ -18,7 +18,7 @@ phi( 2 );
 #! "a"
 phi( 3 );
 #! "b"
-List( S, phi );
+Display( List( S, phi ) );
 #! [ "b", "b", "a" ]
 psi := [ [ 1, "b" ], [ 2, "a" ], [ 3, "b" ] ];;
 psi := MapOfFinSetsNC( S, psi, T );
