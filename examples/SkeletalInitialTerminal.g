@@ -19,11 +19,11 @@ IsTerminal( i );
 #! false
 iota := UniversalMorphismFromInitialObject( m );
 #! |0| → |8|
-AsList( i );
+Display( AsList( i ) );
 #! [  ]
 t := TerminalObject( SkeletalFinSets );
 #! |1|
-AsList( t );
+Display( AsList( t ) );
 #! [ 0 ]
 IsInitial( t );
 #! false
@@ -35,7 +35,7 @@ IsIdenticalObj( Range( pi ), t );
 #! true
 pi_t := UniversalMorphismIntoTerminalObjectWithGivenTerminalObject( m, t );
 #! |8| → |1|
-AsList( pi_t );
+Display( AsList( pi_t ) );
 #! [ 0, 0, 0, 0, 0, 0, 0, 0 ]
 pi = pi_t;
 #! true

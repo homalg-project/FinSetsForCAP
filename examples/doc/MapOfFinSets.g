@@ -12,11 +12,11 @@ phi := MapOfFinSets( S, G, T );
 #! <A morphism in FinSets>
 IsWellDefined( phi );
 #! true
-AsList( phi );
+Display( AsList( phi ) );
 #! [ [ 1, "b" ], [ 2, "a" ], [ 3, "b" ] ]
 phi2 := MorphismConstructor( S, G, T );
 #! <A morphism in FinSets>
-MorphismDatum( phi2 );
+Display( MorphismDatum( phi2 ) );
 #! [ [ 1, "b" ], [ 2, "a" ], [ 3, "b" ] ]
 phi = phi2;
 #! true
