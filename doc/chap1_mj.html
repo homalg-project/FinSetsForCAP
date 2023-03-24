@@ -305,11 +305,11 @@ false
 &lt;A morphism in FinSets&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( phi );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsList( phi );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( phi ) );</span>
 [ [ 1, "b" ], [ 2, "a" ], [ 3, "b" ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi2 := MorphismConstructor( S, G, T );</span>
 &lt;A morphism in FinSets&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MorphismDatum( phi2 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( MorphismDatum( phi2 ) );</span>
 [ [ 1, "b" ], [ 2, "a" ], [ 3, "b" ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi = phi2;</span>
 true
@@ -855,7 +855,7 @@ true
 &lt;An object in FinSets&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := Coproduct( M, N, P );</span>
 &lt;An object in FinSets&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsList( C );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( C ) );</span>
 [ [ 1, 1 ], [ 1, 2 ], [ 1, 3 ], [ 1, 4 ], [ 1, 5 ], [ 1, 6 ], 
   [ 1, 7 ], [ 2, 1 ], [ 2, 2 ], [ 2, 3 ], [ 3, 1 ], [ 3, 2 ], 
   [ 3, 3 ], [ 3, 4 ] ]
@@ -863,20 +863,20 @@ true
 &lt;A morphism in FinSets&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( iota1 );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsList( iota1 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( iota1 ) );</span>
 [ [ 1, [ 1, 1 ] ], [ 2, [ 1, 2 ] ], [ 3, [ 1, 3 ] ], [ 4, [ 1, 4 ] ], 
   [ 5, [ 1, 5 ] ], [ 6, [ 1, 6 ] ], [ 7, [ 1, 7 ] ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota2 := InjectionOfCofactorOfCoproduct( [ M, N, P ], 2 );</span>
 &lt;A morphism in FinSets&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( iota2 );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsList( iota2 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( iota2 ) );</span>
 [ [ 1, [ 2, 1 ] ], [ 2, [ 2, 2 ] ], [ 3, [ 2, 3 ] ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota3 := InjectionOfCofactorOfCoproduct( [ M, N, P ], 3 );</span>
 &lt;A morphism in FinSets&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( iota3 );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsList( iota3 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( iota3 ) );</span>
 [ [ 1, [ 3, 1 ] ], [ 2, [ 3, 2 ] ], [ 3, [ 3, 3 ] ], [ 4, [ 3, 4 ] ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := UniversalMorphismFromCoproduct( [ M, N, P ],</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">                                       [ iota1, iota2, iota3 ]</span>
@@ -1050,7 +1050,7 @@ true
 &lt;A morphism in FinSets&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := Coequalizer( f, g );</span>
 &lt;An object in FinSets&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsList( C );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( C ) );</span>
 [ [ 1, 2, 4 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">A := FinSet( [ 1, 2, 3, 4 ] );</span>
 &lt;An object in FinSets&gt;
@@ -1064,11 +1064,11 @@ true
 &lt;A morphism in FinSets&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1 := Coequalizer( [ f1, f3 ] );</span>
 &lt;An object in FinSets&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsList( C1 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( C1 ) );</span>
 [ [ 1, 4 ], [ 2 ], [ 3 ], [ 5 ], [ 6 ], [ 7 ], [ 8 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2 := Coequalizer( [ f1, f2, f3 ] );</span>
 &lt;An object in FinSets&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsList( C2 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( C2 ) );</span>
 [ [ 1, 2, 3, 8, 5, 4 ], [ 6 ], [ 7 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S := FinSet( [ 1 .. 5 ] );</span>
 &lt;An object in FinSets&gt;
@@ -1096,11 +1096,11 @@ true
 [ &lt;A morphism in FinSets&gt;, &lt;A morphism in FinSets&gt; ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := Coequalizer( D );</span>
 &lt;An object in FinSets&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsList( C );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( C ) );</span>
 [ [ 1 ], [ 2 ], [ 3, 4 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi := ProjectionOntoCoequalizer( D );</span>
 &lt;An epimorphism in FinSets&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsList( pi );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( pi ) );</span>
 [ [ 1, [ 1 ] ], [ 2, [ 2 ] ], [ 3, [ 3, 4 ] ], [ 4, [ 3, 4 ] ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">mu := MorphismFromSourceToCoequalizer( D );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( f, pi ) = mu;</span>
@@ -1110,7 +1110,7 @@ true
 &lt;A morphism in FinSets&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := UniversalMorphismFromCoequalizer( D, tau );</span>
 &lt;A morphism in FinSets&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsList( phi );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( phi ) );</span>
 [ [ [ 1 ], 2 ], [ [ 2 ], 1 ], [ [ 3, 4 ], 2 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( pi, phi ) = tau;</span>
 true
@@ -1128,11 +1128,11 @@ true
 [ &lt;A morphism in FinSets&gt;, &lt;A morphism in FinSets&gt; ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := Coequalizer( D );</span>
 &lt;An object in FinSets&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsList( C );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( C ) );</span>
 [ [ 1 ], [ 2, 3 ], [ 4 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi := ProjectionOntoCoequalizer( D );</span>
 &lt;An epimorphism in FinSets&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsList( pi );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( pi ) );</span>
 [ [ 1, [ 1 ] ], [ 2, [ 2, 3 ] ], [ 3, [ 2, 3 ] ], [ 4, [ 4 ] ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( f, pi ) = PreCompose( g, pi );</span>
 true
@@ -1144,7 +1144,7 @@ true
 &lt;A morphism in FinSets&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := UniversalMorphismFromCoequalizer( D, tau );</span>
 &lt;A morphism in FinSets&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsList( phi );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( phi ) );</span>
 [ [ [ 1 ], 1 ], [ [ 2, 3 ], 2 ], [ [ 4 ], 1 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( pi, phi ) = tau;</span>
 true

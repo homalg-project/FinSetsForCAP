@@ -258,7 +258,7 @@ false
 |7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( s, [ 6, 4, 4 ], t );</span>
 |3| → |7|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsList( phi );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( phi ) );</span>
 [ 6, 4, 4 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( phi );</span>
 true
@@ -273,7 +273,7 @@ Set( SkeletalFinSets, 7 ) )"
 |7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MorphismConstructor( s, [ 6, 4, 4 ], t );</span>
 |3| → |7|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MorphismDatum( phi );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( MorphismDatum( phi ) );</span>
 [ 6, 4, 4 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( phi );</span>
 true
@@ -490,11 +490,11 @@ true
 false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota := UniversalMorphismFromInitialObject( m );</span>
 |0| → |8|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsList( i );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( i ) );</span>
 [  ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">t := TerminalObject( SkeletalFinSets );</span>
 |1|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsList( t );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( t ) );</span>
 [ 0 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInitial( t );</span>
 false
@@ -506,7 +506,7 @@ true
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi_t := UniversalMorphismIntoTerminalObjectWithGivenTerminalObject( m, t );</span>
 |8| → |1|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsList( pi_t );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( pi_t ) );</span>
 [ 0, 0, 0, 0, 0, 0, 0, 0 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi = pi_t;</span>
 true
@@ -572,7 +572,7 @@ true
 |4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">d := DirectProduct( [ m, n, p ] );</span>
 |84|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsList( d );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( d ) );</span>
 [ 0 .. 83 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi1 := ProjectionInFactorOfDirectProduct( [ m, n, p ], 1 );</span>
 |84| → |7|
@@ -621,7 +621,7 @@ true
 |4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c := Coproduct( m, n, p );</span>
 |14|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsList( c );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( c ) );</span>
 [ 0 .. 13 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota1 := InjectionOfCofactorOfCoproduct( [ m, n, p ], 1 );</span>
 |7| → |14|
@@ -746,9 +746,11 @@ true
 |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( n, [ 6, 4, 4 ], m );</span>
 |3| → |7|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := Preimage( phi, [ 2 ] );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := Preimage( phi, [ 2 ] );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( P );</span>
 [  ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := Preimage( phi, AsList( FinSet( 5 ) ) );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := Preimage( phi, AsList( FinSet( 5 ) ) );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( P );</span>
 [ 1, 2 ]
 </pre></div>
 

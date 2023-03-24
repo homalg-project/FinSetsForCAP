@@ -180,11 +180,11 @@
     [4X[28X<A morphism in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XIsWellDefined( phi );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XAsList( phi );[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( AsList( phi ) );[127X[104X
     [4X[28X[ [ 1, "b" ], [ 2, "a" ], [ 3, "b" ] ][128X[104X
     [4X[25Xgap>[125X [27Xphi2 := MorphismConstructor( S, G, T );[127X[104X
     [4X[28X<A morphism in FinSets>[128X[104X
-    [4X[25Xgap>[125X [27XMorphismDatum( phi2 );[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( MorphismDatum( phi2 ) );[127X[104X
     [4X[28X[ [ 1, "b" ], [ 2, "a" ], [ 3, "b" ] ][128X[104X
     [4X[25Xgap>[125X [27Xphi = phi2;[127X[104X
     [4X[28Xtrue[128X[104X
@@ -682,7 +682,7 @@
     [4X[28X<An object in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XC := Coproduct( M, N, P );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
-    [4X[25Xgap>[125X [27XAsList( C );[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( AsList( C ) );[127X[104X
     [4X[28X[ [ 1, 1 ], [ 1, 2 ], [ 1, 3 ], [ 1, 4 ], [ 1, 5 ], [ 1, 6 ], [128X[104X
     [4X[28X  [ 1, 7 ], [ 2, 1 ], [ 2, 2 ], [ 2, 3 ], [ 3, 1 ], [ 3, 2 ], [128X[104X
     [4X[28X  [ 3, 3 ], [ 3, 4 ] ][128X[104X
@@ -690,20 +690,20 @@
     [4X[28X<A morphism in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XIsWellDefined( iota1 );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XAsList( iota1 );[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( AsList( iota1 ) );[127X[104X
     [4X[28X[ [ 1, [ 1, 1 ] ], [ 2, [ 1, 2 ] ], [ 3, [ 1, 3 ] ], [ 4, [ 1, 4 ] ], [128X[104X
     [4X[28X  [ 5, [ 1, 5 ] ], [ 6, [ 1, 6 ] ], [ 7, [ 1, 7 ] ] ][128X[104X
     [4X[25Xgap>[125X [27Xiota2 := InjectionOfCofactorOfCoproduct( [ M, N, P ], 2 );[127X[104X
     [4X[28X<A morphism in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XIsWellDefined( iota2 );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XAsList( iota2 );[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( AsList( iota2 ) );[127X[104X
     [4X[28X[ [ 1, [ 2, 1 ] ], [ 2, [ 2, 2 ] ], [ 3, [ 2, 3 ] ] ][128X[104X
     [4X[25Xgap>[125X [27Xiota3 := InjectionOfCofactorOfCoproduct( [ M, N, P ], 3 );[127X[104X
     [4X[28X<A morphism in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XIsWellDefined( iota3 );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XAsList( iota3 );[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( AsList( iota3 ) );[127X[104X
     [4X[28X[ [ 1, [ 3, 1 ] ], [ 2, [ 3, 2 ] ], [ 3, [ 3, 3 ] ], [ 4, [ 3, 4 ] ] ][128X[104X
     [4X[25Xgap>[125X [27Xpsi := UniversalMorphismFromCoproduct( [ M, N, P ],[127X[104X
     [4X[25X>[125X [27X                                       [ iota1, iota2, iota3 ][127X[104X
@@ -867,7 +867,7 @@
     [4X[28X<A morphism in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XC := Coequalizer( f, g );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
-    [4X[25Xgap>[125X [27XAsList( C );[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( AsList( C ) );[127X[104X
     [4X[28X[ [ 1, 2, 4 ] ][128X[104X
     [4X[25Xgap>[125X [27XA := FinSet( [ 1, 2, 3, 4 ] );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
@@ -881,11 +881,11 @@
     [4X[28X<A morphism in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XC1 := Coequalizer( [ f1, f3 ] );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
-    [4X[25Xgap>[125X [27XAsList( C1 );[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( AsList( C1 ) );[127X[104X
     [4X[28X[ [ 1, 4 ], [ 2 ], [ 3 ], [ 5 ], [ 6 ], [ 7 ], [ 8 ] ][128X[104X
     [4X[25Xgap>[125X [27XC2 := Coequalizer( [ f1, f2, f3 ] );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
-    [4X[25Xgap>[125X [27XAsList( C2 );[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( AsList( C2 ) );[127X[104X
     [4X[28X[ [ 1, 2, 3, 8, 5, 4 ], [ 6 ], [ 7 ] ][128X[104X
     [4X[25Xgap>[125X [27XS := FinSet( [ 1 .. 5 ] );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
@@ -913,11 +913,11 @@
     [4X[28X[ <A morphism in FinSets>, <A morphism in FinSets> ][128X[104X
     [4X[25Xgap>[125X [27XC := Coequalizer( D );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
-    [4X[25Xgap>[125X [27XAsList( C );[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( AsList( C ) );[127X[104X
     [4X[28X[ [ 1 ], [ 2 ], [ 3, 4 ] ][128X[104X
     [4X[25Xgap>[125X [27Xpi := ProjectionOntoCoequalizer( D );[127X[104X
     [4X[28X<An epimorphism in FinSets>[128X[104X
-    [4X[25Xgap>[125X [27XAsList( pi );[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( AsList( pi ) );[127X[104X
     [4X[28X[ [ 1, [ 1 ] ], [ 2, [ 2 ] ], [ 3, [ 3, 4 ] ], [ 4, [ 3, 4 ] ] ][128X[104X
     [4X[25Xgap>[125X [27Xmu := MorphismFromSourceToCoequalizer( D );;[127X[104X
     [4X[25Xgap>[125X [27XPreCompose( f, pi ) = mu;[127X[104X
@@ -927,7 +927,7 @@
     [4X[28X<A morphism in FinSets>[128X[104X
     [4X[25Xgap>[125X [27Xphi := UniversalMorphismFromCoequalizer( D, tau );[127X[104X
     [4X[28X<A morphism in FinSets>[128X[104X
-    [4X[25Xgap>[125X [27XAsList( phi );[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( AsList( phi ) );[127X[104X
     [4X[28X[ [ [ 1 ], 2 ], [ [ 2 ], 1 ], [ [ 3, 4 ], 2 ] ][128X[104X
     [4X[25Xgap>[125X [27XPreCompose( pi, phi ) = tau;[127X[104X
     [4X[28Xtrue[128X[104X
@@ -945,11 +945,11 @@
     [4X[28X[ <A morphism in FinSets>, <A morphism in FinSets> ][128X[104X
     [4X[25Xgap>[125X [27XC := Coequalizer( D );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
-    [4X[25Xgap>[125X [27XAsList( C );[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( AsList( C ) );[127X[104X
     [4X[28X[ [ 1 ], [ 2, 3 ], [ 4 ] ][128X[104X
     [4X[25Xgap>[125X [27Xpi := ProjectionOntoCoequalizer( D );[127X[104X
     [4X[28X<An epimorphism in FinSets>[128X[104X
-    [4X[25Xgap>[125X [27XAsList( pi );[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( AsList( pi ) );[127X[104X
     [4X[28X[ [ 1, [ 1 ] ], [ 2, [ 2, 3 ] ], [ 3, [ 2, 3 ] ], [ 4, [ 4 ] ] ][128X[104X
     [4X[25Xgap>[125X [27XPreCompose( f, pi ) = PreCompose( g, pi );[127X[104X
     [4X[28Xtrue[128X[104X
@@ -961,7 +961,7 @@
     [4X[28X<A morphism in FinSets>[128X[104X
     [4X[25Xgap>[125X [27Xphi := UniversalMorphismFromCoequalizer( D, tau );[127X[104X
     [4X[28X<A morphism in FinSets>[128X[104X
-    [4X[25Xgap>[125X [27XAsList( phi );[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( AsList( phi ) );[127X[104X
     [4X[28X[ [ [ 1 ], 1 ], [ [ 2, 3 ], 2 ], [ [ 4 ], 1 ] ][128X[104X
     [4X[25Xgap>[125X [27XPreCompose( pi, phi ) = tau;[127X[104X
     [4X[28Xtrue[128X[104X

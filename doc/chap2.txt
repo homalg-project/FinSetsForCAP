@@ -135,7 +135,7 @@
     [4X[28X|7|[128X[104X
     [4X[25Xgap>[125X [27Xphi := MapOfFinSets( s, [ 6, 4, 4 ], t );[127X[104X
     [4X[28X|3| → |7|[128X[104X
-    [4X[25Xgap>[125X [27XAsList( phi );[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( AsList( phi ) );[127X[104X
     [4X[28X[ 6, 4, 4 ][128X[104X
     [4X[25Xgap>[125X [27XIsWellDefined( phi );[127X[104X
     [4X[28Xtrue[128X[104X
@@ -150,7 +150,7 @@
     [4X[28X|7|[128X[104X
     [4X[25Xgap>[125X [27Xphi := MorphismConstructor( s, [ 6, 4, 4 ], t );[127X[104X
     [4X[28X|3| → |7|[128X[104X
-    [4X[25Xgap>[125X [27XMorphismDatum( phi );[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( MorphismDatum( phi ) );[127X[104X
     [4X[28X[ 6, 4, 4 ][128X[104X
     [4X[25Xgap>[125X [27XIsWellDefined( phi );[127X[104X
     [4X[28Xtrue[128X[104X
@@ -345,11 +345,11 @@
     [4X[28Xfalse[128X[104X
     [4X[25Xgap>[125X [27Xiota := UniversalMorphismFromInitialObject( m );[127X[104X
     [4X[28X|0| → |8|[128X[104X
-    [4X[25Xgap>[125X [27XAsList( i );[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( AsList( i ) );[127X[104X
     [4X[28X[  ][128X[104X
     [4X[25Xgap>[125X [27Xt := TerminalObject( SkeletalFinSets );[127X[104X
     [4X[28X|1|[128X[104X
-    [4X[25Xgap>[125X [27XAsList( t );[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( AsList( t ) );[127X[104X
     [4X[28X[ 0 ][128X[104X
     [4X[25Xgap>[125X [27XIsInitial( t );[127X[104X
     [4X[28Xfalse[128X[104X
@@ -361,7 +361,7 @@
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27Xpi_t := UniversalMorphismIntoTerminalObjectWithGivenTerminalObject( m, t );[127X[104X
     [4X[28X|8| → |1|[128X[104X
-    [4X[25Xgap>[125X [27XAsList( pi_t );[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( AsList( pi_t ) );[127X[104X
     [4X[28X[ 0, 0, 0, 0, 0, 0, 0, 0 ][128X[104X
     [4X[25Xgap>[125X [27Xpi = pi_t;[127X[104X
     [4X[28Xtrue[128X[104X
@@ -422,7 +422,7 @@
     [4X[28X|4|[128X[104X
     [4X[25Xgap>[125X [27Xd := DirectProduct( [ m, n, p ] );[127X[104X
     [4X[28X|84|[128X[104X
-    [4X[25Xgap>[125X [27XAsList( d );[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( AsList( d ) );[127X[104X
     [4X[28X[ 0 .. 83 ][128X[104X
     [4X[25Xgap>[125X [27Xpi1 := ProjectionInFactorOfDirectProduct( [ m, n, p ], 1 );[127X[104X
     [4X[28X|84| → |7|[128X[104X
@@ -469,7 +469,7 @@
     [4X[28X|4|[128X[104X
     [4X[25Xgap>[125X [27Xc := Coproduct( m, n, p );[127X[104X
     [4X[28X|14|[128X[104X
-    [4X[25Xgap>[125X [27XAsList( c );[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( AsList( c ) );[127X[104X
     [4X[28X[ 0 .. 13 ][128X[104X
     [4X[25Xgap>[125X [27Xiota1 := InjectionOfCofactorOfCoproduct( [ m, n, p ], 1 );[127X[104X
     [4X[28X|7| → |14|[128X[104X
@@ -588,9 +588,11 @@
     [4X[28X|3|[128X[104X
     [4X[25Xgap>[125X [27Xphi := MapOfFinSets( n, [ 6, 4, 4 ], m );[127X[104X
     [4X[28X|3| → |7|[128X[104X
-    [4X[25Xgap>[125X [27XP := Preimage( phi, [ 2 ] );[127X[104X
+    [4X[25Xgap>[125X [27XP := Preimage( phi, [ 2 ] );;[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( P );[127X[104X
     [4X[28X[  ][128X[104X
-    [4X[25Xgap>[125X [27XP := Preimage( phi, AsList( FinSet( 5 ) ) );[127X[104X
+    [4X[25Xgap>[125X [27XP := Preimage( phi, AsList( FinSet( 5 ) ) );;[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( P );[127X[104X
     [4X[28X[ 1, 2 ][128X[104X
   [4X[32X[104X
   
