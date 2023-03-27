@@ -96,11 +96,14 @@
   [33X[0;0YReturn [10XFinSet[110X( [10XFinSets[110X, [3XL[103X ).[133X
   
   [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XS := FinSet( [ 1, 3, 2, 2, 1 ] );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XDisplay( S );[127X[104X
     [4X[28X[ 1, 2, 3 ][128X[104X
-    [4X[25Xgap>[125X [27XL := AsList( S );[127X[104X
+    [4X[25Xgap>[125X [27XL := AsList( S );;[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( L );[127X[104X
     [4X[28X[ 1, 2, 3 ][128X[104X
     [4X[25Xgap>[125X [27XQ := FinSet( L );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
@@ -137,11 +140,14 @@
   [33X[0;0YReturn [10XFinSetNC[110X( [10XFinSets[110X, [3XL[103X ).[133X
   
   [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XS := FinSetNC( [ 1, 3, 2 ] );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XDisplay( S );[127X[104X
     [4X[28X[ 1, 3, 2 ][128X[104X
-    [4X[25Xgap>[125X [27XL := AsList( S );[127X[104X
+    [4X[25Xgap>[125X [27XL := AsList( S );;[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( L );[127X[104X
     [4X[28X[ 1, 3, 2 ][128X[104X
     [4X[25Xgap>[125X [27XQ := FinSetNC( L );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
@@ -151,7 +157,8 @@
     [4X[28X<An object in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XDisplay( S );[127X[104X
     [4X[28X[ 1, 3, 2 ][128X[104X
-    [4X[25Xgap>[125X [27XL := ObjectDatum( S );[127X[104X
+    [4X[25Xgap>[125X [27XL := ObjectDatum( S );;[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( L );[127X[104X
     [4X[28X[ 1, 3, 2 ][128X[104X
     [4X[25Xgap>[125X [27XQ := ObjectConstructor( FinSets, L );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
@@ -171,6 +178,8 @@
   the graph of [23X\phi[123X.[133X
   
   [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XS := FinSet( [ 1, 3, 2, 2, 1 ] );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XT := FinSet( [ "a", "b", "c" ] );[127X[104X
@@ -194,7 +203,7 @@
     [4X[28X"a"[128X[104X
     [4X[25Xgap>[125X [27Xphi( 3 );[127X[104X
     [4X[28X"b"[128X[104X
-    [4X[25Xgap>[125X [27XList( S, phi );[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( List( S, phi ) );[127X[104X
     [4X[28X[ "b", "a", "b" ][128X[104X
     [4X[25Xgap>[125X [27Xpsi := [ [ 1, "b" ], [ 2, "a" ], [ 3, "b" ] ];;[127X[104X
     [4X[25Xgap>[125X [27Xpsi := MapOfFinSets( S, psi, T );[127X[104X
@@ -243,6 +252,8 @@
   pairs in [3XS[103X[23X\times[123X[3XT[103X describing the graph of [23X\phi[123X.[133X
   
   [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XS := FinSetNC( [ 1, 3, 2 ] );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XT := FinSetNC( [ "a", "b", "c" ] );[127X[104X
@@ -258,7 +269,7 @@
     [4X[28X"a"[128X[104X
     [4X[25Xgap>[125X [27Xphi( 3 );[127X[104X
     [4X[28X"b"[128X[104X
-    [4X[25Xgap>[125X [27XList( S, phi );[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( List( S, phi ) );[127X[104X
     [4X[28X[ "b", "b", "a" ][128X[104X
     [4X[25Xgap>[125X [27Xpsi := [ [ 1, "b" ], [ 2, "a" ], [ 3, "b" ] ];;[127X[104X
     [4X[25Xgap>[125X [27Xpsi := MapOfFinSetsNC( S, psi, T );[127X[104X
@@ -296,6 +307,8 @@
   not be [10Xfail[110X.[133X
   
   [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XIsEqualForElementsOfFinSets( 2, 2 );[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XIsEqualForElementsOfFinSets( 2, "2" );[127X[104X
@@ -386,9 +399,9 @@
   
   [33X[0;0YReturns [10XFinSetNC( Filtered( AsList( [3XM[103X[10X ), [3Xf[103X[10X ) )[110X.[133X
   
-  [1X1.4-8 FirstOp[101X
+  [1X1.4-8 First[101X
   
-  [33X[1;0Y[29X[2XFirstOp[102X( [3XM[103X, [3Xf[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XFirst[102X( [3XM[103X, [3Xf[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ya list[133X
   
   [33X[0;0YReturns [10XFirst( AsList( [3XM[103X[10X ), [3Xf[103X[10X )[110X.[133X
@@ -445,6 +458,8 @@
   [1X1.5-1 [33X[0;0YIsHomSetInhabited[133X[101X
   
   [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XL := FinSet( [ ] );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XM := FinSet( [ 2 ] );[127X[104X
@@ -465,35 +480,41 @@
   [1X1.5-2 [33X[0;0YMorphisms of external Hom[133X[101X
   
   [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XL := FinSet( 0 );[127X[104X
     [4X[28X|0|[128X[104X
     [4X[25Xgap>[125X [27XM := FinSet( 2 );[127X[104X
     [4X[28X|2|[128X[104X
     [4X[25Xgap>[125X [27XN := FinSet( 3 );[127X[104X
     [4X[28X|3|[128X[104X
-    [4X[25Xgap>[125X [27XMorphismsOfExternalHom( L, L );[127X[104X
-    [4X[28X[ |0| → |0| ][128X[104X
-    [4X[25Xgap>[125X [27XMorphismsOfExternalHom( M, L );[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( MorphismsOfExternalHom( L, L ) );[127X[104X
+    [4X[28X[ ∅ ⱶ[ ]→ ∅ ][128X[104X
+    [4X[25Xgap>[125X [27XDisplay( MorphismsOfExternalHom( M, L ) );[127X[104X
     [4X[28X[  ][128X[104X
-    [4X[25Xgap>[125X [27XMorphismsOfExternalHom( L, M );[127X[104X
-    [4X[28X[ |0| → |2| ][128X[104X
-    [4X[25Xgap>[125X [27XMorphismsOfExternalHom( M, N );[127X[104X
-    [4X[28X[ |2| → |3|, |2| → |3|, |2| → |3|, |2| → |3|, |2| → |3|,[128X[104X
-    [4X[28X  |2| → |3|, |2| → |3|, |2| → |3|, |2| → |3| ][128X[104X
+    [4X[25Xgap>[125X [27XDisplay( MorphismsOfExternalHom( L, M ) );[127X[104X
+    [4X[28X[ ∅ ⱶ[ ]→ { 0, 1 } ][128X[104X
+    [4X[25Xgap>[125X [27XDisplay( MorphismsOfExternalHom( M, N ) );[127X[104X
+    [4X[28X[ { 0, 1 } ⱶ[ 0, 0 ]→ { 0, 1, 2 }, { 0, 1 } ⱶ[ 1, 0 ]→ { 0, 1, 2 },\[128X[104X
+    [4X[28X { 0, 1 } ⱶ[ 2, 0 ]→ { 0, 1, 2 }, { 0, 1 } ⱶ[ 0, 1 ]→ { 0, 1, 2 },\[128X[104X
+    [4X[28X { 0, 1 } ⱶ[ 1, 1 ]→ { 0, 1, 2 }, { 0, 1 } ⱶ[ 2, 1 ]→ { 0, 1, 2 },\[128X[104X
+    [4X[28X { 0, 1 } ⱶ[ 0, 2 ]→ { 0, 1, 2 }, { 0, 1 } ⱶ[ 1, 2 ]→ { 0, 1, 2 },\[128X[104X
+    [4X[28X { 0, 1 } ⱶ[ 2, 2 ]→ { 0, 1, 2 } ][128X[104X
   [4X[32X[104X
   
   
   [1X1.5-3 [33X[0;0YExact cover with global elements[133X[101X
   
   [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XL := FinSet( 0 );[127X[104X
     [4X[28X|0|[128X[104X
     [4X[25Xgap>[125X [27XM := FinSet( 2 );[127X[104X
     [4X[28X|2|[128X[104X
-    [4X[25Xgap>[125X [27XExactCoverWithGlobalElements( L );[127X[104X
-    [4X[28X[ ][128X[104X
-    [4X[25Xgap>[125X [27Xg := ExactCoverWithGlobalElements( M );[127X[104X
-    [4X[28X[ |1| → |2|, |1| → |2| ][128X[104X
+    [4X[25Xgap>[125X [27XDisplay( ExactCoverWithGlobalElements( L ) );[127X[104X
+    [4X[28X[  ][128X[104X
+    [4X[25Xgap>[125X [27Xg := ExactCoverWithGlobalElements( M );;[127X[104X
     [4X[25Xgap>[125X [27XDisplay( g );[127X[104X
     [4X[28X[ { 0 } ⱶ[ 0 ]→ { 0, 1 }, { 0 } ⱶ[ 1 ]→ { 0, 1 } ][128X[104X
     [4X[25Xgap>[125X [27XIsOne( UniversalMorphismFromCoproduct( g ) );[127X[104X
@@ -504,6 +525,8 @@
   [1X1.5-4 [33X[0;0YPreCompose[133X[101X
   
   [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XS := FinSet( [ 1, 2, 3 ] );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XT := FinSet( [ "a", "b" ] );[127X[104X
@@ -516,7 +539,7 @@
     [4X[28X<A morphism in FinSets>[128X[104X
     [4X[25Xgap>[125X [27Xalpha := PreCompose( phi, psi );[127X[104X
     [4X[28X<A morphism in FinSets>[128X[104X
-    [4X[25Xgap>[125X [27XList( S, alpha );[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( List( S, alpha ) );[127X[104X
     [4X[28X[ 1, 3, 1 ][128X[104X
     [4X[25Xgap>[125X [27XIsOne( alpha );[127X[104X
     [4X[28Xfalse[128X[104X
@@ -526,6 +549,8 @@
   [1X1.5-5 [33X[0;0YIsEpimorphism and IsMonomorhism[133X[101X
   
   [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XS := FinSet( [ 1, 2, 3 ] );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XT := S;[127X[104X
@@ -557,6 +582,8 @@
   [1X1.5-6 [33X[0;0YInitial and Terminal Objects[133X[101X
   
   [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XM := FinSet( [ 1, 2, 3 ] );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XIsInitial( M );[127X[104X
@@ -589,7 +616,7 @@
     [4X[28X<An object in FinSets>[128X[104X
     [4X[25Xgap>[125X [27Xpi_t := UniversalMorphismIntoTerminalObjectWithGivenTerminalObject( M, t );[127X[104X
     [4X[28X<A morphism in FinSets>[128X[104X
-    [4X[25Xgap>[125X [27XList( M, pi_t );[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( List( M, pi_t ) );[127X[104X
     [4X[28X[ "Julia", "Julia", "Julia" ][128X[104X
   [4X[32X[104X
   
@@ -597,6 +624,8 @@
   [1X1.5-7 [33X[0;0YProjective and Injective Objects[133X[101X
   
   [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XI := FinSet( [ ] );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XT := FinSet( [ 1 ] );[127X[104X
@@ -616,6 +645,8 @@
   [4X[32X[104X
   
   [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XI := FinSet( [ ] );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XT := FinSet( [ 1 ] );[127X[104X
@@ -640,6 +671,8 @@
   [1X1.5-8 [33X[0;0YProduct[133X[101X
   
   [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XS := FinSet( [ 1, 2, 3 ] );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XLength( S );[127X[104X
@@ -660,6 +693,8 @@
   [1X1.5-9 [33X[0;0YCoproduct[133X[101X
   
   [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XS := FinSet( [ 1, 2, 3 ] );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XLength( S );[127X[104X
@@ -683,16 +718,16 @@
     [4X[25Xgap>[125X [27XC := Coproduct( M, N, P );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XDisplay( AsList( C ) );[127X[104X
-    [4X[28X[ [ 1, 1 ], [ 1, 2 ], [ 1, 3 ], [ 1, 4 ], [ 1, 5 ], [ 1, 6 ], [128X[104X
-    [4X[28X  [ 1, 7 ], [ 2, 1 ], [ 2, 2 ], [ 2, 3 ], [ 3, 1 ], [ 3, 2 ], [128X[104X
-    [4X[28X  [ 3, 3 ], [ 3, 4 ] ][128X[104X
+    [4X[28X[ [ 1, 1 ], [ 1, 2 ], [ 1, 3 ], [ 1, 4 ], [ 1, 5 ], [ 1, 6 ],\[128X[104X
+    [4X[28X [ 1, 7 ], [ 2, 1 ], [ 2, 2 ], [ 2, 3 ], [ 3, 1 ], [ 3, 2 ],\[128X[104X
+    [4X[28X [ 3, 3 ], [ 3, 4 ] ][128X[104X
     [4X[25Xgap>[125X [27Xiota1 := InjectionOfCofactorOfCoproduct( [ M, N, P ], 1 );[127X[104X
     [4X[28X<A morphism in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XIsWellDefined( iota1 );[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XDisplay( AsList( iota1 ) );[127X[104X
-    [4X[28X[ [ 1, [ 1, 1 ] ], [ 2, [ 1, 2 ] ], [ 3, [ 1, 3 ] ], [ 4, [ 1, 4 ] ], [128X[104X
-    [4X[28X  [ 5, [ 1, 5 ] ], [ 6, [ 1, 6 ] ], [ 7, [ 1, 7 ] ] ][128X[104X
+    [4X[28X[ [ 1, [ 1, 1 ] ], [ 2, [ 1, 2 ] ], [ 3, [ 1, 3 ] ], [ 4, [ 1, 4 ] ],\[128X[104X
+    [4X[28X [ 5, [ 1, 5 ] ], [ 6, [ 1, 6 ] ], [ 7, [ 1, 7 ] ] ][128X[104X
     [4X[25Xgap>[125X [27Xiota2 := InjectionOfCofactorOfCoproduct( [ M, N, P ], 2 );[127X[104X
     [4X[28X<A morphism in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XIsWellDefined( iota2 );[127X[104X
@@ -717,6 +752,8 @@
   [1X1.5-10 [33X[0;0YImage[133X[101X
   
   [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XS := FinSet( [ 1, 2, 3 ] );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XT := FinSet( [ "a", "b", "c" ] );[127X[104X
@@ -748,6 +785,8 @@
   [1X1.5-11 [33X[0;0YCoimage[133X[101X
   
   [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XS := FinSet( [ 1, 2, 3 ] );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XT := FinSet( [ "a", "b", "c" ] );[127X[104X
@@ -779,6 +818,8 @@
   [1X1.5-12 [33X[0;0YEqualizer[133X[101X
   
   [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XS := FinSet( [ 1 .. 5 ] );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XT := FinSet( [ 1 .. 3 ] );[127X[104X
@@ -789,8 +830,7 @@
     [4X[28X<A morphism in FinSets>[128X[104X
     [4X[25Xgap>[125X [27Xf3 := MapOfFinSets( S, [ [1,3],[2,1],[3,2],[4,1],[5,2] ], T );[127X[104X
     [4X[28X<A morphism in FinSets>[128X[104X
-    [4X[25Xgap>[125X [27XD := [ f1, f2, f3 ];[127X[104X
-    [4X[28X[ <A morphism in FinSets>, <A morphism in FinSets>, <A morphism in FinSets> ][128X[104X
+    [4X[25Xgap>[125X [27XD := [ f1, f2, f3 ];;[127X[104X
     [4X[25Xgap>[125X [27XEq := Equalizer( D );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XDisplay( Eq );[127X[104X
@@ -823,6 +863,8 @@
   [1X1.5-13 [33X[0;0YPullback[133X[101X
   
   [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XM := FinSet( [ 1 .. 5 ] );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XN1 := FinSet( [ 1 .. 3 ] );[127X[104X
@@ -833,8 +875,7 @@
     [4X[28X<An object in FinSets>[128X[104X
     [4X[25Xgap>[125X [27Xiota2 := EmbeddingOfFinSets( N2, M );[127X[104X
     [4X[28X<A monomorphism in FinSets>[128X[104X
-    [4X[25Xgap>[125X [27XD := [ iota1, iota2 ];[127X[104X
-    [4X[28X[ <A monomorphism in FinSets>, <A monomorphism in FinSets> ][128X[104X
+    [4X[25Xgap>[125X [27XD := [ iota1, iota2 ];;[127X[104X
     [4X[25Xgap>[125X [27Xint := FiberProduct( D );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XDisplay( int );[127X[104X
@@ -857,6 +898,8 @@
   [1X1.5-14 [33X[0;0YCoequalizer[133X[101X
   
   [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XN := FinSet( [1,3] );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XM := FinSet( [1,2,4] );[127X[104X
@@ -909,8 +952,7 @@
     [4X[25Xgap>[125X [27XG_g := [ [ 1, 3 ], [ 2, 3 ], [ 3, 4 ], [ 4, 2 ], [ 5, 4 ] ];;[127X[104X
     [4X[25Xgap>[125X [27Xg := MapOfFinSets( S, G_g, T );[127X[104X
     [4X[28X<A morphism in FinSets>[128X[104X
-    [4X[25Xgap>[125X [27XD := [ f, g ];[127X[104X
-    [4X[28X[ <A morphism in FinSets>, <A morphism in FinSets> ][128X[104X
+    [4X[25Xgap>[125X [27XD := [ f, g ];;[127X[104X
     [4X[25Xgap>[125X [27XC := Coequalizer( D );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XDisplay( AsList( C ) );[127X[104X
@@ -941,8 +983,7 @@
     [4X[25Xgap>[125X [27XG_g := [ [ 1, 2 ], [ 2, 3 ], [ 3, 2 ], [ 4, 2 ], [ 5, 4 ] ];;[127X[104X
     [4X[25Xgap>[125X [27Xg := MapOfFinSets( S, G_g, T );[127X[104X
     [4X[28X<A morphism in FinSets>[128X[104X
-    [4X[25Xgap>[125X [27XD := [ f, g ];[127X[104X
-    [4X[28X[ <A morphism in FinSets>, <A morphism in FinSets> ][128X[104X
+    [4X[25Xgap>[125X [27XD := [ f, g ];;[127X[104X
     [4X[25Xgap>[125X [27XC := Coequalizer( D );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XDisplay( AsList( C ) );[127X[104X
@@ -991,6 +1032,8 @@
   [1X1.5-15 [33X[0;0YPushout[133X[101X
   
   [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XM := FinSet( [ 1 .. 5 ] );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XN1 := FinSet( [ 1, 2, 4 ] );[127X[104X
@@ -1001,8 +1044,7 @@
     [4X[28X<An object in FinSets>[128X[104X
     [4X[25Xgap>[125X [27Xiota2 := EmbeddingOfFinSets( N2, M );[127X[104X
     [4X[28X<A monomorphism in FinSets>[128X[104X
-    [4X[25Xgap>[125X [27XD := [ iota1, iota2 ];[127X[104X
-    [4X[28X[ <A monomorphism in FinSets>, <A monomorphism in FinSets> ][128X[104X
+    [4X[25Xgap>[125X [27XD := [ iota1, iota2 ];;[127X[104X
     [4X[25Xgap>[125X [27Xint := FiberProduct( D );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XDisplay( int );[127X[104X
@@ -1029,6 +1071,8 @@
   [1X1.5-16 [33X[0;0YCartesian Lambda Introduction[133X[101X
   
   [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XS := FinSet( [ 1 .. 3 ] );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XR := FinSet( [ 1 .. 2 ] );[127X[104X
@@ -1059,6 +1103,8 @@
   [1X1.5-17 [33X[0;0YLift[133X[101X
   
   [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27Xm := FinSet( [ 1 .. 3 ] );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
     [4X[25Xgap>[125X [27Xn := FinSet( [ 1 .. 4 ] );[127X[104X
@@ -1093,6 +1139,8 @@
   [1X1.5-18 [33X[0;0YTopos properties[133X[101X
   
   [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XM := FinSet( [ 1 .. 5 ] );;[127X[104X
     [4X[25Xgap>[125X [27XN := FinSet( [ 1, 2, 4 ] );;[127X[104X
     [4X[25Xgap>[125X [27XP := FinSet( [ 1, 4, 8, 9 ] );;[127X[104X
@@ -1139,6 +1187,8 @@
   [1X1.5-19 [33X[0;0YSubobject Classifier[133X[101X
   
   [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XDisplay( SubobjectClassifier( FinSets ) );[127X[104X
     [4X[28X[ "true", "false" ][128X[104X
     [4X[25Xgap>[125X [27XDisplay( TruthMorphismOfTrue( FinSets ) );[127X[104X
@@ -1182,6 +1232,8 @@
   [4X[32X[104X
   
   [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XM := FinSet( [ 1 .. 7 ] );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XN := FinSet( [ 2, 3, 5 ] );[127X[104X
@@ -1242,7 +1294,7 @@
   \stackrel{m}{\hookrightarrow} G[123X in [10XFinSets[110X:[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP" );[127X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XK := FinSet( [ 2, 3, 5 ] );;[127X[104X
     [4X[25Xgap>[125X [27XDisplay( K );[127X[104X
@@ -1263,6 +1315,8 @@
   \stackrel{l}{\hookrightarrow} L \stackrel{m}{\hookrightarrow} G[123X:[133X
   
   [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XHasPushoutComplement( l, m );[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27Xc := PushoutComplement( l, m );[127X[104X
