@@ -237,9 +237,10 @@ InstallMethod( Iterator,
         "for CAP finite sets",
         [ IsFiniteSet ],
 
-  function ( M )
+  # `args` is never used in GAP but needed for Julia
+  function ( M, args... )
     
-    return Iterator( AsList( M ) );
+    return CallFuncList( Iterator, Concatenation( [ AsList( M ) ], args ) );
     
 end );
 
