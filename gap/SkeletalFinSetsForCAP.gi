@@ -194,7 +194,6 @@ InstallGlobalFunction( SKELETAL_FIN_SETS_ExplicitCoequalizer,
     while not IsEmpty( T ) do
         t := T[1];
         t := Union( List( D, f_j -> List( Union( List( D, f_i -> Preimage( f_i, [ t ] ) ) ), f_j ) ) );
-        t := AsList( t );
         if IsEmpty( t ) then
             t := [ T[1] ];
         fi;
