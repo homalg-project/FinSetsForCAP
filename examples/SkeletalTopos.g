@@ -1,8 +1,8 @@
 #! @Chunk SkeletalTopos
 
-LoadPackage( "FinSetsForCAP" );
-
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 
 T := TerminalObject( SkeletalFinSets );;
 M := FinSet( 4 );;

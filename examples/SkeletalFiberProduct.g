@@ -1,8 +1,8 @@
 #! @Chunk SkeletalFiberProduct
 
-LoadPackage( "FinSetsForCAP" );
-
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 m := FinSet( 5 );
 #! |5|
 n1 := FinSet( 3 );
@@ -17,8 +17,7 @@ iota2 := EmbeddingOfFinSets( n2, m );
 #! |4| ↪ |5|
 Display( iota2 );
 #! { 0,..., 3 } ⱶ[ 0 .. 3 ]→ { 0,..., 4 }
-D := [ iota1, iota2 ];
-#! [ |3| ↪ |5|, |4| ↪ |5| ]
+D := [ iota1, iota2 ];;
 Fib := FiberProduct( D );
 #! |3|
 pi1 := ProjectionInFactorOfFiberProduct( D, 1 );

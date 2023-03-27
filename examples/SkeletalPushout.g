@@ -1,8 +1,8 @@
 #! @Chunk SkeletalPushout
 
-LoadPackage( "FinSetsForCAP" );
-
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 M := FinSet( 5 );
 #! |5|
 N1 := FinSet( 3 );
@@ -17,8 +17,7 @@ iota2 := EmbeddingOfFinSets( N2, M );
 #! |2| ↪ |5|
 Display( iota2 );
 #! { 0, 1 } ⱶ[ 0 .. 1 ]→ { 0,..., 4 }
-D := [ iota1, iota2 ];
-#! [ |3| ↪ |5|, |2| ↪ |5| ]
+D := [ iota1, iota2 ];;
 Fib := FiberProduct( D );
 #! |2|
 pi1 := ProjectionInFactorOfFiberProduct( D, 1 );
@@ -34,8 +33,9 @@ Display( pi2 );
 #! The easy way
 
 #! @Example
-D := [ pi1, pi2 ];
-#! [ |2| → |3|, |2| → |2| ]
+LoadPackage( "FinSetsForCAP", false );
+#! true
+D := [ pi1, pi2 ];;
 UU := Pushout( D );
 #! |3|
 kappa1 := InjectionOfCofactorOfPushout( D, 1 );
@@ -53,6 +53,8 @@ PreCompose( pi1, kappa1 ) = PreCompose( pi2, kappa2 );
 #! The long way
 
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 Co := Coproduct( N1, N2 );
 #! |5|
 Display( Co );

@@ -1,8 +1,8 @@
 #! @Chunk SkeletalColift
 
-LoadPackage( "FinSetsForCAP" );
-
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 m := FinSet( 5 );
 #! |5|
 n := FinSet( 4 );

@@ -1,8 +1,8 @@
 #! @Chunk SkeletalMapOfFinSets
 
-LoadPackage( "FinSetsForCAP" );
-
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 s := FinSet( 3 );
 #! |3|
 t := FinSet( 7 );

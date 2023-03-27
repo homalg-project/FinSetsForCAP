@@ -1,8 +1,8 @@
 #! @Chunk SkeletalCartesianLambdaIntroduction
 
-LoadPackage( "FinSetsForCAP" );
-
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 S := FinSet( 3 );
 #! |3|
 R := FinSet( 2 );
@@ -29,12 +29,22 @@ elf := CartesianLambdaElimination( S, R, lf );
 #! |3| → |2|
 elf = f;
 #! true
-L := MorphismsOfExternalHom( S, R );
-#! [ |3| → |2|, |3| → |2|, |3| → |2|, |3| → |2|,
-#!   |3| → |2|, |3| → |2|, |3| → |2|, |3| → |2| ]
-Li := List( L, phi -> CartesianLambdaIntroduction( phi ) );
-#! [ |1| → |8|, |1| → |8|, |1| → |8|, |1| → |8|,
-#!   |1| → |8|, |1| → |8|, |1| → |8|, |1| → |8| ]
+L := MorphismsOfExternalHom( S, R );;
+Display( L );
+#! [ { 0, 1, 2 } ⱶ[ 0, 0, 0 ]→ { 0, 1 },\
+#!  { 0, 1, 2 } ⱶ[ 1, 0, 0 ]→ { 0, 1 },\
+#!  { 0, 1, 2 } ⱶ[ 0, 1, 0 ]→ { 0, 1 },\
+#!  { 0, 1, 2 } ⱶ[ 1, 1, 0 ]→ { 0, 1 },\
+#!  { 0, 1, 2 } ⱶ[ 0, 0, 1 ]→ { 0, 1 },\
+#!  { 0, 1, 2 } ⱶ[ 1, 0, 1 ]→ { 0, 1 },\
+#!  { 0, 1, 2 } ⱶ[ 0, 1, 1 ]→ { 0, 1 },\
+#!  { 0, 1, 2 } ⱶ[ 1, 1, 1 ]→ { 0, 1 } ]
+Li := List( L, phi -> CartesianLambdaIntroduction( phi ) );;
+Display( Li );
+#! [ { 0 } ⱶ[ 0 ]→ { 0,..., 7 }, { 0 } ⱶ[ 1 ]→ { 0,..., 7 },\
+#!  { 0 } ⱶ[ 2 ]→ { 0,..., 7 }, { 0 } ⱶ[ 3 ]→ { 0,..., 7 },\
+#!  { 0 } ⱶ[ 4 ]→ { 0,..., 7 }, { 0 } ⱶ[ 5 ]→ { 0,..., 7 },\
+#!  { 0 } ⱶ[ 6 ]→ { 0,..., 7 }, { 0 } ⱶ[ 7 ]→ { 0,..., 7 } ]
 L = List( Li, psi -> CartesianLambdaElimination( S, R, psi ) );
 #! true
 #! @EndExample

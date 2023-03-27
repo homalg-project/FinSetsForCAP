@@ -1,12 +1,12 @@
 #! @Chunk SkeletalSubobjectClassifier
 
-LoadPackage( "FinSetsForCAP" );
-
 # Below we see that the internal logic
 # of the category SkeletalFinSets is classical logic,
 # i.e., the topos SkeletalFinSets is Boolean.
 
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 SubobjectClassifier( SkeletalFinSets );
 #! |2|
 Display( TruthMorphismOfFalse( SkeletalFinSets ) );

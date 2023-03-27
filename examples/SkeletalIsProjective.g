@@ -1,8 +1,8 @@
 #! @Chunk SkeletalIsProjective
 
-LoadPackage( "FinSetsForCAP" );
-
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 I := FinSet( 0 );
 #! |0|
 T := FinSet( 1 );

@@ -1,8 +1,8 @@
 #! @Chunk IsEqualForElementsOfFinSets
 
-LoadPackage( "FinSetsForCAP" );
-
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 
 IsEqualForElementsOfFinSets( 2, 2 );
 #! true

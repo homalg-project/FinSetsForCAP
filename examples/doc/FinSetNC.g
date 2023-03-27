@@ -1,13 +1,14 @@
 #! @Chunk FinSetNC
 
-LoadPackage( "FinSetsForCAP" );
-
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 S := FinSetNC( [ 1, 3, 2 ] );
 #! <An object in FinSets>
 Display( S );
 #! [ 1, 3, 2 ]
-L := AsList( S );
+L := AsList( S );;
+Display( L );
 #! [ 1, 3, 2 ]
 Q := FinSetNC( L );
 #! <An object in FinSets>
@@ -18,7 +19,8 @@ S := ObjectConstructor( FinSets, [ 1, 3, 2 ] );
 #! <An object in FinSets>
 Display( S );
 #! [ 1, 3, 2 ]
-L := ObjectDatum( S );
+L := ObjectDatum( S );;
+Display( L );
 #! [ 1, 3, 2 ]
 Q := ObjectConstructor( FinSets, L );
 #! <An object in FinSets>

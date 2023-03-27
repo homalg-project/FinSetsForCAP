@@ -1,8 +1,8 @@
 #! @Chunk SkeletalPreCompose
 
-LoadPackage( "FinSetsForCAP" );
-
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 m := FinSet( 3 );
 #! |3|
 n := FinSet( 5 );

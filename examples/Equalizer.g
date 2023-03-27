@@ -1,8 +1,8 @@
 #! @Chunk Equalizer
 
-LoadPackage( "FinSetsForCAP" );
-
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 S := FinSet( [ 1 .. 5 ] );
 #! <An object in FinSets>
 T := FinSet( [ 1 .. 3 ] );
@@ -13,8 +13,7 @@ f2 := MapOfFinSets( S, [ [1,3],[2,2],[3,3],[4,1],[5,2] ], T );
 #! <A morphism in FinSets>
 f3 := MapOfFinSets( S, [ [1,3],[2,1],[3,2],[4,1],[5,2] ], T );
 #! <A morphism in FinSets>
-D := [ f1, f2, f3 ];
-#! [ <A morphism in FinSets>, <A morphism in FinSets>, <A morphism in FinSets> ]
+D := [ f1, f2, f3 ];;
 Eq := Equalizer( D );
 #! <An object in FinSets>
 Display( Eq );

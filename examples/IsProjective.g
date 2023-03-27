@@ -1,8 +1,8 @@
 #! @Chunk IsProjective
 
-LoadPackage( "FinSetsForCAP" );
-
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 I := FinSet( [ ] );
 #! <An object in FinSets>
 T := FinSet( [ 1 ] );

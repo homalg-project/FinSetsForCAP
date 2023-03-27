@@ -1,8 +1,8 @@
 #! @Chunk SkeletalFinSet
 
-LoadPackage( "FinSetsForCAP" );
-
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 m := FinSet( 7 );
 #! |7|
 Display( m );
@@ -11,7 +11,7 @@ IsWellDefined( m );
 #! true
 String( m );
 #! "FinSet( SkeletalFinSets, 7 )"
-List( m, x -> x^2 );
+Display( List( m, x -> x^2 ) );
 #! [ 0, 1, 4, 9, 16, 25, 36 ]
 L := ObjectDatum( m );
 #! 7

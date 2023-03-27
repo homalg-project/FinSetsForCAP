@@ -1,11 +1,11 @@
 #! @Chunk HeytingAlgebraOfSubobjects
 
-LoadPackage( "FinSetsForCAP" );
-
 # Below we see the Heyting algebra structure
 # on the set of subobjects (= monos up to mutual dominance)
 
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 M := FinSet( [ 1 .. 7 ] );
 #! <An object in FinSets>
 N := FinSet( [ 2, 3, 5 ] );

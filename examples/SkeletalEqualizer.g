@@ -1,8 +1,8 @@
 #! @Chunk SkeletalEqualizer
 
-LoadPackage( "FinSetsForCAP" );
-
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 S := FinSet( 5 );
 #! |5|
 T := FinSet( 3 );
@@ -33,8 +33,7 @@ PreCompose( psi, iota ) = phi;
 #! true
 
 
-D := [ f2, f3 ];
-#! [ |5| → |3|, |5| → |3| ]
+D := [ f2, f3 ];;
 Eq := Equalizer( D );
 #! |3|
 psi := EmbeddingOfEqualizer( D );

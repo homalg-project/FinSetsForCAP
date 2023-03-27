@@ -1,8 +1,8 @@
 #! @Chunk Coequalizer
 
-LoadPackage( "FinSetsForCAP" );
-
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 N := FinSet( [1,3] );
 #! <An object in FinSets>
 M := FinSet( [1,2,4] );
@@ -61,8 +61,7 @@ f := MapOfFinSets( S, G_f, T );
 G_g := [ [ 1, 3 ], [ 2, 3 ], [ 3, 4 ], [ 4, 2 ], [ 5, 4 ] ];;
 g := MapOfFinSets( S, G_g, T );
 #! <A morphism in FinSets>
-D := [ f, g ];
-#! [ <A morphism in FinSets>, <A morphism in FinSets> ]
+D := [ f, g ];;
 C := Coequalizer( D );
 #! <An object in FinSets>
 Display( AsList( C ) );
@@ -95,8 +94,7 @@ f := MapOfFinSets( S, G_f, T );
 G_g := [ [ 1, 2 ], [ 2, 3 ], [ 3, 2 ], [ 4, 2 ], [ 5, 4 ] ];;
 g := MapOfFinSets( S, G_g, T );
 #! <A morphism in FinSets>
-D := [ f, g ];
-#! [ <A morphism in FinSets>, <A morphism in FinSets> ]
+D := [ f, g ];;
 C := Coequalizer( D );
 #! <An object in FinSets>
 Display( AsList( C ) );

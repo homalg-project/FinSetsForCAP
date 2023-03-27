@@ -1,8 +1,8 @@
 #! @Chunk DirectProduct
 
-LoadPackage( "FinSetsForCAP" );
-
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 S := FinSet( [ 1, 2, 3 ] );
 #! <An object in FinSets>
 Length( S );

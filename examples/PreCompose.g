@@ -1,8 +1,8 @@
 #! @Chunk PreCompose
 
-LoadPackage( "FinSetsForCAP" );
-
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 S := FinSet( [ 1, 2, 3 ] );
 #! <An object in FinSets>
 T := FinSet( [ "a", "b" ] );
@@ -15,7 +15,7 @@ psi := MapOfFinSets( T, psi, S );
 #! <A morphism in FinSets>
 alpha := PreCompose( phi, psi );
 #! <A morphism in FinSets>
-List( S, alpha );
+Display( List( S, alpha ) );
 #! [ 1, 3, 1 ]
 IsOne( alpha );
 #! false

@@ -1,8 +1,8 @@
 #! @Chunk SkeletalCoequalizer
 
-LoadPackage( "FinSetsForCAP" );
-
 #! @Example
+LoadPackage( "FinSetsForCAP", false );
+#! true
 s := FinSet( 5 );
 #! |5|
 t := FinSet( 4 );
@@ -11,8 +11,7 @@ f := MapOfFinSets( s, [ 2, 3, 3, 1, 3 ], t );
 #! |5| → |4|
 g := MapOfFinSets( s, [ 2, 2, 3, 1, 3 ], t );
 #! |5| → |4|
-D := [ f, g ];
-#! [ |5| → |4|, |5| → |4| ]
+D := [ f, g ];;
 C := Coequalizer( D );
 #! |3|
 pi := ProjectionOntoCoequalizer( D );
@@ -36,8 +35,7 @@ f := MapOfFinSets( s, [ 1, 2, 2, 1, 3 ], t );
 #! |5| → |4|
 g := MapOfFinSets( s, [ 1, 2, 1, 1, 3 ], t );
 #! |5| → |4|
-D := [ f, g ];
-#! [ |5| → |4|, |5| → |4| ]
+D := [ f, g ];;
 C := Coequalizer( D );
 #! |3|
 pi := ProjectionOntoCoequalizer( D );
