@@ -265,7 +265,7 @@ InstallMethod( FilteredOp,
 end );
 
 ##
-InstallMethod( FirstOp,
+InstallMethod( First,
         "for a CAP finite set and a function",
         [ IsFiniteSet, IsFunction ],
         

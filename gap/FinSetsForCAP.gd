@@ -196,7 +196,7 @@ DeclareOperation( "FilteredOp",
 #!  Returns <C>First( AsList( <A>M</A> ), <A>f</A> )</C>.
 #! @Arguments M, f
 #! @Returns a list
-DeclareOperation( "FirstOp",
+DeclareOperation( "First",
         [ IsFiniteSet, IsFunction ] );
 
 #! @Description
