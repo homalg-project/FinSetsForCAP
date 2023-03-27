@@ -122,8 +122,20 @@ InstallMethod( IsEqualForElementsOfFinSets,
   function ( a, b )
     # compare CAP category objects using IsEqualForObjects (if available)
     
-    if HasCapCategory( a ) and HasCapCategory( b ) and ApplicableMethod( IsEqualForObjects, [ a, b ] ) <> fail then
-        return IsIdenticalObj( CapCategory( a ), CapCategory( b ) ) and IsEqualForObjects( a, b );
+    if HasCapCategory( a ) and HasCapCategory( b ) then
+        
+        if not IsIdenticalObj( CapCategory( a ), CapCategory( b ) ) then
+            
+            return false;
+            
+        fi;
+        
+        if CanCompute( CapCategory( a ), "IsEqualForObjects" ) then
+            
+            return IsEqualForObjects( CapCategory( a ), a, b );
+            
+        fi;
+        
     fi;
     
     # COVERAGE_IGNORE_NEXT_LINE
@@ -136,10 +148,22 @@ InstallMethod( IsEqualForElementsOfFinSets,
         [ IsCapCategoryMorphism, IsCapCategoryMorphism ],
         
   function ( a, b )
-    # compare CAP category objects using IsEqualForMorphisms (if available)
+    # compare CAP category morphisms using IsEqualForMorphismsOnMor (if available)
     
-    if HasCapCategory( a ) and HasCapCategory( b ) and ApplicableMethod( IsEqualForMorphismsOnMor, [ a, b ] ) <> fail then
-        return IsIdenticalObj( CapCategory( a ), CapCategory( b ) ) and IsEqualForMorphismsOnMor( a, b );
+    if HasCapCategory( a ) and HasCapCategory( b ) then
+        
+        if not IsIdenticalObj( CapCategory( a ), CapCategory( b ) ) then
+            
+            return false;
+            
+        fi;
+        
+        if CanCompute( CapCategory( a ), "IsEqualForMorphismsOnMor" ) then
+            
+            return IsEqualForMorphismsOnMor( CapCategory( a ), a, b );
+            
+        fi;
+        
     fi;
     
     # COVERAGE_IGNORE_NEXT_LINE
