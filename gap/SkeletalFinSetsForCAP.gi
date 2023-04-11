@@ -841,8 +841,7 @@ AddExponentialOnMorphismsWithGivenExponentials( SkeletalFinSets,
     B := Range( beta );
     b := Length( B );
     
-    return
-      MapOfFinSets(
+    return MapOfFinSets(
               cat,
               S,
               List( [ 0 .. n ^ m - 1 ],
