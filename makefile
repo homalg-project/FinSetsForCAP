@@ -74,11 +74,17 @@ test-gap_to_julia: doc
 	git clone https://github.com/homalg-project/PackageJanitor.git ~/.gap/pkg/PackageJanitor
 	mkdir ~/.julia/dev
 	git clone https://github.com/zickgraf/CAP.jl.git ~/.julia/dev/CAP
+	git clone https://github.com/zickgraf/MonoidalCategories.jl.git ~/.julia/dev/MonoidalCategories
+	git clone https://github.com/zickgraf/CartesianCategories.jl.git ~/.julia/dev/CartesianCategories
 	git clone https://github.com/zickgraf/FinSetsForCAP.jl.git ~/.julia/dev/FinSetsForCAP
 	~/.gap/pkg/PackageJanitor/gap_to_julia CAP
+	~/.gap/pkg/PackageJanitor/gap_to_julia MonoidalCategories
+	~/.gap/pkg/PackageJanitor/gap_to_julia CartesianCategories
 	~/.gap/pkg/PackageJanitor/gap_to_julia FinSetsForCAP
-	julia -e 'using Pkg; Pkg.develop("CAP"); Pkg.develop("FinSetsForCAP");'
+	julia -e 'using Pkg; Pkg.develop("CAP"); Pkg.develop("MonoidalCategories"); Pkg.develop("CartesianCategories"); Pkg.develop("FinSetsForCAP");'
 	julia -e 'using Pkg; Pkg.test("CAP");'
+	julia -e 'using Pkg; Pkg.test("MonoidalCategories");'
+	julia -e 'using Pkg; Pkg.test("CartesianCategories");'
 	julia -e 'using Pkg; Pkg.test("FinSetsForCAP");'
 
 ci-test: test-basic-spacing test-spacing test-doc test-with-coverage test-with-coverage-without-precompiled-code test-notebooks test-gap_to_julia

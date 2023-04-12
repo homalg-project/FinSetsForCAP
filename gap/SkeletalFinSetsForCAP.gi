@@ -30,6 +30,9 @@ InstallMethod( CategoryOfSkeletalFinSets,
     SetIsElementaryTopos( cat, true );
     # =#
     
+    # this is implied by `IsElementaryTopos`, but `IsElementaryTopos` is not available in Julia yet
+    SetIsBicartesianClosedCategory( cat, true );
+    
     SetRangeCategoryOfHomomorphismStructure( cat, cat );
     SetIsEquippedWithHomomorphismStructure( cat, true );
     
@@ -767,7 +770,6 @@ AddUniversalMorphismFromCoequalizerWithGivenCoequalizer( SkeletalFinSets,
 end );
 
 ## The cartesian monoidal structure
-#= comment for Julia
 
 ##
 AddCartesianLeftUnitorWithGivenDirectProduct( SkeletalFinSets,
@@ -841,8 +843,7 @@ AddExponentialOnMorphismsWithGivenExponentials( SkeletalFinSets,
     B := Range( beta );
     b := Length( B );
     
-    return
-      MapOfFinSets(
+    return MapOfFinSets(
               cat,
               S,
               List( [ 0 .. n ^ m - 1 ],
@@ -901,6 +902,7 @@ AddCartesianCoevaluationMorphismWithGivenRange( SkeletalFinSets,
     
 end );
 
+#= comment for Julia
 ##
 AddSubobjectClassifier( SkeletalFinSets,
   function ( cat )

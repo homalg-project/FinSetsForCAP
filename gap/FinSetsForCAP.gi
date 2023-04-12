@@ -21,6 +21,9 @@ InstallMethod( CategoryOfFinSets,
     SetIsElementaryTopos( FinSets, true );
     # =#
     
+    # this is implied by `IsElementaryTopos`, but `IsElementaryTopos` is not available in Julia yet
+    SetIsBicartesianClosedCategory( FinSets, true );
+    
     SetRangeCategoryOfHomomorphismStructure( FinSets, FinSets );
     SetIsEquippedWithHomomorphismStructure( FinSets, true );
     
@@ -891,7 +894,6 @@ AddUniversalMorphismFromCoequalizerWithGivenCoequalizer( category_of_finite_sets
 end );
 
 ## The cartesian monoidal structure
-#= comment for Julia
 
 ##
 AddCartesianLeftUnitorWithGivenDirectProduct( category_of_finite_sets,
@@ -1045,6 +1047,7 @@ AddCartesianLambdaIntroduction( category_of_finite_sets,
     
 end );
 
+#= comment for Julia
 ##
 AddSubobjectClassifier( category_of_finite_sets,
   function ( category_of_finite_sets )
