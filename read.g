@@ -6,9 +6,7 @@
 
 ReadPackage( "FinSetsForCAP", "gap/Tools.gi" );
 
-#= comment for Julia
 ReadPackage( "FinSetsForCAP", "gap/precompiled_categories/CategoryOfSkeletalFinSetsPrecompiled.gi" );
-# =#
 
 ReadPackage( "FinSetsForCAP", "gap/FinSetsForCAP.gi" );
 
