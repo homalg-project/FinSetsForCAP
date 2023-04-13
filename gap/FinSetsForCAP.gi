@@ -17,12 +17,7 @@ InstallMethod( CategoryOfFinSets,
     
     FinSets!.supports_empty_limits := true;
     
-    #= comment for Julia
     SetIsElementaryTopos( FinSets, true );
-    # =#
-    
-    # this is implied by `IsElementaryTopos`, but `IsElementaryTopos` is not available in Julia yet
-    SetIsBicartesianClosedCategory( FinSets, true );
     
     SetRangeCategoryOfHomomorphismStructure( FinSets, FinSets );
     SetIsEquippedWithHomomorphismStructure( FinSets, true );
@@ -1047,7 +1042,6 @@ AddCartesianLambdaIntroduction( category_of_finite_sets,
     
 end );
 
-#= comment for Julia
 ##
 AddSubobjectClassifier( category_of_finite_sets,
   function ( category_of_finite_sets )
@@ -1077,7 +1071,6 @@ AddClassifyingMorphismOfSubobjectWithGivenSubobjectClassifier( category_of_finit
       return MapOfFinSets( range, images, Omega );
       
 end );
-# =#
 
 end );
 

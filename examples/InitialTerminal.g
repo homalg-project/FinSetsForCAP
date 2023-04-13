@@ -18,11 +18,11 @@ IsTerminal( I );
 iota := UniversalMorphismFromInitialObject( M );
 #! <A morphism in FinSets>
 Display( I );
-#! [  ]
+#! [ ]
 T := TerminalObject( FinSets );
 #! <An object in FinSets>
 Display( T );
-#! [ [  ] ]
+#! [ [ ] ]
 IsInitial( T );
 #! false
 IsTerminal( T );

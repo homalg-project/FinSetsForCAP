@@ -26,12 +26,7 @@ InstallMethod( CategoryOfSkeletalFinSets,
     
     SetIsSkeletalCategory( cat, true );
     
-    #= comment for Julia
     SetIsElementaryTopos( cat, true );
-    # =#
-    
-    # this is implied by `IsElementaryTopos`, but `IsElementaryTopos` is not available in Julia yet
-    SetIsBicartesianClosedCategory( cat, true );
     
     SetRangeCategoryOfHomomorphismStructure( cat, cat );
     SetIsEquippedWithHomomorphismStructure( cat, true );
@@ -45,9 +40,7 @@ InstallMethod( CategoryOfSkeletalFinSets,
     
     if ValueOption( "no_precompiled_code" ) <> true then
         
-        #= comment for Julia
         ADD_FUNCTIONS_FOR_CategoryOfSkeletalFinSetsPrecompiled( cat );
-        # =#
         
     fi;
     
@@ -902,7 +895,6 @@ AddCartesianCoevaluationMorphismWithGivenRange( SkeletalFinSets,
     
 end );
 
-#= comment for Julia
 ##
 AddSubobjectClassifier( SkeletalFinSets,
   function ( cat )
@@ -959,7 +951,6 @@ AddExactCoverWithGlobalElements( SkeletalFinSets,
     return MorphismsOfExternalHom( cat, TerminalObject( cat ), A );
     
 end );
-# =#
 
 end );
 
