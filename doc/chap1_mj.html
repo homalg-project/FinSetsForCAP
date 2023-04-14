@@ -1385,34 +1385,34 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( SubobjectClassifier( FinSets ) );</span>
 [ "true", "false" ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfTrue( FinSets ) );</span>
-[ [ [  ] ], [ [ [  ], "true" ] ], [ "true", "false" ] ]
+[ [ [ ] ], [ [ [ ], "true" ] ], [ "true", "false" ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfFalse( FinSets ) );</span>
-[ [ [  ] ], [ [ [  ], "false" ] ], [ "true", "false" ] ]
+[ [ [ ] ], [ [ [ ], "false" ] ], [ "true", "false" ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfNot( FinSets ) );</span>
-[ [ "true", "false" ],
-  [ [ "false", "true" ], [ "true", "false" ] ],
-  [ "true", "false" ] ]
+[ [ "true", "false" ],\
+ [ [ "false", "true" ], [ "true", "false" ] ],\
+ [ "true", "false" ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( CartesianSquareOfSubobjectClassifier( FinSets ) );</span>
-[ [ "true", "true" ], [ "false", "true" ],
-  [ "true", "false" ],  [ "false", "false" ] ]
+[ [ "true", "true" ], [ "false", "true" ],\
+ [ "true", "false" ], [ "false", "false" ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfAnd( FinSets ) );</span>
-[ [ [ "true", "true" ], [ "false", "true" ],
-    [ "true", "false" ], [ "false", "false" ] ],
-  [ [ [ "false", "false" ], "false" ], [ [ "false", "true" ], "false" ],
-    [ [ "true", "false" ], "false" ], [ [ "true", "true" ], "true" ] ],
-  [ "true", "false" ] ]
+[ [ [ "true", "true" ], [ "false", "true" ],\
+ [ "true", "false" ], [ "false", "false" ] ],\
+ [ [ [ "false", "false" ], "false" ], [ [ "false", "true" ], "false" ],\
+ [ [ "true", "false" ], "false" ], [ [ "true", "true" ], "true" ] ],\
+ [ "true", "false" ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfOr( FinSets ) );</span>
-[ [ [ "true", "true" ], [ "false", "true" ],
-    [ "true", "false" ], [ "false", "false" ] ],
-  [ [ [ "false", "false" ], "false" ], [ [ "false", "true" ], "true" ],
-    [ [ "true", "false" ], "true" ], [ [ "true", "true" ], "true" ] ],
-  [ "true", "false" ] ]
+[ [ [ "true", "true" ], [ "false", "true" ],\
+ [ "true", "false" ], [ "false", "false" ] ],\
+ [ [ [ "false", "false" ], "false" ], [ [ "false", "true" ], "true" ],\
+ [ [ "true", "false" ], "true" ], [ [ "true", "true" ], "true" ] ],\
+ [ "true", "false" ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfImplies( FinSets ) );</span>
-[ [ [ "true", "true" ], [ "false", "true" ],
-    [ "true", "false" ], [ "false", "false" ] ],
-  [ [ [ "false", "false" ], "true" ], [ [ "false", "true" ], "true" ],
-    [ [ "true", "false" ], "false" ], [ [ "true", "true" ], "true" ] ],
-    [ "true", "false" ] ]
+[ [ [ "true", "true" ], [ "false", "true" ],\
+ [ "true", "false" ], [ "false", "false" ] ],\
+ [ [ [ "false", "false" ], "true" ], [ [ "false", "true" ], "true" ],\
+ [ [ "true", "false" ], "false" ], [ [ "true", "true" ], "true" ] ],\
+ [ "true", "false" ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S := FinSet( [ 1, 2, 3, 4, 5 ] );</span>
 &lt;An object in FinSets&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">A := FinSet( [ 1, 5 ] );</span>
@@ -1420,8 +1420,8 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := EmbeddingOfFinSets( A, S );</span>
 &lt;A monomorphism in FinSets&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( ClassifyingMorphismOfSubobject( m ) );</span>
-[ [ 1, 2, 3, 4, 5 ], [ [ 1, "true" ], [ 2, "false" ], [ 3, "false" ],
-[ 4, "false" ], [ 5, "true" ] ], [ "true", "false" ] ]
+[ [ 1, 2, 3, 4, 5 ], [ [ 1, "true" ], [ 2, "false" ], [ 3, "false" ],\
+ [ 4, "false" ], [ 5, "true" ] ], [ "true", "false" ] ]
 </pre></div>
 
 
