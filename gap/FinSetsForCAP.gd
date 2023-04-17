@@ -161,7 +161,7 @@ DeclareOperation( "IsEqualForElementsOfFinSets",
 #! @Arguments M, i
 #! @Returns an object
 DeclareOperation( "[]",
-        [ IsFiniteSet, IsInt ] );
+        [ IsFiniteSet, IsBigInt ] );
 
 #! @Description
 #!  An iterator of the &GAP; set of the list used to construct a finite set $S$, i.e.,

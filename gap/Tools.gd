@@ -14,9 +14,9 @@
 #! @Arguments q, n
 #! @Returns an integer
 DeclareOperation( "GeometricSum",
-        [ IsRingElement, IsInt ] );
+        [ IsRingElement, IsBigInt ] );
 
-CapJitAddTypeSignature( "GeometricSum", [ IsInt, IsInt ], IsInt );
+CapJitAddTypeSignature( "GeometricSum", [ IsBigInt, IsBigInt ], IsBigInt );
 
 #! @Description
 #!  Returns $(1+((n-1)*q-n)*q^(n-1))/(q-1)^2$ = <C>Sum</C>( [ 0 .. <A>n</A> - 1 ], i -> i * <A>q</A>^(i - 1) ),
@@ -24,6 +24,6 @@ CapJitAddTypeSignature( "GeometricSum", [ IsInt, IsInt ], IsInt );
 #! @Arguments q, n
 #! @Returns an integer
 DeclareOperation( "GeometricSumDiff1",
-        [ IsRingElement, IsInt ] );
+        [ IsRingElement, IsBigInt ] );
 
-CapJitAddTypeSignature( "GeometricSumDiff1", [ IsInt, IsInt ], IsInt );
+CapJitAddTypeSignature( "GeometricSumDiff1", [ IsBigInt, IsBigInt ], IsBigInt );
