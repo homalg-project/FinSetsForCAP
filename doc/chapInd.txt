@@ -2,7 +2,7 @@
   
   [1XIndex[101X
   
-  [2X[][102X, for IsFiniteSet, IsInt 1.4-3 
+  [2X[][102X, for IsFiniteSet, IsBigInt 1.4-3 
   [2X\in[102X, for IsObject, IsFiniteSet 1.4-2 
   [2XAsList[102X, for IsFiniteSet 1.2-1 
       for IsFiniteSetMap 1.2-3 
@@ -15,16 +15,16 @@
   [2XEmbeddingOfFinSets[102X, for IsFiniteSet, IsFiniteSet 1.4-9 
       for IsSkeletalFiniteSet, IsSkeletalFiniteSet 2.4-2 
   [2XFilteredOp[102X, for IsFiniteSet, IsFunction 1.4-7 
-  [2XFinSet[102X, for IsCategoryOfFinSets, IsList 1.3-3 
-      for IsCategoryOfSkeletalFinSets, IsInt 2.3-4 
-      for IsInt 2.3-3 
+  [2XFinSet[102X, for IsBigInt 2.3-3 
+      for IsCategoryOfFinSets, IsList 1.3-3 
+      for IsCategoryOfSkeletalFinSets, IsBigInt 2.3-4 
       for IsList 1.3-4 
   [2XFinSetNC[102X, for IsCategoryOfFinSets, IsList 1.3-5 
       for IsList 1.3-6 
   [2XFinSets[102X 1.3-2 
   [2XFirst[102X, for IsFiniteSet, IsFunction 1.4-8 
-  [2XGeometricSum[102X, for IsRingElement, IsInt 2.4-6 
-  [2XGeometricSumDiff1[102X, for IsRingElement, IsInt 2.4-7 
+  [2XGeometricSum[102X, for IsRingElement, IsBigInt 2.4-6 
+  [2XGeometricSumDiff1[102X, for IsRingElement, IsBigInt 2.4-7 
   [2XImageObject[102X, for IsFiniteSetMap, IsFiniteSet 1.4-12 
       for IsSkeletalFiniteSetMap, IsSkeletalFiniteSet 2.4-4 
   [2XIsCategoryOfFinSets[102X, for IsCapCategory 1.1-1 

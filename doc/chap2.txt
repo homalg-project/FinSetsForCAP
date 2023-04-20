@@ -93,7 +93,7 @@
     [4X[28X[ 0, 1, 4, 9, 16, 25, 36 ][128X[104X
     [4X[25Xgap>[125X [27XL := ObjectDatum( m );[127X[104X
     [4X[28X7[128X[104X
-    [4X[25Xgap>[125X [27Xmm := ObjectConstructor( SkeletalFinSets, 7 );[127X[104X
+    [4X[25Xgap>[125X [27Xmm := ObjectConstructor( SkeletalFinSets, BigInt( 7 ) );[127X[104X
     [4X[28X|7|[128X[104X
     [4X[25Xgap>[125X [27Xm = mm;[127X[104X
     [4X[28Xtrue[128X[104X
@@ -148,11 +148,15 @@
     [4X[25Xgap>[125X [27XString( phi );[127X[104X
     [4X[28X"MapOfFinSets( SkeletalFinSets, FinSet( SkeletalFinSets, 3 ), [ 6, 4, 4 ], Fin\[128X[104X
     [4X[28XSet( SkeletalFinSets, 7 ) )"[128X[104X
-    [4X[25Xgap>[125X [27Xs := ObjectConstructor( SkeletalFinSets, 3 );[127X[104X
+    [4X[25Xgap>[125X [27Xs := ObjectConstructor( SkeletalFinSets, BigInt( 3 ) );[127X[104X
     [4X[28X|3|[128X[104X
-    [4X[25Xgap>[125X [27Xt := ObjectConstructor( SkeletalFinSets, 7 );[127X[104X
+    [4X[25Xgap>[125X [27Xt := ObjectConstructor( SkeletalFinSets, BigInt( 7 ) );[127X[104X
     [4X[28X|7|[128X[104X
-    [4X[25Xgap>[125X [27Xphi := MorphismConstructor( s, [ 6, 4, 4 ], t );[127X[104X
+    [4X[25Xgap>[125X [27Xphi := MorphismConstructor([127X[104X
+    [4X[25X>[125X [27X    s,[127X[104X
+    [4X[25X>[125X [27X    [ BigInt( 6 ), BigInt( 4 ), BigInt( 4 ) ],[127X[104X
+    [4X[25X>[125X [27X    t[127X[104X
+    [4X[25X>[125X [27X);[127X[104X
     [4X[28X|3| → |7|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( MorphismDatum( phi ) );[127X[104X
     [4X[28X[ 6, 4, 4 ][128X[104X
