@@ -19,11 +19,15 @@ String( phi );
 #! "MapOfFinSets( SkeletalFinSets, FinSet( SkeletalFinSets, 3 ), [ 6, 4, 4 ], Fin\
 #! Set( SkeletalFinSets, 7 ) )"
 
-s := ObjectConstructor( SkeletalFinSets, 3 );
+s := ObjectConstructor( SkeletalFinSets, BigInt( 3 ) );
 #! |3|
-t := ObjectConstructor( SkeletalFinSets, 7 );
+t := ObjectConstructor( SkeletalFinSets, BigInt( 7 ) );
 #! |7|
-phi := MorphismConstructor( s, [ 6, 4, 4 ], t );
+phi := MorphismConstructor(
+    s,
+    [ BigInt( 6 ), BigInt( 4 ), BigInt( 4 ) ],
+    t
+);
 #! |3| → |7|
 Display( MorphismDatum( phi ) );
 #! [ 6, 4, 4 ]

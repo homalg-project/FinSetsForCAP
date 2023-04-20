@@ -14,7 +14,7 @@ InstallMethod( CategoryOfSkeletalFinSets,
     cat := CreateCapCategoryWithDataTypes(
         "SkeletalFinSets", IsCategoryOfSkeletalFinSets,
         IsSkeletalFiniteSet, IsSkeletalFiniteSetMap, IsCapCategoryTwoCell,
-        IsInt, rec( filter := IsList, element_type := rec( filter := IsInt ) ), fail
+        IsBigInt, rec( filter := IsList, element_type := rec( filter := IsBigInt ) ), fail
     );
     
     cat!.category_as_first_argument := true;
@@ -52,7 +52,7 @@ end );
 
 ##
 InstallMethodForCompilerForCAP( FinSetOp,
-        [ IsCategoryOfSkeletalFinSets, IsInt ],
+        [ IsCategoryOfSkeletalFinSets, IsBigInt ],
         
   function ( cat, n )
     local int;
@@ -311,7 +311,7 @@ AddIsWellDefinedForMorphisms( SkeletalFinSets,
     t := Length( Range( mor ) );
     
     ## For CompilerForCAP we need if-elif-else with the same structure
-    if not ForAll( rel, a -> IsInt( a ) and a >= 0 ) then
+    if not ForAll( rel, a -> IsBigInt( a ) and a >= 0 ) then
         return false;
     elif s <> Length( rel ) then
         return false;
@@ -368,7 +368,7 @@ end );
 AddImageObject( SkeletalFinSets,
   function ( cat, phi )
     
-    return FinSet( SkeletalFinSets, Length( Set( AsList( phi ) ) ) );
+    return FinSet( SkeletalFinSets, BigInt( Length( Set( AsList( phi ) ) ) ) );
     
 end );
 
@@ -446,7 +446,7 @@ AddLift( SkeletalFinSets,
     gg := AsList( g );
     ff := AsList( f );
     
-    return MapOfFinSets( cat, S, List( S, x -> -1 + SafePosition( gg, ff[1 + x] ) ), T );
+    return MapOfFinSets( cat, S, List( S, x -> -1 + BigInt( SafePosition( gg, ff[1 + x] ) ) ), T );
     
 end );
 
@@ -477,7 +477,7 @@ AddColift( SkeletalFinSets,
     chi :=
       function ( y )
         if not y in ff then
-            return 0;
+            return BigInt( 0 );
         fi;
         return gg[SafePosition( ff, y )];
     end;
@@ -505,7 +505,7 @@ AddCoastrictionToImageWithGivenImageObject( SkeletalFinSets,
     
     s := Source( phi );
     
-    L := List( s, i -> -1 + SafePosition( images, G[1 + i] ) );
+    L := List( s, i -> -1 + BigInt( SafePosition( images, G[1 + i] ) ) );
     
     pi := MapOfFinSets( cat, s, L, image_object );
     
@@ -531,7 +531,7 @@ end );
 AddTerminalObject( SkeletalFinSets,
   function ( cat )
     
-    return FinSet( SkeletalFinSets, 1 );
+    return FinSet( SkeletalFinSets, BigInt( 1 ) );
     
 end );
 
@@ -539,7 +539,7 @@ end );
 AddUniversalMorphismIntoTerminalObjectWithGivenTerminalObject( SkeletalFinSets,
   function ( cat, m, t )
     
-    return MapOfFinSets( cat, m, ListWithIdenticalEntries( Length( m ), 0 ), t );
+    return MapOfFinSets( cat, m, ListWithIdenticalEntries( Length( m ), BigInt( 0 ) ), t );
     
 end );
 
@@ -621,7 +621,7 @@ AddUniversalMorphismIntoEqualizerWithGivenEqualizer( SkeletalFinSets,
     
     t := AsList( tau );
     
-    return MapOfFinSets( cat, test_object, List( test_object, x -> -1 + SafePosition( Eq, t[1 + x] ) ), E );
+    return MapOfFinSets( cat, test_object, List( test_object, x -> -1 + BigInt( SafePosition( Eq, t[1 + x] ) ) ), E );
     
 end );
 
@@ -640,7 +640,7 @@ end );
 AddInitialObject( SkeletalFinSets,
   function ( cat )
     
-    return FinSet( SkeletalFinSets, 0 );
+    return FinSet( SkeletalFinSets, BigInt( 0 ) );
     
 end );
 
@@ -734,7 +734,7 @@ end );
 AddCoequalizer( SkeletalFinSets,
   function ( cat, s, D )
   
-    return FinSet( SkeletalFinSets, Length( SKELETAL_FIN_SETS_ExplicitCoequalizer( s, D ) ) );
+    return FinSet( SkeletalFinSets, BigInt( Length( SKELETAL_FIN_SETS_ExplicitCoequalizer( s, D ) ) ) );
     
 end );
 
@@ -745,7 +745,7 @@ AddProjectionOntoCoequalizerWithGivenCoequalizer( SkeletalFinSets,
     
     Cq := SKELETAL_FIN_SETS_ExplicitCoequalizer( s, D );
     
-    cmp := List( s, x -> -1 + SafeUniquePositionProperty( Cq, c -> x in c ) );
+    cmp := List( s, x -> -1 + BigInt( SafeUniquePositionProperty( Cq, c -> x in c ) ) );
     
     return MapOfFinSets( cat, s, cmp, C );
     
@@ -899,7 +899,7 @@ end );
 AddSubobjectClassifier( SkeletalFinSets,
   function ( cat )
       
-      return FinSet( cat, 2 );
+      return FinSet( cat, BigInt( 2 ) );
       
 end );
 
@@ -916,10 +916,10 @@ AddClassifyingMorphismOfSubobjectWithGivenSubobjectClassifier( SkeletalFinSets,
                  function ( x )
                    
                    if x in images then
-                       return 1;
+                       return BigInt( 1 );
                    fi;
                    
-                   return 0;
+                   return BigInt( 0 );
                    
                end );
       
@@ -1078,7 +1078,7 @@ end );
 ##
 InstallOtherMethod( FinSet,
         "for a nonnegative integer",
-        [ IsInt ],
+        [ IsBigInt ],
         
   function ( n )
     
