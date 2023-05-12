@@ -71,6 +71,7 @@ test-spacing:
 	rm spacing_diff_no_blanks
 
 test-gap_to_julia: doc
+	make -C ../Toposes doc
 	git clone https://github.com/homalg-project/PackageJanitor.git ~/.gap/pkg/PackageJanitor
 	mkdir ~/.julia/dev
 	git clone https://github.com/zickgraf/CAP.jl.git ~/.julia/dev/CAP
