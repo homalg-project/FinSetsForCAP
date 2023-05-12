@@ -75,15 +75,20 @@ InstallMethod( IsEqualForElementsOfFinSets,
     fi;
 
     for i in [ 1 .. Length( L1 ) ] do
+        #= comment for Julia
+        # Julia does not have non-dense lists
         if IsBound( L1[i] ) <> IsBound( L2[i] ) then
             return false;
         fi;
         
         if IsBound( L1[i] ) then
+        # =#
             if not IsEqualForElementsOfFinSets( L1[i], L2[i] ) then
                 return false;
             fi;
+        #= comment for Julia
         fi;
+        # =#
     od;
     
     return true;
@@ -185,12 +190,19 @@ InstallMethod( FinSetNC,
     Assert( 4, IsWellDefined( set ) );
 
     for i in [ 1 .. Length( L ) ] do
-        if IsBound( L[i] ) and not IsEqualForElementsOfFinSets( L[i], AsList( set )[i] ) then
-            # COVERAGE_IGNORE_BLOCK_START
-            Display( "Warning: The elements of the list passed to the constructor are not equal (w.r.t. IsEqualForElementsOfFinSets) to the elements of the resulting FinSet. Either pass an immutable copy of the list or add an additional special case to IsEqualForElementsOfFinSets to avoid this warning." );
-            break;
-            # COVERAGE_IGNORE_BLOCK_END
+        #= comment for Julia
+        # Julia does not have non-dense lists
+        if IsBound( L[i] ) then
+        # =#
+            if not IsEqualForElementsOfFinSets( L[i], AsList( set )[i] ) then
+                # COVERAGE_IGNORE_BLOCK_START
+                Display( "Warning: The elements of the list passed to the constructor are not equal (w.r.t. IsEqualForElementsOfFinSets) to the elements of the resulting FinSet. Either pass an immutable copy of the list or add an additional special case to IsEqualForElementsOfFinSets to avoid this warning." );
+                break;
+                # COVERAGE_IGNORE_BLOCK_END
+            fi;
+        #= comment for Julia
         fi;
+        # =#
     od;
 
     return set;
