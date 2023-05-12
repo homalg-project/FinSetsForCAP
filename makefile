@@ -71,6 +71,7 @@ test-spacing:
 	rm spacing_diff_no_blanks
 
 test-gap_to_julia: doc
+	make -C ../Toposes doc
 	git clone https://github.com/homalg-project/PackageJanitor.git ~/.gap/pkg/PackageJanitor
 	mkdir ~/.julia/dev
 	git clone https://github.com/zickgraf/CAP.jl.git ~/.julia/dev/CAP
@@ -84,10 +85,10 @@ test-gap_to_julia: doc
 	~/.gap/pkg/PackageJanitor/gap_to_julia Toposes
 	~/.gap/pkg/PackageJanitor/gap_to_julia FinSetsForCAP
 	julia -e 'using Pkg; Pkg.develop("CAP"); Pkg.develop("MonoidalCategories"); Pkg.develop("CartesianCategories"); Pkg.develop("Toposes"); Pkg.develop("FinSetsForCAP");'
-	julia -e 'using Pkg; Pkg.test("CAP");'
-	julia -e 'using Pkg; Pkg.test("MonoidalCategories");'
-	julia -e 'using Pkg; Pkg.test("CartesianCategories");'
-	julia -e 'using Pkg; Pkg.test("Toposes");'
-	julia -e 'using Pkg; Pkg.test("FinSetsForCAP");'
+	julia -e 'using Pkg; Pkg.test("CAP", julia_args = ["--warn-overwrite=no"]);'
+	julia -e 'using Pkg; Pkg.test("MonoidalCategories", julia_args = ["--warn-overwrite=no"]);'
+	julia -e 'using Pkg; Pkg.test("CartesianCategories", julia_args = ["--warn-overwrite=no"]);'
+	julia -e 'using Pkg; Pkg.test("Toposes", julia_args = ["--warn-overwrite=no"]);'
+	julia -e 'using Pkg; Pkg.test("FinSetsForCAP", julia_args = ["--warn-overwrite=no"]);'
 
 ci-test: test-basic-spacing test-spacing test-doc test-with-coverage test-with-coverage-without-precompiled-code test-notebooks test-gap_to_julia
