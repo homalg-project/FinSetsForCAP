@@ -29,6 +29,27 @@ DeclareCategory( "IsObjectInCategoryOfSkeletalFinSets",
 DeclareCategory( "IsMorphismInCategoryOfSkeletalFinSets",
                  IsCapCategoryMorphism );
 
+#! @Description
+#! The GAP category of categories
+#! of skeletal finite sets with morphisms given by functions.
+#! @Arguments object
+DeclareCategory( "IsCategoryOfSkeletalFinSetsWithMorphismsGivenByFunctions",
+                  IsCategoryOfSkeletalFinSets );
+
+#! @Description
+#! The GAP category of objects in the category
+#! of skeletal finite sets with morphisms given by functions.
+#! @Arguments object
+DeclareCategory( "IsObjectInCategoryOfSkeletalFinSetsWithMorphismsGivenByFunctions",
+                 IsObjectInCategoryOfSkeletalFinSets );
+
+#! @Description
+#! The GAP category of morphisms in the category
+#! of skeletal finite sets with morphisms given by functions.
+#! @Arguments object
+DeclareCategory( "IsMorphismInCategoryOfSkeletalFinSetsWithMorphismsGivenByFunctions",
+                 IsMorphismInCategoryOfSkeletalFinSets );
+
 #! @Section Attributes
 
 #! @Description
@@ -52,13 +73,23 @@ DeclareAttribute( "AsList",
 CapJitAddTypeSignature( "AsList", [ IsObjectInCategoryOfSkeletalFinSets ], rec( filter := IsList, element_type := rec( filter := IsBigInt ) ) );
 
 #! @Description
-#!  The graph defining the skeletal finite set morphism <A>phi</A>, see <Ref Oper="MapOfFinSets" Label="for IsObjectInCategoryOfSkeletalFinSets, IsList, IsObjectInCategoryOfSkeletalFinSets" />.
+#!  The function defining the skeletal finite set morphism <A>phi</A>, see <Ref Oper="MapOfFinSets" Label="for IsObjectInCategoryOfSkeletalFinSets, IsFunction, IsObjectInCategoryOfSkeletalFinSets" />.
 #! @Arguments phi
-#! @Returns a list
-DeclareAttribute( "AsList",
+#! @Returns a function
+DeclareAttribute( "AsFunc",
         IsMorphismInCategoryOfSkeletalFinSets );
 
-CapJitAddTypeSignature( "AsList", [ IsMorphismInCategoryOfSkeletalFinSets ], rec( filter := IsList, element_type := rec( filter := IsBigInt ) ) );
+BindGlobal( "SkeletalFinSets_func_type",
+        rec( filter := IsFunction, signature := [ [ rec( filter := IsBigInt ) ], rec( filter := IsBigInt ) ] ) );
+
+CapJitAddTypeSignature( "AsFunc", [ IsMorphismInCategoryOfSkeletalFinSets ], SkeletalFinSets_func_type );
+
+#! @Description
+#!  The list of images defining the skeletal finite set morphism <A>phi</A>, see <Ref Oper="MapOfFinSets" Label="for IsObjectInCategoryOfSkeletalFinSets, IsFunction, IsObjectInCategoryOfSkeletalFinSets" />.
+#! @Arguments phi
+#! @Returns a list
+DeclareAttribute( "ListOfImages",
+        IsMorphismInCategoryOfSkeletalFinSets );
 
 #! @Section Constructors
 
@@ -71,6 +102,16 @@ DeclareOperation( "CategoryOfSkeletalFinSets", [ ] );
 #!  The default instance of the category of skeletal finite sets.
 #!  It is automatically created while loading this package.
 DeclareGlobalName( "SkeletalFinSets" );
+
+#! @Description
+#!  Construct a category of skeletal finite sets with maps given by functions.
+#! @Returns a &CAP; category
+DeclareOperation( "CategoryOfSkeletalFinSetsWithMorphismsGivenByFunctions", [ ] );
+
+#! @Description
+#!  The default instance of the category of skeletal finite sets given by functions.
+#!  It is automatically created while loading this package.
+DeclareGlobalName( "SkeletalFinSetsWithMorphismsGivenByFunctions" );
 
 #! @Description
 #!  Construct a skeletal finite set residing in
@@ -92,13 +133,12 @@ KeyDependentOperation( "FinSet", IsCategoryOfSkeletalFinSets, IsBigInt, ReturnTr
 
 #! @Description
 #!  Construct a map $\phi:$<A>s</A>$\to$<A>t</A> of the skeletal finite sets <A>s</A> and <A>t</A>,
-#!  i.e., a morphism in the &CAP; category of <A>s</A>, where <A>G</A>
-#!  is a list of integers in <A>t</A> describing the graph of $\phi$.
-#! @Arguments s, G, t
+#!  i.e., a morphism in the &CAP; category of <A>s</A>, where <A>f</A>
+#!  is a function with values in <A>t</A> describing the graph of $\phi$.
+#! @Arguments s, f, t
 #! @Returns a &CAP; morphism
 DeclareOperation( "MapOfFinSets",
-        [ IsObjectInCategoryOfSkeletalFinSets, IsList, IsObjectInCategoryOfSkeletalFinSets ] );
-#! @InsertChunk  SkeletalMapOfFinSets
+        [ IsObjectInCategoryOfSkeletalFinSets, IsFunction, IsObjectInCategoryOfSkeletalFinSets ] );
 
 #! @Section Tools
 

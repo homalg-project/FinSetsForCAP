@@ -10,7 +10,13 @@ BindGlobal( "init_FinSetsForCAP", function ( )
     BindGlobal( "FinSets", CategoryOfFinSets( ) );
     
     ##
-    BindGlobal( "SkeletalFinSets", CategoryOfSkeletalFinSets( ) );
+    BindGlobal( "SkeletalFinSetsWithMorphismsGivenByFunctions", CategoryOfSkeletalFinSetsWithMorphismsGivenByFunctions( ) );
+    
+    ##
+    BindGlobal( "SkeletalFinSetsWithMorphismsGivenByLists", CategoryOfSkeletalFinSetsWithMorphismsGivenByLists( ) );
+    
+    ##
+    BindGlobal( "SkeletalFinSets", SkeletalFinSetsWithMorphismsGivenByLists );
     
 end );
 

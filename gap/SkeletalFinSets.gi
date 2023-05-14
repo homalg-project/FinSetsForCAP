@@ -5,17 +5,21 @@
 #
 
 ##
-InstallMethod( CategoryOfSkeletalFinSets,
-               [ ],
-               
+InstallMethod( CategoryOfSkeletalFinSetsWithMorphismsGivenByFunctions,
+        "for no input",
+        [ ],
+        
   function ( )
     local cat;
     
-    cat := CreateCapCategoryWithDataTypes(
-        "SkeletalFinSets", IsCategoryOfSkeletalFinSets,
-        IsObjectInCategoryOfSkeletalFinSets, IsMorphismInCategoryOfSkeletalFinSets, IsCapCategoryTwoCell,
-        IsBigInt, rec( filter := IsList, element_type := rec( filter := IsBigInt ) ), fail
-    );
+    cat := CreateCapCategoryWithDataTypes( "SkeletalFinSets",
+                   IsCategoryOfSkeletalFinSetsWithMorphismsGivenByFunctions,
+                   IsObjectInCategoryOfSkeletalFinSetsWithMorphismsGivenByFunctions,
+                   IsMorphismInCategoryOfSkeletalFinSetsWithMorphismsGivenByFunctions,
+                   IsCapCategoryTwoCell,
+                   IsBigInt,
+                   SkeletalFinSets_func_type,
+                   fail );
     
     cat!.category_as_first_argument := true;
     
@@ -40,7 +44,7 @@ InstallMethod( CategoryOfSkeletalFinSets,
     
     if ValueOption( "no_precompiled_code" ) <> true then
         
-        ADD_FUNCTIONS_FOR_CategoryOfSkeletalFinSetsWithMorphismsGivenByListsPrecompiled( cat );
+        ADD_FUNCTIONS_FOR_CategoryOfSkeletalFinSetsWithMorphismsGivenByFunctionsPrecompiled( cat );
         
     fi;
     
@@ -85,24 +89,58 @@ end );
 ## Morphisms
 
 ##
-InstallMethod( MapOfFinSets,
-        "for two CAP skeletal finite sets and a list",
-        [ IsObjectInCategoryOfSkeletalFinSets, IsList, IsObjectInCategoryOfSkeletalFinSets ],
+InstallOtherMethodForCompilerForCAP( ListOfImages,
+        "for a category of skeletal finite sets and a CAP map of skeletal finite sets",
+        [ IsCategoryOfSkeletalFinSetsWithMorphismsGivenByFunctions, IsMorphismInCategoryOfSkeletalFinSetsWithMorphismsGivenByFunctions ],
         
-  function ( s, G, t )
+  function ( cat, map )
     
-    return MapOfFinSets( CapCategory( s ), s, G, t );
+    return List( [ 0 .. Length( Source( map ) ) - 1 ], AsFunc( map ) );
+    
+end );
+
+##
+InstallMethod( AsList,
+        "for a CAP map of skeletal finite sets",
+        [ IsMorphismInCategoryOfSkeletalFinSetsWithMorphismsGivenByFunctions ],
+        
+  function ( map )
+    local L;
+    
+    L := ListOfImages( CapCategory( map ), map );
+    
+    if Length( L ) > 1 and First( L ) + 1 = L[2] and First( L ) < Last( L ) then
+        ConvertToRangeRep( L );
+    fi;
+    
+    return L;
+    
+end );
+
+##
+InstallMethod( MapOfFinSets,
+        "for two CAP skeletal finite sets and a function",
+        [ IsObjectInCategoryOfSkeletalFinSetsWithMorphismsGivenByFunctions, IsFunction, IsObjectInCategoryOfSkeletalFinSetsWithMorphismsGivenByFunctions ],
+        
+  function ( s, f, t )
+    
+    return MorphismConstructor( CapCategory( s ), s, f, t );
     
 end );
 
 ##
 InstallOtherMethod( MapOfFinSets,
-        "for a category of skeletal finite sets, two CAP skeletal finite sets and a list",
-        [ IsCategoryOfSkeletalFinSets, IsObjectInCategoryOfSkeletalFinSets, IsList, IsObjectInCategoryOfSkeletalFinSets ],
+        "for two CAP skeletal finite sets and a list",
+        [ IsObjectInCategoryOfSkeletalFinSetsWithMorphismsGivenByFunctions, IsList, IsObjectInCategoryOfSkeletalFinSetsWithMorphismsGivenByFunctions ],
         
-  function ( cat, s, G, t )
+  function ( s, G, t )
+    local f;
     
-    return MorphismConstructor( cat, s, G, t );
+    f := CapJitTypedExpression(
+                 i -> G[1 + i],
+                 cat -> SkeletalFinSets_func_type );
+    
+    return MapOfFinSets( s, f, t );
     
 end );
 
@@ -129,13 +167,13 @@ InstallMethod( Preimage,
         [ IsMorphismInCategoryOfSkeletalFinSets, IsList ],
         
   function ( phi, t )
-    local S;
+    local S, f;
     
     S := AsList( Source( phi ) );
     
-    phi := AsList( phi );
+    f := AsFunc( phi );
     
-    return Filtered( S, i -> phi[1 + i] in t );
+    return Filtered( S, i -> f( i ) in t );
     
 end );
 
@@ -159,7 +197,7 @@ InstallMethod( CallFuncList,
     
     x := L[1];
     
-    return AsList( phi )[1 + x];
+    return AsFunc( phi )( x );
     
 end );
 
@@ -264,13 +302,13 @@ end );
 
 ##
 AddMorphismConstructor( SkeletalFinSets,
-  function ( cat, source, images, range )
+  function ( cat, source, func, range )
     local map;
     
     map := CreateCapCategoryMorphismWithAttributes( cat,
-            source,
-            range,
-            AsList, images );
+                   source,
+                   range,
+                   AsFunc, func );
     
     #% CAP_JIT_DROP_NEXT_STATEMENT
     Assert( 4, IsWellDefined( map ) );
@@ -283,7 +321,7 @@ end );
 AddMorphismDatum( SkeletalFinSets,
   function ( cat, map )
     
-    return AsList( map );
+    return AsFunc( map );
     
 end );
 
@@ -302,20 +340,22 @@ end );
 ##
 AddIsWellDefinedForMorphisms( SkeletalFinSets,
   function ( cat, mor )
-    local s, rel, t;
+    local s, f, t;
     
     s := Length( Source( mor ) );
     
-    rel := AsList( mor );
+    f := AsFunc( mor );
     
     t := Length( Range( mor ) );
     
     ## For CompilerForCAP we need if-elif-else with the same structure
-    if not ForAll( rel, a -> IsBigInt( a ) and a >= 0 ) then
-        return false;
-    elif s <> Length( rel ) then
-        return false;
-    elif not ForAll( rel, a -> a < t ) then
+    if not ForAll( [ 0 .. s - 1 ],
+               function( x )
+                 local fx;
+                 fx := f( x );
+                 return IsBigInt( fx ) and fx >= 0 and fx < t;
+             end ) then
+             
         return false;
     else
         return true;
@@ -326,8 +366,12 @@ end );
 ##
 AddIsEqualForMorphisms( SkeletalFinSets,
   function ( cat, mor1, mor2 )
+    local f1, f2;
     
-    return AsList( mor1 ) = AsList( mor2 );
+    f1 := AsFunc( mor1 );
+    f2 := AsFunc( mor2 );
+    
+    return ForAll( [ 0 .. Length( Source( mor1 ) ) - 1 ], x -> f1( x ) = f2( x ) );
     
 end );
 
@@ -342,25 +386,32 @@ end );
 ##
 AddIdentityMorphism( SkeletalFinSets,
   function ( cat, n )
+    local f;
     
-    return MorphismConstructor( cat, n, [ 0 .. Length( n ) - 1 ], n );
+    f := CapJitTypedExpression(
+                 IdFunc,
+                 cat -> SkeletalFinSets_func_type );
+    
+    return MorphismConstructor( cat, n, f, n );
     
 end );
 
 ##
 AddPreCompose( SkeletalFinSets,
   function ( cat, map_pre, map_post )
-    local s, t, im_pre, im_post, cmp;
+    local s, t, pre, post, pre_post;
     
     s := Source( map_pre );
     t := Range( map_post );
     
-    im_pre := AsList( map_pre );
-    im_post := AsList( map_post );
+    pre := AsFunc( map_pre );
+    post := AsFunc( map_post );
     
-    cmp := List( s, i -> im_post[1 + im_pre[1 + i]] );
+    pre_post := CapJitTypedExpression(
+                        i -> post( pre( i ) ),
+                        cat -> SkeletalFinSets_func_type );
     
-    return MorphismConstructor( cat, s, cmp, t );
+    return MorphismConstructor( cat, s, pre_post, t );
     
 end );
 
@@ -368,7 +419,7 @@ end );
 AddImageObject( SkeletalFinSets,
   function ( cat, phi )
     
-    return ObjectConstructor( cat, BigInt( Length( Set( AsList( phi ) ) ) ) );
+    return ObjectConstructor( cat, BigInt( Length( Set( ListOfImages( cat, phi ) ) ) ) );
     
 end );
 
@@ -378,7 +429,7 @@ AddIsEpimorphism( SkeletalFinSets,
   function ( cat, phi )
     local imgs, t;
     
-    imgs := AsList( phi );
+    imgs := ListOfImages( cat, phi );
     
     t := Length( Range( phi ) );
     
@@ -399,7 +450,7 @@ AddIsMonomorphism( SkeletalFinSets,
   function ( cat, phi )
     local imgs, t;
     
-    imgs := AsList( phi );
+    imgs := ListOfImages( cat, phi );
     
     t := Length( Range( phi ) );
     
@@ -422,8 +473,8 @@ AddIsLiftable( SkeletalFinSets,
   function ( cat, f, g )
     local ff, gg, fff;
     
-    ff := AsList( f );
-    gg := AsList( g );
+    ff := ListOfImages( cat, f );
+    gg := ListOfImages( cat, g );
     
     if 100 * Length( ff ) < Length( gg ) then
         fff := Set( ff );
@@ -438,15 +489,19 @@ end );
 ##
 AddLift( SkeletalFinSets,
   function ( cat, f, g )
-    local S, T, gg, ff;
+    local S, T, gg, ff, chi;
     
     S := Source( f );
     T := Source( g );
     
-    gg := AsList( g );
-    ff := AsList( f );
+    gg := ListOfImages( cat, g );
+    ff := AsFunc( f );
     
-    return MorphismConstructor( cat, S, List( S, x -> -1 + BigInt( SafePosition( gg, ff[1 + x] ) ) ), T );
+    chi := CapJitTypedExpression(
+                   x -> -1 + BigInt( SafePosition( gg, ff( x ) ) ),
+                   cat -> SkeletalFinSets_func_type );
+    
+    return MorphismConstructor( cat, S, chi, T );
     
 end );
 
@@ -456,8 +511,8 @@ AddIsColiftable( SkeletalFinSets,
   function ( cat, f, g )
     local ff, gg;
     
-    ff := AsList( f );
-    gg := AsList( g );
+    ff := ListOfImages( cat, f );
+    gg := ListOfImages( cat, g );
     
     return ForAll( Set( ff ), i -> Length( Set( gg{Positions( ff, i )} ) ) = 1 );
     
@@ -466,15 +521,15 @@ end );
 ##
 AddColift( SkeletalFinSets,
   function ( cat, f, g )
-    local S, T, ff, gg, chi;
+    local S, T, ff, gg, c, chi;
     
     S := Range( f );
     T := Range( g );
     
-    ff := AsList( f );
-    gg := AsList( g );
+    ff := ListOfImages( cat, f );
+    gg := ListOfImages( cat, g );
     
-    chi :=
+    c :=
       function ( y )
         if not y in ff then
             return BigInt( 0 );
@@ -482,32 +537,45 @@ AddColift( SkeletalFinSets,
         return gg[SafePosition( ff, y )];
     end;
     
-    return MorphismConstructor( cat, S, List( S, y -> chi(y) ), T );
+    chi := CapJitTypedExpression(
+                   c,
+                   cat -> SkeletalFinSets_func_type );
+    
+    return MorphismConstructor( cat, S, chi, T );
     
 end );
 
 ##
 AddImageEmbeddingWithGivenImageObject( SkeletalFinSets,
   function ( cat, phi, image )
+    local images, f;
     
-    return MorphismConstructor( cat, image, Set( AsList( phi ) ), Range( phi ) );
-
+    images := Set( ListOfImages( cat, phi ) );
+    
+    f := CapJitTypedExpression(
+                 i -> images[1 + i],
+                 cat -> SkeletalFinSets_func_type );
+    
+    return MorphismConstructor( cat, image, f, Range( phi ) );
+    
 end );
 
 ##
 AddCoastrictionToImageWithGivenImageObject( SkeletalFinSets,
   function ( cat, phi, image_object )
-    local G, images, s, L, l, pi;
+    local G, images, s, f, l, pi;
     
-    G := AsList( phi );
+    G := ListOfImages( cat, phi );
     
     images := Set( G );
     
     s := Source( phi );
     
-    L := List( s, i -> -1 + BigInt( SafePosition( images, G[1 + i] ) ) );
+    f := CapJitTypedExpression(
+                 i -> -1 + BigInt( SafePosition( images, G[1 + i] ) ),
+                 cat -> SkeletalFinSets_func_type );
     
-    pi := MorphismConstructor( cat, s, L, image_object );
+    pi := MorphismConstructor( cat, s, f, image_object );
     
     #% CAP_JIT_DROP_NEXT_STATEMENT
     Assert( 3, IsEpimorphism( cat, pi ) );
@@ -538,8 +606,15 @@ end );
 ##
 AddUniversalMorphismIntoTerminalObjectWithGivenTerminalObject( SkeletalFinSets,
   function ( cat, m, t )
+    local zero, f;
     
-    return MorphismConstructor( cat, m, ListWithIdenticalEntries( Length( m ), BigInt( 0 ) ), t );
+    zero := BigInt( 0 );
+    
+    f := CapJitTypedExpression(
+                 i -> zero,
+                 cat -> SkeletalFinSets_func_type );
+    
+    return MorphismConstructor( cat, m, f, t );
     
 end );
 
@@ -554,7 +629,7 @@ end );
 ##
 AddProjectionInFactorOfDirectProductWithGivenDirectProduct( SkeletalFinSets,
   function ( cat, D, k, P )
-    local T, l, a;
+    local T, l, a, f;
     
     T := D[k];
     
@@ -562,14 +637,18 @@ AddProjectionInFactorOfDirectProductWithGivenDirectProduct( SkeletalFinSets,
     
     a := Product( List( D{[ 1 .. k - 1 ]}, Length ) );
     
-    return MorphismConstructor( cat, P, List( P, i -> RemInt( QuoInt( i, a ), l ) ), T );
+    f := CapJitTypedExpression(
+                 i -> RemInt( QuoInt( i, a ), l ),
+                 cat -> SkeletalFinSets_func_type );
+    
+    return MorphismConstructor( cat, P, f, T );
     
 end );
 
 ##
 AddUniversalMorphismIntoDirectProductWithGivenDirectProduct( SkeletalFinSets,
   function ( cat, D, T, tau, P )
-    local l, d, dd, taus;
+    local l, d, dd, taus, f;
     
     l := Length( D );
     
@@ -577,21 +656,25 @@ AddUniversalMorphismIntoDirectProductWithGivenDirectProduct( SkeletalFinSets,
     
     dd := List( [ 0 .. l - 1 ], j -> Product( d{[ 1 .. j ]} ) );
     
-    taus := List( tau, AsList );
+    taus := List( tau, AsFunc );
     
-    # if l = 0, then Sum( [ 0 .. l - 1 ], j -> ... ) = 0 ∈ TerminalObject = P
-    return MorphismConstructor( cat, T, List( T, i -> Sum( [ 0 .. l - 1 ], j -> taus[1 + j][1 + i] * dd[1 + j] ) ), P );
+    f := CapJitTypedExpression(
+                 # if l = 0, then Sum( [ 0 .. l - 1 ], j -> ... ) = 0 ∈ TerminalObject = P
+                 i -> Sum( [ 0 .. l - 1 ], j -> dd[1 + j] * taus[1 + j]( i ) ),
+                 cat -> SkeletalFinSets_func_type );
+    
+    return MorphismConstructor( cat, T, f, P );
     
 end );
 
 ##
 AddEqualizer( SkeletalFinSets,
   function ( cat, s, D )
-    local D2, Eq;
+    local funcs, Eq;
     
-    D2 := List( D, AsList );
+    funcs := List( D, AsFunc );
     
-    Eq := Filtered( [ 0 .. Length( s ) - 1 ], x -> ForAll( [ 1 .. Length( D ) - 1 ], j -> D2[j][1 + x] = D2[j + 1][1 + x] ) );
+    Eq := Filtered( [ 0 .. Length( s ) - 1 ], i -> ForAll( [ 1 .. Length( D ) - 1 ], j -> funcs[j]( i ) = funcs[j + 1]( i ) ) );
     
     return ObjectConstructor( cat, Length( Eq ) );
     
@@ -600,28 +683,36 @@ end );
 ##
 AddEmbeddingOfEqualizerWithGivenEqualizer( SkeletalFinSets,
   function ( cat, s, D, E )
-    local D2, Eq;
+    local funcs, Eq, f;
     
-    D2 := List( D, AsList );
+    funcs := List( D, AsFunc );
     
-    Eq := Filtered( [ 0 .. Length( s ) - 1 ], x -> ForAll( [ 1 .. Length( D ) - 1 ], j -> D2[j][1 + x] = D2[j + 1][1 + x] ) );
+    Eq := Filtered( [ 0 .. Length( s ) - 1 ], x -> ForAll( [ 1 .. Length( D ) - 1 ], j -> funcs[j]( x ) = funcs[j + 1]( x ) ) );
     
-    return MorphismConstructor( cat, E, Eq, s );
+    f := CapJitTypedExpression(
+                 i -> Eq[1 + i],
+                 cat -> SkeletalFinSets_func_type );
+    
+    return MorphismConstructor( cat, E, f, s );
     
 end );
 
 ##
 AddUniversalMorphismIntoEqualizerWithGivenEqualizer( SkeletalFinSets,
   function ( cat, s, D, test_object, tau, E )
-    local D2, Eq, t;
+    local funcs, Eq, t, f;
     
-    D2 := List( D, AsList );
+    funcs := List( D, AsFunc );
     
-    Eq := Filtered( [ 0 .. Length( s ) - 1 ], x -> ForAll( [ 1 .. Length( D ) - 1 ], j -> D2[j][1 + x] = D2[j + 1][1 + x] ) );
+    Eq := Filtered( [ 0 .. Length( s ) - 1 ], x -> ForAll( [ 1 .. Length( D ) - 1 ], j -> funcs[j]( x ) = funcs[j + 1]( x ) ) );
     
-    t := AsList( tau );
+    t := AsFunc( tau );
     
-    return MorphismConstructor( cat, test_object, List( test_object, x -> -1 + BigInt( SafePosition( Eq, t[1 + x] ) ) ), E );
+    f := CapJitTypedExpression(
+                 x -> -1 + BigInt( SafePosition( Eq, t( x ) ) ),
+                 cat -> SkeletalFinSets_func_type );
+    
+    return MorphismConstructor( cat, test_object, f, E );
     
 end );
 
@@ -647,8 +738,13 @@ end );
 ##
 AddUniversalMorphismFromInitialObjectWithGivenInitialObject( SkeletalFinSets,
   function ( cat, m, I )
+    local f;
     
-    return MorphismConstructor( cat, I, [ ], m );
+    f := CapJitTypedExpression(
+                 IdFunc,
+                 cat -> SkeletalFinSets_func_type );
+    
+    return MorphismConstructor( cat, I, f, m );
     
 end );
 
@@ -691,8 +787,13 @@ end );
 ##
 AddMonomorphismIntoSomeInjectiveObjectWithGivenSomeInjectiveObject( SkeletalFinSets,
   function ( cat, M, injective_object )
+    local f;
     
-    return MorphismConstructor( cat, M, [ 0 .. Length( M ) - 1 ], injective_object );
+    f := CapJitTypedExpression(
+                 IdFunc,
+                 cat -> SkeletalFinSets_func_type );
+    
+    return MorphismConstructor( cat, M, f, injective_object );
     
 end );
 
@@ -707,7 +808,7 @@ end );
 ##
 AddInjectionOfCofactorOfCoproductWithGivenCoproduct( SkeletalFinSets,
   function ( cat, L, i, coproduct )
-    local O, sum, s;
+    local O, sum, s, f;
     
     O := L{[ 1 .. i - 1 ]};
     
@@ -715,18 +816,41 @@ AddInjectionOfCofactorOfCoproductWithGivenCoproduct( SkeletalFinSets,
     
     s := L[i];
     
-    return MorphismConstructor( cat, s, [ sum .. sum + Length( s ) - 1 ], coproduct );
+    f := CapJitTypedExpression(
+                 i -> sum + i,
+                 cat -> SkeletalFinSets_func_type );
+    
+    return MorphismConstructor( cat, s, f, coproduct );
     
 end );
 
 ##
 AddUniversalMorphismFromCoproductWithGivenCoproduct( SkeletalFinSets,
   function ( cat, L, test_object, tau, S )
-    local concat;
+    local sources, sums, funcs, interval, c, f;
     
-    concat := Concatenation( List( tau, AsList ) );
+    sources := List( tau, map -> Length( Source( map ) ) );
     
-    return MorphismConstructor( cat, S, concat, test_object );
+    ## FIXME: make a functional loop if possible
+    sums := List( [ 0 .. Length( tau ) ], k -> Sum( sources{[ 1 .. k ]} ) );
+    
+    funcs := List( tau, AsFunc );
+    
+    interval := [ 1 .. Length( tau ) ];
+    
+    c :=
+      function( i )
+        local p;
+        ## FIXME: PositionSorted
+        p := SafePositionProperty( interval, k -> i < sums[k + 1] );
+        return funcs[p]( i - sums[p] );
+    end;
+    
+    f := CapJitTypedExpression(
+                 c,
+                 cat -> SkeletalFinSets_func_type );
+    
+    return MorphismConstructor( cat, S, f, test_object );
     
 end );
 
@@ -741,24 +865,32 @@ end );
 ##
 AddProjectionOntoCoequalizerWithGivenCoequalizer( SkeletalFinSets,
   function ( cat, s, D, C )
-    local Cq, cmp;
+    local Cq, f;
     
     Cq := SKELETAL_FIN_SETS_ExplicitCoequalizer( s, D );
     
-    cmp := List( s, x -> -1 + BigInt( SafeUniquePositionProperty( Cq, c -> x in c ) ) );
+    f := CapJitTypedExpression(
+                 i -> -1 + BigInt( SafeUniquePositionProperty( Cq, c -> i in c ) ),
+                 cat -> SkeletalFinSets_func_type );
     
-    return MorphismConstructor( cat, s, cmp, C );
+    return MorphismConstructor( cat, s, f, C );
     
 end );
 
 ##
 AddUniversalMorphismFromCoequalizerWithGivenCoequalizer( SkeletalFinSets,
   function ( cat, s, D, test_object, tau, C )
-    local Cq;
+    local Cq, func, f;
     
     Cq := SKELETAL_FIN_SETS_ExplicitCoequalizer( s, D );
 
-    return MorphismConstructor( cat, C, List( Cq, x -> tau( x[1] ) ), Range( tau ) );
+    func := AsFunc( tau );
+
+    f := CapJitTypedExpression(
+                 i -> func( Cq[1 + i][1] ),
+                 cat -> SkeletalFinSets_func_type );
+                 
+    return MorphismConstructor( cat, C, f, Range( tau ) );
     
 end );
 
@@ -799,13 +931,17 @@ end );
 ##
 AddCartesianBraidingInverseWithGivenDirectProducts( SkeletalFinSets,
   function ( cat, MN, M, N, NM )
-    local m, n;
+    local m, n, f;
     
     m := Length( M );
     
     n := Length( N );
     
-    return MorphismConstructor( cat, MN, List( MN , i -> RemInt( i, n ) * m + QuoInt( i, n ) ), NM );
+    f := CapJitTypedExpression(
+                 i -> RemInt( i, n ) * m + QuoInt( i, n ),
+                 cat -> SkeletalFinSets_func_type );
+    
+    return MorphismConstructor( cat, MN, f, NM );
     
 end );
 
@@ -824,35 +960,40 @@ end );
 ## InterpretMorphismFromDistinguishedObjectToHomomorphismStructureAsMorphism
 AddCartesianLambdaElimination( SkeletalFinSets,
   function ( cat, M, N, intro )
-    local m, n, v;
+    local m, n, v, f;
     
     m := Length( M );
     n := Length( N );
     
-    v := AsList( intro )[1];
+    v := AsFunc( intro )( 0 );
     
-    return MorphismConstructor( cat,
-                   M,
-                   List( [ 0 .. m - 1 ], i -> RemInt( QuoInt( v, n^i ), n ) ),
-                   N );
+    f := CapJitTypedExpression(
+                 i -> RemInt( QuoInt( v, n^i ), n ),
+                 cat -> SkeletalFinSets_func_type );
+    
+    return MorphismConstructor( cat, M, f, N );
     
 end );
 
 ## InterpretMorphismAsMorphismFromDistinguishedObjectToHomomorphismStructure
 AddCartesianLambdaIntroduction( SkeletalFinSets,
   function ( cat, map )
-    local M, m, N, n, images;
+    local M, m, N, n, func, f;
     
     M := Source( map );
     m := Length( M );
     N := Range( map );
     n := Length( N );
     
-    images := AsList( map );
+    func := AsFunc( map );
+    
+    f := CapJitTypedExpression(
+                 i -> Sum( List( [ 0 .. m - 1 ], k -> func( k ) * n^k ) ),
+                 cat -> SkeletalFinSets_func_type );
     
     return MorphismConstructor( cat,
                    TerminalObject( cat ),
-                   [ Sum( List( [ 0 .. m - 1 ], k -> images[1 + k] * n^k ) ) ],
+                   f,
                    ExponentialOnObjects( cat, M, N ) );
     
 end );
@@ -864,38 +1005,49 @@ AddExactCoverWithGlobalElements( SkeletalFinSets,
     
     T := TerminalObject( cat );
     
-    return List( [ 0 .. Length( A ) - 1 ], i -> MorphismConstructor( cat, T, [ i ], A ) );
+    return List( [ 0 .. Length( A ) - 1 ], j ->
+                 MorphismConstructor( cat,
+                         T,
+                         CapJitTypedExpression(
+                                 i -> j,
+                                 cat -> SkeletalFinSets_func_type ),
+                         A ) );
     
 end );
 
 ##
 AddExponentialOnMorphismsWithGivenExponentials( SkeletalFinSets,
   function ( cat, S, alpha, beta, T )
-    local M, N, MN, mors;
+    local M, N, D, MN, f;
     
     M := Range( alpha );
     N := Source( beta );
     
+    D := TerminalObject( cat );
+    
     MN := ExponentialOnObjects( cat, M, N );
-
-    mors := ExactCoverWithGlobalElements( cat, MN );
     
-    return MorphismConstructor( cat,
-                   S,
-                   List( mors, mor ->
-                         AsList( CartesianLambdaIntroduction( cat,
-                                 PreComposeList(
-                                         cat,
-                                         [ alpha,
-                                           CartesianLambdaElimination( cat,
-                                                   M,
-                                                   N,
-                                                   mor ),
-                                           beta ] ) ) )[1 + 0] ),
-                   T );
+    f := CapJitTypedExpression(
+                 i -> AsFunc( CartesianLambdaIntroduction( cat,
+                         PreComposeList(
+                                 cat,
+                                 [ alpha,
+                                   CartesianLambdaElimination( cat,
+                                           M,
+                                           N,
+                                           MorphismConstructor( cat,
+                                                   D,
+                                                   CapJitTypedExpression(
+                                                           j -> i,
+                                                           cat -> SkeletalFinSets_func_type ),
+                                                   MN ) ),
+                                   beta ] ) ) )( 0 ),
+                 cat -> SkeletalFinSets_func_type );
     
-end, 1 + Sum( [ [ "ExponentialOnObjects", 1 ],
-                [ "ExactCoverWithGlobalElements", 1 ],
+    return MorphismConstructor( cat, S, f, T );
+    
+end, 1 + Sum( [ [ "TerminalObject", 1 ],
+                [ "ExponentialOnObjects", 1 ],
                 [ "PreComposeList", 2 ],
                 [ "CartesianLambdaElimination", 2 ],
                 [ "CartesianLambdaIntroduction", 2 ] ],
@@ -904,30 +1056,40 @@ end, 1 + Sum( [ [ "ExponentialOnObjects", 1 ],
 ##
 AddCartesianEvaluationMorphismWithGivenSource( SkeletalFinSets,
   function ( cat, M, N, HM_NxM )
-    local m, n, exp;
+    local m, n, exp, f;
     
     m := Length( M );
     n := Length( N );
     
     exp := n ^ m;
     
-    return MorphismConstructor( cat, HM_NxM, List( [ 0 .. ( n^m * m ) - 1 ], i -> RemInt( QuoInt( i, n^QuoInt( i, exp ) ), n ) ), N );
+    f := CapJitTypedExpression(
+                 i -> RemInt( QuoInt( i, n^QuoInt( i, exp ) ), n ),
+                 cat -> SkeletalFinSets_func_type );
+    
+    return MorphismConstructor( cat, HM_NxM, f, N );
     
 end );
 
 ##
 AddCartesianCoevaluationMorphismWithGivenRange( SkeletalFinSets,
   function ( cat, M, N, HN_MxN )
-    local m, n, mn;
+    local m, n, mn, f;
     
     m := Length( M );
     n := Length( N );
     
     mn := m * n;
     
-    #return MorphismConstructor( cat, M, List( [ 0 .. m - 1 ], i -> Sum( [ 0 .. n - 1 ], j -> ( i + m * j ) * (m*n)^j ) ), HN_MxN );
+    #f := CapJitTypedExpression(
+    #             i -> Sum( [ 0 .. n - 1 ], j -> ( i + m * j ) * (m*n)^j ),
+    #             cat -> SkeletalFinSets_func_type );
     
-    return MorphismConstructor( cat, M, List( [ 0 .. m - 1 ], i -> i * GeometricSum( mn, n ) + m * mn * GeometricSumDiff1( mn, n ) ), HN_MxN );
+    f := CapJitTypedExpression(
+                 i -> i * GeometricSum( mn, n ) + m * mn * GeometricSumDiff1( mn, n ),
+                 cat -> SkeletalFinSets_func_type );
+    
+    return MorphismConstructor( cat, M, f, HN_MxN );
     
 end );
 
@@ -942,25 +1104,28 @@ end );
 ##
 AddClassifyingMorphismOfSubobjectWithGivenSubobjectClassifier( SkeletalFinSets,
   function ( cat, monomorphism, Omega )
-    local range, images, chi;
+    local range, images, c, chi;
     
     range := Range( monomorphism );
     
-    images := AsList( monomorphism );
+    images := ListOfImages( cat, monomorphism );
     
-    chi := List( range,
-                 function ( x )
-                   
-                   if x in images then
-                       return BigInt( 1 );
-                   fi;
-                   
-                   return BigInt( 0 );
-                   
-               end );
-      
-      return MorphismConstructor( cat, range, chi, Omega );
-      
+    c :=
+      function ( x )
+        if x in images then
+            return BigInt( 1 );
+        fi;
+        
+        return BigInt( 0 );
+        
+    end;
+    
+    chi := CapJitTypedExpression(
+                   c,
+                   cat -> SkeletalFinSets_func_type );
+    
+    return MorphismConstructor( cat, range, chi, Omega );
+    
 end );
 
 ##
@@ -1103,16 +1268,5 @@ InstallMethod( DisplayString,
   function ( phi )
     
     return Concatenation( PrintString( phi ), "\n" );
-    
-end );
-
-##
-InstallOtherMethod( FinSet,
-        "for a nonnegative integer",
-        [ IsBigInt ],
-        
-  function ( n )
-    
-    return FinSet( SkeletalFinSets, n );
     
 end );
