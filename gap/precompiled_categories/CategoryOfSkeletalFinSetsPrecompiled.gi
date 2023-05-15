@@ -285,11 +285,10 @@ end
         
 ########
 function ( cat_1, arg2_1 )
-    local hoisted_2_1, deduped_3_1;
-    deduped_3_1 := Length( arg2_1 );
-    hoisted_2_1 := CreateCapCategoryObjectWithAttributes( cat_1, Length, BigInt( 1 ) );
-    return List( [ 0 .. deduped_3_1 - 1 ], function ( i_2 )
-            return CreateCapCategoryMorphismWithAttributes( cat_1, hoisted_2_1, arg2_1, AsList, [ REM_INT( i_2, deduped_3_1 ) ] );
+    local hoisted_1_1;
+    hoisted_1_1 := CreateCapCategoryObjectWithAttributes( cat_1, Length, BigInt( 1 ) );
+    return List( [ 0 .. Length( arg2_1 ) - 1 ], function ( i_2 )
+            return CreateCapCategoryMorphismWithAttributes( cat_1, hoisted_1_1, arg2_1, AsList, [ i_2 ] );
         end );
 end
 ########
@@ -309,10 +308,10 @@ function ( cat_1, s_1, alpha_1, beta_1, r_1 )
     hoisted_4_1 := AsList( beta_1 );
     hoisted_3_1 := AsList( alpha_1 );
     hoisted_2_1 := [ 0 .. deduped_8_1 - 1 ];
-    return CreateCapCategoryMorphismWithAttributes( cat_1, s_1, r_1, AsList, List( [ 0 .. deduped_7_1 ^ deduped_8_1 - 1 ], function ( i_2 )
+    return CreateCapCategoryMorphismWithAttributes( cat_1, s_1, r_1, AsList, List( [ 0 .. deduped_7_1 ^ deduped_8_1 - 1 ], function ( logic_new_func_x_2 )
               local hoisted_1_2;
               hoisted_1_2 := List( hoisted_2_1, function ( i_3 )
-                      return REM_INT( QUO_INT( i_2, deduped_7_1 ^ i_3 ), deduped_7_1 );
+                      return REM_INT( QUO_INT( logic_new_func_x_2, deduped_7_1 ^ i_3 ), deduped_7_1 );
                   end );
               return Sum( List( hoisted_6_1, function ( k_3 )
                         return hoisted_4_1[(1 + hoisted_1_2[(1 + hoisted_3_1[(1 + CAP_JIT_INCOMPLETE_LOGIC( k_3 ))])])] * hoisted_5_1 ^ k_3;
@@ -651,15 +650,15 @@ function ( cat_1, arg2_1, arg3_1 )
     deduped_4_1 := Length( arg2_1 );
     deduped_3_1 := Length( arg3_1 );
     hoisted_2_1 := [ 0 .. deduped_4_1 - 1 ];
-    return List( [ 0 .. deduped_3_1 ^ deduped_4_1 - 1 ], function ( i_2 )
+    return List( [ 0 .. deduped_3_1 ^ deduped_4_1 - 1 ], function ( logic_new_func_x_2 )
             return CreateCapCategoryMorphismWithAttributes( cat_1, arg2_1, arg3_1, AsList, List( hoisted_2_1, function ( i_3 )
-                      return REM_INT( QUO_INT( i_2, deduped_3_1 ^ i_3 ), deduped_3_1 );
+                      return REM_INT( QUO_INT( logic_new_func_x_2, deduped_3_1 ^ i_3 ), deduped_3_1 );
                   end ) );
         end );
 end
 ########
         
-    , 100 );
+    , 401 );
     
     ##
     AddObjectConstructor( cat,
