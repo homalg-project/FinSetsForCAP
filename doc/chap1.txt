@@ -74,7 +74,7 @@
   [33X[1;0Y[29X[2XFinSet[102X( [3Xcat_of_fin_sets[103X, [3XL[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X object[133X
   
-  [33X[0;0YConstruct  a  finite  set  out  of  the  list  [3XL[103X, i.e., an object in the [5XCAP[105X
+  [33X[0;0YConstruct  a  finite set out of the dense list [3XL[103X, i.e., an object in the [5XCAP[105X
   category  [10Xcat_of_fin_sets[110X.  The  [5XGAP[105X  operation  [10XSet[110X must be applicable to [3XL[103X
   without throwing an error. Equality is determined as follows: [10XFinSet( L1 ) =
   FinSet(  L2  )[110X  iff  [10XIsEqualForElementsOfFinSets(  Immutable(  Set(  L1 ) ),
@@ -111,10 +111,6 @@
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XFinSet( [ 1, 2 ] ) = FinSet( [ 2, 1 ] );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XM := FinSetNC( [ , 1, 2, 3 ] );[127X[104X
-    [4X[28X<An object in FinSets>[128X[104X
-    [4X[25Xgap>[125X [27XIsWellDefined( M );[127X[104X
-    [4X[28Xfalse[128X[104X
     [4X[25Xgap>[125X [27XM := FinSetNC( [ 1, 2, 3, 3 ] );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XIsWellDefined( M );[127X[104X
@@ -174,8 +170,8 @@
   [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X morphism[133X
   
   [33X[0;0YConstruct  a  map [23X\phi:[123X[3XS[103X[23X\to[123X[3XT[103X of the finite sets [3XS[103X and [3XT[103X, i.e., a morphism in
-  the  [5XCAP[105X category [10XFinSets[110X, where [3XG[103X is a list of pairs in [3XS[103X[23X\times[123X[3XT[103X describing
-  the graph of [23X\phi[123X.[133X
+  the  [5XCAP[105X  category  [10XFinSets[110X,  where  [3XG[103X  is a dense list of pairs in [3XS[103X[23X\times[123X[3XT[103X
+  describing the graph of [23X\phi[123X.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
@@ -212,10 +208,6 @@
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27Xphi = psi;[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27Xpsi := MapOfFinSetsNC( S, [ , [ 1, "b" ], [ 3, "b" ], [ 2, "a" ] ], T );[127X[104X
-    [4X[28X<A morphism in FinSets>[128X[104X
-    [4X[25Xgap>[125X [27XIsWellDefined( psi );[127X[104X
-    [4X[28Xfalse[128X[104X
     [4X[25Xgap>[125X [27Xpsi := MapOfFinSets( S, [ [ 1, "d" ], [ 3, "b" ] ], T );[127X[104X
     [4X[28X<A morphism in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XIsWellDefined( psi );[127X[104X
@@ -292,7 +284,7 @@
   
   [30X    [33X[0;6Yintegers, strings and chars are compared using the operation [10X=[110X[133X
   
-  [30X    [33X[0;6Ylists and records are compared recursively[133X
+  [30X    [33X[0;6Ydense lists and records are compared recursively[133X
   
   [30X    [33X[0;6Y[5XCAP[105X   category   objects  are  compared  using  [10XIsEqualForObjects[110X  (if
         available)[133X
@@ -320,8 +312,6 @@
     [4X[25Xgap>[125X [27XIsEqualForElementsOfFinSets( [ 2 ], [ 2 ] );[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XIsEqualForElementsOfFinSets( [ 2 ], [ 2, 3 ] );[127X[104X
-    [4X[28Xfalse[128X[104X
-    [4X[25Xgap>[125X [27XIsEqualForElementsOfFinSets( [ , 2 ], [ 2, 2 ] );[127X[104X
     [4X[28Xfalse[128X[104X
     [4X[25Xgap>[125X [27XIsEqualForElementsOfFinSets( rec( a := "a", b := "b" ),[127X[104X
     [4X[25X>[125X [27X                             rec( b := "b", a := "a" )[127X[104X
@@ -382,8 +372,8 @@
   [33X[1;0Y[29X[2XUnionOfFinSets[102X( [3Xcat_of_fin_sets[103X, [3XL[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X object[133X
   
-  [33X[0;0YCompute  the  set-theoretic union of the elements of [3XL[103X, where [3XL[103X is a list of
-  finite sets in the category [3Xcat_of_fin_sets[103X.[133X
+  [33X[0;0YCompute  the  set-theoretic  union  of the elements of [3XL[103X, where [3XL[103X is a dense
+  list of finite sets in the category [3Xcat_of_fin_sets[103X.[133X
   
   [1X1.4-6 ListOp[101X
   
