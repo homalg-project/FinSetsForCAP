@@ -71,7 +71,7 @@ DeclareOperation( "CategoryOfFinSets", [ ] );
 DeclareGlobalName( "FinSets" );
 
 #! @Description
-#!  Construct a finite set out of the list <A>L</A>, i.e.,
+#!  Construct a finite set out of the dense list <A>L</A>, i.e.,
 #!  an object in the &CAP; category <C>cat_of_fin_sets</C>.
 #!  The &GAP; operation <C>Set</C> must be applicable to <A>L</A> without throwing an error.
 #!  Equality is determined as follows: <C>FinSet( L1 ) = FinSet( L2 )</C> iff <C>IsEqualForElementsOfFinSets( Immutable( Set( L1 ) ), Immutable( Set( L2 ) ) )</C>.
@@ -83,14 +83,14 @@ DeclareGlobalName( "FinSets" );
 #! @Arguments cat_of_fin_sets, L
 #! @Returns a &CAP; object
 DeclareOperation( "FinSet",
-        [ IsCategoryOfFinSets, IsList ] );
+        [ IsCategoryOfFinSets, IsDenseList ] );
 
 #! @Description
 #!  Return <C>FinSet</C>( <C>FinSets</C>, <A>L</A> ).
 #! @Arguments L
 #! @Returns a &CAP; object
 DeclareOperation( "FinSet",
-        [ IsList ] );
+        [ IsDenseList ] );
 #! @InsertChunk FinSet
 
 #! @Description
@@ -101,24 +101,24 @@ DeclareOperation( "FinSet",
 #! @Arguments cat_of_fin_sets, L
 #! @Returns a &CAP; object
 DeclareOperation( "FinSetNC",
-        [ IsCategoryOfFinSets, IsList ] );
+        [ IsCategoryOfFinSets, IsDenseList ] );
 
 #! @Description
 #!  Return <C>FinSetNC</C>( <C>FinSets</C>, <A>L</A> ).
 #! @Arguments L
 #! @Returns a &CAP; object
 DeclareOperation( "FinSetNC",
-        [ IsList ] );
+        [ IsDenseList ] );
 #! @InsertChunk FinSetNC
 
 #! @Description
 #!  Construct a map $\phi:$<A>S</A>$\to$<A>T</A> of the finite sets <A>S</A> and <A>T</A>,
 #!  i.e., a morphism in the &CAP; category <C>FinSets</C>, where <A>G</A>
-#!  is a list of pairs in <A>S</A>$\times$<A>T</A> describing the graph of $\phi$.
+#!  is a dense list of pairs in <A>S</A>$\times$<A>T</A> describing the graph of $\phi$.
 #! @Arguments S, G, T
 #! @Returns a &CAP; morphism
 DeclareOperation( "MapOfFinSets",
-        [ IsFiniteSet, IsList, IsFiniteSet ] );
+        [ IsFiniteSet, IsDenseList, IsFiniteSet ] );
 #! @InsertChunk MapOfFinSets
 
 #! @Description
@@ -128,7 +128,7 @@ DeclareOperation( "MapOfFinSets",
 #! @Arguments S, G, T
 #! @Returns a &CAP; morphism
 DeclareOperation( "MapOfFinSetsNC",
-        [ IsFiniteSet, IsList, IsFiniteSet ] );
+        [ IsFiniteSet, IsDenseList, IsFiniteSet ] );
 #! @InsertChunk MapOfFinSetsNC
 
 #! @Section Tools
@@ -136,7 +136,7 @@ DeclareOperation( "MapOfFinSetsNC",
 #! @Description
 #!  Compares two arbitrary objects using the following rules:
 #!  * integers, strings and chars are compared using the operation <C>=</C>
-#!  * lists and records are compared recursively
+#!  * dense lists and records are compared recursively
 #!  * &CAP; category objects are compared using <C>IsEqualForObjects</C> (if available)
 #!  * &CAP; category morphisms are compared using <C>IsEqualForMorphismsOnMor</C> (if available)
 #!  * other objects are compared using <C>IsIdenticalObj</C>
@@ -172,11 +172,11 @@ DeclareOperation( "Iterator",
         [ IsFiniteSet ] );
 
 #! @Description
-#!  Compute the set-theoretic union of the elements of <A>L</A>, where <A>L</A> is a list of finite sets in the category <A>cat_of_fin_sets</A>.
+#!  Compute the set-theoretic union of the elements of <A>L</A>, where <A>L</A> is a dense list of finite sets in the category <A>cat_of_fin_sets</A>.
 #! @Arguments cat_of_fin_sets, L
 #! @Returns a &CAP; object
 DeclareOperation( "UnionOfFinSets",
-        [ IsCategoryOfFinSets, IsList ] );
+        [ IsCategoryOfFinSets, IsDenseList ] );
 
 #! @Description
 #!  Returns <C>List( AsList( <A>M</A> ), <A>f</A> )</C>.
@@ -234,7 +234,7 @@ DeclareOperation( "ImageObject",
 #! @Arguments phi, L
 #! @Returns a list
 # DeclareOperation( "CallFuncList",
-#         [ IsFiniteSetMap, IsList ] );
+#         [ IsFiniteSetMap, IsDenseList ] );
 
 #! @Description
 #!  Returns <C>List( AsList( <A>F</A> ), <A>phi</A> )</C>.

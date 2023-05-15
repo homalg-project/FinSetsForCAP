@@ -16,8 +16,6 @@ IsEqualForElementsOfFinSets( [ 2 ], [ 2 ] );
 #! true
 IsEqualForElementsOfFinSets( [ 2 ], [ 2, 3 ] );
 #! false
-IsEqualForElementsOfFinSets( [ , 2 ], [ 2, 2 ] );
-#! false
 IsEqualForElementsOfFinSets( rec( a := "a", b := "b" ),
                              rec( b := "b", a := "a" )
                            );

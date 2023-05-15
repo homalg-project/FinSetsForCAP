@@ -18,10 +18,6 @@ S = Q;
 FinSet( [ 1, 2 ] ) = FinSet( [ 2, 1 ] );
 #! true
 
-M := FinSetNC( [ , 1, 2, 3 ] );
-#! <An object in FinSets>
-IsWellDefined( M );
-#! false
 M := FinSetNC( [ 1, 2, 3, 3 ] );
 #! <An object in FinSets>
 IsWellDefined( M );

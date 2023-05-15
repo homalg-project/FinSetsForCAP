@@ -36,10 +36,6 @@ IsWellDefined( psi );
 phi = psi;
 #! true
 
-psi := MapOfFinSetsNC( S, [ , [ 1, "b" ], [ 3, "b" ], [ 2, "a" ] ], T );
-#! <A morphism in FinSets>
-IsWellDefined( psi );
-#! false
 psi := MapOfFinSets( S, [ [ 1, "d" ], [ 3, "b" ] ], T );
 #! <A morphism in FinSets>
 IsWellDefined( psi );
