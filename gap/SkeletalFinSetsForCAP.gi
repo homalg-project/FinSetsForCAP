@@ -858,24 +858,33 @@ AddCartesianLambdaIntroduction( SkeletalFinSets,
 end );
 
 ##
+AddExactCoverWithGlobalElements( SkeletalFinSets,
+  function ( cat, A )
+    local T;
+    
+    T := TerminalObject( cat );
+    
+    return List( [ 0 .. Length( A ) - 1 ], i -> MapOfFinSets( cat, T, [ i ], A ) );
+    
+end );
+
+##
 AddExponentialOnMorphismsWithGivenExponentials( SkeletalFinSets,
   function ( cat, S, alpha, beta, T )
-    local M, m, N, n, D, MN;
+    local M, N, MN, mors;
     
     M := Range( alpha );
-    m := Length( M );
     N := Source( beta );
-    n := Length( N );
-    
-    D := TerminalObject( cat );
     
     MN := ExponentialOnObjects( cat, M, N );
+
+    mors := ExactCoverWithGlobalElements( cat, MN );
     
     return MapOfFinSets(
               cat,
               S,
-              List( [ 0 .. n ^ m - 1 ],
-                function ( i )
+              List( mors,
+                function ( mor )
                   return
                     AsList( CartesianLambdaIntroduction( cat,
                             PreComposeList(
@@ -884,17 +893,14 @@ AddExponentialOnMorphismsWithGivenExponentials( SkeletalFinSets,
                                       CartesianLambdaElimination( cat,
                                               M,
                                               N,
-                                              MapOfFinSets( cat,
-                                                      D,
-                                                      [ i ],
-                                                      MN ) ),
+                                              mor ),
                                       beta ] ) ) )[1 + 0];
                   
               end ),
               T );
     
-end, 1 + Sum( [ [ "TerminalObject", 1 ],
-                [ "ExponentialOnObjects", 1 ],
+end, 1 + Sum( [ [ "ExponentialOnObjects", 1 ],
+                [ "ExactCoverWithGlobalElements", 1 ],
                 [ "PreComposeList", 2 ],
                 [ "CartesianLambdaElimination", 2 ],
                 [ "CartesianLambdaIntroduction", 2 ] ],
@@ -965,27 +971,22 @@ end );
 ##
 AddMorphismsOfExternalHom( SkeletalFinSets,
   function ( cat, A, B )
-    local hom_A_B, T;
+    local hom_A_B, mors;
     
     hom_A_B := ExponentialOnObjects( cat, A, B );
     
-    T := TerminalObject( cat );
+    mors := ExactCoverWithGlobalElements( cat, hom_A_B );
     
-    return List( hom_A_B,
-                 i -> CartesianLambdaElimination( cat,
+    return List( mors,
+                 mor -> CartesianLambdaElimination( cat,
                          A,
                          B,
-                         MapOfFinSets( cat, T, [ i ], hom_A_B ) ) );
+                         mor ) );
     
-end );
-
-##
-AddExactCoverWithGlobalElements( SkeletalFinSets,
-  function ( cat, A )
-    
-    return MorphismsOfExternalHom( cat, TerminalObject( cat ), A );
-    
-end );
+end, 1 + Sum( [ [ "ExponentialOnObjects", 1 ],
+                [ "ExactCoverWithGlobalElements", 1 ],
+                [ "CartesianLambdaElimination", 2 ] ],
+        e -> e[2] * CurrentOperationWeight( SkeletalFinSets!.derivations_weight_list, e[1] ) ) );
 
 end );
 
