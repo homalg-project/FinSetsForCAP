@@ -62,33 +62,24 @@ InstallMethod( IsEqualForElementsOfFinSets,
   IsIdenticalObj );
 
 InstallMethod( IsEqualForElementsOfFinSets,
-        "for two lists",
-        [ IsList, IsList ],
+        "for two dense lists",
+        [ IsDenseList, IsDenseList ],
         
   function ( L1, L2 )
     local i;
     
     # compare lists recursively
-
+    
     if Length( L1 ) <> Length( L2 ) then
         return false;
     fi;
-
+    
     for i in [ 1 .. Length( L1 ) ] do
-        #= comment for Julia
-        # Julia does not have non-dense lists
-        if IsBound( L1[i] ) <> IsBound( L2[i] ) then
+        
+        if not IsEqualForElementsOfFinSets( L1[i], L2[i] ) then
             return false;
         fi;
         
-        if IsBound( L1[i] ) then
-        # =#
-            if not IsEqualForElementsOfFinSets( L1[i], L2[i] ) then
-                return false;
-            fi;
-        #= comment for Julia
-        fi;
-        # =#
     od;
     
     return true;
@@ -176,8 +167,8 @@ end );
 
 ##
 InstallMethod( FinSetNC,
-        "for a category of finite sets and a list",
-        [ IsCategoryOfFinSets, IsList ],
+        "for a category of finite sets and a dense list",
+        [ IsCategoryOfFinSets, IsDenseList ],
         
   function ( category_of_finite_sets, L )
     local set, i;
@@ -190,19 +181,12 @@ InstallMethod( FinSetNC,
     Assert( 4, IsWellDefined( set ) );
 
     for i in [ 1 .. Length( L ) ] do
-        #= comment for Julia
-        # Julia does not have non-dense lists
-        if IsBound( L[i] ) then
-        # =#
-            if not IsEqualForElementsOfFinSets( L[i], AsList( set )[i] ) then
-                # COVERAGE_IGNORE_BLOCK_START
-                Display( "Warning: The elements of the list passed to the constructor are not equal (w.r.t. IsEqualForElementsOfFinSets) to the elements of the resulting FinSet. Either pass an immutable copy of the list or add an additional special case to IsEqualForElementsOfFinSets to avoid this warning." );
-                break;
-                # COVERAGE_IGNORE_BLOCK_END
-            fi;
-        #= comment for Julia
+        if not IsEqualForElementsOfFinSets( L[i], AsList( set )[i] ) then
+            # COVERAGE_IGNORE_BLOCK_START
+            Display( "Warning: The elements of the list passed to the constructor are not equal (w.r.t. IsEqualForElementsOfFinSets) to the elements of the resulting FinSet. Either pass an immutable copy of the list or add an additional special case to IsEqualForElementsOfFinSets to avoid this warning." );
+            break;
+            # COVERAGE_IGNORE_BLOCK_END
         fi;
-        # =#
     od;
 
     return set;
@@ -211,8 +195,8 @@ end );
 
 ##
 InstallOtherMethod( FinSet,
-        "for a category of finite sets and a list",
-        [ IsCategoryOfFinSets, IsList ],
+        "for a category of finite sets and a dense list",
+        [ IsCategoryOfFinSets, IsDenseList ],
         
   function ( category_of_finite_sets, L )
     
@@ -256,8 +240,8 @@ end );
 
 ##
 InstallMethod( UnionOfFinSets,
-        "for a category of finite sets and a list of CAP finite sets",
-        [ IsCategoryOfFinSets, IsList ],
+        "for a category of finite sets and a dense list of CAP finite sets",
+        [ IsCategoryOfFinSets, IsDenseList ],
         
   function ( category_of_finite_sets, L )
     local union, M, m;
@@ -312,8 +296,8 @@ end );
 
 ##
 InstallMethod( MapOfFinSets,
-        "for two CAP finite sets and a list",
-        [ IsFiniteSet, IsList, IsFiniteSet ],
+        "for two CAP finite sets and a dense list",
+        [ IsFiniteSet, IsDenseList, IsFiniteSet ],
         
   function ( S, G, T )
     
@@ -323,8 +307,8 @@ end );
 
 ##
 InstallMethod( MapOfFinSetsNC,
-        "for a two CAP finite sets and a list",
-        [ IsFiniteSet, IsList, IsFiniteSet ],
+        "for a two CAP finite sets and a dense list",
+        [ IsFiniteSet, IsDenseList, IsFiniteSet ],
         
   function ( S, G, T )
     local map;
@@ -399,11 +383,13 @@ end );
 
 ##
 InstallMethod( CallFuncList,
-        "for a CAP map of finite sets and a list",
-        [ IsFiniteSetMap, IsList ],
+        "for a CAP map of finite sets and a singleton list",
+        [ IsFiniteSetMap, IsDenseList ],
         
   function ( phi, L )
     local x, y;
+    
+    Assert( 0, Length( L ) = 1 );
     
     x := L[1];
     
@@ -485,10 +471,6 @@ AddIsWellDefinedForObjects( category_of_finite_sets,
     
     L := AsList( set );
     
-    if not IsDenseList( L ) then
-        return false;
-    fi;
-    
     for i in [ 1 .. Length( L ) ] do
         for j in [ 1 .. ( i - 1 ) ] do
             if IsEqualForElementsOfFinSets( L[i], L[j] ) then
@@ -510,10 +492,6 @@ AddIsWellDefinedForMorphisms( category_of_finite_sets,
     T := Range( mor );
     
     rel := AsList( mor );
-    
-    if not IsDenseList( rel ) then
-        return false;
-    fi;
     
     if Length( S ) <> Length( rel ) then
         return false;
@@ -1106,8 +1084,8 @@ end );
 
 ##
 InstallMethod( FinSetNC,
-        "for a list",
-        [ IsList ],
+        "for a dense list",
+        [ IsDenseList ],
         
   function ( L )
     return FinSetNC( FinSets, L );
@@ -1115,8 +1093,8 @@ end );
 
 ##
 InstallOtherMethod( FinSet,
-        "for a list",
-        [ IsList ],
+        "for a dense list",
+        [ IsDenseList ],
         
   function ( L )
     return FinSet( FinSets, L );
