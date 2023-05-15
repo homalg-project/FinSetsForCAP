@@ -396,6 +396,15 @@ CapJitAddLogicTemplate(
     rec(
         variable_names := [ "number" ],
         variable_filters := [ IsBigInt ],
+        src_template := "number ^ BigInt( 0 )",
+        dst_template := "BigInt( 1 )",
+    )
+);
+
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "number" ],
+        variable_filters := [ IsBigInt ],
         src_template := "number ^ BigInt( 1 )",
         dst_template := "number",
     )

@@ -821,49 +821,84 @@ AddExponentialOnObjects( SkeletalFinSets,
     
 end );
 
+## InterpretMorphismFromDistinguishedObjectToHomomorphismStructureAsMorphism
+AddCartesianLambdaElimination( SkeletalFinSets,
+  function ( cat, M, N, intro )
+    local m, n, v;
+    
+    m := Length( M );
+    n := Length( N );
+    
+    v := AsList( intro )[1];
+    
+    return MapOfFinSets( cat,
+                   M,
+                   List( [ 0 .. m - 1 ], i -> RemInt( QuoInt( v, n^i ), n ) ),
+                   N );
+    
+end );
+
+## InterpretMorphismAsMorphismFromDistinguishedObjectToHomomorphismStructure
+AddCartesianLambdaIntroduction( SkeletalFinSets,
+  function ( cat, map )
+    local M, m, N, n, images;
+    
+    M := Source( map );
+    m := Length( M );
+    N := Range( map );
+    n := Length( N );
+    
+    images := AsList( map );
+    
+    return MapOfFinSets( cat,
+                   TerminalObject( cat ),
+                   [ Sum( List( [ 0 .. m - 1 ], k -> images[1 + k] * n^k ) ) ],
+                   ExponentialOnObjects( cat, M, N ) );
+    
+end );
+
 ##
 AddExponentialOnMorphismsWithGivenExponentials( SkeletalFinSets,
   function ( cat, S, alpha, beta, T )
-    local M, m, N, n, A, a, B, b;
+    local M, m, N, n, D, MN;
     
     M := Range( alpha );
     m := Length( M );
     N := Source( beta );
     n := Length( N );
     
-    A := Source( alpha );
-    a := Length( A );
-    B := Range( beta );
-    b := Length( B );
+    D := TerminalObject( cat );
+    
+    MN := ExponentialOnObjects( cat, M, N );
     
     return MapOfFinSets(
               cat,
               S,
               List( [ 0 .. n ^ m - 1 ],
                 function ( i )
-                  local composition, images;
-                  
-                  composition :=
-                    PreComposeList(
-                            cat,
-                            [ alpha,
-                              MapOfFinSets(
-                                      cat,
-                                      M,
-                                      ## λ-elimination = InterpretMorphismFromDistinguishedObjectToHomomorphismStructureAsMorphism
-                                      List( [ 0 .. m - 1 ], j -> RemInt( QuoInt( i, n^j ), n ) ),
-                                      N ),
-                              beta ] );
-                  
-                  images := AsList( composition );
-                  
-                  ## λ-introduction = InterpretMorphismAsMorphismFromDistinguishedObjectToHomomorphismStructure
-                  return Sum( List( [ 0 .. a - 1 ], k -> images[1 + k] * b^k ) );
+                  return
+                    AsList( CartesianLambdaIntroduction( cat,
+                            PreComposeList(
+                                    cat,
+                                    [ alpha,
+                                      CartesianLambdaElimination( cat,
+                                              M,
+                                              N,
+                                              MapOfFinSets( cat,
+                                                      D,
+                                                      [ i ],
+                                                      MN ) ),
+                                      beta ] ) ) )[1 + 0];
                   
               end ),
               T );
     
-end );
+end, 1 + Sum( [ [ "TerminalObject", 1 ],
+                [ "ExponentialOnObjects", 1 ],
+                [ "PreComposeList", 2 ],
+                [ "CartesianLambdaElimination", 2 ],
+                [ "CartesianLambdaIntroduction", 2 ] ],
+        e -> e[2] * CurrentOperationWeight( SkeletalFinSets!.derivations_weight_list, e[1] ) ) );
 
 ##
 AddCartesianEvaluationMorphismWithGivenSource( SkeletalFinSets,

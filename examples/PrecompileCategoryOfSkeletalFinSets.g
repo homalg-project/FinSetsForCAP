@@ -19,11 +19,10 @@ given_arguments := [ ];;
 compiled_category_name := "CategoryOfSkeletalFinSetsPrecompiled";;
 package_name := "FinSetsForCAP";;
 primitive_operations :=
-  ListPrimitivelyInstalledOperationsOfCategory( category_constructor() );;
+  ListPrimitivelyInstalledOperationsOfCategory(
+          category_constructor( : no_precompiled_code := true ) );;
 list_of_operations :=
   SortedList( Concatenation( primitive_operations, [
-          "CartesianLambdaIntroduction",
-          "CartesianLambdaElimination",
           #"HasPushoutComplement",
           "PushoutComplement",
           ] ) );;
