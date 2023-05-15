@@ -1,5 +1,5 @@
 name: FinSetsForCAP
-version: "2023.05-04"
+version: "2023.05-06"
 license: "GPL-2.0-or-later"
 date: 2023-05-15
 description: |
@@ -40,11 +40,11 @@ packageinfo: https://homalg-project.github.io/FinSetsForCAP/PackageInfo.g
 
 downloads:
     - name: .tar.gz
-      url: https://github.com/homalg-project/FinSetsForCAP/releases/download/v2023.05-04/FinSetsForCAP-2023.05-04.tar.gz
+      url: https://github.com/homalg-project/FinSetsForCAP/releases/download/v2023.05-06/FinSetsForCAP-2023.05-06.tar.gz
     - name: .zip
-      url: https://github.com/homalg-project/FinSetsForCAP/releases/download/v2023.05-04/FinSetsForCAP-2023.05-04.zip
+      url: https://github.com/homalg-project/FinSetsForCAP/releases/download/v2023.05-06/FinSetsForCAP-2023.05-06.zip
 
-pdf: https://github.com/homalg-project/FinSetsForCAP/releases/download/v2023.05-04/FinSetsForCAP-2023.05-04-manual.pdf
+pdf: https://github.com/homalg-project/FinSetsForCAP/releases/download/v2023.05-06/FinSetsForCAP-2023.05-06-manual.pdf
 
 abstract: |
 
@@ -55,7 +55,7 @@ citeas: |
     <p class='BibEntry'>
     [<span class='BibKey'>BMZ15</span>]   <b class='BibAuthor'>Barakat, M., Mickisch, J. and Zickgraf, F.</b>,
      <i class='BibTitle'>FinSetsForCAP, The elementary topos of (skeletal) finite sets,
-             Version 2023.05-04</i>
+             Version 2023.05-06</i>
      (<span class='BibYear'>5-15</span>)<br />
     (<span class='BibNote'>GAP package</span>),
     <span class='BibHowpublished'><a href="https://homalg-project.github.io/pkg/FinSetsForCAP">https://homalg-project.github.io/pkg/FinSetsForCAP</a></span>.
@@ -63,10 +63,10 @@ citeas: |
     
 
 bibtex: |
-    @misc{ FinSetsForCAP2023.05-04,
+    @misc{ FinSetsForCAP2023.05-06,
       author =           {Barakat, M. and Mickisch, J. and Zickgraf, F.},
       title =            {{FinSetsForCAP},  The  elementary  topos of (skeletal)
-                          finite sets, {V}ersion 2023.05-04},
+                          finite sets, {V}ersion 2023.05-06},
       month =            {3-},
       year =             {5-15},
       note =             {GAP package},

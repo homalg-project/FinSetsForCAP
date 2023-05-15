@@ -50,11 +50,10 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">compiled_category_name := "CategoryOfSkeletalFinSetsPrecompiled";;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">package_name := "FinSetsForCAP";;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">primitive_operations :=</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">  ListPrimitivelyInstalledOperationsOfCategory( category_constructor() );;</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">  ListPrimitivelyInstalledOperationsOfCategory(</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">          category_constructor( : no_precompiled_code := true ) );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">list_of_operations :=</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">  SortedList( Concatenation( primitive_operations, [</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">          "CartesianLambdaIntroduction",</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">          "CartesianLambdaElimination",</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">          #"HasPushoutComplement",</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">          "PushoutComplement",</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">          ] ) );;</span>
