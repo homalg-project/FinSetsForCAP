@@ -368,7 +368,7 @@ end );
 AddImageObject( SkeletalFinSets,
   function ( cat, phi )
     
-    return FinSet( SkeletalFinSets, BigInt( Length( Set( AsList( phi ) ) ) ) );
+    return FinSet( cat, BigInt( Length( Set( AsList( phi ) ) ) ) );
     
 end );
 
@@ -531,7 +531,7 @@ end );
 AddTerminalObject( SkeletalFinSets,
   function ( cat )
     
-    return FinSet( SkeletalFinSets, BigInt( 1 ) );
+    return FinSet( cat, BigInt( 1 ) );
     
 end );
 
@@ -547,7 +547,7 @@ end );
 AddDirectProduct( SkeletalFinSets,
   function ( cat, L )
     
-    return FinSet( SkeletalFinSets, Product( List( L, Length ) ) );
+    return FinSet( cat, Product( List( L, Length ) ) );
     
 end );
 
@@ -593,7 +593,7 @@ AddEqualizer( SkeletalFinSets,
     
     Eq := Filtered( [ 0 .. Length( s ) - 1 ], x -> ForAll( [ 1 .. Length( D ) - 1 ], j -> D2[j][1 + x] = D2[j + 1][1 + x] ) );
     
-    return FinSet( SkeletalFinSets, Length( Eq ) );
+    return FinSet( cat, Length( Eq ) );
     
 end );
 
@@ -640,7 +640,7 @@ end );
 AddInitialObject( SkeletalFinSets,
   function ( cat )
     
-    return FinSet( SkeletalFinSets, BigInt( 0 ) );
+    return FinSet( cat, BigInt( 0 ) );
     
 end );
 
@@ -700,7 +700,7 @@ end );
 AddCoproduct( SkeletalFinSets,
   function ( cat, L )
     
-    return FinSet( SkeletalFinSets, Sum( List( L, Length ) ) );
+    return FinSet( cat, Sum( List( L, Length ) ) );
     
 end );
 
@@ -734,7 +734,7 @@ end );
 AddCoequalizer( SkeletalFinSets,
   function ( cat, s, D )
   
-    return FinSet( SkeletalFinSets, BigInt( Length( SKELETAL_FIN_SETS_ExplicitCoequalizer( s, D ) ) ) );
+    return FinSet( cat, BigInt( Length( SKELETAL_FIN_SETS_ExplicitCoequalizer( s, D ) ) ) );
     
 end );
 
@@ -817,7 +817,7 @@ AddExponentialOnObjects( SkeletalFinSets,
     m := Length( M );
     n := Length( N );
     
-    return FinSet( SkeletalFinSets, n ^ m );
+    return FinSet( cat, n ^ m );
     
 end );
 
