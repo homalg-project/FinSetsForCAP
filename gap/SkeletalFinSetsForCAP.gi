@@ -257,15 +257,15 @@ InstallGlobalFunction( INSTALL_FUNCTIONS_FOR_SKELETAL_FIN_SETS,
     
 ##
 AddObjectConstructor( SkeletalFinSets,
-  function ( SkeletalFinSets, n )
+  function ( cat, n )
     
-    return FinSet( SkeletalFinSets, n );
+    return FinSet( cat, n );
     
 end );
 
 ##
 AddObjectDatum( SkeletalFinSets,
-  function ( SkeletalFinSets, n )
+  function ( cat, n )
     
     return Length( n );
     
@@ -273,15 +273,15 @@ end );
 
 ##
 AddMorphismConstructor( SkeletalFinSets,
-  function ( SkeletalFinSets, source, map, range )
+  function ( cat, source, map, range )
     
-    return MapOfFinSets( SkeletalFinSets, source, map, range );
+    return MapOfFinSets( cat, source, map, range );
     
 end );
 
 ##
 AddMorphismDatum( SkeletalFinSets,
-  function ( SkeletalFinSets, map )
+  function ( cat, map )
     
     return AsList( map );
     
