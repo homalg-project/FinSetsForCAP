@@ -763,8 +763,8 @@ function ( cat_1, l_1, m_1 )
         end );
     deduped_25_1 := Length( deduped_26_1 );
     deduped_24_1 := [ 0 .. deduped_25_1 - 1 ];
-    hoisted_13_1 := List( deduped_24_1, function ( logic_new_func_x_2 )
-            return REM_INT( QUO_INT( CAP_JIT_INCOMPLETE_LOGIC( deduped_26_1[1 + logic_new_func_x_2] ), deduped_32_1 ), deduped_33_1 );
+    hoisted_13_1 := List( deduped_24_1, function ( i_2 )
+            return REM_INT( QUO_INT( CAP_JIT_INCOMPLETE_LOGIC( deduped_26_1[1 + i_2] ), deduped_32_1 ), deduped_33_1 );
         end );
     deduped_23_1 := Filtered( [ 0 .. deduped_25_1 * deduped_33_1 - 1 ], function ( x_2 )
             local deduped_1_2;
@@ -812,7 +812,7 @@ function ( cat_1, l_1, m_1 )
 end
 ########
         
-    , 5420 : IsPrecompiledDerivation := true );
+    , 19767 : IsPrecompiledDerivation := true );
     
     ##
     AddSomeInjectiveObject( cat,
