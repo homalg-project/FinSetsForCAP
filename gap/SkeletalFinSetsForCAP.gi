@@ -880,24 +880,19 @@ AddExponentialOnMorphismsWithGivenExponentials( SkeletalFinSets,
 
     mors := ExactCoverWithGlobalElements( cat, MN );
     
-    return MapOfFinSets(
-              cat,
-              S,
-              List( mors,
-                function ( mor )
-                  return
-                    AsList( CartesianLambdaIntroduction( cat,
-                            PreComposeList(
-                                    cat,
-                                    [ alpha,
-                                      CartesianLambdaElimination( cat,
-                                              M,
-                                              N,
-                                              mor ),
-                                      beta ] ) ) )[1 + 0];
-                  
-              end ),
-              T );
+    return MapOfFinSets( cat,
+                   S,
+                   List( mors, mor ->
+                         AsList( CartesianLambdaIntroduction( cat,
+                                 PreComposeList(
+                                         cat,
+                                         [ alpha,
+                                           CartesianLambdaElimination( cat,
+                                                   M,
+                                                   N,
+                                                   mor ),
+                                           beta ] ) ) )[1 + 0] ),
+                   T );
     
 end, 1 + Sum( [ [ "ExponentialOnObjects", 1 ],
                 [ "ExactCoverWithGlobalElements", 1 ],
