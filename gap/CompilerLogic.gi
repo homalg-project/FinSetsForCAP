@@ -85,6 +85,72 @@ CapJitAddLogicFunction( function ( tree )
     
 end );
 
+## list{[ ]} => [ ]
+CapJitAddLogicFunction( function ( tree )
+  local pre_func;
+    
+    Info( InfoCapJit, 1, "####" );
+    Info( InfoCapJit, 1, "Apply logic for extracting the empty sublist of a given list" );
+    
+    pre_func :=
+      function ( tree, additional_arguments )
+        local args;
+        
+        if CapJitIsCallToGlobalFunction( tree, "{}" ) then
+            
+            args := tree.args;
+            
+            if args.2.type = "EXPR_LIST" and args.2.list.length = 0 and IsBound( args.1.data_type ) then
+                
+                return rec( type := "EXPR_LIST", list := AsSyntaxTreeList( [ ] ), data_type := args.1.data_type );
+                
+            fi;
+            
+        fi;
+        
+        return tree;
+        
+    end;
+    
+    return CapJitIterateOverTree( tree, pre_func, CapJitResultFuncCombineChildren, ReturnTrue, true );
+    
+end );
+
+## Product( [ ] ) => BigInt( 1 ) and Product( [ ], func ) => BigInt( 1 )
+CapJitAddLogicFunction( function ( tree )
+  local pre_func;
+    
+    Info( InfoCapJit, 1, "####" );
+    Info( InfoCapJit, 1, "Apply logic for computing the empty product of an empty list of integers" );
+    
+    pre_func :=
+      function ( tree, additional_arguments )
+        local args, is_big_int, values;
+        
+        if CapJitIsCallToGlobalFunction( tree, "Product" ) then
+            
+            args := tree.args;
+            
+            if args.1.type = "EXPR_LIST" and args.1.list.length = 0 and IsBound( args.1.data_type ) then
+                
+                return rec( type := "EXPR_FUNCCALL",
+                            funcref := rec(
+                                    gvar := "BigInt",
+                                    type := "EXPR_REF_GVAR" ),
+                            args := rec( 1 := rec( type := "EXPR_INT", value := 1 ), length := 1, type := "SYNTAX_TREE_LIST" ) );
+                
+            fi;
+            
+        fi;
+        
+        return tree;
+        
+    end;
+    
+    return CapJitIterateOverTree( tree, pre_func, CapJitResultFuncCombineChildren, ReturnTrue, true );
+    
+end );
+
 ## Teach CompilerForCAP about the input type of the function so it can correctly type the function,
 ## that can be done with the following code (adapted from the existing List type signature):
 ##
@@ -263,14 +329,6 @@ CapJitAddLogicTemplate(
 CapJitAddLogicTemplate(
     rec(
         variable_names := [ "list" ],
-        src_template := "list{[ ]}",
-        dst_template := "[ ]",
-    )
-);
-
-CapJitAddLogicTemplate(
-    rec(
-        variable_names := [ "list" ],
         src_template := "list{[ 1 ]}",
         dst_template := "[ list[1] ]",
     )
@@ -281,22 +339,6 @@ CapJitAddLogicTemplate(
         variable_names := [ "entry", "pos" ],
         src_template := "[ entry ][pos]",
         dst_template := "entry",
-    )
-);
-
-CapJitAddLogicTemplate(
-    rec(
-        variable_names := [ ],
-        src_template := "Product( [ ] )",
-        dst_template := "BigInt( 1 )",
-    )
-);
-
-CapJitAddLogicTemplate(
-    rec(
-        variable_names := [ "func" ],
-        src_template := "Product( [ ], func )",
-        dst_template := "BigInt( 1 )",
     )
 );
 
