@@ -154,7 +154,7 @@ end );
 ## Teach CompilerForCAP about the input type of the function so it can correctly type the function,
 ## that can be done with the following code (adapted from the existing List type signature):
 ##
-CapJitAddTypeSignature( "List", [ IsSkeletalFiniteSet, IsFunction ], function ( args, func_stack )
+CapJitAddTypeSignature( "List", [ IsObjectInCategoryOfSkeletalFinSets, IsFunction ], function ( args, func_stack )
     
     args := ShallowCopy( args );
     
@@ -175,7 +175,7 @@ end );
 CapJitAddLogicTemplate(
     rec(
         variable_names := [ "M", "func" ],
-        variable_filters := [ IsSkeletalFiniteSet, IsObject ],
+        variable_filters := [ IsObjectInCategoryOfSkeletalFinSets, IsObject ],
         src_template := "List( M, func )",
         dst_template := "List( [ 0 .. Length( M ) - 1 ], func )",
     )

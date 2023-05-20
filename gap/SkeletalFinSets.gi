@@ -13,7 +13,7 @@ InstallMethod( CategoryOfSkeletalFinSets,
     
     cat := CreateCapCategoryWithDataTypes(
         "SkeletalFinSets", IsCategoryOfSkeletalFinSets,
-        IsSkeletalFiniteSet, IsSkeletalFiniteSetMap, IsCapCategoryTwoCell,
+        IsObjectInCategoryOfSkeletalFinSets, IsMorphismInCategoryOfSkeletalFinSets, IsCapCategoryTwoCell,
         IsBigInt, rec( filter := IsList, element_type := rec( filter := IsBigInt ) ), fail
     );
     
@@ -63,7 +63,7 @@ end );
 ##
 InstallMethod( AsList,
         "for a CAP skeletal finite set",
-        [ IsSkeletalFiniteSet ],
+        [ IsObjectInCategoryOfSkeletalFinSets ],
         
   function ( s )
     
@@ -74,7 +74,7 @@ end );
 ##
 InstallMethod( ListOp,
         "for a CAP skeletal finite set and a function",
-        [ IsSkeletalFiniteSet, IsFunction ],
+        [ IsObjectInCategoryOfSkeletalFinSets, IsFunction ],
         
   function ( s, f )
     
@@ -87,7 +87,7 @@ end );
 ##
 InstallMethod( MapOfFinSets,
         "for two CAP skeletal finite sets and a list",
-        [ IsSkeletalFiniteSet, IsList, IsSkeletalFiniteSet ],
+        [ IsObjectInCategoryOfSkeletalFinSets, IsList, IsObjectInCategoryOfSkeletalFinSets ],
         
   function ( s, G, t )
     
@@ -98,7 +98,7 @@ end );
 ##
 InstallOtherMethod( MapOfFinSets,
         "for a category of skeletal finite sets, two CAP skeletal finite sets and a list",
-        [ IsCategoryOfSkeletalFinSets, IsSkeletalFiniteSet, IsList, IsSkeletalFiniteSet ],
+        [ IsCategoryOfSkeletalFinSets, IsObjectInCategoryOfSkeletalFinSets, IsList, IsObjectInCategoryOfSkeletalFinSets ],
         
   function ( cat, s, G, t )
     
@@ -109,7 +109,7 @@ end );
 ##
 InstallMethod( EmbeddingOfFinSets,
         "for two CAP skeletal finite sets",
-        [ IsSkeletalFiniteSet, IsSkeletalFiniteSet ],
+        [ IsObjectInCategoryOfSkeletalFinSets, IsObjectInCategoryOfSkeletalFinSets ],
         
   function ( s, t )
     local iota;
@@ -126,7 +126,7 @@ end );
 ##
 InstallMethod( Preimage,
         "for a CAP map of skeletal finite sets and a CAP skeletal finite set",
-        [ IsSkeletalFiniteSetMap, IsList ],
+        [ IsMorphismInCategoryOfSkeletalFinSets, IsList ],
         
   function ( phi, t )
     local S;
@@ -142,7 +142,7 @@ end );
 ##
 InstallMethod( ImageObject,
      "for a CAP map of skeletal finite sets and a CAP skeletal finite set",
-     [ IsSkeletalFiniteSetMap, IsSkeletalFiniteSet ],
+     [ IsMorphismInCategoryOfSkeletalFinSets, IsObjectInCategoryOfSkeletalFinSets ],
       function ( phi, s_ )
 
     return ImageObject( PreCompose( EmbeddingOfFinSets( s_, Source( phi ) ), phi ) );
@@ -152,7 +152,7 @@ end );
 ##
 InstallMethod( CallFuncList,
         "for a CAP map of skeletal finite sets and a list",
-    [ IsSkeletalFiniteSetMap, IsList ],
+    [ IsMorphismInCategoryOfSkeletalFinSets, IsList ],
         
   function ( phi, L )
     local x;
@@ -988,7 +988,7 @@ end );
 ##
 InstallMethod( String,
         "for a CAP skeletal finite set",
-        [ IsSkeletalFiniteSet ],
+        [ IsObjectInCategoryOfSkeletalFinSets ],
         
   function ( s )
     return Concatenation( "FinSet( SkeletalFinSets, ", String( Length( s ) ), " )" );
@@ -997,7 +997,7 @@ end );
 ##
 InstallMethod( String,
         "for a CAP map of skeletal finite sets",
-        [ IsSkeletalFiniteSetMap ],
+        [ IsMorphismInCategoryOfSkeletalFinSets ],
         
   function ( phi )
     return Concatenation( "MapOfFinSets( SkeletalFinSets, ", String( Source( phi ) ), ", ", String( AsList( phi ) ), ", ", String( Range( phi ) ), " )" );
@@ -1006,7 +1006,7 @@ end );
 ##
 InstallMethod( ViewString,
         "for a CAP skeletal finite set",
-        [ IsSkeletalFiniteSet ],
+        [ IsObjectInCategoryOfSkeletalFinSets ],
         
   function ( s )
     return Concatenation( "|", String( Length( s ) ), "|" );
@@ -1015,7 +1015,7 @@ end );
 ##
 InstallMethod( ViewString,
         "for a CAP map of skeletal finite sets",
-        [ IsSkeletalFiniteSetMap ],
+        [ IsMorphismInCategoryOfSkeletalFinSets ],
         
   function ( phi )
     local arrow;
@@ -1049,7 +1049,7 @@ end );
 ##
 InstallMethod( PrintString,
         "for a CAP skeletal finite set",
-        [ IsSkeletalFiniteSet ],
+        [ IsObjectInCategoryOfSkeletalFinSets ],
         
   function ( s )
     local l, string;
@@ -1073,7 +1073,7 @@ end );
 ##
 InstallMethod( PrintString,
         "for a CAP map of skeletal finite sets",
-        [ IsSkeletalFiniteSetMap ],
+        [ IsMorphismInCategoryOfSkeletalFinSets ],
         
   function ( phi )
     
@@ -1087,7 +1087,7 @@ end );
 ##
 InstallMethod( DisplayString,
         "for a CAP skeletal finite set",
-        [ IsSkeletalFiniteSet ],
+        [ IsObjectInCategoryOfSkeletalFinSets ],
         
   function ( s )
     
@@ -1098,7 +1098,7 @@ end );
 ##
 InstallMethod( DisplayString,
         "for a CAP map of skeletal finite sets",
-        [ IsSkeletalFiniteSetMap ],
+        [ IsMorphismInCategoryOfSkeletalFinSets ],
         
   function ( phi )
     
