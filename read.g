@@ -8,9 +8,9 @@ ReadPackage( "FinSetsForCAP", "gap/Tools.gi" );
 
 ReadPackage( "FinSetsForCAP", "gap/precompiled_categories/CategoryOfSkeletalFinSetsPrecompiled.gi" );
 
-ReadPackage( "FinSetsForCAP", "gap/FinSetsForCAP.gi" );
+ReadPackage( "FinSetsForCAP", "gap/FinSets.gi" );
 
-ReadPackage( "FinSetsForCAP", "gap/SkeletalFinSetsForCAP.gi" );
+ReadPackage( "FinSetsForCAP", "gap/SkeletalFinSets.gi" );
 
 #= comment for Julia
 if IsPackageMarkedForLoading( "JuliaInterface", ">= 0.2" ) then

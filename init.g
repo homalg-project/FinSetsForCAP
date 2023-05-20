@@ -6,9 +6,9 @@
 
 ReadPackage( "FinSetsForCAP", "gap/Tools.gd" );
 
-ReadPackage( "FinSetsForCAP", "gap/FinSetsForCAP.gd" );
+ReadPackage( "FinSetsForCAP", "gap/FinSets.gd" );
 
-ReadPackage( "FinSetsForCAP", "gap/SkeletalFinSetsForCAP.gd" );
+ReadPackage( "FinSetsForCAP", "gap/SkeletalFinSets.gd" );
 
 #= comment for Julia
 if IsPackageMarkedForLoading( "JuliaInterface", ">= 0.2" ) then
