@@ -17,10 +17,10 @@ K := FinSet( 3 );
 #! |3|
 L := FinSet( 6 );
 #! |6|
-l := MapOfFinSets( K, [ 2, 3, 4 ], L );; IsMonomorphism( l );; l;
+l := MapOfFinSets( K, [ 2 .. 4 ], L );; IsMonomorphism( l );; l;
 #! |3| ↪ |6|
 Display( l );
-#! { 0, 1, 2 } ⱶ[ 2, 3, 4 ]→ { 0,..., 5 }
+#! { 0, 1, 2 } ⱶ[ 2 .. 4 ]→ { 0,..., 5 }
 G := FinSet( 8 );
 #! |8|
 Display( G );
