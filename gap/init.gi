@@ -7,10 +7,10 @@
 BindGlobal( "init_FinSetsForCAP", function ( )
     
     ##
-    BindGlobal( "FinSets", CategoryOfFinSets( ) );
+    BindGlobal( "FinSets", CategoryOfFiniteSets( ) );
     
     ##
-    BindGlobal( "SkeletalFinSets", CategoryOfSkeletalFinSets( ) );
+    BindGlobal( "SkeletalFinSets", SkeletalCategoryOfFiniteSets( ) );
     
 end );
 

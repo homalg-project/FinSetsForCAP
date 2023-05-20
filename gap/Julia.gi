@@ -19,7 +19,7 @@ end );
 
 ##
 InstallMethod( MapOfFinSets,
-        [ IsFiniteSet, IsJuliaObject, IsFiniteSet ],
+        [ IsObjectInCategoryOfFiniteSets, IsJuliaObject, IsObjectInCategoryOfFiniteSets ],
         
   function ( source, graph, range )
     
@@ -33,7 +33,7 @@ end );
 
 ##
 InstallMethod( MapOfFinSets,
-        [ IsSkeletalFiniteSet, IsJuliaObject, IsSkeletalFiniteSet ],
+        [ IsObjectInSkeletalCategoryOfFiniteSets, IsJuliaObject, IsObjectInSkeletalCategoryOfFiniteSets ],
         
   function ( source, graph, range )
     

@@ -6,7 +6,7 @@
 
 ReadPackage( "FinSetsForCAP", "gap/Tools.gi" );
 
-ReadPackage( "FinSetsForCAP", "gap/precompiled_categories/CategoryOfSkeletalFinSetsWithMorphismsGivenByListsPrecompiled.gi" );
+ReadPackage( "FinSetsForCAP", "gap/precompiled_categories/SkeletalCategoryOfFiniteSetsWithMorphismsGivenByListsPrecompiled.gi" );
 
 ReadPackage( "FinSetsForCAP", "gap/FinSets.gi" );
 

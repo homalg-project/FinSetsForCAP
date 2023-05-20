@@ -15,21 +15,21 @@ DeclareGlobalFunction( "INSTALL_FUNCTIONS_FOR_FIN_SETS" );
 #! The GAP category of categories
 #! of finite sets.
 #! @Arguments object
-DeclareCategory( "IsCategoryOfFinSets",
+DeclareCategory( "IsCategoryOfFiniteSets",
                   IsCapCategory );
 
 #! @Description
 #! The GAP category of objects in the category
 #! of finite sets.
 #! @Arguments object
-DeclareCategory( "IsFiniteSet",
+DeclareCategory( "IsObjectInCategoryOfFiniteSets",
                  IsCapCategoryObject );
 
 #! @Description
 #! The GAP category of morphisms in the category
 #! of finite sets.
 #! @Arguments object
-DeclareCategory( "IsFiniteSetMap",
+DeclareCategory( "IsMorphismInCategoryOfFiniteSets",
                  IsCapCategoryMorphism );
 
 #! @Section Attributes
@@ -40,7 +40,7 @@ DeclareCategory( "IsFiniteSetMap",
 #! @Arguments M
 #! @Returns a &GAP; set
 DeclareAttribute( "AsList",
-        IsFiniteSet );
+        IsObjectInCategoryOfFiniteSets );
 
 #! @Description
 #!  The length of the &GAP; set of the list used to construct a finite set $S$, i.e.,
@@ -48,7 +48,7 @@ DeclareAttribute( "AsList",
 #! @Arguments M
 #! @Returns an integer
 DeclareAttribute( "Length",
-        IsFiniteSet );
+        IsObjectInCategoryOfFiniteSets );
 
 #! @Description
 #!  The relation underlying a map between finite sets,
@@ -56,14 +56,14 @@ DeclareAttribute( "Length",
 #! @Arguments f
 #! @Returns a list
 DeclareAttribute( "AsList",
-        IsFiniteSetMap );
+        IsMorphismInCategoryOfFiniteSets );
 
 #! @Section Constructors
 
 #! @Description
 #!  Construct a category of finite sets.
 #! @Returns a &CAP; category
-DeclareOperation( "CategoryOfFinSets", [ ] );
+DeclareOperation( "CategoryOfFiniteSets", [ ] );
 
 #! @Description
 #!  The default instance of the category of finite sets.
@@ -83,7 +83,7 @@ DeclareGlobalName( "FinSets" );
 #! @Arguments cat_of_fin_sets, L
 #! @Returns a &CAP; object
 DeclareOperation( "FinSet",
-        [ IsCategoryOfFinSets, IsDenseList ] );
+        [ IsCategoryOfFiniteSets, IsDenseList ] );
 
 #! @Description
 #!  Return <C>FinSet</C>( <C>FinSets</C>, <A>L</A> ).
@@ -101,7 +101,7 @@ DeclareOperation( "FinSet",
 #! @Arguments cat_of_fin_sets, L
 #! @Returns a &CAP; object
 DeclareOperation( "FinSetNC",
-        [ IsCategoryOfFinSets, IsDenseList ] );
+        [ IsCategoryOfFiniteSets, IsDenseList ] );
 
 #! @Description
 #!  Return <C>FinSetNC</C>( <C>FinSets</C>, <A>L</A> ).
@@ -118,7 +118,7 @@ DeclareOperation( "FinSetNC",
 #! @Arguments S, G, T
 #! @Returns a &CAP; morphism
 DeclareOperation( "MapOfFinSets",
-        [ IsFiniteSet, IsDenseList, IsFiniteSet ] );
+        [ IsObjectInCategoryOfFiniteSets, IsDenseList, IsObjectInCategoryOfFiniteSets ] );
 #! @InsertChunk MapOfFinSets
 
 #! @Description
@@ -128,7 +128,7 @@ DeclareOperation( "MapOfFinSets",
 #! @Arguments S, G, T
 #! @Returns a &CAP; morphism
 DeclareOperation( "MapOfFinSetsNC",
-        [ IsFiniteSet, IsDenseList, IsFiniteSet ] );
+        [ IsObjectInCategoryOfFiniteSets, IsDenseList, IsObjectInCategoryOfFiniteSets ] );
 #! @InsertChunk MapOfFinSetsNC
 
 #! @Section Tools
@@ -153,7 +153,7 @@ DeclareOperation( "IsEqualForElementsOfFinSets",
 #! @Arguments obj, M
 #! @Returns a boolean
 # DeclareOperation( "\in",
-#         [ IsObject, IsFiniteSet ] );
+#         [ IsObject, IsObjectInCategoryOfFiniteSets ] );
 
 #! @Description
 #!  Returns the <A>i</A>-th entry of the &GAP; set of the list used to construct a finite set $S$, i.e.,
@@ -161,7 +161,7 @@ DeclareOperation( "IsEqualForElementsOfFinSets",
 #! @Arguments M, i
 #! @Returns an object
 DeclareOperation( "[]",
-        [ IsFiniteSet, IsBigInt ] );
+        [ IsObjectInCategoryOfFiniteSets, IsBigInt ] );
 
 #! @Description
 #!  An iterator of the &GAP; set of the list used to construct a finite set $S$, i.e.,
@@ -169,35 +169,35 @@ DeclareOperation( "[]",
 #! @Arguments M
 #! @Returns an iterator
 DeclareOperation( "Iterator",
-        [ IsFiniteSet ] );
+        [ IsObjectInCategoryOfFiniteSets ] );
 
 #! @Description
 #!  Compute the set-theoretic union of the elements of <A>L</A>, where <A>L</A> is a dense list of finite sets in the category <A>cat_of_fin_sets</A>.
 #! @Arguments cat_of_fin_sets, L
 #! @Returns a &CAP; object
 DeclareOperation( "UnionOfFinSets",
-        [ IsCategoryOfFinSets, IsDenseList ] );
+        [ IsCategoryOfFiniteSets, IsDenseList ] );
 
 #! @Description
 #!  Returns <C>List( AsList( <A>M</A> ), <A>f</A> )</C>.
 #! @Arguments M, f
 #! @Returns a list
 DeclareOperation( "ListOp",
-        [ IsFiniteSet, IsFunction ] );
+        [ IsObjectInCategoryOfFiniteSets, IsFunction ] );
 
 #! @Description
 #!  Returns <C>FinSetNC( Filtered( AsList( <A>M</A> ), <A>f</A> ) )</C>.
 #! @Arguments M, f
 #! @Returns a list
 DeclareOperation( "FilteredOp",
-        [ IsFiniteSet, IsFunction ] );
+        [ IsObjectInCategoryOfFiniteSets, IsFunction ] );
 
 #! @Description
 #!  Returns <C>First( AsList( <A>M</A> ), <A>f</A> )</C>.
 #! @Arguments M, f
 #! @Returns a list
 DeclareOperation( "First",
-        [ IsFiniteSet, IsFunction ] );
+        [ IsObjectInCategoryOfFiniteSets, IsFunction ] );
 
 #! @Description
 #!  Construct the embedding $\iota:$<A>S</A>$\to$<A>T</A> of the finite sets <A>S</A> and <A>T</A>,
@@ -205,7 +205,7 @@ DeclareOperation( "First",
 #! @Arguments S, T
 #! @Returns a &CAP; morphism
 DeclareOperation( "EmbeddingOfFinSets",
-        [ IsFiniteSet, IsFiniteSet ] );
+        [ IsObjectInCategoryOfFiniteSets, IsObjectInCategoryOfFiniteSets ] );
 
 #! @Description
 #!  Construct the projection $\pi:$<A>S</A>$\to$<A>T</A> of the finite sets <A>S</A> and <A>T</A>,
@@ -213,32 +213,37 @@ DeclareOperation( "EmbeddingOfFinSets",
 #! @Arguments S, T
 #! @Returns a &CAP; morphism
 DeclareOperation( "ProjectionOfFinSets",
-        [ IsFiniteSet, IsFiniteSet ] );
+        [ IsObjectInCategoryOfFiniteSets, IsObjectInCategoryOfFiniteSets ] );
 
 #! @Description
 #!  Compute the preimage of <A>T_</A> under the morphism <A>f</A>.
 #! @Arguments f, T_
 #! @Returns a &CAP; object
 DeclareOperation( "Preimage",
-        [ IsFiniteSetMap, IsFiniteSet ] );
+        [ IsMorphismInCategoryOfFiniteSets, IsObjectInCategoryOfFiniteSets ] );
 
 #! @Description
 #!  Compute the image of <A>S_</A> under the morphism <A>f</A>.
 #! @Arguments f, S_
 #! @Returns a &CAP; object
 DeclareOperation( "ImageObject",
-        [ IsFiniteSetMap, IsFiniteSet ] );
+        [ IsMorphismInCategoryOfFiniteSets, IsObjectInCategoryOfFiniteSets ] );
 
 #! @Description
 #!  Returns the image of <C><A>L</A>[1]</C> under the map <A>phi</A> assuming <C><A>L</A>[1]</C> is an element of <C>AsList( Source( <A>phi</A> ) )</C>.
 #! @Arguments phi, L
 #! @Returns a list
 # DeclareOperation( "CallFuncList",
-#         [ IsFiniteSetMap, IsDenseList ] );
+#         [ IsMorphismInCategoryOfFiniteSets, IsDenseList ] );
 
 #! @Description
 #!  Returns <C>List( AsList( <A>F</A> ), <A>phi</A> )</C>.
 #! @Arguments F, phi
 #! @Returns a list
 DeclareOperation( "ListOp",
-        [ IsFiniteSet, IsFiniteSetMap ] );
+        [ IsObjectInCategoryOfFiniteSets, IsMorphismInCategoryOfFiniteSets ] );
+
+DeclareSynonym( "IsCategoryOfFinSets", IsCategoryOfFiniteSets );
+DeclareSynonym( "IsFiniteSet", IsObjectInCategoryOfFiniteSets );
+DeclareSynonym( "IsFiniteSetMap", IsMorphismInCategoryOfFiniteSets );
+DeclareSynonym( "CategoryOfFinSets", CategoryOfFiniteSets );

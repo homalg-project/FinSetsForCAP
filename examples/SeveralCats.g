@@ -4,7 +4,7 @@
 LoadPackage( "FinSetsForCAP", false );
 #! true
 S := FinSet( 3 );;
-cat := CategoryOfSkeletalFinSets();;
+cat := SkeletalCategoryOfFiniteSets();;
 T := FinSet( cat, 3 );;
 IsIdenticalObj( CapCategory( T ), CapCategory( S ) );
 #! false
