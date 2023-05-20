@@ -6,7 +6,7 @@
 
 #! @Chapter The category of skeletal finite sets
 
-#! @Section Skeletal Tools
+#! @Section Tools
 
 #! @Description
 #!  Returns $(q^n-1)/(q-1)$ = <C>Sum</C>( [ 0 .. <A>n</A> - 1 ], i -> <A>q</A>^i ),
