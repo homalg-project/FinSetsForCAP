@@ -40,7 +40,7 @@ InstallMethod( CategoryOfSkeletalFinSets,
     
     if ValueOption( "no_precompiled_code" ) <> true then
         
-        ADD_FUNCTIONS_FOR_CategoryOfSkeletalFinSetsPrecompiled( cat );
+        ADD_FUNCTIONS_FOR_CategoryOfSkeletalFinSetsWithMorphismsGivenByListsPrecompiled( cat );
         
     fi;
     

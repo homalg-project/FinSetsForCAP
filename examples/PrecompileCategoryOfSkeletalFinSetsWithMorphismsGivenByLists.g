@@ -16,7 +16,8 @@ ReadPackage( "FinSetsForCAP", "gap/CompilerLogic.gi" );
 
 category_constructor := {} -> CategoryOfSkeletalFinSets( );;
 given_arguments := [ ];;
-compiled_category_name := "CategoryOfSkeletalFinSetsPrecompiled";;
+compiled_category_name :=
+  "CategoryOfSkeletalFinSetsWithMorphismsGivenByListsPrecompiled";;
 package_name := "FinSetsForCAP";;
 primitive_operations :=
   ListPrimitivelyInstalledOperationsOfCategory(
@@ -39,7 +40,7 @@ CapJitPrecompileCategoryAndCompareResult(
         number_of_objectified_morphisms_in_data_structure_of_morphism := 1
 );;
 
-CategoryOfSkeletalFinSetsPrecompiled( );
+CategoryOfSkeletalFinSetsWithMorphismsGivenByListsPrecompiled( );
 #! SkeletalFinSets
 
 cat := CategoryOfSkeletalFinSets( );
