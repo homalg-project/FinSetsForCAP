@@ -506,3 +506,37 @@ CapJitAddLogicTemplate(
         dst_template := "q * GeometricSumDiff1( q, a ) + a * i * GeometricSum( q, a )",
     )
 );
+
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "length", "value", "func" ],
+        src_template := "List( ListWithIdenticalEntries( length, value ), func )",
+        dst_template := "ListWithIdenticalEntries( length, func( value ) )",
+    )
+);
+
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "length", "value" ],
+        src_template := "Length( ListWithIdenticalEntries( length, value ) )",
+        dst_template := "length",
+    )
+);
+
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "length", "number" ],
+        variable_filters := [ IsBigInt, IsBigInt ],
+        src_template := "Product( ListWithIdenticalEntries( length, number ) )",
+        dst_template := "number ^ length",
+    )
+);
+
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "j", "a", "b" ],
+        variable_filters := [ IsBigInt, IsBigInt, IsBigInt ],
+        src_template := "Sum( List( [ 0 .. a - 1 ], k -> List( [ 0 .. a ^ 2 - 1 ], function( x ) if x in List( [ 0 .. a - 1 ], i -> i + i * a ) then return BigInt( 1 ); else return BigInt( 0 ); fi; end )[1 + k + j * a] * b ^ k ) )",
+        dst_template := "b ^ j",
+    )
+);
