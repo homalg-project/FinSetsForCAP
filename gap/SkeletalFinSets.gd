@@ -38,6 +38,7 @@ DeclareCategory( "IsSkeletalFiniteSetMap",
 #! @Returns an integer
 DeclareAttribute( "Length",
         IsSkeletalFiniteSet );
+
 CapJitAddTypeSignature( "Length", [ IsSkeletalFiniteSet ], IsBigInt );
 
 #! @Description
@@ -47,6 +48,7 @@ CapJitAddTypeSignature( "Length", [ IsSkeletalFiniteSet ], IsBigInt );
 #! @Returns a list
 DeclareAttribute( "AsList",
         IsSkeletalFiniteSet );
+
 CapJitAddTypeSignature( "AsList", [ IsSkeletalFiniteSet ], rec( filter := IsList, element_type := rec( filter := IsBigInt ) ) );
 
 #! @Description
@@ -55,6 +57,7 @@ CapJitAddTypeSignature( "AsList", [ IsSkeletalFiniteSet ], rec( filter := IsList
 #! @Returns a list
 DeclareAttribute( "AsList",
         IsSkeletalFiniteSetMap );
+
 CapJitAddTypeSignature( "AsList", [ IsSkeletalFiniteSetMap ], rec( filter := IsList, element_type := rec( filter := IsBigInt ) ) );
 
 #! @Section Skeletal Constructors

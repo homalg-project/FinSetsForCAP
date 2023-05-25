@@ -257,15 +257,15 @@ InstallGlobalFunction( INSTALL_FUNCTIONS_FOR_SKELETAL_FIN_SETS,
     
 ##
 AddObjectConstructor( SkeletalFinSets,
-  function ( SkeletalFinSets, n )
+  function ( cat, n )
     
-    return FinSet( SkeletalFinSets, n );
+    return FinSet( cat, n );
     
 end );
 
 ##
 AddObjectDatum( SkeletalFinSets,
-  function ( SkeletalFinSets, n )
+  function ( cat, n )
     
     return Length( n );
     
@@ -273,15 +273,15 @@ end );
 
 ##
 AddMorphismConstructor( SkeletalFinSets,
-  function ( SkeletalFinSets, source, map, range )
+  function ( cat, source, map, range )
     
-    return MapOfFinSets( SkeletalFinSets, source, map, range );
+    return MapOfFinSets( cat, source, map, range );
     
 end );
 
 ##
 AddMorphismDatum( SkeletalFinSets,
-  function ( SkeletalFinSets, map )
+  function ( cat, map )
     
     return AsList( map );
     
@@ -368,7 +368,7 @@ end );
 AddImageObject( SkeletalFinSets,
   function ( cat, phi )
     
-    return FinSet( SkeletalFinSets, BigInt( Length( Set( AsList( phi ) ) ) ) );
+    return FinSet( cat, BigInt( Length( Set( AsList( phi ) ) ) ) );
     
 end );
 
@@ -531,7 +531,7 @@ end );
 AddTerminalObject( SkeletalFinSets,
   function ( cat )
     
-    return FinSet( SkeletalFinSets, BigInt( 1 ) );
+    return FinSet( cat, BigInt( 1 ) );
     
 end );
 
@@ -547,7 +547,7 @@ end );
 AddDirectProduct( SkeletalFinSets,
   function ( cat, L )
     
-    return FinSet( SkeletalFinSets, Product( List( L, Length ) ) );
+    return FinSet( cat, Product( List( L, Length ) ) );
     
 end );
 
@@ -593,7 +593,7 @@ AddEqualizer( SkeletalFinSets,
     
     Eq := Filtered( [ 0 .. Length( s ) - 1 ], x -> ForAll( [ 1 .. Length( D ) - 1 ], j -> D2[j][1 + x] = D2[j + 1][1 + x] ) );
     
-    return FinSet( SkeletalFinSets, Length( Eq ) );
+    return FinSet( cat, Length( Eq ) );
     
 end );
 
@@ -640,7 +640,7 @@ end );
 AddInitialObject( SkeletalFinSets,
   function ( cat )
     
-    return FinSet( SkeletalFinSets, BigInt( 0 ) );
+    return FinSet( cat, BigInt( 0 ) );
     
 end );
 
@@ -700,7 +700,7 @@ end );
 AddCoproduct( SkeletalFinSets,
   function ( cat, L )
     
-    return FinSet( SkeletalFinSets, Sum( List( L, Length ) ) );
+    return FinSet( cat, Sum( List( L, Length ) ) );
     
 end );
 
@@ -734,7 +734,7 @@ end );
 AddCoequalizer( SkeletalFinSets,
   function ( cat, s, D )
   
-    return FinSet( SkeletalFinSets, BigInt( Length( SKELETAL_FIN_SETS_ExplicitCoequalizer( s, D ) ) ) );
+    return FinSet( cat, BigInt( Length( SKELETAL_FIN_SETS_ExplicitCoequalizer( s, D ) ) ) );
     
 end );
 
@@ -817,7 +817,7 @@ AddExponentialOnObjects( SkeletalFinSets,
     m := Length( M );
     n := Length( N );
     
-    return FinSet( SkeletalFinSets, n ^ m );
+    return FinSet( cat, n ^ m );
     
 end );
 
@@ -880,24 +880,19 @@ AddExponentialOnMorphismsWithGivenExponentials( SkeletalFinSets,
 
     mors := ExactCoverWithGlobalElements( cat, MN );
     
-    return MapOfFinSets(
-              cat,
-              S,
-              List( mors,
-                function ( mor )
-                  return
-                    AsList( CartesianLambdaIntroduction( cat,
-                            PreComposeList(
-                                    cat,
-                                    [ alpha,
-                                      CartesianLambdaElimination( cat,
-                                              M,
-                                              N,
-                                              mor ),
-                                      beta ] ) ) )[1 + 0];
-                  
-              end ),
-              T );
+    return MapOfFinSets( cat,
+                   S,
+                   List( mors, mor ->
+                         AsList( CartesianLambdaIntroduction( cat,
+                                 PreComposeList(
+                                         cat,
+                                         [ alpha,
+                                           CartesianLambdaElimination( cat,
+                                                   M,
+                                                   N,
+                                                   mor ),
+                                           beta ] ) ) )[1 + 0] ),
+                   T );
     
 end, 1 + Sum( [ [ "ExponentialOnObjects", 1 ],
                 [ "ExactCoverWithGlobalElements", 1 ],
