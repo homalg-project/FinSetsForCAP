@@ -70,11 +70,11 @@
 
 @Chapter The category of skeletal finite sets
 
-@Section Skeletal GAP Categories
-@Section Skeletal Attributes
-@Section Skeletal Constructors
-@Section Skeletal Tools
-@Section Skeletal Examples
+@Section GAP Categories
+@Section Attributes
+@Section Constructors
+@Section Tools
+@Section Examples
 
 @Subsection SkeletalIsHomSetInhabited
 @InsertChunk SkeletalIsHomSetInhabited

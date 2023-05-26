@@ -3,7 +3,7 @@
 #
 # Implementations
 #
-BindGlobal( "ADD_FUNCTIONS_FOR_CategoryOfSkeletalFinSetsPrecompiled", function ( cat )
+BindGlobal( "ADD_FUNCTIONS_FOR_CategoryOfSkeletalFinSetsWithMorphismsGivenByListsPrecompiled", function ( cat )
     
     ##
     AddCartesianBraidingInverseWithGivenDirectProducts( cat,
@@ -959,7 +959,7 @@ end
     
 end );
 
-BindGlobal( "CategoryOfSkeletalFinSetsPrecompiled", function (  )
+BindGlobal( "CategoryOfSkeletalFinSetsWithMorphismsGivenByListsPrecompiled", function (  )
   local category_constructor, cat;
     
     category_constructor :=
@@ -973,7 +973,7 @@ end;
     
     cat := category_constructor(  : FinalizeCategory := false, no_precompiled_code := true );
     
-    ADD_FUNCTIONS_FOR_CategoryOfSkeletalFinSetsPrecompiled( cat );
+    ADD_FUNCTIONS_FOR_CategoryOfSkeletalFinSetsWithMorphismsGivenByListsPrecompiled( cat );
     
     Finalize( cat );
     

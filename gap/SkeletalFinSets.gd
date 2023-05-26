@@ -6,7 +6,7 @@
 
 #! @Chapter The category of skeletal finite sets
 
-#! @Section Skeletal GAP Categories
+#! @Section GAP Categories
 
 #! @Description
 #! The GAP category of categories
@@ -29,7 +29,7 @@ DeclareCategory( "IsSkeletalFiniteSet",
 DeclareCategory( "IsSkeletalFiniteSetMap",
                  IsCapCategoryMorphism );
 
-#! @Section Skeletal Attributes
+#! @Section Attributes
 
 #! @Description
 #!  The integer defining the skeletal finite set <A>M</A>, i.e.,
@@ -60,7 +60,7 @@ DeclareAttribute( "AsList",
 
 CapJitAddTypeSignature( "AsList", [ IsSkeletalFiniteSetMap ], rec( filter := IsList, element_type := rec( filter := IsBigInt ) ) );
 
-#! @Section Skeletal Constructors
+#! @Section Constructors
 
 #! @Description
 #!  Construct a category of skeletal finite sets.
@@ -100,7 +100,7 @@ DeclareOperation( "MapOfFinSets",
         [ IsSkeletalFiniteSet, IsList, IsSkeletalFiniteSet ] );
 #! @InsertChunk  SkeletalMapOfFinSets
 
-#! @Section Skeletal Tools
+#! @Section Tools
 
 #! @Description
 #!  Returns <C>List( AsList( <A>s</A> ), <A>f</A> )</C>.
