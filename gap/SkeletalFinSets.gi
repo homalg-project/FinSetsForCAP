@@ -808,7 +808,7 @@ AddCartesianLambdaElimination( SkeletalFinSets,
     
     return MorphismConstructor( cat,
                    M,
-                   List( [ 0 .. m - 1 ], i -> RemInt( QuoInt( v, n^i ), n ) ),
+                   List( [ 0 .. m - 1 ], i -> DigitInPositionalNotation( v, i, m, n ) ),
                    N );
     
 end );
