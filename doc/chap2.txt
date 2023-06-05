@@ -2,7 +2,7 @@
   [1X2 [33X[0;0YThe category of skeletal finite sets[133X[101X
   
   
-  [1X2.1 [33X[0;0YSkeletal GAP Categories[133X[101X
+  [1X2.1 [33X[0;0YGAP Categories[133X[101X
   
   [1X2.1-1 IsCategoryOfSkeletalFinSets[101X
   
@@ -26,7 +26,7 @@
   [33X[0;0YThe GAP category of morphisms in the category of skeletal finite sets.[133X
   
   
-  [1X2.2 [33X[0;0YSkeletal Attributes[133X[101X
+  [1X2.2 [33X[0;0YAttributes[133X[101X
   
   [1X2.2-1 Length[101X
   
@@ -53,7 +53,7 @@
   ([14X2.3-5[114X).[133X
   
   
-  [1X2.3 [33X[0;0YSkeletal Constructors[133X[101X
+  [1X2.3 [33X[0;0YConstructors[133X[101X
   
   [1X2.3-1 CategoryOfSkeletalFinSets[101X
   
@@ -167,7 +167,7 @@
   [4X[32X[104X
   
   
-  [1X2.4 [33X[0;0YSkeletal Tools[133X[101X
+  [1X2.4 [33X[0;0YTools[133X[101X
   
   [1X2.4-1 ListOp[101X
   
@@ -223,7 +223,7 @@
   - 1) ), taking the corner case [3Xq[103X[23X= 1[123X into account.[133X
   
   
-  [1X2.5 [33X[0;0YSkeletal Examples[133X[101X
+  [1X2.5 [33X[0;0YExamples[133X[101X
   
   
   [1X2.5-1 [33X[0;0YSkeletalIsHomSetInhabited[133X[101X
@@ -1123,10 +1123,10 @@
     [4X[28X|3|[128X[104X
     [4X[25Xgap>[125X [27XL := FinSet( 6 );[127X[104X
     [4X[28X|6|[128X[104X
-    [4X[25Xgap>[125X [27Xl := MapOfFinSets( K, [ 2, 3, 4 ], L );; IsMonomorphism( l );; l;[127X[104X
+    [4X[25Xgap>[125X [27Xl := MapOfFinSets( K, [ 2 .. 4 ], L );; IsMonomorphism( l );; l;[127X[104X
     [4X[28X|3| ↪ |6|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( l );[127X[104X
-    [4X[28X{ 0, 1, 2 } ⱶ[ 2, 3, 4 ]→ { 0,..., 5 }[128X[104X
+    [4X[28X{ 0, 1, 2 } ⱶ[ 2 .. 4 ]→ { 0,..., 5 }[128X[104X
     [4X[25Xgap>[125X [27XG := FinSet( 8 );[127X[104X
     [4X[28X|8|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( G );[127X[104X
