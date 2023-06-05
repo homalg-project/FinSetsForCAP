@@ -55,14 +55,8 @@ InstallMethodForCompilerForCAP( FinSetOp,
         [ IsCategoryOfSkeletalFinSets, IsBigInt ],
         
   function ( cat, n )
-    local int;
     
-    int := CreateCapCategoryObjectWithAttributes( cat, Length, n );
-    
-    #% CAP_JIT_DROP_NEXT_STATEMENT
-    Assert( 4, IsWellDefined( int ) );
-    
-    return int;
+    return ObjectConstructor( cat, n );
     
 end );
 
@@ -107,17 +101,8 @@ InstallOtherMethodForCompilerForCAP( MapOfFinSets,
         [ IsCategoryOfSkeletalFinSets, IsSkeletalFiniteSet, IsList, IsSkeletalFiniteSet ],
         
   function ( cat, s, G, t )
-    local map;
     
-    map := CreateCapCategoryMorphismWithAttributes( cat,
-            s,
-            t,
-            AsList, G );
-    
-    #% CAP_JIT_DROP_NEXT_STATEMENT
-    Assert( 4, IsWellDefined( map ) );
-    
-    return map;
+    return MorphismConstructor( cat, s, G, t );
     
 end );
 
@@ -258,8 +243,14 @@ InstallGlobalFunction( INSTALL_FUNCTIONS_FOR_SKELETAL_FIN_SETS,
 ##
 AddObjectConstructor( SkeletalFinSets,
   function ( cat, n )
+    local int;
     
-    return FinSet( cat, n );
+    int := CreateCapCategoryObjectWithAttributes( cat, Length, n );
+    
+    #% CAP_JIT_DROP_NEXT_STATEMENT
+    Assert( 4, IsWellDefined( int ) );
+    
+    return int;
     
 end );
 
@@ -273,9 +264,18 @@ end );
 
 ##
 AddMorphismConstructor( SkeletalFinSets,
-  function ( cat, source, map, range )
+  function ( cat, source, images, range )
+    local map;
     
-    return MapOfFinSets( cat, source, map, range );
+    map := CreateCapCategoryMorphismWithAttributes( cat,
+            source,
+            range,
+            AsList, images );
+    
+    #% CAP_JIT_DROP_NEXT_STATEMENT
+    Assert( 4, IsWellDefined( map ) );
+    
+    return map;
     
 end );
 
