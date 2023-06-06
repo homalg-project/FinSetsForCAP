@@ -10,6 +10,8 @@ ReadPackage( "FinSetsForCAP", "gap/FinSets.gd" );
 
 ReadPackage( "FinSetsForCAP", "gap/SkeletalFinSets.gd" );
 
+ReadPackage( "FinSetsForCAP", "gap/SkeletalFinSetsEager.gd" );
+
 #= comment for Julia
 if IsPackageMarkedForLoading( "JuliaInterface", ">= 0.2" ) then
     # COVERAGE_IGNORE_NEXT_LINE

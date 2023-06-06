@@ -85,10 +85,121 @@ CapJitAddLogicFunction( function ( tree )
     
 end );
 
+## list{[ ]} => [ ]
+CapJitAddLogicFunction( function ( tree )
+  local pre_func;
+    
+    Info( InfoCapJit, 1, "####" );
+    Info( InfoCapJit, 1, "Apply logic for extracting the empty sublist of a given list" );
+    
+    pre_func :=
+      function ( tree, additional_arguments )
+        local args;
+        
+        if CapJitIsCallToGlobalFunction( tree, "{}" ) then
+            
+            args := tree.args;
+            
+            if args.2.type = "EXPR_LIST" and args.2.list.length = 0 and IsBound( args.1.data_type ) then
+                
+                return rec( type := "EXPR_LIST", list := AsSyntaxTreeList( [ ] ), data_type := args.1.data_type );
+                
+            fi;
+            
+        fi;
+        
+        return tree;
+        
+    end;
+    
+    return CapJitIterateOverTree( tree, pre_func, CapJitResultFuncCombineChildren, ReturnTrue, true );
+    
+end );
+
+## [ entry1, ... ]{[ ]} => [ ]
+CapJitAddLogicFunction( function ( tree )
+  local pre_func;
+    
+    Info( InfoCapJit, 1, "####" );
+    Info( InfoCapJit, 1, "Apply logic for extracting the empty sublist of a given list" );
+    
+    pre_func :=
+      function ( tree, additional_arguments )
+        local args, is_big_int, values;
+        
+        if CapJitIsCallToGlobalFunction( tree, "{}" ) then
+            
+            args := tree.args;
+            
+            if args.2.type = "EXPR_LIST" and args.2.list.length = 0 then
+                
+                if IsBound( args.1.list ) and IsBound( args.1.list.1 ) then
+                    
+                    if IsBound( args.1.list.1.data_type ) then
+                        return rec( type := "EXPR_LIST", list := AsSyntaxTreeList( [ ] ), data_type := args.1.list.1.data_type );
+                    elif IsBound( args.1.list.1.funcref ) and IsBound( args.1.list.1.funcref.data_type ) then
+                        return rec( type := "EXPR_LIST", list := AsSyntaxTreeList( [ ] ), data_type := args.1.list.1.funcref.data_type.signature[2] );
+                    elif IsBound( args.1.list.1.funcref ) and CapJitIsCallToGlobalFunction( args.1.list.1, "Length" ) then
+                        return rec( type := "EXPR_LIST", list := AsSyntaxTreeList( [ ] ), data_type := rec( filter := IsInt ) );
+                    fi;
+                    
+                elif CapJitIsCallToGlobalFunction( args.1, "ListWithIdenticalEntries" ) then
+                    
+                    return rec( type := "EXPR_LIST", list := AsSyntaxTreeList( [ ] ), data_type := args.1.args.2.funcref.data_type.signature[2] );
+                    
+                fi;
+                
+            fi;
+            
+        fi;
+        
+        return tree;
+        
+    end;
+    
+    return CapJitIterateOverTree( tree, pre_func, CapJitResultFuncCombineChildren, ReturnTrue, true );
+    
+end );
+
+## Product( [ ] ) => BigInt( 1 ) and Product( [ ], func ) => BigInt( 1 )
+CapJitAddLogicFunction( function ( tree )
+  local pre_func;
+    
+    Info( InfoCapJit, 1, "####" );
+    Info( InfoCapJit, 1, "Apply logic for computing the empty product of an empty list of integers" );
+    
+    pre_func :=
+      function ( tree, additional_arguments )
+        local args, is_big_int, values;
+        
+        if CapJitIsCallToGlobalFunction( tree, "Product" ) then
+            
+            args := tree.args;
+            
+            if args.1.type = "EXPR_LIST" and args.1.list.length = 0 and IsBound( args.1.data_type ) then
+                
+                return rec( type := "EXPR_FUNCCALL",
+                            funcref := rec(
+                                    gvar := "BigInt",
+                                    type := "EXPR_REF_GVAR" ),
+                            args := rec( 1 := rec( type := "EXPR_INT", value := 1 ), length := 1, type := "SYNTAX_TREE_LIST" ) );
+                
+            fi;
+            
+        fi;
+        
+        return tree;
+        
+    end;
+    
+    return CapJitIterateOverTree( tree, pre_func, CapJitResultFuncCombineChildren, ReturnTrue, true );
+    
+end );
+
 ## Teach CompilerForCAP about the input type of the function so it can correctly type the function,
 ## that can be done with the following code (adapted from the existing List type signature):
 ##
-CapJitAddTypeSignature( "List", [ IsSkeletalFiniteSet, IsFunction ], function ( args, func_stack )
+CapJitAddTypeSignature( "List", [ IsObjectInCategoryOfSkeletalFinSets, IsFunction ], function ( args, func_stack )
     
     args := ShallowCopy( args );
     
@@ -108,8 +219,17 @@ end );
 ##
 CapJitAddLogicTemplate(
     rec(
+        variable_names := [ "list" ],
+        src_template := "List( list, ID_FUNC )",
+        dst_template := "list",
+    )
+);
+
+##
+CapJitAddLogicTemplate(
+    rec(
         variable_names := [ "M", "func" ],
-        variable_filters := [ IsSkeletalFiniteSet, IsObject ],
+        variable_filters := [ IsObjectInCategoryOfSkeletalFinSets, IsObject ],
         src_template := "List( M, func )",
         dst_template := "List( [ 0 .. Length( M ) - 1 ], func )",
     )
@@ -262,9 +382,10 @@ CapJitAddLogicTemplate(
 
 CapJitAddLogicTemplate(
     rec(
-        variable_names := [ "list" ],
-        src_template := "list{[ ]}",
-        dst_template := "[ ]",
+        variable_names := [ "number1", "number2" ],
+        variable_filters := [ IsBigInt, IsBigInt ],
+        src_template := "REM_INT( REM_INT( number1, number2 ), number2 )",
+        dst_template := "REM_INT( number1, number2 )",
     )
 );
 
@@ -281,22 +402,6 @@ CapJitAddLogicTemplate(
         variable_names := [ "entry", "pos" ],
         src_template := "[ entry ][pos]",
         dst_template := "entry",
-    )
-);
-
-CapJitAddLogicTemplate(
-    rec(
-        variable_names := [ ],
-        src_template := "Product( [ ] )",
-        dst_template := "BigInt( 1 )",
-    )
-);
-
-CapJitAddLogicTemplate(
-    rec(
-        variable_names := [ "func" ],
-        src_template := "Product( [ ], func )",
-        dst_template := "BigInt( 1 )",
     )
 );
 
@@ -337,6 +442,14 @@ CapJitAddLogicTemplate(
         variable_names := [ "list", "constant" ],
         src_template := "List( list, i -> constant )",
         dst_template := "ListWithIdenticalEntries( Length( list ), constant )",
+    )
+);
+
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "entry" ],
+        src_template := "ListWithIdenticalEntries( BigInt( 1 ), entry )",
+        dst_template := "[ entry ]",
     )
 );
 
@@ -423,5 +536,58 @@ CapJitAddLogicTemplate(
         variable_names := [ "entry", "list" ],
         src_template := "entry in SSortedList( list )",
         dst_template := "entry in list",
+    )
+);
+
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "map" ],
+        variable_filters := [ IsMorphismInCategoryOfSkeletalFinSets ],
+        src_template := "List( [ 0 .. Length( Source( map ) ) - 1 ], i -> AsList( map )[1 + i] )",
+        dst_template := "AsList( map )",
+    )
+);
+
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "map" ],
+        variable_filters := [ IsMorphismInCategoryOfSkeletalFinSets ],
+        src_template := "AsList( map ){[ 1 .. Length( Source( map ) ) ]}",
+        dst_template := "AsList( map )",
+    )
+);
+
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "list", "number" ],
+        variable_filters := [ IsList, IsBigInt ],
+        src_template := "List( [ 0 .. number - 1 ], i -> list[1 + i] )",
+        dst_template := "list{[ 1 .. number ]}",
+    )
+);
+
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "length", "offset" ],
+        variable_filters := [ IsBigInt, IsBigInt ],
+        src_template := "List( [ 0 .. length - 1 ], i -> offset + i )",
+        dst_template := "[ offset .. offset + length - 1 ]",
+    )
+);
+
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "length" ],
+        variable_filters := [ IsBigInt ],
+        src_template := "Length( [ 0 .. length - 1 ] )",
+        dst_template := "length",
+    )
+);
+
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "list", "index", "x" ],
+        src_template := "List( list, map -> ( i -> AsList( map )[1 + i] ) )[index]( x )",
+        dst_template := "List( list, AsList )[index][1 + x]",
     )
 );

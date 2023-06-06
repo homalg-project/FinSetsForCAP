@@ -33,7 +33,7 @@ end );
 
 ##
 InstallMethod( MapOfFinSets,
-        [ IsSkeletalFiniteSet, IsJuliaObject, IsSkeletalFiniteSet ],
+        [ IsObjectInCategoryOfSkeletalFinSets, IsJuliaObject, IsObjectInCategoryOfSkeletalFinSets ],
         
   function ( source, graph, range )
     
