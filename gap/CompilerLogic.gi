@@ -433,6 +433,15 @@ CapJitAddLogicTemplate(
 
 CapJitAddLogicTemplate(
     rec(
+        variable_names := [ "number1", "number2" ],
+        variable_filters := [ IsBigInt, IsBigInt ],
+        src_template := "not number2 ^ number1 = 0",
+        dst_template := "number1 = 0 or not number2 = 0",
+    )
+);
+
+CapJitAddLogicTemplate(
+    rec(
         variable_names := [ "entry", "func" ],
         src_template := "ForAll( [ entry ], func )",
         dst_template := "func( entry )",

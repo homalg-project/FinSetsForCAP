@@ -332,14 +332,6 @@ AddIsEqualForMorphisms( SkeletalFinSets,
 end );
 
 ##
-AddIsHomSetInhabited( SkeletalFinSets,
-  function ( cat, A, B )
-    
-    return IsInitial( cat, A ) or not IsInitial( cat, B );
-    
-end );
-
-##
 AddIdentityMorphism( SkeletalFinSets,
   function ( cat, n )
     
@@ -983,6 +975,27 @@ end, 1 + Sum( [ [ "ExponentialOnObjects", 1 ],
                 [ "CartesianLambdaElimination", 2 ] ],
         e -> e[2] * CurrentOperationWeight( SkeletalFinSets!.derivations_weight_list, e[1] ) ) );
 
+end );
+
+##
+AddDerivationToCAP( IsHomSetInhabited,
+        "IsHomSetInhabited using IsInitial when the range category of the homomorphism structure is the skeletal category of finite sets",
+        [ [ HomomorphismStructureOnObjects, 1 ],
+          [ IsInitial, 1, RangeCategoryOfHomomorphismStructure ] ],
+        
+  function ( cat, a, b )
+    local range_cat;
+    
+    range_cat := RangeCategoryOfHomomorphismStructure( cat );
+    
+    return not IsInitial( range_cat,
+                   HomomorphismStructureOnObjects( cat, a, b ) );
+    
+end : CategoryGetters := rec( range_cat := RangeCategoryOfHomomorphismStructure ),
+CategoryFilter :=
+  function ( cat )
+    return HasRangeCategoryOfHomomorphismStructure( cat ) and
+           IsCategoryOfSkeletalFinSets( RangeCategoryOfHomomorphismStructure( cat ) );
 end );
 
 ##
