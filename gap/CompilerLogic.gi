@@ -370,17 +370,8 @@ CapJitAddLogicTemplate(
     rec(
         variable_names := [ "pos_end", "index" ],
         variable_filters := [ IsBigInt, IsBigInt ],
-        src_template := "[ 0 .. pos_end ][index]",
-        dst_template := "index - 1",
-    )
-);
-
-CapJitAddLogicTemplate(
-    rec(
-        variable_names := [ "number" ],
-        variable_filters := [ IsBigInt ],
-        src_template := "(1 + number) - 1",
-        dst_template := "number",
+        src_template := "[ 0 .. pos_end ][1 + index]",
+        dst_template := "index",
     )
 );
 
