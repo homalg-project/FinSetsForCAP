@@ -115,7 +115,7 @@ CapJitAddLogicTemplate(
     )
 );
 
-## for PushoutComplement
+## for TruthMorphismOfImplies
 CapJitAddLogicTemplate(
     rec(
         variable_names := [ ],
@@ -124,7 +124,7 @@ CapJitAddLogicTemplate(
     )
 );
 
-## for PushoutComplement
+## for TruthMorphismOfImplies
 CapJitAddLogicTemplate(
     rec(
         variable_names := [ ],
@@ -133,7 +133,7 @@ CapJitAddLogicTemplate(
     )
 );
 
-## for PushoutComplement
+## for TruthMorphismOfImplies
 CapJitAddLogicTemplate(
     rec(
         variable_names := [ ],
@@ -142,7 +142,7 @@ CapJitAddLogicTemplate(
     )
 );
 
-## for PushoutComplement
+## for TruthMorphismOfImplies
 CapJitAddLogicTemplate(
     rec(
         variable_names := [ ],
@@ -151,7 +151,7 @@ CapJitAddLogicTemplate(
     )
 );
 
-## for PushoutComplement
+## for TruthMorphismOfImplies
 CapJitAddLogicTemplate(
     rec(
         variable_names := [ ],
@@ -160,7 +160,7 @@ CapJitAddLogicTemplate(
     )
 );
 
-## for PushoutComplement
+## for TruthMorphismOfImplies
 CapJitAddLogicTemplate(
     rec(
         variable_names := [ ],
@@ -169,7 +169,7 @@ CapJitAddLogicTemplate(
     )
 );
 
-## for PushoutComplement
+## for TruthMorphismOfImplies
 CapJitAddLogicTemplate(
     rec(
         variable_names := [ ],
@@ -178,12 +178,30 @@ CapJitAddLogicTemplate(
     )
 );
 
-## for PushoutComplement
+## for TruthMorphismOfImplies
 CapJitAddLogicTemplate(
     rec(
         variable_names := [ ],
         src_template := "BigInt( 3 ) in [ BigInt( 0 ), BigInt( 2 ), BigInt( 3 ) ]",
         dst_template := "true",
+    )
+);
+
+## for TruthMorphismOfImplies
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ ],
+        src_template := "[ 0 .. BigInt( 0 ) ]",
+        dst_template := "[ BigInt( 0 ) ]",
+    )
+);
+
+## for TruthMorphismOfImplies
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ ],
+        src_template := "[ 0 .. BigInt( 3 ) ]",
+        dst_template := "[ BigInt( 0 ), BigInt( 1 ), BigInt( 2 ), BigInt( 3 ) ]",
     )
 );
 
@@ -352,34 +370,8 @@ CapJitAddLogicTemplate(
     rec(
         variable_names := [ "pos_end", "index" ],
         variable_filters := [ IsBigInt, IsBigInt ],
-        src_template := "[ 0 .. pos_end ][index]",
-        dst_template := "index - 1",
-    )
-);
-
-CapJitAddLogicTemplate(
-    rec(
-        variable_names := [ ],
-        src_template := "[ 0 .. BigInt( 0 ) ]",
-        dst_template := "[ BigInt( 0 ) ]",
-    )
-);
-
-## for PushoutComplement
-CapJitAddLogicTemplate(
-    rec(
-        variable_names := [ ],
-        src_template := "[ 0 .. BigInt( 3 ) ]",
-        dst_template := "[ BigInt( 0 ), BigInt( 1 ), BigInt( 2 ), BigInt( 3 ) ]",
-    )
-);
-
-CapJitAddLogicTemplate(
-    rec(
-        variable_names := [ "number" ],
-        variable_filters := [ IsBigInt ],
-        src_template := "(1 + number) - 1",
-        dst_template := "number",
+        src_template := "[ 0 .. pos_end ][1 + index]",
+        dst_template := "index",
     )
 );
 

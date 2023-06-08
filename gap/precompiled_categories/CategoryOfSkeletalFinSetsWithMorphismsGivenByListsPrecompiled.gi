@@ -853,6 +853,19 @@ end
     , 100 );
     
     ##
+    AddTruthMorphismOfImplies( cat,
+        
+########
+function ( cat_1 )
+    local deduped_1_1;
+    deduped_1_1 := BigInt( 1 );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, CreateCapCategoryObjectWithAttributes( cat_1, Length, BigInt( 4 ) ), CreateCapCategoryObjectWithAttributes( cat_1, Length, BigInt( 2 ) ), AsList, [ deduped_1_1, BigInt( 0 ), deduped_1_1, deduped_1_1 ] );
+end
+########
+        
+    , 1206 : IsPrecompiledDerivation := true );
+    
+    ##
     AddUniversalMorphismFromCoequalizerWithGivenCoequalizer( cat,
         
 ########
