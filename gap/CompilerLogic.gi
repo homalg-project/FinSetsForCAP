@@ -205,6 +205,35 @@ CapJitAddLogicTemplate(
     )
 );
 
+## for PushoutComplement
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "last" ],
+        src_template := "List( [ 0 .. last - 1 ], x -> REM_INT( x, last ) )",
+        dst_template := "[ 0 .. last - 1 ]",
+    )
+);
+
+## for PushoutComplement
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "list" ],
+        variable_filters := [ IsList ],
+        src_template := "List( [ 0 .. Length( list ) - 1 ], x -> list[1 + x] )",
+        dst_template := "list",
+    )
+);
+
+## for PushoutComplement
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "x" ],
+        variable_filters := [ IsInt ],
+        src_template := "[ BigInt( 1 ), BigInt( 0 ), BigInt( 1 ), BigInt( 1 ) ][1 + x]",
+        dst_template := "CAP_JIT_INTERNAL_EXPR_CASE( x = BigInt( 1 ), BigInt( 0 ), true, BigInt( 1 ) )",
+    )
+);
+
 # this logic template is already covered by generalized loop fusion, but improves compilation time -> we keep it
 CapJitAddLogicTemplate(
     rec(
