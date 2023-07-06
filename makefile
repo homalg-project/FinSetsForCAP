@@ -79,16 +79,19 @@ test-gap_to_julia: doc
 	git clone https://github.com/zickgraf/CartesianCategories.jl.git ~/.julia/dev/CartesianCategories
 	git clone https://github.com/zickgraf/Toposes.jl.git ~/.julia/dev/Toposes
 	git clone https://github.com/zickgraf/FinSetsForCAP.jl.git ~/.julia/dev/FinSetsForCAP
+	git clone https://github.com/zickgraf/ZXCalculusForCAP.jl.git ~/.julia/dev/ZXCalculusForCAP
 	~/.gap/pkg/PackageJanitor/gap_to_julia CAP
 	~/.gap/pkg/PackageJanitor/gap_to_julia MonoidalCategories
 	~/.gap/pkg/PackageJanitor/gap_to_julia CartesianCategories
 	~/.gap/pkg/PackageJanitor/gap_to_julia Toposes
 	~/.gap/pkg/PackageJanitor/gap_to_julia FinSetsForCAP
-	julia -e 'using Pkg; Pkg.develop("CAP"); Pkg.develop("MonoidalCategories"); Pkg.develop("CartesianCategories"); Pkg.develop("Toposes"); Pkg.develop("FinSetsForCAP");'
+	~/.gap/pkg/PackageJanitor/gap_to_julia ZXCalculusForCAP
+	julia -e 'using Pkg; Pkg.develop("CAP"); Pkg.develop("MonoidalCategories"); Pkg.develop("CartesianCategories"); Pkg.develop("Toposes"); Pkg.develop("FinSetsForCAP"); Pkg.develop("ZXCalculusForCAP");'
 	julia -e 'using Pkg; Pkg.test("CAP", julia_args = ["--warn-overwrite=no"]);'
 	julia -e 'using Pkg; Pkg.test("MonoidalCategories", julia_args = ["--warn-overwrite=no"]);'
 	julia -e 'using Pkg; Pkg.test("CartesianCategories", julia_args = ["--warn-overwrite=no"]);'
 	julia -e 'using Pkg; Pkg.test("Toposes", julia_args = ["--warn-overwrite=no"]);'
 	julia -e 'using Pkg; Pkg.test("FinSetsForCAP", julia_args = ["--warn-overwrite=no"]);'
+	julia -e 'using Pkg; Pkg.test("ZXCalculusForCAP", julia_args = ["--warn-overwrite=no"]);'
 
 ci-test: test-basic-spacing test-spacing test-doc test-with-coverage test-with-coverage-without-precompiled-code test-notebooks test-gap_to_julia
