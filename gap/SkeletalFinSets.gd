@@ -49,7 +49,7 @@ CapJitAddTypeSignature( "Length", [ IsSkeletalFiniteSet ], IsBigInt );
 DeclareAttribute( "AsList",
         IsSkeletalFiniteSet );
 
-CapJitAddTypeSignature( "AsList", [ IsSkeletalFiniteSet ], rec( filter := IsList, element_type := rec( filter := IsBigInt ) ) );
+CapJitAddTypeSignature( "AsList", [ IsSkeletalFiniteSet ], CapJitDataTypeOfListOf( IsBigInt ) );
 
 #! @Description
 #!  The graph defining the skeletal finite set morphism <A>phi</A>, see <Ref Oper="MapOfFinSets" Label="for IsSkeletalFiniteSet, IsList, IsSkeletalFiniteSet" />.
@@ -58,7 +58,7 @@ CapJitAddTypeSignature( "AsList", [ IsSkeletalFiniteSet ], rec( filter := IsList
 DeclareAttribute( "AsList",
         IsSkeletalFiniteSetMap );
 
-CapJitAddTypeSignature( "AsList", [ IsSkeletalFiniteSetMap ], rec( filter := IsList, element_type := rec( filter := IsBigInt ) ) );
+CapJitAddTypeSignature( "AsList", [ IsSkeletalFiniteSetMap ], CapJitDataTypeOfListOf( IsBigInt ) );
 
 #! @Section Constructors
 
@@ -142,10 +142,10 @@ DeclareOperation( "ImageObject",
 DeclareGlobalFunction( "INSTALL_FUNCTIONS_FOR_SKELETAL_FIN_SETS" );
 
 DeclareGlobalFunction( "SKELETAL_FIN_SETS_ExplicitCoequalizer" );
-CapJitAddTypeSignature( "SKELETAL_FIN_SETS_ExplicitCoequalizer", [ IsSkeletalFiniteSet, IsList ], rec( filter := IsList, element_type := rec( filter := IsList, element_type := rec( filter := IsBigInt ) ) ) );
+CapJitAddTypeSignature( "SKELETAL_FIN_SETS_ExplicitCoequalizer", [ IsSkeletalFiniteSet, IsList ], CapJitDataTypeOfListOf( CapJitDataTypeOfListOf( IsBigInt ) ) );
 
 DeclareGlobalFunction( "SKELETAL_FIN_SETS_IsMonomorphism" );
 CapJitAddTypeSignature( "SKELETAL_FIN_SETS_IsMonomorphism", [ IsList, IsBigInt ], IsBool );
 
 DeclareGlobalFunction( "SKELETAL_FIN_SETS_IsEpimorphism" );
-CapJitAddTypeSignature( "SKELETAL_FIN_SETS_IsEpimorphism", [ IsList, IsBigInt ], rec( filter := IsList, element_type := rec( filter := IsBool ) ) );
+CapJitAddTypeSignature( "SKELETAL_FIN_SETS_IsEpimorphism", [ IsList, IsBigInt ], CapJitDataTypeOfListOf( IsBool ) );
