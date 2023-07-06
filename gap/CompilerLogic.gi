@@ -101,7 +101,7 @@ CapJitAddTypeSignature( "List", [ IsSkeletalFiniteSet, IsFunction ], function ( 
         
     fi;
     
-    return rec( args := args, output_type := rec( filter := IsList, element_type := args.2.data_type.signature[2] ) );
+    return rec( args := args, output_type := CapJitDataTypeOfListOf( args.2.data_type.signature[2] ) );
     
 end );
 
