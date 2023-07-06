@@ -6,7 +6,7 @@
                 [1X The elementary topos of (skeletal) finite sets [101X
   
   
-                                   2023.07-01
+                                   2023.07-02
   
   
                                   6 July 2023
