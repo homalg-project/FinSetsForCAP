@@ -750,7 +750,7 @@ AddUniversalMorphismFromCoequalizerWithGivenCoequalizer( SkeletalFinSets,
     
     Cq := SKELETAL_FIN_SETS_ExplicitCoequalizer( s, D );
 
-    return MorphismConstructor( cat, C, List( Cq, x -> tau( x[1] ) ), Range( tau ) );
+    return MorphismConstructor( cat, C, List( Cq, x -> AsList( tau )[1 + x[1]] ), Range( tau ) );
     
 end );
 

@@ -869,8 +869,10 @@ end
         
 ########
 function ( cat_1, Y_1, morphisms_1, T_1, tau_1, P_1 )
+    local hoisted_1_1;
+    hoisted_1_1 := AsList( tau_1 );
     return CreateCapCategoryMorphismWithAttributes( cat_1, P_1, Range( tau_1 ), AsList, List( SKELETAL_FIN_SETS_ExplicitCoequalizer( Y_1, morphisms_1 ), function ( x_2 )
-              return tau_1( x_2[1] );
+              return hoisted_1_1[1 + x_2[1]];
           end ) );
 end
 ########
