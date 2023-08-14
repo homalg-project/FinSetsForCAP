@@ -5,13 +5,13 @@
 #
 
 ##
-InstallMethod( CategoryOfFinSets,
+InstallMethod( CategoryOfFiniteSets,
                [ ],
                
   function ( )
     local FinSets;
     
-    FinSets := CreateCapCategory( "FinSets", IsCategoryOfFinSets, IsFiniteSet, IsFiniteSetMap, IsCapCategoryTwoCell );
+    FinSets := CreateCapCategory( "FinSets", IsCategoryOfFiniteSets, IsObjectInCategoryOfFiniteSets, IsMorphismInCategoryOfFiniteSets, IsCapCategoryTwoCell );
     
     FinSets!.category_as_first_argument := true;
     
@@ -168,7 +168,7 @@ end );
 ##
 InstallMethod( FinSetNC,
         "for a category of finite sets and a dense list",
-        [ IsCategoryOfFinSets, IsDenseList ],
+        [ IsCategoryOfFiniteSets, IsDenseList ],
         
   function ( category_of_finite_sets, L )
     local set, i;
@@ -196,7 +196,7 @@ end );
 ##
 InstallOtherMethod( FinSet,
         "for a category of finite sets and a dense list",
-        [ IsCategoryOfFinSets, IsDenseList ],
+        [ IsCategoryOfFiniteSets, IsDenseList ],
         
   function ( category_of_finite_sets, L )
     
@@ -207,7 +207,7 @@ end );
 ##
 InstallMethod( \in,
         "for an object and a CAP finite set",
-        [ IsObject, IsFiniteSet ],
+        [ IsObject, IsObjectInCategoryOfFiniteSets ],
         
   function ( y, M )
     
@@ -218,7 +218,7 @@ end );
 ##
 InstallMethod( \[\],
         "for CAP finite sets",
-        [ IsFiniteSet, IsInt ],
+        [ IsObjectInCategoryOfFiniteSets, IsInt ],
 
   function ( M, i )
     
@@ -229,7 +229,7 @@ end );
 ##
 InstallMethod( Iterator,
         "for CAP finite sets",
-        [ IsFiniteSet ],
+        [ IsObjectInCategoryOfFiniteSets ],
 
   # `args` is never used in GAP but needed for Julia
   function ( M, args... )
@@ -241,7 +241,7 @@ end );
 ##
 InstallMethod( UnionOfFinSets,
         "for a category of finite sets and a dense list of CAP finite sets",
-        [ IsCategoryOfFinSets, IsDenseList ],
+        [ IsCategoryOfFiniteSets, IsDenseList ],
         
   function ( category_of_finite_sets, L )
     local union, M, m;
@@ -264,7 +264,7 @@ end );
 ##
 InstallMethod( ListOp,
         "for a CAP finite set and a function",
-        [ IsFiniteSet, IsFunction ],
+        [ IsObjectInCategoryOfFiniteSets, IsFunction ],
         
   function ( M, f )
     
@@ -275,7 +275,7 @@ end );
 ##
 InstallMethod( FilteredOp,
         "for a CAP finite set and a function",
-        [ IsFiniteSet, IsFunction ],
+        [ IsObjectInCategoryOfFiniteSets, IsFunction ],
         
   function ( M, f )
     
@@ -286,7 +286,7 @@ end );
 ##
 InstallMethod( First,
         "for a CAP finite set and a function",
-        [ IsFiniteSet, IsFunction ],
+        [ IsObjectInCategoryOfFiniteSets, IsFunction ],
         
   function ( M, f )
     
@@ -297,7 +297,7 @@ end );
 ##
 InstallMethod( MapOfFinSets,
         "for two CAP finite sets and a dense list",
-        [ IsFiniteSet, IsDenseList, IsFiniteSet ],
+        [ IsObjectInCategoryOfFiniteSets, IsDenseList, IsObjectInCategoryOfFiniteSets ],
         
   function ( S, G, T )
     
@@ -308,7 +308,7 @@ end );
 ##
 InstallMethod( MapOfFinSetsNC,
         "for a two CAP finite sets and a dense list",
-        [ IsFiniteSet, IsDenseList, IsFiniteSet ],
+        [ IsObjectInCategoryOfFiniteSets, IsDenseList, IsObjectInCategoryOfFiniteSets ],
         
   function ( S, G, T )
     local map;
@@ -328,7 +328,7 @@ end );
 ##
 InstallMethod( EmbeddingOfFinSets,
         "for a two CAP finite sets",
-        [ IsFiniteSet, IsFiniteSet ],
+        [ IsObjectInCategoryOfFiniteSets, IsObjectInCategoryOfFiniteSets ],
         
   function ( S, T )
     local iota;
@@ -345,7 +345,7 @@ end );
 ##
 InstallMethod( ProjectionOfFinSets,
         "for a two CAP finite sets",
-        [ IsFiniteSet, IsFiniteSet ],
+        [ IsObjectInCategoryOfFiniteSets, IsObjectInCategoryOfFiniteSets ],
         
   function ( S, T )
     local pi;
@@ -362,7 +362,7 @@ end );
 ##
 InstallMethod( Preimage,
         "for a CAP map of finite sets and a CAP finite set",
-        [ IsFiniteSetMap, IsFiniteSet ],
+        [ IsMorphismInCategoryOfFiniteSets, IsObjectInCategoryOfFiniteSets ],
         
   function ( f, T_ )
     
@@ -373,7 +373,7 @@ end );
 ##
 InstallMethod( ImageObject,
         "for a CAP map of finite sets and a CAP finite set",
-        [ IsFiniteSetMap, IsFiniteSet ],
+        [ IsMorphismInCategoryOfFiniteSets, IsObjectInCategoryOfFiniteSets ],
         
   function ( f, S_ )
     
@@ -384,7 +384,7 @@ end );
 ##
 InstallMethod( CallFuncList,
         "for a CAP map of finite sets and a singleton list",
-        [ IsFiniteSetMap, IsDenseList ],
+        [ IsMorphismInCategoryOfFiniteSets, IsDenseList ],
         
   function ( phi, L )
     local x, y;
@@ -420,7 +420,7 @@ end );
 ##
 InstallMethod( ListOp,
         "for a CAP finite set and a CAP map of finite sets",
-        [ IsFiniteSet, IsFiniteSetMap ],
+        [ IsObjectInCategoryOfFiniteSets, IsMorphismInCategoryOfFiniteSets ],
         
   function ( F, phi )
     
@@ -1067,7 +1067,7 @@ end );
 ##
 InstallMethod( DisplayString,
         "for a CAP finite set",
-        [ IsFiniteSet ],
+        [ IsObjectInCategoryOfFiniteSets ],
         
   function ( S )
     return Concatenation( PrintString( AsList( S ) ), "\n" );
@@ -1076,7 +1076,7 @@ end );
 ##
 InstallMethod( DisplayString,
         "for a CAP map of finite sets",
-        [ IsFiniteSetMap ],
+        [ IsMorphismInCategoryOfFiniteSets ],
         
   function ( phi )
     return Concatenation( PrintString( [ AsList( Source( phi ) ), AsList( phi ), AsList( Range( phi ) ) ] ), "\n" );

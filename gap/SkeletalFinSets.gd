@@ -9,24 +9,21 @@
 #! @Section GAP Categories
 
 #! @Description
-#! The GAP category of categories
-#! of skeletal finite sets.
+#! The GAP category of a skeletal category of finite sets.
 #! @Arguments object
-DeclareCategory( "IsCategoryOfSkeletalFinSets",
+DeclareCategory( "IsSkeletalCategoryOfFiniteSets",
                   IsCapCategory );
 
 #! @Description
-#! The GAP category of objects in the category
-#! of skeletal finite sets.
+#! The GAP category of objects in the skeletal category of finite sets.
 #! @Arguments object
-DeclareCategory( "IsSkeletalFiniteSet",
+DeclareCategory( "IsObjectInSkeletalCategoryOfFiniteSets",
                  IsCapCategoryObject );
 
 #! @Description
-#! The GAP category of morphisms in the category
-#! of skeletal finite sets.
+#! The GAP category of morphisms in the skeletal category of finite sets.
 #! @Arguments object
-DeclareCategory( "IsSkeletalFiniteSetMap",
+DeclareCategory( "IsMorphismInSkeletalCategoryOfFiniteSets",
                  IsCapCategoryMorphism );
 
 #! @Section Attributes
@@ -37,9 +34,9 @@ DeclareCategory( "IsSkeletalFiniteSetMap",
 #! @Arguments M
 #! @Returns an integer
 DeclareAttribute( "Length",
-        IsSkeletalFiniteSet );
+        IsObjectInSkeletalCategoryOfFiniteSets );
 
-CapJitAddTypeSignature( "Length", [ IsSkeletalFiniteSet ], IsBigInt );
+CapJitAddTypeSignature( "Length", [ IsObjectInSkeletalCategoryOfFiniteSets ], IsBigInt );
 
 #! @Description
 #!  The list associated to a skeletal finite set, i.e.,
@@ -47,25 +44,25 @@ CapJitAddTypeSignature( "Length", [ IsSkeletalFiniteSet ], IsBigInt );
 #! @Arguments M
 #! @Returns a list
 DeclareAttribute( "AsList",
-        IsSkeletalFiniteSet );
+        IsObjectInSkeletalCategoryOfFiniteSets );
 
-CapJitAddTypeSignature( "AsList", [ IsSkeletalFiniteSet ], CapJitDataTypeOfListOf( IsBigInt ) );
+CapJitAddTypeSignature( "AsList", [ IsObjectInSkeletalCategoryOfFiniteSets ], CapJitDataTypeOfListOf( IsBigInt ) );
 
 #! @Description
-#!  The graph defining the skeletal finite set morphism <A>phi</A>, see <Ref Oper="MapOfFinSets" Label="for IsSkeletalFiniteSet, IsList, IsSkeletalFiniteSet" />.
+#!  The graph defining the skeletal finite set morphism <A>phi</A>, see <Ref Oper="MapOfFinSets" Label="for IsObjectInSkeletalCategoryOfFiniteSets, IsList, IsObjectInSkeletalCategoryOfFiniteSets" />.
 #! @Arguments phi
 #! @Returns a list
 DeclareAttribute( "AsList",
-        IsSkeletalFiniteSetMap );
+        IsMorphismInSkeletalCategoryOfFiniteSets );
 
-CapJitAddTypeSignature( "AsList", [ IsSkeletalFiniteSetMap ], CapJitDataTypeOfListOf( IsBigInt ) );
+CapJitAddTypeSignature( "AsList", [ IsMorphismInSkeletalCategoryOfFiniteSets ], CapJitDataTypeOfListOf( IsBigInt ) );
 
 #! @Section Constructors
 
 #! @Description
 #!  Construct a category of skeletal finite sets.
 #! @Returns a &CAP; category
-DeclareOperation( "CategoryOfSkeletalFinSets", [ ] );
+DeclareOperation( "SkeletalCategoryOfFiniteSets", [ ] );
 
 #! @Description
 #!  The default instance of the category of skeletal finite sets.
@@ -88,7 +85,7 @@ DeclareOperation( "FinSet",
 #!  of order given by the nonnegative integer <A>n</A>.
 #! @Arguments C, n
 #! @Returns a &CAP; object
-KeyDependentOperation( "FinSet", IsCategoryOfSkeletalFinSets, IsBigInt, ReturnTrue );
+KeyDependentOperation( "FinSet", IsSkeletalCategoryOfFiniteSets, IsBigInt, ReturnTrue );
 
 #! @Description
 #!  Construct a map $\phi:$<A>s</A>$\to$<A>t</A> of the skeletal finite sets <A>s</A> and <A>t</A>,
@@ -97,7 +94,7 @@ KeyDependentOperation( "FinSet", IsCategoryOfSkeletalFinSets, IsBigInt, ReturnTr
 #! @Arguments s, G, t
 #! @Returns a &CAP; morphism
 DeclareOperation( "MapOfFinSets",
-        [ IsSkeletalFiniteSet, IsList, IsSkeletalFiniteSet ] );
+        [ IsObjectInSkeletalCategoryOfFiniteSets, IsList, IsObjectInSkeletalCategoryOfFiniteSets ] );
 #! @InsertChunk  SkeletalMapOfFinSets
 
 #! @Section Tools
@@ -107,7 +104,7 @@ DeclareOperation( "MapOfFinSets",
 #! @Arguments s, f
 #! @Returns a list
 DeclareOperation( "ListOp",
-        [ IsSkeletalFiniteSet, IsFunction ] );
+        [ IsObjectInSkeletalCategoryOfFiniteSets, IsFunction ] );
 
 #! @Description
 #!  Construct the embedding $\iota:$<A>s</A>$\to$<A>t</A> of the finite sets <A>s</A> and <A>t</A>,
@@ -115,37 +112,42 @@ DeclareOperation( "ListOp",
 #! @Arguments s, t
 #! @Returns a &CAP; morphism
 DeclareOperation( "EmbeddingOfFinSets",
-        [ IsSkeletalFiniteSet, IsSkeletalFiniteSet ] );
+        [ IsObjectInSkeletalCategoryOfFiniteSets, IsObjectInSkeletalCategoryOfFiniteSets ] );
 
 #! @Description
 #!  Compute the Preimage of <A>t</A> under the morphism <A>phi</A>.
 #! @Arguments phi, t
 #! @Returns a &CAP; object
 DeclareOperation( "Preimage",
-        [ IsSkeletalFiniteSetMap, IsList ] );
+        [ IsMorphismInSkeletalCategoryOfFiniteSets, IsList ] );
 
 #! @Description
 #!  Compute the image of <A>s_</A> under the morphism <A>phi</A>.
 #! @Arguments phi, s_
 #! @Returns a &CAP; object
 DeclareOperation( "ImageObject",
-        [ IsSkeletalFiniteSetMap, IsSkeletalFiniteSet ] );
+        [ IsMorphismInSkeletalCategoryOfFiniteSets, IsObjectInSkeletalCategoryOfFiniteSets ] );
 
 #! @Description
 #!  Returns the image of <C><A>L</A>[1]</C> under the map <A>phi</A> assuming <C><A>L</A>[1]</C> is a nonnegative integer smaller than <C>Length( Source( <A>phi</A> ) )</C>.
 #! @Arguments phi, L
 #! @Returns a list
 # DeclareOperation( "CallFuncList",
-#         [ IsSkeletalFiniteSetMap, IsList ] );
+#         [ IsMorphismInSkeletalCategoryOfFiniteSets, IsList ] );
 
 # Technical functions
 DeclareGlobalFunction( "INSTALL_FUNCTIONS_FOR_SKELETAL_FIN_SETS" );
 
 DeclareGlobalFunction( "SKELETAL_FIN_SETS_ExplicitCoequalizer" );
-CapJitAddTypeSignature( "SKELETAL_FIN_SETS_ExplicitCoequalizer", [ IsSkeletalFiniteSet, IsList ], CapJitDataTypeOfListOf( CapJitDataTypeOfListOf( IsBigInt ) ) );
+CapJitAddTypeSignature( "SKELETAL_FIN_SETS_ExplicitCoequalizer", [ IsObjectInSkeletalCategoryOfFiniteSets, IsList ], CapJitDataTypeOfListOf( CapJitDataTypeOfListOf( IsBigInt ) ) );
 
 DeclareGlobalFunction( "SKELETAL_FIN_SETS_IsMonomorphism" );
 CapJitAddTypeSignature( "SKELETAL_FIN_SETS_IsMonomorphism", [ IsList, IsBigInt ], IsBool );
 
 DeclareGlobalFunction( "SKELETAL_FIN_SETS_IsEpimorphism" );
 CapJitAddTypeSignature( "SKELETAL_FIN_SETS_IsEpimorphism", [ IsList, IsBigInt ], CapJitDataTypeOfListOf( IsBool ) );
+
+DeclareSynonym( "IsCategoryOfSkeletalFinSets", IsSkeletalCategoryOfFiniteSets );
+DeclareSynonym( "IsSkeletalFiniteSet", IsObjectInSkeletalCategoryOfFiniteSets );
+DeclareSynonym( "IsSkeletalFiniteSetMap", IsMorphismInSkeletalCategoryOfFiniteSets );
+DeclareSynonym( "CategoryOfSkeletalFinSets", SkeletalCategoryOfFiniteSets );

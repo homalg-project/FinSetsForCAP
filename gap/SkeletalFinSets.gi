@@ -5,15 +5,15 @@
 #
 
 ##
-InstallMethod( CategoryOfSkeletalFinSets,
+InstallMethod( SkeletalCategoryOfFiniteSets,
                [ ],
                
   function ( )
     local cat;
     
     cat := CreateCapCategoryWithDataTypes(
-        "SkeletalFinSets", IsCategoryOfSkeletalFinSets,
-        IsSkeletalFiniteSet, IsSkeletalFiniteSetMap, IsCapCategoryTwoCell,
+        "SkeletalFinSets", IsSkeletalCategoryOfFiniteSets,
+        IsObjectInSkeletalCategoryOfFiniteSets, IsMorphismInSkeletalCategoryOfFiniteSets, IsCapCategoryTwoCell,
         IsBigInt, CapJitDataTypeOfListOf( IsBigInt ), fail
     );
     
@@ -40,7 +40,7 @@ InstallMethod( CategoryOfSkeletalFinSets,
     
     if ValueOption( "no_precompiled_code" ) <> true then
         
-        ADD_FUNCTIONS_FOR_CategoryOfSkeletalFinSetsWithMorphismsGivenByListsPrecompiled( cat );
+        ADD_FUNCTIONS_FOR_SkeletalCategoryOfFiniteSetsWithMorphismsGivenByListsPrecompiled( cat );
         
     fi;
     
@@ -52,7 +52,7 @@ end );
 
 ##
 InstallMethod( FinSetOp,
-        [ IsCategoryOfSkeletalFinSets, IsBigInt ],
+        [ IsSkeletalCategoryOfFiniteSets, IsBigInt ],
         
   function ( cat, n )
     
@@ -63,7 +63,7 @@ end );
 ##
 InstallMethod( AsList,
         "for a CAP skeletal finite set",
-        [ IsSkeletalFiniteSet ],
+        [ IsObjectInSkeletalCategoryOfFiniteSets ],
         
   function ( s )
     
@@ -74,7 +74,7 @@ end );
 ##
 InstallMethod( ListOp,
         "for a CAP skeletal finite set and a function",
-        [ IsSkeletalFiniteSet, IsFunction ],
+        [ IsObjectInSkeletalCategoryOfFiniteSets, IsFunction ],
         
   function ( s, f )
     
@@ -87,7 +87,7 @@ end );
 ##
 InstallMethod( MapOfFinSets,
         "for two CAP skeletal finite sets and a list",
-        [ IsSkeletalFiniteSet, IsList, IsSkeletalFiniteSet ],
+        [ IsObjectInSkeletalCategoryOfFiniteSets, IsList, IsObjectInSkeletalCategoryOfFiniteSets ],
         
   function ( s, G, t )
     
@@ -98,7 +98,7 @@ end );
 ##
 InstallOtherMethod( MapOfFinSets,
         "for a category of skeletal finite sets, two CAP skeletal finite sets and a list",
-        [ IsCategoryOfSkeletalFinSets, IsSkeletalFiniteSet, IsList, IsSkeletalFiniteSet ],
+        [ IsSkeletalCategoryOfFiniteSets, IsObjectInSkeletalCategoryOfFiniteSets, IsList, IsObjectInSkeletalCategoryOfFiniteSets ],
         
   function ( cat, s, G, t )
     
@@ -109,7 +109,7 @@ end );
 ##
 InstallMethod( EmbeddingOfFinSets,
         "for two CAP skeletal finite sets",
-        [ IsSkeletalFiniteSet, IsSkeletalFiniteSet ],
+        [ IsObjectInSkeletalCategoryOfFiniteSets, IsObjectInSkeletalCategoryOfFiniteSets ],
         
   function ( s, t )
     local iota;
@@ -126,7 +126,7 @@ end );
 ##
 InstallMethod( Preimage,
         "for a CAP map of skeletal finite sets and a CAP skeletal finite set",
-        [ IsSkeletalFiniteSetMap, IsList ],
+        [ IsMorphismInSkeletalCategoryOfFiniteSets, IsList ],
         
   function ( phi, t )
     local S;
@@ -142,7 +142,7 @@ end );
 ##
 InstallMethod( ImageObject,
      "for a CAP map of skeletal finite sets and a CAP skeletal finite set",
-     [ IsSkeletalFiniteSetMap, IsSkeletalFiniteSet ],
+     [ IsMorphismInSkeletalCategoryOfFiniteSets, IsObjectInSkeletalCategoryOfFiniteSets ],
       function ( phi, s_ )
 
     return ImageObject( PreCompose( EmbeddingOfFinSets( s_, Source( phi ) ), phi ) );
@@ -152,7 +152,7 @@ end );
 ##
 InstallMethod( CallFuncList,
         "for a CAP map of skeletal finite sets and a list",
-    [ IsSkeletalFiniteSetMap, IsList ],
+    [ IsMorphismInSkeletalCategoryOfFiniteSets, IsList ],
         
   function ( phi, L )
     local x;
@@ -995,13 +995,13 @@ end : CategoryGetters := rec( range_cat := RangeCategoryOfHomomorphismStructure 
 CategoryFilter :=
   function ( cat )
     return HasRangeCategoryOfHomomorphismStructure( cat ) and
-           IsCategoryOfSkeletalFinSets( RangeCategoryOfHomomorphismStructure( cat ) );
+           IsSkeletalCategoryOfFiniteSets( RangeCategoryOfHomomorphismStructure( cat ) );
 end );
 
 ##
 InstallMethod( String,
         "for a CAP skeletal finite set",
-        [ IsSkeletalFiniteSet ],
+        [ IsObjectInSkeletalCategoryOfFiniteSets ],
         
   function ( s )
     return Concatenation( "FinSet( SkeletalFinSets, ", String( Length( s ) ), " )" );
@@ -1010,7 +1010,7 @@ end );
 ##
 InstallMethod( String,
         "for a CAP map of skeletal finite sets",
-        [ IsSkeletalFiniteSetMap ],
+        [ IsMorphismInSkeletalCategoryOfFiniteSets ],
         
   function ( phi )
     return Concatenation( "MapOfFinSets( SkeletalFinSets, ", String( Source( phi ) ), ", ", String( AsList( phi ) ), ", ", String( Range( phi ) ), " )" );
@@ -1019,7 +1019,7 @@ end );
 ##
 InstallMethod( ViewString,
         "for a CAP skeletal finite set",
-        [ IsSkeletalFiniteSet ],
+        [ IsObjectInSkeletalCategoryOfFiniteSets ],
         
   function ( s )
     return Concatenation( "|", String( Length( s ) ), "|" );
@@ -1028,7 +1028,7 @@ end );
 ##
 InstallMethod( ViewString,
         "for a CAP map of skeletal finite sets",
-        [ IsSkeletalFiniteSetMap ],
+        [ IsMorphismInSkeletalCategoryOfFiniteSets ],
         
   function ( phi )
     local arrow;
@@ -1062,7 +1062,7 @@ end );
 ##
 InstallMethod( PrintString,
         "for a CAP skeletal finite set",
-        [ IsSkeletalFiniteSet ],
+        [ IsObjectInSkeletalCategoryOfFiniteSets ],
         
   function ( s )
     local l, string;
@@ -1086,7 +1086,7 @@ end );
 ##
 InstallMethod( PrintString,
         "for a CAP map of skeletal finite sets",
-        [ IsSkeletalFiniteSetMap ],
+        [ IsMorphismInSkeletalCategoryOfFiniteSets ],
         
   function ( phi )
     
@@ -1100,7 +1100,7 @@ end );
 ##
 InstallMethod( DisplayString,
         "for a CAP skeletal finite set",
-        [ IsSkeletalFiniteSet ],
+        [ IsObjectInSkeletalCategoryOfFiniteSets ],
         
   function ( s )
     
@@ -1111,7 +1111,7 @@ end );
 ##
 InstallMethod( DisplayString,
         "for a CAP map of skeletal finite sets",
-        [ IsSkeletalFiniteSetMap ],
+        [ IsMorphismInSkeletalCategoryOfFiniteSets ],
         
   function ( phi )
     
