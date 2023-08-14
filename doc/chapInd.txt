@@ -2,52 +2,52 @@
   
   [1XIndex[101X
   
-  [2X[][102X, for IsFiniteSet, IsBigInt 1.4-3 
-  [2X\in[102X, for IsObject, IsFiniteSet 1.4-2 
-  [2XAsList[102X, for IsFiniteSet 1.2-1 
-      for IsFiniteSetMap 1.2-3 
-      for IsSkeletalFiniteSet 2.2-2 
-      for IsSkeletalFiniteSetMap 2.2-3 
-  [2XCallFuncList[102X, for IsFiniteSetMap, IsDenseList 1.4-13 
-      for IsSkeletalFiniteSetMap, IsList 2.4-5 
-  [2XCategoryOfFinSets[102X 1.3-1 
-  [2XCategoryOfSkeletalFinSets[102X 2.3-1 
-  [2XEmbeddingOfFinSets[102X, for IsFiniteSet, IsFiniteSet 1.4-9 
-      for IsSkeletalFiniteSet, IsSkeletalFiniteSet 2.4-2 
-  [2XFilteredOp[102X, for IsFiniteSet, IsFunction 1.4-7 
+  [2X[][102X, for IsObjectInCategoryOfFiniteSets, IsBigInt 1.4-3 
+  [2X\in[102X, for IsObject, IsObjectInCategoryOfFiniteSets 1.4-2 
+  [2XAsList[102X, for IsMorphismInCategoryOfFiniteSets 1.2-3 
+      for IsMorphismInSkeletalCategoryOfFiniteSets 2.2-3 
+      for IsObjectInCategoryOfFiniteSets 1.2-1 
+      for IsObjectInSkeletalCategoryOfFiniteSets 2.2-2 
+  [2XCallFuncList[102X, for IsMorphismInCategoryOfFiniteSets, IsDenseList 1.4-13 
+      for IsMorphismInSkeletalCategoryOfFiniteSets, IsList 2.4-5 
+  [2XCategoryOfFiniteSets[102X 1.3-1 
+  [2XEmbeddingOfFinSets[102X, for IsObjectInCategoryOfFiniteSets, IsObjectInCategoryOfFiniteSets 1.4-9 
+      for IsObjectInSkeletalCategoryOfFiniteSets, IsObjectInSkeletalCategoryOfFiniteSets 2.4-2 
+  [2XFilteredOp[102X, for IsObjectInCategoryOfFiniteSets, IsFunction 1.4-7 
   [2XFinSet[102X, for IsBigInt 2.3-3 
-      for IsCategoryOfFinSets, IsDenseList 1.3-3 
-      for IsCategoryOfSkeletalFinSets, IsBigInt 2.3-4 
+      for IsCategoryOfFiniteSets, IsDenseList 1.3-3 
       for IsDenseList 1.3-4 
-  [2XFinSetNC[102X, for IsCategoryOfFinSets, IsDenseList 1.3-5 
+      for IsSkeletalCategoryOfFiniteSets, IsBigInt 2.3-4 
+  [2XFinSetNC[102X, for IsCategoryOfFiniteSets, IsDenseList 1.3-5 
       for IsDenseList 1.3-6 
   [2XFinSets[102X 1.3-2 
-  [2XFirst[102X, for IsFiniteSet, IsFunction 1.4-8 
+  [2XFirst[102X, for IsObjectInCategoryOfFiniteSets, IsFunction 1.4-8 
   [2XGeometricSum[102X, for IsRingElement, IsBigInt 2.4-6 
   [2XGeometricSumDiff1[102X, for IsRingElement, IsBigInt 2.4-7 
-  [2XImageObject[102X, for IsFiniteSetMap, IsFiniteSet 1.4-12 
-      for IsSkeletalFiniteSetMap, IsSkeletalFiniteSet 2.4-4 
-  [2XIsCategoryOfFinSets[102X, for IsCapCategory 1.1-1 
-  [2XIsCategoryOfSkeletalFinSets[102X, for IsCapCategory 2.1-1 
+  [2XImageObject[102X, for IsMorphismInCategoryOfFiniteSets, IsObjectInCategoryOfFiniteSets 1.4-12 
+      for IsMorphismInSkeletalCategoryOfFiniteSets, IsObjectInSkeletalCategoryOfFiniteSets 2.4-4 
+  [2XIsCategoryOfFiniteSets[102X, for IsCapCategory 1.1-1 
   [2XIsEqualForElementsOfFinSets[102X, for IsObject, IsObject 1.4-1 
-  [2XIsFiniteSet[102X, for IsCapCategoryObject 1.1-2 
-  [2XIsFiniteSetMap[102X, for IsCapCategoryMorphism 1.1-3 
-  [2XIsSkeletalFiniteSet[102X, for IsCapCategoryObject 2.1-2 
-  [2XIsSkeletalFiniteSetMap[102X, for IsCapCategoryMorphism 2.1-3 
-  [2XIterator[102X, for IsFiniteSet 1.4-4 
-  [2XLength[102X, for IsFiniteSet 1.2-2 
-      for IsSkeletalFiniteSet 2.2-1 
-  [2XListOp[102X, for IsFiniteSet, IsFiniteSetMap 1.4-14 
-      for IsFiniteSet, IsFunction 1.4-6 
-      for IsSkeletalFiniteSet, IsFunction 2.4-1 
-  [2XMapOfFinSets[102X, for IsFiniteSet, IsDenseList, IsFiniteSet 1.3-7 
-      for IsSkeletalFiniteSet, IsList, IsSkeletalFiniteSet 2.3-5 
-  [2XMapOfFinSetsNC[102X, for IsFiniteSet, IsDenseList, IsFiniteSet 1.3-8 
-  [2XPreimage[102X, for IsFiniteSetMap, IsFiniteSet 1.4-11 
-      for IsSkeletalFiniteSetMap, IsList 2.4-3 
-  [2XProjectionOfFinSets[102X, for IsFiniteSet, IsFiniteSet 1.4-10 
+  [2XIsMorphismInCategoryOfFiniteSets[102X, for IsCapCategoryMorphism 1.1-3 
+  [2XIsMorphismInSkeletalCategoryOfFiniteSets[102X, for IsCapCategoryMorphism 2.1-3 
+  [2XIsObjectInCategoryOfFiniteSets[102X, for IsCapCategoryObject 1.1-2 
+  [2XIsObjectInSkeletalCategoryOfFiniteSets[102X, for IsCapCategoryObject 2.1-2 
+  [2XIsSkeletalCategoryOfFiniteSets[102X, for IsCapCategory 2.1-1 
+  [2XIterator[102X, for IsObjectInCategoryOfFiniteSets 1.4-4 
+  [2XLength[102X, for IsObjectInCategoryOfFiniteSets 1.2-2 
+      for IsObjectInSkeletalCategoryOfFiniteSets 2.2-1 
+  [2XListOp[102X, for IsObjectInCategoryOfFiniteSets, IsFunction 1.4-6 
+      for IsObjectInCategoryOfFiniteSets, IsMorphismInCategoryOfFiniteSets 1.4-14 
+      for IsObjectInSkeletalCategoryOfFiniteSets, IsFunction 2.4-1 
+  [2XMapOfFinSets[102X, for IsObjectInCategoryOfFiniteSets, IsDenseList, IsObjectInCategoryOfFiniteSets 1.3-7 
+      for IsObjectInSkeletalCategoryOfFiniteSets, IsList, IsObjectInSkeletalCategoryOfFiniteSets 2.3-5 
+  [2XMapOfFinSetsNC[102X, for IsObjectInCategoryOfFiniteSets, IsDenseList, IsObjectInCategoryOfFiniteSets 1.3-8 
+  [2XPreimage[102X, for IsMorphismInCategoryOfFiniteSets, IsObjectInCategoryOfFiniteSets 1.4-11 
+      for IsMorphismInSkeletalCategoryOfFiniteSets, IsList 2.4-3 
+  [2XProjectionOfFinSets[102X, for IsObjectInCategoryOfFiniteSets, IsObjectInCategoryOfFiniteSets 1.4-10 
+  [2XSkeletalCategoryOfFiniteSets[102X 2.3-1 
   [2XSkeletalFinSets[102X 2.3-2 
-  [2XUnionOfFinSets[102X, for IsCategoryOfFinSets, IsDenseList 1.4-5 
+  [2XUnionOfFinSets[102X, for IsCategoryOfFiniteSets, IsDenseList 1.4-5 
   
   
   -------------------------------------------------------
