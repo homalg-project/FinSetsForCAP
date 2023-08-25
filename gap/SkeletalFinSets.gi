@@ -863,27 +863,31 @@ end );
 ##
 AddExponentialOnMorphismsWithGivenExponentials( SkeletalFinSets,
   function ( cat, S, alpha, beta, T )
-    local M, N, MN, mors;
+    local source_alpha, range_beta, M, N, MN, mors;
+    
+    source_alpha := Source( alpha );
+    range_beta := Range( beta );
     
     M := Range( alpha );
     N := Source( beta );
     
     MN := ExponentialOnObjects( cat, M, N );
-
+    
     mors := ExactCoverWithGlobalElements( cat, MN );
     
     return MorphismConstructor( cat,
                    S,
                    List( mors, mor ->
                          AsList( CartesianLambdaIntroduction( cat,
-                                 PreComposeList(
-                                         cat,
+                                 PreComposeList( cat,
+                                         source_alpha,
                                          [ alpha,
                                            CartesianLambdaElimination( cat,
                                                    M,
                                                    N,
                                                    mor ),
-                                           beta ] ) ) )[1 + 0] ),
+                                           beta ],
+                                         range_beta ) ) )[1 + 0] ),
                    T );
     
 end, 1 + Sum( [ [ "ExponentialOnObjects", 1 ],
