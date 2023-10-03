@@ -23,7 +23,7 @@ IsEpimorphism( phi );
 IsSplitEpimorphism( phi );
 #! false
 iota := AstrictionToCoimage( phi );
-#! <A monomorphism in FinSets>
+#! <A morphism in FinSets>
 pi := CoimageProjection( phi );
 #! <An epimorphism in FinSets>
 PreCompose( pi, iota ) = phi;
