@@ -6,6 +6,19 @@
 BindGlobal( "ADD_FUNCTIONS_FOR_SkeletalCategoryOfFiniteSetsWithMorphismsGivenByListsPrecompiled", function ( cat )
     
     ##
+    AddAstrictionToCoimage( cat,
+        
+########
+function ( cat_1, alpha_1 )
+    local deduped_1_1;
+    deduped_1_1 := DuplicateFreeList( AsList( alpha_1 ) );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, CreateCapCategoryObjectWithAttributes( cat_1, Length, BigInt( Length( deduped_1_1 ) ) ), Range( alpha_1 ), AsList, deduped_1_1 );
+end
+########
+        
+    , 100 );
+    
+    ##
     AddCartesianBraidingInverseWithGivenDirectProducts( cat,
         
 ########
@@ -183,6 +196,23 @@ end
 ########
         
     , 100 );
+    
+    ##
+    AddCoimageProjection( cat,
+        
+########
+function ( cat_1, alpha_1 )
+    local deduped_3_1, deduped_4_1, deduped_5_1;
+    deduped_5_1 := AsList( alpha_1 );
+    deduped_4_1 := Source( alpha_1 );
+    deduped_3_1 := DuplicateFreeList( deduped_5_1 );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, deduped_4_1, CreateCapCategoryObjectWithAttributes( cat_1, Length, BigInt( Length( deduped_3_1 ) ) ), AsList, List( [ 0 .. Length( deduped_4_1 ) - 1 ], function ( x_2 )
+              return -1 + BigInt( SafePosition( deduped_3_1, deduped_5_1[(1 + x_2)] ) );
+          end ) );
+end
+########
+        
+    , 202 : IsPrecompiledDerivation := true );
     
     ##
     AddColift( cat,

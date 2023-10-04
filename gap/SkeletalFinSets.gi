@@ -486,6 +486,22 @@ AddImageEmbedding( SkeletalFinSets,
     
 end );
 
+##
+AddAstrictionToCoimage( SkeletalFinSets,
+  function ( cat, phi )
+    local L, map;
+    
+    L := AsList( phi );
+    
+    ## unlike ImageObject which is a subobject of the range,
+    ## the CoimageObject is a factor object of the source,
+    ## and we want to retain the sorting of the source:
+    map := DuplicateFreeList( L );
+    
+    return MorphismConstructor( cat, ObjectConstructor( cat, BigInt( Length( map ) ) ), map, Range( phi ) );
+    
+end );
+
 ## Limits
 
 ##
