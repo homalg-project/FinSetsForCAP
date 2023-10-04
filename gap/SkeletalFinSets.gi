@@ -356,14 +356,6 @@ AddPreCompose( SkeletalFinSets,
     
 end );
 
-##
-AddImageObject( SkeletalFinSets,
-  function ( cat, phi )
-    
-    return ObjectConstructor( cat, BigInt( Length( Set( AsList( phi ) ) ) ) );
-    
-end );
-
 ## the function SKELETAL_FIN_SETS_IsEpimorphism
 ## has linear runtime complexity
 AddIsEpimorphism( SkeletalFinSets,
@@ -484,11 +476,14 @@ AddColift( SkeletalFinSets,
 end );
 
 ##
-AddImageEmbeddingWithGivenImageObject( SkeletalFinSets,
-  function ( cat, phi, image )
+AddImageEmbedding( SkeletalFinSets,
+  function ( cat, phi )
+    local map;
     
-    return MorphismConstructor( cat, image, Set( AsList( phi ) ), Range( phi ) );
-
+    map := Set( AsList( phi ) );
+    
+    return MorphismConstructor( cat, ObjectConstructor( cat, BigInt( Length( map ) ) ), map, Range( phi ) );
+    
 end );
 
 ##

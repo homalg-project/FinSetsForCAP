@@ -345,22 +345,13 @@ end
     , 100 );
     
     ##
-    AddImageEmbeddingWithGivenImageObject( cat,
+    AddImageEmbedding( cat,
         
 ########
-function ( cat_1, alpha_1, I_1 )
-    return CreateCapCategoryMorphismWithAttributes( cat_1, I_1, Range( alpha_1 ), AsList, SSortedList( AsList( alpha_1 ) ) );
-end
-########
-        
-    , 100 );
-    
-    ##
-    AddImageObject( cat,
-        
-########
-function ( cat_1, arg2_1 )
-    return CreateCapCategoryObjectWithAttributes( cat_1, Length, BigInt( Length( SSortedList( AsList( arg2_1 ) ) ) ) );
+function ( cat_1, alpha_1 )
+    local deduped_1_1;
+    deduped_1_1 := SSortedList( AsList( alpha_1 ) );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, CreateCapCategoryObjectWithAttributes( cat_1, Length, BigInt( Length( deduped_1_1 ) ) ), Range( alpha_1 ), AsList, deduped_1_1 );
 end
 ########
         
@@ -816,7 +807,7 @@ function ( cat_1, l_1, m_1 )
 end
 ########
         
-    , 19767 : IsPrecompiledDerivation := true );
+    , 19464 : IsPrecompiledDerivation := true );
     
     ##
     AddSomeInjectiveObject( cat,
