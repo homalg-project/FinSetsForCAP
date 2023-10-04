@@ -486,29 +486,6 @@ AddImageEmbedding( SkeletalFinSets,
     
 end );
 
-##
-AddCoastrictionToImageWithGivenImageObject( SkeletalFinSets,
-  function ( cat, phi, image_object )
-    local G, images, s, L, l, pi;
-    
-    G := AsList( phi );
-    
-    images := Set( G );
-    
-    s := Source( phi );
-    
-    L := List( s, i -> -1 + BigInt( SafePosition( images, G[1 + i] ) ) );
-    
-    pi := MorphismConstructor( cat, s, L, image_object );
-    
-    #% CAP_JIT_DROP_NEXT_STATEMENT
-    Assert( 3, IsEpimorphism( cat, pi ) );
-    
-    return pi;
-    
-end );
-
-
 ## Limits
 
 ##
