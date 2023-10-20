@@ -3,6 +3,14 @@
 #! @Example
 LoadPackage( "FinSetsForCAP", false );
 #! true
+I := InitialObject( SkeletalFinSets );
+#! |0|
+iota := UniversalMorphismIntoTerminalObject( I );
+#! |0| → |1|
+id := IdentityMorphism( I );
+#! |0| → |0|
+IsColiftable( iota, id );
+#! false
 m := FinSet( 5 );
 #! |5|
 n := FinSet( 4 );

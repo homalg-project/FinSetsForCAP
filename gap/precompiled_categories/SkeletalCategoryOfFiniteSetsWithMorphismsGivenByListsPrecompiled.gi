@@ -397,11 +397,16 @@ end
 ########
 function ( cat_1, arg2_1, arg3_1 )
     local hoisted_2_1, deduped_3_1;
-    deduped_3_1 := AsList( arg2_1 );
-    hoisted_2_1 := AsList( arg3_1 );
-    return ForAll( SSortedList( deduped_3_1 ), function ( i_2 )
-            return Length( SSortedList( hoisted_2_1{Positions( deduped_3_1, i_2 )} ) ) = 1;
-        end );
+    if Length( Range( arg3_1 ) ) = 0 and not Length( Range( arg2_1 ) ) = 0 then
+        return false;
+    else
+        deduped_3_1 := AsList( arg2_1 );
+        hoisted_2_1 := AsList( arg3_1 );
+        return ForAll( SSortedList( deduped_3_1 ), function ( i_2 )
+                return Length( SSortedList( hoisted_2_1{Positions( deduped_3_1, i_2 )} ) ) = 1;
+            end );
+    fi;
+    return;
 end
 ########
         
