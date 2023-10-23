@@ -451,7 +451,12 @@ AddIsColiftable( SkeletalFinSets,
     ff := AsList( f );
     gg := AsList( g );
     
-    return ForAll( Set( ff ), i -> Length( Set( gg{Positions( ff, i )} ) ) = 1 );
+    ## Range( g ) initial implies Range( f ) initial
+    if IsInitial( cat, Range( g ) ) and not IsInitial( cat, Range( f ) ) then
+        return false;
+    else
+        return ForAll( Set( ff ), i -> Length( Set( gg{Positions( ff, i )} ) ) = 1 );
+    fi;
     
 end );
 
