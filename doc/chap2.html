@@ -1141,6 +1141,14 @@ false
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
 true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">I := InitialObject( SkeletalFinSets );</span>
+|0|
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota := UniversalMorphismIntoTerminalObject( I );</span>
+|0| → |1|
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">id := IdentityMorphism( I );</span>
+|0| → |0|
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsColiftable( iota, id );</span>
+false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet( 5 );</span>
 |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet( 4 );</span>

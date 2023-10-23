@@ -970,6 +970,14 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
     [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XI := InitialObject( SkeletalFinSets );[127X[104X
+    [4X[28X|0|[128X[104X
+    [4X[25Xgap>[125X [27Xiota := UniversalMorphismIntoTerminalObject( I );[127X[104X
+    [4X[28X|0| → |1|[128X[104X
+    [4X[25Xgap>[125X [27Xid := IdentityMorphism( I );[127X[104X
+    [4X[28X|0| → |0|[128X[104X
+    [4X[25Xgap>[125X [27XIsColiftable( iota, id );[127X[104X
+    [4X[28Xfalse[128X[104X
     [4X[25Xgap>[125X [27Xm := FinSet( 5 );[127X[104X
     [4X[28X|5|[128X[104X
     [4X[25Xgap>[125X [27Xn := FinSet( 4 );[127X[104X
