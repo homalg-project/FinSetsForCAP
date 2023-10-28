@@ -164,43 +164,84 @@ InstallMethod( CallFuncList,
 end );
 
 ##
-InstallGlobalFunction( SKELETAL_FIN_SETS_ExplicitCoequalizer,
-  function ( s, D )
-    local T, Cq, t, L, i;
+InstallMethodForCompilerForCAP( SKELETAL_FIN_SETS_ExplicitCoequalizer,
+        [ IsSkeletalCategoryOfFiniteSets, IsObjectInSkeletalCategoryOfFiniteSets, IsList ],
+        
+  function ( cat, target, D )
+    local data, s, t, imgs, predicate_inner, func_inner, preidcate_outer, func_outer, initial_outer, Cq;
     
-    T := AsList( s );
+    data := List( D, f -> AsList( f ) );
     
-    Cq := [ ];
+    s := Length( data[1] );
+    t := Length( target );
     
-    while not IsEmpty( T ) do
-        t := T[1];
-        t := Union( List( D, f_j -> List( Union( List( D, f_i -> Preimage( f_i, [ t ] ) ) ), f_j ) ) );
-        if IsEmpty( t ) then
-            t := [ T[1] ];
-        fi;
-        Add( Cq, t );
-        T := Difference( T, t );
-    od;
+    imgs := List( [ 0 .. s - 1 ], x -> Set( List( data, f -> f[1 + x] ) ) );
     
-    T := AsList( s );
+    predicate_inner :=
+      function ( eq_class_old, eq_class )
+        
+        return Length( eq_class_old[1] ) = Length( eq_class[1] );
+        
+    end;
     
-    if Concatenation( Cq ) <> T then
-        for t in T do
-            L := [ ];
-            for i in [ 1 .. Length( Cq ) ] do
-                if t in Cq[i] then
-                    Add( L, Cq[i] );
-                fi;
-            od;
-            if Length( L ) > 1 then
-                Cq := Difference( Cq, L );
-                Add( Cq, Set( Concatenation( L ) ) );
-            fi;
-        od;
-    fi;
+    func_inner :=
+      function ( eq_class )
+        local Cy, imgs, l, pos;
+        
+        Cy := eq_class[1];
+        
+        imgs := eq_class[2];
+        
+        l := Length( imgs );
+        
+        pos := PositionsProperty( [ 1 .. l ], j -> Length( Intersection( Cy, imgs[j] ) ) > 0 );
+        
+        return Pair( Set( Concatenation( Cy, Concatenation( imgs{pos} ) ) ),
+                     imgs{Difference( [ 1 .. l ], pos )} );
+        
+    end;
     
-    return Set( Cq );
-
+    preidcate_outer :=
+      function ( coeq_old, coeq )
+        
+        return Length( coeq[1] ) = t;
+        
+    end;
+    
+    func_outer :=
+      function ( coeq )
+        local covered, y, imgs, initial_inner, eq_class, Cy, eq_classes;
+        
+        covered := coeq[1];
+        
+        y := SafeFirst( [ coeq[2] + 1 .. t - 1 ], y -> not ( y in covered ) );
+        
+        imgs := coeq[3];
+        
+        initial_inner := Pair( [ y ], imgs );
+        
+        eq_class := CapFixpoint( predicate_inner, func_inner, initial_inner );
+        
+        Cy := eq_class[1];
+        
+        eq_classes := Concatenation( coeq[4], [ Cy ] );
+        
+        return NTuple( 4,
+                       Set( Concatenation( covered, Cy ) ),
+                       y,
+                       eq_class[2],
+                       eq_classes );
+        
+    end;
+    
+    initial_outer := NTuple( 4,
+                             [ ], #### list of points covered sofar
+                             -1, ##### smallest uncovered element
+                             imgs, ### list of pre-equivalence classes unused sofar
+                             [ ] ); ## list of equivalence classes found sofar
+    
+    return CapFixpoint( preidcate_outer, func_outer, initial_outer )[4];
+    
 end );
 
 ##
@@ -731,7 +772,7 @@ end );
 AddCoequalizer( SkeletalFinSets,
   function ( cat, s, D )
   
-    return ObjectConstructor( cat, BigInt( Length( SKELETAL_FIN_SETS_ExplicitCoequalizer( s, D ) ) ) );
+    return ObjectConstructor( cat, BigInt( Length( SKELETAL_FIN_SETS_ExplicitCoequalizer( cat, s, D ) ) ) );
     
 end );
 
@@ -740,7 +781,7 @@ AddProjectionOntoCoequalizerWithGivenCoequalizer( SkeletalFinSets,
   function ( cat, s, D, C )
     local Cq, cmp;
     
-    Cq := SKELETAL_FIN_SETS_ExplicitCoequalizer( s, D );
+    Cq := SKELETAL_FIN_SETS_ExplicitCoequalizer( cat, s, D );
     
     cmp := List( s, x -> -1 + BigInt( SafeUniquePositionProperty( Cq, c -> x in c ) ) );
     
@@ -753,7 +794,7 @@ AddUniversalMorphismFromCoequalizerWithGivenCoequalizer( SkeletalFinSets,
   function ( cat, s, D, test_object, tau, C )
     local Cq;
     
-    Cq := SKELETAL_FIN_SETS_ExplicitCoequalizer( s, D );
+    Cq := SKELETAL_FIN_SETS_ExplicitCoequalizer( cat, s, D );
 
     return MorphismConstructor( cat, C, List( Cq, x -> AsList( tau )[1 + x[1]] ), Range( tau ) );
     

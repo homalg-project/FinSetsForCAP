@@ -178,7 +178,39 @@ end
         
 ########
 function ( cat_1, Y_1, morphisms_1 )
-    return CreateCapCategoryObjectWithAttributes( cat_1, Length, BigInt( Length( SKELETAL_FIN_SETS_ExplicitCoequalizer( Y_1, morphisms_1 ) ) ) );
+    local hoisted_2_1, deduped_3_1, deduped_4_1;
+    deduped_4_1 := [  ];
+    deduped_3_1 := Length( Y_1 );
+    hoisted_2_1 := deduped_3_1 - 1;
+    return CreateCapCategoryObjectWithAttributes( cat_1, Length, BigInt( Length( CapFixpoint( function ( coeq_old_2, coeq_2 )
+                    return Length( coeq_2[1] ) = deduped_3_1;
+                end, function ( coeq_2 )
+                    local deduped_2_2, deduped_3_2, deduped_4_2, deduped_5_2;
+                    deduped_5_2 := coeq_2[1];
+                    deduped_4_2 := SafeFirst( [ coeq_2[2] + 1 .. hoisted_2_1 ], function ( y_3 )
+                            return not y_3 in deduped_5_2;
+                        end );
+                    deduped_3_2 := CapFixpoint( function ( eq_class_old_3, eq_class_3 )
+                            return Length( eq_class_old_3[1] ) = Length( eq_class_3[1] );
+                        end, function ( eq_class_3 )
+                            local deduped_3_3, deduped_4_3, deduped_5_3, deduped_6_3;
+                            deduped_6_3 := eq_class_3[2];
+                            deduped_5_3 := eq_class_3[1];
+                            deduped_4_3 := [ 1 .. Length( deduped_6_3 ) ];
+                            deduped_3_3 := PositionsProperty( deduped_4_3, function ( j_4 )
+                                    return Length( Intersection( deduped_5_3, deduped_6_3[j_4] ) ) > 0;
+                                end );
+                            return NTuple( 2, SSortedList( Concatenation( deduped_5_3, Concatenation( deduped_6_3{deduped_3_3} ) ) ), deduped_6_3{Difference( deduped_4_3, deduped_3_3 )} );
+                        end, NTuple( 2, [ deduped_4_2 ], coeq_2[3] ) );
+                    deduped_2_2 := deduped_3_2[1];
+                    return NTuple( 4, SSortedList( Concatenation( deduped_5_2, deduped_2_2 ) ), deduped_4_2, deduped_3_2[2], Concatenation( coeq_2[4], [ deduped_2_2 ] ) );
+                end, NTuple( 4, deduped_4_1, -1, List( [ 0 .. CAP_JIT_INCOMPLETE_LOGIC( Length( AsList( CAP_JIT_INCOMPLETE_LOGIC( morphisms_1[1] ) ) ) ) - 1 ], function ( x_2 )
+                        local hoisted_1_2;
+                        hoisted_1_2 := 1 + x_2;
+                        return SSortedList( List( morphisms_1, function ( logic_new_func_x_3 )
+                                  return AsList( logic_new_func_x_3 )[hoisted_1_2];
+                              end ) );
+                    end ), deduped_4_1 ) )[4] ) ) );
 end
 ########
         
@@ -726,10 +758,41 @@ end
         
 ########
 function ( cat_1, Y_1, morphisms_1, P_1 )
-    local hoisted_1_1;
-    hoisted_1_1 := SKELETAL_FIN_SETS_ExplicitCoequalizer( Y_1, morphisms_1 );
-    return CreateCapCategoryMorphismWithAttributes( cat_1, Y_1, P_1, AsList, List( [ 0 .. Length( Y_1 ) - 1 ], function ( x_2 )
-              return -1 + BigInt( SafeUniquePositionProperty( hoisted_1_1, function ( c_3 )
+    local hoisted_2_1, hoisted_3_1, deduped_4_1, deduped_5_1;
+    deduped_5_1 := [  ];
+    deduped_4_1 := Length( Y_1 );
+    hoisted_2_1 := deduped_4_1 - 1;
+    hoisted_3_1 := CapFixpoint( function ( coeq_old_2, coeq_2 )
+              return Length( coeq_2[1] ) = deduped_4_1;
+          end, function ( coeq_2 )
+              local deduped_2_2, deduped_3_2, deduped_4_2, deduped_5_2;
+              deduped_5_2 := coeq_2[1];
+              deduped_4_2 := SafeFirst( [ coeq_2[2] + 1 .. hoisted_2_1 ], function ( y_3 )
+                      return not y_3 in deduped_5_2;
+                  end );
+              deduped_3_2 := CapFixpoint( function ( eq_class_old_3, eq_class_3 )
+                      return Length( eq_class_old_3[1] ) = Length( eq_class_3[1] );
+                  end, function ( eq_class_3 )
+                      local deduped_3_3, deduped_4_3, deduped_5_3, deduped_6_3;
+                      deduped_6_3 := eq_class_3[2];
+                      deduped_5_3 := eq_class_3[1];
+                      deduped_4_3 := [ 1 .. Length( deduped_6_3 ) ];
+                      deduped_3_3 := PositionsProperty( deduped_4_3, function ( j_4 )
+                              return Length( Intersection( deduped_5_3, deduped_6_3[j_4] ) ) > 0;
+                          end );
+                      return NTuple( 2, SSortedList( Concatenation( deduped_5_3, Concatenation( deduped_6_3{deduped_3_3} ) ) ), deduped_6_3{Difference( deduped_4_3, deduped_3_3 )} );
+                  end, NTuple( 2, [ deduped_4_2 ], coeq_2[3] ) );
+              deduped_2_2 := deduped_3_2[1];
+              return NTuple( 4, SSortedList( Concatenation( deduped_5_2, deduped_2_2 ) ), deduped_4_2, deduped_3_2[2], Concatenation( coeq_2[4], [ deduped_2_2 ] ) );
+          end, NTuple( 4, deduped_5_1, -1, List( [ 0 .. CAP_JIT_INCOMPLETE_LOGIC( Length( AsList( CAP_JIT_INCOMPLETE_LOGIC( morphisms_1[1] ) ) ) ) - 1 ], function ( x_2 )
+                  local hoisted_1_2;
+                  hoisted_1_2 := 1 + x_2;
+                  return SSortedList( List( morphisms_1, function ( logic_new_func_x_3 )
+                            return AsList( logic_new_func_x_3 )[hoisted_1_2];
+                        end ) );
+              end ), deduped_5_1 ) )[4];
+    return CreateCapCategoryMorphismWithAttributes( cat_1, Y_1, P_1, AsList, List( Y_1, function ( x_2 )
+              return -1 + BigInt( SafeUniquePositionProperty( hoisted_3_1, function ( c_3 )
                           return (x_2 in c_3);
                       end ) );
           end ) );
@@ -874,10 +937,41 @@ end
         
 ########
 function ( cat_1, Y_1, morphisms_1, T_1, tau_1, P_1 )
-    local hoisted_1_1;
-    hoisted_1_1 := AsList( tau_1 );
-    return CreateCapCategoryMorphismWithAttributes( cat_1, P_1, Range( tau_1 ), AsList, List( SKELETAL_FIN_SETS_ExplicitCoequalizer( Y_1, morphisms_1 ), function ( x_2 )
-              return hoisted_1_1[1 + x_2[1]];
+    local hoisted_2_1, hoisted_3_1, deduped_4_1, deduped_5_1;
+    deduped_5_1 := [  ];
+    deduped_4_1 := Length( Y_1 );
+    hoisted_3_1 := AsList( tau_1 );
+    hoisted_2_1 := deduped_4_1 - 1;
+    return CreateCapCategoryMorphismWithAttributes( cat_1, P_1, Range( tau_1 ), AsList, List( CapFixpoint( function ( coeq_old_2, coeq_2 )
+                  return Length( coeq_2[1] ) = deduped_4_1;
+              end, function ( coeq_2 )
+                  local deduped_2_2, deduped_3_2, deduped_4_2, deduped_5_2;
+                  deduped_5_2 := coeq_2[1];
+                  deduped_4_2 := SafeFirst( [ coeq_2[2] + 1 .. hoisted_2_1 ], function ( y_3 )
+                          return not y_3 in deduped_5_2;
+                      end );
+                  deduped_3_2 := CapFixpoint( function ( eq_class_old_3, eq_class_3 )
+                          return Length( eq_class_old_3[1] ) = Length( eq_class_3[1] );
+                      end, function ( eq_class_3 )
+                          local deduped_3_3, deduped_4_3, deduped_5_3, deduped_6_3;
+                          deduped_6_3 := eq_class_3[2];
+                          deduped_5_3 := eq_class_3[1];
+                          deduped_4_3 := [ 1 .. Length( deduped_6_3 ) ];
+                          deduped_3_3 := PositionsProperty( deduped_4_3, function ( j_4 )
+                                  return Length( Intersection( deduped_5_3, deduped_6_3[j_4] ) ) > 0;
+                              end );
+                          return NTuple( 2, SSortedList( Concatenation( deduped_5_3, Concatenation( deduped_6_3{deduped_3_3} ) ) ), deduped_6_3{Difference( deduped_4_3, deduped_3_3 )} );
+                      end, NTuple( 2, [ deduped_4_2 ], coeq_2[3] ) );
+                  deduped_2_2 := deduped_3_2[1];
+                  return NTuple( 4, SSortedList( Concatenation( deduped_5_2, deduped_2_2 ) ), deduped_4_2, deduped_3_2[2], Concatenation( coeq_2[4], [ deduped_2_2 ] ) );
+              end, NTuple( 4, deduped_5_1, -1, List( [ 0 .. CAP_JIT_INCOMPLETE_LOGIC( Length( AsList( CAP_JIT_INCOMPLETE_LOGIC( morphisms_1[1] ) ) ) ) - 1 ], function ( x_2 )
+                      local hoisted_1_2;
+                      hoisted_1_2 := 1 + x_2;
+                      return SSortedList( List( morphisms_1, function ( logic_new_func_x_3 )
+                                return AsList( logic_new_func_x_3 )[hoisted_1_2];
+                            end ) );
+                  end ), deduped_5_1 ) )[4], function ( x_2 )
+              return hoisted_3_1[1 + x_2[1]];
           end ) );
 end
 ########
