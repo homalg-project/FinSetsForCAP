@@ -8,7 +8,7 @@
 
 LoadPackage( "FinSetsForCAP", false );
 #! true
-LoadPackage( "CompilerForCAP", false );
+LoadPackage( "CompilerForCAP", ">= 2023.10-03", false );
 #! true
 
 ReadPackage( "FinSetsForCAP", "gap/CompilerLogic.gi" );
@@ -24,6 +24,8 @@ primitive_operations :=
           category_constructor( : no_precompiled_code := true ) );;
 list_of_operations :=
   SortedList( Concatenation( primitive_operations, [
+          "CoastrictionToImage",
+          "CoimageProjection",
           "IsHomSetInhabited",
           "TruthMorphismOfImplies",
           #"HasPushoutComplement",

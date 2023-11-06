@@ -356,14 +356,6 @@ AddPreCompose( SkeletalFinSets,
     
 end );
 
-##
-AddImageObject( SkeletalFinSets,
-  function ( cat, phi )
-    
-    return ObjectConstructor( cat, BigInt( Length( Set( AsList( phi ) ) ) ) );
-    
-end );
-
 ## the function SKELETAL_FIN_SETS_IsEpimorphism
 ## has linear runtime complexity
 AddIsEpimorphism( SkeletalFinSets,
@@ -484,35 +476,31 @@ AddColift( SkeletalFinSets,
 end );
 
 ##
-AddImageEmbeddingWithGivenImageObject( SkeletalFinSets,
-  function ( cat, phi, image )
+AddImageEmbedding( SkeletalFinSets,
+  function ( cat, phi )
+    local map;
     
-    return MorphismConstructor( cat, image, Set( AsList( phi ) ), Range( phi ) );
-
+    map := Set( AsList( phi ) );
+    
+    return MorphismConstructor( cat, ObjectConstructor( cat, BigInt( Length( map ) ) ), map, Range( phi ) );
+    
 end );
 
 ##
-AddCoastrictionToImageWithGivenImageObject( SkeletalFinSets,
-  function ( cat, phi, image_object )
-    local G, images, s, L, l, pi;
+AddAstrictionToCoimage( SkeletalFinSets,
+  function ( cat, phi )
+    local L, map;
     
-    G := AsList( phi );
+    L := AsList( phi );
     
-    images := Set( G );
+    ## unlike ImageObject which is a subobject of the range,
+    ## the CoimageObject is a factor object of the source,
+    ## and we want to retain the sorting of the source:
+    map := DuplicateFreeList( L );
     
-    s := Source( phi );
-    
-    L := List( s, i -> -1 + BigInt( SafePosition( images, G[1 + i] ) ) );
-    
-    pi := MorphismConstructor( cat, s, L, image_object );
-    
-    #% CAP_JIT_DROP_NEXT_STATEMENT
-    Assert( 3, IsEpimorphism( cat, pi ) );
-    
-    return pi;
+    return MorphismConstructor( cat, ObjectConstructor( cat, BigInt( Length( map ) ) ), map, Range( phi ) );
     
 end );
-
 
 ## Limits
 
