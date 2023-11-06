@@ -77,27 +77,29 @@
 </span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7CA82F40876ABC87">2.5-9 <span class="Heading">Skeletal Image</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X83B2F0BE7AB16026">2.5-10 <span class="Heading">Skeletal Preimage</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X85389FFC871E695D">2.5-10 <span class="Heading">Skeletal Coimage</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X8612F06E7F683F4C">2.5-11 <span class="Heading">Skeletal Equalizer</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X83B2F0BE7AB16026">2.5-11 <span class="Heading">Skeletal Preimage</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7CAD01387C12A9E8">2.5-12 <span class="Heading">Skeletal Pullback</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X8612F06E7F683F4C">2.5-12 <span class="Heading">Skeletal Equalizer</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X83BC64A980FE2B98">2.5-13 <span class="Heading">Skeletal Coequalizer</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7CAD01387C12A9E8">2.5-13 <span class="Heading">Skeletal Pullback</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7A2A65A58651651A">2.5-14 <span class="Heading">Skeletal Pushout</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X83BC64A980FE2B98">2.5-14 <span class="Heading">Skeletal Coequalizer</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7A83E8CB7C42C0F1">2.5-15 <span class="Heading">Skeletal Cartesian Lambda Introduction</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7A2A65A58651651A">2.5-15 <span class="Heading">Skeletal Pushout</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7C31E02684CC5BE8">2.5-16 <span class="Heading">Skeletal Lift</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7A83E8CB7C42C0F1">2.5-16 <span class="Heading">Skeletal Cartesian Lambda Introduction</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7C14474680DFE214">2.5-17 <span class="Heading">Skeletal Colift</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7C31E02684CC5BE8">2.5-17 <span class="Heading">Skeletal Lift</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X874FC170817287FF">2.5-18 <span class="Heading">Skeletal topos properties</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7C14474680DFE214">2.5-18 <span class="Heading">Skeletal Colift</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X855F57B6818322EB">2.5-19 <span class="Heading">Skeletal Subobject Classifier</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X874FC170817287FF">2.5-19 <span class="Heading">Skeletal topos properties</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7A714DD6853DF4FB">2.5-20 <span class="Heading">Skeletal Pushout Complement</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X855F57B6818322EB">2.5-20 <span class="Heading">Skeletal Subobject Classifier</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7A714DD6853DF4FB">2.5-21 <span class="Heading">Skeletal Pushout Complement</span></a>
 </span>
 </div></div>
 </div>
@@ -763,9 +765,45 @@ true
 true
 </pre></div>
 
+<p><a id="X85389FFC871E695D" name="X85389FFC871E695D"></a></p>
+
+<h5>2.5-10 <span class="Heading">Skeletal Coimage</span></h5>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet( 3 );</span>
+|3|
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet( 3 );</span>
+|3|
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( m, [ 1, 0, 1 ], n );</span>
+|3| → |3|
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">I := CoimageObject( phi );</span>
+|2|
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsMonomorphism( phi );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSplitMonomorphism( phi );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEpimorphism( phi );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSplitEpimorphism( phi );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi := CoimageProjection( phi );</span>
+|3| → |2|
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota := AstrictionToCoimage( phi );</span>
+|2| → |3|
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( pi, iota ) = phi;</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( iota );</span>
+{ 0, 1 } ⱶ[ 1, 0 ]→ { 0, 1, 2 }
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( ImageEmbedding( phi ) );</span>
+{ 0, 1 } ⱶ[ 0, 1 ]→ { 0, 1, 2 }
+</pre></div>
+
 <p><a id="X83B2F0BE7AB16026" name="X83B2F0BE7AB16026"></a></p>
 
-<h5>2.5-10 <span class="Heading">Skeletal Preimage</span></h5>
+<h5>2.5-11 <span class="Heading">Skeletal Preimage</span></h5>
 
 
 <div class="example"><pre>
@@ -787,7 +825,7 @@ true
 
 <p><a id="X8612F06E7F683F4C" name="X8612F06E7F683F4C"></a></p>
 
-<h5>2.5-11 <span class="Heading">Skeletal Equalizer</span></h5>
+<h5>2.5-12 <span class="Heading">Skeletal Equalizer</span></h5>
 
 
 <div class="example"><pre>
@@ -832,7 +870,7 @@ true
 
 <p><a id="X7CAD01387C12A9E8" name="X7CAD01387C12A9E8"></a></p>
 
-<h5>2.5-12 <span class="Heading">Skeletal Pullback</span></h5>
+<h5>2.5-13 <span class="Heading">Skeletal Pullback</span></h5>
 
 
 <div class="example"><pre>
@@ -879,7 +917,7 @@ true
 
 <p><a id="X83BC64A980FE2B98" name="X83BC64A980FE2B98"></a></p>
 
-<h5>2.5-13 <span class="Heading">Skeletal Coequalizer</span></h5>
+<h5>2.5-14 <span class="Heading">Skeletal Coequalizer</span></h5>
 
 
 <div class="example"><pre>
@@ -947,7 +985,7 @@ true
 
 <p><a id="X7A2A65A58651651A" name="X7A2A65A58651651A"></a></p>
 
-<h5>2.5-14 <span class="Heading">Skeletal Pushout</span></h5>
+<h5>2.5-15 <span class="Heading">Skeletal Pushout</span></h5>
 
 
 <div class="example"><pre>
@@ -1043,7 +1081,7 @@ true
 
 <p><a id="X7A83E8CB7C42C0F1" name="X7A83E8CB7C42C0F1"></a></p>
 
-<h5>2.5-15 <span class="Heading">Skeletal Cartesian Lambda Introduction</span></h5>
+<h5>2.5-16 <span class="Heading">Skeletal Cartesian Lambda Introduction</span></h5>
 
 
 <div class="example"><pre>
@@ -1097,7 +1135,7 @@ true
 
 <p><a id="X7C31E02684CC5BE8" name="X7C31E02684CC5BE8"></a></p>
 
-<h5>2.5-16 <span class="Heading">Skeletal Lift</span></h5>
+<h5>2.5-17 <span class="Heading">Skeletal Lift</span></h5>
 
 
 <div class="example"><pre>
@@ -1135,7 +1173,7 @@ false
 
 <p><a id="X7C14474680DFE214" name="X7C14474680DFE214"></a></p>
 
-<h5>2.5-17 <span class="Heading">Skeletal Colift</span></h5>
+<h5>2.5-18 <span class="Heading">Skeletal Colift</span></h5>
 
 
 <div class="example"><pre>
@@ -1171,7 +1209,7 @@ false
 
 <p><a id="X874FC170817287FF" name="X874FC170817287FF"></a></p>
 
-<h5>2.5-18 <span class="Heading">Skeletal topos properties</span></h5>
+<h5>2.5-19 <span class="Heading">Skeletal topos properties</span></h5>
 
 
 <div class="example"><pre>
@@ -1222,7 +1260,7 @@ true
 
 <p><a id="X855F57B6818322EB" name="X855F57B6818322EB"></a></p>
 
-<h5>2.5-19 <span class="Heading">Skeletal Subobject Classifier</span></h5>
+<h5>2.5-20 <span class="Heading">Skeletal Subobject Classifier</span></h5>
 
 
 <div class="example"><pre>
@@ -1296,7 +1334,7 @@ true
 
 <p><a id="X7A714DD6853DF4FB" name="X7A714DD6853DF4FB"></a></p>
 
-<h5>2.5-20 <span class="Heading">Skeletal Pushout Complement</span></h5>
+<h5>2.5-21 <span class="Heading">Skeletal Pushout Complement</span></h5>
 
 <p>Define two composable monos <span class="Math">K \stackrel{l}{\hookrightarrow} L \stackrel{m}{\hookrightarrow} G</span> in <code class="code">SkeletalFinSets</code>:</p>
 

@@ -6,10 +6,10 @@
                 [1X The elementary topos of (skeletal) finite sets [101X
   
   
-                                   2023.10-02
+                                   2023.10-03
   
   
-                                23 October 2023
+                                6 November 2023
   
   
                                 Mohamed Barakat
@@ -137,17 +137,18 @@
       2.5-7 [33X[0;0YSkeletal Product[133X
       2.5-8 [33X[0;0YSkeletal Coproduct[133X
       2.5-9 [33X[0;0YSkeletal Image[133X
-      2.5-10 [33X[0;0YSkeletal Preimage[133X
-      2.5-11 [33X[0;0YSkeletal Equalizer[133X
-      2.5-12 [33X[0;0YSkeletal Pullback[133X
-      2.5-13 [33X[0;0YSkeletal Coequalizer[133X
-      2.5-14 [33X[0;0YSkeletal Pushout[133X
-      2.5-15 [33X[0;0YSkeletal Cartesian Lambda Introduction[133X
-      2.5-16 [33X[0;0YSkeletal Lift[133X
-      2.5-17 [33X[0;0YSkeletal Colift[133X
-      2.5-18 [33X[0;0YSkeletal topos properties[133X
-      2.5-19 [33X[0;0YSkeletal Subobject Classifier[133X
-      2.5-20 [33X[0;0YSkeletal Pushout Complement[133X
+      2.5-10 [33X[0;0YSkeletal Coimage[133X
+      2.5-11 [33X[0;0YSkeletal Preimage[133X
+      2.5-12 [33X[0;0YSkeletal Equalizer[133X
+      2.5-13 [33X[0;0YSkeletal Pullback[133X
+      2.5-14 [33X[0;0YSkeletal Coequalizer[133X
+      2.5-15 [33X[0;0YSkeletal Pushout[133X
+      2.5-16 [33X[0;0YSkeletal Cartesian Lambda Introduction[133X
+      2.5-17 [33X[0;0YSkeletal Lift[133X
+      2.5-18 [33X[0;0YSkeletal Colift[133X
+      2.5-19 [33X[0;0YSkeletal topos properties[133X
+      2.5-20 [33X[0;0YSkeletal Subobject Classifier[133X
+      2.5-21 [33X[0;0YSkeletal Pushout Complement[133X
   3 [33X[0;0YPrecompilation[133X
     3.1 [33X[0;0YPrecompiling the category of skeletal finite sets[133X
   

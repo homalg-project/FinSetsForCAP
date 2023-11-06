@@ -611,7 +611,41 @@
   [4X[32X[104X
   
   
-  [1X2.5-10 [33X[0;0YSkeletal Preimage[133X[101X
+  [1X2.5-10 [33X[0;0YSkeletal Coimage[133X[101X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xm := FinSet( 3 );[127X[104X
+    [4X[28X|3|[128X[104X
+    [4X[25Xgap>[125X [27Xn := FinSet( 3 );[127X[104X
+    [4X[28X|3|[128X[104X
+    [4X[25Xgap>[125X [27Xphi := MapOfFinSets( m, [ 1, 0, 1 ], n );[127X[104X
+    [4X[28X|3| → |3|[128X[104X
+    [4X[25Xgap>[125X [27XI := CoimageObject( phi );[127X[104X
+    [4X[28X|2|[128X[104X
+    [4X[25Xgap>[125X [27XIsMonomorphism( phi );[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsSplitMonomorphism( phi );[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsEpimorphism( phi );[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsSplitEpimorphism( phi );[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27Xpi := CoimageProjection( phi );[127X[104X
+    [4X[28X|3| → |2|[128X[104X
+    [4X[25Xgap>[125X [27Xiota := AstrictionToCoimage( phi );[127X[104X
+    [4X[28X|2| → |3|[128X[104X
+    [4X[25Xgap>[125X [27XPreCompose( pi, iota ) = phi;[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( iota );[127X[104X
+    [4X[28X{ 0, 1 } ⱶ[ 1, 0 ]→ { 0, 1, 2 }[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( ImageEmbedding( phi ) );[127X[104X
+    [4X[28X{ 0, 1 } ⱶ[ 0, 1 ]→ { 0, 1, 2 }[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X2.5-11 [33X[0;0YSkeletal Preimage[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
@@ -631,7 +665,7 @@
   [4X[32X[104X
   
   
-  [1X2.5-11 [33X[0;0YSkeletal Equalizer[133X[101X
+  [1X2.5-12 [33X[0;0YSkeletal Equalizer[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
@@ -674,7 +708,7 @@
   [4X[32X[104X
   
   
-  [1X2.5-12 [33X[0;0YSkeletal Pullback[133X[101X
+  [1X2.5-13 [33X[0;0YSkeletal Pullback[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
@@ -719,7 +753,7 @@
   [4X[32X[104X
   
   
-  [1X2.5-13 [33X[0;0YSkeletal Coequalizer[133X[101X
+  [1X2.5-14 [33X[0;0YSkeletal Coequalizer[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
@@ -785,7 +819,7 @@
   [4X[32X[104X
   
   
-  [1X2.5-14 [33X[0;0YSkeletal Pushout[133X[101X
+  [1X2.5-15 [33X[0;0YSkeletal Pushout[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
@@ -877,7 +911,7 @@
   [4X[32X[104X
   
   
-  [1X2.5-15 [33X[0;0YSkeletal Cartesian Lambda Introduction[133X[101X
+  [1X2.5-16 [33X[0;0YSkeletal Cartesian Lambda Introduction[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
@@ -929,7 +963,7 @@
   [4X[32X[104X
   
   
-  [1X2.5-16 [33X[0;0YSkeletal Lift[133X[101X
+  [1X2.5-17 [33X[0;0YSkeletal Lift[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
@@ -965,7 +999,7 @@
   [4X[32X[104X
   
   
-  [1X2.5-17 [33X[0;0YSkeletal Colift[133X[101X
+  [1X2.5-18 [33X[0;0YSkeletal Colift[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
@@ -999,7 +1033,7 @@
   [4X[32X[104X
   
   
-  [1X2.5-18 [33X[0;0YSkeletal topos properties[133X[101X
+  [1X2.5-19 [33X[0;0YSkeletal topos properties[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
@@ -1048,7 +1082,7 @@
   [4X[32X[104X
   
   
-  [1X2.5-19 [33X[0;0YSkeletal Subobject Classifier[133X[101X
+  [1X2.5-20 [33X[0;0YSkeletal Subobject Classifier[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
@@ -1119,7 +1153,7 @@
   [4X[32X[104X
   
   
-  [1X2.5-20 [33X[0;0YSkeletal Pushout Complement[133X[101X
+  [1X2.5-21 [33X[0;0YSkeletal Pushout Complement[133X[101X
   
   [33X[0;0YDefine    two    composable    monos   [23XK   \stackrel{l}{\hookrightarrow}   L
   \stackrel{m}{\hookrightarrow} G[123X in [10XSkeletalFinSets[110X:[133X

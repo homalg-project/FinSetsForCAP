@@ -796,10 +796,10 @@
     [4X[28Xfalse[128X[104X
     [4X[25Xgap>[125X [27XIsSplitEpimorphism( phi );[127X[104X
     [4X[28Xfalse[128X[104X
-    [4X[25Xgap>[125X [27Xiota := AstrictionToCoimage( phi );[127X[104X
-    [4X[28X<A morphism in FinSets>[128X[104X
     [4X[25Xgap>[125X [27Xpi := CoimageProjection( phi );[127X[104X
     [4X[28X<An epimorphism in FinSets>[128X[104X
+    [4X[25Xgap>[125X [27Xiota := AstrictionToCoimage( phi );[127X[104X
+    [4X[28X<A morphism in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XPreCompose( pi, iota ) = phi;[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X

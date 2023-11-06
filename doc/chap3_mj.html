@@ -41,7 +41,7 @@
 #@if ValueOption( "no_precompiled_code" ) &lt;&gt; true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "CompilerForCAP", false );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "CompilerForCAP", "&gt;= 2023.10-03", false );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ReadPackage( "FinSetsForCAP", "gap/CompilerLogic.gi" );</span>
 true
@@ -55,6 +55,8 @@ true
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">          category_constructor( : no_precompiled_code := true ) );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">list_of_operations :=</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">  SortedList( Concatenation( primitive_operations, [</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">          "CoastrictionToImage",</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">          "CoimageProjection",</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">          "IsHomSetInhabited",</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">          "TruthMorphismOfImplies",</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">          #"HasPushoutComplement",</span>
