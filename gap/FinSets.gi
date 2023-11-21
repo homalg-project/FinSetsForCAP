@@ -17,6 +17,9 @@ InstallMethod( CategoryOfFiniteSets,
     
     FinSets!.supports_empty_limits := true;
     
+    SetIsCategoryWithDecidableLifts( FinSets, true );
+    SetIsCategoryWithDecidableColifts( FinSets, true );
+    
     SetIsElementaryTopos( FinSets, true );
     
     SetRangeCategoryOfHomomorphismStructure( FinSets, FinSets );

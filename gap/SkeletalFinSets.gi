@@ -26,6 +26,9 @@ InstallMethod( SkeletalCategoryOfFiniteSets,
     
     SetIsSkeletalCategory( cat, true );
     
+    SetIsCategoryWithDecidableLifts( cat, true );
+    SetIsCategoryWithDecidableColifts( cat, true );
+    
     SetIsElementaryTopos( cat, true );
     
     SetRangeCategoryOfHomomorphismStructure( cat, cat );
