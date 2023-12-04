@@ -507,7 +507,7 @@ function ( cat_1, arg2_1, arg3_1 )
     local deduped_2_1, deduped_3_1;
     deduped_3_1 := AsList( arg3_1 );
     deduped_2_1 := AsList( arg2_1 );
-    return ForAll( IdFunc( function (  )
+    return ForAll( CAP_JIT_EXPR_CASE_WRAPPER( function (  )
                 if 100 * Length( deduped_2_1 ) < Length( deduped_3_1 ) then
                     return SSortedList( deduped_2_1 );
                 else
@@ -810,15 +810,15 @@ function ( cat_1, l_1, m_1 )
     deduped_19_1 := SSortedList( Filtered( [ 0 .. deduped_27_1 - 1 ], function ( x_2 )
               local deduped_1_2;
               deduped_1_2 := CAP_JIT_INCOMPLETE_LOGIC( REM_INT( CAP_JIT_INCOMPLETE_LOGIC( x_2 ), deduped_27_1 ) );
-              return CAP_JIT_INCOMPLETE_LOGIC( IdFunc( function (  )
-                            if (CAP_JIT_INCOMPLETE_LOGIC( IdFunc( function (  )
+              return CAP_JIT_INCOMPLETE_LOGIC( CAP_JIT_EXPR_CASE_WRAPPER( function (  )
+                            if (CAP_JIT_INCOMPLETE_LOGIC( CAP_JIT_EXPR_CASE_WRAPPER( function (  )
                                               if (deduped_1_2 in hoisted_6_1) then
                                                   return deduped_32_1;
                                               else
                                                   return deduped_31_1;
                                               fi;
                                               return;
-                                          end )(  ) ) + CAP_JIT_INCOMPLETE_LOGIC( IdFunc( function (  )
+                                          end )(  ) ) + CAP_JIT_INCOMPLETE_LOGIC( CAP_JIT_EXPR_CASE_WRAPPER( function (  )
                                                 if (deduped_1_2 in hoisted_16_1) then
                                                     return deduped_32_1;
                                                 else
