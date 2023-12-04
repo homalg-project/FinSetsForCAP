@@ -583,15 +583,15 @@ end
     AddIsWellDefinedForMorphisms( cat,
         
 ########
-function ( cat_1, arg2_1 )
+function ( cat_1, alpha_1 )
     local hoisted_1_1, deduped_2_1;
-    deduped_2_1 := AsList( arg2_1 );
-    hoisted_1_1 := Length( Range( arg2_1 ) );
+    deduped_2_1 := AsList( alpha_1 );
+    hoisted_1_1 := Length( Range( alpha_1 ) );
     if not ForAll( deduped_2_1, function ( a_2 )
                  return (IsBigInt( a_2 ) and a_2 >= 0);
              end ) then
         return false;
-    elif Length( Source( arg2_1 ) ) <> Length( deduped_2_1 ) then
+    elif Length( Source( alpha_1 ) ) <> Length( deduped_2_1 ) then
         return false;
     elif not ForAll( deduped_2_1, function ( a_2 )
                  return a_2 < hoisted_1_1;
