@@ -10,9 +10,9 @@ SetPackageInfo( rec(
 
 PackageName := "FinSetsForCAP",
 Subtitle := "The elementary topos of (skeletal) finite sets",
-Version := "2023.12-02",
+Version := "2023.12-03",
 
-Date := "2023-12-04",
+Date := "2023-12-07",
 License := "GPL-2.0-or-later",
 
 Persons := [
@@ -98,7 +98,7 @@ PackageDoc := rec(
 Dependencies := rec(
   GAP := ">= 4.12.1",
   NeededOtherPackages := [
-                   [ "CAP", ">= 2023.12-01" ],
+                   [ "CAP", ">= 2023.12-05" ],
                    [ "CartesianCategories", ">= 2023.08-13" ],
                    [ "Toposes", ">= 2023.10-13" ],
                    ],
