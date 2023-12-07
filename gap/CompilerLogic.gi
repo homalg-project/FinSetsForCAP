@@ -310,8 +310,9 @@ CapJitAddLogicTemplate(
 CapJitAddLogicTemplate(
     rec(
         variable_names := [ "list" ],
-        src_template := "list{[ ]}",
-        dst_template := "[ ]",
+        variable_filters := [ CapJitDataTypeOfListOf( IsBigInt ) ],
+        src_template := "list{CapJitTypedExpression( [ ], { } -> CapJitDataTypeOfListOf( IsBigInt ) )}",
+        dst_template := "CapJitTypedExpression( [ ], { } -> CapJitDataTypeOfListOf( IsBigInt ) )",
     )
 );
 
@@ -334,7 +335,7 @@ CapJitAddLogicTemplate(
 CapJitAddLogicTemplate(
     rec(
         variable_names := [ ],
-        src_template := "Product( [ ] )",
+        src_template := "Product( CapJitTypedExpression( [ ], { } -> CapJitDataTypeOfListOf( IsBigInt ) ) )",
         dst_template := "BigInt( 1 )",
     )
 );
@@ -342,7 +343,7 @@ CapJitAddLogicTemplate(
 CapJitAddLogicTemplate(
     rec(
         variable_names := [ "func" ],
-        src_template := "Product( [ ], func )",
+        src_template := "Product( CapJitTypedExpression( [ ], { } -> CapJitDataTypeOfListOf( IsBigInt ) ), func )",
         dst_template := "BigInt( 1 )",
     )
 );

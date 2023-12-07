@@ -636,7 +636,7 @@ end );
 AddUniversalMorphismFromInitialObjectWithGivenInitialObject( SkeletalFinSets,
   function ( cat, m, I )
     
-    return MorphismConstructor( cat, I, [ ], m );
+    return MorphismConstructor( cat, I, CapJitTypedExpression( [ ], { } -> IsBigInt ), m );
     
 end );
 
