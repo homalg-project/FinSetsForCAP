@@ -1156,12 +1156,12 @@
     [4X[25Xgap>[125X [27Xexp := ExponentialOnObjects( M, N );;[127X[104X
     [4X[25Xgap>[125X [27XExponentialOnObjects( FinSet( [ 1 ] ), exp );;[127X[104X
     [4X[25Xgap>[125X [27XExponentialOnMorphisms( f, g );;[127X[104X
-    [4X[25Xgap>[125X [27XCartesianEvaluationMorphism( M, N );;[127X[104X
-    [4X[25Xgap>[125X [27XCartesianCoevaluationMorphism( M, N );;[127X[104X
-    [4X[25Xgap>[125X [27XDirectProductToExponentialAdjunctionMap( M, N,[127X[104X
+    [4X[25Xgap>[125X [27XCartesianLeftEvaluationMorphism( M, N );;[127X[104X
+    [4X[25Xgap>[125X [27XCartesianLeftCoevaluationMorphism( M, N );;[127X[104X
+    [4X[25Xgap>[125X [27XDirectProductToExponentialLeftAdjunctionMap( M, N,[127X[104X
     [4X[25X>[125X [27X    UniversalMorphismIntoTerminalObject( DirectProduct( M, N ) )[127X[104X
     [4X[25X>[125X [27X);;[127X[104X
-    [4X[25Xgap>[125X [27XExponentialToDirectProductAdjunctionMap( M, N,[127X[104X
+    [4X[25Xgap>[125X [27XExponentialToDirectProductLeftAdjunctionMap( M, N,[127X[104X
     [4X[25X>[125X [27X    UniversalMorphismFromInitialObject( ExponentialOnObjects( M, N ) )[127X[104X
     [4X[25X>[125X [27X);;[127X[104X
     [4X[25Xgap>[125X [27XM := FinSet( [ 1, 2 ] );;[127X[104X
