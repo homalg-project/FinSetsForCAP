@@ -894,7 +894,7 @@ end, 1 + Sum( [ [ "ExponentialOnObjects", 1 ],
         e -> e[2] * CurrentOperationWeight( SkeletalFinSets!.derivations_weight_list, e[1] ) ) );
 
 ##
-AddCartesianEvaluationMorphismWithGivenSource( SkeletalFinSets,
+AddCartesianLeftEvaluationMorphismWithGivenSource( SkeletalFinSets,
   function ( cat, M, N, HM_NxM )
     local m, n, exp;
     
@@ -908,7 +908,7 @@ AddCartesianEvaluationMorphismWithGivenSource( SkeletalFinSets,
 end );
 
 ##
-AddCartesianCoevaluationMorphismWithGivenRange( SkeletalFinSets,
+AddCartesianLeftCoevaluationMorphismWithGivenRange( SkeletalFinSets,
   function ( cat, M, N, HN_MxN )
     local m, n, mn;
     
