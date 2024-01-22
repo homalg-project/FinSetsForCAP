@@ -35,42 +35,6 @@ end
     , 100 );
     
     ##
-    AddCartesianCoevaluationMorphismWithGivenRange( cat,
-        
-########
-function ( cat_1, a_1, b_1, r_1 )
-    local hoisted_1_1, hoisted_2_1, deduped_3_1, deduped_4_1, deduped_5_1;
-    deduped_5_1 := Length( b_1 );
-    deduped_4_1 := Length( a_1 );
-    deduped_3_1 := deduped_4_1 * deduped_5_1;
-    hoisted_2_1 := deduped_4_1 * deduped_3_1 * GeometricSumDiff1( deduped_3_1, deduped_5_1 );
-    hoisted_1_1 := GeometricSum( deduped_3_1, deduped_5_1 );
-    return CreateCapCategoryMorphismWithAttributes( cat_1, a_1, r_1, AsList, List( [ 0 .. deduped_4_1 - 1 ], function ( i_2 )
-              return i_2 * hoisted_1_1 + hoisted_2_1;
-          end ) );
-end
-########
-        
-    , 100 );
-    
-    ##
-    AddCartesianEvaluationMorphismWithGivenSource( cat,
-        
-########
-function ( cat_1, a_1, b_1, s_1 )
-    local deduped_3_1, deduped_4_1, deduped_5_1;
-    deduped_5_1 := Length( a_1 );
-    deduped_4_1 := Length( b_1 );
-    deduped_3_1 := deduped_4_1 ^ deduped_5_1;
-    return CreateCapCategoryMorphismWithAttributes( cat_1, s_1, b_1, AsList, List( [ 0 .. deduped_3_1 * deduped_5_1 - 1 ], function ( i_2 )
-              return REM_INT( QUO_INT( i_2, deduped_4_1 ^ QUO_INT( i_2, deduped_3_1 ) ), deduped_4_1 );
-          end ) );
-end
-########
-        
-    , 100 );
-    
-    ##
     AddCartesianLambdaElimination( cat,
         
 ########
@@ -98,6 +62,42 @@ function ( cat_1, alpha_1 )
     return CreateCapCategoryMorphismWithAttributes( cat_1, CreateCapCategoryObjectWithAttributes( cat_1, Length, BigInt( 1 ) ), CreateCapCategoryObjectWithAttributes( cat_1, Length, deduped_3_1 ^ deduped_4_1 ), AsList, [ Sum( List( [ 0 .. deduped_4_1 - 1 ], function ( k_2 )
                     return hoisted_1_1[(1 + k_2)] * deduped_3_1 ^ k_2;
                 end ) ) ] );
+end
+########
+        
+    , 100 );
+    
+    ##
+    AddCartesianLeftCoevaluationMorphismWithGivenRange( cat,
+        
+########
+function ( cat_1, a_1, b_1, r_1 )
+    local hoisted_1_1, hoisted_2_1, deduped_3_1, deduped_4_1, deduped_5_1;
+    deduped_5_1 := Length( b_1 );
+    deduped_4_1 := Length( a_1 );
+    deduped_3_1 := deduped_4_1 * deduped_5_1;
+    hoisted_2_1 := deduped_4_1 * deduped_3_1 * GeometricSumDiff1( deduped_3_1, deduped_5_1 );
+    hoisted_1_1 := GeometricSum( deduped_3_1, deduped_5_1 );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, a_1, r_1, AsList, List( [ 0 .. deduped_4_1 - 1 ], function ( i_2 )
+              return i_2 * hoisted_1_1 + hoisted_2_1;
+          end ) );
+end
+########
+        
+    , 100 );
+    
+    ##
+    AddCartesianLeftEvaluationMorphismWithGivenSource( cat,
+        
+########
+function ( cat_1, a_1, b_1, s_1 )
+    local deduped_3_1, deduped_4_1, deduped_5_1;
+    deduped_5_1 := Length( a_1 );
+    deduped_4_1 := Length( b_1 );
+    deduped_3_1 := deduped_4_1 ^ deduped_5_1;
+    return CreateCapCategoryMorphismWithAttributes( cat_1, s_1, b_1, AsList, List( [ 0 .. deduped_3_1 * deduped_5_1 - 1 ], function ( i_2 )
+              return REM_INT( QUO_INT( i_2, deduped_4_1 ^ QUO_INT( i_2, deduped_3_1 ) ), deduped_4_1 );
+          end ) );
 end
 ########
         
