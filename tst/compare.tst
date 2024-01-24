@@ -68,13 +68,13 @@ gap> ev = Ev;
 true
 
 #
-gap> Coev_set := CartesianLeftCoevaluationMorphism( M, N );; ## M, K
+gap> Coev_set := CartesianLeftCoevaluationMorphism( N, M );; ## K, M
 gap> Coev := List( AsList( Coev_set ), i -> -1 + Position( AsList( Range( Coev_set ) ), i[2] ) );;
 gap> Display( Coev );
 [ 156, 199 ]
 
 #
-gap> coev := AsList( CartesianLeftCoevaluationMorphism( m, n ) );; ## m, k
+gap> coev := AsList( CartesianLeftCoevaluationMorphism( n, m ) );; ## k, m
 gap> Display( coev );
 [ 156, 199 ]
 
