@@ -32,7 +32,7 @@ CartesianBraidingInverse( M, N );;
 ExponentialOnObjects( M, N );;
 ExponentialOnMorphisms( f, g );;
 CartesianLeftEvaluationMorphism( M, N );;
-CartesianLeftCoevaluationMorphism( M, N );;
+CartesianLeftCoevaluationMorphism( N, M );;
 CartesianLeftCoevaluationMorphism( T, T );;
 DirectProductToExponentialLeftAdjunctionMap( M, N,
     UniversalMorphismIntoTerminalObject( DirectProduct( M, N ) )

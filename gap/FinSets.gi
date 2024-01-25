@@ -960,12 +960,12 @@ end );
 
 ##
 AddCartesianLeftCoevaluationMorphismWithGivenRange( category_of_finite_sets,
-  function ( category_of_finite_sets, M, N, HN_MxN )
-    local MN;
+  function ( category_of_finite_sets, M, N, HM_NxM )
+    local NM;
     
-    MN := DirectProduct( M, N );
+    NM := DirectProduct( N, M );
     
-    return MapOfFinSetsNC( M, List( M, x -> [ x, MapOfFinSetsNC( N, List( N, y -> [ y, [ x, y ] ] ), MN ) ] ), HN_MxN );
+    return MapOfFinSetsNC( N, List( N, x -> [ x, MapOfFinSetsNC( M, List( M, y -> [ y, [ x, y ] ] ), NM ) ] ), HM_NxM );
     
 end );
 

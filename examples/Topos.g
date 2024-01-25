@@ -32,7 +32,7 @@ exp := ExponentialOnObjects( M, N );;
 ExponentialOnObjects( FinSet( [ 1 ] ), exp );;
 ExponentialOnMorphisms( f, g );;
 CartesianLeftEvaluationMorphism( M, N );;
-CartesianLeftCoevaluationMorphism( M, N );;
+CartesianLeftCoevaluationMorphism( N, M );;
 DirectProductToExponentialLeftAdjunctionMap( M, N,
     UniversalMorphismIntoTerminalObject( DirectProduct( M, N ) )
 );;

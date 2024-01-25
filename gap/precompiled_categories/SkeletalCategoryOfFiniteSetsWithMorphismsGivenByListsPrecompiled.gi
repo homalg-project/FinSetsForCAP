@@ -73,12 +73,12 @@ end
 ########
 function ( cat_1, a_1, b_1, r_1 )
     local hoisted_1_1, hoisted_2_1, deduped_3_1, deduped_4_1, deduped_5_1;
-    deduped_5_1 := Length( b_1 );
-    deduped_4_1 := Length( a_1 );
+    deduped_5_1 := Length( a_1 );
+    deduped_4_1 := Length( b_1 );
     deduped_3_1 := deduped_4_1 * deduped_5_1;
     hoisted_2_1 := deduped_4_1 * deduped_3_1 * GeometricSumDiff1( deduped_3_1, deduped_5_1 );
     hoisted_1_1 := GeometricSum( deduped_3_1, deduped_5_1 );
-    return CreateCapCategoryMorphismWithAttributes( cat_1, a_1, r_1, AsList, List( [ 0 .. deduped_4_1 - 1 ], function ( i_2 )
+    return CreateCapCategoryMorphismWithAttributes( cat_1, b_1, r_1, AsList, List( [ 0 .. deduped_4_1 - 1 ], function ( i_2 )
               return i_2 * hoisted_1_1 + hoisted_2_1;
           end ) );
 end

@@ -909,17 +909,17 @@ end );
 
 ##
 AddCartesianLeftCoevaluationMorphismWithGivenRange( SkeletalFinSets,
-  function ( cat, M, N, HN_MxN )
-    local m, n, mn;
+  function ( cat, M, N, HM_NxM )
+    local m, n, nm;
     
     m := Length( M );
     n := Length( N );
     
-    mn := m * n;
+    nm := n * m;
     
-    #return MorphismConstructor( cat, M, List( [ 0 .. m - 1 ], i -> Sum( [ 0 .. n - 1 ], j -> ( i + m * j ) * (m*n)^j ) ), HN_MxN );
+    #return MorphismConstructor( cat, N, List( [ 0 .. n - 1 ], i -> Sum( [ 0 .. m - 1 ], j -> ( i + n * j ) * (n*m)^j ) ), HM_NxM );
     
-    return MorphismConstructor( cat, M, List( [ 0 .. m - 1 ], i -> i * GeometricSum( mn, n ) + m * mn * GeometricSumDiff1( mn, n ) ), HN_MxN );
+    return MorphismConstructor( cat, N, List( [ 0 .. n - 1 ], i -> i * GeometricSum( nm, m ) + n * nm * GeometricSumDiff1( nm, m ) ), HM_NxM );
     
 end );
 
