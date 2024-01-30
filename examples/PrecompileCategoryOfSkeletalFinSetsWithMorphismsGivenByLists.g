@@ -10,8 +10,7 @@ LoadPackage( "FinSetsForCAP", false );
 #! true
 LoadPackage( "CompilerForCAP", ">= 2023.10-03", false );
 #! true
-
-ReadPackage( "FinSetsForCAP", "gap/CompilerLogic.gi" );
+ReadPackageOnce( "FinSetsForCAP", "gap/CompilerLogic.gi" );
 #! true
 
 category_constructor := {} -> SkeletalCategoryOfFiniteSets( );;
