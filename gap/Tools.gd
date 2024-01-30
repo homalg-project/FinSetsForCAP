@@ -29,6 +29,35 @@ DeclareOperation( "GeometricSumDiff1",
 CapJitAddTypeSignature( "GeometricSumDiff1", [ IsBigInt, IsBigInt ], IsBigInt );
 
 #! @Description
+#!  Return the remainder of the natural number <A>v</A> less than <A>ab</A> modulo <A>a</A>,
+#!  where <A>ab</A> is a multiple of <A>a</A>.
+#! @Arguments v, a, ab
+#! @Returns an integer
+DeclareOperation( "RemIntWithDomain",
+        [ IsBigInt, IsObject, IsBigInt ] );
+
+CapJitAddTypeSignature( "RemIntWithDomain", [ IsBigInt, IsBigInt, IsBigInt ], IsBigInt );
+
+#! @Description
+#!  Return the quotient of the natural number <A>v</A> less than <A>ab</A> modulo <A>a</A>,
+#!  where <A>ab</A> is a multiple of <A>a</A>.
+#! @Arguments v, a, ab
+#! @Returns an integer
+DeclareOperation( "QuoIntWithDomain",
+        [ IsBigInt, IsObject, IsBigInt ] );
+
+CapJitAddTypeSignature( "QuoIntWithDomain", [ IsBigInt, IsBigInt, IsBigInt ], IsBigInt );
+
+#! @Description
+#!  Return the quotient <A>q</A> of the natural number <A>a</A> by the divior <A>d</A>.
+#! @Arguments a, d, q
+#! @Returns an integer
+DeclareOperation( "DivIntWithGivenQuotient",
+        [ IsBigInt, IsObject, IsBigInt ] );
+
+CapJitAddTypeSignature( "DivIntWithGivenQuotient", [ IsBigInt, IsBigInt, IsBigInt ], IsBigInt );
+
+#! @Description
 #!  Return the digit of index <A>i</A> in the <A>b</A>-adic expansion of length <A>l</A> of the natural number <A>v</A>.
 #! @Arguments v, i, l, b
 #! @Returns an integer

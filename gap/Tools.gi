@@ -32,6 +32,51 @@ InstallMethod( GeometricSumDiff1,
     
 end );
 
+## ProjectionInFactorOfDirectProduct( [ a, b ], 1 )
+InstallMethod( RemIntWithDomain,
+        [ IsBigInt, IsObject, IsBigInt ],
+        ## FIXME: replace IsObject -> IsBigInt
+        ## The line Product( List( D{[ 1 .. k - 1 ]}, Length ) ) in AddProjectionInFactorOfDirectProductWithGivenDirectProduct
+        ## produces during *runtime* an empty list and Product( [ ] ) in CAP.jl evaluates it to 1 and not BigInt( 1 )
+        
+  function ( number, a, ab )
+    
+    Assert( 0, number < ab );
+    
+    return RemInt( number, a );
+    
+end );
+
+## ProjectionInFactorOfDirectProduct( [ a, b ], 2 )
+InstallMethod( QuoIntWithDomain,
+        [ IsBigInt, IsObject, IsBigInt ],
+        ## FIXME: replace IsObject -> IsBigInt
+        ## The line Product( List( D{[ 1 .. k - 1 ]}, Length ) ) in AddProjectionInFactorOfDirectProductWithGivenDirectProduct
+        ## produces during *runtime* an empty list and Product( [ ] ) in CAP.jl evaluates it to 1 and not BigInt( 1 )
+        
+  function ( number, a, ab )
+    
+    Assert( 0, number < ab );
+    
+    return QuoInt( number, a );
+    
+end );
+
+##
+InstallMethod( DivIntWithGivenQuotient,
+        [ IsBigInt, IsObject, IsBigInt ],
+        ## FIXME: replace IsObject -> IsBigInt
+        ## The line Product( List( D{[ 1 .. k - 1 ]}, Length ) ) in AddProjectionInFactorOfDirectProductWithGivenDirectProduct
+        ## produces during *runtime* an empty list and Product( [ ] ) in CAP.jl evaluates it to 1 and not BigInt( 1 )
+        
+  function ( number, d, q )
+    
+    Assert( 0, d * q = number );
+    
+    return q;
+    
+end );
+
 ## CartesianLambdaElimination
 InstallMethod( DigitInPositionalNotation,
         [ IsBigInt, IsBigInt, IsBigInt, IsBigInt ],
