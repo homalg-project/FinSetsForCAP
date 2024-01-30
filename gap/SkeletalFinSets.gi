@@ -883,6 +883,39 @@ end, 1 + Sum( [ [ "ExponentialOnObjects", 1 ],
                 [ "CartesianLambdaIntroduction", 2 ] ],
         e -> e[2] * CurrentOperationWeight( SkeletalFinSets!.derivations_weight_list, e[1] ) ) );
 
+## L × Bᴸ → B
+AddCartesianRightEvaluationMorphismWithGivenSource( SkeletalFinSets,
+  function ( cat, L, B, LxHL_B )
+    local l, b, exp, eval;
+    
+    l := Length( L );
+    b := Length( B );
+    
+    exp := b ^ l;
+    
+    ## (i,f) ↦ f(i)
+    eval :=
+      function( i_f ) ## (i,f)
+        local i, f;
+        
+        ## lhs
+        i := RemIntWithDomain( i_f, l, l * exp ); ## ∈ { 0, ..., l - 1 } is a digit position
+        
+        ## rhs
+        f := QuoIntWithDomain( i_f, l, l * exp ); ## ∈ { 0, ..., exp - 1 } is a number of base b in at most l digits
+        
+        ## f(i) is the digit at index i of the number f in digital notation with base b
+        return DigitInPositionalNotation( f, i, l, b );
+    end;
+    
+    ## (i,f) ↦ f(i)
+    return MorphismConstructor( cat,
+                   LxHL_B,
+                   List( [ 0 .. ( b^l * l ) - 1 ], eval ),
+                   B );
+    
+end );
+
 ## Bᴸ × L → B
 AddCartesianLeftEvaluationMorphismWithGivenSource( SkeletalFinSets,
   function ( cat, L, B, HL_BxL )

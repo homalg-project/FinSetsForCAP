@@ -150,6 +150,24 @@ end
     , 100 );
     
     ##
+    AddCartesianRightEvaluationMorphismWithGivenSource( cat,
+        
+########
+function ( cat_1, a_1, b_1, s_1 )
+    local deduped_2_1, deduped_4_1, deduped_5_1, deduped_6_1;
+    deduped_6_1 := Length( a_1 );
+    deduped_5_1 := Length( b_1 );
+    deduped_4_1 := deduped_5_1 ^ deduped_6_1;
+    deduped_2_1 := deduped_6_1 * deduped_4_1;
+    return CreateCapCategoryMorphismWithAttributes( cat_1, s_1, b_1, AsList, List( [ 0 .. deduped_4_1 * deduped_6_1 - 1 ], function ( i_f_2 )
+              return DigitInPositionalNotation( QuoIntWithDomain( i_f_2, deduped_6_1, deduped_2_1 ), RemIntWithDomain( i_f_2, deduped_6_1, deduped_2_1 ), deduped_6_1, deduped_5_1 );
+          end ) );
+end
+########
+        
+    , 100 );
+    
+    ##
     AddCartesianRightUnitorInverseWithGivenDirectProduct( cat,
         
 ########
