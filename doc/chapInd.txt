@@ -11,6 +11,7 @@
   [2XCallFuncList[102X, for IsMorphismInCategoryOfFiniteSets, IsDenseList 1.4-13 
       for IsMorphismInSkeletalCategoryOfFiniteSets, IsList 2.4-5 
   [2XCategoryOfFiniteSets[102X 1.3-1 
+  [2XDigitInPositionalNotation[102X, for IsBigInt, IsBigInt, IsBigInt, IsBigInt 2.4-8 
   [2XEmbeddingOfFinSets[102X, for IsObjectInCategoryOfFiniteSets, IsObjectInCategoryOfFiniteSets 1.4-9 
       for IsObjectInSkeletalCategoryOfFiniteSets, IsObjectInSkeletalCategoryOfFiniteSets 2.4-2 
   [2XFilteredOp[102X, for IsObjectInCategoryOfFiniteSets, IsFunction 1.4-7 
