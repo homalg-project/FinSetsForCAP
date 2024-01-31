@@ -27,3 +27,12 @@ DeclareOperation( "GeometricSumDiff1",
         [ IsRingElement, IsBigInt ] );
 
 CapJitAddTypeSignature( "GeometricSumDiff1", [ IsBigInt, IsBigInt ], IsBigInt );
+
+#! @Description
+#!  Return the digit of index <A>i</A> in the <A>b</A>-adic expansion of length <A>l</A> of the natural number <A>v</A>.
+#! @Arguments v, i, l, b
+#! @Returns an integer
+DeclareOperation( "DigitInPositionalNotation",
+        [ IsBigInt, IsBigInt, IsBigInt, IsBigInt ] );
+
+CapJitAddTypeSignature( "DigitInPositionalNotation", [ IsBigInt, IsBigInt, IsBigInt, IsBigInt ], IsBigInt );

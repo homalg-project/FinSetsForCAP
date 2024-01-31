@@ -31,3 +31,15 @@ InstallMethod( GeometricSumDiff1,
     return QUO_INT( 1 + ((n - 1) * q - n) * q ^ (n - 1), (q - 1) ^ 2 );
     
 end );
+
+## CartesianLambdaElimination
+InstallMethod( DigitInPositionalNotation,
+        [ IsBigInt, IsBigInt, IsBigInt, IsBigInt ],
+        
+  function ( number, index, length, base )
+    
+    Assert( 0, index < length );
+    
+    return RemInt( QuoInt( number, base ^ index ), base );
+    
+end );
