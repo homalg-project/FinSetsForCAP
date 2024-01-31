@@ -24,6 +24,8 @@ primitive_operations :=
           category_constructor( : no_precompiled_code := true ) );;
 list_of_operations :=
   SortedList( Concatenation( primitive_operations, [
+          "CartesianBraidingWithGivenDirectProducts",
+          "CartesianBraidingInverseWithGivenDirectProducts",
           "CoastrictionToImage",
           "CoimageProjection",
           "IsHomSetInhabited",
