@@ -785,19 +785,6 @@ AddCartesianRightUnitorInverseWithGivenDirectProduct( SkeletalFinSets,
 end );
 
 ##
-AddCartesianBraidingInverseWithGivenDirectProducts( SkeletalFinSets,
-  function ( cat, MN, M, N, NM )
-    local m, n;
-    
-    m := Length( M );
-    
-    n := Length( N );
-    
-    return MorphismConstructor( cat, MN, List( MN , i -> RemInt( i, n ) * m + QuoInt( i, n ) ), NM );
-    
-end );
-
-##
 AddExponentialOnObjects( SkeletalFinSets,
   function ( cat, M, N )
     local m, n;

@@ -23,16 +23,36 @@ end
         
 ########
 function ( cat_1, s_1, a_1, b_1, r_1 )
-    local deduped_1_1, hoisted_2_1;
-    hoisted_2_1 := Length( a_1 );
+    local deduped_1_1, deduped_2_1;
+    deduped_2_1 := Length( a_1 );
     deduped_1_1 := Length( b_1 );
     return CreateCapCategoryMorphismWithAttributes( cat_1, s_1, r_1, AsList, List( [ 0 .. Length( s_1 ) - 1 ], function ( i_2 )
-              return REM_INT( i_2, deduped_1_1 ) * hoisted_2_1 + QUO_INT( i_2, deduped_1_1 );
+              local deduped_1_2;
+              deduped_1_2 := CAP_JIT_INCOMPLETE_LOGIC( i_2 );
+              return CAP_JIT_INCOMPLETE_LOGIC( REM_INT( QUO_INT( deduped_1_2, deduped_1_1 ), deduped_2_1 ) ) + CAP_JIT_INCOMPLETE_LOGIC( REM_INT( deduped_1_2, deduped_1_1 ) ) * deduped_2_1;
           end ) );
 end
 ########
         
-    , 100 );
+    , 301 : IsPrecompiledDerivation := true );
+    
+    ##
+    AddCartesianBraidingWithGivenDirectProducts( cat,
+        
+########
+function ( cat_1, s_1, a_1, b_1, r_1 )
+    local deduped_1_1, deduped_2_1;
+    deduped_2_1 := Length( b_1 );
+    deduped_1_1 := Length( a_1 );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, s_1, r_1, AsList, List( [ 0 .. Length( s_1 ) - 1 ], function ( i_2 )
+              local deduped_1_2;
+              deduped_1_2 := CAP_JIT_INCOMPLETE_LOGIC( i_2 );
+              return CAP_JIT_INCOMPLETE_LOGIC( REM_INT( QUO_INT( deduped_1_2, deduped_1_1 ), deduped_2_1 ) ) + CAP_JIT_INCOMPLETE_LOGIC( REM_INT( deduped_1_2, deduped_1_1 ) ) * deduped_2_1;
+          end ) );
+end
+########
+        
+    , 301 : IsPrecompiledDerivation := true );
     
     ##
     AddCartesianLambdaElimination( cat,
