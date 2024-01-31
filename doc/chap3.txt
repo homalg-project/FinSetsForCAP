@@ -22,6 +22,8 @@
     [4X[25X>[125X [27X          category_constructor( : no_precompiled_code := true ) );;[127X[104X
     [4X[25Xgap>[125X [27Xlist_of_operations :=[127X[104X
     [4X[25X>[125X [27X  SortedList( Concatenation( primitive_operations, [[127X[104X
+    [4X[25X>[125X [27X          "CartesianBraidingWithGivenDirectProducts",[127X[104X
+    [4X[25X>[125X [27X          "CartesianBraidingInverseWithGivenDirectProducts",[127X[104X
     [4X[25X>[125X [27X          "CoastrictionToImage",[127X[104X
     [4X[25X>[125X [27X          "CoimageProjection",[127X[104X
     [4X[25X>[125X [27X          "IsHomSetInhabited",[127X[104X
