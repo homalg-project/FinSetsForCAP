@@ -801,37 +801,37 @@ end );
 
 ## InterpretMorphismFromDistinguishedObjectToHomomorphismStructureAsMorphism
 AddCartesianLambdaElimination( SkeletalFinSets,
-  function ( cat, M, N, intro )
-    local m, n, v;
+  function ( cat, L, B, intro )
+    local l, b, v;
     
-    m := Length( M );
-    n := Length( N );
+    l := Length( L );
+    b := Length( B );
     
     v := AsList( intro )[1];
     
     return MorphismConstructor( cat,
-                   M,
-                   List( [ 0 .. m - 1 ], i -> DigitInPositionalNotation( v, i, m, n ) ),
-                   N );
+                   L,
+                   List( [ 0 .. l - 1 ], i -> DigitInPositionalNotation( v, i, l, b ) ),
+                   B );
     
 end );
 
 ## InterpretMorphismAsMorphismFromDistinguishedObjectToHomomorphismStructure
 AddCartesianLambdaIntroduction( SkeletalFinSets,
   function ( cat, map )
-    local M, m, N, n, images;
+    local L, l, B, b, images;
     
-    M := Source( map );
-    m := Length( M );
-    N := Range( map );
-    n := Length( N );
+    L := Source( map );
+    l := Length( L );
+    B := Range( map );
+    b := Length( B );
     
     images := AsList( map );
     
     return MorphismConstructor( cat,
                    TerminalObject( cat ),
-                   [ Sum( List( [ 0 .. m - 1 ], k -> images[1 + k] * n^k ) ) ],
-                   ExponentialOnObjects( cat, M, N ) );
+                   [ Sum( List( [ 0 .. l - 1 ], k -> images[1 + k] * b^k ) ) ],
+                   ExponentialOnObjects( cat, L, B ) );
     
 end );
 
@@ -899,17 +899,17 @@ end );
 
 ##
 AddCartesianLeftCoevaluationMorphismWithGivenRange( SkeletalFinSets,
-  function ( cat, M, N, HM_NxM )
-    local m, n, nm;
+  function ( cat, L, B, HL_BxL )
+    local l, b, bl;
     
-    m := Length( M );
-    n := Length( N );
+    l := Length( L );
+    b := Length( B );
     
-    nm := n * m;
+    bl := b * l;
     
-    #return MorphismConstructor( cat, N, List( [ 0 .. n - 1 ], i -> Sum( [ 0 .. m - 1 ], j -> ( i + n * j ) * (n*m)^j ) ), HM_NxM );
+    #return MorphismConstructor( cat, B, List( [ 0 .. b - 1 ], i -> Sum( [ 0 .. l - 1 ], j -> ( i + b * j ) * (b*l)^j ) ), HL_BxL );
     
-    return MorphismConstructor( cat, N, List( [ 0 .. n - 1 ], i -> i * GeometricSum( nm, m ) + n * nm * GeometricSumDiff1( nm, m ) ), HM_NxM );
+    return MorphismConstructor( cat, B, List( [ 0 .. b - 1 ], i -> i * GeometricSum( bl, l ) + b * bl * GeometricSumDiff1( bl, l ) ), HL_BxL );
     
 end );
 
