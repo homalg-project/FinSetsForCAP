@@ -114,12 +114,13 @@ end
         
 ########
 function ( cat_1, a_1, b_1, s_1 )
-    local deduped_3_1, deduped_4_1, deduped_5_1;
-    deduped_5_1 := Length( a_1 );
-    deduped_4_1 := Length( b_1 );
-    deduped_3_1 := deduped_4_1 ^ deduped_5_1;
-    return CreateCapCategoryMorphismWithAttributes( cat_1, s_1, b_1, AsList, List( [ 0 .. deduped_3_1 * deduped_5_1 - 1 ], function ( i_2 )
-              return REM_INT( QUO_INT( i_2, deduped_4_1 ^ QUO_INT( i_2, deduped_3_1 ) ), deduped_4_1 );
+    local deduped_1_1, deduped_5_1, deduped_6_1, deduped_7_1;
+    deduped_7_1 := Length( a_1 );
+    deduped_6_1 := Length( b_1 );
+    deduped_5_1 := Length( s_1 );
+    deduped_1_1 := deduped_6_1 ^ deduped_7_1;
+    return CreateCapCategoryMorphismWithAttributes( cat_1, s_1, b_1, AsList, List( [ 0 .. deduped_5_1 - 1 ], function ( f_i_2 )
+              return DigitInPositionalNotation( RemIntWithDomain( f_i_2, deduped_1_1, deduped_5_1 ), QuoIntWithDomain( f_i_2, deduped_1_1, deduped_5_1 ), deduped_7_1, deduped_6_1 );
           end ) );
 end
 ########

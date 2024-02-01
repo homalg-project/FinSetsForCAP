@@ -883,17 +883,37 @@ end, 1 + Sum( [ [ "ExponentialOnObjects", 1 ],
                 [ "CartesianLambdaIntroduction", 2 ] ],
         e -> e[2] * CurrentOperationWeight( SkeletalFinSets!.derivations_weight_list, e[1] ) ) );
 
-##
+## Bᴸ × L → B
 AddCartesianLeftEvaluationMorphismWithGivenSource( SkeletalFinSets,
-  function ( cat, M, N, HM_NxM )
-    local m, n, exp;
+  function ( cat, L, B, HL_BxL )
+    local l, b, s, exp, eval;
     
-    m := Length( M );
-    n := Length( N );
+    l := Length( L );
+    b := Length( B );
     
-    exp := n ^ m;
+    s := Length( HL_BxL );
     
-    return MorphismConstructor( cat, HM_NxM, List( [ 0 .. ( n^m * m ) - 1 ], i -> RemInt( QuoInt( i, n^QuoInt( i, exp ) ), n ) ), N );
+    exp := b ^ l;
+    
+    ## (f,i) ↦ f(i)
+    eval :=
+      function( f_i ) ## (f,i)
+        local i, f;
+        
+        ## lhs
+        f := RemIntWithDomain( f_i, exp, s ); ## ∈ { 0, ..., exp - 1 }
+        
+        ## rhs
+        i := QuoIntWithDomain( f_i, exp, s ); ## ∈ { 0, ..., l - 1 }
+        
+        return DigitInPositionalNotation( f, i, l, b ); ## f(i)
+    end;
+    
+    ## (i,f) ↦ f(i)
+    return MorphismConstructor( cat,
+                   HL_BxL,
+                   List( [ 0 .. s - 1 ], eval ),
+                   B );
     
 end );
 
