@@ -31,6 +31,10 @@ CartesianBraiding( M, N );;
 CartesianBraidingInverse( M, N );;
 ExponentialOnObjects( M, N );;
 ExponentialOnMorphisms( f, g );;
+CartesianRightEvaluationMorphism( M, N );;
+ExponentialToDirectProductRightAdjunctionMap( M, N,
+    UniversalMorphismFromInitialObject( ExponentialOnObjects( M, N ) )
+);;
 CartesianLeftEvaluationMorphism( M, N );;
 CartesianLeftCoevaluationMorphism( N, M );;
 CartesianLeftCoevaluationMorphism( T, T );;
