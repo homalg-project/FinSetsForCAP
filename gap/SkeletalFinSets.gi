@@ -542,15 +542,18 @@ end );
 ##
 AddProjectionInFactorOfDirectProductWithGivenDirectProduct( SkeletalFinSets,
   function ( cat, D, k, P )
-    local T, l, a;
+    local T, d, a, b, p;
     
     T := D[k];
     
-    l := Length( T );
+    d := Length( T );
     
     a := Product( List( D{[ 1 .. k - 1 ]}, Length ) );
+    b := Product( List( D{[ k + 1 .. Length( D ) ]}, Length ) );
     
-    return MorphismConstructor( cat, P, List( P, i -> RemInt( QuoInt( i, a ), l ) ), T );
+    p := Length( P );
+    
+    return MorphismConstructor( cat, P, List( P, i -> RemIntWithDomain( QuoIntWithDomain( i, a, p ), d, DivIntWithGivenQuotient( p, a, d * b ) ) ), T );
     
 end );
 

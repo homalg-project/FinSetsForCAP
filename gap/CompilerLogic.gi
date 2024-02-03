@@ -43,7 +43,7 @@ CapJitAddLogicFunction( function ( tree )
                     
                 end ) );
                 
-                if tree.funcref.gvar in [ "+", "-", "*", "QUO_INT", "REM_INT" ] then
+                if tree.funcref.gvar in [ "+", "-", "*", "QUO_INT", "REM_INT", "RemIntWithDomain", "QuoIntWithDomain" ] then
                     
                     tree := rec(
                         type := "EXPR_INT",
@@ -208,9 +208,9 @@ CapJitAddLogicTemplate(
 ## for PushoutComplement
 CapJitAddLogicTemplate(
     rec(
-        variable_names := [ "last" ],
-        src_template := "List( [ 0 .. last - 1 ], x -> REM_INT( x, last ) )",
-        dst_template := "[ 0 .. last - 1 ]",
+        variable_names := [ "number", "q", "d", "qd" ],
+        src_template := "RemIntWithDomain( number, d, DivIntWithGivenQuotient( qd, q, d ) )",
+        dst_template := "number",
     )
 );
 
@@ -300,9 +300,18 @@ CapJitAddLogicTemplate(
 
 CapJitAddLogicTemplate(
     rec(
-        variable_names := [ "number" ],
-        variable_filters := [ IsBigInt ],
-        src_template := "QUO_INT( number, BigInt( 1 ) )",
+        variable_names := [ "number", "domain" ],
+        variable_filters := [ IsBigInt, IsBigInt ],
+        src_template := "QuoIntWithDomain( number, BigInt( 1 ), domain )",
+        dst_template := "number",
+    )
+);
+
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "number", "quotient" ],
+        variable_filters := [ IsBigInt, IsBigInt ],
+        src_template := "DivIntWithGivenQuotient( number, BigInt( 1 ), quotient )",
         dst_template := "number",
     )
 );
@@ -321,6 +330,14 @@ CapJitAddLogicTemplate(
         variable_names := [ "list" ],
         src_template := "list{[ 1 ]}",
         dst_template := "[ list[1] ]",
+    )
+);
+
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "entry1", "entry2" ],
+        src_template := "[ entry1, entry2 ]{[ 2 ]}",
+        dst_template := "[ entry2 ]",
     )
 );
 
