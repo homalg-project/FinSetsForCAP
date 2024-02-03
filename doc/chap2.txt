@@ -222,7 +222,30 @@
   [33X[0;0YReturns [23X(1+((n-1)*q-n)*q^(n-1))/(q-1)^2[123X = [10XSum[110X( [ 0 .. [3Xn[103X - 1 ], i -> i * [3Xq[103X^(i
   - 1) ), taking the corner case [3Xq[103X[23X= 1[123X into account.[133X
   
-  [1X2.4-8 DigitInPositionalNotation[101X
+  [1X2.4-8 RemIntWithDomain[101X
+  
+  [33X[1;0Y[29X[2XRemIntWithDomain[102X( [3Xv[103X, [3Xa[103X, [3Xab[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yan integer[133X
+  
+  [33X[0;0YReturn the remainder of the natural number [3Xv[103X less than [3Xab[103X modulo [3Xa[103X, where [3Xab[103X
+  is a multiple of [3Xa[103X.[133X
+  
+  [1X2.4-9 QuoIntWithDomain[101X
+  
+  [33X[1;0Y[29X[2XQuoIntWithDomain[102X( [3Xv[103X, [3Xa[103X, [3Xab[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yan integer[133X
+  
+  [33X[0;0YReturn  the quotient of the natural number [3Xv[103X less than [3Xab[103X modulo [3Xa[103X, where [3Xab[103X
+  is a multiple of [3Xa[103X.[133X
+  
+  [1X2.4-10 DivIntWithGivenQuotient[101X
+  
+  [33X[1;0Y[29X[2XDivIntWithGivenQuotient[102X( [3Xa[103X, [3Xd[103X, [3Xq[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yan integer[133X
+  
+  [33X[0;0YReturn the quotient [3Xq[103X of the natural number [3Xa[103X by the divior [3Xd[103X.[133X
+  
+  [1X2.4-11 DigitInPositionalNotation[101X
   
   [33X[1;0Y[29X[2XDigitInPositionalNotation[102X( [3Xv[103X, [3Xi[103X, [3Xl[103X, [3Xb[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Yan integer[133X

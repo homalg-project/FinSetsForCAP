@@ -55,7 +55,10 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7F80ECC97A67AAB1">2.4-5 CallFuncList</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X828F68137946EB40">2.4-6 GeometricSum</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X86E3CD0982927451">2.4-7 GeometricSumDiff1</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X8407993D79406AEB">2.4-8 DigitInPositionalNotation</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7DE869077F07213A">2.4-8 RemIntWithDomain</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X8680D7B38203D842">2.4-9 QuoIntWithDomain</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X86CB94B27BF991EB">2.4-10 DivIntWithGivenQuotient</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X8407993D79406AEB">2.4-11 DigitInPositionalNotation</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2.html#X7A489A5D79DA9E5C">2.5 <span class="Heading">Examples</span></a>
 </span>
@@ -356,9 +359,36 @@ true
 
 <p>Returns <span class="Math">(1+((n-1)*q-n)*q^(n-1))/(q-1)^2</span> = <code class="code">Sum</code>( [ 0 .. <var class="Arg">n</var> - 1 ], i -&gt; i * <var class="Arg">q</var>^(i - 1) ), taking the corner case <var class="Arg">q</var><span class="Math">= 1</span> into account.</p>
 
+<p><a id="X7DE869077F07213A" name="X7DE869077F07213A"></a></p>
+
+<h5>2.4-8 RemIntWithDomain</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RemIntWithDomain</code>( <var class="Arg">v</var>, <var class="Arg">a</var>, <var class="Arg">ab</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: an integer</p>
+
+<p>Return the remainder of the natural number <var class="Arg">v</var> less than <var class="Arg">ab</var> modulo <var class="Arg">a</var>, where <var class="Arg">ab</var> is a multiple of <var class="Arg">a</var>.</p>
+
+<p><a id="X8680D7B38203D842" name="X8680D7B38203D842"></a></p>
+
+<h5>2.4-9 QuoIntWithDomain</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QuoIntWithDomain</code>( <var class="Arg">v</var>, <var class="Arg">a</var>, <var class="Arg">ab</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: an integer</p>
+
+<p>Return the quotient of the natural number <var class="Arg">v</var> less than <var class="Arg">ab</var> modulo <var class="Arg">a</var>, where <var class="Arg">ab</var> is a multiple of <var class="Arg">a</var>.</p>
+
+<p><a id="X86CB94B27BF991EB" name="X86CB94B27BF991EB"></a></p>
+
+<h5>2.4-10 DivIntWithGivenQuotient</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DivIntWithGivenQuotient</code>( <var class="Arg">a</var>, <var class="Arg">d</var>, <var class="Arg">q</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: an integer</p>
+
+<p>Return the quotient <var class="Arg">q</var> of the natural number <var class="Arg">a</var> by the divior <var class="Arg">d</var>.</p>
+
 <p><a id="X8407993D79406AEB" name="X8407993D79406AEB"></a></p>
 
-<h5>2.4-8 DigitInPositionalNotation</h5>
+<h5>2.4-11 DigitInPositionalNotation</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DigitInPositionalNotation</code>( <var class="Arg">v</var>, <var class="Arg">i</var>, <var class="Arg">l</var>, <var class="Arg">b</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: an integer</p>
