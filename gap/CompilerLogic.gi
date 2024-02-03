@@ -205,6 +205,14 @@ CapJitAddLogicTemplate(
     )
 );
 
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "number", "a" ],
+        src_template := "RemIntWithDomain( number, a, a )",
+        dst_template := "number",
+    )
+);
+
 ## for PushoutComplement
 CapJitAddLogicTemplate(
     rec(
@@ -286,6 +294,15 @@ CapJitAddLogicTemplate(
         variable_filters := [ IsBigInt ],
         src_template := "BigInt( 1 ) * number",
         dst_template := "number",
+    )
+);
+
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "number" ],
+        variable_filters := [ IsBigInt ],
+        src_template := "number * BigInt( 0 )",
+        dst_template := "BigInt( 0 )",
     )
 );
 
