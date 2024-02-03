@@ -801,37 +801,37 @@ end );
 
 ## InterpretMorphismFromDistinguishedObjectToHomomorphismStructureAsMorphism
 AddCartesianLambdaElimination( SkeletalFinSets,
-  function ( cat, M, N, intro )
-    local m, n, v;
+  function ( cat, L, B, intro )
+    local l, b, v;
     
-    m := Length( M );
-    n := Length( N );
+    l := Length( L );
+    b := Length( B );
     
     v := AsList( intro )[1];
     
     return MorphismConstructor( cat,
-                   M,
-                   List( [ 0 .. m - 1 ], i -> DigitInPositionalNotation( v, i, m, n ) ),
-                   N );
+                   L,
+                   List( [ 0 .. l - 1 ], i -> DigitInPositionalNotation( v, i, l, b ) ),
+                   B );
     
 end );
 
 ## InterpretMorphismAsMorphismFromDistinguishedObjectToHomomorphismStructure
 AddCartesianLambdaIntroduction( SkeletalFinSets,
   function ( cat, map )
-    local M, m, N, n, images;
+    local L, l, B, b, images;
     
-    M := Source( map );
-    m := Length( M );
-    N := Range( map );
-    n := Length( N );
+    L := Source( map );
+    l := Length( L );
+    B := Range( map );
+    b := Length( B );
     
     images := AsList( map );
     
     return MorphismConstructor( cat,
                    TerminalObject( cat ),
-                   [ Sum( List( [ 0 .. m - 1 ], k -> images[1 + k] * n^k ) ) ],
-                   ExponentialOnObjects( cat, M, N ) );
+                   [ Sum( List( [ 0 .. l - 1 ], k -> images[1 + k] * b^k ) ) ],
+                   ExponentialOnObjects( cat, L, B ) );
     
 end );
 
@@ -883,33 +883,53 @@ end, 1 + Sum( [ [ "ExponentialOnObjects", 1 ],
                 [ "CartesianLambdaIntroduction", 2 ] ],
         e -> e[2] * CurrentOperationWeight( SkeletalFinSets!.derivations_weight_list, e[1] ) ) );
 
-##
+## Bᴸ × L → B
 AddCartesianLeftEvaluationMorphismWithGivenSource( SkeletalFinSets,
-  function ( cat, M, N, HM_NxM )
-    local m, n, exp;
+  function ( cat, L, B, HL_BxL )
+    local l, b, s, exp, eval;
     
-    m := Length( M );
-    n := Length( N );
+    l := Length( L );
+    b := Length( B );
     
-    exp := n ^ m;
+    s := Length( HL_BxL );
     
-    return MorphismConstructor( cat, HM_NxM, List( [ 0 .. ( n^m * m ) - 1 ], i -> RemInt( QuoInt( i, n^QuoInt( i, exp ) ), n ) ), N );
+    exp := b ^ l;
+    
+    ## (f,i) ↦ f(i)
+    eval :=
+      function( f_i ) ## (f,i)
+        local i, f;
+        
+        ## lhs
+        f := RemIntWithDomain( f_i, exp, s ); ## ∈ { 0, ..., exp - 1 }
+        
+        ## rhs
+        i := QuoIntWithDomain( f_i, exp, s ); ## ∈ { 0, ..., l - 1 }
+        
+        return DigitInPositionalNotation( f, i, l, b ); ## f(i)
+    end;
+    
+    ## (i,f) ↦ f(i)
+    return MorphismConstructor( cat,
+                   HL_BxL,
+                   List( [ 0 .. s - 1 ], eval ),
+                   B );
     
 end );
 
 ##
 AddCartesianLeftCoevaluationMorphismWithGivenRange( SkeletalFinSets,
-  function ( cat, M, N, HM_NxM )
-    local m, n, nm;
+  function ( cat, L, B, HL_BxL )
+    local l, b, bl;
     
-    m := Length( M );
-    n := Length( N );
+    l := Length( L );
+    b := Length( B );
     
-    nm := n * m;
+    bl := b * l;
     
-    #return MorphismConstructor( cat, N, List( [ 0 .. n - 1 ], i -> Sum( [ 0 .. m - 1 ], j -> ( i + n * j ) * (n*m)^j ) ), HM_NxM );
+    #return MorphismConstructor( cat, B, List( [ 0 .. b - 1 ], i -> Sum( [ 0 .. l - 1 ], j -> ( i + b * j ) * (b*l)^j ) ), HL_BxL );
     
-    return MorphismConstructor( cat, N, List( [ 0 .. n - 1 ], i -> i * GeometricSum( nm, m ) + n * nm * GeometricSumDiff1( nm, m ) ), HM_NxM );
+    return MorphismConstructor( cat, B, List( [ 0 .. b - 1 ], i -> i * GeometricSum( bl, l ) + b * bl * GeometricSumDiff1( bl, l ) ), HL_BxL );
     
 end );
 
