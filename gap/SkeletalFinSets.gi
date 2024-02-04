@@ -799,6 +799,7 @@ AddExponentialOnObjects( SkeletalFinSets,
     
 end );
 
+## A special case of ExponentialToDirectProductRightAdjunctionMap for A = TerminalObject
 ## InterpretMorphismFromDistinguishedObjectToHomomorphismStructureAsMorphism
 AddCartesianLambdaElimination( SkeletalFinSets,
   function ( cat, L, B, intro )
@@ -816,22 +817,49 @@ AddCartesianLambdaElimination( SkeletalFinSets,
     
 end );
 
-## InterpretMorphismAsMorphismFromDistinguishedObjectToHomomorphismStructure
-AddCartesianLambdaIntroduction( SkeletalFinSets,
-  function ( cat, map )
-    local L, l, B, b, images;
+## base-change from b^l to b:
+## (g: A →Bᴸ) ↦ (f: L × A → B)
+AddExponentialToDirectProductRightAdjunctionMapWithGivenDirectProduct( SkeletalFinSets,
+  function ( cat, L, B, g, LxA )
+    local l, b, g_map, la;
     
-    L := Source( map );
     l := Length( L );
-    B := Range( map );
     b := Length( B );
+    la := Length( LxA );
     
-    images := AsList( map );
+    g_map := AsList( g );
     
     return MorphismConstructor( cat,
-                   TerminalObject( cat ),
-                   [ Sum( List( [ 0 .. l - 1 ], k -> images[1 + k] * b^k ) ) ],
-                   ExponentialOnObjects( cat, L, B ) );
+                   LxA,
+                   List( LxA, i ->
+                         DigitInPositionalNotation(
+                                 g_map[1 + QuoIntWithDomain( i, l, la )],
+                                 RemIntWithDomain( i, l, la ),
+                                 l,
+                                 b ) ),
+                   B );
+    
+end );
+
+## base-change from b to b^l:
+## (f: L × A → B) ↦ (g: A →Bᴸ)
+AddDirectProductToExponentialRightAdjunctionMapWithGivenExponential( SkeletalFinSets,
+  function ( cat, L, A, f, expLB )
+    local B, l, b, f_map;
+    
+    B := Range( f );
+    
+    l := Length( L );
+    b := Length( B );
+    
+    f_map := AsList( f );
+    
+    return MorphismConstructor( cat,
+                   A,
+                   List( A, i ->
+                         Sum( List( L, k ->
+                                 f_map[1 + k + l * i] * b^k ) ) ),
+                   expLB );
     
 end );
 
@@ -880,41 +908,8 @@ end, 1 + Sum( [ [ "ExponentialOnObjects", 1 ],
                 [ "ExactCoverWithGlobalElements", 1 ],
                 [ "PreComposeList", 2 ],
                 [ "CartesianLambdaElimination", 2 ],
-                [ "CartesianLambdaIntroduction", 2 ] ],
+                [ "DirectProductToExponentialRightAdjunctionMapWithGivenExponential", 2 ] ],
         e -> e[2] * CurrentOperationWeight( SkeletalFinSets!.derivations_weight_list, e[1] ) ) );
-
-## L × Bᴸ → B
-AddCartesianRightEvaluationMorphismWithGivenSource( SkeletalFinSets,
-  function ( cat, L, B, LxHL_B )
-    local l, b, exp, eval;
-    
-    l := Length( L );
-    b := Length( B );
-    
-    exp := b ^ l;
-    
-    ## (i,f) ↦ f(i)
-    eval :=
-      function( i_f ) ## (i,f)
-        local i, f;
-        
-        ## lhs
-        i := RemIntWithDomain( i_f, l, l * exp ); ## ∈ { 0, ..., l - 1 } is a digit position
-        
-        ## rhs
-        f := QuoIntWithDomain( i_f, l, l * exp ); ## ∈ { 0, ..., exp - 1 } is a number of base b in at most l digits
-        
-        ## f(i) is the digit at index i of the number f in digital notation with base b
-        return DigitInPositionalNotation( f, i, l, b );
-    end;
-    
-    ## (i,f) ↦ f(i)
-    return MorphismConstructor( cat,
-                   LxHL_B,
-                   List( [ 0 .. ( b^l * l ) - 1 ], eval ),
-                   B );
-    
-end );
 
 ## Bᴸ × L → B
 AddCartesianLeftEvaluationMorphismWithGivenSource( SkeletalFinSets,

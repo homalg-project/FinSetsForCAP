@@ -26,6 +26,8 @@ list_of_operations :=
   SortedList( Concatenation( primitive_operations, [
           "CartesianBraidingWithGivenDirectProducts",
           "CartesianBraidingInverseWithGivenDirectProducts",
+          "CartesianLambdaIntroduction",
+          "CartesianRightEvaluationMorphismWithGivenSource",
           "CoastrictionToImage",
           "CoimageProjection",
           "IsHomSetInhabited",
