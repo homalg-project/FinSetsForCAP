@@ -26,6 +26,7 @@
     [4X[25X>[125X [27X          "CartesianBraidingInverseWithGivenDirectProducts",[127X[104X
     [4X[25X>[125X [27X          "CartesianLambdaIntroduction",[127X[104X
     [4X[25X>[125X [27X          "CartesianRightEvaluationMorphismWithGivenSource",[127X[104X
+    [4X[25X>[125X [27X          "CartesianRightCoevaluationMorphismWithGivenRange",[127X[104X
     [4X[25X>[125X [27X          "CoastrictionToImage",[127X[104X
     [4X[25X>[125X [27X          "CoimageProjection",[127X[104X
     [4X[25X>[125X [27X          "IsHomSetInhabited",[127X[104X
