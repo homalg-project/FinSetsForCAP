@@ -818,7 +818,7 @@ AddCartesianLambdaElimination( SkeletalFinSets,
 end );
 
 ## base-change from b^l to b:
-## (g: A →Bᴸ) ↦ (f: L × A → B)
+## (g: A → Bᴸ) ↦ (f: L × A → B)
 AddExponentialToDirectProductRightAdjunctionMapWithGivenDirectProduct( SkeletalFinSets,
   function ( cat, L, B, g, LxA )
     local l, b, g_map, la;
@@ -842,7 +842,7 @@ AddExponentialToDirectProductRightAdjunctionMapWithGivenDirectProduct( SkeletalF
 end );
 
 ## base-change from b to b^l:
-## (f: L × A → B) ↦ (g: A →Bᴸ)
+## (f: L × A → B) ↦ (g: A → Bᴸ)
 AddDirectProductToExponentialRightAdjunctionMapWithGivenExponential( SkeletalFinSets,
   function ( cat, L, A, f, expLB )
     local B, l, b, f_map;
