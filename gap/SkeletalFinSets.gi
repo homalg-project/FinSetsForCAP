@@ -799,16 +799,17 @@ AddExponentialOnObjects( SkeletalFinSets,
     
 end );
 
-## A special case of ExponentialToDirectProductRightAdjunctionMap for A = TerminalObject
+## A special case of ExponentialToDirectProductRightAdjunctionMap for A = 𝟙 = TerminalObject
 ## InterpretMorphismFromDistinguishedObjectToHomomorphismStructureAsMorphism
+## (g: 𝟙 → Bᴸ) ↦ (f: L = L × 𝟙 → B)
 AddCartesianLambdaElimination( SkeletalFinSets,
-  function ( cat, L, B, intro )
+  function ( cat, L, B, g )
     local l, b, v;
     
     l := Length( L );
     b := Length( B );
     
-    v := AsList( intro )[1];
+    v := AsList( g )[1];
     
     return MorphismConstructor( cat,
                    L,
@@ -818,7 +819,7 @@ AddCartesianLambdaElimination( SkeletalFinSets,
 end );
 
 ## base-change from b^l to b:
-## (g: A →Bᴸ) ↦ (f: L × A → B)
+## (g: A → Bᴸ) ↦ (f: L × A → B)
 AddExponentialToDirectProductRightAdjunctionMapWithGivenDirectProduct( SkeletalFinSets,
   function ( cat, L, B, g, LxA )
     local l, b, g_map, la;
@@ -842,7 +843,7 @@ AddExponentialToDirectProductRightAdjunctionMapWithGivenDirectProduct( SkeletalF
 end );
 
 ## base-change from b to b^l:
-## (f: L × A → B) ↦ (g: A →Bᴸ)
+## (f: L × A → B) ↦ (g: A → Bᴸ)
 AddDirectProductToExponentialRightAdjunctionMapWithGivenExponential( SkeletalFinSets,
   function ( cat, L, A, f, expLB )
     local B, l, b, f_map;

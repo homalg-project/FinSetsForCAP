@@ -490,3 +490,19 @@ CapJitAddLogicTemplate(
         dst_template := "entry in list",
     )
 );
+
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "length", "a", "b" ],
+        src_template := "[ 0 .. length - 1 ][1 + a + b]",
+        dst_template := "a + b",
+    )
+);
+
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "a", "q", "i" ],
+        src_template := "Sum( List( [ 0 .. a - 1 ], k -> (k + a * i) * q^k ) )",
+        dst_template := "q * GeometricSumDiff1( q, a ) + a * i * GeometricSum( q, a )",
+    )
+);
