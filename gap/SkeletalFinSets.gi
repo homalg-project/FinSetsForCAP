@@ -799,8 +799,9 @@ AddExponentialOnObjects( SkeletalFinSets,
     
 end );
 
-## A special case of ExponentialToDirectProductRightAdjunctionMap for A = TerminalObject
+## A special case of ExponentialToDirectProductRightAdjunctionMap for A = 𝟙 = TerminalObject
 ## InterpretMorphismFromDistinguishedObjectToHomomorphismStructureAsMorphism
+## (g: 𝟙 → Bᴸ) ↦ (f: L = L × 𝟙 → B)
 AddCartesianLambdaElimination( SkeletalFinSets,
   function ( cat, L, B, intro )
     local l, b, v;
