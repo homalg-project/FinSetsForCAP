@@ -803,13 +803,13 @@ end );
 ## InterpretMorphismFromDistinguishedObjectToHomomorphismStructureAsMorphism
 ## (g: 𝟙 → Bᴸ) ↦ (f: L = L × 𝟙 → B)
 AddCartesianLambdaElimination( SkeletalFinSets,
-  function ( cat, L, B, intro )
+  function ( cat, L, B, g )
     local l, b, v;
     
     l := Length( L );
     b := Length( B );
     
-    v := AsList( intro )[1];
+    v := AsList( g )[1];
     
     return MorphismConstructor( cat,
                    L,
