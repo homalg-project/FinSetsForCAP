@@ -28,6 +28,7 @@ list_of_operations :=
           "CartesianBraidingInverseWithGivenDirectProducts",
           "CartesianLambdaIntroduction",
           "CartesianRightEvaluationMorphismWithGivenSource",
+          "CartesianRightCoevaluationMorphismWithGivenRange",
           "CoastrictionToImage",
           "CoimageProjection",
           "IsHomSetInhabited",

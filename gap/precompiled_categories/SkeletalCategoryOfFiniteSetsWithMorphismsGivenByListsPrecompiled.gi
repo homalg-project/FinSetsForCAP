@@ -150,6 +150,25 @@ end
     , 100 );
     
     ##
+    AddCartesianRightCoevaluationMorphismWithGivenRange( cat,
+        
+########
+function ( cat_1, a_1, b_1, r_1 )
+    local hoisted_2_1, hoisted_3_1, deduped_4_1, deduped_5_1, deduped_6_1;
+    deduped_6_1 := Length( a_1 );
+    deduped_5_1 := Length( b_1 );
+    deduped_4_1 := deduped_6_1 * deduped_5_1;
+    hoisted_3_1 := deduped_4_1 * GeometricSumDiff1( deduped_4_1, deduped_6_1 );
+    hoisted_2_1 := GeometricSum( deduped_4_1, deduped_6_1 );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, b_1, r_1, AsList, List( [ 0 .. deduped_5_1 - 1 ], function ( i_2 )
+              return hoisted_3_1 + deduped_6_1 * i_2 * hoisted_2_1;
+          end ) );
+end
+########
+        
+    , 301 : IsPrecompiledDerivation := true );
+    
+    ##
     AddCartesianRightEvaluationMorphismWithGivenSource( cat,
         
 ########
