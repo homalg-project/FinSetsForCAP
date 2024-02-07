@@ -33,18 +33,18 @@ ExponentialOnObjects( FinSet( [ 1 ] ), exp );;
 ExponentialOnMorphisms( f, g );;
 CartesianRightEvaluationMorphism( M, N );;
 CartesianRightCoevaluationMorphism( N, M );;
-DirectProductToExponentialRightAdjunctionMap( M, N,
+DirectProductToExponentialRightAdjunctMorphism( M, N,
     UniversalMorphismIntoTerminalObject( DirectProduct( M, N ) )
 );;
-ExponentialToDirectProductRightAdjunctionMap( M, N,
+ExponentialToDirectProductRightAdjunctMorphism( M, N,
     UniversalMorphismFromInitialObject( ExponentialOnObjects( M, N ) )
 );;
 CartesianLeftEvaluationMorphism( M, N );;
 CartesianLeftCoevaluationMorphism( N, M );;
-DirectProductToExponentialLeftAdjunctionMap( M, N,
+DirectProductToExponentialLeftAdjunctMorphism( M, N,
     UniversalMorphismIntoTerminalObject( DirectProduct( M, N ) )
 );;
-ExponentialToDirectProductLeftAdjunctionMap( M, N,
+ExponentialToDirectProductLeftAdjunctMorphism( M, N,
     UniversalMorphismFromInitialObject( ExponentialOnObjects( M, N ) )
 );;
 

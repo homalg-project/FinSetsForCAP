@@ -320,7 +320,7 @@ end
     , 100 );
     
     ##
-    AddDirectProductToExponentialRightAdjunctionMapWithGivenExponential( cat,
+    AddDirectProductToExponentialRightAdjunctMorphismWithGivenExponential( cat,
         
 ########
 function ( cat_1, a_1, b_1, f_1, i_1 )
@@ -446,7 +446,7 @@ end
     , 100 );
     
     ##
-    AddExponentialToDirectProductRightAdjunctionMapWithGivenDirectProduct( cat,
+    AddExponentialToDirectProductRightAdjunctMorphismWithGivenDirectProduct( cat,
         
 ########
 function ( cat_1, a_1, c_1, g_1, s_1 )
