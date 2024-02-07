@@ -970,7 +970,7 @@ AddCartesianLeftCoevaluationMorphismWithGivenRange( category_of_finite_sets,
 end );
 
 ##
-AddDirectProductToExponentialLeftAdjunctionMap( category_of_finite_sets,
+AddDirectProductToExponentialLeftAdjunctMorphism( category_of_finite_sets,
   function ( category_of_finite_sets, M, N, f )
     local L;
     
@@ -981,7 +981,7 @@ AddDirectProductToExponentialLeftAdjunctionMap( category_of_finite_sets,
 end );
 
 ##
-AddExponentialToDirectProductLeftAdjunctionMap( category_of_finite_sets,
+AddExponentialToDirectProductLeftAdjunctMorphism( category_of_finite_sets,
   function ( category_of_finite_sets, N, L, g )
     local M, MN;
     
@@ -1013,7 +1013,7 @@ AddCartesianRightCoevaluationMorphismWithGivenRange( category_of_finite_sets,
 end );
 
 ##
-AddDirectProductToExponentialRightAdjunctionMap( category_of_finite_sets,
+AddDirectProductToExponentialRightAdjunctMorphism( category_of_finite_sets,
   function ( category_of_finite_sets, M, N, f )
     local L;
     
@@ -1024,7 +1024,7 @@ AddDirectProductToExponentialRightAdjunctionMap( category_of_finite_sets,
 end );
 
 ##
-AddExponentialToDirectProductRightAdjunctionMap( category_of_finite_sets,
+AddExponentialToDirectProductRightAdjunctMorphism( category_of_finite_sets,
   function ( category_of_finite_sets, M, L, g )
     local N, MN;
     

@@ -46,11 +46,11 @@ Display( Li );
 #!  { 0 } ⱶ[ 4 ]→ { 0,..., 7 }, { 0 } ⱶ[ 5 ]→ { 0,..., 7 },\
 #!  { 0 } ⱶ[ 6 ]→ { 0,..., 7 }, { 0 } ⱶ[ 7 ]→ { 0,..., 7 } ]
 List( L, phi ->
-      DirectProductToExponentialLeftAdjunctionMap( T, S, phi ) ) = Li;
+      DirectProductToExponentialLeftAdjunctMorphism( T, S, phi ) ) = Li;
 #! true
 List( Li, psi -> CartesianLambdaElimination( S, R, psi ) ) = L;
 #! true
 List( Li, psi ->
-      ExponentialToDirectProductLeftAdjunctionMap( S, R, psi ) ) = L;
+      ExponentialToDirectProductLeftAdjunctMorphism( S, R, psi ) ) = L;
 #! true
 #! @EndExample
