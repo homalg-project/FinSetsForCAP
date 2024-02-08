@@ -1173,12 +1173,12 @@ true
  { 0 } ⱶ[ 4 ]→ { 0,..., 7 }, { 0 } ⱶ[ 5 ]→ { 0,..., 7 },\
  { 0 } ⱶ[ 6 ]→ { 0,..., 7 }, { 0 } ⱶ[ 7 ]→ { 0,..., 7 } ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">List( L, phi -&gt;</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">      DirectProductToExponentialLeftAdjunctionMap( T, S, phi ) ) = Li;</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">      DirectProductToExponentialLeftAdjunctMorphism( T, S, phi ) ) = Li;</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">List( Li, psi -&gt; CartesianLambdaElimination( S, R, psi ) ) = L;</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">List( Li, psi -&gt;</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">      ExponentialToDirectProductLeftAdjunctionMap( S, R, psi ) ) = L;</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">      ExponentialToDirectProductLeftAdjunctMorphism( S, R, psi ) ) = L;</span>
 true
 </pre></div>
 
@@ -1290,16 +1290,16 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ExponentialOnObjects( M, N );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ExponentialOnMorphisms( f, g );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CartesianRightEvaluationMorphism( M, N );;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ExponentialToDirectProductRightAdjunctionMap( M, N,</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ExponentialToDirectProductRightAdjunctMorphism( M, N,</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">    UniversalMorphismFromInitialObject( ExponentialOnObjects( M, N ) )</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CartesianLeftEvaluationMorphism( M, N );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CartesianLeftCoevaluationMorphism( N, M );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CartesianLeftCoevaluationMorphism( T, T );;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DirectProductToExponentialLeftAdjunctionMap( M, N,</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DirectProductToExponentialLeftAdjunctMorphism( M, N,</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">    UniversalMorphismIntoTerminalObject( DirectProduct( M, N ) )</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ExponentialToDirectProductLeftAdjunctionMap( M, N,</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ExponentialToDirectProductLeftAdjunctMorphism( M, N,</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">    UniversalMorphismFromInitialObject( ExponentialOnObjects( M, N ) )</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSet( 2 );;</span>
