@@ -25,6 +25,9 @@
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3.html#X7F1BD8F77E7FFA0C">3.1 <span class="Heading">Precompiling the category of skeletal finite sets</span></a>
 </span>
 </div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3.html#X7ACF4A427C74DACB">3.2 <span class="Heading">Precompiling ProjectionInFactorOfBinaryDirectProduct</span></a>
+</span>
+</div>
 </div>
 
 <h3>3 <span class="Heading">Precompilation</span></h3>
@@ -40,7 +43,7 @@
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "CompilerForCAP", "&gt;= 2023.10-03", false );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ReadPackage( "FinSetsForCAP", "gap/CompilerLogic.gi" );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ReadPackageOnce( "FinSetsForCAP", "gap/CompilerLogic.gi" );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">category_constructor := {} -&gt; SkeletalCategoryOfFiniteSets( );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">given_arguments := [ ];;</span>
@@ -81,6 +84,73 @@ SkeletalFinSets
 SkeletalFinSets
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">cat!.precompiled_functions_added;</span>
 true
+#@fi
+</pre></div>
+
+<p><a id="X7ACF4A427C74DACB" name="X7ACF4A427C74DACB"></a></p>
+
+<h4>3.2 <span class="Heading">Precompiling ProjectionInFactorOfBinaryDirectProduct</span></h4>
+
+
+<div class="example"><pre>
+#@if ValueOption( "no_precompiled_code" ) &lt;&gt; true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "CompilerForCAP", "&gt;= 2023.12-09", false );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ReadPackageOnce( "FinSetsForCAP", "gap/CompilerLogic.gi" );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">sFinSets := CategoryOfSkeletalFinSets( : no_precompiled_code := true );</span>
+SkeletalFinSets
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LeftProjectionInFactorOfBinaryDirectProduct :=</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">  function( cat, a, b, axb )</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    return ProjectionInFactorOfDirectProductWithGivenDirectProduct( cat,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">                   [ a, b ],</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">                   1,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">                   axb ); end;</span>
+function( cat, a, b, axb ) ... end
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RightProjectionInFactorOfBinaryDirectProduct :=</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">  function( cat, a, b, axb )</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    return ProjectionInFactorOfDirectProductWithGivenDirectProduct( cat,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">                   [ a, b ],</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">                   2,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">                   axb ); end;</span>
+function( cat, a, b, axb ) ... end
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">StartTimer( "ProjectionInFactorOfBinaryDirectProduct" );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">compiled_LeftProjectionInFactorOfBinaryDirectProduct :=</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">  CapJitCompiledFunction( LeftProjectionInFactorOfBinaryDirectProduct,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">          sFinSets,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">          [ "category", "object", "object", "object" ],</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">          "morphism" );</span>
+function( cat_1, a_1, b_1, axb_1 ) ... end
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">compiled_RightProjectionInFactorOfBinaryDirectProduct :=</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">  CapJitCompiledFunction( RightProjectionInFactorOfBinaryDirectProduct,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">          sFinSets,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">          [ "category", "object", "object", "object" ],</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">          "morphism" );</span>
+function( cat_1, a_1, b_1, axb_1 ) ... end
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">StopTimer( "ProjectionInFactorOfBinaryDirectProduct" );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">#DisplayTimer( "ProjectionInFactorOfBinaryDirectProduct" );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( compiled_LeftProjectionInFactorOfBinaryDirectProduct );</span>
+function ( cat_1, a_1, b_1, axb_1 )
+    local hoisted_1_1, deduped_3_1;
+    deduped_3_1 := Length( axb_1 );
+    hoisted_1_1 := Length( a_1 );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, axb_1, a_1,
+       AsList, List( [ 0 .. deduped_3_1 - 1 ], function ( i_2 )
+              return RemIntWithDomain( i_2, hoisted_1_1, deduped_3_1 );
+          end ) );
+end
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( compiled_RightProjectionInFactorOfBinaryDirectProduct );</span>
+function ( cat_1, a_1, b_1, axb_1 )
+    local hoisted_1_1, deduped_3_1;
+    deduped_3_1 := Length( axb_1 );
+    hoisted_1_1 := Length( a_1 );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, axb_1, b_1,
+       AsList, List( [ 0 .. deduped_3_1 - 1 ], function ( i_2 )
+              return QuoIntWithDomain( i_2, hoisted_1_1, deduped_3_1 );
+          end ) );
+end
 #@fi
 </pre></div>
 
