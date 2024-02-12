@@ -132,13 +132,11 @@ InstallMethod( Preimage,
         [ IsMorphismInSkeletalCategoryOfFiniteSets, IsList ],
         
   function ( phi, t )
-    local S;
+    local positions;
     
-    S := AsList( Source( phi ) );
+    positions := PositionsProperty( AsList( phi ), x -> x in t );
     
-    phi := AsList( phi );
-    
-    return Filtered( S, i -> phi[1 + i] in t );
+    return List( positions, i -> BigInt( i - 1 ) );
     
 end );
 
