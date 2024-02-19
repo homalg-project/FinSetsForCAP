@@ -8,7 +8,11 @@
 InstallMethod( SkeletalCategoryOfFiniteSets,
                [ ],
                
-  function ( )
+ FunctionWithNamedArguments(
+  [
+    [ "no_precompiled_code", false ],
+  ],
+  function ( CAP_NAMED_ARGUMENTS )
     local cat;
     
     cat := CreateCapCategoryWithDataTypes(
@@ -41,7 +45,7 @@ InstallMethod( SkeletalCategoryOfFiniteSets,
             Filename( DirectoriesPackageLibrary( "Toposes", "LogicForToposes" ), "PropositionsForToposes.tex" ) );
     # =#
     
-    if ValueOption( "no_precompiled_code" ) <> true then
+    if not CAP_NAMED_ARGUMENTS.no_precompiled_code then
         
         ADD_FUNCTIONS_FOR_SkeletalCategoryOfFiniteSetsWithMorphismsGivenByListsPrecompiled( cat );
         
@@ -51,7 +55,7 @@ InstallMethod( SkeletalCategoryOfFiniteSets,
     
     return cat;
     
-end );
+end ) );
 
 ##
 InstallMethod( FinSetOp,
