@@ -229,17 +229,18 @@ InstallMethod( \[\],
     
 end );
 
+#= comment for Julia
 ##
 InstallMethod( Iterator,
         "for CAP finite sets",
         [ IsObjectInCategoryOfFiniteSets ],
 
-  # `args` is never used in GAP but needed for Julia
-  function ( M, args... )
+  function ( M )
     
-    return CallFuncList( Iterator, Concatenation( [ AsList( M ) ], args ) );
+    return Iterator( AsList( M ) );
     
 end );
+# =#
 
 ##
 InstallMethod( UnionOfFinSets,
