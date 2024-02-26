@@ -33,6 +33,9 @@ InstallMethod( SkeletalCategoryOfFiniteSets,
     SetIsCategoryWithDecidableLifts( cat, true );
     SetIsCategoryWithDecidableColifts( cat, true );
     
+    SetIsStrictCartesianCategory( cat, true );
+    SetIsStrictCocartesianCategory( cat, true );
+    
     SetIsElementaryTopos( cat, true );
     
     SetRangeCategoryOfHomomorphismStructure( cat, cat );
