@@ -103,11 +103,13 @@
 </span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X7DC1099D7D615250">1.5-17 <span class="Heading">Lift</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X8093B84081CFD240">1.5-18 <span class="Heading">Topos properties</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X8107039F816355E5">1.5-18 <span class="Heading">Singleton morphism</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X87DA77E487F951EF">1.5-19 <span class="Heading">Subobject Classifier</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X8093B84081CFD240">1.5-19 <span class="Heading">Topos properties</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X81FD0D9179A75F88">1.5-20 <span class="Heading">Pushout Complement</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X87DA77E487F951EF">1.5-20 <span class="Heading">Subobject Classifier</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X81FD0D9179A75F88">1.5-21 <span class="Heading">Pushout Complement</span></a>
 </span>
 </div></div>
 </div>
@@ -1311,9 +1313,27 @@ true
 false
 </pre></div>
 
+<p><a id="X8107039F816355E5" name="X8107039F816355E5"></a></p>
+
+<h5>1.5-18 <span class="Heading">Singleton morphism</span></h5>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP" );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a := FinSet( [ 1, 2, 3 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">sa := SingletonMorphism( a );</span>
+&lt;A monomorphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">sa = LowerSegmentOfRelation( a, a, CartesianDiagonal( a, 2 ) );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">sa = UpperSegmentOfRelation( a, a, CartesianDiagonal( a, 2 ) );</span>
+true
+</pre></div>
+
 <p><a id="X8093B84081CFD240" name="X8093B84081CFD240"></a></p>
 
-<h5>1.5-18 <span class="Heading">Topos properties</span></h5>
+<h5>1.5-19 <span class="Heading">Topos properties</span></h5>
 
 
 <div class="example"><pre>
@@ -1371,7 +1391,7 @@ true
 
 <p><a id="X87DA77E487F951EF" name="X87DA77E487F951EF"></a></p>
 
-<h5>1.5-19 <span class="Heading">Subobject Classifier</span></h5>
+<h5>1.5-20 <span class="Heading">Subobject Classifier</span></h5>
 
 
 <div class="example"><pre>
@@ -1477,7 +1497,7 @@ true
 
 <p><a id="X81FD0D9179A75F88" name="X81FD0D9179A75F88"></a></p>
 
-<h5>1.5-20 <span class="Heading">Pushout Complement</span></h5>
+<h5>1.5-21 <span class="Heading">Pushout Complement</span></h5>
 
 <p>Define two composable monos <span class="Math">K \stackrel{l}{\hookrightarrow} L \stackrel{m}{\hookrightarrow} G</span> in <code class="code">FinSets</code>:</p>
 

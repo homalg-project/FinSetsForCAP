@@ -99,11 +99,13 @@
 </span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7C14474680DFE214">2.5-18 <span class="Heading">Skeletal Colift</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X874FC170817287FF">2.5-19 <span class="Heading">Skeletal topos properties</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7A8B43D87F7CCA60">2.5-19 <span class="Heading">Skeletal singleton morphism</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X855F57B6818322EB">2.5-20 <span class="Heading">Skeletal Subobject Classifier</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X874FC170817287FF">2.5-20 <span class="Heading">Skeletal topos properties</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7A714DD6853DF4FB">2.5-21 <span class="Heading">Skeletal Pushout Complement</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X855F57B6818322EB">2.5-21 <span class="Heading">Skeletal Subobject Classifier</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7A714DD6853DF4FB">2.5-22 <span class="Heading">Skeletal Pushout Complement</span></a>
 </span>
 </div></div>
 </div>
@@ -1253,9 +1255,28 @@ true
 false
 </pre></div>
 
+<p><a id="X7A8B43D87F7CCA60" name="X7A8B43D87F7CCA60"></a></p>
+
+<h5>2.5-19 <span class="Heading">Skeletal singleton morphism</span></h5>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP" );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a := FinSet( 3 );</span>
+|3|
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">sa := SingletonMorphism( a );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( sa );</span>
+{ 0, 1, 2 } ⱶ[ 1, 2, 4 ]→ { 0,..., 7 }
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">sa = LowerSegmentOfRelation( a, a, CartesianDiagonal( a, 2 ) );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">sa = UpperSegmentOfRelation( a, a, CartesianDiagonal( a, 2 ) );</span>
+true
+</pre></div>
+
 <p><a id="X874FC170817287FF" name="X874FC170817287FF"></a></p>
 
-<h5>2.5-19 <span class="Heading">Skeletal topos properties</span></h5>
+<h5>2.5-20 <span class="Heading">Skeletal topos properties</span></h5>
 
 
 <div class="example"><pre>
@@ -1310,7 +1331,7 @@ true
 
 <p><a id="X855F57B6818322EB" name="X855F57B6818322EB"></a></p>
 
-<h5>2.5-20 <span class="Heading">Skeletal Subobject Classifier</span></h5>
+<h5>2.5-21 <span class="Heading">Skeletal Subobject Classifier</span></h5>
 
 
 <div class="example"><pre>
@@ -1384,7 +1405,7 @@ true
 
 <p><a id="X7A714DD6853DF4FB" name="X7A714DD6853DF4FB"></a></p>
 
-<h5>2.5-21 <span class="Heading">Skeletal Pushout Complement</span></h5>
+<h5>2.5-22 <span class="Heading">Skeletal Pushout Complement</span></h5>
 
 <p>Define two composable monos <span class="Math">K \stackrel{l}{\hookrightarrow} L \stackrel{m}{\hookrightarrow} G</span> in <code class="code">SkeletalFinSets</code>:</p>
 

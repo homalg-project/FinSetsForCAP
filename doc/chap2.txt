@@ -1070,7 +1070,24 @@
   [4X[32X[104X
   
   
-  [1X2.5-19 [33X[0;0YSkeletal topos properties[133X[101X
+  [1X2.5-19 [33X[0;0YSkeletal singleton morphism[133X[101X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP" );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xa := FinSet( 3 );[127X[104X
+    [4X[28X|3|[128X[104X
+    [4X[25Xgap>[125X [27Xsa := SingletonMorphism( a );;[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( sa );[127X[104X
+    [4X[28X{ 0, 1, 2 } ⱶ[ 1, 2, 4 ]→ { 0,..., 7 }[128X[104X
+    [4X[25Xgap>[125X [27Xsa = LowerSegmentOfRelation( a, a, CartesianDiagonal( a, 2 ) );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xsa = UpperSegmentOfRelation( a, a, CartesianDiagonal( a, 2 ) );[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X2.5-20 [33X[0;0YSkeletal topos properties[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
@@ -1123,7 +1140,7 @@
   [4X[32X[104X
   
   
-  [1X2.5-20 [33X[0;0YSkeletal Subobject Classifier[133X[101X
+  [1X2.5-21 [33X[0;0YSkeletal Subobject Classifier[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
@@ -1194,7 +1211,7 @@
   [4X[32X[104X
   
   
-  [1X2.5-21 [33X[0;0YSkeletal Pushout Complement[133X[101X
+  [1X2.5-22 [33X[0;0YSkeletal Pushout Complement[133X[101X
   
   [33X[0;0YDefine    two    composable    monos   [23XK   \stackrel{l}{\hookrightarrow}   L
   \stackrel{m}{\hookrightarrow} G[123X in [10XSkeletalFinSets[110X:[133X
