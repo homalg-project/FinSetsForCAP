@@ -331,7 +331,7 @@ function ( cat_1, a_1, b_1, f_1, i_1 )
     hoisted_2_1 := AsList( f_1 );
     return CreateCapCategoryMorphismWithAttributes( cat_1, b_1, i_1, AsList, List( [ 0 .. Length( b_1 ) - 1 ], function ( i_2 )
               local hoisted_1_2;
-              hoisted_1_2 := deduped_5_1 * i_2;
+              hoisted_1_2 := i_2 * deduped_5_1;
               return Sum( List( hoisted_4_1, function ( k_3 )
                         return hoisted_2_1[(1 + k_3 + hoisted_1_2)] * hoisted_3_1 ^ k_3;
                     end ) );

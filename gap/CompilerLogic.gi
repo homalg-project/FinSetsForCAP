@@ -502,7 +502,7 @@ CapJitAddLogicTemplate(
 CapJitAddLogicTemplate(
     rec(
         variable_names := [ "a", "q", "i" ],
-        src_template := "Sum( List( [ 0 .. a - 1 ], k -> (k + a * i) * q^k ) )",
+        src_template := "Sum( List( [ 0 .. a - 1 ], k -> (k + i * a) * q^k ) )",
         dst_template := "q * GeometricSumDiff1( q, a ) + a * i * GeometricSum( q, a )",
     )
 );

@@ -866,7 +866,7 @@ AddDirectProductToExponentialRightAdjunctMorphismWithGivenExponential( SkeletalF
                    A,
                    List( A, i ->
                          Sum( List( L, k ->
-                                 f_map[1 + k + l * i] * b^k ) ) ),
+                                 f_map[1 + k + i * l] * b^k ) ) ),
                    expLB );
     
 end );
