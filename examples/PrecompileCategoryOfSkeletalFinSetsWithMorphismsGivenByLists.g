@@ -32,6 +32,7 @@ list_of_operations :=
           "CoimageProjection",
           "IsHomSetInhabited",
           "TruthMorphismOfImplies",
+          "SingletonMorphismWithGivenPowerObject",
           #"HasPushoutComplement",
           "PushoutComplement",
           ] ) );;

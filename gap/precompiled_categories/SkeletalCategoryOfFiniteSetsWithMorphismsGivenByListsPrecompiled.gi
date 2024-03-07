@@ -944,6 +944,21 @@ end
     , 19464 : IsPrecompiledDerivation := true );
     
     ##
+    AddSingletonMorphismWithGivenPowerObject( cat,
+        
+########
+function ( cat_1, a_1, Pa_1 )
+    local hoisted_1_1;
+    hoisted_1_1 := BigInt( 2 );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, a_1, Pa_1, AsList, List( [ 0 .. Length( a_1 ) - 1 ], function ( i_2 )
+              return hoisted_1_1 ^ i_2;
+          end ) );
+end
+########
+        
+    , 605 : IsPrecompiledDerivation := true );
+    
+    ##
     AddSomeInjectiveObject( cat,
         
 ########

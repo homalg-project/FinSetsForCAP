@@ -58,6 +58,9 @@
 @Subsection Lift
 @InsertChunk Lift
 
+@Subsection Singleton morphism
+@InsertChunk SingletonMorphism
+
 @Subsection Topos properties
 @InsertChunk Topos
 
@@ -132,6 +135,9 @@
 
 @Subsection Skeletal Colift
 @InsertChunk SkeletalColift
+
+@Subsection Skeletal singleton morphism
+@InsertChunk SkeletalSingletonMorphism
 
 @Subsection Skeletal topos properties
 @InsertChunk SkeletalTopos
