@@ -73,10 +73,10 @@ test-gap_to_julia: doc
 	~/.gap/pkg/PackageJanitor/gap_to_julia Toposes
 	~/.gap/pkg/PackageJanitor/gap_to_julia FinSetsForCAP
 	julia -e 'using Pkg; Pkg.develop("CAP"); Pkg.develop("MonoidalCategories"); Pkg.develop("CartesianCategories"); Pkg.develop("Toposes"); Pkg.develop("FinSetsForCAP");'
-	julia -e 'using Pkg; Pkg.test("CAP", julia_args = ["--warn-overwrite=no"]);'
-	julia -e 'using Pkg; Pkg.test("MonoidalCategories", julia_args = ["--warn-overwrite=no"]);'
-	julia -e 'using Pkg; Pkg.test("CartesianCategories", julia_args = ["--warn-overwrite=no"]);'
-	julia -e 'using Pkg; Pkg.test("Toposes", julia_args = ["--warn-overwrite=no"]);'
-	julia -e 'using Pkg; Pkg.test("FinSetsForCAP", julia_args = ["--warn-overwrite=no"]);'
+	julia -e 'using Pkg; Pkg.test("CAP");'
+	julia -e 'using Pkg; Pkg.test("MonoidalCategories");'
+	julia -e 'using Pkg; Pkg.test("CartesianCategories");'
+	julia -e 'using Pkg; Pkg.test("Toposes");'
+	julia -e 'using Pkg; Pkg.test("FinSetsForCAP");'
 
 ci-test: test-basic-spacing test-spacing test-doc test-with-coverage test-with-coverage-without-precompiled-code test-gap_to_julia
