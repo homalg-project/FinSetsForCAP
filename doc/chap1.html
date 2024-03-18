@@ -636,11 +636,11 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">N := FinSet( 3 );</span>
 |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( MorphismsOfExternalHom( L, L ) );</span>
-[ ∅ ⱶ[ ]→ ∅ ]
+[ ∅ ⱶ[  ]→ ∅ ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( MorphismsOfExternalHom( M, L ) );</span>
 [  ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( MorphismsOfExternalHom( L, M ) );</span>
-[ ∅ ⱶ[ ]→ { 0, 1 } ]
+[ ∅ ⱶ[  ]→ { 0, 1 } ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( MorphismsOfExternalHom( M, N ) );</span>
 [ { 0, 1 } ⱶ[ 0, 0 ]→ { 0, 1, 2 }, { 0, 1 } ⱶ[ 1, 0 ]→ { 0, 1, 2 },\
  { 0, 1 } ⱶ[ 2, 0 ]→ { 0, 1, 2 }, { 0, 1 } ⱶ[ 0, 1 ]→ { 0, 1, 2 },\
@@ -754,11 +754,11 @@ false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota := UniversalMorphismFromInitialObject( M );</span>
 &lt;A morphism in FinSets&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( I );</span>
-[ ]
+[  ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">T := TerminalObject( FinSets );</span>
 &lt;An object in FinSets&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( T );</span>
-[ [ ] ]
+[ [  ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInitial( T );</span>
 false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsTerminal( T );</span>
@@ -1400,9 +1400,9 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( SubobjectClassifier( FinSets ) );</span>
 [ "true", "false" ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfTrue( FinSets ) );</span>
-[ [ [ ] ], [ [ [ ], "true" ] ], [ "true", "false" ] ]
+[ [ [  ] ], [ [ [  ], "true" ] ], [ "true", "false" ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfFalse( FinSets ) );</span>
-[ [ [ ] ], [ [ [ ], "false" ] ], [ "true", "false" ] ]
+[ [ [  ] ], [ [ [  ], "false" ] ], [ "true", "false" ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfNot( FinSets ) );</span>
 [ [ "true", "false" ],\
  [ [ "false", "true" ], [ "true", "false" ] ],\
@@ -1452,7 +1452,7 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NC := PseudoComplementSubobject( iotaN );</span>
 &lt;An object in FinSets&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( NC );</span>
-[ [ 1, [ ] ], [ 4, [ ] ], [ 6, [ ] ], [ 7, [ ] ] ]
+[ [ 1, [  ] ], [ 4, [  ] ], [ 6, [  ] ], [ 7, [  ] ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">tauN := EmbeddingOfPseudoComplementSubobject( iotaN );</span>
 &lt;A monomorphism in FinSets&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Nc := ImageObject( tauN );</span>
@@ -1486,7 +1486,8 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NPL := RelativePseudoComplementSubobject( iotaN, iotaL );</span>
 &lt;An object in FinSets&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( NPL );</span>
-[ [ 1, [ ] ], [ 2, [ ] ], [ 4, [ ] ], [ 5, [ ] ], [ 6, [ ] ], [ 7, [ ] ] ]
+[ [ 1, [  ] ], [ 2, [  ] ], [ 4, [  ] ], [ 5, [  ] ], [ 6, [  ] ], [ 7, [  ] ]\
+ ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iotaNpL := EmbeddingOfRelativePseudoComplementSubobject( iotaN, iotaL );</span>
 &lt;A monomorphism in FinSets&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NpL := ImageObject( iotaNpL );</span>

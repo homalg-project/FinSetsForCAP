@@ -479,11 +479,11 @@
     [4X[25Xgap>[125X [27XN := FinSet( 3 );[127X[104X
     [4X[28X|3|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( MorphismsOfExternalHom( L, L ) );[127X[104X
-    [4X[28X[ ∅ ⱶ[ ]→ ∅ ][128X[104X
+    [4X[28X[ ∅ ⱶ[  ]→ ∅ ][128X[104X
     [4X[25Xgap>[125X [27XDisplay( MorphismsOfExternalHom( M, L ) );[127X[104X
     [4X[28X[  ][128X[104X
     [4X[25Xgap>[125X [27XDisplay( MorphismsOfExternalHom( L, M ) );[127X[104X
-    [4X[28X[ ∅ ⱶ[ ]→ { 0, 1 } ][128X[104X
+    [4X[28X[ ∅ ⱶ[  ]→ { 0, 1 } ][128X[104X
     [4X[25Xgap>[125X [27XDisplay( MorphismsOfExternalHom( M, N ) );[127X[104X
     [4X[28X[ { 0, 1 } ⱶ[ 0, 0 ]→ { 0, 1, 2 }, { 0, 1 } ⱶ[ 1, 0 ]→ { 0, 1, 2 },\[128X[104X
     [4X[28X { 0, 1 } ⱶ[ 2, 0 ]→ { 0, 1, 2 }, { 0, 1 } ⱶ[ 0, 1 ]→ { 0, 1, 2 },\[128X[104X
@@ -589,11 +589,11 @@
     [4X[25Xgap>[125X [27Xiota := UniversalMorphismFromInitialObject( M );[127X[104X
     [4X[28X<A morphism in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XDisplay( I );[127X[104X
-    [4X[28X[ ][128X[104X
+    [4X[28X[  ][128X[104X
     [4X[25Xgap>[125X [27XT := TerminalObject( FinSets );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XDisplay( T );[127X[104X
-    [4X[28X[ [ ] ][128X[104X
+    [4X[28X[ [  ] ][128X[104X
     [4X[25Xgap>[125X [27XIsInitial( T );[127X[104X
     [4X[28Xfalse[128X[104X
     [4X[25Xgap>[125X [27XIsTerminal( T );[127X[104X
@@ -1206,9 +1206,9 @@
     [4X[25Xgap>[125X [27XDisplay( SubobjectClassifier( FinSets ) );[127X[104X
     [4X[28X[ "true", "false" ][128X[104X
     [4X[25Xgap>[125X [27XDisplay( TruthMorphismOfTrue( FinSets ) );[127X[104X
-    [4X[28X[ [ [ ] ], [ [ [ ], "true" ] ], [ "true", "false" ] ][128X[104X
+    [4X[28X[ [ [  ] ], [ [ [  ], "true" ] ], [ "true", "false" ] ][128X[104X
     [4X[25Xgap>[125X [27XDisplay( TruthMorphismOfFalse( FinSets ) );[127X[104X
-    [4X[28X[ [ [ ] ], [ [ [ ], "false" ] ], [ "true", "false" ] ][128X[104X
+    [4X[28X[ [ [  ] ], [ [ [  ], "false" ] ], [ "true", "false" ] ][128X[104X
     [4X[25Xgap>[125X [27XDisplay( TruthMorphismOfNot( FinSets ) );[127X[104X
     [4X[28X[ [ "true", "false" ],\[128X[104X
     [4X[28X [ [ "false", "true" ], [ "true", "false" ] ],\[128X[104X
@@ -1257,7 +1257,7 @@
     [4X[25Xgap>[125X [27XNC := PseudoComplementSubobject( iotaN );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XDisplay( NC );[127X[104X
-    [4X[28X[ [ 1, [ ] ], [ 4, [ ] ], [ 6, [ ] ], [ 7, [ ] ] ][128X[104X
+    [4X[28X[ [ 1, [  ] ], [ 4, [  ] ], [ 6, [  ] ], [ 7, [  ] ] ][128X[104X
     [4X[25Xgap>[125X [27XtauN := EmbeddingOfPseudoComplementSubobject( iotaN );[127X[104X
     [4X[28X<A monomorphism in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XNc := ImageObject( tauN );[127X[104X
@@ -1291,7 +1291,8 @@
     [4X[25Xgap>[125X [27XNPL := RelativePseudoComplementSubobject( iotaN, iotaL );[127X[104X
     [4X[28X<An object in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XDisplay( NPL );[127X[104X
-    [4X[28X[ [ 1, [ ] ], [ 2, [ ] ], [ 4, [ ] ], [ 5, [ ] ], [ 6, [ ] ], [ 7, [ ] ] ][128X[104X
+    [4X[28X[ [ 1, [  ] ], [ 2, [  ] ], [ 4, [  ] ], [ 5, [  ] ], [ 6, [  ] ], [ 7, [  ] ]\[128X[104X
+    [4X[28X ][128X[104X
     [4X[25Xgap>[125X [27XiotaNpL := EmbeddingOfRelativePseudoComplementSubobject( iotaN, iotaL );[127X[104X
     [4X[28X<A monomorphism in FinSets>[128X[104X
     [4X[25Xgap>[125X [27XNpL := ImageObject( iotaNpL );[127X[104X
