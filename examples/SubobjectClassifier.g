@@ -10,9 +10,9 @@ LoadPackage( "FinSetsForCAP", false );
 Display( SubobjectClassifier( FinSets ) );
 #! [ "true", "false" ]
 Display( TruthMorphismOfTrue( FinSets ) );
-#! [ [ [ ] ], [ [ [ ], "true" ] ], [ "true", "false" ] ]
+#! [ [ [  ] ], [ [ [  ], "true" ] ], [ "true", "false" ] ]
 Display( TruthMorphismOfFalse( FinSets ) );
-#! [ [ [ ] ], [ [ [ ], "false" ] ], [ "true", "false" ] ]
+#! [ [ [  ] ], [ [ [  ], "false" ] ], [ "true", "false" ] ]
 Display( TruthMorphismOfNot( FinSets ) );
 #! [ [ "true", "false" ],\
 #!  [ [ "false", "true" ], [ "true", "false" ] ],\

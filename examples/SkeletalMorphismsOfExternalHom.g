@@ -10,11 +10,11 @@ M := FinSet( 2 );
 N := FinSet( 3 );
 #! |3|
 Display( MorphismsOfExternalHom( L, L ) );
-#! [ ∅ ⱶ[ ]→ ∅ ]
+#! [ ∅ ⱶ[  ]→ ∅ ]
 Display( MorphismsOfExternalHom( M, L ) );
 #! [  ]
 Display( MorphismsOfExternalHom( L, M ) );
-#! [ ∅ ⱶ[ ]→ { 0, 1 } ]
+#! [ ∅ ⱶ[  ]→ { 0, 1 } ]
 Display( MorphismsOfExternalHom( M, N ) );
 #! [ { 0, 1 } ⱶ[ 0, 0 ]→ { 0, 1, 2 }, { 0, 1 } ⱶ[ 1, 0 ]→ { 0, 1, 2 },\
 #!  { 0, 1 } ⱶ[ 2, 0 ]→ { 0, 1, 2 }, { 0, 1 } ⱶ[ 0, 1 ]→ { 0, 1, 2 },\
