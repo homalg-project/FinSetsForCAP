@@ -61,7 +61,6 @@ test-spacing:
 test-gap_to_julia: doc
 	if [ -d "../Toposes" ]; then make -C "../Toposes" doc; fi
 	git clone https://github.com/homalg-project/PackageJanitor.git ~/.gap/pkg/PackageJanitor
-	mkdir ~/.julia/dev
 	git clone https://github.com/zickgraf/CAP.jl.git ~/.julia/dev/CAP
 	git clone https://github.com/zickgraf/MonoidalCategories.jl.git ~/.julia/dev/MonoidalCategories
 	git clone https://github.com/zickgraf/CartesianCategories.jl.git ~/.julia/dev/CartesianCategories
