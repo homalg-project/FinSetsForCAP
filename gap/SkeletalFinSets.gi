@@ -52,7 +52,7 @@ InstallMethod( SkeletalCategoryOfFiniteSets,
         
     else
         
-        ADD_FUNCTIONS_FOR_SkeletalCategoryOfFiniteSetsWithMorphismsGivenByListsPrecompiled( cat );
+        ADD_FUNCTIONS_FOR_SkeletalCategoryOfFiniteSetsWithMorphismsGivenByLists_precompiled( cat );
         
     fi;
     
