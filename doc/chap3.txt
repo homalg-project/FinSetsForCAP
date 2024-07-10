@@ -15,7 +15,7 @@
     [4X[25Xgap>[125X [27Xcategory_constructor := {} -> SkeletalCategoryOfFiniteSets( );;[127X[104X
     [4X[25Xgap>[125X [27Xgiven_arguments := [ ];;[127X[104X
     [4X[25Xgap>[125X [27Xcompiled_category_name :=[127X[104X
-    [4X[25X>[125X [27X  "SkeletalCategoryOfFiniteSetsWithMorphismsGivenByListsPrecompiled";;[127X[104X
+    [4X[25X>[125X [27X  "SkeletalCategoryOfFiniteSetsWithMorphismsGivenByLists_precompiled";;[127X[104X
     [4X[25Xgap>[125X [27Xpackage_name := "FinSetsForCAP";;[127X[104X
     [4X[25Xgap>[125X [27Xprimitive_operations :=[127X[104X
     [4X[25X>[125X [27X  ListPrimitivelyInstalledOperationsOfCategory([127X[104X
@@ -46,7 +46,7 @@
     [4X[25X>[125X [27X        number_of_objectified_objects_in_data_structure_of_morphism := 2,[127X[104X
     [4X[25X>[125X [27X        number_of_objectified_morphisms_in_data_structure_of_morphism := 1[127X[104X
     [4X[25X>[125X [27X);;[127X[104X
-    [4X[25Xgap>[125X [27XSkeletalCategoryOfFiniteSetsWithMorphismsGivenByListsPrecompiled( );[127X[104X
+    [4X[25Xgap>[125X [27XSkeletalCategoryOfFiniteSetsWithMorphismsGivenByLists_precompiled( );[127X[104X
     [4X[28XSkeletalFinSets[128X[104X
     [4X[25Xgap>[125X [27Xcat := SkeletalCategoryOfFiniteSets( );[127X[104X
     [4X[28XSkeletalFinSets[128X[104X
