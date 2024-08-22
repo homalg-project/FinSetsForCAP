@@ -60,18 +60,13 @@ test-spacing:
 
 test-gap_to_julia: doc
 	if [ -d "../Toposes" ]; then make -C "../Toposes" doc; fi
-	git clone https://github.com/homalg-project/PackageJanitor.git ~/.gap/pkg/PackageJanitor
-	git clone https://github.com/zickgraf/CAP.jl.git ~/.julia/dev/CAP
-	git clone https://github.com/zickgraf/MonoidalCategories.jl.git ~/.julia/dev/MonoidalCategories
-	git clone https://github.com/zickgraf/CartesianCategories.jl.git ~/.julia/dev/CartesianCategories
-	git clone https://github.com/zickgraf/Toposes.jl.git ~/.julia/dev/Toposes
-	git clone https://github.com/zickgraf/FinSetsForCAP.jl.git ~/.julia/dev/FinSetsForCAP
-	~/.gap/pkg/PackageJanitor/gap_to_julia CAP
-	~/.gap/pkg/PackageJanitor/gap_to_julia MonoidalCategories
-	~/.gap/pkg/PackageJanitor/gap_to_julia CartesianCategories
-	~/.gap/pkg/PackageJanitor/gap_to_julia Toposes
-	~/.gap/pkg/PackageJanitor/gap_to_julia FinSetsForCAP
-	julia -e 'using Pkg; Pkg.develop("CAP"); Pkg.develop("MonoidalCategories"); Pkg.develop("CartesianCategories"); Pkg.develop("Toposes"); Pkg.develop("FinSetsForCAP");'
+	git clone https://github.com/zickgraf/CAP_project.jl.git ~/.julia/dev/CAP_project.jl
+	sh -c "cd ~/.julia/dev/CAP_project.jl && export PATH="~/.julia/dev/CAP_project.jl/gap_to_julia:$$PATH" && make -C CAP clean-gen && make -C MonoidalCategories clean-gen && make -C CartesianCategories clean-gen && make -C Toposes clean-gen && make -C FinSetsForCAP clean-gen"
+	julia -e 'using Pkg; Pkg.develop(path = "/home/gap/.julia/dev/CAP_project.jl/CAP");'
+	julia -e 'using Pkg; Pkg.develop(path = "/home/gap/.julia/dev/CAP_project.jl/MonoidalCategories");'
+	julia -e 'using Pkg; Pkg.develop(path = "/home/gap/.julia/dev/CAP_project.jl/CartesianCategories");'
+	julia -e 'using Pkg; Pkg.develop(path = "/home/gap/.julia/dev/CAP_project.jl/Toposes");'
+	julia -e 'using Pkg; Pkg.develop(path = "/home/gap/.julia/dev/CAP_project.jl/FinSetsForCAP");'
 	julia -e 'using Pkg; Pkg.test("CAP");'
 	julia -e 'using Pkg; Pkg.test("MonoidalCategories");'
 	julia -e 'using Pkg; Pkg.test("CartesianCategories");'
