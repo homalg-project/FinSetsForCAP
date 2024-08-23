@@ -11,6 +11,7 @@ InstallMethod( SkeletalCategoryOfFiniteSets,
  FunctionWithNamedArguments(
   [
     [ "no_precompiled_code", false ],
+    [ "overhead", true ],
   ],
   function ( CAP_NAMED_ARGUMENTS )
     local cat;
@@ -19,6 +20,7 @@ InstallMethod( SkeletalCategoryOfFiniteSets,
         "SkeletalFinSets", IsSkeletalCategoryOfFiniteSets,
         IsObjectInSkeletalCategoryOfFiniteSets, IsMorphismInSkeletalCategoryOfFiniteSets, IsCapCategoryTwoCell,
         IsBigInt, CapJitDataTypeOfListOf( IsBigInt ), fail
+        : overhead := CAP_NAMED_ARGUMENTS.overhead
     );
     
     cat!.category_as_first_argument := true;
