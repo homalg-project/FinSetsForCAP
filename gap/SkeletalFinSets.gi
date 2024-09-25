@@ -10,11 +10,12 @@ InstallMethod( SkeletalCategoryOfFiniteSets,
                
  FunctionWithNamedArguments(
   [
+    [ "FinalizeCategory", true ],
     [ "no_precompiled_code", false ],
     [ "overhead", true ],
   ],
   function ( CAP_NAMED_ARGUMENTS )
-    local cat;
+    local cat, expected_weight;
     
     cat := CreateCapCategoryWithDataTypes(
         "SkeletalFinSets", IsSkeletalCategoryOfFiniteSets,
@@ -58,7 +59,44 @@ InstallMethod( SkeletalCategoryOfFiniteSets,
         
     fi;
     
-    Finalize( cat );
+    if CAP_NAMED_ARGUMENTS.FinalizeCategory then
+        
+        Finalize( cat );
+        
+        # check weights of operations using other primitive operations
+        if CAP_NAMED_ARGUMENTS.no_precompiled_code then
+            
+            ##
+            expected_weight := 1 + Sum( [ [ "ExponentialOnObjects", 1 ],
+                                          [ "ExactCoverWithGlobalElements", 1 ],
+                                          [ "PreComposeList", 2 ],
+                                          [ "CartesianLambdaElimination", 2 ],
+                                          [ "DirectProductToExponentialRightAdjunctMorphismWithGivenExponential", 2 ] ],
+                                  e -> e[2] * CurrentOperationWeight( cat!.derivations_weight_list, e[1] ) );
+            
+            if CurrentOperationWeight( cat!.derivations_weight_list, "ExponentialOnMorphismsWithGivenExponentials" ) <> expected_weight then
+                
+                # COVERAGE_IGNORE_NEXT_LINE
+                Print( "WARNING: please update the weight of ExponentialOnMorphismsWithGivenExponentials in SkeletalFinSetsForCAP to ", String( expected_weight ), "\n" );
+                
+            fi;
+            
+            ##
+            expected_weight := 1 + Sum( [ [ "ExponentialOnObjects", 1 ],
+                                          [ "ExactCoverWithGlobalElements", 1 ],
+                                          [ "CartesianLambdaElimination", 2 ] ],
+                                  e -> e[2] * CurrentOperationWeight( cat!.derivations_weight_list, e[1] ) );
+            
+            if CurrentOperationWeight( cat!.derivations_weight_list, "MorphismsOfExternalHom" ) <> expected_weight then
+                
+                # COVERAGE_IGNORE_NEXT_LINE
+                Print( "WARNING: please update the weight of MorphismsOfExternalHom in SkeletalFinSetsForCAP to ", String( expected_weight ), "\n" );
+                
+            fi;
+            
+        fi;
+        
+    fi;
     
     return cat;
     
@@ -914,12 +952,13 @@ AddExponentialOnMorphismsWithGivenExponentials( SkeletalFinSets,
                                          range_beta ) ) )[1 + 0] ),
                    T );
     
-end, 1 + Sum( [ [ "ExponentialOnObjects", 1 ],
-                [ "ExactCoverWithGlobalElements", 1 ],
-                [ "PreComposeList", 2 ],
-                [ "CartesianLambdaElimination", 2 ],
-                [ "DirectProductToExponentialRightAdjunctMorphismWithGivenExponential", 2 ] ],
-        e -> e[2] * CurrentOperationWeight( SkeletalFinSets!.derivations_weight_list, e[1] ) ) );
+end, 1403 ); # weight = 1 + Sum(
+             # [ [ "ExponentialOnObjects", 1 ],
+             # [ "ExactCoverWithGlobalElements", 1 ],
+             # [ "PreComposeList", 2 ],
+             # [ "CartesianLambdaElimination", 2 ],
+             # [ "DirectProductToExponentialRightAdjunctMorphismWithGivenExponential", 2 ] ],
+             # e -> e[2] * CurrentOperationWeight( SkeletalFinSets!.derivations_weight_list, e[1] ) )
 
 ## Bᴸ × L → B
 AddCartesianLeftEvaluationMorphismWithGivenSource( SkeletalFinSets,
@@ -1018,10 +1057,11 @@ AddMorphismsOfExternalHom( SkeletalFinSets,
                          B,
                          mor ) );
     
-end, 1 + Sum( [ [ "ExponentialOnObjects", 1 ],
-                [ "ExactCoverWithGlobalElements", 1 ],
-                [ "CartesianLambdaElimination", 2 ] ],
-        e -> e[2] * CurrentOperationWeight( SkeletalFinSets!.derivations_weight_list, e[1] ) ) );
+end, 401 ); # weight = 1 + Sum( [
+            # [ "ExponentialOnObjects", 1 ],
+            # [ "ExactCoverWithGlobalElements", 1 ],
+            # [ "CartesianLambdaElimination", 2 ] ],
+            # e -> e[2] * CurrentOperationWeight( SkeletalFinSets!.derivations_weight_list, e[1] ) ) );
 
 end );
 
