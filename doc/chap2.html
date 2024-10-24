@@ -1151,6 +1151,11 @@ true
 { 0,..., 7 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( lf );</span>
 { 0 } ⱶ[ 3 ]→ { 0,..., 7 }
+#@if ValueOption( "no_precompiled_code" ) &lt;&gt; true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SkeletalFinSets!.cached_precompiled_functions.</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    CartesianLambdaIntroduction( SkeletalFinSets, f );</span>
+|1| → |8|
+#@fi
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">elf := CartesianLambdaElimination( S, R, lf );</span>
 |3| → |2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">elf = f;</span>
@@ -1305,8 +1310,30 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CartesianRightUnitorInverse( M );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CartesianBraiding( M, N );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CartesianBraidingInverse( M, N );;</span>
+#@if ValueOption( "no_precompiled_code" ) &lt;&gt; true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SkeletalFinSets!.cached_precompiled_functions.</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    CartesianBraidingWithGivenDirectProducts( SkeletalFinSets,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        DirectProduct( M, N ),</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        M, N,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        DirectProduct( N, M )</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SkeletalFinSets!.cached_precompiled_functions.</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    CartesianBraidingInverseWithGivenDirectProducts( SkeletalFinSets,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        DirectProduct( N, M ),</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        M, N,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        DirectProduct( M, N )</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">);;</span>
+#@fi
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ExponentialOnObjects( M, N );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ExponentialOnMorphisms( f, g );;</span>
+#@if ValueOption( "no_precompiled_code" ) &lt;&gt; true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SkeletalFinSets!.cached_precompiled_functions.</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    ExponentialOnMorphismsWithGivenExponentials( SkeletalFinSets,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        ExponentialOnObjects( Range( f ), Source( g ) ),</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        f, g,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">        ExponentialOnObjects( Source( f ), Range( g ) )</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">);;</span>
+#@fi
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CartesianRightEvaluationMorphism( M, N );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ExponentialToDirectProductRightAdjunctMorphism( M, N,</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">    UniversalMorphismFromInitialObject( ExponentialOnObjects( M, N ) )</span>
@@ -1443,6 +1470,11 @@ true
 |5| → |8|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( c );</span>
 { 0,..., 4 } ⱶ[ 2, 3, 4, 5, 7 ]→ { 0,..., 7 }
+#@if ValueOption( "no_precompiled_code" ) &lt;&gt; true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SkeletalFinSets!.cached_precompiled_functions.</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    PushoutComplement( SkeletalFinSets, l, m );</span>
+|5| → |8|
+#@fi
 </pre></div>
 
 

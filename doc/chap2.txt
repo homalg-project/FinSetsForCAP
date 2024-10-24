@@ -969,6 +969,11 @@
     [4X[28X{ 0,..., 7 }[128X[104X
     [4X[25Xgap>[125X [27XDisplay( lf );[127X[104X
     [4X[28X{ 0 } ⱶ[ 3 ]→ { 0,..., 7 }[128X[104X
+    [4X[28X#@if ValueOption( "no_precompiled_code" ) <> true[128X[104X
+    [4X[25Xgap>[125X [27XSkeletalFinSets!.cached_precompiled_functions.[127X[104X
+    [4X[25X>[125X [27X    CartesianLambdaIntroduction( SkeletalFinSets, f );[127X[104X
+    [4X[28X|1| → |8|[128X[104X
+    [4X[28X#@fi[128X[104X
     [4X[25Xgap>[125X [27Xelf := CartesianLambdaElimination( S, R, lf );[127X[104X
     [4X[28X|3| → |2|[128X[104X
     [4X[25Xgap>[125X [27Xelf = f;[127X[104X
@@ -1115,8 +1120,30 @@
     [4X[25Xgap>[125X [27XCartesianRightUnitorInverse( M );;[127X[104X
     [4X[25Xgap>[125X [27XCartesianBraiding( M, N );;[127X[104X
     [4X[25Xgap>[125X [27XCartesianBraidingInverse( M, N );;[127X[104X
+    [4X[28X#@if ValueOption( "no_precompiled_code" ) <> true[128X[104X
+    [4X[25Xgap>[125X [27XSkeletalFinSets!.cached_precompiled_functions.[127X[104X
+    [4X[25X>[125X [27X    CartesianBraidingWithGivenDirectProducts( SkeletalFinSets,[127X[104X
+    [4X[25X>[125X [27X        DirectProduct( M, N ),[127X[104X
+    [4X[25X>[125X [27X        M, N,[127X[104X
+    [4X[25X>[125X [27X        DirectProduct( N, M )[127X[104X
+    [4X[25X>[125X [27X);;[127X[104X
+    [4X[25Xgap>[125X [27XSkeletalFinSets!.cached_precompiled_functions.[127X[104X
+    [4X[25X>[125X [27X    CartesianBraidingInverseWithGivenDirectProducts( SkeletalFinSets,[127X[104X
+    [4X[25X>[125X [27X        DirectProduct( N, M ),[127X[104X
+    [4X[25X>[125X [27X        M, N,[127X[104X
+    [4X[25X>[125X [27X        DirectProduct( M, N )[127X[104X
+    [4X[25X>[125X [27X);;[127X[104X
+    [4X[28X#@fi[128X[104X
     [4X[25Xgap>[125X [27XExponentialOnObjects( M, N );;[127X[104X
     [4X[25Xgap>[125X [27XExponentialOnMorphisms( f, g );;[127X[104X
+    [4X[28X#@if ValueOption( "no_precompiled_code" ) <> true[128X[104X
+    [4X[25Xgap>[125X [27XSkeletalFinSets!.cached_precompiled_functions.[127X[104X
+    [4X[25X>[125X [27X    ExponentialOnMorphismsWithGivenExponentials( SkeletalFinSets,[127X[104X
+    [4X[25X>[125X [27X        ExponentialOnObjects( Range( f ), Source( g ) ),[127X[104X
+    [4X[25X>[125X [27X        f, g,[127X[104X
+    [4X[25X>[125X [27X        ExponentialOnObjects( Source( f ), Range( g ) )[127X[104X
+    [4X[25X>[125X [27X);;[127X[104X
+    [4X[28X#@fi[128X[104X
     [4X[25Xgap>[125X [27XCartesianRightEvaluationMorphism( M, N );;[127X[104X
     [4X[25Xgap>[125X [27XExponentialToDirectProductRightAdjunctMorphism( M, N,[127X[104X
     [4X[25X>[125X [27X    UniversalMorphismFromInitialObject( ExponentialOnObjects( M, N ) )[127X[104X
@@ -1249,5 +1276,10 @@
     [4X[28X|5| → |8|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( c );[127X[104X
     [4X[28X{ 0,..., 4 } ⱶ[ 2, 3, 4, 5, 7 ]→ { 0,..., 7 }[128X[104X
+    [4X[28X#@if ValueOption( "no_precompiled_code" ) <> true[128X[104X
+    [4X[25Xgap>[125X [27XSkeletalFinSets!.cached_precompiled_functions.[127X[104X
+    [4X[25X>[125X [27X    PushoutComplement( SkeletalFinSets, l, m );[127X[104X
+    [4X[28X|5| → |8|[128X[104X
+    [4X[28X#@fi[128X[104X
   [4X[32X[104X
   
