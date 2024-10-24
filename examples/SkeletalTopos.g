@@ -29,8 +29,30 @@ CartesianRightUnitor( M );;
 CartesianRightUnitorInverse( M );;
 CartesianBraiding( M, N );;
 CartesianBraidingInverse( M, N );;
+#! #@if ValueOption( "no_precompiled_code" ) <> true
+SkeletalFinSets!.cached_precompiled_functions.
+    CartesianBraidingWithGivenDirectProducts( SkeletalFinSets,
+        DirectProduct( M, N ),
+        M, N,
+        DirectProduct( N, M )
+);;
+SkeletalFinSets!.cached_precompiled_functions.
+    CartesianBraidingInverseWithGivenDirectProducts( SkeletalFinSets,
+        DirectProduct( N, M ),
+        M, N,
+        DirectProduct( M, N )
+);;
+#! #@fi
 ExponentialOnObjects( M, N );;
 ExponentialOnMorphisms( f, g );;
+#! #@if ValueOption( "no_precompiled_code" ) <> true
+SkeletalFinSets!.cached_precompiled_functions.
+    ExponentialOnMorphismsWithGivenExponentials( SkeletalFinSets,
+        ExponentialOnObjects( Range( f ), Source( g ) ),
+        f, g,
+        ExponentialOnObjects( Source( f ), Range( g ) )
+);;
+#! #@fi
 CartesianRightEvaluationMorphism( M, N );;
 ExponentialToDirectProductRightAdjunctMorphism( M, N,
     UniversalMorphismFromInitialObject( ExponentialOnObjects( M, N ) )
