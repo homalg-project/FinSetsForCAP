@@ -73,4 +73,4 @@ test-gap_to_julia: doc
 	julia -e 'using Pkg; Pkg.test("Toposes");'
 	julia -e 'using Pkg; Pkg.test("FinSetsForCAP");'
 
-ci-test: test-basic-spacing test-spacing test-doc test-with-coverage test-with-coverage-without-precompiled-code #test-gap_to_julia
+ci-test: test-basic-spacing test-spacing test-doc test-with-coverage test-with-coverage-without-precompiled-code test-gap_to_julia
