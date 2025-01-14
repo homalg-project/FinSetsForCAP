@@ -509,6 +509,15 @@ CapJitAddLogicTemplate(
 
 CapJitAddLogicTemplate(
     rec(
+        variable_names := [ "mor" ],
+        variable_filters := [ IsMorphismInSkeletalCategoryOfFiniteSets ],
+        src_template := "List( [ 0 .. Length( Source( mor ) ) - 1 ], i -> AsList( mor )[1 + i] )",
+        dst_template := "AsList( mor )",
+    )
+);
+
+CapJitAddLogicTemplate(
+    rec(
         variable_names := [ "length", "value", "func" ],
         src_template := "List( ListWithIdenticalEntries( length, value ), func )",
         dst_template := "ListWithIdenticalEntries( length, func( value ) )",

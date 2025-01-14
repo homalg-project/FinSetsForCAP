@@ -25,11 +25,6 @@ Display( Range( lf ) );
 #! { 0,..., 7 }
 Display( lf );
 #! { 0 } ⱶ[ 3 ]→ { 0,..., 7 }
-#! #@if ValueOption( "no_precompiled_code" ) <> true
-SkeletalFinSets!.cached_precompiled_functions.
-    CartesianLambdaIntroduction( SkeletalFinSets, f );
-#! |1| → |8|
-#! #@fi
 elf := CartesianLambdaElimination( S, R, lf );
 #! |3| → |2|
 elf = f;
