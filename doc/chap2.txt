@@ -969,11 +969,6 @@
     [4X[28X{ 0,..., 7 }[128X[104X
     [4X[25Xgap>[125X [27XDisplay( lf );[127X[104X
     [4X[28X{ 0 } ⱶ[ 3 ]→ { 0,..., 7 }[128X[104X
-    [4X[28X#@if ValueOption( "no_precompiled_code" ) <> true[128X[104X
-    [4X[25Xgap>[125X [27XSkeletalFinSets!.cached_precompiled_functions.[127X[104X
-    [4X[25X>[125X [27X    CartesianLambdaIntroduction( SkeletalFinSets, f );[127X[104X
-    [4X[28X|1| → |8|[128X[104X
-    [4X[28X#@fi[128X[104X
     [4X[25Xgap>[125X [27Xelf := CartesianLambdaElimination( S, R, lf );[127X[104X
     [4X[28X|3| → |2|[128X[104X
     [4X[25Xgap>[125X [27Xelf = f;[127X[104X

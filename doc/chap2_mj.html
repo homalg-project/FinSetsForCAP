@@ -1154,11 +1154,6 @@ true
 { 0,..., 7 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( lf );</span>
 { 0 } ⱶ[ 3 ]→ { 0,..., 7 }
-#@if ValueOption( "no_precompiled_code" ) &lt;&gt; true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SkeletalFinSets!.cached_precompiled_functions.</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">    CartesianLambdaIntroduction( SkeletalFinSets, f );</span>
-|1| → |8|
-#@fi
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">elf := CartesianLambdaElimination( S, R, lf );</span>
 |3| → |2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">elf = f;</span>
