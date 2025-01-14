@@ -135,33 +135,12 @@ function ( cat_1, alpha_1 )
     deduped_3_1 := Length( Range( alpha_1 ) );
     hoisted_1_1 := AsList( alpha_1 );
     return CreateCapCategoryMorphismWithAttributes( cat_1, CreateCapCategoryObjectWithAttributes( cat_1, Length, BigInt( 1 ) ), CreateCapCategoryObjectWithAttributes( cat_1, Length, deduped_3_1 ^ deduped_4_1 ), AsList, [ Sum( List( [ 0 .. deduped_4_1 - 1 ], function ( k_2 )
-                    return CAP_JIT_INCOMPLETE_LOGIC( hoisted_1_1[(1 + CAP_JIT_INCOMPLETE_LOGIC( k_2 ))] ) * deduped_3_1 ^ k_2;
+                    return hoisted_1_1[(1 + k_2)] * deduped_3_1 ^ k_2;
                 end ) ) ] );
 end
 ########
         
     , 503 : IsPrecompiledDerivation := true );
-    
-    ##
-    cat!.cached_precompiled_functions.CartesianLambdaIntroduction :=
-        
-########
-function ( cat_1, alpha_1 )
-    local hoisted_1_1, hoisted_2_1, deduped_4_1, deduped_5_1, deduped_6_1;
-    deduped_6_1 := Length( Source( alpha_1 ) );
-    deduped_5_1 := Length( Range( alpha_1 ) );
-    deduped_4_1 := [ 0 .. deduped_6_1 - 1 ];
-    hoisted_1_1 := AsList( alpha_1 );
-    hoisted_2_1 := List( deduped_4_1, function ( i_2 )
-            return hoisted_1_1[1 + i_2];
-        end );
-    return CreateCapCategoryMorphismWithAttributes( cat_1, CreateCapCategoryObjectWithAttributes( cat_1, Length, BigInt( 1 ) ), CreateCapCategoryObjectWithAttributes( cat_1, Length, deduped_5_1 ^ deduped_6_1 ), AsList, [ Sum( List( deduped_4_1, function ( k_2 )
-                    return hoisted_2_1[(1 + k_2)] * deduped_5_1 ^ k_2;
-                end ) ) ] );
-end
-########
-        
-    ;
     
     ##
     AddCartesianLeftCoevaluationMorphismWithGivenRange( cat,
