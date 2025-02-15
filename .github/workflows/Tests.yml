@@ -63,7 +63,7 @@ jobs:
           if [ -d "HigherHomologicalAlgebra/ToolsForHigherHomologicalAlgebra" ]; then make -C "HigherHomologicalAlgebra/ToolsForHigherHomologicalAlgebra" doc; fi
           if [ -d "homalg_project/homalg" ]; then make -C "homalg_project/homalg" doc; fi
           if [ -d "homalg_project/Modules" ]; then make -C "homalg_project/Modules" doc; fi
-          if [ -d "CategoricalTowers/CategoryConstructor" ]; then make -C "CategoricalTowers/CategoryConstructor" doc; fi
+          if [ -d "CategoricalTowers/ToolsForCategoricalTowers" ]; then make -C "CategoricalTowers/ToolsForCategoricalTowers" doc; fi
           if [ -d "CategoricalTowers/Toposes" ]; then make -C "CategoricalTowers/Toposes" doc; fi
       - name: Test FinSetsForCAP
         run: |
@@ -84,7 +84,7 @@ jobs:
             TOKEN="${{ secrets.GITHUB_TOKEN }}" ./dev/simulate_dist.sh; \
           fi
       - name: Upload code coverage
-        if: github.event_name != 'schedule' && matrix.image == 'ghcr.io/homalg-project/gap-docker-master:latest'
+        if: github.event_name != 'schedule' && matrix.image == 'ghcr.io/homalg-project/gap-docker:latest'
         run: |
           cd FinSetsForCAP
           ./dev/upload_codecov.sh

@@ -680,7 +680,7 @@ echo ""
 
 for PDFFile in $PDFFiles ; do
     FULLNAME="$TMP_DIR/$BASENAME/$PDFFile"
-    UPLOADNAME=$BASENAME-$(echo "${PDFFile#doc/}" | sed 's;/;-;g')
+    UPLOADNAME=$PKG-$VERSION-$(echo "${PDFFile#doc/}" | sed 's;/;-;g')
     if [ ! -f "$FULLNAME" ] ; then
         error "could not find PDF"
     fi
@@ -722,7 +722,7 @@ fi
 # BSD and GNU make.
 for f in ./*/*.htm* ; do
   sed \
-    -e 's;href="../../../doc/;href="https://www.gap-system.org/Manuals/doc/;g' \
+    -e 's;href="../../../doc/;href="https://docs.gap-system.org/doc/;g' \
     -e 's;href="../../../pkg/GAPDoc[^\/]*/doc/;href="http://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc/doc/;g' \
     -e 's;href="../../../pkg/gapdoc[^\/]*/doc/;href="http://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc/doc/;g' \
     "$f" > "$f.bak"
