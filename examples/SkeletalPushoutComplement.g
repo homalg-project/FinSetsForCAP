@@ -43,9 +43,4 @@ c := PushoutComplement( l, m );
 #! |5| → |8|
 Display( c );
 #! { 0,..., 4 } ⱶ[ 2, 3, 4, 5, 7 ]→ { 0,..., 7 }
-#! #@if ValueOption( "no_precompiled_code" ) <> true
-SkeletalFinSets!.cached_precompiled_functions.
-    PushoutComplement( SkeletalFinSets, l, m );
-#! |5| → |8|
-#! #@fi
 #! @EndExample

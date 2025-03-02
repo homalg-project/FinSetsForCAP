@@ -34,7 +34,7 @@ list_of_operations :=
           "TruthMorphismOfImplies",
           "SingletonMorphismWithGivenPowerObject",
           #"HasPushoutComplement",
-          "PushoutComplement",
+          #"PushoutComplement",
           ] ) );;
 
 CapJitPrecompileCategoryAndCompareResult(
