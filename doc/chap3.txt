@@ -2,7 +2,7 @@
   [1X3 [33X[0;0YPrecompilation[133X[101X
   
   
-  [1X3.1 [33X[0;0YPrecompiling the category of skeletal finite sets[133X[101X
+  [1X3.1 [33X[0;0YPrecompiling the skeletal category of finite sets[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[28X#@if ValueOption( "no_precompiled_code" ) <> true and _gap_old_formatting[128X[104X

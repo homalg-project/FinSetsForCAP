@@ -1,5 +1,5 @@
   
-  [1X2 [33X[0;0YThe category of skeletal finite sets[133X[101X
+  [1X2 [33X[0;0YThe skeletal category of finite sets[133X[101X
   
   
   [1X2.1 [33X[0;0YGAP Categories[133X[101X
@@ -60,13 +60,13 @@
   [33X[1;0Y[29X[2XSkeletalCategoryOfFiniteSets[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X category[133X
   
-  [33X[0;0YConstruct a category of skeletal finite sets.[133X
+  [33X[0;0YConstruct a skeletal category of finite sets.[133X
   
   [1X2.3-2 SkeletalFinSets[101X
   
   [33X[1;0Y[29X[2XSkeletalFinSets[102X [32X global variable[133X
   
-  [33X[0;0YThe  default  instance  of  the  category  of  skeletal  finite  sets. It is
+  [33X[0;0YThe  default  instance  of  the  skeletal  category  of  finite  sets. It is
   automatically created while loading this package.[133X
   
   [1X2.3-3 FinSet[101X
@@ -75,7 +75,7 @@
   [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X object[133X
   
   [33X[0;0YConstruct  a  skeletal  finite  set  residing in the default instance of the
-  category  of  skeletal  finite  sets  [10XSkeletalFinSets[110X  of order given by the
+  skeletal  category  of  finite  sets  [10XSkeletalFinSets[110X  of order given by the
   nonnegative integer [3Xn[103X.[133X
   
   [4X[32X  Example  [32X[104X
@@ -118,7 +118,7 @@
   [33X[1;0Y[29X[2XFinSet[102X( [3XC[103X, [3Xn[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X object[133X
   
-  [33X[0;0YConstruct  a  skeletal finite set residing in the given category of skeletal
+  [33X[0;0YConstruct  a  skeletal finite set residing in the given skeletal category of
   finite sets [3XC[103X of order given by the nonnegative integer [3Xn[103X.[133X
   
   [1X2.3-5 MapOfFinSets[101X
