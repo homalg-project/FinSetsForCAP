@@ -1,10 +1,10 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
-# FinSetsForCAP: The elementary topos of (skeletal) finite sets
+# FinSetsForCAP: The (skeletal) elementary topos of finite sets
 #
 # Declarations
 #
 
-#! @Chapter The category of skeletal finite sets
+#! @Chapter The skeletal category of finite sets
 
 #! @Section GAP Categories
 
@@ -60,18 +60,18 @@ CapJitAddTypeSignature( "AsList", [ IsMorphismInSkeletalCategoryOfFiniteSets ], 
 #! @Section Constructors
 
 #! @Description
-#!  Construct a category of skeletal finite sets.
+#!  Construct a skeletal category of finite sets.
 #! @Returns a &CAP; category
 DeclareOperation( "SkeletalCategoryOfFiniteSets", [ ] );
 
 #! @Description
-#!  The default instance of the category of skeletal finite sets.
+#!  The default instance of the skeletal category of finite sets.
 #!  It is automatically created while loading this package.
 DeclareGlobalName( "SkeletalFinSets" );
 
 #! @Description
 #!  Construct a skeletal finite set residing in
-#!  the default instance of the category of skeletal finite sets <C>SkeletalFinSets</C>
+#!  the default instance of the skeletal category of finite sets <C>SkeletalFinSets</C>
 #!  of order given by the nonnegative integer <A>n</A>.
 #! @Arguments n
 #! @Returns a &CAP; object
@@ -81,7 +81,7 @@ DeclareOperation( "FinSet",
 
 #! @Description
 #!  Construct a skeletal finite set residing in
-#!  the given category of skeletal finite sets <A>C</A>
+#!  the given skeletal category of finite sets <A>C</A>
 #!  of order given by the nonnegative integer <A>n</A>.
 #! @Arguments C, n
 #! @Returns a &CAP; object

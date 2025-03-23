@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
-# FinSetsForCAP: The elementary topos of (skeletal) finite sets
+# FinSetsForCAP: The (skeletal) elementary topos of finite sets
 #
 # Implementations
 #
@@ -149,7 +149,7 @@ end );
 
 ##
 InstallOtherMethod( MapOfFinSets,
-        "for a category of skeletal finite sets, two CAP skeletal finite sets and a list",
+        "for a skeletal category of finite sets, two CAP skeletal finite sets and a list",
         [ IsSkeletalCategoryOfFiniteSets, IsObjectInSkeletalCategoryOfFiniteSets, IsList, IsObjectInSkeletalCategoryOfFiniteSets ],
         
   function ( cat, s, G, t )

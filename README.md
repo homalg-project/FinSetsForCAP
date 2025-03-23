@@ -1,7 +1,7 @@
 <!-- BEGIN HEADER -->
 # FinSetsForCAP&ensp;<sup><sup>[![View code][code-img]][code-url]</sup></sup>
 
-### The elementary topos of (skeletal) finite sets
+### The (skeletal) elementary topos of finite sets
 
 | Documentation | Latest Release | Build Status | Code Coverage |
 | ------------- | -------------- | ------------ | ------------- |

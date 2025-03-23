@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
-# FinSetsForCAP: The elementary topos of (skeletal) finite sets
+# FinSetsForCAP: The (skeletal) elementary topos of finite sets
 #
 # This file contains package meta data. For additional information on
 # the meaning and correct usage of these fields, please consult the
@@ -9,8 +9,8 @@
 SetPackageInfo( rec(
 
 PackageName := "FinSetsForCAP",
-Subtitle := "The elementary topos of (skeletal) finite sets",
-Version := "2025.02-02",
+Subtitle := "The (skeletal) elementary topos of finite sets",
+Version := "2025.03-01",
 
 Date := (function ( ) if IsBound( GAPInfo.SystemEnvironment.GAP_PKG_RELEASE_DATE ) then return GAPInfo.SystemEnvironment.GAP_PKG_RELEASE_DATE; else return Concatenation( ~.Version{[ 1 .. 4 ]}, "-", ~.Version{[ 6, 7 ]}, "-01" ); fi; end)( ),
 License := "GPL-2.0-or-later",
@@ -92,7 +92,7 @@ PackageDoc := rec(
   HTMLStart := "doc/chap0.html",
   PDFFile   := "doc/manual.pdf",
   SixFile   := "doc/manual.six",
-  LongTitle := "The elementary topos of (skeletal) finite sets",
+  LongTitle := "The (skeletal) elementary topos of finite sets",
 ),
 
 Dependencies := rec(
