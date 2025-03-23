@@ -1,10 +1,10 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
-# FinSetsForCAP: The elementary topos of (skeletal) finite sets
+# FinSetsForCAP: The (skeletal) elementary topos of finite sets
 #
 # Declarations
 #
 
-#! @Chapter The category of skeletal finite sets
+#! @Chapter The skeletal category of finite sets
 
 #! @Section Tools
 

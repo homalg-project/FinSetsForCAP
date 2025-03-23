@@ -71,7 +71,7 @@
 @Subsection Pushout Complement
 @InsertChunk PushoutComplement
 
-@Chapter The category of skeletal finite sets
+@Chapter The skeletal category of finite sets
 
 @Section GAP Categories
 @Section Attributes

@@ -1,6 +1,6 @@
 #! @Chapter Precompilation
 
-#! @Section Precompiling the category of skeletal finite sets
+#! @Section Precompiling the skeletal category of finite sets
 
 #! @Example
 
