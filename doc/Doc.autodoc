@@ -1,9 +1,9 @@
 @Chapter The category of finite sets
 
-@Section GAP Categories
 @Section Attributes
 @Section Constructors
 @Section Tools
+@Section GAP Categories
 @Section Examples
 
 @Subsection IsHomSetInhabited
@@ -73,10 +73,10 @@
 
 @Chapter The skeletal category of finite sets
 
-@Section GAP Categories
 @Section Attributes
 @Section Constructors
 @Section Tools
+@Section GAP Categories
 @Section Examples
 
 @Subsection SkeletalIsHomSetInhabited
