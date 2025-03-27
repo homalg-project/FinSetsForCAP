@@ -375,6 +375,17 @@ InstallMethod( Preimage,
 end );
 
 ##
+InstallMethod( ElementOfPreimage,
+        "for a CAP map of finite sets and a GAP object",
+        [ IsMorphismInCategoryOfFiniteSets, IsObject ],
+        
+  function ( f, y )
+    
+    return First( Source( f ), x -> IsEqualForElementsOfFinSets( f(x), y ) );
+    
+end );
+
+##
 InstallMethod( ImageObject,
         "for a CAP map of finite sets and a CAP finite set",
         [ IsMorphismInCategoryOfFiniteSets, IsObjectInCategoryOfFiniteSets ],
@@ -782,6 +793,43 @@ AddLift( category_of_finite_sets,
                  pair -> [ pair[1], Preimage( alpha, FinSet( category_of_finite_sets, [ pair[2] ] ) )[1] ] );
     
     return MapOfFinSetsNC( Source( beta ), chi, Source( alpha ) );
+    
+end );
+
+## beta \circ alpha^{-1} is again an ordinary function,
+## i.e., fibers of alpha are mapped under beta to the same element
+AddIsColiftable( category_of_finite_sets,
+  function ( category_of_finite_sets, alpha, beta )
+    
+    return ForAll( AsList( ImageObject( alpha ) ),
+                   i -> Length( DuplicateFreeList( List( Preimage( alpha, FinSetNC( category_of_finite_sets, [ i ] ) ), beta ) ) ) = 1 );
+    
+end );
+
+##
+AddColift( category_of_finite_sets,
+  function ( category_of_finite_sets, alpha, beta )
+    local S, T, im_alpha, elm_T, chi;
+    
+    S := Range( alpha );
+    T := Range( beta );
+    
+    im_alpha := AsList( ImageObject( alpha ) );
+
+    ## this is, e.g., implied by not IsInitial( S ), since we assume a colift exists
+    if not IsInitial( T ) then
+        elm_T := AsList( T )[1];
+    fi;
+    
+    chi :=
+      function ( y )
+        if not y in im_alpha then
+            return [ y, elm_T ];
+        fi;
+        return [ y, beta( ElementOfPreimage( alpha, y ) ) ];
+    end;
+    
+    return MapOfFinSets( S, List( AsList( S ), chi ), T );
     
 end );
 
