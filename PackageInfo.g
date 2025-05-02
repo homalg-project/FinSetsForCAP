@@ -32,7 +32,7 @@ Persons := [
   ),
   rec(
     IsAuthor := true,
-    IsMaintainer := true,
+    IsMaintainer := false,
     FirstNames := "Julia",
     LastName := "Mickisch",
     WWWHome := "https://github.com/juliamick/",
@@ -46,7 +46,7 @@ Persons := [
   ),
   rec(
     IsAuthor := true,
-    IsMaintainer := true,
+    IsMaintainer := false,
     FirstNames := "Fabian",
     LastName := "Zickgraf",
     WWWHome := "https://github.com/zickgraf/",
