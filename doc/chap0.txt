@@ -6,10 +6,10 @@
                 [1X The (skeletal) elementary topos of finite sets [101X
   
   
-                                   2025.03-02
+                                   2025.05-01
   
   
-                                 25 March 2025
+                                   2 May 2025
   
   
                                 Mohamed Barakat
@@ -37,7 +37,7 @@
   
   
   Fabian Zickgraf
-      Email:    [7Xmailto:fabian.zickgraf@uni-siegen.de[107X
+      Email:    [7Xmailto:f.zickgraf@dashdos.com[107X
       Homepage: [7Xhttps://github.com/zickgraf/[107X
       Address:  [33X[0;14YWalter-Flex-Str. 3[133X
                 [33X[0;14Y57068 Siegen[133X

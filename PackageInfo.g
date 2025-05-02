@@ -10,9 +10,9 @@ SetPackageInfo( rec(
 
 PackageName := "FinSetsForCAP",
 Subtitle := "The (skeletal) elementary topos of finite sets",
-Version := "2025.03-02",
+Version := "2025.05-01",
 
-Date := "2025-03-25",
+Date := "2025-05-02",
 License := "GPL-2.0-or-later",
 
 Persons := [
@@ -32,7 +32,7 @@ Persons := [
   ),
   rec(
     IsAuthor := true,
-    IsMaintainer := true,
+    IsMaintainer := false,
     FirstNames := "Julia",
     LastName := "Mickisch",
     WWWHome := "https://github.com/juliamick/",
@@ -46,11 +46,11 @@ Persons := [
   ),
   rec(
     IsAuthor := true,
-    IsMaintainer := true,
+    IsMaintainer := false,
     FirstNames := "Fabian",
     LastName := "Zickgraf",
     WWWHome := "https://github.com/zickgraf/",
-    Email := "fabian.zickgraf@uni-siegen.de",
+    Email := "f.zickgraf@dashdos.com",
     PostalAddress := Concatenation(
                "Walter-Flex-Str. 3\n",
                "57068 Siegen\n",
