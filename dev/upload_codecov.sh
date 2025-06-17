@@ -21,9 +21,16 @@ curl -O https://uploader.codecov.io/latest/linux/codecov.SHA256SUM.sig
 gpgv codecov.SHA256SUM.sig codecov.SHA256SUM
 shasum -a 256 -c codecov.SHA256SUM
 
+# read the token
+if [ -z "$CODECOV_TOKEN" ]; then
+  echo -e "\033[0;33mCODECOV_TOKEN is not set. Proceeding without token.\033[0m"
+else
+  echo -e "\033[0;32mUsing CODECOV_TOKEN from environment variable.\033[0m"
+fi
+
 # execute
 chmod +x codecov
-while ! ./codecov -Z -v -s ../; do
+while ! ./codecov -Z -v -s ../ -t $CODECOV_TOKEN; do
     echo "Codecov upload failed, retrying in 60s"
     sleep 60
 done
