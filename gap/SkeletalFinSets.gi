@@ -339,7 +339,7 @@ end );
 
 ##
 AddIsWellDefinedForObjects( SkeletalFinSets,
-   { cat, n } -> Length( n ) >= 0 );
+   { cat, n } -> IsBigInt( Length( n ) ) and Length( n ) >= 0 );
 
 ##
 AddIsEqualForObjects( SkeletalFinSets,
@@ -631,7 +631,7 @@ AddEqualizer( SkeletalFinSets,
     
     Eq := Filtered( [ 0 .. Length( s ) - 1 ], x -> ForAll( [ 1 .. Length( D ) - 1 ], j -> D2[j][1 + x] = D2[j + 1][1 + x] ) );
     
-    return ObjectConstructor( cat, Length( Eq ) );
+    return ObjectConstructor( cat, BigInt( Length( Eq ) ) );
     
 end );
 
