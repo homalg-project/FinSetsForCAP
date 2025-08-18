@@ -112,6 +112,9 @@ InstallMethod( FinSetOp,
     
 end );
 
+## In Julia `IsInt` is not a synonym to `IsBigInt`, hence we install a convenience method in Julia
+#% G2J:julia-only InstallOtherMethod( FinSet, [ IsSkeletalCategoryOfFiniteSets, IsInt ], { cat, n } -> FinSet( cat, BigInt( n ) ) );
+
 ##
 InstallMethod( AsList,
         "for a CAP skeletal finite set",
