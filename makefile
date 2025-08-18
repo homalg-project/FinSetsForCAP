@@ -61,7 +61,7 @@ test-spacing:
 test-gap_to_julia: doc
 	if [ -d "../Toposes" ]; then make -C "../Toposes" doc; fi
 	git clone https://github.com/homalg-project/CAP_project.jl.git ~/.julia/dev/CAP_project.jl
-	sh -c "cd ~/.julia/dev/CAP_project.jl && export PATH="~/.julia/dev/CAP_project.jl/gap_to_julia:$$PATH" && make -C CAP clean-gen && make -C MonoidalCategories clean-gen && make -C CartesianCategories clean-gen && make -C Toposes clean-gen && make -C FinSetsForCAP clean-gen"
+	sh -c "cd ~/.julia/dev/CAP_project.jl && export PATH="~/.julia/dev/CAP_project.jl/gap_to_julia:$$PATH" && gap_to_julia CAP && gap_to_julia MonoidalCategories && gap_to_julia CartesianCategories && gap_to_julia Toposes && gap_to_julia FinSetsForCAP"
 	julia -e 'using Pkg; Pkg.develop(path = "/home/gap/.julia/dev/CAP_project.jl/CAP");'
 	julia -e 'using Pkg; Pkg.develop(path = "/home/gap/.julia/dev/CAP_project.jl/MonoidalCategories");'
 	julia -e 'using Pkg; Pkg.develop(path = "/home/gap/.julia/dev/CAP_project.jl/CartesianCategories");'
