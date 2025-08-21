@@ -65,7 +65,7 @@ test-gap_to_julia:
 		echo "PackageJanitor already exists, skipping clone."; \
 	fi
 	@if [ ! -d "$$HOME/.julia/dev/CAP_project.jl" ]; then \
-		git clone --depth 1 -vv https://github.com/kamalsaleh/CAP_project.jl.git "$$HOME/.julia/dev/CAP_project.jl"; \
+		git clone --depth 1 -vv https://github.com/homalg-project/CAP_project.jl.git "$$HOME/.julia/dev/CAP_project.jl"; \
 	else \
 		echo "CAP_project.jl already exists, skipping clone."; \
 	fi
