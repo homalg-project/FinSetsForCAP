@@ -10,6 +10,8 @@ InstallMethod( SkeletalCategoryOfFiniteSets,
                
  FunctionWithNamedArguments(
   [
+    [ "cartesian_monoidal_structure", true ],
+    [ "cocartesian_monoidal_structure", false ],
     [ "FinalizeCategory", true ],
     [ "no_precompiled_code", false ],
     [ "overhead", true ],
@@ -38,6 +40,12 @@ InstallMethod( SkeletalCategoryOfFiniteSets,
     
     SetIsStrictCartesianCategory( cat, true );
     SetIsStrictCocartesianCategory( cat, true );
+    
+    if CAP_NAMED_ARGUMENTS.cartesian_monoidal_structure and not CAP_NAMED_ARGUMENTS.cocartesian_monoidal_structure then
+        SetIsSymmetricMonoidalCategoryStructureGivenByDirectProduct( cat, true );
+    elif CAP_NAMED_ARGUMENTS.cocartesian_monoidal_structure then
+        SetIsSymmetricMonoidalCategoryStructureGivenByCoproduct( cat, true );
+    fi;
     
     SetIsElementaryTopos( cat, true );
     
