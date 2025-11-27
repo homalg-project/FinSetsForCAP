@@ -4,7 +4,7 @@
 
 #! @Example
 
-#! #@if ValueOption( "no_precompiled_code" ) <> true and _gap_old_formatting
+#! #@if ValueOption( "no_precompiled_code" ) <> true
 
 LoadPackage( "FinSetsForCAP", false );
 #! true
