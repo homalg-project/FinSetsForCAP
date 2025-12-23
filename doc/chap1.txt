@@ -34,7 +34,7 @@
   [1X1.2-1 CategoryOfFiniteSets[101X
   
   [33X[1;0Y[29X[2XCategoryOfFiniteSets[102X(  ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X category[133X
+  [6XReturns:[106X  [33X[0;10Ya CAP category[133X
   
   [33X[0;0YConstruct a category of finite sets.[133X
   
@@ -48,9 +48,9 @@
   [1X1.2-3 FinSet[101X
   
   [33X[1;0Y[29X[2XFinSet[102X( [3Xcat_of_fin_sets[103X, [3XL[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X object[133X
+  [6XReturns:[106X  [33X[0;10Ya CAP object[133X
   
-  [33X[0;0YConstruct  a  finite set out of the dense list [3XL[103X, i.e., an object in the [5XCAP[105X
+  [33X[0;0YConstruct  a  finite set out of the dense list [3XL[103X, i.e., an object in the CAP
   category  [10Xcat_of_fin_sets[110X.  The  [5XGAP[105X  operation  [10XSet[110X must be applicable to [3XL[103X
   without throwing an error. Equality is determined as follows: [10XFinSet( L1 ) =
   FinSet(  L2  )[110X  iff  [10XIsEqualForElementsOfFinSets(  Immutable(  Set(  L1 ) ),
@@ -67,7 +67,7 @@
   [1X1.2-4 FinSet[101X
   
   [33X[1;0Y[29X[2XFinSet[102X( [3XL[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X object[133X
+  [6XReturns:[106X  [33X[0;10Ya CAP object[133X
   
   [33X[0;0YReturn [10XFinSet[110X( [10XFinSets[110X, [3XL[103X ).[133X
   
@@ -96,10 +96,10 @@
   [1X1.2-5 FinSetNC[101X
   
   [33X[1;0Y[29X[2XFinSetNC[102X( [3Xcat_of_fin_sets[103X, [3XL[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X object[133X
+  [6XReturns:[106X  [33X[0;10Ya CAP object[133X
   
   [33X[0;0YConstruct    a    finite    set    out   of   the   duplicate-free   (w.r.t.
-  [10XIsEqualForElementsOfFinSets[110X)  and  dense  list [3XL[103X, i.e., an object in the [5XCAP[105X
+  [10XIsEqualForElementsOfFinSets[110X)  and  dense  list [3XL[103X, i.e., an object in the CAP
   category  [10Xcat_of_fin_sets,[110X.  Equality  is  determined  as follows: [10XFinSetNC(
   cat_of_fin_sets,    L1   )   =   FinSetNC(   cat_of_fin_sets,   L2   )[110X   iff
   [10XIsEqualForElementsOfFinSets( Immutable( L1 ), Immutable( L2 ) )[110X.[133X
@@ -107,7 +107,7 @@
   [1X1.2-6 FinSetNC[101X
   
   [33X[1;0Y[29X[2XFinSetNC[102X( [3XL[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X object[133X
+  [6XReturns:[106X  [33X[0;10Ya CAP object[133X
   
   [33X[0;0YReturn [10XFinSetNC[110X( [10XFinSets[110X, [3XL[103X ).[133X
   
@@ -143,10 +143,10 @@
   [1X1.2-7 MapOfFinSets[101X
   
   [33X[1;0Y[29X[2XMapOfFinSets[102X( [3XS[103X, [3XG[103X, [3XT[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X morphism[133X
+  [6XReturns:[106X  [33X[0;10Ya CAP morphism[133X
   
   [33X[0;0YConstruct  a  map [23X\phi:[123X[3XS[103X[23X\to[123X[3XT[103X of the finite sets [3XS[103X and [3XT[103X, i.e., a morphism in
-  the  [5XCAP[105X  category  [10XFinSets[110X,  where  [3XG[103X  is a dense list of pairs in [3XS[103X[23X\times[123X[3XT[103X
+  the  CAP  category  [10XFinSets[110X,  where  [3XG[103X  is a dense list of pairs in [3XS[103X[23X\times[123X[3XT[103X
   describing the graph of [23X\phi[123X.[133X
   
   [4X[32X  Example  [32X[104X
@@ -213,10 +213,10 @@
   [1X1.2-8 MapOfFinSetsNC[101X
   
   [33X[1;0Y[29X[2XMapOfFinSetsNC[102X( [3XS[103X, [3XG[103X, [3XT[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X morphism[133X
+  [6XReturns:[106X  [33X[0;10Ya CAP morphism[133X
   
   [33X[0;0YConstruct  a  map [23X\phi:[123X[3XS[103X[23X\to[123X[3XT[103X of the finite sets [3XS[103X and [3XT[103X, i.e., a morphism in
-  the  [5XCAP[105X  category  [10XFinSets[110X,  where  [3XG[103X is a duplicate-free and dense list of
+  the  CAP  category  [10XFinSets[110X,  where  [3XG[103X is a duplicate-free and dense list of
   pairs in [3XS[103X[23X\times[123X[3XT[103X describing the graph of [23X\phi[123X.[133X
   
   [4X[32X  Example  [32X[104X
@@ -262,15 +262,15 @@
   
   [30X    [33X[0;6Ydense lists and records are compared recursively[133X
   
-  [30X    [33X[0;6Y[5XCAP[105X   category   objects  are  compared  using  [10XIsEqualForObjects[110X  (if
+  [30X    [33X[0;6YCAP   category   objects  are  compared  using  [10XIsEqualForObjects[110X  (if
         available)[133X
   
-  [30X    [33X[0;6Y[5XCAP[105X category morphisms are compared using [10XIsEqualForMorphismsOnMor[110X (if
+  [30X    [33X[0;6YCAP category morphisms are compared using [10XIsEqualForMorphismsOnMor[110X (if
         available)[133X
   
   [30X    [33X[0;6Yother objects are compared using [10XIsIdenticalObj[110X[133X
   
-  [33X[0;0YNote:  if  [5XCAP[105X category objects or [5XCAP[105X category morphisms are compared using
+  [33X[0;0YNote:  if  CAP category objects or CAP category morphisms are compared using
   [10XIsEqualForObjects[110X or [10XIsEqualForMorphismsOnMor[110X, respectively, the result must
   not be [10Xfail[110X.[133X
   
@@ -346,7 +346,7 @@
   [1X1.3-5 UnionOfFinSets[101X
   
   [33X[1;0Y[29X[2XUnionOfFinSets[102X( [3Xcat_of_fin_sets[103X, [3XL[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X object[133X
+  [6XReturns:[106X  [33X[0;10Ya CAP object[133X
   
   [33X[0;0YCompute  the  set-theoretic  union  of the elements of [3XL[103X, where [3XL[103X is a dense
   list of finite sets in the category [3Xcat_of_fin_sets[103X.[133X
@@ -375,7 +375,7 @@
   [1X1.3-9 EmbeddingOfFinSets[101X
   
   [33X[1;0Y[29X[2XEmbeddingOfFinSets[102X( [3XS[103X, [3XT[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X morphism[133X
+  [6XReturns:[106X  [33X[0;10Ya CAP morphism[133X
   
   [33X[0;0YConstruct the embedding [23X\iota:[123X[3XS[103X[23X\to[123X[3XT[103X of the finite sets [3XS[103X and [3XT[103X, where [3XS[103X must
   be subset of [3XT[103X.[133X
@@ -383,7 +383,7 @@
   [1X1.3-10 ProjectionOfFinSets[101X
   
   [33X[1;0Y[29X[2XProjectionOfFinSets[102X( [3XS[103X, [3XT[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X morphism[133X
+  [6XReturns:[106X  [33X[0;10Ya CAP morphism[133X
   
   [33X[0;0YConstruct  the projection [23X\pi:[123X[3XS[103X[23X\to[123X[3XT[103X of the finite sets [3XS[103X and [3XT[103X, where [3XT[103X is a
   partition of [3XS[103X.[133X
@@ -391,14 +391,14 @@
   [1X1.3-11 Preimage[101X
   
   [33X[1;0Y[29X[2XPreimage[102X( [3Xf[103X, [3XT_[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X object[133X
+  [6XReturns:[106X  [33X[0;10Ya CAP object[133X
   
   [33X[0;0YCompute the preimage of [3XT_[103X under the morphism [3Xf[103X.[133X
   
   [1X1.3-12 ImageObject[101X
   
   [33X[1;0Y[29X[2XImageObject[102X( [3Xf[103X, [3XS_[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X object[133X
+  [6XReturns:[106X  [33X[0;10Ya CAP object[133X
   
   [33X[0;0YCompute the image of [3XS_[103X under the morphism [3Xf[103X.[133X
   

@@ -34,7 +34,7 @@
   [1X2.2-1 SkeletalCategoryOfFiniteSets[101X
   
   [33X[1;0Y[29X[2XSkeletalCategoryOfFiniteSets[102X(  ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X category[133X
+  [6XReturns:[106X  [33X[0;10Ya CAP category[133X
   
   [33X[0;0YConstruct a skeletal category of finite sets.[133X
   
@@ -48,7 +48,7 @@
   [1X2.2-3 FinSet[101X
   
   [33X[1;0Y[29X[2XFinSet[102X( [3Xn[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X object[133X
+  [6XReturns:[106X  [33X[0;10Ya CAP object[133X
   
   [33X[0;0YConstruct  a  skeletal  finite  set  residing in the default instance of the
   skeletal  category  of  finite  sets  [10XSkeletalFinSets[110X  of order given by the
@@ -92,7 +92,7 @@
   [1X2.2-4 FinSet[101X
   
   [33X[1;0Y[29X[2XFinSet[102X( [3XC[103X, [3Xn[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X object[133X
+  [6XReturns:[106X  [33X[0;10Ya CAP object[133X
   
   [33X[0;0YConstruct  a  skeletal finite set residing in the given skeletal category of
   finite sets [3XC[103X of order given by the nonnegative integer [3Xn[103X.[133X
@@ -100,10 +100,10 @@
   [1X2.2-5 MapOfFinSets[101X
   
   [33X[1;0Y[29X[2XMapOfFinSets[102X( [3Xs[103X, [3XG[103X, [3Xt[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X morphism[133X
+  [6XReturns:[106X  [33X[0;10Ya CAP morphism[133X
   
   [33X[0;0YConstruct  a  map  [23X\phi:[123X[3Xs[103X[23X\to[123X[3Xt[103X  of  the skeletal finite sets [3Xs[103X and [3Xt[103X, i.e., a
-  morphism  in  the  [5XCAP[105X  category  of  [3Xs[103X,  where [3XG[103X is a list of integers in [3Xt[103X
+  morphism  in  the  CAP  category  of  [3Xs[103X,  where [3XG[103X is a list of integers in [3Xt[103X
   describing the graph of [23X\phi[123X.[133X
   
   [4X[32X  Example  [32X[104X
@@ -155,7 +155,7 @@
   [1X2.3-2 EmbeddingOfFinSets[101X
   
   [33X[1;0Y[29X[2XEmbeddingOfFinSets[102X( [3Xs[103X, [3Xt[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X morphism[133X
+  [6XReturns:[106X  [33X[0;10Ya CAP morphism[133X
   
   [33X[0;0YConstruct the embedding [23X\iota:[123X[3Xs[103X[23X\to[123X[3Xt[103X of the finite sets [3Xs[103X and [3Xt[103X, where [3Xs[103X must
   be subset of [3Xt[103X.[133X
@@ -163,14 +163,14 @@
   [1X2.3-3 Preimage[101X
   
   [33X[1;0Y[29X[2XPreimage[102X( [3Xphi[103X, [3Xt[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X object[133X
+  [6XReturns:[106X  [33X[0;10Ya CAP object[133X
   
   [33X[0;0YCompute the Preimage of [3Xt[103X under the morphism [3Xphi[103X.[133X
   
   [1X2.3-4 ImageObject[101X
   
   [33X[1;0Y[29X[2XImageObject[102X( [3Xphi[103X, [3Xs_[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Ya [5XCAP[105X object[133X
+  [6XReturns:[106X  [33X[0;10Ya CAP object[133X
   
   [33X[0;0YCompute the image of [3Xs_[103X under the morphism [3Xphi[103X.[133X
   
