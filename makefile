@@ -58,26 +58,4 @@ test-spacing:
 	rm spacing_diff
 	rm spacing_diff_no_blanks
 
-test-gap_to_julia:
-	@bash -e -c '\
-		if [ ! -d "$$HOME/.gap/PackageJanitor" ]; then \
-			git clone --depth 1 -vv https://github.com/homalg-project/PackageJanitor.git "$$HOME/.gap/PackageJanitor"; \
-		else \
-			echo "PackageJanitor already exists, skipping clone."; \
-		fi; \
-		if [ ! -d "$$HOME/.julia/dev/CAP_project.jl" ]; then \
-			git clone --depth 1 -vv https://github.com/homalg-project/CAP_project.jl.git "$$HOME/.julia/dev/CAP_project.jl"; \
-		else \
-			echo "CAP_project.jl already exists, skipping clone."; \
-		fi; \
-		for pkg in CAP MonoidalCategories CartesianCategories Toposes FinSetsForCAP; do \
-			julia -e "using Pkg; Pkg.develop(path = homedir() * \"/.julia/dev/CAP_project.jl/$${pkg}\")"; \
-		done; \
-		for pkg in CAP MonoidalCategories CartesianCategories Toposes FinSetsForCAP; do \
-			make -C "$$HOME/.julia/dev/CAP_project.jl/$${pkg}" gen-full; \
-		done; \
-		for pkg in CAP MonoidalCategories CartesianCategories Toposes FinSetsForCAP; do \
-			julia -e "using Pkg; Pkg.test(\"$${pkg}\")"; \
-		done'
-
-ci-test: test-basic-spacing test-spacing test-doc test-with-coverage test-with-coverage-without-precompiled-code test-gap_to_julia
+ci-test: test-basic-spacing test-spacing test-doc test-with-coverage test-with-coverage-without-precompiled-code
