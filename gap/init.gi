@@ -12,6 +12,9 @@ BindGlobal( "init_FinSetsForCAP", function ( )
     ##
     BindGlobal( "SkeletalFinSets", SkeletalCategoryOfFiniteSets( ) );
     
+    ##
+    BindGlobal( "SkeletalFinSets1", SkeletalCategoryOfFiniteSetsWithCountingStartingAt1( SkeletalFinSets ) );
+    
 end );
 
 #= comment for Julia

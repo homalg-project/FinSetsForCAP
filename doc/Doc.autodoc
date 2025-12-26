@@ -1,76 +1,3 @@
-@Chapter The category of finite sets
-
-@Section Attributes
-@Section Constructors
-@Section Tools
-@Section GAP Categories
-@Section Examples
-
-@Subsection IsHomSetInhabited
-@InsertChunk IsHomSetInhabited
-
-@Subsection Morphisms of external Hom
-@InsertChunk SkeletalMorphismsOfExternalHom
-
-@Subsection Exact cover with global elements
-@InsertChunk SkeletalExactCoverWithGlobalElements
-
-@Subsection PreCompose
-@InsertChunk PreCompose
-
-@Subsection IsEpimorphism and IsMonomorhism
-@InsertChunk IsEpiMono
-
-@Subsection Initial and Terminal Objects
-@InsertChunk InitialTerminal
-
-@Subsection Projective and Injective Objects
-@InsertChunk IsProjective
-@InsertChunk IsInjective
-
-@Subsection Product
-@InsertChunk DirectProduct
-
-@Subsection Coproduct
-@InsertChunk Coproduct
-
-@Subsection Image
-@InsertChunk ImageObject
-
-@Subsection Coimage
-@InsertChunk CoimageObject
-
-@Subsection Equalizer
-@InsertChunk Equalizer
-
-@Subsection Pullback
-@InsertChunk FiberProduct
-
-@Subsection Coequalizer
-@InsertChunk Coequalizer
-
-@Subsection Pushout
-@InsertChunk Pushout
-
-@Subsection Cartesian Lambda Introduction
-@InsertChunk CartesianLambdaIntroduction
-
-@Subsection Lift
-@InsertChunk Lift
-
-@Subsection Singleton morphism
-@InsertChunk SingletonMorphism
-
-@Subsection Topos properties
-@InsertChunk Topos
-
-@Subsection Subobject Classifier
-@InsertChunk SubobjectClassifier
-@InsertChunk HeytingAlgebraOfSubobjects
-
-@Subsection Pushout Complement
-@InsertChunk PushoutComplement
-
 @Chapter The skeletal category of finite sets
 
 @Section Attributes
@@ -148,3 +75,168 @@
 
 @Subsection Skeletal Pushout Complement
 @InsertChunk SkeletalPushoutComplement
+
+@Subsection Morphisms of external Hom
+@InsertChunk SkeletalMorphismsOfExternalHom
+
+@Subsection Exact cover with global elements
+@InsertChunk SkeletalExactCoverWithGlobalElements
+
+@Chapter The skeletal category of finite sets with counting starting at 1
+
+@Section Attributes
+@Section Constructors
+@Section Tools
+@Section GAP Categories
+@Section Examples
+
+@Subsection SkeletalIsHomSetInhabited
+@InsertChunk Skeletal1IsHomSetInhabited
+
+@Subsection Skeletal WellDefined
+@InsertChunk Skeletal1WellDefined
+
+@Subsection Skeletal PreCompose
+@InsertChunk Skeletal1PreCompose
+
+@Subsection Skeletal Monomophisms and Epimophisms
+@InsertChunk Skeletal1MonoEpi
+
+@Subsection Skeletal Initial and Terminal Objects
+@InsertChunk Skeletal1InitialTerminal
+
+@Subsection Projective and Injective Objects
+@InsertChunk Skeletal1IsProjective
+@InsertChunk Skeletal1IsInjective
+
+@Subsection Skeletal Product
+@InsertChunk Skeletal1DirectProduct
+
+@Subsection Skeletal Coproduct
+@InsertChunk Skeletal1Coproduct
+
+@Subsection Skeletal Image
+@InsertChunk Skeletal1ImageObject
+@InsertChunk Skeletal1ImageEmbedding
+@InsertChunk Skeletal1CoastrictionToImage
+
+@Subsection Skeletal Coimage
+@InsertChunk Skeletal1CoimageObject
+
+@Subsection Skeletal Preimage
+@InsertChunk Skeletal1Preimage
+
+@Subsection Skeletal Equalizer
+@InsertChunk Skeletal1Equalizer
+
+@Subsection Skeletal Pullback
+@InsertChunk Skeletal1FiberProduct
+
+@Subsection Skeletal Coequalizer
+@InsertChunk Skeletal1Coequalizer
+
+@Subsection Skeletal Pushout
+@InsertChunk Skeletal1Pushout
+
+@Subsection Skeletal Cartesian Lambda Introduction
+@InsertChunk Skeletal1CartesianLambdaIntroduction
+
+@Subsection Skeletal Lift
+@InsertChunk Skeletal1Lift
+
+@Subsection Skeletal Colift
+@InsertChunk Skeletal1Colift
+
+@Subsection Skeletal singleton morphism
+@InsertChunk Skeletal1SingletonMorphism
+
+@Subsection Skeletal topos properties
+@InsertChunk Skeletal1Topos
+
+@Subsection Skeletal Subobject Classifier
+@InsertChunk Skeletal1SubobjectClassifier
+@InsertChunk Skeletal1HeytingAlgebraOfSubobjects
+
+@Subsection Skeletal Pushout Complement
+@InsertChunk Skeletal1PushoutComplement
+
+@Subsection Morphisms of external Hom
+@InsertChunk Skeletal1MorphismsOfExternalHom
+
+@Subsection Exact cover with global elements
+@InsertChunk Skeletal1ExactCoverWithGlobalElements
+
+@Chapter The category of finite sets
+
+@Section Attributes
+@Section Constructors
+@Section Tools
+@Section GAP Categories
+@Section Examples
+
+@Subsection IsHomSetInhabited
+@InsertChunk IsHomSetInhabited
+
+@Subsection PreCompose
+@InsertChunk PreCompose
+
+@Subsection IsEpimorphism and IsMonomorhism
+@InsertChunk IsEpiMono
+
+@Subsection Initial and Terminal Objects
+@InsertChunk InitialTerminal
+
+@Subsection Projective and Injective Objects
+@InsertChunk IsProjective
+@InsertChunk IsInjective
+
+@Subsection Product
+@InsertChunk DirectProduct
+
+@Subsection Coproduct
+@InsertChunk Coproduct
+
+@Subsection Image
+@InsertChunk ImageObject
+
+@Subsection Coimage
+@InsertChunk CoimageObject
+
+@Subsection Equalizer
+@InsertChunk Equalizer
+
+@Subsection Pullback
+@InsertChunk FiberProduct
+
+@Subsection Coequalizer
+@InsertChunk Coequalizer
+
+@Subsection Pushout
+@InsertChunk Pushout
+
+@Subsection Cartesian Lambda Introduction
+@InsertChunk CartesianLambdaIntroduction
+
+@Subsection Lift
+@InsertChunk Lift
+
+@Subsection Singleton morphism
+@InsertChunk SingletonMorphism
+
+@Subsection Topos properties
+@InsertChunk Topos
+
+@Subsection Subobject Classifier
+@InsertChunk SubobjectClassifier
+@InsertChunk HeytingAlgebraOfSubobjects
+
+@Subsection Pushout Complement
+@InsertChunk PushoutComplement
+
+@Chapter Precompilation
+
+@Section Precompiling ProjectionInFactorOfBinaryDirectProduct
+
+@Section Precompiling the skeletal category of finite sets
+
+@Section Precompiling the skeletal category of finite sets with counting starting at 1

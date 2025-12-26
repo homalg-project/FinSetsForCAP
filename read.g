@@ -8,9 +8,13 @@ ReadPackage( "FinSetsForCAP", "gap/Tools.gi" );
 
 ReadPackage( "FinSetsForCAP", "gap/precompiled_categories/SkeletalCategoryOfFiniteSetsWithMorphismsGivenByLists_precompiled.gi" );
 
+ReadPackage( "FinSetsForCAP", "gap/precompiled_categories/SkeletalCategoryOfFiniteSetsWithMorphismsGivenByListsAndCountingStartingAt1_precompiled.gi" );
+
 ReadPackage( "FinSetsForCAP", "gap/FinSets.gi" );
 
 ReadPackage( "FinSetsForCAP", "gap/SkeletalFinSets.gi" );
+
+ReadPackage( "FinSetsForCAP", "gap/SkeletalFinSetsWithCountingStartingAt1.gi" );
 
 #= comment for Julia
 if IsPackageMarkedForLoading( "JuliaInterface", ">= 0.2" ) then
