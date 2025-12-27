@@ -127,7 +127,7 @@ InstallMethod( AsList,
         
   function ( s )
     
-    return [ 0 .. Length( s ) - 1 ];
+    return [ 0 .. Cardinality( s ) - 1 ];
     
 end );
 
@@ -303,7 +303,7 @@ AddObjectConstructor( SkeletalFinSets,
   function ( cat, n )
     local int;
     
-    int := CreateCapCategoryObjectWithAttributes( cat, Length, n );
+    int := CreateCapCategoryObjectWithAttributes( cat, Cardinality, n );
     
     #% CAP_JIT_DROP_NEXT_STATEMENT
     Assert( 4, IsWellDefined( int ) );
@@ -316,7 +316,7 @@ end );
 AddObjectDatum( SkeletalFinSets,
   function ( cat, n )
     
-    return Length( n );
+    return Cardinality( n );
     
 end );
 
@@ -347,13 +347,13 @@ end );
 
 ##
 AddIsWellDefinedForObjects( SkeletalFinSets,
-   { cat, n } -> IsBigInt( Length( n ) ) and Length( n ) >= 0 );
+   { cat, n } -> IsBigInt( Cardinality( n ) ) and Cardinality( n ) >= 0 );
 
 ##
 AddIsEqualForObjects( SkeletalFinSets,
   function ( cat, n1, n2 )
     
-    return Length( n1 ) = Length( n2 );
+    return Cardinality( n1 ) = Cardinality( n2 );
     
 end );
 
@@ -362,11 +362,11 @@ AddIsWellDefinedForMorphisms( SkeletalFinSets,
   function ( cat, mor )
     local s, rel, t;
     
-    s := Length( Source( mor ) );
+    s := Cardinality( Source( mor ) );
     
     rel := AsList( mor );
     
-    t := Length( Range( mor ) );
+    t := Cardinality( Range( mor ) );
     
     ## For CompilerForCAP we need if-elif-else with the same structure
     if not ForAll( rel, a -> IsBigInt( a ) and a >= 0 ) then
@@ -393,7 +393,7 @@ end );
 AddIdentityMorphism( SkeletalFinSets,
   function ( cat, n )
     
-    return MorphismConstructor( cat, n, [ 0 .. Length( n ) - 1 ], n );
+    return MorphismConstructor( cat, n, [ 0 .. Cardinality( n ) - 1 ], n );
     
 end );
 
@@ -422,7 +422,7 @@ AddIsEpimorphism( SkeletalFinSets,
     
     imgs := AsList( phi );
     
-    t := Length( Range( phi ) );
+    t := Cardinality( Range( phi ) );
     
     ## we do not have a linear purely functional test (yet),
     ## the following linear runtime function works with side effects,
@@ -443,7 +443,7 @@ AddIsMonomorphism( SkeletalFinSets,
     
     imgs := AsList( phi );
     
-    t := Length( Range( phi ) );
+    t := Cardinality( Range( phi ) );
     
     ## we do not have a linear purely functional test (yet),
     ## the following linear runtime function works with side effects,
@@ -566,7 +566,7 @@ end );
 AddIsTerminal( SkeletalFinSets,
   function ( cat, M )
     
-    return Length( M ) = 1;
+    return Cardinality( M ) = 1;
     
 end );
 
@@ -582,7 +582,7 @@ end );
 AddUniversalMorphismIntoTerminalObjectWithGivenTerminalObject( SkeletalFinSets,
   function ( cat, m, t )
     
-    return MorphismConstructor( cat, m, ListWithIdenticalEntries( Length( m ), BigInt( 0 ) ), t );
+    return MorphismConstructor( cat, m, ListWithIdenticalEntries( Cardinality( m ), BigInt( 0 ) ), t );
     
 end );
 
@@ -590,7 +590,7 @@ end );
 AddDirectProduct( SkeletalFinSets,
   function ( cat, L )
     
-    return ObjectConstructor( cat, Product( List( L, Length ) ) );
+    return ObjectConstructor( cat, Product( List( L, Cardinality ) ) );
     
 end );
 
@@ -601,12 +601,12 @@ AddProjectionInFactorOfDirectProductWithGivenDirectProduct( SkeletalFinSets,
     
     T := D[k];
     
-    d := Length( T );
+    d := Cardinality( T );
     
-    a := Product( List( D{[ 1 .. k - 1 ]}, Length ) );
-    b := Product( List( D{[ k + 1 .. Length( D ) ]}, Length ) );
+    a := Product( List( D{[ 1 .. k - 1 ]}, Cardinality ) );
+    b := Product( List( D{[ k + 1 .. Length( D ) ]}, Cardinality ) );
     
-    p := Length( P );
+    p := Cardinality( P );
     
     return MorphismConstructor( cat, P, List( P, i -> RemIntWithDomain( QuoIntWithDomain( i, a, p ), d, DivIntWithGivenQuotient( p, a, d * b ) ) ), T );
     
@@ -619,7 +619,7 @@ AddUniversalMorphismIntoDirectProductWithGivenDirectProduct( SkeletalFinSets,
     
     l := Length( D );
     
-    d := List( D, Length );
+    d := List( D, Cardinality );
     
     dd := List( [ 0 .. l - 1 ], j -> Product( d{[ 1 .. j ]} ) );
     
@@ -637,7 +637,7 @@ AddEqualizer( SkeletalFinSets,
     
     D2 := List( D, AsList );
     
-    Eq := Filtered( [ 0 .. Length( s ) - 1 ], x -> ForAll( [ 1 .. Length( D ) - 1 ], j -> D2[j][1 + x] = D2[j + 1][1 + x] ) );
+    Eq := Filtered( [ 0 .. Cardinality( s ) - 1 ], x -> ForAll( [ 1 .. Length( D ) - 1 ], j -> D2[j][1 + x] = D2[j + 1][1 + x] ) );
     
     return ObjectConstructor( cat, BigInt( Length( Eq ) ) );
     
@@ -650,7 +650,7 @@ AddEmbeddingOfEqualizerWithGivenEqualizer( SkeletalFinSets,
     
     D2 := List( D, AsList );
     
-    Eq := Filtered( [ 0 .. Length( s ) - 1 ], x -> ForAll( [ 1 .. Length( D ) - 1 ], j -> D2[j][1 + x] = D2[j + 1][1 + x] ) );
+    Eq := Filtered( [ 0 .. Cardinality( s ) - 1 ], x -> ForAll( [ 1 .. Length( D ) - 1 ], j -> D2[j][1 + x] = D2[j + 1][1 + x] ) );
     
     return MorphismConstructor( cat, E, Eq, s );
     
@@ -663,7 +663,7 @@ AddUniversalMorphismIntoEqualizerWithGivenEqualizer( SkeletalFinSets,
     
     D2 := List( D, AsList );
     
-    Eq := Filtered( [ 0 .. Length( s ) - 1 ], x -> ForAll( [ 1 .. Length( D ) - 1 ], j -> D2[j][1 + x] = D2[j + 1][1 + x] ) );
+    Eq := Filtered( [ 0 .. Cardinality( s ) - 1 ], x -> ForAll( [ 1 .. Length( D ) - 1 ], j -> D2[j][1 + x] = D2[j + 1][1 + x] ) );
     
     t := AsList( tau );
     
@@ -678,7 +678,7 @@ end );
 AddIsInitial( SkeletalFinSets,
   function ( cat, M )
     
-    return Length( M ) = 0;
+    return Cardinality( M ) = 0;
     
 end );
 
@@ -738,7 +738,7 @@ end );
 AddMonomorphismIntoSomeInjectiveObjectWithGivenSomeInjectiveObject( SkeletalFinSets,
   function ( cat, M, injective_object )
     
-    return MorphismConstructor( cat, M, [ 0 .. Length( M ) - 1 ], injective_object );
+    return MorphismConstructor( cat, M, [ 0 .. Cardinality( M ) - 1 ], injective_object );
     
 end );
 
@@ -746,7 +746,7 @@ end );
 AddCoproduct( SkeletalFinSets,
   function ( cat, L )
     
-    return ObjectConstructor( cat, Sum( List( L, Length ) ) );
+    return ObjectConstructor( cat, Sum( List( L, Cardinality ) ) );
     
 end );
 
@@ -757,11 +757,11 @@ AddInjectionOfCofactorOfCoproductWithGivenCoproduct( SkeletalFinSets,
     
     O := L{[ 1 .. i - 1 ]};
     
-    sum := Sum( List( O, Length ) );
+    sum := Sum( List( O, Cardinality ) );
     
     s := L[i];
     
-    return MorphismConstructor( cat, s, [ sum .. sum + Length( s ) - 1 ], coproduct );
+    return MorphismConstructor( cat, s, [ sum .. sum + Cardinality( s ) - 1 ], coproduct );
     
 end );
 
@@ -847,8 +847,8 @@ AddExponentialOnObjects( SkeletalFinSets,
   function ( cat, M, N )
     local m, n;
     
-    m := Length( M );
-    n := Length( N );
+    m := Cardinality( M );
+    n := Cardinality( N );
     
     return ObjectConstructor( cat, n ^ m );
     
@@ -861,8 +861,8 @@ AddCartesianLambdaElimination( SkeletalFinSets,
   function ( cat, L, B, g )
     local l, b, v;
     
-    l := Length( L );
-    b := Length( B );
+    l := Cardinality( L );
+    b := Cardinality( B );
     
     v := AsList( g )[1];
     
@@ -879,9 +879,9 @@ AddExponentialToDirectProductRightAdjunctMorphismWithGivenDirectProduct( Skeleta
   function ( cat, L, B, g, LxA )
     local l, b, g_map, la;
     
-    l := Length( L );
-    b := Length( B );
-    la := Length( LxA );
+    l := Cardinality( L );
+    b := Cardinality( B );
+    la := Cardinality( LxA );
     
     g_map := AsList( g );
     
@@ -905,8 +905,8 @@ AddDirectProductToExponentialRightAdjunctMorphismWithGivenExponential( SkeletalF
     
     B := Range( f );
     
-    l := Length( L );
-    b := Length( B );
+    l := Cardinality( L );
+    b := Cardinality( B );
     
     f_map := AsList( f );
     
@@ -926,7 +926,7 @@ AddExactCoverWithGlobalElements( SkeletalFinSets,
     
     T := TerminalObject( cat );
     
-    return List( [ 0 .. Length( A ) - 1 ], i -> MorphismConstructor( cat, T, [ i ], A ) );
+    return List( [ 0 .. Cardinality( A ) - 1 ], i -> MorphismConstructor( cat, T, [ i ], A ) );
     
 end );
 
@@ -973,10 +973,10 @@ AddCartesianLeftEvaluationMorphismWithGivenSource( SkeletalFinSets,
   function ( cat, L, B, HL_BxL )
     local l, b, s, exp, eval;
     
-    l := Length( L );
-    b := Length( B );
+    l := Cardinality( L );
+    b := Cardinality( B );
     
-    s := Length( HL_BxL );
+    s := Cardinality( HL_BxL );
     
     exp := b ^ l;
     
@@ -1007,8 +1007,8 @@ AddCartesianLeftCoevaluationMorphismWithGivenRange( SkeletalFinSets,
   function ( cat, L, B, HL_BxL )
     local l, b, bl;
     
-    l := Length( L );
-    b := Length( B );
+    l := Cardinality( L );
+    b := Cardinality( B );
     
     bl := b * l;
     
@@ -1094,13 +1094,24 @@ CategoryFilter :=
            IsSkeletalCategoryOfFiniteSets( RangeCategoryOfHomomorphismStructure( cat ) );
 end );
 
+## backwards compatibility
+InstallOtherMethod( Length,
+        "for a CAP skeletal finite set",
+        [ IsObjectInSkeletalCategoryOfFiniteSets ],
+        
+  function ( s )
+    
+    return Cardinality( s );
+    
+end );
+
 ##
 InstallMethod( String,
         "for a CAP skeletal finite set",
         [ IsObjectInSkeletalCategoryOfFiniteSets ],
         
   function ( s )
-    return Concatenation( "FinSet( SkeletalFinSets, ", String( Length( s ) ), " )" );
+    return Concatenation( "FinSet( SkeletalFinSets, ", String( Cardinality( s ) ), " )" );
 end );
 
 ##
@@ -1118,7 +1129,7 @@ InstallMethod( ViewString,
         [ IsObjectInSkeletalCategoryOfFiniteSets ],
         
   function ( s )
-    return Concatenation( "|", String( Length( s ) ), "|" );
+    return Concatenation( "|", String( Cardinality( s ) ), "|" );
 end );
 
 ##
@@ -1163,7 +1174,7 @@ InstallMethod( PrintString,
   function ( s )
     local l, string;
     
-    l := Length( s );
+    l := Cardinality( s );
     
     if l = 0 then
         return "∅";

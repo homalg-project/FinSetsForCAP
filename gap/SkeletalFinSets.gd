@@ -30,13 +30,13 @@ DeclareCategory( "IsMorphismInSkeletalCategoryOfFiniteSets",
 
 #! @Description
 #!  The integer defining the skeletal finite set <A>M</A>, i.e.,
-#!  <C>Length( FinSet( n ) ) = n</C>.
+#!  <C>Cardinality( FinSet( n ) ) = n</C>.
 #! @Arguments M
 #! @Returns an integer
-DeclareAttribute( "Length",
+DeclareAttribute( "Cardinality",
         IsObjectInSkeletalCategoryOfFiniteSets );
 
-CapJitAddTypeSignature( "Length", [ IsObjectInSkeletalCategoryOfFiniteSets ], IsBigInt );
+CapJitAddTypeSignature( "Cardinality", [ IsObjectInSkeletalCategoryOfFiniteSets ], IsBigInt );
 
 #! @Description
 #!  The list associated to a skeletal finite set, i.e.,
@@ -129,7 +129,7 @@ DeclareOperation( "ImageObject",
         [ IsMorphismInSkeletalCategoryOfFiniteSets, IsObjectInSkeletalCategoryOfFiniteSets ] );
 
 #! @Description
-#!  Returns the image of <C><A>L</A>[1]</C> under the map <A>phi</A> assuming <C><A>L</A>[1]</C> is a nonnegative integer smaller than <C>Length( Source( <A>phi</A> ) )</C>.
+#!  Returns the image of <C><A>L</A>[1]</C> under the map <A>phi</A> assuming <C><A>L</A>[1]</C> is a nonnegative integer smaller than <C>Cardinality( Source( <A>phi</A> ) )</C>.
 #! @Arguments phi, L
 #! @Returns a list
 # DeclareOperation( "CallFuncList",

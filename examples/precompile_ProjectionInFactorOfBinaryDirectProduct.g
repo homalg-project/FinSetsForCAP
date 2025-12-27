@@ -54,8 +54,8 @@ StopTimer( "ProjectionInFactorOfBinaryDirectProduct" );
 Display( compiled_LeftProjectionInFactorOfBinaryDirectProduct );
 #! function ( cat_1, a_1, b_1, axb_1 )
 #!     local hoisted_1_1, deduped_3_1;
-#!     deduped_3_1 := Length( axb_1 );
-#!     hoisted_1_1 := Length( a_1 );
+#!     deduped_3_1 := Cardinality( axb_1 );
+#!     hoisted_1_1 := Cardinality( a_1 );
 #!     return CreateCapCategoryMorphismWithAttributes( cat_1, axb_1, a_1,
 #!        AsList, List( [ 0 .. deduped_3_1 - 1 ], function ( i_2 )
 #!               return RemIntWithDomain( i_2, hoisted_1_1, deduped_3_1 );
@@ -65,8 +65,8 @@ Display( compiled_LeftProjectionInFactorOfBinaryDirectProduct );
 Display( compiled_RightProjectionInFactorOfBinaryDirectProduct );
 #! function ( cat_1, a_1, b_1, axb_1 )
 #!     local hoisted_1_1, deduped_3_1;
-#!     deduped_3_1 := Length( axb_1 );
-#!     hoisted_1_1 := Length( a_1 );
+#!     deduped_3_1 := Cardinality( axb_1 );
+#!     hoisted_1_1 := Cardinality( a_1 );
 #!     return CreateCapCategoryMorphismWithAttributes( cat_1, axb_1, b_1,
 #!        AsList, List( [ 0 .. deduped_3_1 - 1 ], function ( i_2 )
 #!               return QuoIntWithDomain( i_2, hoisted_1_1, deduped_3_1 );

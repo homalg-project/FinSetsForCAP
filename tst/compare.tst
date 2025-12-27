@@ -19,6 +19,10 @@ gap> t := TerminalObject( SkeletalFinSets );;
 gap> m := FinSet( 2 );;
 gap> n := FinSet( 3 );;
 gap> k := FinSet( 4 );;
+gap> Cardinality( m );
+2
+gap> Length( m );
+2
 
 #
 gap> Display( List( AsList( ProjectionInFactorOfDirectProduct( [ M, N, K ], 1 ) ), i -> i[2] ) );

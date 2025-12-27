@@ -111,7 +111,7 @@ CapJitAddLogicTemplate(
         variable_names := [ "M", "func" ],
         variable_filters := [ IsObjectInSkeletalCategoryOfFiniteSets, IsObject ],
         src_template := "List( M, func )",
-        dst_template := "List( [ 0 .. Length( M ) - 1 ], func )",
+        dst_template := "List( [ 0 .. Cardinality( M ) - 1 ], func )",
     )
 );
 
@@ -511,7 +511,7 @@ CapJitAddLogicTemplate(
     rec(
         variable_names := [ "mor" ],
         variable_filters := [ IsMorphismInSkeletalCategoryOfFiniteSets ],
-        src_template := "List( [ 0 .. Length( Source( mor ) ) - 1 ], i -> AsList( mor )[1 + i] )",
+        src_template := "List( [ 0 .. Cardinality( Source( mor ) ) - 1 ], i -> AsList( mor )[1 + i] )",
         dst_template := "AsList( mor )",
     )
 );
