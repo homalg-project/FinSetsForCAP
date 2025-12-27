@@ -13,12 +13,12 @@ IsWellDefined( phi );
 #! true
 ImageObject( phi );
 #! |2|
-Length( ImageObject( phi ) );
+Cardinality( ImageObject( phi ) );
 #! 2
 s := FinSet( 2 );
 #! |2|
 I := ImageObject( phi, s );
 #! |2|
-Length( I );
+Cardinality( I );
 #! 2
 #! @EndExample
