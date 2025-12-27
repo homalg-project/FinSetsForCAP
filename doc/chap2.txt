@@ -4,13 +4,13 @@
   
   [1X2.1 [33X[0;0YAttributes[133X[101X
   
-  [1X2.1-1 Length[101X
+  [1X2.1-1 Cardinality[101X
   
-  [33X[1;0Y[29X[2XLength[102X( [3XM[103X ) [32X attribute[133X
+  [33X[1;0Y[29X[2XCardinality[102X( [3XM[103X ) [32X attribute[133X
   [6XReturns:[106X  [33X[0;10Yan integer[133X
   
-  [33X[0;0YThe  integer defining the skeletal finite set [3XM[103X, i.e., [10XLength( FinSet( n ) )
-  = n[110X.[133X
+  [33X[0;0YThe integer defining the skeletal finite set [3XM[103X, i.e., [10XCardinality( FinSet( n
+  ) ) = n[110X.[133X
   
   [1X2.1-2 AsList[101X
   
@@ -180,7 +180,7 @@
   [6XReturns:[106X  [33X[0;10Ya list[133X
   
   [33X[0;0YReturns  the  image of [10X[3XL[103X[10X[1][110X under the map [3Xphi[103X assuming [10X[3XL[103X[10X[1][110X is a nonnegative
-  integer smaller than [10XLength( Source( [3Xphi[103X[10X ) )[110X.[133X
+  integer smaller than [10XCardinality( Source( [3Xphi[103X[10X ) )[110X.[133X
   
   [1X2.3-6 GeometricSum[101X
   
@@ -571,13 +571,13 @@
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XImageObject( phi );[127X[104X
     [4X[28X|2|[128X[104X
-    [4X[25Xgap>[125X [27XLength( ImageObject( phi ) );[127X[104X
+    [4X[25Xgap>[125X [27XCardinality( ImageObject( phi ) );[127X[104X
     [4X[28X2[128X[104X
     [4X[25Xgap>[125X [27Xs := FinSet( 2 );[127X[104X
     [4X[28X|2|[128X[104X
     [4X[25Xgap>[125X [27XI := ImageObject( phi, s );[127X[104X
     [4X[28X|2|[128X[104X
-    [4X[25Xgap>[125X [27XLength( I );[127X[104X
+    [4X[25Xgap>[125X [27XCardinality( I );[127X[104X
     [4X[28X2[128X[104X
   [4X[32X[104X
   
@@ -1025,7 +1025,7 @@
     [4X[28Xfalse[128X[104X
     [4X[25Xgap>[125X [27Xk := FinSet( 100000 );[127X[104X
     [4X[28X|100000|[128X[104X
-    [4X[25Xgap>[125X [27Xh := ListWithIdenticalEntries( Length( k ) - 3, 2 );;[127X[104X
+    [4X[25Xgap>[125X [27Xh := ListWithIdenticalEntries( Cardinality( k ) - 3, 2 );;[127X[104X
     [4X[25Xgap>[125X [27Xh := Concatenation( h, [ 1, 0, 1 ] );;[127X[104X
     [4X[25Xgap>[125X [27Xh := MapOfFinSets( k, h, m );[127X[104X
     [4X[28X|100000| → |3|[128X[104X
