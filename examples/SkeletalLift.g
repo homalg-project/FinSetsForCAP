@@ -23,7 +23,7 @@ IsLiftable( g, f );
 #! false
 k := FinSet( 100000 );
 #! |100000|
-h := ListWithIdenticalEntries( Length( k ) - 3, 2 );;
+h := ListWithIdenticalEntries( Cardinality( k ) - 3, 2 );;
 h := Concatenation( h, [ 1, 0, 1 ] );;
 h := MapOfFinSets( k, h, m );
 #! |100000| → |3|
