@@ -290,9 +290,9 @@ true
 <h5>2.3-3 Preimage</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Preimage</code>( <var class="Arg">phi</var>, <var class="Arg">t</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: a CAP object</p>
+<p>Returns: a list</p>
 
-<p>Compute the Preimage of <var class="Arg">t</var> under the morphism <var class="Arg">phi</var>.</p>
+<p>Compute the preimage of the list <var class="Arg">t</var> of numbers under the morphism <var class="Arg">phi</var>.</p>
 
 <p><a id="X872101957E3BAD82" name="X872101957E3BAD82"></a></p>
 
@@ -863,6 +863,8 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := Preimage( phi, AsList( FinSet( 5 ) ) );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( P );</span>
 [ 1, 2 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">List( P, phi ) = [ 4, 4 ];</span>
+true
 </pre></div>
 
 <p><a id="X8612F06E7F683F4C" name="X8612F06E7F683F4C"></a></p>

@@ -163,9 +163,9 @@
   [1X2.3-3 Preimage[101X
   
   [33X[1;0Y[29X[2XPreimage[102X( [3Xphi[103X, [3Xt[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Ya CAP object[133X
+  [6XReturns:[106X  [33X[0;10Ya list[133X
   
-  [33X[0;0YCompute the Preimage of [3Xt[103X under the morphism [3Xphi[103X.[133X
+  [33X[0;0YCompute the preimage of the list [3Xt[103X of numbers under the morphism [3Xphi[103X.[133X
   
   [1X2.3-4 ImageObject[101X
   
@@ -693,6 +693,8 @@
     [4X[25Xgap>[125X [27XP := Preimage( phi, AsList( FinSet( 5 ) ) );;[127X[104X
     [4X[25Xgap>[125X [27XDisplay( P );[127X[104X
     [4X[28X[ 1, 2 ][128X[104X
+    [4X[25Xgap>[125X [27XList( P, phi ) = [ 4, 4 ];[127X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
   
