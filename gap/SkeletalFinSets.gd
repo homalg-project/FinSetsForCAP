@@ -115,9 +115,9 @@ DeclareOperation( "EmbeddingOfFinSets",
         [ IsObjectInSkeletalCategoryOfFiniteSets, IsObjectInSkeletalCategoryOfFiniteSets ] );
 
 #! @Description
-#!  Compute the Preimage of <A>t</A> under the morphism <A>phi</A>.
+#!  Compute the preimage of the list <A>t</A> of numbers under the morphism <A>phi</A>.
 #! @Arguments phi, t
-#! @Returns a &CAP; object
+#! @Returns a list
 DeclareOperation( "Preimage",
         [ IsMorphismInSkeletalCategoryOfFiniteSets, IsList ] );
 
@@ -139,7 +139,7 @@ DeclareOperation( "ImageObject",
 DeclareGlobalFunction( "INSTALL_FUNCTIONS_FOR_SKELETAL_FIN_SETS" );
 
 DeclareGlobalFunction( "SKELETAL_FIN_SETS_ExplicitCoequalizer" );
-CapJitAddTypeSignature( "SKELETAL_FIN_SETS_ExplicitCoequalizer", [ IsObjectInSkeletalCategoryOfFiniteSets, IsList ], CapJitDataTypeOfListOf( CapJitDataTypeOfListOf( IsBigInt ) ) );
+CapJitAddTypeSignature( "SKELETAL_FIN_SETS_ExplicitCoequalizer", [ IsBigInt, IsList ], CapJitDataTypeOfListOf( CapJitDataTypeOfListOf( IsBigInt ) ) );
 
 DeclareGlobalFunction( "SKELETAL_FIN_SETS_IsMonomorphism" );
 CapJitAddTypeSignature( "SKELETAL_FIN_SETS_IsMonomorphism", [ IsList, IsBigInt ], IsBool );

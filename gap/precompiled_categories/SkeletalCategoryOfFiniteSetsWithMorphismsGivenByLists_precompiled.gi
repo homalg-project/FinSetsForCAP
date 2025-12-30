@@ -303,7 +303,7 @@ end
         
 ########
 function ( cat_1, Y_1, morphisms_1 )
-    return CreateCapCategoryObjectWithAttributes( cat_1, Cardinality, BigInt( Length( SKELETAL_FIN_SETS_ExplicitCoequalizer( Y_1, morphisms_1 ) ) ) );
+    return CreateCapCategoryObjectWithAttributes( cat_1, Cardinality, BigInt( Length( SKELETAL_FIN_SETS_ExplicitCoequalizer( Cardinality( Y_1 ), List( morphisms_1, AsList ) ) ) ) );
 end
 ########
         
@@ -933,9 +933,10 @@ end
         
 ########
 function ( cat_1, Y_1, morphisms_1, P_1 )
-    local hoisted_1_1;
-    hoisted_1_1 := SKELETAL_FIN_SETS_ExplicitCoequalizer( Y_1, morphisms_1 );
-    return CreateCapCategoryMorphismWithAttributes( cat_1, Y_1, P_1, AsList, List( [ 0 .. Cardinality( Y_1 ) - 1 ], function ( x_2 )
+    local hoisted_1_1, deduped_2_1;
+    deduped_2_1 := Cardinality( Y_1 );
+    hoisted_1_1 := SKELETAL_FIN_SETS_ExplicitCoequalizer( deduped_2_1, List( morphisms_1, AsList ) );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, Y_1, P_1, AsList, List( [ 0 .. deduped_2_1 - 1 ], function ( x_2 )
               return -1 + BigInt( SafeUniquePositionProperty( hoisted_1_1, function ( c_3 )
                           return x_2 in c_3;
                       end ) );
@@ -1018,7 +1019,7 @@ end
 function ( cat_1, Y_1, morphisms_1, T_1, tau_1, P_1 )
     local hoisted_1_1;
     hoisted_1_1 := AsList( tau_1 );
-    return CreateCapCategoryMorphismWithAttributes( cat_1, P_1, Range( tau_1 ), AsList, List( SKELETAL_FIN_SETS_ExplicitCoequalizer( Y_1, morphisms_1 ), function ( x_2 )
+    return CreateCapCategoryMorphismWithAttributes( cat_1, P_1, Range( tau_1 ), AsList, List( SKELETAL_FIN_SETS_ExplicitCoequalizer( Cardinality( Y_1 ), List( morphisms_1, AsList ) ), function ( x_2 )
               return hoisted_1_1[1 + x_2[1]];
           end ) );
 end
