@@ -1046,19 +1046,10 @@ AddClassifyingMorphismOfSubobjectWithGivenSubobjectClassifier( SkeletalFinSets,
     
     images := AsList( monomorphism );
     
-    chi := List( range,
-                 function ( x )
-                   
-                   if x in images then
-                       return BigInt( 1 );
-                   fi;
-                   
-                   return BigInt( 0 );
-                   
-               end );
-      
-      return MorphismConstructor( cat, range, chi, Omega );
-      
+    chi := List( range, x -> BoolToBigInt( x in images ) );
+    
+    return MorphismConstructor( cat, range, chi, Omega );
+    
 end );
 
 ##

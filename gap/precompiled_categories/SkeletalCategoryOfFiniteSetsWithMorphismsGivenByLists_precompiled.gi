@@ -264,17 +264,11 @@ end
         
 ########
 function ( cat_1, alpha_1, Omega_1 )
-    local hoisted_1_1, hoisted_2_1, deduped_3_1;
-    deduped_3_1 := Range( alpha_1 );
-    hoisted_2_1 := BigInt( 1 );
+    local hoisted_1_1, deduped_2_1;
+    deduped_2_1 := Range( alpha_1 );
     hoisted_1_1 := AsList( alpha_1 );
-    return CreateCapCategoryMorphismWithAttributes( cat_1, deduped_3_1, Omega_1, AsList, List( [ 0 .. Cardinality( deduped_3_1 ) - 1 ], function ( x_2 )
-              if x_2 in hoisted_1_1 then
-                  return hoisted_2_1;
-              else
-                  return BigInt( 0 );
-              fi;
-              return;
+    return CreateCapCategoryMorphismWithAttributes( cat_1, deduped_2_1, Omega_1, AsList, List( [ 0 .. Cardinality( deduped_2_1 ) - 1 ], function ( x_2 )
+              return BoolToBigInt( x_2 in hoisted_1_1 );
           end ) );
 end
 ########
