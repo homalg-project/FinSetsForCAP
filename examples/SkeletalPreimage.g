@@ -15,4 +15,6 @@ Display( P );
 P := Preimage( phi, AsList( FinSet( 5 ) ) );;
 Display( P );
 #! [ 1, 2 ]
+List( P, phi ) = [ 4, 4 ];
+#! true
 #! @EndExample
