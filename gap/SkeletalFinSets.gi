@@ -630,12 +630,12 @@ AddUniversalMorphismIntoDirectProductWithGivenDirectProduct( SkeletalFinSets,
     
     d := List( D, Cardinality );
     
-    dd := List( [ 0 .. l - 1 ], j -> Product( d{[ 1 .. j ]} ) );
+    dd := List( [ 1 .. l ], j -> Product( d{[ 1 .. j - 1 ]} ) );
     
     taus := List( tau, AsList );
     
-    # if l = 0, then Sum( [ 0 .. l - 1 ], j -> ... ) = 0 ∈ TerminalObject = P
-    return MorphismConstructor( cat, T, List( T, i -> Sum( [ 0 .. l - 1 ], j -> taus[1 + j][1 + i] * dd[1 + j] ) ), P );
+    # if l = 0, then Sum( [ 1 .. l ], j -> ... ) = 0 ∈ TerminalObject = P
+    return MorphismConstructor( cat, T, List( T, i -> Sum( [ 1 .. l ], j -> taus[j][1 + i] * dd[j] ) ), P );
     
 end );
 

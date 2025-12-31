@@ -1045,19 +1045,17 @@ end
 ########
 function ( cat_1, objects_1, T_1, tau_1, P_1 )
     local hoisted_1_1, hoisted_2_1, hoisted_3_1, deduped_5_1;
-    deduped_5_1 := [ 0 .. Length( objects_1 ) - 1 ];
+    deduped_5_1 := [ 1 .. Length( objects_1 ) ];
     hoisted_2_1 := List( objects_1, Cardinality );
     hoisted_3_1 := List( deduped_5_1, function ( j_2 )
-            return Product( hoisted_2_1{[ 1 .. j_2 ]} );
+            return Product( hoisted_2_1{[ 1 .. j_2 - 1 ]} );
         end );
     hoisted_1_1 := List( tau_1, AsList );
     return CreateCapCategoryMorphismWithAttributes( cat_1, T_1, P_1, AsList, List( [ 0 .. Cardinality( T_1 ) - 1 ], function ( i_2 )
               local hoisted_1_2;
               hoisted_1_2 := 1 + i_2;
               return Sum( deduped_5_1, function ( j_3 )
-                      local deduped_1_3;
-                      deduped_1_3 := 1 + j_3;
-                      return hoisted_1_1[deduped_1_3][hoisted_1_2] * hoisted_3_1[deduped_1_3];
+                      return hoisted_1_1[j_3][hoisted_1_2] * hoisted_3_1[j_3];
                   end );
           end ) );
 end
