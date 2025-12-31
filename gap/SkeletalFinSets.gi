@@ -112,6 +112,7 @@ end ) );
 
 ##
 InstallMethod( FinSetOp,
+        "for a skeletal category of finite sets and a nonnegative integer",
         [ IsSkeletalCategoryOfFiniteSets, IsBigInt ],
         
   function ( cat, n )
@@ -121,8 +122,19 @@ InstallMethod( FinSetOp,
 end );
 
 ##
+InstallOtherMethod( FinSet,
+        "for a nonnegative integer",
+        [ IsBigInt ],
+        
+  function ( n )
+    
+    return FinSet( SkeletalFinSets, n );
+    
+end );
+
+##
 InstallMethod( AsList,
-        "for a CAP skeletal finite set",
+        "for an object in a skeletal category of finite sets",
         [ IsObjectInSkeletalCategoryOfFiniteSets ],
         
   function ( s )
@@ -133,7 +145,7 @@ end );
 
 ##
 InstallMethod( ListOp,
-        "for a CAP skeletal finite set and a function",
+        "for an object in a skeletal category of finite sets and a function",
         [ IsObjectInSkeletalCategoryOfFiniteSets, IsFunction ],
         
   function ( s, f )
@@ -146,7 +158,7 @@ end );
 
 ##
 InstallMethod( MapOfFinSets,
-        "for two CAP skeletal finite sets and a list",
+        "for two objects in a skeletal category of finite sets and a list",
         [ IsObjectInSkeletalCategoryOfFiniteSets, IsList, IsObjectInSkeletalCategoryOfFiniteSets ],
         
   function ( s, G, t )
@@ -157,7 +169,7 @@ end );
 
 ##
 InstallOtherMethod( MapOfFinSets,
-        "for a skeletal category of finite sets, two CAP skeletal finite sets and a list",
+        "for a skeletal category of finite sets, two objects therein and a list",
         [ IsSkeletalCategoryOfFiniteSets, IsObjectInSkeletalCategoryOfFiniteSets, IsList, IsObjectInSkeletalCategoryOfFiniteSets ],
         
   function ( cat, s, G, t )
@@ -168,7 +180,7 @@ end );
 
 ##
 InstallMethod( EmbeddingOfFinSets,
-        "for two CAP skeletal finite sets",
+        "for two objects in a skeletal category of finite sets",
         [ IsObjectInSkeletalCategoryOfFiniteSets, IsObjectInSkeletalCategoryOfFiniteSets ],
         
   function ( s, t )
@@ -199,7 +211,7 @@ end );
 
 ##
 InstallMethod( Preimage,
-        "for a CAP map of skeletal finite sets and a list",
+        "for a morphism in a skeletal category of finite sets and a list",
         [ IsMorphismInSkeletalCategoryOfFiniteSets, IsList ],
         
   function ( phi, t )
@@ -210,18 +222,19 @@ end );
 
 ##
 InstallMethod( ImageObject,
-     "for a CAP map of skeletal finite sets and a CAP skeletal finite set",
-     [ IsMorphismInSkeletalCategoryOfFiniteSets, IsObjectInSkeletalCategoryOfFiniteSets ],
-      function ( phi, s_ )
-
+        "for a morphism and an object in a skeletal category of finite sets",
+        [ IsMorphismInSkeletalCategoryOfFiniteSets, IsObjectInSkeletalCategoryOfFiniteSets ],
+        
+  function ( phi, s_ )
+    
     return ImageObject( PreCompose( EmbeddingOfFinSets( s_, Source( phi ) ), phi ) );
-
+    
 end );
 
 ##
 InstallMethod( CallFuncList,
-        "for a CAP map of skeletal finite sets and a list",
-    [ IsMorphismInSkeletalCategoryOfFiniteSets, IsList ],
+        "for a morphism in a skeletal category of finite sets and a list",
+        [ IsMorphismInSkeletalCategoryOfFiniteSets, IsList ],
         
   function ( phi, L )
     local x;
@@ -1073,6 +1086,8 @@ end, 401 ); # weight = 1 + Sum( [
 
 end );
 
+#####
+
 ##
 AddDerivationToCAP( IsHomSetInhabited,
         "IsHomSetInhabited using IsInitial when the range category of the homomorphism structure is the skeletal category of finite sets",
@@ -1096,7 +1111,7 @@ end );
 
 ## backwards compatibility
 InstallOtherMethod( Length,
-        "for a CAP skeletal finite set",
+        "for an object in a skeletal category of finite sets",
         [ IsObjectInSkeletalCategoryOfFiniteSets ],
         
   function ( s )
@@ -1107,34 +1122,40 @@ end );
 
 ##
 InstallMethod( String,
-        "for a CAP skeletal finite set",
+        "for an object in a skeletal category of finite sets",
         [ IsObjectInSkeletalCategoryOfFiniteSets ],
         
   function ( s )
+    
     return Concatenation( "FinSet( SkeletalFinSets, ", String( Cardinality( s ) ), " )" );
+    
 end );
 
 ##
 InstallMethod( String,
-        "for a CAP map of skeletal finite sets",
+        "for a morphism in a skeletal category of finite sets",
         [ IsMorphismInSkeletalCategoryOfFiniteSets ],
         
   function ( phi )
+    
     return Concatenation( "MapOfFinSets( SkeletalFinSets, ", String( Source( phi ) ), ", ", String( AsList( phi ) ), ", ", String( Range( phi ) ), " )" );
+    
 end );
 
 ##
 InstallMethod( ViewString,
-        "for a CAP skeletal finite set",
+        "for an object in a skeletal category of finite sets",
         [ IsObjectInSkeletalCategoryOfFiniteSets ],
         
   function ( s )
+    
     return Concatenation( "|", String( Cardinality( s ) ), "|" );
+    
 end );
 
 ##
 InstallMethod( ViewString,
-        "for a CAP map of skeletal finite sets",
+        "for a morphism in a skeletal category of finite sets",
         [ IsMorphismInSkeletalCategoryOfFiniteSets ],
         
   function ( phi )
@@ -1168,7 +1189,7 @@ end );
 
 ##
 InstallMethod( PrintString,
-        "for a CAP skeletal finite set",
+        "for an object in a skeletal category of finite sets",
         [ IsObjectInSkeletalCategoryOfFiniteSets ],
         
   function ( s )
@@ -1192,7 +1213,7 @@ end );
 
 ##
 InstallMethod( PrintString,
-        "for a CAP map of skeletal finite sets",
+        "for a morphism in a skeletal category of finite sets",
         [ IsMorphismInSkeletalCategoryOfFiniteSets ],
         
   function ( phi )
@@ -1206,7 +1227,7 @@ end );
 
 ##
 InstallMethod( DisplayString,
-        "for a CAP skeletal finite set",
+        "for an object in a skeletal category of finite sets",
         [ IsObjectInSkeletalCategoryOfFiniteSets ],
         
   function ( s )
@@ -1217,22 +1238,11 @@ end );
 
 ##
 InstallMethod( DisplayString,
-        "for a CAP map of skeletal finite sets",
+        "for a morphism in a skeletal category of finite sets",
         [ IsMorphismInSkeletalCategoryOfFiniteSets ],
         
   function ( phi )
     
     return Concatenation( PrintString( phi ), "\n" );
-    
-end );
-
-##
-InstallOtherMethod( FinSet,
-        "for a nonnegative integer",
-        [ IsBigInt ],
-        
-  function ( n )
-    
-    return FinSet( SkeletalFinSets, n );
     
 end );
