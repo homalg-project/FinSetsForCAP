@@ -6,7 +6,7 @@
                 [1X The (skeletal) elementary topos of finite sets [101X
   
   
-                                   2025.12-05
+                                   2025.12-06
   
   
                                 31 December 2025
@@ -157,8 +157,8 @@
       2.5-21 [33X[0;0YSkeletal Subobject Classifier[133X
       2.5-22 [33X[0;0YSkeletal Pushout Complement[133X
   3 [33X[0;0YPrecompilation[133X
-    3.1 [33X[0;0YPrecompiling the skeletal category of finite sets[133X
-    3.2 [33X[0;0YPrecompiling ProjectionInFactorOfBinaryDirectProduct[133X
+    3.1 [33X[0;0YPrecompiling ProjectionInFactorOfBinaryDirectProduct[133X
+    3.2 [33X[0;0YPrecompiling the skeletal category of finite sets[133X
   
   
   [32X

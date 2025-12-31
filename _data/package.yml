@@ -1,5 +1,5 @@
 name: FinSetsForCAP
-version: "2025.12-05"
+version: "2025.12-06"
 license: "GPL-2.0-or-later"
 date: 2025-12-31
 description: |
@@ -39,11 +39,11 @@ packageinfo: https://homalg-project.github.io/FinSetsForCAP/PackageInfo.g
 
 downloads:
     - name: .tar.gz
-      url: https://github.com/homalg-project/FinSetsForCAP/releases/download/v2025.12-05/FinSetsForCAP-2025.12-05.tar.gz
+      url: https://github.com/homalg-project/FinSetsForCAP/releases/download/v2025.12-06/FinSetsForCAP-2025.12-06.tar.gz
     - name: .zip
-      url: https://github.com/homalg-project/FinSetsForCAP/releases/download/v2025.12-05/FinSetsForCAP-2025.12-05.zip
+      url: https://github.com/homalg-project/FinSetsForCAP/releases/download/v2025.12-06/FinSetsForCAP-2025.12-06.zip
 
-pdf: https://github.com/homalg-project/FinSetsForCAP/releases/download/v2025.12-05/FinSetsForCAP-2025.12-05-manual.pdf
+pdf: https://github.com/homalg-project/FinSetsForCAP/releases/download/v2025.12-06/FinSetsForCAP-2025.12-06-manual.pdf
 
 abstract: |
 
@@ -54,7 +54,7 @@ citeas: |
     <p class='BibEntry'>
     [<span class='BibKey'>BMZ31</span>]   <b class='BibAuthor'>Barakat, M., Mickisch, J. and Zickgraf, F.</b>,
      <i class='BibTitle'>FinSetsForCAP, The (skeletal) elementary topos of finite sets,
-             Version 2025.12-05</i>
+             Version 2025.12-06</i>
      (<span class='BibYear'>2-31</span>)<br />
     (<span class='BibNote'>GAP package</span>),
     <span class='BibHowpublished'><a href="https://homalg-project.github.io/pkg/FinSetsForCAP">https://homalg-project.github.io/pkg/FinSetsForCAP</a></span>.
@@ -65,7 +65,7 @@ bibtex: |
     @misc{ FinSetsForCAP,
       author =           {Barakat, M. and Mickisch, J. and Zickgraf, F.},
       title =            {{FinSetsForCAP},  {The  (skeletal) elementary topos of
-                          finite sets}, {V}ersion 2025.12\texttt{\symbol{45}}05},
+                          finite sets}, {V}ersion 2025.12\texttt{\symbol{45}}06},
       month =            {5\texttt{\symbol{45}}},
       year =             {2\texttt{\symbol{45}}31},
       note =             {GAP package},
