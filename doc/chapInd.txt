@@ -8,12 +8,13 @@
       for IsMorphismInSkeletalCategoryOfFiniteSets 2.1-3 
       for IsObjectInCategoryOfFiniteSets 1.1-1 
       for IsObjectInSkeletalCategoryOfFiniteSets 2.1-2 
+  [2XBoolToBigInt[102X, for IsBool 2.3-6 
   [2XCallFuncList[102X, for IsMorphismInCategoryOfFiniteSets, IsDenseList 1.3-13 
       for IsMorphismInSkeletalCategoryOfFiniteSets, IsList 2.3-5 
   [2XCardinality[102X, for IsObjectInSkeletalCategoryOfFiniteSets 2.1-1 
   [2XCategoryOfFiniteSets[102X 1.2-1 
-  [2XDigitInPositionalNotation[102X, for IsBigInt, IsBigInt, IsBigInt, IsBigInt 2.3-11 
-  [2XDivIntWithGivenQuotient[102X, for IsBigInt, IsObject, IsBigInt 2.3-10 
+  [2XDigitInPositionalNotation[102X, for IsBigInt, IsBigInt, IsBigInt, IsBigInt 2.3-12 
+  [2XDivIntWithGivenQuotient[102X, for IsBigInt, IsObject, IsBigInt 2.3-11 
   [2XEmbeddingOfFinSets[102X, for IsObjectInCategoryOfFiniteSets, IsObjectInCategoryOfFiniteSets 1.3-9 
       for IsObjectInSkeletalCategoryOfFiniteSets, IsObjectInSkeletalCategoryOfFiniteSets 2.3-2 
   [2XFilteredOp[102X, for IsObjectInCategoryOfFiniteSets, IsFunction 1.3-7 
@@ -25,8 +26,8 @@
       for IsDenseList 1.2-6 
   [2XFinSets[102X 1.2-2 
   [2XFirst[102X, for IsObjectInCategoryOfFiniteSets, IsFunction 1.3-8 
-  [2XGeometricSum[102X, for IsRingElement, IsBigInt 2.3-6 
-  [2XGeometricSumDiff1[102X, for IsRingElement, IsBigInt 2.3-7 
+  [2XGeometricSum[102X, for IsRingElement, IsBigInt 2.3-7 
+  [2XGeometricSumDiff1[102X, for IsRingElement, IsBigInt 2.3-8 
   [2XImageObject[102X, for IsMorphismInCategoryOfFiniteSets, IsObjectInCategoryOfFiniteSets 1.3-12 
       for IsMorphismInSkeletalCategoryOfFiniteSets, IsObjectInSkeletalCategoryOfFiniteSets 2.3-4 
   [2XIsCategoryOfFiniteSets[102X, for IsCapCategory 1.4-1 
@@ -47,8 +48,8 @@
   [2XPreimage[102X, for IsMorphismInCategoryOfFiniteSets, IsObjectInCategoryOfFiniteSets 1.3-11 
       for IsMorphismInSkeletalCategoryOfFiniteSets, IsList 2.3-3 
   [2XProjectionOfFinSets[102X, for IsObjectInCategoryOfFiniteSets, IsObjectInCategoryOfFiniteSets 1.3-10 
-  [2XQuoIntWithDomain[102X, for IsBigInt, IsObject, IsBigInt 2.3-9 
-  [2XRemIntWithDomain[102X, for IsBigInt, IsObject, IsBigInt 2.3-8 
+  [2XQuoIntWithDomain[102X, for IsBigInt, IsObject, IsBigInt 2.3-10 
+  [2XRemIntWithDomain[102X, for IsBigInt, IsObject, IsBigInt 2.3-9 
   [2XSkeletalCategoryOfFiniteSets[102X 2.2-1 
   [2XSkeletalFinSets[102X 2.2-2 
   [2XUnionOfFinSets[102X, for IsCategoryOfFiniteSets, IsDenseList 1.3-5 

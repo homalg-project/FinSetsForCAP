@@ -182,7 +182,14 @@
   [33X[0;0YReturns  the  image of [10X[3XL[103X[10X[1][110X under the map [3Xphi[103X assuming [10X[3XL[103X[10X[1][110X is a nonnegative
   integer smaller than [10XCardinality( Source( [3Xphi[103X[10X ) )[110X.[133X
   
-  [1X2.3-6 GeometricSum[101X
+  [1X2.3-6 BoolToBigInt[101X
+  
+  [33X[1;0Y[29X[2XBoolToBigInt[102X( [3Xb[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yan integer[133X
+  
+  [33X[0;0YThe input [3Xb[103X is a boolean. The output is [23X0[123X if [3Xb[103X = [10Xfalse[110X and [23X1[123X if [3Xb[103X = [10Xtrue[110X.[133X
+  
+  [1X2.3-7 GeometricSum[101X
   
   [33X[1;0Y[29X[2XGeometricSum[102X( [3Xq[103X, [3Xn[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Yan integer[133X
@@ -190,7 +197,7 @@
   [33X[0;0YReturns  [23X(q^n-1)/(q-1)[123X  = [10XSum[110X( [ 0 .. [3Xn[103X - 1 ], i -> [3Xq[103X^i ), taking the corner
   case [3Xq[103X[23X= 1[123X into account.[133X
   
-  [1X2.3-7 GeometricSumDiff1[101X
+  [1X2.3-8 GeometricSumDiff1[101X
   
   [33X[1;0Y[29X[2XGeometricSumDiff1[102X( [3Xq[103X, [3Xn[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Yan integer[133X
@@ -198,7 +205,7 @@
   [33X[0;0YReturns [23X(1+((n-1)*q-n)*q^(n-1))/(q-1)^2[123X = [10XSum[110X( [ 0 .. [3Xn[103X - 1 ], i -> i * [3Xq[103X^(i
   - 1) ), taking the corner case [3Xq[103X[23X= 1[123X into account.[133X
   
-  [1X2.3-8 RemIntWithDomain[101X
+  [1X2.3-9 RemIntWithDomain[101X
   
   [33X[1;0Y[29X[2XRemIntWithDomain[102X( [3Xv[103X, [3Xa[103X, [3Xab[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Yan integer[133X
@@ -206,7 +213,7 @@
   [33X[0;0YReturn the remainder of the natural number [3Xv[103X less than [3Xab[103X modulo [3Xa[103X, where [3Xab[103X
   is a multiple of [3Xa[103X.[133X
   
-  [1X2.3-9 QuoIntWithDomain[101X
+  [1X2.3-10 QuoIntWithDomain[101X
   
   [33X[1;0Y[29X[2XQuoIntWithDomain[102X( [3Xv[103X, [3Xa[103X, [3Xab[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Yan integer[133X
@@ -214,14 +221,14 @@
   [33X[0;0YReturn  the quotient of the natural number [3Xv[103X less than [3Xab[103X modulo [3Xa[103X, where [3Xab[103X
   is a multiple of [3Xa[103X.[133X
   
-  [1X2.3-10 DivIntWithGivenQuotient[101X
+  [1X2.3-11 DivIntWithGivenQuotient[101X
   
   [33X[1;0Y[29X[2XDivIntWithGivenQuotient[102X( [3Xa[103X, [3Xd[103X, [3Xq[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Yan integer[133X
   
   [33X[0;0YReturn the quotient [3Xq[103X of the natural number [3Xa[103X by the divior [3Xd[103X.[133X
   
-  [1X2.3-11 DigitInPositionalNotation[101X
+  [1X2.3-12 DigitInPositionalNotation[101X
   
   [33X[1;0Y[29X[2XDigitInPositionalNotation[102X( [3Xv[103X, [3Xi[103X, [3Xl[103X, [3Xb[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Yan integer[133X

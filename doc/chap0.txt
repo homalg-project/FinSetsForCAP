@@ -6,10 +6,10 @@
                 [1X The (skeletal) elementary topos of finite sets [101X
   
   
-                                   2025.12-04
+                                   2025.12-05
   
   
-                                30 December 2025
+                                31 December 2025
   
   
                                 Mohamed Barakat
@@ -122,12 +122,13 @@
       2.3-3 Preimage
       2.3-4 ImageObject
       2.3-5 CallFuncList
-      2.3-6 GeometricSum
-      2.3-7 GeometricSumDiff1
-      2.3-8 RemIntWithDomain
-      2.3-9 QuoIntWithDomain
-      2.3-10 DivIntWithGivenQuotient
-      2.3-11 DigitInPositionalNotation
+      2.3-6 BoolToBigInt
+      2.3-7 GeometricSum
+      2.3-8 GeometricSumDiff1
+      2.3-9 RemIntWithDomain
+      2.3-10 QuoIntWithDomain
+      2.3-11 DivIntWithGivenQuotient
+      2.3-12 DigitInPositionalNotation
     2.4 [33X[0;0YGAP Categories[133X
       2.4-1 IsSkeletalCategoryOfFiniteSets
       2.4-2 IsObjectInSkeletalCategoryOfFiniteSets

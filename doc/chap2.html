@@ -46,12 +46,13 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7DD18D4D81CECABE">2.3-3 Preimage</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X872101957E3BAD82">2.3-4 ImageObject</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7F80ECC97A67AAB1">2.3-5 CallFuncList</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X828F68137946EB40">2.3-6 GeometricSum</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X86E3CD0982927451">2.3-7 GeometricSumDiff1</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7DE869077F07213A">2.3-8 RemIntWithDomain</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X8680D7B38203D842">2.3-9 QuoIntWithDomain</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X86CB94B27BF991EB">2.3-10 DivIntWithGivenQuotient</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X8407993D79406AEB">2.3-11 DigitInPositionalNotation</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7A2AAAD77A625029">2.3-6 BoolToBigInt</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X828F68137946EB40">2.3-7 GeometricSum</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X86E3CD0982927451">2.3-8 GeometricSumDiff1</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7DE869077F07213A">2.3-9 RemIntWithDomain</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X8680D7B38203D842">2.3-10 QuoIntWithDomain</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X86CB94B27BF991EB">2.3-11 DivIntWithGivenQuotient</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X8407993D79406AEB">2.3-12 DigitInPositionalNotation</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2.html#X7D03633A7D98026B">2.4 <span class="Heading">GAP Categories</span></a>
 </span>
@@ -312,9 +313,18 @@ true
 
 <p>Returns the image of <code class="code"><var class="Arg">L</var>[1]</code> under the map <var class="Arg">phi</var> assuming <code class="code"><var class="Arg">L</var>[1]</code> is a nonnegative integer smaller than <code class="code">Cardinality( Source( <var class="Arg">phi</var> ) )</code>.</p>
 
+<p><a id="X7A2AAAD77A625029" name="X7A2AAAD77A625029"></a></p>
+
+<h5>2.3-6 BoolToBigInt</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; BoolToBigInt</code>( <var class="Arg">b</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: an integer</p>
+
+<p>The input <var class="Arg">b</var> is a boolean. The output is <span class="Math">0</span> if <var class="Arg">b</var> = <code class="code">false</code> and <span class="Math">1</span> if <var class="Arg">b</var> = <code class="code">true</code>.</p>
+
 <p><a id="X828F68137946EB40" name="X828F68137946EB40"></a></p>
 
-<h5>2.3-6 GeometricSum</h5>
+<h5>2.3-7 GeometricSum</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GeometricSum</code>( <var class="Arg">q</var>, <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: an integer</p>
@@ -323,7 +333,7 @@ true
 
 <p><a id="X86E3CD0982927451" name="X86E3CD0982927451"></a></p>
 
-<h5>2.3-7 GeometricSumDiff1</h5>
+<h5>2.3-8 GeometricSumDiff1</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GeometricSumDiff1</code>( <var class="Arg">q</var>, <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: an integer</p>
@@ -332,7 +342,7 @@ true
 
 <p><a id="X7DE869077F07213A" name="X7DE869077F07213A"></a></p>
 
-<h5>2.3-8 RemIntWithDomain</h5>
+<h5>2.3-9 RemIntWithDomain</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RemIntWithDomain</code>( <var class="Arg">v</var>, <var class="Arg">a</var>, <var class="Arg">ab</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: an integer</p>
@@ -341,7 +351,7 @@ true
 
 <p><a id="X8680D7B38203D842" name="X8680D7B38203D842"></a></p>
 
-<h5>2.3-9 QuoIntWithDomain</h5>
+<h5>2.3-10 QuoIntWithDomain</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QuoIntWithDomain</code>( <var class="Arg">v</var>, <var class="Arg">a</var>, <var class="Arg">ab</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: an integer</p>
@@ -350,7 +360,7 @@ true
 
 <p><a id="X86CB94B27BF991EB" name="X86CB94B27BF991EB"></a></p>
 
-<h5>2.3-10 DivIntWithGivenQuotient</h5>
+<h5>2.3-11 DivIntWithGivenQuotient</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DivIntWithGivenQuotient</code>( <var class="Arg">a</var>, <var class="Arg">d</var>, <var class="Arg">q</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: an integer</p>
@@ -359,7 +369,7 @@ true
 
 <p><a id="X8407993D79406AEB" name="X8407993D79406AEB"></a></p>
 
-<h5>2.3-11 DigitInPositionalNotation</h5>
+<h5>2.3-12 DigitInPositionalNotation</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DigitInPositionalNotation</code>( <var class="Arg">v</var>, <var class="Arg">i</var>, <var class="Arg">l</var>, <var class="Arg">b</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: an integer</p>
