@@ -384,16 +384,9 @@ AddIsWellDefinedForMorphisms( SkeletalFinSets,
     
     t := Cardinality( Range( mor ) );
     
-    ## For CompilerForCAP we need if-elif-else with the same structure
-    if not ForAll( rel, a -> IsBigInt( a ) and a >= 0 ) then
-        return false;
-    elif s <> Length( rel ) then
-        return false;
-    elif not ForAll( rel, a -> a < t ) then
-        return false;
-    else
-        return true;
-    fi;
+    return ForAll( rel, a -> IsBigInt( a ) and a >= 0 ) and
+           s = Length( rel ) and
+           ForAll( rel, a -> a < t );
     
 end );
 
