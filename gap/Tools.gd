@@ -9,6 +9,16 @@
 #! @Section Tools
 
 #! @Description
+#!  The input <A>b</A> is a boolean.
+#!  The output is $0$ if <A>b</A> = <C>false</C> and $1$ if <A>b</A> = <C>true</C>.
+#! @Arguments b
+#! @Returns an integer
+DeclareOperation( "BoolToBigInt",
+        [ IsBool ] );
+
+CapJitAddTypeSignature( "BoolToBigInt", [ IsBool ], IsBigInt );
+
+#! @Description
 #!  Returns $(q^n-1)/(q-1)$ = <C>Sum</C>( [ 0 .. <A>n</A> - 1 ], i -> <A>q</A>^i ),
 #!  taking the corner case <A>q</A>$= 1$ into account.
 #! @Arguments q, n

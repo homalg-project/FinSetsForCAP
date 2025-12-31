@@ -4,6 +4,24 @@
 # Implementations
 #
 
+#= comment for Julia
+
+##
+InstallMethod( BoolToBigInt,
+        [ IsBool ],
+        
+  function ( b )
+    
+    if b = true then
+        return BigInt( 1 );
+    else
+        return BigInt( 0 );
+    fi;
+    
+end );
+
+# =#
+
 ## Sum( [ 0 .. n - 1 ], i -> q^i );
 InstallMethod( GeometricSum,
         [ IsBigInt, IsBigInt ],
