@@ -763,20 +763,11 @@ function ( cat_1, alpha_1 )
     local hoisted_1_1, deduped_2_1;
     deduped_2_1 := AsList( alpha_1 );
     hoisted_1_1 := Cardinality( Range( alpha_1 ) );
-    if not ForAll( deduped_2_1, function ( a_2 )
-                 return IsBigInt( a_2 ) and a_2 >= 0;
-             end ) then
-        return false;
-    elif Cardinality( Source( alpha_1 ) ) <> Length( deduped_2_1 ) then
-        return false;
-    elif not ForAll( deduped_2_1, function ( a_2 )
-                 return a_2 < hoisted_1_1;
-             end ) then
-        return false;
-    else
-        return true;
-    fi;
-    return;
+    return ForAll( deduped_2_1, function ( a_2 )
+                return IsBigInt( a_2 ) and a_2 >= 0;
+            end ) and Cardinality( Source( alpha_1 ) ) = Length( deduped_2_1 ) and ForAll( deduped_2_1, function ( a_2 )
+              return a_2 < hoisted_1_1;
+          end );
 end
 ########
         
