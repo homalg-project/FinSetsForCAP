@@ -358,7 +358,12 @@ end );
 
 ##
 AddIsWellDefinedForObjects( SkeletalFinSets,
-   { cat, n } -> IsBigInt( Cardinality( n ) ) and Cardinality( n ) >= 0 );
+  function ( cat, n )
+    
+    return IsBigInt( Cardinality( n ) ) and
+           Cardinality( n ) >= 0;
+    
+end );
 
 ##
 AddIsEqualForObjects( SkeletalFinSets,
