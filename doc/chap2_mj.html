@@ -38,7 +38,7 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X7C55958C7E1B5B03">2.2-1 SkeletalCategoryOfFiniteSetsWithCountingStartingAt1</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X864F63CA786895A6">2.2-2 SkeletalFinSets1</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X84DC53507A5E08C8">2.2-3 FinSet1</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X7FFAEF7B7A4A0CC2">2.2-4 FinSet1</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X8658B7EF7CD6FDBD">2.2-4 FinSet</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X831FCA4C7EA2637F">2.2-5 MapOfFinSets</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2_mj.html#X8508AEF8845565A1">2.3 <span class="Heading">Tools</span></a>
@@ -172,11 +172,47 @@
 
 <p>Construct a skeletal finite set residing in the default instance of the skeletal category of finite sets with counting starting at 1 <code class="code">SkeletalFinSets</code> of order given by the nonnegative integer <var class="Arg">n</var>.</p>
 
-<p><a id="X7FFAEF7B7A4A0CC2" name="X7FFAEF7B7A4A0CC2"></a></p>
 
-<h5>2.2-4 FinSet1</h5>
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet1( 7 );</span>
+|7|
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( m );</span>
+{ 1,..., 7 }
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( m );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">String( m );</span>
+"FinSet( SkeletalFinSets1, 7 )"
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( List( m, x -&gt; x^2 ) );</span>
+[ 1, 4, 9, 16, 25, 36, 49 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := ObjectDatum( m );</span>
+7
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">mm := ObjectConstructor( SkeletalFinSets1, BigInt( 7 ) );</span>
+|7|
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m = mm;</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet1( -2 );</span>
+|-2|
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( n );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet1( 3 );</span>
+|3|
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( n );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p := FinSet1( 4 );</span>
+|4|
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( p );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEqualForObjects( m, n );</span>
+false
+</pre></div>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FinSet1</code>( <var class="Arg">C</var>, <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p><a id="X8658B7EF7CD6FDBD" name="X8658B7EF7CD6FDBD"></a></p>
+
+<h5>2.2-4 FinSet</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FinSet</code>( <var class="Arg">C</var>, <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: a CAP object</p>
 
 <p>Construct a skeletal finite set residing in the given skeletal category of finite sets with counting starting at 1 <var class="Arg">C</var> of order given by the nonnegative integer <var class="Arg">n</var>.</p>
@@ -189,6 +225,43 @@
 <p>Returns: a CAP morphism</p>
 
 <p>Construct a map <span class="SimpleMath">\(\phi:\)</span><var class="Arg">s</var><span class="SimpleMath">\(\to\)</span><var class="Arg">t</var> of the skeletal finite sets <var class="Arg">s</var> and <var class="Arg">t</var>, i.e., a morphism in the CAP category of <var class="Arg">s</var>, where <var class="Arg">G</var> is a list of integers in <var class="Arg">t</var> describing the graph of <span class="SimpleMath">\(\phi\)</span>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s := FinSet1( 3 );</span>
+|3|
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">t := FinSet1( 7 );</span>
+|7|
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( s, [ 7, 5, 5 ], t );</span>
+|3| → |7|
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( phi ) );</span>
+[ 7, 5, 5 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( phi );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( phi );</span>
+{ 1, 2, 3 } ⱶ[ 7, 5, 5 ]→ { 1,..., 7 }
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">String( phi );</span>
+"MapOfFinSets( SkeletalFinSets1, FinSet( SkeletalFinSets1, 3 ), [ 7, 5, 5 ], Fin\
+Set( SkeletalFinSets1, 7 ) )"
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s := ObjectConstructor( SkeletalFinSets1, BigInt( 3 ) );</span>
+|3|
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">t := ObjectConstructor( SkeletalFinSets1, BigInt( 7 ) );</span>
+|7|
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MorphismConstructor(</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    s,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    [ BigInt( 7 ), BigInt( 5 ), BigInt( 5 ) ],</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    t</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">);</span>
+|3| → |7|
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( MorphismDatum( phi ) );</span>
+[ 7, 5, 5 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( phi );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( phi );</span>
+{ 1, 2, 3 } ⱶ[ 7, 5, 5 ]→ { 1,..., 7 }
+</pre></div>
 
 <p><a id="X8508AEF8845565A1" name="X8508AEF8845565A1"></a></p>
 

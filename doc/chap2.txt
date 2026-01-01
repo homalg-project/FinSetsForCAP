@@ -54,9 +54,44 @@
   skeletal category of finite sets with counting starting at 1 [10XSkeletalFinSets[110X
   of order given by the nonnegative integer [3Xn[103X.[133X
   
-  [1X2.2-4 FinSet1[101X
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xm := FinSet1( 7 );[127X[104X
+    [4X[28X|7|[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( m );[127X[104X
+    [4X[28X{ 1,..., 7 }[128X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( m );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XString( m );[127X[104X
+    [4X[28X"FinSet( SkeletalFinSets1, 7 )"[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( List( m, x -> x^2 ) );[127X[104X
+    [4X[28X[ 1, 4, 9, 16, 25, 36, 49 ][128X[104X
+    [4X[25Xgap>[125X [27XL := ObjectDatum( m );[127X[104X
+    [4X[28X7[128X[104X
+    [4X[25Xgap>[125X [27Xmm := ObjectConstructor( SkeletalFinSets1, BigInt( 7 ) );[127X[104X
+    [4X[28X|7|[128X[104X
+    [4X[25Xgap>[125X [27Xm = mm;[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xn := FinSet1( -2 );[127X[104X
+    [4X[28X|-2|[128X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( n );[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27Xn := FinSet1( 3 );[127X[104X
+    [4X[28X|3|[128X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( n );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xp := FinSet1( 4 );[127X[104X
+    [4X[28X|4|[128X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( p );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsEqualForObjects( m, n );[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
   
-  [33X[1;0Y[29X[2XFinSet1[102X( [3XC[103X, [3Xn[103X ) [32X operation[133X
+  [1X2.2-4 FinSet[101X
+  
+  [33X[1;0Y[29X[2XFinSet[102X( [3XC[103X, [3Xn[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ya CAP object[133X
   
   [33X[0;0YConstruct  a  skeletal finite set residing in the given skeletal category of
@@ -71,6 +106,42 @@
   [33X[0;0YConstruct  a  map  [23X\phi:[123X[3Xs[103X[23X\to[123X[3Xt[103X  of  the skeletal finite sets [3Xs[103X and [3Xt[103X, i.e., a
   morphism  in  the  CAP  category  of  [3Xs[103X,  where [3XG[103X is a list of integers in [3Xt[103X
   describing the graph of [23X\phi[123X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xs := FinSet1( 3 );[127X[104X
+    [4X[28X|3|[128X[104X
+    [4X[25Xgap>[125X [27Xt := FinSet1( 7 );[127X[104X
+    [4X[28X|7|[128X[104X
+    [4X[25Xgap>[125X [27Xphi := MapOfFinSets( s, [ 7, 5, 5 ], t );[127X[104X
+    [4X[28X|3| → |7|[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( AsList( phi ) );[127X[104X
+    [4X[28X[ 7, 5, 5 ][128X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( phi );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( phi );[127X[104X
+    [4X[28X{ 1, 2, 3 } ⱶ[ 7, 5, 5 ]→ { 1,..., 7 }[128X[104X
+    [4X[25Xgap>[125X [27XString( phi );[127X[104X
+    [4X[28X"MapOfFinSets( SkeletalFinSets1, FinSet( SkeletalFinSets1, 3 ), [ 7, 5, 5 ], Fin\[128X[104X
+    [4X[28XSet( SkeletalFinSets1, 7 ) )"[128X[104X
+    [4X[25Xgap>[125X [27Xs := ObjectConstructor( SkeletalFinSets1, BigInt( 3 ) );[127X[104X
+    [4X[28X|3|[128X[104X
+    [4X[25Xgap>[125X [27Xt := ObjectConstructor( SkeletalFinSets1, BigInt( 7 ) );[127X[104X
+    [4X[28X|7|[128X[104X
+    [4X[25Xgap>[125X [27Xphi := MorphismConstructor([127X[104X
+    [4X[25X>[125X [27X    s,[127X[104X
+    [4X[25X>[125X [27X    [ BigInt( 7 ), BigInt( 5 ), BigInt( 5 ) ],[127X[104X
+    [4X[25X>[125X [27X    t[127X[104X
+    [4X[25X>[125X [27X);[127X[104X
+    [4X[28X|3| → |7|[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( MorphismDatum( phi ) );[127X[104X
+    [4X[28X[ 7, 5, 5 ][128X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( phi );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( phi );[127X[104X
+    [4X[28X{ 1, 2, 3 } ⱶ[ 7, 5, 5 ]→ { 1,..., 7 }[128X[104X
+  [4X[32X[104X
   
   
   [1X2.3 [33X[0;0YTools[133X[101X

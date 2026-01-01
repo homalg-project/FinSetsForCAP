@@ -26,8 +26,8 @@
       for IsCategoryOfFiniteSets, IsDenseList 3.2-3 
       for IsDenseList 3.2-4 
       for IsSkeletalCategoryOfFiniteSets, IsBigInt 1.2-4 
-  [2XFinSet1[102X, for IsBigInt 2.2-3 
       for IsSkeletalCategoryOfFiniteSetsWithCountingStartingAt1, IsBigInt 2.2-4 
+  [2XFinSet1[102X, for IsBigInt 2.2-3 
   [2XFinSetNC[102X, for IsCategoryOfFiniteSets, IsDenseList 3.2-5 
       for IsDenseList 3.2-6 
   [2XFinSets[102X 3.2-2 

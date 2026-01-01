@@ -6,7 +6,7 @@
                 [1X The (skeletal) elementary topos of finite sets [101X
   
   
-                                   2026.01-01
+                                   2026.01-02
   
   
                                  1 January 2026
@@ -112,7 +112,7 @@
       2.2-1 SkeletalCategoryOfFiniteSetsWithCountingStartingAt1
       2.2-2 SkeletalFinSets1
       2.2-3 FinSet1
-      2.2-4 FinSet1
+      2.2-4 FinSet
       2.2-5 MapOfFinSets
     2.3 [33X[0;0YTools[133X
       2.3-1 ListOp
