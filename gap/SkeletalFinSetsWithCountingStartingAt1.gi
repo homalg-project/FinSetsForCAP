@@ -225,7 +225,7 @@ InstallMethod( SkeletalCategoryOfFiniteSetsWithCountingStartingAt1,
 end ) );
 
 ##
-InstallMethod( FinSet1Op,
+InstallMethod( FinSetOp,
         "for a skeletal category of finite sets with counting starting at 1 and a positive integer",
         [ IsSkeletalCategoryOfFiniteSetsWithCountingStartingAt1, IsBigInt ],
         
@@ -242,7 +242,7 @@ InstallOtherMethod( FinSet1,
         
   function ( n )
     
-    return FinSet1( SkeletalFinSets1, n );
+    return FinSet( SkeletalFinSets1, n );
     
 end );
 
@@ -254,6 +254,17 @@ InstallMethod( AsList,
   function ( s )
     
     return [ 1 .. Cardinality( s ) ];
+    
+end );
+
+##
+InstallMethod( ListOp,
+        "for an object in a skeletal category of finite sets with counting starting at 1 and a function",
+        [ IsObjectInSkeletalCategoryOfFiniteSetsWithCountingStartingAt1, IsFunction ],
+        
+  function ( s, f )
+    
+    return List( AsList( s ), x -> f(x) );
     
 end );
 
