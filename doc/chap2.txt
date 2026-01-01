@@ -1,5 +1,5 @@
   
-  [1X2 [33X[0;0YThe skeletal category of finite sets[133X[101X
+  [1X2 [33X[0;0YThe skeletal category of finite sets with counting starting at 1[133X[101X
   
   
   [1X2.1 [33X[0;0YAttributes[133X[101X
@@ -18,7 +18,7 @@
   [6XReturns:[106X  [33X[0;10Ya list[133X
   
   [33X[0;0YThe  list associated to a skeletal finite set, i.e., [10XAsList( FinSet( n ) ) =
-  [ 0 .. n - 1 ][110X.[133X
+  [ 1 .. n ][110X.[133X
   
   [1X2.1-3 AsList[101X
   
@@ -31,71 +31,37 @@
   
   [1X2.2 [33X[0;0YConstructors[133X[101X
   
-  [1X2.2-1 SkeletalCategoryOfFiniteSets[101X
+  [1X2.2-1 SkeletalCategoryOfFiniteSetsWithCountingStartingAt1[101X
   
-  [33X[1;0Y[29X[2XSkeletalCategoryOfFiniteSets[102X(  ) [32X operation[133X
+  [33X[1;0Y[29X[2XSkeletalCategoryOfFiniteSetsWithCountingStartingAt1[102X( [3Xarg[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ya CAP category[133X
   
-  [33X[0;0YConstruct a skeletal category of finite sets.[133X
+  [33X[0;0YConstruct a skeletal category of finite sets with counting starting at 1.[133X
   
-  [1X2.2-2 SkeletalFinSets[101X
+  [1X2.2-2 SkeletalFinSets1[101X
   
-  [33X[1;0Y[29X[2XSkeletalFinSets[102X [32X global variable[133X
+  [33X[1;0Y[29X[2XSkeletalFinSets1[102X [32X global variable[133X
   
-  [33X[0;0YThe  default  instance  of  the  skeletal  category  of  finite  sets. It is
-  automatically created while loading this package.[133X
+  [33X[0;0YThe  default  instance of the skeletal category of finite sets with counting
+  starting at 1. It is automatically created while loading this package.[133X
   
-  [1X2.2-3 FinSet[101X
+  [1X2.2-3 FinSet1[101X
   
-  [33X[1;0Y[29X[2XFinSet[102X( [3Xn[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XFinSet1[102X( [3Xn[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ya CAP object[133X
   
   [33X[0;0YConstruct  a  skeletal  finite  set  residing in the default instance of the
-  skeletal  category  of  finite  sets  [10XSkeletalFinSets[110X  of order given by the
-  nonnegative integer [3Xn[103X.[133X
+  skeletal category of finite sets with counting starting at 1 [10XSkeletalFinSets[110X
+  of order given by the nonnegative integer [3Xn[103X.[133X
   
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
-    [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27Xm := FinSet( 7 );[127X[104X
-    [4X[28X|7|[128X[104X
-    [4X[25Xgap>[125X [27XDisplay( m );[127X[104X
-    [4X[28X{ 0,..., 6 }[128X[104X
-    [4X[25Xgap>[125X [27XIsWellDefined( m );[127X[104X
-    [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XString( m );[127X[104X
-    [4X[28X"FinSet( SkeletalFinSets, 7 )"[128X[104X
-    [4X[25Xgap>[125X [27XDisplay( List( m, x -> x^2 ) );[127X[104X
-    [4X[28X[ 0, 1, 4, 9, 16, 25, 36 ][128X[104X
-    [4X[25Xgap>[125X [27XL := ObjectDatum( m );[127X[104X
-    [4X[28X7[128X[104X
-    [4X[25Xgap>[125X [27Xmm := ObjectConstructor( SkeletalFinSets, BigInt( 7 ) );[127X[104X
-    [4X[28X|7|[128X[104X
-    [4X[25Xgap>[125X [27Xm = mm;[127X[104X
-    [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27Xn := FinSet( -2 );[127X[104X
-    [4X[28X|-2|[128X[104X
-    [4X[25Xgap>[125X [27XIsWellDefined( n );[127X[104X
-    [4X[28Xfalse[128X[104X
-    [4X[25Xgap>[125X [27Xn := FinSet( 3 );[127X[104X
-    [4X[28X|3|[128X[104X
-    [4X[25Xgap>[125X [27XIsWellDefined( n );[127X[104X
-    [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27Xp := FinSet( 4 );[127X[104X
-    [4X[28X|4|[128X[104X
-    [4X[25Xgap>[125X [27XIsWellDefined( p );[127X[104X
-    [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XIsEqualForObjects( m, n );[127X[104X
-    [4X[28Xfalse[128X[104X
-  [4X[32X[104X
+  [1X2.2-4 FinSet1[101X
   
-  [1X2.2-4 FinSet[101X
-  
-  [33X[1;0Y[29X[2XFinSet[102X( [3XC[103X, [3Xn[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XFinSet1[102X( [3XC[103X, [3Xn[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ya CAP object[133X
   
   [33X[0;0YConstruct  a  skeletal finite set residing in the given skeletal category of
-  finite sets [3XC[103X of order given by the nonnegative integer [3Xn[103X.[133X
+  finite  sets with counting starting at 1 [3XC[103X of order given by the nonnegative
+  integer [3Xn[103X.[133X
   
   [1X2.2-5 MapOfFinSets[101X
   
@@ -105,42 +71,6 @@
   [33X[0;0YConstruct  a  map  [23X\phi:[123X[3Xs[103X[23X\to[123X[3Xt[103X  of  the skeletal finite sets [3Xs[103X and [3Xt[103X, i.e., a
   morphism  in  the  CAP  category  of  [3Xs[103X,  where [3XG[103X is a list of integers in [3Xt[103X
   describing the graph of [23X\phi[123X.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
-    [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27Xs := FinSet( 3 );[127X[104X
-    [4X[28X|3|[128X[104X
-    [4X[25Xgap>[125X [27Xt := FinSet( 7 );[127X[104X
-    [4X[28X|7|[128X[104X
-    [4X[25Xgap>[125X [27Xphi := MapOfFinSets( s, [ 6, 4, 4 ], t );[127X[104X
-    [4X[28X|3| → |7|[128X[104X
-    [4X[25Xgap>[125X [27XDisplay( AsList( phi ) );[127X[104X
-    [4X[28X[ 6, 4, 4 ][128X[104X
-    [4X[25Xgap>[125X [27XIsWellDefined( phi );[127X[104X
-    [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XDisplay( phi );[127X[104X
-    [4X[28X{ 0, 1, 2 } ⱶ[ 6, 4, 4 ]→ { 0,..., 6 }[128X[104X
-    [4X[25Xgap>[125X [27XString( phi );[127X[104X
-    [4X[28X"MapOfFinSets( SkeletalFinSets, FinSet( SkeletalFinSets, 3 ), [ 6, 4, 4 ], Fin\[128X[104X
-    [4X[28XSet( SkeletalFinSets, 7 ) )"[128X[104X
-    [4X[25Xgap>[125X [27Xs := ObjectConstructor( SkeletalFinSets, BigInt( 3 ) );[127X[104X
-    [4X[28X|3|[128X[104X
-    [4X[25Xgap>[125X [27Xt := ObjectConstructor( SkeletalFinSets, BigInt( 7 ) );[127X[104X
-    [4X[28X|7|[128X[104X
-    [4X[25Xgap>[125X [27Xphi := MorphismConstructor([127X[104X
-    [4X[25X>[125X [27X    s,[127X[104X
-    [4X[25X>[125X [27X    [ BigInt( 6 ), BigInt( 4 ), BigInt( 4 ) ],[127X[104X
-    [4X[25X>[125X [27X    t[127X[104X
-    [4X[25X>[125X [27X);[127X[104X
-    [4X[28X|3| → |7|[128X[104X
-    [4X[25Xgap>[125X [27XDisplay( MorphismDatum( phi ) );[127X[104X
-    [4X[28X[ 6, 4, 4 ][128X[104X
-    [4X[25Xgap>[125X [27XIsWellDefined( phi );[127X[104X
-    [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XDisplay( phi );[127X[104X
-    [4X[28X{ 0, 1, 2 } ⱶ[ 6, 4, 4 ]→ { 0,..., 6 }[128X[104X
-  [4X[32X[104X
   
   
   [1X2.3 [33X[0;0YTools[133X[101X
@@ -163,9 +93,9 @@
   [1X2.3-3 Preimage[101X
   
   [33X[1;0Y[29X[2XPreimage[102X( [3Xphi[103X, [3Xt[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Ya list[133X
+  [6XReturns:[106X  [33X[0;10Ya CAP object[133X
   
-  [33X[0;0YCompute the preimage of the list [3Xt[103X of numbers under the morphism [3Xphi[103X.[133X
+  [33X[0;0YCompute the Preimage of [3Xt[103X under the morphism [3Xphi[103X.[133X
   
   [1X2.3-4 ImageObject[101X
   
@@ -174,91 +104,32 @@
   
   [33X[0;0YCompute the image of [3Xs_[103X under the morphism [3Xphi[103X.[133X
   
-  [1X2.3-5 CallFuncList[101X
-  
-  [33X[1;0Y[29X[2XCallFuncList[102X( [3Xphi[103X, [3XL[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Ya list[133X
-  
-  [33X[0;0YReturns  the  image of [10X[3XL[103X[10X[1][110X under the map [3Xphi[103X assuming [10X[3XL[103X[10X[1][110X is a nonnegative
-  integer smaller than [10XCardinality( Source( [3Xphi[103X[10X ) )[110X.[133X
-  
-  [1X2.3-6 BoolToBigInt[101X
-  
-  [33X[1;0Y[29X[2XBoolToBigInt[102X( [3Xb[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Yan integer[133X
-  
-  [33X[0;0YThe input [3Xb[103X is a boolean. The output is [23X0[123X if [3Xb[103X = [10Xfalse[110X and [23X1[123X if [3Xb[103X = [10Xtrue[110X.[133X
-  
-  [1X2.3-7 GeometricSum[101X
-  
-  [33X[1;0Y[29X[2XGeometricSum[102X( [3Xq[103X, [3Xn[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Yan integer[133X
-  
-  [33X[0;0YReturns  [23X(q^n-1)/(q-1)[123X  = [10XSum[110X( [ 0 .. [3Xn[103X - 1 ], i -> [3Xq[103X^i ), taking the corner
-  case [3Xq[103X[23X= 1[123X into account.[133X
-  
-  [1X2.3-8 GeometricSumDiff1[101X
-  
-  [33X[1;0Y[29X[2XGeometricSumDiff1[102X( [3Xq[103X, [3Xn[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Yan integer[133X
-  
-  [33X[0;0YReturns [23X(1+((n-1)*q-n)*q^(n-1))/(q-1)^2[123X = [10XSum[110X( [ 0 .. [3Xn[103X - 1 ], i -> i * [3Xq[103X^(i
-  - 1) ), taking the corner case [3Xq[103X[23X= 1[123X into account.[133X
-  
-  [1X2.3-9 RemIntWithDomain[101X
-  
-  [33X[1;0Y[29X[2XRemIntWithDomain[102X( [3Xv[103X, [3Xa[103X, [3Xab[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Yan integer[133X
-  
-  [33X[0;0YReturn the remainder of the natural number [3Xv[103X less than [3Xab[103X modulo [3Xa[103X, where [3Xab[103X
-  is a multiple of [3Xa[103X.[133X
-  
-  [1X2.3-10 QuoIntWithDomain[101X
-  
-  [33X[1;0Y[29X[2XQuoIntWithDomain[102X( [3Xv[103X, [3Xa[103X, [3Xab[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Yan integer[133X
-  
-  [33X[0;0YReturn  the quotient of the natural number [3Xv[103X less than [3Xab[103X modulo [3Xa[103X, where [3Xab[103X
-  is a multiple of [3Xa[103X.[133X
-  
-  [1X2.3-11 DivIntWithGivenQuotient[101X
-  
-  [33X[1;0Y[29X[2XDivIntWithGivenQuotient[102X( [3Xa[103X, [3Xd[103X, [3Xq[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Yan integer[133X
-  
-  [33X[0;0YReturn the quotient [3Xq[103X of the natural number [3Xa[103X by the divior [3Xd[103X.[133X
-  
-  [1X2.3-12 DigitInPositionalNotation[101X
-  
-  [33X[1;0Y[29X[2XDigitInPositionalNotation[102X( [3Xv[103X, [3Xi[103X, [3Xl[103X, [3Xb[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Yan integer[133X
-  
-  [33X[0;0YReturn  the  digit  of  index  [3Xi[103X  in the [3Xb[103X-adic expansion of length [3Xl[103X of the
-  natural number [3Xv[103X.[133X
-  
   
   [1X2.4 [33X[0;0YGAP Categories[133X[101X
   
-  [1X2.4-1 IsSkeletalCategoryOfFiniteSets[101X
+  [1X2.4-1 IsSkeletalCategoryOfFiniteSetsWithCountingStartingAt1[101X
   
-  [33X[1;0Y[29X[2XIsSkeletalCategoryOfFiniteSets[102X( [3Xobject[103X ) [32X filter[133X
+  [33X[1;0Y[29X[2XIsSkeletalCategoryOfFiniteSetsWithCountingStartingAt1[102X( [3Xobject[103X ) [32X filter[133X
   [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
   
-  [33X[0;0YThe GAP category of a skeletal category of finite sets.[133X
+  [33X[0;0YThe  GAP  category  of  a  skeletal  category  of  finite sets with counting
+  starting at 1.[133X
   
-  [1X2.4-2 IsObjectInSkeletalCategoryOfFiniteSets[101X
+  [1X2.4-2 IsObjectInSkeletalCategoryOfFiniteSetsWithCountingStartingAt1[101X
   
-  [33X[1;0Y[29X[2XIsObjectInSkeletalCategoryOfFiniteSets[102X( [3Xobject[103X ) [32X filter[133X
+  [33X[1;0Y[29X[2XIsObjectInSkeletalCategoryOfFiniteSetsWithCountingStartingAt1[102X( [3Xobject[103X ) [32X filter[133X
   [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
   
-  [33X[0;0YThe GAP category of objects in the skeletal category of finite sets.[133X
+  [33X[0;0YThe  GAP  category  of  objects in the skeletal category of finite sets with
+  counting starting at 1.[133X
   
-  [1X2.4-3 IsMorphismInSkeletalCategoryOfFiniteSets[101X
+  [1X2.4-3 IsMorphismInSkeletalCategoryOfFiniteSetsWithCountingStartingAt1[101X
   
-  [33X[1;0Y[29X[2XIsMorphismInSkeletalCategoryOfFiniteSets[102X( [3Xobject[103X ) [32X filter[133X
+  [33X[1;0Y[29X[2XIsMorphismInSkeletalCategoryOfFiniteSetsWithCountingStartingAt1[102X( [3Xobject[103X ) [32X filter[133X
   [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
   
-  [33X[0;0YThe GAP category of morphisms in the skeletal category of finite sets.[133X
+  [33X[0;0YThe  GAP  category of morphisms in the skeletal category of finite sets with
+  counting starting at 1.[133X
   
   
   [1X2.5 [33X[0;0YExamples[133X[101X
@@ -269,11 +140,11 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XL := FinSet( 0 );[127X[104X
+    [4X[25Xgap>[125X [27XL := FinSet1( 0 );[127X[104X
     [4X[28X|0|[128X[104X
-    [4X[25Xgap>[125X [27XM := FinSet( 2 );[127X[104X
+    [4X[25Xgap>[125X [27XM := FinSet1( 2 );[127X[104X
     [4X[28X|2|[128X[104X
-    [4X[25Xgap>[125X [27XN := FinSet( 3 );[127X[104X
+    [4X[25Xgap>[125X [27XN := FinSet1( 3 );[127X[104X
     [4X[28X|3|[128X[104X
     [4X[25Xgap>[125X [27XIsHomSetInhabited( L, L );[127X[104X
     [4X[28Xtrue[128X[104X
@@ -291,23 +162,23 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27Xs := FinSet( 7 );[127X[104X
+    [4X[25Xgap>[125X [27Xs := FinSet1( 7 );[127X[104X
     [4X[28X|7|[128X[104X
-    [4X[25Xgap>[125X [27Xt := FinSet( 4 );[127X[104X
+    [4X[25Xgap>[125X [27Xt := FinSet1( 4 );[127X[104X
     [4X[28X|4|[128X[104X
-    [4X[25Xgap>[125X [27Xpsi := MapOfFinSets( s, [ 0, 2, 1, 2, 1, 3 ], t );[127X[104X
+    [4X[25Xgap>[125X [27Xpsi := MapOfFinSets( s, [ 1, 3, 2, 3, 2, 4 ], t );[127X[104X
     [4X[28X|7| → |4|[128X[104X
     [4X[25Xgap>[125X [27XIsWellDefined( psi );[127X[104X
     [4X[28Xfalse[128X[104X
-    [4X[25Xgap>[125X [27Xpsi := MapOfFinSets( s, [ 0, 2, 1, 2, 1, 3, -2 ], t );[127X[104X
+    [4X[25Xgap>[125X [27Xpsi := MapOfFinSets( s, [ 1, 3, 2, 3, 2, 4, -1 ], t );[127X[104X
     [4X[28X|7| → |4|[128X[104X
     [4X[25Xgap>[125X [27XIsWellDefined( psi );[127X[104X
     [4X[28Xfalse[128X[104X
-    [4X[25Xgap>[125X [27Xpsi := MapOfFinSets( s, [ 1, 2, 1, 4, 2, 1, 3 ], t );[127X[104X
+    [4X[25Xgap>[125X [27Xpsi := MapOfFinSets( s, [ 2, 3, 2, 5, 3, 2, 4 ], t );[127X[104X
     [4X[28X|7| → |4|[128X[104X
     [4X[25Xgap>[125X [27XIsWellDefined( psi );[127X[104X
     [4X[28Xfalse[128X[104X
-    [4X[25Xgap>[125X [27Xpsi := MapOfFinSets( s, [ 0, 2, 1, 3, 2, 1, 3 ], t );[127X[104X
+    [4X[25Xgap>[125X [27Xpsi := MapOfFinSets( s, [ 1, 3, 2, 4, 3, 2, 4 ], t );[127X[104X
     [4X[28X|7| → |4|[128X[104X
     [4X[25Xgap>[125X [27XIsWellDefined( psi );[127X[104X
     [4X[28Xtrue[128X[104X
@@ -319,20 +190,20 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27Xm := FinSet( 3 );[127X[104X
+    [4X[25Xgap>[125X [27Xm := FinSet1( 3 );[127X[104X
     [4X[28X|3|[128X[104X
-    [4X[25Xgap>[125X [27Xn := FinSet( 5 );[127X[104X
+    [4X[25Xgap>[125X [27Xn := FinSet1( 5 );[127X[104X
     [4X[28X|5|[128X[104X
-    [4X[25Xgap>[125X [27Xp := FinSet( 7 );[127X[104X
+    [4X[25Xgap>[125X [27Xp := FinSet1( 7 );[127X[104X
     [4X[28X|7|[128X[104X
-    [4X[25Xgap>[125X [27Xpsi := MapOfFinSets( m, [ 1, 4, 2 ], n );[127X[104X
+    [4X[25Xgap>[125X [27Xpsi := MapOfFinSets( m, [ 2, 5, 3 ], n );[127X[104X
     [4X[28X|3| → |5|[128X[104X
-    [4X[25Xgap>[125X [27Xphi := MapOfFinSets( n, [ 0, 3, 5, 5, 2 ], p );[127X[104X
+    [4X[25Xgap>[125X [27Xphi := MapOfFinSets( n, [ 1, 4, 6, 6, 3 ], p );[127X[104X
     [4X[28X|5| → |7|[128X[104X
     [4X[25Xgap>[125X [27Xalpha := PreCompose( psi, phi );[127X[104X
     [4X[28X|3| → |7|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( alpha );[127X[104X
-    [4X[28X{ 0, 1, 2 } ⱶ[ 3, 2, 5 ]→ { 0,..., 6 }[128X[104X
+    [4X[28X{ 1, 2, 3 } ⱶ[ 4, 3, 6 ]→ { 1,..., 7 }[128X[104X
   [4X[32X[104X
   
   
@@ -341,13 +212,13 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27Xm := FinSet( 3 );[127X[104X
+    [4X[25Xgap>[125X [27Xm := FinSet1( 3 );[127X[104X
     [4X[28X|3|[128X[104X
-    [4X[25Xgap>[125X [27Xn := FinSet( 5 );[127X[104X
+    [4X[25Xgap>[125X [27Xn := FinSet1( 5 );[127X[104X
     [4X[28X|5|[128X[104X
-    [4X[25Xgap>[125X [27Xp := FinSet( 7 );[127X[104X
+    [4X[25Xgap>[125X [27Xp := FinSet1( 7 );[127X[104X
     [4X[28X|7|[128X[104X
-    [4X[25Xgap>[125X [27Xpsi := MapOfFinSets( m, [ 0, 2, 4 ], n );[127X[104X
+    [4X[25Xgap>[125X [27Xpsi := MapOfFinSets( m, [ 1, 3, 5 ], n );[127X[104X
     [4X[28X|3| → |5|[128X[104X
     [4X[25Xgap>[125X [27XIsEpimorphism( psi );[127X[104X
     [4X[28Xfalse[128X[104X
@@ -359,7 +230,7 @@
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27Xpsi;[127X[104X
     [4X[28X|3| ↪ |5|[128X[104X
-    [4X[25Xgap>[125X [27Xpsi := MapOfFinSets( p, [ 0, 2, 1, 2, 2, 1, 0 ], m );[127X[104X
+    [4X[25Xgap>[125X [27Xpsi := MapOfFinSets( p, [ 1, 3, 2, 3, 3, 2, 1 ], m );[127X[104X
     [4X[28X|7| → |3|[128X[104X
     [4X[25Xgap>[125X [27XIsEpimorphism( psi );[127X[104X
     [4X[28Xtrue[128X[104X
@@ -385,13 +256,13 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27Xm := FinSet( 8 );[127X[104X
+    [4X[25Xgap>[125X [27Xm := FinSet1( 8 );[127X[104X
     [4X[28X|8|[128X[104X
     [4X[25Xgap>[125X [27XIsInitial( m );[127X[104X
     [4X[28Xfalse[128X[104X
     [4X[25Xgap>[125X [27XIsTerminal( m );[127X[104X
     [4X[28Xfalse[128X[104X
-    [4X[25Xgap>[125X [27Xi := InitialObject( SkeletalFinSets );[127X[104X
+    [4X[25Xgap>[125X [27Xi := InitialObject( SkeletalFinSets1 );[127X[104X
     [4X[28X|0|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( i );[127X[104X
     [4X[28X∅[128X[104X
@@ -403,10 +274,10 @@
     [4X[28X|0| → |8|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( AsList( i ) );[127X[104X
     [4X[28X[  ][128X[104X
-    [4X[25Xgap>[125X [27Xt := TerminalObject( SkeletalFinSets );[127X[104X
+    [4X[25Xgap>[125X [27Xt := TerminalObject( SkeletalFinSets1 );[127X[104X
     [4X[28X|1|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( AsList( t ) );[127X[104X
-    [4X[28X[ 0 ][128X[104X
+    [4X[28X[ 1 ][128X[104X
     [4X[25Xgap>[125X [27XIsInitial( t );[127X[104X
     [4X[28Xfalse[128X[104X
     [4X[25Xgap>[125X [27XIsTerminal( t );[127X[104X
@@ -418,7 +289,7 @@
     [4X[25Xgap>[125X [27Xpi_t := UniversalMorphismIntoTerminalObjectWithGivenTerminalObject( m, t );[127X[104X
     [4X[28X|8| → |1|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( AsList( pi_t ) );[127X[104X
-    [4X[28X[ 0, 0, 0, 0, 0, 0, 0, 0 ][128X[104X
+    [4X[28X[ 1, 1, 1, 1, 1, 1, 1, 1 ][128X[104X
     [4X[25Xgap>[125X [27Xpi = pi_t;[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
@@ -429,11 +300,11 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XI := FinSet( 0 );[127X[104X
+    [4X[25Xgap>[125X [27XI := FinSet1( 0 );[127X[104X
     [4X[28X|0|[128X[104X
-    [4X[25Xgap>[125X [27XT := FinSet( 1 );[127X[104X
+    [4X[25Xgap>[125X [27XT := FinSet1( 1 );[127X[104X
     [4X[28X|1|[128X[104X
-    [4X[25Xgap>[125X [27XM := FinSet( 2 );[127X[104X
+    [4X[25Xgap>[125X [27XM := FinSet1( 2 );[127X[104X
     [4X[28X|2|[128X[104X
     [4X[25Xgap>[125X [27XIsProjective( I );[127X[104X
     [4X[28Xtrue[128X[104X
@@ -450,11 +321,11 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XI := FinSet( 0 );[127X[104X
+    [4X[25Xgap>[125X [27XI := FinSet1( 0 );[127X[104X
     [4X[28X|0|[128X[104X
-    [4X[25Xgap>[125X [27XT := FinSet( 1 );[127X[104X
+    [4X[25Xgap>[125X [27XT := FinSet1( 1 );[127X[104X
     [4X[28X|1|[128X[104X
-    [4X[25Xgap>[125X [27XM := FinSet( 2 );[127X[104X
+    [4X[25Xgap>[125X [27XM := FinSet1( 2 );[127X[104X
     [4X[28X|2|[128X[104X
     [4X[25Xgap>[125X [27XIsInjective( I );[127X[104X
     [4X[28Xfalse[128X[104X
@@ -476,43 +347,43 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27Xm := FinSet( 7 );[127X[104X
+    [4X[25Xgap>[125X [27Xm := FinSet1( 7 );[127X[104X
     [4X[28X|7|[128X[104X
-    [4X[25Xgap>[125X [27Xn := FinSet( 3 );[127X[104X
+    [4X[25Xgap>[125X [27Xn := FinSet1( 3 );[127X[104X
     [4X[28X|3|[128X[104X
-    [4X[25Xgap>[125X [27Xp := FinSet( 4 );[127X[104X
+    [4X[25Xgap>[125X [27Xp := FinSet1( 4 );[127X[104X
     [4X[28X|4|[128X[104X
     [4X[25Xgap>[125X [27Xd := DirectProduct( [ m, n, p ] );[127X[104X
     [4X[28X|84|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( AsList( d ) );[127X[104X
-    [4X[28X[ 0 .. 83 ][128X[104X
+    [4X[28X[ 1 .. 84 ][128X[104X
     [4X[25Xgap>[125X [27Xpi1 := ProjectionInFactorOfDirectProduct( [ m, n, p ], 1 );[127X[104X
     [4X[28X|84| → |7|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( pi1 );[127X[104X
-    [4X[28X{ 0,..., 83 } ⱶ[ 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6,\[128X[104X
-    [4X[28X 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6,\[128X[104X
-    [4X[28X 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6,\[128X[104X
-    [4X[28X 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6,\[128X[104X
-    [4X[28X 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6,\[128X[104X
-    [4X[28X 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6 ]→ { 0,..., 6 }[128X[104X
+    [4X[28X{ 1,..., 84 } ⱶ[ 1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7,\[128X[104X
+    [4X[28X 1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7,\[128X[104X
+    [4X[28X 1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7,\[128X[104X
+    [4X[28X 1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7,\[128X[104X
+    [4X[28X 1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7,\[128X[104X
+    [4X[28X 1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7 ]→ { 1,..., 7 }[128X[104X
     [4X[25Xgap>[125X [27Xpi2 := ProjectionInFactorOfDirectProduct( [ m, n, p ], 2 );[127X[104X
     [4X[28X|84| → |3|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( pi2 );[127X[104X
-    [4X[28X{ 0,..., 83 } ⱶ[ 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1,\[128X[104X
-    [4X[28X 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0,\[128X[104X
+    [4X[28X{ 1,..., 84 } ⱶ[ 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2,\[128X[104X
+    [4X[28X 3, 3, 3, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1,\[128X[104X
+    [4X[28X 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3,\[128X[104X
     [4X[28X 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2,\[128X[104X
-    [4X[28X 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1,\[128X[104X
-    [4X[28X 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0,\[128X[104X
-    [4X[28X 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2 ]→ { 0, 1, 2 }[128X[104X
+    [4X[28X 3, 3, 3, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1,\[128X[104X
+    [4X[28X 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3 ]→ { 1, 2, 3 }[128X[104X
     [4X[25Xgap>[125X [27Xpi3 := ProjectionInFactorOfDirectProduct( [ m, n, p ], 3 );[127X[104X
     [4X[28X|84| → |4|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( pi3 );[127X[104X
-    [4X[28X{ 0,..., 83 } ⱶ[ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,\[128X[104X
-    [4X[28X 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1,\[128X[104X
-    [4X[28X 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,\[128X[104X
+    [4X[28X{ 1,..., 84 } ⱶ[ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,\[128X[104X
+    [4X[28X 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2,\[128X[104X
     [4X[28X 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,\[128X[104X
-    [4X[28X 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3,\[128X[104X
-    [4X[28X 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3 ]→ { 0,..., 3 }[128X[104X
+    [4X[28X 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,\[128X[104X
+    [4X[28X 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4,\[128X[104X
+    [4X[28X 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4 ]→ { 1,..., 4 }[128X[104X
     [4X[25Xgap>[125X [27Xpsi := UniversalMorphismIntoDirectProduct( [ m, n, p ], [ pi1, pi2, pi3 ] );[127X[104X
     [4X[28X|84| → |84|[128X[104X
     [4X[25Xgap>[125X [27Xpsi = IdentityMorphism( d );[127X[104X
@@ -525,34 +396,34 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27Xm := FinSet( 7 );[127X[104X
+    [4X[25Xgap>[125X [27Xm := FinSet1( 7 );[127X[104X
     [4X[28X|7|[128X[104X
-    [4X[25Xgap>[125X [27Xn := FinSet( 3 );[127X[104X
+    [4X[25Xgap>[125X [27Xn := FinSet1( 3 );[127X[104X
     [4X[28X|3|[128X[104X
-    [4X[25Xgap>[125X [27Xp := FinSet( 4 );[127X[104X
+    [4X[25Xgap>[125X [27Xp := FinSet1( 4 );[127X[104X
     [4X[28X|4|[128X[104X
     [4X[25Xgap>[125X [27Xc := Coproduct( m, n, p );[127X[104X
     [4X[28X|14|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( AsList( c ) );[127X[104X
-    [4X[28X[ 0 .. 13 ][128X[104X
+    [4X[28X[ 1 .. 14 ][128X[104X
     [4X[25Xgap>[125X [27Xiota1 := InjectionOfCofactorOfCoproduct( [ m, n, p ], 1 );[127X[104X
     [4X[28X|7| → |14|[128X[104X
     [4X[25Xgap>[125X [27XIsWellDefined( iota1 );[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XDisplay( iota1 );[127X[104X
-    [4X[28X{ 0,..., 6 } ⱶ[ 0 .. 6 ]→ { 0,..., 13 }[128X[104X
+    [4X[28X{ 1,..., 7 } ⱶ[ 1, 2, 3, 4, 5, 6, 7 ]→ { 1,..., 14 }[128X[104X
     [4X[25Xgap>[125X [27Xiota2 := InjectionOfCofactorOfCoproduct( [ m, n, p ], 2 );[127X[104X
     [4X[28X|3| → |14|[128X[104X
     [4X[25Xgap>[125X [27XIsWellDefined( iota2 );[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XDisplay( iota2 );[127X[104X
-    [4X[28X{ 0, 1, 2 } ⱶ[ 7 .. 9 ]→ { 0,..., 13 }[128X[104X
+    [4X[28X{ 1, 2, 3 } ⱶ[ 8, 9, 10 ]→ { 1,..., 14 }[128X[104X
     [4X[25Xgap>[125X [27Xiota3 := InjectionOfCofactorOfCoproduct( [ m, n, p ], 3 );[127X[104X
     [4X[28X|4| → |14|[128X[104X
     [4X[25Xgap>[125X [27XIsWellDefined( iota3 );[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XDisplay( iota3 );[127X[104X
-    [4X[28X{ 0,..., 3 } ⱶ[ 10 .. 13 ]→ { 0,..., 13 }[128X[104X
+    [4X[28X{ 1,..., 4 } ⱶ[ 11, 12, 13, 14 ]→ { 1,..., 14 }[128X[104X
     [4X[25Xgap>[125X [27Xpsi := UniversalMorphismFromCoproduct([127X[104X
     [4X[25X>[125X [27X               [ m, n, p ], [ iota1, iota2, iota3 ] );[127X[104X
     [4X[28X|14| → |14|[128X[104X
@@ -568,11 +439,11 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27Xm := FinSet( 7 );[127X[104X
+    [4X[25Xgap>[125X [27Xm := FinSet1( 7 );[127X[104X
     [4X[28X|7|[128X[104X
-    [4X[25Xgap>[125X [27Xn := FinSet( 3 );[127X[104X
+    [4X[25Xgap>[125X [27Xn := FinSet1( 3 );[127X[104X
     [4X[28X|3|[128X[104X
-    [4X[25Xgap>[125X [27Xphi := MapOfFinSets( n, [ 6, 4, 4 ], m );[127X[104X
+    [4X[25Xgap>[125X [27Xphi := MapOfFinSets( n, [ 7, 5, 5 ], m );[127X[104X
     [4X[28X|3| → |7|[128X[104X
     [4X[25Xgap>[125X [27XIsWellDefined( phi );[127X[104X
     [4X[28Xtrue[128X[104X
@@ -580,7 +451,7 @@
     [4X[28X|2|[128X[104X
     [4X[25Xgap>[125X [27XCardinality( ImageObject( phi ) );[127X[104X
     [4X[28X2[128X[104X
-    [4X[25Xgap>[125X [27Xs := FinSet( 2 );[127X[104X
+    [4X[25Xgap>[125X [27Xs := FinSet1( 2 );[127X[104X
     [4X[28X|2|[128X[104X
     [4X[25Xgap>[125X [27XI := ImageObject( phi, s );[127X[104X
     [4X[28X|2|[128X[104X
@@ -591,44 +462,44 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27Xm := FinSet( 7 );[127X[104X
+    [4X[25Xgap>[125X [27Xm := FinSet1( 7 );[127X[104X
     [4X[28X|7|[128X[104X
-    [4X[25Xgap>[125X [27Xn := FinSet( 3 );[127X[104X
+    [4X[25Xgap>[125X [27Xn := FinSet1( 3 );[127X[104X
     [4X[28X|3|[128X[104X
-    [4X[25Xgap>[125X [27Xphi := MapOfFinSets( n, [ 6, 4, 4 ], m );[127X[104X
+    [4X[25Xgap>[125X [27Xphi := MapOfFinSets( n, [ 7, 5, 5 ], m );[127X[104X
     [4X[28X|3| → |7|[128X[104X
     [4X[25Xgap>[125X [27Xpi := ImageEmbedding( phi );[127X[104X
     [4X[28X|2| → |7|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( pi );[127X[104X
-    [4X[28X{ 0, 1 } ⱶ[ 4, 6 ]→ { 0,..., 6 }[128X[104X
+    [4X[28X{ 1, 2 } ⱶ[ 5, 7 ]→ { 1,..., 7 }[128X[104X
   [4X[32X[104X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27Xm := FinSet( 7 );[127X[104X
+    [4X[25Xgap>[125X [27Xm := FinSet1( 7 );[127X[104X
     [4X[28X|7|[128X[104X
-    [4X[25Xgap>[125X [27Xn := FinSet( 3 );[127X[104X
+    [4X[25Xgap>[125X [27Xn := FinSet1( 3 );[127X[104X
     [4X[28X|3|[128X[104X
-    [4X[25Xgap>[125X [27Xphi := MapOfFinSets( n, [ 6, 4, 4 ], m );[127X[104X
+    [4X[25Xgap>[125X [27Xphi := MapOfFinSets( n, [ 7, 5, 5 ], m );[127X[104X
     [4X[28X|3| → |7|[128X[104X
     [4X[25Xgap>[125X [27XIsWellDefined( phi );[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27Xf := CoastrictionToImage( phi );[127X[104X
     [4X[28X|3| → |2|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( f );[127X[104X
-    [4X[28X{ 0, 1, 2 } ⱶ[ 1, 0, 0 ]→ { 0, 1 }[128X[104X
+    [4X[28X{ 1, 2, 3 } ⱶ[ 2, 1, 1 ]→ { 1, 2 }[128X[104X
     [4X[25Xgap>[125X [27XIsWellDefined( f );[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XIsEpimorphism( f );[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XIsSplitEpimorphism( f );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27Xm := FinSet( 77 );[127X[104X
+    [4X[25Xgap>[125X [27Xm := FinSet1( 77 );[127X[104X
     [4X[28X|77|[128X[104X
-    [4X[25Xgap>[125X [27Xn := FinSet( 4 );[127X[104X
+    [4X[25Xgap>[125X [27Xn := FinSet1( 4 );[127X[104X
     [4X[28X|4|[128X[104X
-    [4X[25Xgap>[125X [27Xphi := MapOfFinSets( n, [ 76, 1, 24, 1 ], m );[127X[104X
+    [4X[25Xgap>[125X [27Xphi := MapOfFinSets( n, [ 77, 2, 25, 2 ], m );[127X[104X
     [4X[28X|4| → |77|[128X[104X
     [4X[25Xgap>[125X [27XIsWellDefined( phi );[127X[104X
     [4X[28Xtrue[128X[104X
@@ -637,7 +508,7 @@
     [4X[25Xgap>[125X [27Xpi := CoastrictionToImage( phi );[127X[104X
     [4X[28X|4| → |3|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( pi );[127X[104X
-    [4X[28X{ 0,..., 3 } ⱶ[ 2, 0, 1, 0 ]→ { 0, 1, 2 }[128X[104X
+    [4X[28X{ 1,..., 4 } ⱶ[ 3, 1, 2, 1 ]→ { 1, 2, 3 }[128X[104X
     [4X[25Xgap>[125X [27XIsWellDefined( pi );[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XIsEpimorphism( pi );[127X[104X
@@ -654,11 +525,11 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27Xm := FinSet( 3 );[127X[104X
+    [4X[25Xgap>[125X [27Xm := FinSet1( 3 );[127X[104X
     [4X[28X|3|[128X[104X
-    [4X[25Xgap>[125X [27Xn := FinSet( 3 );[127X[104X
+    [4X[25Xgap>[125X [27Xn := FinSet1( 3 );[127X[104X
     [4X[28X|3|[128X[104X
-    [4X[25Xgap>[125X [27Xphi := MapOfFinSets( m, [ 1, 0, 1 ], n );[127X[104X
+    [4X[25Xgap>[125X [27Xphi := MapOfFinSets( m, [ 2, 1, 2 ], n );[127X[104X
     [4X[28X|3| → |3|[128X[104X
     [4X[25Xgap>[125X [27XI := CoimageObject( phi );[127X[104X
     [4X[28X|2|[128X[104X
@@ -677,9 +548,9 @@
     [4X[25Xgap>[125X [27XPreCompose( pi, iota ) = phi;[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XDisplay( iota );[127X[104X
-    [4X[28X{ 0, 1 } ⱶ[ 1, 0 ]→ { 0, 1, 2 }[128X[104X
+    [4X[28X{ 1, 2 } ⱶ[ 2, 1 ]→ { 1, 2, 3 }[128X[104X
     [4X[25Xgap>[125X [27XDisplay( ImageEmbedding( phi ) );[127X[104X
-    [4X[28X{ 0, 1 } ⱶ[ 0, 1 ]→ { 0, 1, 2 }[128X[104X
+    [4X[28X{ 1, 2 } ⱶ[ 1, 2 ]→ { 1, 2, 3 }[128X[104X
   [4X[32X[104X
   
   
@@ -688,19 +559,19 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27Xm := FinSet( 7 );[127X[104X
+    [4X[25Xgap>[125X [27Xm := FinSet1( 7 );[127X[104X
     [4X[28X|7|[128X[104X
-    [4X[25Xgap>[125X [27Xn := FinSet( 3 );[127X[104X
+    [4X[25Xgap>[125X [27Xn := FinSet1( 3 );[127X[104X
     [4X[28X|3|[128X[104X
-    [4X[25Xgap>[125X [27Xphi := MapOfFinSets( n, [ 6, 4, 4 ], m );[127X[104X
+    [4X[25Xgap>[125X [27Xphi := MapOfFinSets( n, [ 7, 5, 5 ], m );[127X[104X
     [4X[28X|3| → |7|[128X[104X
-    [4X[25Xgap>[125X [27XP := Preimage( phi, [ 2 ] );;[127X[104X
+    [4X[25Xgap>[125X [27XP := Preimage( phi, [ 3 ] );;[127X[104X
     [4X[25Xgap>[125X [27XDisplay( P );[127X[104X
     [4X[28X[  ][128X[104X
-    [4X[25Xgap>[125X [27XP := Preimage( phi, AsList( FinSet( 5 ) ) );;[127X[104X
+    [4X[25Xgap>[125X [27XP := Preimage( phi, AsList( FinSet1( 5 ) ) );;[127X[104X
     [4X[25Xgap>[125X [27XDisplay( P );[127X[104X
-    [4X[28X[ 1, 2 ][128X[104X
-    [4X[25Xgap>[125X [27XList( P, phi ) = [ 4, 4 ];[127X[104X
+    [4X[28X[ 2, 3 ][128X[104X
+    [4X[25Xgap>[125X [27XList( P, phi ) = [ 5, 5 ];[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
@@ -710,15 +581,15 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XS := FinSet( 5 );[127X[104X
+    [4X[25Xgap>[125X [27XS := FinSet1( 5 );[127X[104X
     [4X[28X|5|[128X[104X
-    [4X[25Xgap>[125X [27XT := FinSet( 3 );[127X[104X
+    [4X[25Xgap>[125X [27XT := FinSet1( 3 );[127X[104X
     [4X[28X|3|[128X[104X
-    [4X[25Xgap>[125X [27Xf1 := MapOfFinSets( S, [ 2, 2, 0, 1, 1 ], T );[127X[104X
+    [4X[25Xgap>[125X [27Xf1 := MapOfFinSets( S, [ 3, 3, 1, 2, 2 ], T );[127X[104X
     [4X[28X|5| → |3|[128X[104X
-    [4X[25Xgap>[125X [27Xf2 := MapOfFinSets( S, [ 2, 1, 2, 0, 1 ], T );[127X[104X
+    [4X[25Xgap>[125X [27Xf2 := MapOfFinSets( S, [ 3, 2, 3, 1, 2 ], T );[127X[104X
     [4X[28X|5| → |3|[128X[104X
-    [4X[25Xgap>[125X [27Xf3 := MapOfFinSets( S, [ 2, 0, 1, 0, 1 ], T );[127X[104X
+    [4X[25Xgap>[125X [27Xf3 := MapOfFinSets( S, [ 3, 1, 2, 1, 2 ], T );[127X[104X
     [4X[28X|5| → |3|[128X[104X
     [4X[25Xgap>[125X [27XD := [ f1, f2, f3 ];;[127X[104X
     [4X[25Xgap>[125X [27XEq := Equalizer( D );[127X[104X
@@ -726,8 +597,8 @@
     [4X[25Xgap>[125X [27Xiota := EmbeddingOfEqualizer( D );[127X[104X
     [4X[28X|2| → |5|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( iota );[127X[104X
-    [4X[28X{ 0, 1 } ⱶ[ 0, 4 ]→ { 0,..., 4 }[128X[104X
-    [4X[25Xgap>[125X [27Xphi := MapOfFinSets( FinSet( 2 ), [ 4, 0 ], S );;[127X[104X
+    [4X[28X{ 1, 2 } ⱶ[ 1, 5 ]→ { 1,..., 5 }[128X[104X
+    [4X[25Xgap>[125X [27Xphi := MapOfFinSets( FinSet1( 2 ), [ 5, 1 ], S );;[127X[104X
     [4X[25Xgap>[125X [27XIsWellDefined( phi );[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27Xpsi := UniversalMorphismIntoEqualizer( D, phi );[127X[104X
@@ -735,7 +606,7 @@
     [4X[25Xgap>[125X [27XIsWellDefined( psi );[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XDisplay( psi );[127X[104X
-    [4X[28X{ 0, 1 } ⱶ[ 1, 0 ]→ { 0, 1 }[128X[104X
+    [4X[28X{ 1, 2 } ⱶ[ 2, 1 ]→ { 1, 2 }[128X[104X
     [4X[25Xgap>[125X [27XPreCompose( psi, iota ) = phi;[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XD := [ f2, f3 ];;[127X[104X
@@ -744,7 +615,7 @@
     [4X[25Xgap>[125X [27Xpsi := EmbeddingOfEqualizer( D );[127X[104X
     [4X[28X|3| → |5|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( psi );[127X[104X
-    [4X[28X{ 0, 1, 2 } ⱶ[ 0, 3, 4 ]→ { 0,..., 4 }[128X[104X
+    [4X[28X{ 1, 2, 3 } ⱶ[ 1, 4, 5 ]→ { 1,..., 5 }[128X[104X
   [4X[32X[104X
   
   
@@ -753,33 +624,33 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27Xm := FinSet( 5 );[127X[104X
+    [4X[25Xgap>[125X [27Xm := FinSet1( 5 );[127X[104X
     [4X[28X|5|[128X[104X
-    [4X[25Xgap>[125X [27Xn1 := FinSet( 3 );[127X[104X
+    [4X[25Xgap>[125X [27Xn1 := FinSet1( 3 );[127X[104X
     [4X[28X|3|[128X[104X
     [4X[25Xgap>[125X [27Xiota1 := EmbeddingOfFinSets( n1, m );[127X[104X
     [4X[28X|3| ↪ |5|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( iota1 );[127X[104X
-    [4X[28X{ 0, 1, 2 } ⱶ[ 0 .. 2 ]→ { 0,..., 4 }[128X[104X
-    [4X[25Xgap>[125X [27Xn2 := FinSet( 4 );[127X[104X
+    [4X[28X{ 1, 2, 3 } ⱶ[ 1 .. 3 ]→ { 1,..., 5 }[128X[104X
+    [4X[25Xgap>[125X [27Xn2 := FinSet1( 4 );[127X[104X
     [4X[28X|4|[128X[104X
     [4X[25Xgap>[125X [27Xiota2 := EmbeddingOfFinSets( n2, m );[127X[104X
     [4X[28X|4| ↪ |5|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( iota2 );[127X[104X
-    [4X[28X{ 0,..., 3 } ⱶ[ 0 .. 3 ]→ { 0,..., 4 }[128X[104X
+    [4X[28X{ 1,..., 4 } ⱶ[ 1 .. 4 ]→ { 1,..., 5 }[128X[104X
     [4X[25Xgap>[125X [27XD := [ iota1, iota2 ];;[127X[104X
     [4X[25Xgap>[125X [27XFib := FiberProduct( D );[127X[104X
     [4X[28X|3|[128X[104X
     [4X[25Xgap>[125X [27Xpi1 := ProjectionInFactorOfFiberProduct( D, 1 );[127X[104X
     [4X[28X|3| → |3|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( pi1 );[127X[104X
-    [4X[28X{ 0, 1, 2 } ⱶ[ 0, 1, 2 ]→ { 0, 1, 2 }[128X[104X
+    [4X[28X{ 1, 2, 3 } ⱶ[ 1, 2, 3 ]→ { 1, 2, 3 }[128X[104X
     [4X[25Xgap>[125X [27Xint1 := ImageObject( pi1 );[127X[104X
     [4X[28X|3|[128X[104X
     [4X[25Xgap>[125X [27Xpi2 := ProjectionInFactorOfFiberProduct( D, 2 );[127X[104X
     [4X[28X|3| → |4|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( pi2 );[127X[104X
-    [4X[28X{ 0, 1, 2 } ⱶ[ 0, 1, 2 ]→ { 0,..., 3 }[128X[104X
+    [4X[28X{ 1, 2, 3 } ⱶ[ 1, 2, 3 ]→ { 1,..., 4 }[128X[104X
     [4X[25Xgap>[125X [27Xint2 := ImageObject( pi2 );[127X[104X
     [4X[28X|3|[128X[104X
     [4X[25Xgap>[125X [27Xomega1 := PreCompose( pi1, iota1 );[127X[104X
@@ -789,7 +660,7 @@
     [4X[25Xgap>[125X [27Xomega1 = omega2;[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XDisplay( omega1 );[127X[104X
-    [4X[28X{ 0, 1, 2 } ⱶ[ 0, 1, 2 ]→ { 0,..., 4 }[128X[104X
+    [4X[28X{ 1, 2, 3 } ⱶ[ 1, 2, 3 ]→ { 1,..., 5 }[128X[104X
   [4X[32X[104X
   
   
@@ -798,13 +669,13 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27Xs := FinSet( 5 );[127X[104X
+    [4X[25Xgap>[125X [27Xs := FinSet1( 5 );[127X[104X
     [4X[28X|5|[128X[104X
-    [4X[25Xgap>[125X [27Xt := FinSet( 4 );[127X[104X
+    [4X[25Xgap>[125X [27Xt := FinSet1( 4 );[127X[104X
     [4X[28X|4|[128X[104X
-    [4X[25Xgap>[125X [27Xf := MapOfFinSets( s, [ 2, 3, 3, 1, 3 ], t );[127X[104X
+    [4X[25Xgap>[125X [27Xf := MapOfFinSets( s, [ 3, 4, 4, 2, 4 ], t );[127X[104X
     [4X[28X|5| → |4|[128X[104X
-    [4X[25Xgap>[125X [27Xg := MapOfFinSets( s, [ 2, 2, 3, 1, 3 ], t );[127X[104X
+    [4X[25Xgap>[125X [27Xg := MapOfFinSets( s, [ 3, 3, 4, 2, 4 ], t );[127X[104X
     [4X[28X|5| → |4|[128X[104X
     [4X[25Xgap>[125X [27XD := [ f, g ];;[127X[104X
     [4X[25Xgap>[125X [27XC := Coequalizer( D );[127X[104X
@@ -812,22 +683,22 @@
     [4X[25Xgap>[125X [27Xpi := ProjectionOntoCoequalizer( D );[127X[104X
     [4X[28X|4| → |3|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( pi );[127X[104X
-    [4X[28X{ 0,..., 3 } ⱶ[ 0, 1, 2, 2 ]→ { 0, 1, 2 }[128X[104X
-    [4X[25Xgap>[125X [27Xtau := MapOfFinSets( t, [ 1, 0, 1, 1 ], FinSet( 2 ) );[127X[104X
+    [4X[28X{ 1,..., 4 } ⱶ[ 1, 2, 3, 3 ]→ { 1, 2, 3 }[128X[104X
+    [4X[25Xgap>[125X [27Xtau := MapOfFinSets( t, [ 2, 1, 2, 2 ], FinSet1( 2 ) );[127X[104X
     [4X[28X|4| → |2|[128X[104X
     [4X[25Xgap>[125X [27Xphi := UniversalMorphismFromCoequalizer( D, tau );[127X[104X
     [4X[28X|3| → |2|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( phi );[127X[104X
-    [4X[28X{ 0, 1, 2 } ⱶ[ 1, 0, 1 ]→ { 0, 1 }[128X[104X
+    [4X[28X{ 1, 2, 3 } ⱶ[ 2, 1, 2 ]→ { 1, 2 }[128X[104X
     [4X[25Xgap>[125X [27XPreCompose( pi, phi ) = tau;[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27Xs := FinSet( 5 );[127X[104X
+    [4X[25Xgap>[125X [27Xs := FinSet1( 5 );[127X[104X
     [4X[28X|5|[128X[104X
-    [4X[25Xgap>[125X [27Xt := FinSet( 4 );[127X[104X
+    [4X[25Xgap>[125X [27Xt := FinSet1( 4 );[127X[104X
     [4X[28X|4|[128X[104X
-    [4X[25Xgap>[125X [27Xf := MapOfFinSets( s, [ 1, 2, 2, 1, 3 ], t );[127X[104X
+    [4X[25Xgap>[125X [27Xf := MapOfFinSets( s, [ 2, 3, 3, 2, 4 ], t );[127X[104X
     [4X[28X|5| → |4|[128X[104X
-    [4X[25Xgap>[125X [27Xg := MapOfFinSets( s, [ 1, 2, 1, 1, 3 ], t );[127X[104X
+    [4X[25Xgap>[125X [27Xg := MapOfFinSets( s, [ 2, 3, 2, 2, 4 ], t );[127X[104X
     [4X[28X|5| → |4|[128X[104X
     [4X[25Xgap>[125X [27XD := [ f, g ];;[127X[104X
     [4X[25Xgap>[125X [27XC := Coequalizer( D );[127X[104X
@@ -835,23 +706,23 @@
     [4X[25Xgap>[125X [27Xpi := ProjectionOntoCoequalizer( D );[127X[104X
     [4X[28X|4| → |3|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( pi );[127X[104X
-    [4X[28X{ 0,..., 3 } ⱶ[ 0, 1, 1, 2 ]→ { 0, 1, 2 }[128X[104X
+    [4X[28X{ 1,..., 4 } ⱶ[ 1, 2, 2, 3 ]→ { 1, 2, 3 }[128X[104X
     [4X[25Xgap>[125X [27XPreCompose( f, pi ) = PreCompose( g, pi );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27Xtau := MapOfFinSets( t, [ 0, 1, 1, 0 ], FinSet( 2 ) );[127X[104X
+    [4X[25Xgap>[125X [27Xtau := MapOfFinSets( t, [ 1, 2, 2, 1 ], FinSet1( 2 ) );[127X[104X
     [4X[28X|4| → |2|[128X[104X
     [4X[25Xgap>[125X [27Xphi := UniversalMorphismFromCoequalizer( D, tau );[127X[104X
     [4X[28X|3| → |2|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( phi );[127X[104X
-    [4X[28X{ 0, 1, 2 } ⱶ[ 0, 1, 0 ]→ { 0, 1 }[128X[104X
+    [4X[28X{ 1, 2, 3 } ⱶ[ 1, 2, 1 ]→ { 1, 2 }[128X[104X
     [4X[25Xgap>[125X [27XPreCompose( pi, phi ) = tau;[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27Xs := FinSet( 2 );;[127X[104X
-    [4X[25Xgap>[125X [27Xt := FinSet( 3 );;[127X[104X
-    [4X[25Xgap>[125X [27Xf := MapOfFinSets( s, [ 0, 1 ], t );;[127X[104X
+    [4X[25Xgap>[125X [27Xs := FinSet1( 2 );;[127X[104X
+    [4X[25Xgap>[125X [27Xt := FinSet1( 3 );;[127X[104X
+    [4X[25Xgap>[125X [27Xf := MapOfFinSets( s, [ 1, 2 ], t );;[127X[104X
     [4X[25Xgap>[125X [27XIsWellDefined( f );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27Xg := MapOfFinSets( s, [ 1, 2 ], t );;[127X[104X
+    [4X[25Xgap>[125X [27Xg := MapOfFinSets( s, [ 2, 3 ], t );;[127X[104X
     [4X[25Xgap>[125X [27XIsWellDefined( g );[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XC := Coequalizer( [ f, g ] );[127X[104X
@@ -864,31 +735,31 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XM := FinSet( 5 );[127X[104X
+    [4X[25Xgap>[125X [27XM := FinSet1( 5 );[127X[104X
     [4X[28X|5|[128X[104X
-    [4X[25Xgap>[125X [27XN1 := FinSet( 3 );[127X[104X
+    [4X[25Xgap>[125X [27XN1 := FinSet1( 3 );[127X[104X
     [4X[28X|3|[128X[104X
     [4X[25Xgap>[125X [27Xiota1 := EmbeddingOfFinSets( N1, M );[127X[104X
     [4X[28X|3| ↪ |5|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( iota1 );[127X[104X
-    [4X[28X{ 0, 1, 2 } ⱶ[ 0 .. 2 ]→ { 0,..., 4 }[128X[104X
-    [4X[25Xgap>[125X [27XN2 := FinSet( 2 );[127X[104X
+    [4X[28X{ 1, 2, 3 } ⱶ[ 1 .. 3 ]→ { 1,..., 5 }[128X[104X
+    [4X[25Xgap>[125X [27XN2 := FinSet1( 2 );[127X[104X
     [4X[28X|2|[128X[104X
     [4X[25Xgap>[125X [27Xiota2 := EmbeddingOfFinSets( N2, M );[127X[104X
     [4X[28X|2| ↪ |5|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( iota2 );[127X[104X
-    [4X[28X{ 0, 1 } ⱶ[ 0 .. 1 ]→ { 0,..., 4 }[128X[104X
+    [4X[28X{ 1, 2 } ⱶ[ 1 .. 2 ]→ { 1,..., 5 }[128X[104X
     [4X[25Xgap>[125X [27XD := [ iota1, iota2 ];;[127X[104X
     [4X[25Xgap>[125X [27XFib := FiberProduct( D );[127X[104X
     [4X[28X|2|[128X[104X
     [4X[25Xgap>[125X [27Xpi1 := ProjectionInFactorOfFiberProduct( D, 1 );[127X[104X
     [4X[28X|2| → |3|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( pi1 );[127X[104X
-    [4X[28X{ 0, 1 } ⱶ[ 0, 1 ]→ { 0, 1, 2 }[128X[104X
+    [4X[28X{ 1, 2 } ⱶ[ 1, 2 ]→ { 1, 2, 3 }[128X[104X
     [4X[25Xgap>[125X [27Xpi2 := ProjectionInFactorOfFiberProduct( D, 2 );[127X[104X
     [4X[28X|2| → |2|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( pi2 );[127X[104X
-    [4X[28X{ 0, 1 } ⱶ[ 0, 1 ]→ { 0, 1 }[128X[104X
+    [4X[28X{ 1, 2 } ⱶ[ 1, 2 ]→ { 1, 2 }[128X[104X
   [4X[32X[104X
   
   [33X[0;0YThe easy way[133X
@@ -902,11 +773,11 @@
     [4X[25Xgap>[125X [27Xkappa1 := InjectionOfCofactorOfPushout( D, 1 );[127X[104X
     [4X[28X|3| → |3|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( kappa1 );[127X[104X
-    [4X[28X{ 0, 1, 2 } ⱶ[ 0, 1, 2 ]→ { 0, 1, 2 }[128X[104X
+    [4X[28X{ 1, 2, 3 } ⱶ[ 1, 2, 3 ]→ { 1, 2, 3 }[128X[104X
     [4X[25Xgap>[125X [27Xkappa2 := InjectionOfCofactorOfPushout( D, 2 );[127X[104X
     [4X[28X|2| → |3|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( kappa2 );[127X[104X
-    [4X[28X{ 0, 1 } ⱶ[ 0, 1 ]→ { 0, 1, 2 }[128X[104X
+    [4X[28X{ 1, 2 } ⱶ[ 1, 2 ]→ { 1, 2, 3 }[128X[104X
     [4X[25Xgap>[125X [27XPreCompose( pi1, kappa1 ) = PreCompose( pi2, kappa2 );[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
@@ -919,33 +790,33 @@
     [4X[25Xgap>[125X [27XCo := Coproduct( N1, N2 );[127X[104X
     [4X[28X|5|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( Co );[127X[104X
-    [4X[28X{ 0,..., 4 }[128X[104X
+    [4X[28X{ 1,..., 5 }[128X[104X
     [4X[25Xgap>[125X [27Xiota_1 := InjectionOfCofactorOfCoproduct( [ N1, N2 ], 1 );[127X[104X
     [4X[28X|3| → |5|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( iota_1 );[127X[104X
-    [4X[28X{ 0, 1, 2 } ⱶ[ 0 .. 2 ]→ { 0,..., 4 }[128X[104X
+    [4X[28X{ 1, 2, 3 } ⱶ[ 1, 2, 3 ]→ { 1,..., 5 }[128X[104X
     [4X[25Xgap>[125X [27Xiota_2 := InjectionOfCofactorOfCoproduct( [ N1, N2 ], 2 );[127X[104X
     [4X[28X|2| → |5|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( iota_2 );[127X[104X
-    [4X[28X{ 0, 1 } ⱶ[ 3 .. 4 ]→ { 0,..., 4 }[128X[104X
+    [4X[28X{ 1, 2 } ⱶ[ 4, 5 ]→ { 1,..., 5 }[128X[104X
     [4X[25Xgap>[125X [27Xalpha := PreCompose( pi1, iota_1 );[127X[104X
     [4X[28X|2| → |5|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( alpha );[127X[104X
-    [4X[28X{ 0, 1 } ⱶ[ 0, 1 ]→ { 0,..., 4 }[128X[104X
+    [4X[28X{ 1, 2 } ⱶ[ 1, 2 ]→ { 1,..., 5 }[128X[104X
     [4X[25Xgap>[125X [27Xbeta := PreCompose( pi2, iota_2 );[127X[104X
     [4X[28X|2| → |5|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( beta );[127X[104X
-    [4X[28X{ 0, 1 } ⱶ[ 3, 4 ]→ { 0,..., 4 }[128X[104X
+    [4X[28X{ 1, 2 } ⱶ[ 4, 5 ]→ { 1,..., 5 }[128X[104X
     [4X[25Xgap>[125X [27XCq := Coequalizer( [ alpha, beta ] );[127X[104X
     [4X[28X|3|[128X[104X
     [4X[25Xgap>[125X [27Xpsi := ProjectionOntoCoequalizer( [ alpha, beta ] );[127X[104X
     [4X[28X|5| → |3|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( psi );[127X[104X
-    [4X[28X{ 0,..., 4 } ⱶ[ 0, 1, 2, 0, 1 ]→ { 0, 1, 2 }[128X[104X
+    [4X[28X{ 1,..., 5 } ⱶ[ 1, 2, 3, 1, 2 ]→ { 1, 2, 3 }[128X[104X
     [4X[25Xgap>[125X [27XDisplay( PreCompose( iota_1, psi ) );[127X[104X
-    [4X[28X{ 0, 1, 2 } ⱶ[ 0, 1, 2 ]→ { 0, 1, 2 }[128X[104X
+    [4X[28X{ 1, 2, 3 } ⱶ[ 1, 2, 3 ]→ { 1, 2, 3 }[128X[104X
     [4X[25Xgap>[125X [27XDisplay( PreCompose( iota_2, psi ) );[127X[104X
-    [4X[28X{ 0, 1 } ⱶ[ 0, 1 ]→ { 0, 1, 2 }[128X[104X
+    [4X[28X{ 1, 2 } ⱶ[ 1, 2 ]→ { 1, 2, 3 }[128X[104X
     [4X[25Xgap>[125X [27XPreCompose( alpha, psi ) = PreCompose( beta, psi );[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
@@ -956,15 +827,15 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XS := FinSet( 3 );[127X[104X
+    [4X[25Xgap>[125X [27XS := FinSet1( 3 );[127X[104X
     [4X[28X|3|[128X[104X
-    [4X[25Xgap>[125X [27XR := FinSet( 2 );[127X[104X
+    [4X[25Xgap>[125X [27XR := FinSet1( 2 );[127X[104X
     [4X[28X|2|[128X[104X
-    [4X[25Xgap>[125X [27Xf := MapOfFinSets( S, [ 1, 1, 0 ], R );[127X[104X
+    [4X[25Xgap>[125X [27Xf := MapOfFinSets( S, [ 2, 2, 1 ], R );[127X[104X
     [4X[28X|3| → |2|[128X[104X
     [4X[25Xgap>[125X [27XIsWellDefined( f );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XT := TerminalObject( SkeletalFinSets );[127X[104X
+    [4X[25Xgap>[125X [27XT := TerminalObject( SkeletalFinSets1 );[127X[104X
     [4X[28X|1|[128X[104X
     [4X[25Xgap>[125X [27XIsTerminal( T );[127X[104X
     [4X[28Xtrue[128X[104X
@@ -975,29 +846,29 @@
     [4X[25Xgap>[125X [27XSource( lf ) = T;[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XDisplay( Range( lf ) );[127X[104X
-    [4X[28X{ 0,..., 7 }[128X[104X
+    [4X[28X{ 1,..., 8 }[128X[104X
     [4X[25Xgap>[125X [27XDisplay( lf );[127X[104X
-    [4X[28X{ 0 } ⱶ[ 3 ]→ { 0,..., 7 }[128X[104X
+    [4X[28X{ 1 } ⱶ[ 4 ]→ { 1,..., 8 }[128X[104X
     [4X[25Xgap>[125X [27Xelf := CartesianLambdaElimination( S, R, lf );[127X[104X
     [4X[28X|3| → |2|[128X[104X
     [4X[25Xgap>[125X [27Xelf = f;[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XL := MorphismsOfExternalHom( S, R );;[127X[104X
     [4X[25Xgap>[125X [27XDisplay( L );[127X[104X
-    [4X[28X[ { 0, 1, 2 } ⱶ[ 0, 0, 0 ]→ { 0, 1 },\[128X[104X
-    [4X[28X { 0, 1, 2 } ⱶ[ 1, 0, 0 ]→ { 0, 1 },\[128X[104X
-    [4X[28X { 0, 1, 2 } ⱶ[ 0, 1, 0 ]→ { 0, 1 },\[128X[104X
-    [4X[28X { 0, 1, 2 } ⱶ[ 1, 1, 0 ]→ { 0, 1 },\[128X[104X
-    [4X[28X { 0, 1, 2 } ⱶ[ 0, 0, 1 ]→ { 0, 1 },\[128X[104X
-    [4X[28X { 0, 1, 2 } ⱶ[ 1, 0, 1 ]→ { 0, 1 },\[128X[104X
-    [4X[28X { 0, 1, 2 } ⱶ[ 0, 1, 1 ]→ { 0, 1 },\[128X[104X
-    [4X[28X { 0, 1, 2 } ⱶ[ 1, 1, 1 ]→ { 0, 1 } ][128X[104X
+    [4X[28X[ { 1, 2, 3 } ⱶ[ 1, 1, 1 ]→ { 1, 2 },\[128X[104X
+    [4X[28X { 1, 2, 3 } ⱶ[ 2, 1, 1 ]→ { 1, 2 },\[128X[104X
+    [4X[28X { 1, 2, 3 } ⱶ[ 1, 2, 1 ]→ { 1, 2 },\[128X[104X
+    [4X[28X { 1, 2, 3 } ⱶ[ 2, 2, 1 ]→ { 1, 2 },\[128X[104X
+    [4X[28X { 1, 2, 3 } ⱶ[ 1, 1, 2 ]→ { 1, 2 },\[128X[104X
+    [4X[28X { 1, 2, 3 } ⱶ[ 2, 1, 2 ]→ { 1, 2 },\[128X[104X
+    [4X[28X { 1, 2, 3 } ⱶ[ 1, 2, 2 ]→ { 1, 2 },\[128X[104X
+    [4X[28X { 1, 2, 3 } ⱶ[ 2, 2, 2 ]→ { 1, 2 } ][128X[104X
     [4X[25Xgap>[125X [27XLi := List( L, phi -> CartesianLambdaIntroduction( phi ) );;[127X[104X
     [4X[25Xgap>[125X [27XDisplay( Li );[127X[104X
-    [4X[28X[ { 0 } ⱶ[ 0 ]→ { 0,..., 7 }, { 0 } ⱶ[ 1 ]→ { 0,..., 7 },\[128X[104X
-    [4X[28X { 0 } ⱶ[ 2 ]→ { 0,..., 7 }, { 0 } ⱶ[ 3 ]→ { 0,..., 7 },\[128X[104X
-    [4X[28X { 0 } ⱶ[ 4 ]→ { 0,..., 7 }, { 0 } ⱶ[ 5 ]→ { 0,..., 7 },\[128X[104X
-    [4X[28X { 0 } ⱶ[ 6 ]→ { 0,..., 7 }, { 0 } ⱶ[ 7 ]→ { 0,..., 7 } ][128X[104X
+    [4X[28X[ { 1 } ⱶ[ 1 ]→ { 1,..., 8 }, { 1 } ⱶ[ 2 ]→ { 1,..., 8 },\[128X[104X
+    [4X[28X { 1 } ⱶ[ 3 ]→ { 1,..., 8 }, { 1 } ⱶ[ 4 ]→ { 1,..., 8 },\[128X[104X
+    [4X[28X { 1 } ⱶ[ 5 ]→ { 1,..., 8 }, { 1 } ⱶ[ 6 ]→ { 1,..., 8 },\[128X[104X
+    [4X[28X { 1 } ⱶ[ 7 ]→ { 1,..., 8 }, { 1 } ⱶ[ 8 ]→ { 1,..., 8 } ][128X[104X
     [4X[25Xgap>[125X [27XList( L, phi ->[127X[104X
     [4X[25X>[125X [27X      DirectProductToExponentialLeftAdjunctMorphism( T, S, phi ) ) = Li;[127X[104X
     [4X[28Xtrue[128X[104X
@@ -1014,28 +885,28 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27Xm := FinSet( 3 );[127X[104X
+    [4X[25Xgap>[125X [27Xm := FinSet1( 3 );[127X[104X
     [4X[28X|3|[128X[104X
-    [4X[25Xgap>[125X [27Xn := FinSet( 4 );[127X[104X
+    [4X[25Xgap>[125X [27Xn := FinSet1( 4 );[127X[104X
     [4X[28X|4|[128X[104X
-    [4X[25Xgap>[125X [27Xf := MapOfFinSets( m, [ 1, 1, 0 ], m );[127X[104X
+    [4X[25Xgap>[125X [27Xf := MapOfFinSets( m, [ 2, 2, 1 ], m );[127X[104X
     [4X[28X|3| → |3|[128X[104X
-    [4X[25Xgap>[125X [27Xg := MapOfFinSets( n, [ 2, 1, 0, 1 ], m );[127X[104X
+    [4X[25Xgap>[125X [27Xg := MapOfFinSets( n, [ 3, 2, 1, 2 ], m );[127X[104X
     [4X[28X|4| → |3|[128X[104X
     [4X[25Xgap>[125X [27XIsLiftable( f, g );[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27Xchi := Lift( f, g );[127X[104X
     [4X[28X|3| → |4|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( chi );[127X[104X
-    [4X[28X{ 0, 1, 2 } ⱶ[ 1, 1, 2 ]→ { 0,..., 3 }[128X[104X
+    [4X[28X{ 1, 2, 3 } ⱶ[ 2, 2, 3 ]→ { 1,..., 4 }[128X[104X
     [4X[25Xgap>[125X [27XPreCompose( Lift( f, g ), g ) = f;[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XIsLiftable( g, f );[127X[104X
     [4X[28Xfalse[128X[104X
-    [4X[25Xgap>[125X [27Xk := FinSet( 100000 );[127X[104X
+    [4X[25Xgap>[125X [27Xk := FinSet1( 100000 );[127X[104X
     [4X[28X|100000|[128X[104X
-    [4X[25Xgap>[125X [27Xh := ListWithIdenticalEntries( Cardinality( k ) - 3, 2 );;[127X[104X
-    [4X[25Xgap>[125X [27Xh := Concatenation( h, [ 1, 0, 1 ] );;[127X[104X
+    [4X[25Xgap>[125X [27Xh := ListWithIdenticalEntries( Cardinality( k ) - 3, 3 );;[127X[104X
+    [4X[25Xgap>[125X [27Xh := Concatenation( h, [ 2, 1, 2 ] );;[127X[104X
     [4X[25Xgap>[125X [27Xh := MapOfFinSets( k, h, m );[127X[104X
     [4X[28X|100000| → |3|[128X[104X
     [4X[25Xgap>[125X [27XIsLiftable( f, h );[127X[104X
@@ -1050,7 +921,7 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XI := InitialObject( SkeletalFinSets );[127X[104X
+    [4X[25Xgap>[125X [27XI := InitialObject( SkeletalFinSets1 );[127X[104X
     [4X[28X|0|[128X[104X
     [4X[25Xgap>[125X [27Xiota := UniversalMorphismIntoTerminalObject( I );[127X[104X
     [4X[28X|0| → |1|[128X[104X
@@ -1058,20 +929,20 @@
     [4X[28X|0| → |0|[128X[104X
     [4X[25Xgap>[125X [27XIsColiftable( iota, id );[127X[104X
     [4X[28Xfalse[128X[104X
-    [4X[25Xgap>[125X [27Xm := FinSet( 5 );[127X[104X
+    [4X[25Xgap>[125X [27Xm := FinSet1( 5 );[127X[104X
     [4X[28X|5|[128X[104X
-    [4X[25Xgap>[125X [27Xn := FinSet( 4 );[127X[104X
+    [4X[25Xgap>[125X [27Xn := FinSet1( 4 );[127X[104X
     [4X[28X|4|[128X[104X
-    [4X[25Xgap>[125X [27Xf := MapOfFinSets( m, [ 1, 1, 0, 0, 2 ], n );[127X[104X
+    [4X[25Xgap>[125X [27Xf := MapOfFinSets( m, [ 2, 2, 1, 1, 3 ], n );[127X[104X
     [4X[28X|5| → |4|[128X[104X
-    [4X[25Xgap>[125X [27Xg := MapOfFinSets( m, [ 4, 4, 3, 3, 4 ], m );[127X[104X
+    [4X[25Xgap>[125X [27Xg := MapOfFinSets( m, [ 5, 5, 4, 4, 5 ], m );[127X[104X
     [4X[28X|5| → |5|[128X[104X
     [4X[25Xgap>[125X [27XIsColiftable( f, g );[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27Xchi := Colift( f, g );[127X[104X
     [4X[28X|4| → |5|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( chi );[127X[104X
-    [4X[28X{ 0,..., 3 } ⱶ[ 3, 4, 4, 0 ]→ { 0,..., 4 }[128X[104X
+    [4X[28X{ 1,..., 4 } ⱶ[ 4, 5, 5, 1 ]→ { 1,..., 5 }[128X[104X
     [4X[25Xgap>[125X [27XPreCompose( f, Colift( f, g ) ) = g;[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XIsColiftable( g, f );[127X[104X
@@ -1084,11 +955,11 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP" );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27Xa := FinSet( 3 );[127X[104X
+    [4X[25Xgap>[125X [27Xa := FinSet1( 3 );[127X[104X
     [4X[28X|3|[128X[104X
     [4X[25Xgap>[125X [27Xsa := SingletonMorphism( a );;[127X[104X
     [4X[25Xgap>[125X [27XDisplay( sa );[127X[104X
-    [4X[28X{ 0, 1, 2 } ⱶ[ 1, 2, 4 ]→ { 0,..., 7 }[128X[104X
+    [4X[28X{ 1, 2, 3 } ⱶ[ 2, 3, 5 ]→ { 1,..., 8 }[128X[104X
     [4X[25Xgap>[125X [27Xsa = LowerSegmentOfRelation( a, a, CartesianDiagonal( a, 2 ) );[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27Xsa = UpperSegmentOfRelation( a, a, CartesianDiagonal( a, 2 ) );[127X[104X
@@ -1101,15 +972,15 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XT := TerminalObject( SkeletalFinSets );;[127X[104X
-    [4X[25Xgap>[125X [27XM := FinSet( 4 );;[127X[104X
-    [4X[25Xgap>[125X [27XN := FinSet( 3 );;[127X[104X
-    [4X[25Xgap>[125X [27XP := FinSet( 4 );;[127X[104X
-    [4X[25Xgap>[125X [27XG_f := [ 0, 1, 0, 2 ];;[127X[104X
+    [4X[25Xgap>[125X [27XT := TerminalObject( SkeletalFinSets1 );;[127X[104X
+    [4X[25Xgap>[125X [27XM := FinSet1( 4 );;[127X[104X
+    [4X[25Xgap>[125X [27XN := FinSet1( 3 );;[127X[104X
+    [4X[25Xgap>[125X [27XP := FinSet1( 4 );;[127X[104X
+    [4X[25Xgap>[125X [27XG_f := [ 1, 2, 1, 3 ];;[127X[104X
     [4X[25Xgap>[125X [27Xf := MapOfFinSets( M, G_f, N );;[127X[104X
     [4X[25Xgap>[125X [27XIsWellDefined( f );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XG_g := [ 2, 2, 1, 0 ];;[127X[104X
+    [4X[25Xgap>[125X [27XG_g := [ 3, 3, 2, 1 ];;[127X[104X
     [4X[25Xgap>[125X [27Xg := MapOfFinSets( M, G_g, N );;[127X[104X
     [4X[25Xgap>[125X [27XIsWellDefined( g );[127X[104X
     [4X[28Xtrue[128X[104X
@@ -1125,14 +996,14 @@
     [4X[25Xgap>[125X [27XCartesianBraiding( M, N );;[127X[104X
     [4X[25Xgap>[125X [27XCartesianBraidingInverse( M, N );;[127X[104X
     [4X[28X#@if ValueOption( "no_precompiled_code" ) <> true[128X[104X
-    [4X[25Xgap>[125X [27XSkeletalFinSets!.cached_precompiled_functions.[127X[104X
-    [4X[25X>[125X [27X    CartesianBraidingWithGivenDirectProducts( SkeletalFinSets,[127X[104X
+    [4X[25Xgap>[125X [27XSkeletalFinSets1!.cached_precompiled_functions.[127X[104X
+    [4X[25X>[125X [27X    CartesianBraidingWithGivenDirectProducts( SkeletalFinSets1,[127X[104X
     [4X[25X>[125X [27X        DirectProduct( M, N ),[127X[104X
     [4X[25X>[125X [27X        M, N,[127X[104X
     [4X[25X>[125X [27X        DirectProduct( N, M )[127X[104X
     [4X[25X>[125X [27X);;[127X[104X
-    [4X[25Xgap>[125X [27XSkeletalFinSets!.cached_precompiled_functions.[127X[104X
-    [4X[25X>[125X [27X    CartesianBraidingInverseWithGivenDirectProducts( SkeletalFinSets,[127X[104X
+    [4X[25Xgap>[125X [27XSkeletalFinSets1!.cached_precompiled_functions.[127X[104X
+    [4X[25X>[125X [27X    CartesianBraidingInverseWithGivenDirectProducts( SkeletalFinSets1,[127X[104X
     [4X[25X>[125X [27X        DirectProduct( N, M ),[127X[104X
     [4X[25X>[125X [27X        M, N,[127X[104X
     [4X[25X>[125X [27X        DirectProduct( M, N )[127X[104X
@@ -1141,8 +1012,8 @@
     [4X[25Xgap>[125X [27XExponentialOnObjects( M, N );;[127X[104X
     [4X[25Xgap>[125X [27XExponentialOnMorphisms( f, g );;[127X[104X
     [4X[28X#@if ValueOption( "no_precompiled_code" ) <> true[128X[104X
-    [4X[25Xgap>[125X [27XSkeletalFinSets!.cached_precompiled_functions.[127X[104X
-    [4X[25X>[125X [27X    ExponentialOnMorphismsWithGivenExponentials( SkeletalFinSets,[127X[104X
+    [4X[25Xgap>[125X [27XSkeletalFinSets1!.cached_precompiled_functions.[127X[104X
+    [4X[25X>[125X [27X    ExponentialOnMorphismsWithGivenExponentials( SkeletalFinSets1,[127X[104X
     [4X[25X>[125X [27X        ExponentialOnObjects( Range( f ), Source( g ) ),[127X[104X
     [4X[25X>[125X [27X        f, g,[127X[104X
     [4X[25X>[125X [27X        ExponentialOnObjects( Source( f ), Range( g ) )[127X[104X
@@ -1161,10 +1032,10 @@
     [4X[25Xgap>[125X [27XExponentialToDirectProductLeftAdjunctMorphism( M, N,[127X[104X
     [4X[25X>[125X [27X    UniversalMorphismFromInitialObject( ExponentialOnObjects( M, N ) )[127X[104X
     [4X[25X>[125X [27X);;[127X[104X
-    [4X[25Xgap>[125X [27XM := FinSet( 2 );;[127X[104X
-    [4X[25Xgap>[125X [27XN := FinSet( 2 );;[127X[104X
-    [4X[25Xgap>[125X [27XP := FinSet( 1 );;[127X[104X
-    [4X[25Xgap>[125X [27XQ := FinSet( 2 );;[127X[104X
+    [4X[25Xgap>[125X [27XM := FinSet1( 2 );;[127X[104X
+    [4X[25Xgap>[125X [27XN := FinSet1( 2 );;[127X[104X
+    [4X[25Xgap>[125X [27XP := FinSet1( 1 );;[127X[104X
+    [4X[25Xgap>[125X [27XQ := FinSet1( 2 );;[127X[104X
     [4X[25Xgap>[125X [27XCartesianPreComposeMorphism( M, N, P );;[127X[104X
     [4X[25Xgap>[125X [27XCartesianPostComposeMorphism( M, N, P );;[127X[104X
     [4X[25Xgap>[125X [27XDirectProductExponentialCompatibilityMorphism( [ M, N, P, Q ] );;[127X[104X
@@ -1176,96 +1047,96 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XSubobjectClassifier( SkeletalFinSets );[127X[104X
+    [4X[25Xgap>[125X [27XSubobjectClassifier( SkeletalFinSets1 );[127X[104X
     [4X[28X|2|[128X[104X
-    [4X[25Xgap>[125X [27XDisplay( TruthMorphismOfFalse( SkeletalFinSets ) );[127X[104X
-    [4X[28X{ 0 } ⱶ[ 0 ]→ { 0, 1 }[128X[104X
-    [4X[25Xgap>[125X [27XDisplay( TruthMorphismOfTrue( SkeletalFinSets ) );[127X[104X
-    [4X[28X{ 0 } ⱶ[ 1 ]→ { 0, 1 }[128X[104X
-    [4X[25Xgap>[125X [27XDisplay( TruthMorphismOfNot( SkeletalFinSets ) );[127X[104X
-    [4X[28X{ 0, 1 } ⱶ[ 1, 0 ]→ { 0, 1 }[128X[104X
-    [4X[25Xgap>[125X [27XCartesianSquareOfSubobjectClassifier( SkeletalFinSets );[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( TruthMorphismOfFalse( SkeletalFinSets1 ) );[127X[104X
+    [4X[28X{ 1 } ⱶ[ 1 ]→ { 1, 2 }[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( TruthMorphismOfTrue( SkeletalFinSets1 ) );[127X[104X
+    [4X[28X{ 1 } ⱶ[ 2 ]→ { 1, 2 }[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( TruthMorphismOfNot( SkeletalFinSets1 ) );[127X[104X
+    [4X[28X{ 1, 2 } ⱶ[ 2, 1 ]→ { 1, 2 }[128X[104X
+    [4X[25Xgap>[125X [27XCartesianSquareOfSubobjectClassifier( SkeletalFinSets1 );[127X[104X
     [4X[28X|4|[128X[104X
-    [4X[25Xgap>[125X [27XDisplay( TruthMorphismOfAnd( SkeletalFinSets ) );[127X[104X
-    [4X[28X{ 0,..., 3 } ⱶ[ 0, 0, 0, 1 ]→ { 0, 1 }[128X[104X
-    [4X[25Xgap>[125X [27XDisplay( TruthMorphismOfOr( SkeletalFinSets ) );[127X[104X
-    [4X[28X{ 0,..., 3 } ⱶ[ 0, 1, 1, 1 ]→ { 0, 1 }[128X[104X
-    [4X[25Xgap>[125X [27XDisplay( TruthMorphismOfImplies( SkeletalFinSets ) );[127X[104X
-    [4X[28X{ 0,..., 3 } ⱶ[ 1, 0, 1, 1 ]→ { 0, 1 }[128X[104X
-    [4X[25Xgap>[125X [27XS := FinSet( 5 );[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( TruthMorphismOfAnd( SkeletalFinSets1 ) );[127X[104X
+    [4X[28X{ 1,..., 4 } ⱶ[ 1, 1, 1, 2 ]→ { 1, 2 }[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( TruthMorphismOfOr( SkeletalFinSets1 ) );[127X[104X
+    [4X[28X{ 1,..., 4 } ⱶ[ 1, 2, 2, 2 ]→ { 1, 2 }[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( TruthMorphismOfImplies( SkeletalFinSets1 ) );[127X[104X
+    [4X[28X{ 1,..., 4 } ⱶ[ 2, 1, 2, 2 ]→ { 1, 2 }[128X[104X
+    [4X[25Xgap>[125X [27XS := FinSet1( 5 );[127X[104X
     [4X[28X|5|[128X[104X
-    [4X[25Xgap>[125X [27XA := FinSet( 2 );[127X[104X
+    [4X[25Xgap>[125X [27XA := FinSet1( 2 );[127X[104X
     [4X[28X|2|[128X[104X
-    [4X[25Xgap>[125X [27Xm := MapOfFinSets( A, [ 0, 4 ], S );[127X[104X
+    [4X[25Xgap>[125X [27Xm := MapOfFinSets( A, [ 1, 5 ], S );[127X[104X
     [4X[28X|2| → |5|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( ClassifyingMorphismOfSubobject( m ) );[127X[104X
-    [4X[28X{ 0,..., 4 } ⱶ[ 1, 0, 0, 0, 1 ]→ { 0, 1 }[128X[104X
+    [4X[28X{ 1,..., 5 } ⱶ[ 2, 1, 1, 1, 2 ]→ { 1, 2 }[128X[104X
   [4X[32X[104X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XM := FinSet( 7 );[127X[104X
+    [4X[25Xgap>[125X [27XM := FinSet1( 7 );[127X[104X
     [4X[28X|7|[128X[104X
-    [4X[25Xgap>[125X [27XN := FinSet( 3 );[127X[104X
+    [4X[25Xgap>[125X [27XN := FinSet1( 3 );[127X[104X
     [4X[28X|3|[128X[104X
-    [4X[25Xgap>[125X [27XiotaN := MapOfFinSets( N, [ 1, 2, 4 ], M );[127X[104X
+    [4X[25Xgap>[125X [27XiotaN := MapOfFinSets( N, [ 2, 3, 5 ], M );[127X[104X
     [4X[28X|3| → |7|[128X[104X
     [4X[25Xgap>[125X [27XNC := PseudoComplementSubobject( iotaN );[127X[104X
     [4X[28X|4|[128X[104X
     [4X[25Xgap>[125X [27XtauN := EmbeddingOfPseudoComplementSubobject( iotaN );[127X[104X
     [4X[28X|4| ↪ |7|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( tauN );[127X[104X
-    [4X[28X{ 0,..., 3 } ⱶ[ 0, 3, 5, 6 ]→ { 0,..., 6 }[128X[104X
-    [4X[25Xgap>[125X [27XL := FinSet( 4 );[127X[104X
+    [4X[28X{ 1,..., 4 } ⱶ[ 1, 4, 6, 7 ]→ { 1,..., 7 }[128X[104X
+    [4X[25Xgap>[125X [27XL := FinSet1( 4 );[127X[104X
     [4X[28X|4|[128X[104X
-    [4X[25Xgap>[125X [27XiotaL := MapOfFinSets( L, [ 1, 3, 4, 6 ], M );[127X[104X
+    [4X[25Xgap>[125X [27XiotaL := MapOfFinSets( L, [ 2, 4, 5, 7 ], M );[127X[104X
     [4X[28X|4| → |7|[128X[104X
     [4X[25Xgap>[125X [27XNIL := IntersectionSubobject( iotaN, iotaL );[127X[104X
     [4X[28X|2|[128X[104X
     [4X[25Xgap>[125X [27XiotaNiL := EmbeddingOfIntersectionSubobject( iotaN, iotaL );[127X[104X
     [4X[28X|2| ↪ |7|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( iotaNiL );[127X[104X
-    [4X[28X{ 0, 1 } ⱶ[ 1, 4 ]→ { 0,..., 6 }[128X[104X
+    [4X[28X{ 1, 2 } ⱶ[ 2, 5 ]→ { 1,..., 7 }[128X[104X
     [4X[25Xgap>[125X [27XNUL := UnionSubobject( iotaN, iotaL );[127X[104X
     [4X[28X|5|[128X[104X
     [4X[25Xgap>[125X [27XiotaNuL := EmbeddingOfUnionSubobject( iotaN, iotaL );[127X[104X
     [4X[28X|5| → |7|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( iotaNuL );[127X[104X
-    [4X[28X{ 0,..., 4 } ⱶ[ 1, 2, 3, 4, 6 ]→ { 0,..., 6 }[128X[104X
+    [4X[28X{ 1,..., 5 } ⱶ[ 2, 3, 4, 5, 7 ]→ { 1,..., 7 }[128X[104X
     [4X[25Xgap>[125X [27XNPL := RelativePseudoComplementSubobject( iotaN, iotaL );[127X[104X
     [4X[28X|6|[128X[104X
     [4X[25Xgap>[125X [27XiotaNpL := EmbeddingOfRelativePseudoComplementSubobject( iotaN, iotaL );[127X[104X
     [4X[28X|6| ↪ |7|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( iotaNpL );[127X[104X
-    [4X[28X{ 0,..., 5 } ⱶ[ 0, 1, 3, 4, 5, 6 ]→ { 0,..., 6 }[128X[104X
+    [4X[28X{ 1,..., 6 } ⱶ[ 1, 2, 4, 5, 6, 7 ]→ { 1,..., 7 }[128X[104X
   [4X[32X[104X
   
   
   [1X2.5-22 [33X[0;0YSkeletal Pushout Complement[133X[101X
   
   [33X[0;0YDefine    two    composable    monos   [23XK   \stackrel{l}{\hookrightarrow}   L
-  \stackrel{m}{\hookrightarrow} G[123X in [10XSkeletalFinSets[110X:[133X
+  \stackrel{m}{\hookrightarrow} G[123X in [10XSkeletalFinSets1[110X:[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XK := FinSet( 3 );[127X[104X
+    [4X[25Xgap>[125X [27XK := FinSet1( 3 );[127X[104X
     [4X[28X|3|[128X[104X
-    [4X[25Xgap>[125X [27XL := FinSet( 6 );[127X[104X
+    [4X[25Xgap>[125X [27XL := FinSet1( 6 );[127X[104X
     [4X[28X|6|[128X[104X
-    [4X[25Xgap>[125X [27Xl := MapOfFinSets( K, [ 2 .. 4 ], L );; IsMonomorphism( l );; l;[127X[104X
+    [4X[25Xgap>[125X [27Xl := MapOfFinSets( K, [ 3 .. 5 ], L );; IsMonomorphism( l );; l;[127X[104X
     [4X[28X|3| ↪ |6|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( l );[127X[104X
-    [4X[28X{ 0, 1, 2 } ⱶ[ 2 .. 4 ]→ { 0,..., 5 }[128X[104X
-    [4X[25Xgap>[125X [27XG := FinSet( 8 );[127X[104X
+    [4X[28X{ 1, 2, 3 } ⱶ[ 3 .. 5 ]→ { 1,..., 6 }[128X[104X
+    [4X[25Xgap>[125X [27XG := FinSet1( 8 );[127X[104X
     [4X[28X|8|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( G );[127X[104X
-    [4X[28X{ 0,..., 7 }[128X[104X
-    [4X[25Xgap>[125X [27Xm := MapOfFinSets( L, [ 0, 1, 2, 3, 5, 6 ], G );[127X[104X
+    [4X[28X{ 1,..., 8 }[128X[104X
+    [4X[25Xgap>[125X [27Xm := MapOfFinSets( L, [ 1, 2, 3, 4, 6, 7 ], G );[127X[104X
     [4X[28X|6| → |8|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( m );[127X[104X
-    [4X[28X{ 0,..., 5 } ⱶ[ 0, 1, 2, 3, 5, 6 ]→ { 0,..., 7 }[128X[104X
+    [4X[28X{ 1,..., 6 } ⱶ[ 1, 2, 3, 4, 6, 7 ]→ { 1,..., 8 }[128X[104X
   [4X[32X[104X
   
   [33X[0;0YNow we compute the pushout complement [23XD \stackrel{c}{\hookrightarrow} G[123X of [23XK
@@ -1279,6 +1150,51 @@
     [4X[25Xgap>[125X [27Xc := PushoutComplement( l, m );[127X[104X
     [4X[28X|5| → |8|[128X[104X
     [4X[25Xgap>[125X [27XDisplay( c );[127X[104X
-    [4X[28X{ 0,..., 4 } ⱶ[ 2, 3, 4, 5, 7 ]→ { 0,..., 7 }[128X[104X
+    [4X[28X{ 1,..., 5 } ⱶ[ 3, 4, 5, 6, 8 ]→ { 1,..., 8 }[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X2.5-23 [33X[0;0YMorphisms of external Hom[133X[101X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XL := FinSet1( 0 );[127X[104X
+    [4X[28X|0|[128X[104X
+    [4X[25Xgap>[125X [27XM := FinSet1( 2 );[127X[104X
+    [4X[28X|2|[128X[104X
+    [4X[25Xgap>[125X [27XN := FinSet1( 3 );[127X[104X
+    [4X[28X|3|[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( MorphismsOfExternalHom( L, L ) );[127X[104X
+    [4X[28X[ ∅ ⱶ[  ]→ ∅ ][128X[104X
+    [4X[25Xgap>[125X [27XDisplay( MorphismsOfExternalHom( M, L ) );[127X[104X
+    [4X[28X[  ][128X[104X
+    [4X[25Xgap>[125X [27XDisplay( MorphismsOfExternalHom( L, M ) );[127X[104X
+    [4X[28X[ ∅ ⱶ[  ]→ { 1, 2 } ][128X[104X
+    [4X[25Xgap>[125X [27XDisplay( MorphismsOfExternalHom( M, N ) );[127X[104X
+    [4X[28X[ { 1, 2 } ⱶ[ 1, 1 ]→ { 1, 2, 3 }, { 1, 2 } ⱶ[ 2, 1 ]→ { 1, 2, 3 },\[128X[104X
+    [4X[28X { 1, 2 } ⱶ[ 3, 1 ]→ { 1, 2, 3 }, { 1, 2 } ⱶ[ 1, 2 ]→ { 1, 2, 3 },\[128X[104X
+    [4X[28X { 1, 2 } ⱶ[ 2, 2 ]→ { 1, 2, 3 }, { 1, 2 } ⱶ[ 3, 2 ]→ { 1, 2, 3 },\[128X[104X
+    [4X[28X { 1, 2 } ⱶ[ 1, 3 ]→ { 1, 2, 3 }, { 1, 2 } ⱶ[ 2, 3 ]→ { 1, 2, 3 },\[128X[104X
+    [4X[28X { 1, 2 } ⱶ[ 3, 3 ]→ { 1, 2, 3 } ][128X[104X
+  [4X[32X[104X
+  
+  
+  [1X2.5-24 [33X[0;0YExact cover with global elements[133X[101X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XL := FinSet1( 0 );[127X[104X
+    [4X[28X|0|[128X[104X
+    [4X[25Xgap>[125X [27XM := FinSet1( 2 );[127X[104X
+    [4X[28X|2|[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( ExactCoverWithGlobalElements( L ) );[127X[104X
+    [4X[28X[  ][128X[104X
+    [4X[25Xgap>[125X [27Xg := ExactCoverWithGlobalElements( M );;[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( g );[127X[104X
+    [4X[28X[ { 1 } ⱶ[ 1 ]→ { 1, 2 }, { 1 } ⱶ[ 2 ]→ { 1, 2 } ][128X[104X
+    [4X[25Xgap>[125X [27XIsOne( UniversalMorphismFromCoproduct( g ) );[127X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   

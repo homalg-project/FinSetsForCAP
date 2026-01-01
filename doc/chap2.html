@@ -5,7 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-<title>GAP (FinSetsForCAP) - Chapter 2: The skeletal category of finite sets</title>
+<title>GAP (FinSetsForCAP) - Chapter 2: The skeletal category of finite sets with counting starting at 1</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta name="generator" content="GAPDoc2HTML" />
 <link rel="stylesheet" type="text/css" href="manual.css" />
@@ -15,51 +15,43 @@
 <body class="chap2"  onload="jscontent()">
 
 
-<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chapInd.html">Ind</a>  </div>
+<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chapInd.html">Ind</a>  </div>
 
 <div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap1.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap3.html">[Next Chapter]</a>&nbsp;  </div>
 
 <p id="mathjaxlink" class="pcenter"><a href="chap2_mj.html">[MathJax on]</a></p>
-<p><a id="X83ADF30E83F3AF84" name="X83ADF30E83F3AF84"></a></p>
-<div class="ChapSects"><a href="chap2.html#X83ADF30E83F3AF84">2 <span class="Heading">The skeletal category of finite sets</span></a>
+<p><a id="X7D8D57F183334A89" name="X7D8D57F183334A89"></a></p>
+<div class="ChapSects"><a href="chap2.html#X7D8D57F183334A89">2 <span class="Heading">The skeletal category of finite sets with counting starting at 1</span></a>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2.html#X7C701DBF7BAE649A">2.1 <span class="Heading">Attributes</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7CB0E9B47F074A1C">2.1-1 Cardinality</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X858AF5FE78DFAC34">2.1-2 AsList</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X823BB1018386EF7A">2.1-3 AsList</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7AA5B2A67A24AFB5">2.1-1 Cardinality</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7FF3833F7C3E6EA3">2.1-2 AsList</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7AD1EAC078421E36">2.1-3 AsList</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2.html#X86EC0F0A78ECBC10">2.2 <span class="Heading">Constructors</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X8765E89E7E513D9E">2.2-1 SkeletalCategoryOfFiniteSets</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X79D9465278E31286">2.2-2 SkeletalFinSets</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X82666A498565E7A9">2.2-3 FinSet</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X8281C803822F9E63">2.2-4 FinSet</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7C1C883C841A9706">2.2-5 MapOfFinSets</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7C55958C7E1B5B03">2.2-1 SkeletalCategoryOfFiniteSetsWithCountingStartingAt1</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X864F63CA786895A6">2.2-2 SkeletalFinSets1</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X84DC53507A5E08C8">2.2-3 FinSet1</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7FFAEF7B7A4A0CC2">2.2-4 FinSet1</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X831FCA4C7EA2637F">2.2-5 MapOfFinSets</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2.html#X8508AEF8845565A1">2.3 <span class="Heading">Tools</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7A0632CA85DEA809">2.3-1 ListOp</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X832C21448117BA7E">2.3-2 EmbeddingOfFinSets</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7DD18D4D81CECABE">2.3-3 Preimage</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X872101957E3BAD82">2.3-4 ImageObject</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7F80ECC97A67AAB1">2.3-5 CallFuncList</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7A2AAAD77A625029">2.3-6 BoolToBigInt</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X828F68137946EB40">2.3-7 GeometricSum</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X86E3CD0982927451">2.3-8 GeometricSumDiff1</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7DE869077F07213A">2.3-9 RemIntWithDomain</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X8680D7B38203D842">2.3-10 QuoIntWithDomain</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X86CB94B27BF991EB">2.3-11 DivIntWithGivenQuotient</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X8407993D79406AEB">2.3-12 DigitInPositionalNotation</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7D2F5E0D7D4E427E">2.3-1 ListOp</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7AC5319480FE952D">2.3-2 EmbeddingOfFinSets</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7BF77A1E86B1EF9D">2.3-3 Preimage</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X8045BA9985E50D5B">2.3-4 ImageObject</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2.html#X7D03633A7D98026B">2.4 <span class="Heading">GAP Categories</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X80D7388A856F123C">2.4-1 IsSkeletalCategoryOfFiniteSets</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X83EB60EB869FE805">2.4-2 IsObjectInSkeletalCategoryOfFiniteSets</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X87B734A679E36BC4">2.4-3 IsMorphismInSkeletalCategoryOfFiniteSets</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7BE4D05B7BD2F220">2.4-1 IsSkeletalCategoryOfFiniteSetsWithCountingStartingAt1</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X85CF1C6779C86255">2.4-2 IsObjectInSkeletalCategoryOfFiniteSetsWithCountingStartingAt1</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X85EE79AB8546BBC8">2.4-3 IsMorphismInSkeletalCategoryOfFiniteSetsWithCountingStartingAt1</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2.html#X7A489A5D79DA9E5C">2.5 <span class="Heading">Examples</span></a>
 </span>
@@ -108,16 +100,20 @@
 </span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7A714DD6853DF4FB">2.5-22 <span class="Heading">Skeletal Pushout Complement</span></a>
 </span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X87F287CE873DF50E">2.5-23 <span class="Heading">Morphisms of external Hom</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X80B4B4D781D153B6">2.5-24 <span class="Heading">Exact cover with global elements</span></a>
+</span>
 </div></div>
 </div>
 
-<h3>2 <span class="Heading">The skeletal category of finite sets</span></h3>
+<h3>2 <span class="Heading">The skeletal category of finite sets with counting starting at 1</span></h3>
 
 <p><a id="X7C701DBF7BAE649A" name="X7C701DBF7BAE649A"></a></p>
 
 <h4>2.1 <span class="Heading">Attributes</span></h4>
 
-<p><a id="X7CB0E9B47F074A1C" name="X7CB0E9B47F074A1C"></a></p>
+<p><a id="X7AA5B2A67A24AFB5" name="X7AA5B2A67A24AFB5"></a></p>
 
 <h5>2.1-1 Cardinality</h5>
 
@@ -126,99 +122,63 @@
 
 <p>The integer defining the skeletal finite set <var class="Arg">M</var>, i.e., <code class="code">Cardinality( FinSet( n ) ) = n</code>.</p>
 
-<p><a id="X858AF5FE78DFAC34" name="X858AF5FE78DFAC34"></a></p>
+<p><a id="X7FF3833F7C3E6EA3" name="X7FF3833F7C3E6EA3"></a></p>
 
 <h5>2.1-2 AsList</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AsList</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns: a list</p>
 
-<p>The list associated to a skeletal finite set, i.e., <code class="code">AsList( FinSet( n ) ) = [ 0 .. n - 1 ]</code>.</p>
+<p>The list associated to a skeletal finite set, i.e., <code class="code">AsList( FinSet( n ) ) = [ 1 .. n ]</code>.</p>
 
-<p><a id="X823BB1018386EF7A" name="X823BB1018386EF7A"></a></p>
+<p><a id="X7AD1EAC078421E36" name="X7AD1EAC078421E36"></a></p>
 
 <h5>2.1-3 AsList</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AsList</code>( <var class="Arg">phi</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns: a list</p>
 
-<p>The graph defining the skeletal finite set morphism <var class="Arg">phi</var>, see <code class="func">MapOfFinSets</code> (<a href="chap2.html#X7C1C883C841A9706"><span class="RefLink">2.2-5</span></a>).</p>
+<p>The graph defining the skeletal finite set morphism <var class="Arg">phi</var>, see <code class="func">MapOfFinSets</code> (<a href="chap2.html#X831FCA4C7EA2637F"><span class="RefLink">2.2-5</span></a>).</p>
 
 <p><a id="X86EC0F0A78ECBC10" name="X86EC0F0A78ECBC10"></a></p>
 
 <h4>2.2 <span class="Heading">Constructors</span></h4>
 
-<p><a id="X8765E89E7E513D9E" name="X8765E89E7E513D9E"></a></p>
+<p><a id="X7C55958C7E1B5B03" name="X7C55958C7E1B5B03"></a></p>
 
-<h5>2.2-1 SkeletalCategoryOfFiniteSets</h5>
+<h5>2.2-1 SkeletalCategoryOfFiniteSetsWithCountingStartingAt1</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SkeletalCategoryOfFiniteSets</code>(  )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SkeletalCategoryOfFiniteSetsWithCountingStartingAt1</code>( <var class="Arg">arg</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: a CAP category</p>
 
-<p>Construct a skeletal category of finite sets.</p>
+<p>Construct a skeletal category of finite sets with counting starting at 1.</p>
 
-<p><a id="X79D9465278E31286" name="X79D9465278E31286"></a></p>
+<p><a id="X864F63CA786895A6" name="X864F63CA786895A6"></a></p>
 
-<h5>2.2-2 SkeletalFinSets</h5>
+<h5>2.2-2 SkeletalFinSets1</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SkeletalFinSets</code></td><td class="tdright">(&nbsp;global variable&nbsp;)</td></tr></table></div>
-<p>The default instance of the skeletal category of finite sets. It is automatically created while loading this package.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SkeletalFinSets1</code></td><td class="tdright">(&nbsp;global variable&nbsp;)</td></tr></table></div>
+<p>The default instance of the skeletal category of finite sets with counting starting at 1. It is automatically created while loading this package.</p>
 
-<p><a id="X82666A498565E7A9" name="X82666A498565E7A9"></a></p>
+<p><a id="X84DC53507A5E08C8" name="X84DC53507A5E08C8"></a></p>
 
-<h5>2.2-3 FinSet</h5>
+<h5>2.2-3 FinSet1</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FinSet</code>( <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FinSet1</code>( <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: a CAP object</p>
 
-<p>Construct a skeletal finite set residing in the default instance of the skeletal category of finite sets <code class="code">SkeletalFinSets</code> of order given by the nonnegative integer <var class="Arg">n</var>.</p>
+<p>Construct a skeletal finite set residing in the default instance of the skeletal category of finite sets with counting starting at 1 <code class="code">SkeletalFinSets</code> of order given by the nonnegative integer <var class="Arg">n</var>.</p>
 
+<p><a id="X7FFAEF7B7A4A0CC2" name="X7FFAEF7B7A4A0CC2"></a></p>
 
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet( 7 );</span>
-|7|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( m );</span>
-{ 0,..., 6 }
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( m );</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">String( m );</span>
-"FinSet( SkeletalFinSets, 7 )"
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( List( m, x -&gt; x^2 ) );</span>
-[ 0, 1, 4, 9, 16, 25, 36 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := ObjectDatum( m );</span>
-7
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">mm := ObjectConstructor( SkeletalFinSets, BigInt( 7 ) );</span>
-|7|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m = mm;</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet( -2 );</span>
-|-2|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( n );</span>
-false
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet( 3 );</span>
-|3|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( n );</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p := FinSet( 4 );</span>
-|4|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( p );</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEqualForObjects( m, n );</span>
-false
-</pre></div>
+<h5>2.2-4 FinSet1</h5>
 
-<p><a id="X8281C803822F9E63" name="X8281C803822F9E63"></a></p>
-
-<h5>2.2-4 FinSet</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FinSet</code>( <var class="Arg">C</var>, <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FinSet1</code>( <var class="Arg">C</var>, <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: a CAP object</p>
 
-<p>Construct a skeletal finite set residing in the given skeletal category of finite sets <var class="Arg">C</var> of order given by the nonnegative integer <var class="Arg">n</var>.</p>
+<p>Construct a skeletal finite set residing in the given skeletal category of finite sets with counting starting at 1 <var class="Arg">C</var> of order given by the nonnegative integer <var class="Arg">n</var>.</p>
 
-<p><a id="X7C1C883C841A9706" name="X7C1C883C841A9706"></a></p>
+<p><a id="X831FCA4C7EA2637F" name="X831FCA4C7EA2637F"></a></p>
 
 <h5>2.2-5 MapOfFinSets</h5>
 
@@ -227,48 +187,11 @@ false
 
 <p>Construct a map <span class="Math">\phi:</span><var class="Arg">s</var><span class="Math">\to</span><var class="Arg">t</var> of the skeletal finite sets <var class="Arg">s</var> and <var class="Arg">t</var>, i.e., a morphism in the CAP category of <var class="Arg">s</var>, where <var class="Arg">G</var> is a list of integers in <var class="Arg">t</var> describing the graph of <span class="Math">\phi</span>.</p>
 
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s := FinSet( 3 );</span>
-|3|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">t := FinSet( 7 );</span>
-|7|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( s, [ 6, 4, 4 ], t );</span>
-|3| → |7|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( phi ) );</span>
-[ 6, 4, 4 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( phi );</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( phi );</span>
-{ 0, 1, 2 } ⱶ[ 6, 4, 4 ]→ { 0,..., 6 }
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">String( phi );</span>
-"MapOfFinSets( SkeletalFinSets, FinSet( SkeletalFinSets, 3 ), [ 6, 4, 4 ], Fin\
-Set( SkeletalFinSets, 7 ) )"
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s := ObjectConstructor( SkeletalFinSets, BigInt( 3 ) );</span>
-|3|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">t := ObjectConstructor( SkeletalFinSets, BigInt( 7 ) );</span>
-|7|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MorphismConstructor(</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">    s,</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">    [ BigInt( 6 ), BigInt( 4 ), BigInt( 4 ) ],</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">    t</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">);</span>
-|3| → |7|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( MorphismDatum( phi ) );</span>
-[ 6, 4, 4 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( phi );</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( phi );</span>
-{ 0, 1, 2 } ⱶ[ 6, 4, 4 ]→ { 0,..., 6 }
-</pre></div>
-
 <p><a id="X8508AEF8845565A1" name="X8508AEF8845565A1"></a></p>
 
 <h4>2.3 <span class="Heading">Tools</span></h4>
 
-<p><a id="X7A0632CA85DEA809" name="X7A0632CA85DEA809"></a></p>
+<p><a id="X7D2F5E0D7D4E427E" name="X7D2F5E0D7D4E427E"></a></p>
 
 <h5>2.3-1 ListOp</h5>
 
@@ -277,7 +200,7 @@ true
 
 <p>Returns <code class="code">List( AsList( <var class="Arg">s</var> ), <var class="Arg">f</var> )</code>.</p>
 
-<p><a id="X832C21448117BA7E" name="X832C21448117BA7E"></a></p>
+<p><a id="X7AC5319480FE952D" name="X7AC5319480FE952D"></a></p>
 
 <h5>2.3-2 EmbeddingOfFinSets</h5>
 
@@ -286,16 +209,16 @@ true
 
 <p>Construct the embedding <span class="Math">\iota:</span><var class="Arg">s</var><span class="Math">\to</span><var class="Arg">t</var> of the finite sets <var class="Arg">s</var> and <var class="Arg">t</var>, where <var class="Arg">s</var> must be subset of <var class="Arg">t</var>.</p>
 
-<p><a id="X7DD18D4D81CECABE" name="X7DD18D4D81CECABE"></a></p>
+<p><a id="X7BF77A1E86B1EF9D" name="X7BF77A1E86B1EF9D"></a></p>
 
 <h5>2.3-3 Preimage</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Preimage</code>( <var class="Arg">phi</var>, <var class="Arg">t</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: a list</p>
+<p>Returns: a CAP object</p>
 
-<p>Compute the preimage of the list <var class="Arg">t</var> of numbers under the morphism <var class="Arg">phi</var>.</p>
+<p>Compute the Preimage of <var class="Arg">t</var> under the morphism <var class="Arg">phi</var>.</p>
 
-<p><a id="X872101957E3BAD82" name="X872101957E3BAD82"></a></p>
+<p><a id="X8045BA9985E50D5B" name="X8045BA9985E50D5B"></a></p>
 
 <h5>2.3-4 ImageObject</h5>
 
@@ -304,108 +227,36 @@ true
 
 <p>Compute the image of <var class="Arg">s_</var> under the morphism <var class="Arg">phi</var>.</p>
 
-<p><a id="X7F80ECC97A67AAB1" name="X7F80ECC97A67AAB1"></a></p>
-
-<h5>2.3-5 CallFuncList</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CallFuncList</code>( <var class="Arg">phi</var>, <var class="Arg">L</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: a list</p>
-
-<p>Returns the image of <code class="code"><var class="Arg">L</var>[1]</code> under the map <var class="Arg">phi</var> assuming <code class="code"><var class="Arg">L</var>[1]</code> is a nonnegative integer smaller than <code class="code">Cardinality( Source( <var class="Arg">phi</var> ) )</code>.</p>
-
-<p><a id="X7A2AAAD77A625029" name="X7A2AAAD77A625029"></a></p>
-
-<h5>2.3-6 BoolToBigInt</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; BoolToBigInt</code>( <var class="Arg">b</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: an integer</p>
-
-<p>The input <var class="Arg">b</var> is a boolean. The output is <span class="Math">0</span> if <var class="Arg">b</var> = <code class="code">false</code> and <span class="Math">1</span> if <var class="Arg">b</var> = <code class="code">true</code>.</p>
-
-<p><a id="X828F68137946EB40" name="X828F68137946EB40"></a></p>
-
-<h5>2.3-7 GeometricSum</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GeometricSum</code>( <var class="Arg">q</var>, <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: an integer</p>
-
-<p>Returns <span class="Math">(q^n-1)/(q-1)</span> = <code class="code">Sum</code>( [ 0 .. <var class="Arg">n</var> - 1 ], i -&gt; <var class="Arg">q</var>^i ), taking the corner case <var class="Arg">q</var><span class="Math">= 1</span> into account.</p>
-
-<p><a id="X86E3CD0982927451" name="X86E3CD0982927451"></a></p>
-
-<h5>2.3-8 GeometricSumDiff1</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GeometricSumDiff1</code>( <var class="Arg">q</var>, <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: an integer</p>
-
-<p>Returns <span class="Math">(1+((n-1)*q-n)*q^(n-1))/(q-1)^2</span> = <code class="code">Sum</code>( [ 0 .. <var class="Arg">n</var> - 1 ], i -&gt; i * <var class="Arg">q</var>^(i - 1) ), taking the corner case <var class="Arg">q</var><span class="Math">= 1</span> into account.</p>
-
-<p><a id="X7DE869077F07213A" name="X7DE869077F07213A"></a></p>
-
-<h5>2.3-9 RemIntWithDomain</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RemIntWithDomain</code>( <var class="Arg">v</var>, <var class="Arg">a</var>, <var class="Arg">ab</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: an integer</p>
-
-<p>Return the remainder of the natural number <var class="Arg">v</var> less than <var class="Arg">ab</var> modulo <var class="Arg">a</var>, where <var class="Arg">ab</var> is a multiple of <var class="Arg">a</var>.</p>
-
-<p><a id="X8680D7B38203D842" name="X8680D7B38203D842"></a></p>
-
-<h5>2.3-10 QuoIntWithDomain</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QuoIntWithDomain</code>( <var class="Arg">v</var>, <var class="Arg">a</var>, <var class="Arg">ab</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: an integer</p>
-
-<p>Return the quotient of the natural number <var class="Arg">v</var> less than <var class="Arg">ab</var> modulo <var class="Arg">a</var>, where <var class="Arg">ab</var> is a multiple of <var class="Arg">a</var>.</p>
-
-<p><a id="X86CB94B27BF991EB" name="X86CB94B27BF991EB"></a></p>
-
-<h5>2.3-11 DivIntWithGivenQuotient</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DivIntWithGivenQuotient</code>( <var class="Arg">a</var>, <var class="Arg">d</var>, <var class="Arg">q</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: an integer</p>
-
-<p>Return the quotient <var class="Arg">q</var> of the natural number <var class="Arg">a</var> by the divior <var class="Arg">d</var>.</p>
-
-<p><a id="X8407993D79406AEB" name="X8407993D79406AEB"></a></p>
-
-<h5>2.3-12 DigitInPositionalNotation</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DigitInPositionalNotation</code>( <var class="Arg">v</var>, <var class="Arg">i</var>, <var class="Arg">l</var>, <var class="Arg">b</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: an integer</p>
-
-<p>Return the digit of index <var class="Arg">i</var> in the <var class="Arg">b</var>-adic expansion of length <var class="Arg">l</var> of the natural number <var class="Arg">v</var>.</p>
-
 <p><a id="X7D03633A7D98026B" name="X7D03633A7D98026B"></a></p>
 
 <h4>2.4 <span class="Heading">GAP Categories</span></h4>
 
-<p><a id="X80D7388A856F123C" name="X80D7388A856F123C"></a></p>
+<p><a id="X7BE4D05B7BD2F220" name="X7BE4D05B7BD2F220"></a></p>
 
-<h5>2.4-1 IsSkeletalCategoryOfFiniteSets</h5>
+<h5>2.4-1 IsSkeletalCategoryOfFiniteSetsWithCountingStartingAt1</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSkeletalCategoryOfFiniteSets</code>( <var class="Arg">object</var> )</td><td class="tdright">(&nbsp;filter&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSkeletalCategoryOfFiniteSetsWithCountingStartingAt1</code>( <var class="Arg">object</var> )</td><td class="tdright">(&nbsp;filter&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
 
-<p>The GAP category of a skeletal category of finite sets.</p>
+<p>The GAP category of a skeletal category of finite sets with counting starting at 1.</p>
 
-<p><a id="X83EB60EB869FE805" name="X83EB60EB869FE805"></a></p>
+<p><a id="X85CF1C6779C86255" name="X85CF1C6779C86255"></a></p>
 
-<h5>2.4-2 IsObjectInSkeletalCategoryOfFiniteSets</h5>
+<h5>2.4-2 IsObjectInSkeletalCategoryOfFiniteSetsWithCountingStartingAt1</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsObjectInSkeletalCategoryOfFiniteSets</code>( <var class="Arg">object</var> )</td><td class="tdright">(&nbsp;filter&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsObjectInSkeletalCategoryOfFiniteSetsWithCountingStartingAt1</code>( <var class="Arg">object</var> )</td><td class="tdright">(&nbsp;filter&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
 
-<p>The GAP category of objects in the skeletal category of finite sets.</p>
+<p>The GAP category of objects in the skeletal category of finite sets with counting starting at 1.</p>
 
-<p><a id="X87B734A679E36BC4" name="X87B734A679E36BC4"></a></p>
+<p><a id="X85EE79AB8546BBC8" name="X85EE79AB8546BBC8"></a></p>
 
-<h5>2.4-3 IsMorphismInSkeletalCategoryOfFiniteSets</h5>
+<h5>2.4-3 IsMorphismInSkeletalCategoryOfFiniteSetsWithCountingStartingAt1</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsMorphismInSkeletalCategoryOfFiniteSets</code>( <var class="Arg">object</var> )</td><td class="tdright">(&nbsp;filter&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsMorphismInSkeletalCategoryOfFiniteSetsWithCountingStartingAt1</code>( <var class="Arg">object</var> )</td><td class="tdright">(&nbsp;filter&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
 
-<p>The GAP category of morphisms in the skeletal category of finite sets.</p>
+<p>The GAP category of morphisms in the skeletal category of finite sets with counting starting at 1.</p>
 
 <p><a id="X7A489A5D79DA9E5C" name="X7A489A5D79DA9E5C"></a></p>
 
@@ -419,11 +270,11 @@ true
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := FinSet( 0 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := FinSet1( 0 );</span>
 |0|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSet( 2 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSet1( 2 );</span>
 |2|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">N := FinSet( 3 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">N := FinSet1( 3 );</span>
 |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsHomSetInhabited( L, L );</span>
 true
@@ -443,23 +294,23 @@ true
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s := FinSet( 7 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s := FinSet1( 7 );</span>
 |7|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">t := FinSet( 4 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">t := FinSet1( 4 );</span>
 |4|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := MapOfFinSets( s, [ 0, 2, 1, 2, 1, 3 ], t );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := MapOfFinSets( s, [ 1, 3, 2, 3, 2, 4 ], t );</span>
 |7| → |4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( psi );</span>
 false
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := MapOfFinSets( s, [ 0, 2, 1, 2, 1, 3, -2 ], t );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := MapOfFinSets( s, [ 1, 3, 2, 3, 2, 4, -1 ], t );</span>
 |7| → |4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( psi );</span>
 false
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := MapOfFinSets( s, [ 1, 2, 1, 4, 2, 1, 3 ], t );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := MapOfFinSets( s, [ 2, 3, 2, 5, 3, 2, 4 ], t );</span>
 |7| → |4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( psi );</span>
 false
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := MapOfFinSets( s, [ 0, 2, 1, 3, 2, 1, 3 ], t );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := MapOfFinSets( s, [ 1, 3, 2, 4, 3, 2, 4 ], t );</span>
 |7| → |4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( psi );</span>
 true
@@ -473,20 +324,20 @@ true
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet( 3 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet1( 3 );</span>
 |3|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet( 5 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet1( 5 );</span>
 |5|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p := FinSet( 7 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p := FinSet1( 7 );</span>
 |7|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := MapOfFinSets( m, [ 1, 4, 2 ], n );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := MapOfFinSets( m, [ 2, 5, 3 ], n );</span>
 |3| → |5|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( n, [ 0, 3, 5, 5, 2 ], p );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( n, [ 1, 4, 6, 6, 3 ], p );</span>
 |5| → |7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">alpha := PreCompose( psi, phi );</span>
 |3| → |7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( alpha );</span>
-{ 0, 1, 2 } ⱶ[ 3, 2, 5 ]→ { 0,..., 6 }
+{ 1, 2, 3 } ⱶ[ 4, 3, 6 ]→ { 1,..., 7 }
 </pre></div>
 
 <p><a id="X7CD5C95A8292CF34" name="X7CD5C95A8292CF34"></a></p>
@@ -497,13 +348,13 @@ true
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet( 3 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet1( 3 );</span>
 |3|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet( 5 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet1( 5 );</span>
 |5|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p := FinSet( 7 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p := FinSet1( 7 );</span>
 |7|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := MapOfFinSets( m, [ 0, 2, 4 ], n );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := MapOfFinSets( m, [ 1, 3, 5 ], n );</span>
 |3| → |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEpimorphism( psi );</span>
 false
@@ -515,7 +366,7 @@ true
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi;</span>
 |3| ↪ |5|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := MapOfFinSets( p, [ 0, 2, 1, 2, 2, 1, 0 ], m );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := MapOfFinSets( p, [ 1, 3, 2, 3, 3, 2, 1 ], m );</span>
 |7| → |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEpimorphism( psi );</span>
 true
@@ -543,13 +394,13 @@ true
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet( 8 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet1( 8 );</span>
 |8|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInitial( m );</span>
 false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsTerminal( m );</span>
 false
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">i := InitialObject( SkeletalFinSets );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">i := InitialObject( SkeletalFinSets1 );</span>
 |0|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( i );</span>
 ∅
@@ -561,10 +412,10 @@ false
 |0| → |8|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( i ) );</span>
 [  ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">t := TerminalObject( SkeletalFinSets );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">t := TerminalObject( SkeletalFinSets1 );</span>
 |1|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( t ) );</span>
-[ 0 ]
+[ 1 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInitial( t );</span>
 false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsTerminal( t );</span>
@@ -576,7 +427,7 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi_t := UniversalMorphismIntoTerminalObjectWithGivenTerminalObject( m, t );</span>
 |8| → |1|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( pi_t ) );</span>
-[ 0, 0, 0, 0, 0, 0, 0, 0 ]
+[ 1, 1, 1, 1, 1, 1, 1, 1 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi = pi_t;</span>
 true
 </pre></div>
@@ -589,11 +440,11 @@ true
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">I := FinSet( 0 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">I := FinSet1( 0 );</span>
 |0|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">T := FinSet( 1 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">T := FinSet1( 1 );</span>
 |1|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSet( 2 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSet1( 2 );</span>
 |2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsProjective( I );</span>
 true
@@ -611,11 +462,11 @@ true
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">I := FinSet( 0 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">I := FinSet1( 0 );</span>
 |0|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">T := FinSet( 1 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">T := FinSet1( 1 );</span>
 |1|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSet( 2 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSet1( 2 );</span>
 |2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInjective( I );</span>
 false
@@ -639,43 +490,43 @@ true
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet( 7 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet1( 7 );</span>
 |7|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet( 3 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet1( 3 );</span>
 |3|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p := FinSet( 4 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p := FinSet1( 4 );</span>
 |4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">d := DirectProduct( [ m, n, p ] );</span>
 |84|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( d ) );</span>
-[ 0 .. 83 ]
+[ 1 .. 84 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi1 := ProjectionInFactorOfDirectProduct( [ m, n, p ], 1 );</span>
 |84| → |7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( pi1 );</span>
-{ 0,..., 83 } ⱶ[ 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6,\
- 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6,\
- 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6,\
- 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6,\
- 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6,\
- 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6 ]→ { 0,..., 6 }
+{ 1,..., 84 } ⱶ[ 1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7,\
+ 1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7,\
+ 1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7,\
+ 1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7,\
+ 1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7,\
+ 1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7 ]→ { 1,..., 7 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi2 := ProjectionInFactorOfDirectProduct( [ m, n, p ], 2 );</span>
 |84| → |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( pi2 );</span>
-{ 0,..., 83 } ⱶ[ 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1,\
- 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0,\
+{ 1,..., 84 } ⱶ[ 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2,\
+ 3, 3, 3, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1,\
+ 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3,\
  1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2,\
- 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1,\
- 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0,\
- 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2 ]→ { 0, 1, 2 }
+ 3, 3, 3, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1,\
+ 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3 ]→ { 1, 2, 3 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi3 := ProjectionInFactorOfDirectProduct( [ m, n, p ], 3 );</span>
 |84| → |4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( pi3 );</span>
-{ 0,..., 83 } ⱶ[ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,\
- 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1,\
- 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,\
+{ 1,..., 84 } ⱶ[ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,\
+ 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2,\
  2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,\
- 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3,\
- 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3 ]→ { 0,..., 3 }
+ 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,\
+ 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4,\
+ 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4 ]→ { 1,..., 4 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := UniversalMorphismIntoDirectProduct( [ m, n, p ], [ pi1, pi2, pi3 ] );</span>
 |84| → |84|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi = IdentityMorphism( d );</span>
@@ -690,34 +541,34 @@ true
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet( 7 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet1( 7 );</span>
 |7|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet( 3 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet1( 3 );</span>
 |3|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p := FinSet( 4 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p := FinSet1( 4 );</span>
 |4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c := Coproduct( m, n, p );</span>
 |14|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( c ) );</span>
-[ 0 .. 13 ]
+[ 1 .. 14 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota1 := InjectionOfCofactorOfCoproduct( [ m, n, p ], 1 );</span>
 |7| → |14|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( iota1 );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( iota1 );</span>
-{ 0,..., 6 } ⱶ[ 0 .. 6 ]→ { 0,..., 13 }
+{ 1,..., 7 } ⱶ[ 1, 2, 3, 4, 5, 6, 7 ]→ { 1,..., 14 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota2 := InjectionOfCofactorOfCoproduct( [ m, n, p ], 2 );</span>
 |3| → |14|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( iota2 );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( iota2 );</span>
-{ 0, 1, 2 } ⱶ[ 7 .. 9 ]→ { 0,..., 13 }
+{ 1, 2, 3 } ⱶ[ 8, 9, 10 ]→ { 1,..., 14 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota3 := InjectionOfCofactorOfCoproduct( [ m, n, p ], 3 );</span>
 |4| → |14|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( iota3 );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( iota3 );</span>
-{ 0,..., 3 } ⱶ[ 10 .. 13 ]→ { 0,..., 13 }
+{ 1,..., 4 } ⱶ[ 11, 12, 13, 14 ]→ { 1,..., 14 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := UniversalMorphismFromCoproduct(</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">               [ m, n, p ], [ iota1, iota2, iota3 ] );</span>
 |14| → |14|
@@ -735,11 +586,11 @@ true
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet( 7 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet1( 7 );</span>
 |7|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet( 3 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet1( 3 );</span>
 |3|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( n, [ 6, 4, 4 ], m );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( n, [ 7, 5, 5 ], m );</span>
 |3| → |7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( phi );</span>
 true
@@ -747,7 +598,7 @@ true
 |2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Cardinality( ImageObject( phi ) );</span>
 2
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s := FinSet( 2 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s := FinSet1( 2 );</span>
 |2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">I := ImageObject( phi, s );</span>
 |2|
@@ -759,45 +610,45 @@ true
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet( 7 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet1( 7 );</span>
 |7|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet( 3 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet1( 3 );</span>
 |3|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( n, [ 6, 4, 4 ], m );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( n, [ 7, 5, 5 ], m );</span>
 |3| → |7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi := ImageEmbedding( phi );</span>
 |2| → |7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( pi );</span>
-{ 0, 1 } ⱶ[ 4, 6 ]→ { 0,..., 6 }
+{ 1, 2 } ⱶ[ 5, 7 ]→ { 1,..., 7 }
 </pre></div>
 
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet( 7 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet1( 7 );</span>
 |7|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet( 3 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet1( 3 );</span>
 |3|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( n, [ 6, 4, 4 ], m );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( n, [ 7, 5, 5 ], m );</span>
 |3| → |7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( phi );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f := CoastrictionToImage( phi );</span>
 |3| → |2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( f );</span>
-{ 0, 1, 2 } ⱶ[ 1, 0, 0 ]→ { 0, 1 }
+{ 1, 2, 3 } ⱶ[ 2, 1, 1 ]→ { 1, 2 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( f );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEpimorphism( f );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSplitEpimorphism( f );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet( 77 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet1( 77 );</span>
 |77|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet( 4 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet1( 4 );</span>
 |4|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( n, [ 76, 1, 24, 1 ], m );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( n, [ 77, 2, 25, 2 ], m );</span>
 |4| → |77|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( phi );</span>
 true
@@ -806,7 +657,7 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi := CoastrictionToImage( phi );</span>
 |4| → |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( pi );</span>
-{ 0,..., 3 } ⱶ[ 2, 0, 1, 0 ]→ { 0, 1, 2 }
+{ 1,..., 4 } ⱶ[ 3, 1, 2, 1 ]→ { 1, 2, 3 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( pi );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEpimorphism( pi );</span>
@@ -825,11 +676,11 @@ true
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet( 3 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet1( 3 );</span>
 |3|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet( 3 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet1( 3 );</span>
 |3|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( m, [ 1, 0, 1 ], n );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( m, [ 2, 1, 2 ], n );</span>
 |3| → |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">I := CoimageObject( phi );</span>
 |2|
@@ -848,9 +699,9 @@ false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( pi, iota ) = phi;</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( iota );</span>
-{ 0, 1 } ⱶ[ 1, 0 ]→ { 0, 1, 2 }
+{ 1, 2 } ⱶ[ 2, 1 ]→ { 1, 2, 3 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( ImageEmbedding( phi ) );</span>
-{ 0, 1 } ⱶ[ 0, 1 ]→ { 0, 1, 2 }
+{ 1, 2 } ⱶ[ 1, 2 ]→ { 1, 2, 3 }
 </pre></div>
 
 <p><a id="X83B2F0BE7AB16026" name="X83B2F0BE7AB16026"></a></p>
@@ -861,19 +712,19 @@ true
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet( 7 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet1( 7 );</span>
 |7|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet( 3 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet1( 3 );</span>
 |3|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( n, [ 6, 4, 4 ], m );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( n, [ 7, 5, 5 ], m );</span>
 |3| → |7|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := Preimage( phi, [ 2 ] );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := Preimage( phi, [ 3 ] );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( P );</span>
 [  ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := Preimage( phi, AsList( FinSet( 5 ) ) );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := Preimage( phi, AsList( FinSet1( 5 ) ) );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( P );</span>
-[ 1, 2 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">List( P, phi ) = [ 4, 4 ];</span>
+[ 2, 3 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">List( P, phi ) = [ 5, 5 ];</span>
 true
 </pre></div>
 
@@ -885,15 +736,15 @@ true
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S := FinSet( 5 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S := FinSet1( 5 );</span>
 |5|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">T := FinSet( 3 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">T := FinSet1( 3 );</span>
 |3|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f1 := MapOfFinSets( S, [ 2, 2, 0, 1, 1 ], T );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f1 := MapOfFinSets( S, [ 3, 3, 1, 2, 2 ], T );</span>
 |5| → |3|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f2 := MapOfFinSets( S, [ 2, 1, 2, 0, 1 ], T );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f2 := MapOfFinSets( S, [ 3, 2, 3, 1, 2 ], T );</span>
 |5| → |3|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f3 := MapOfFinSets( S, [ 2, 0, 1, 0, 1 ], T );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f3 := MapOfFinSets( S, [ 3, 1, 2, 1, 2 ], T );</span>
 |5| → |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D := [ f1, f2, f3 ];;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Eq := Equalizer( D );</span>
@@ -901,8 +752,8 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota := EmbeddingOfEqualizer( D );</span>
 |2| → |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( iota );</span>
-{ 0, 1 } ⱶ[ 0, 4 ]→ { 0,..., 4 }
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( FinSet( 2 ), [ 4, 0 ], S );;</span>
+{ 1, 2 } ⱶ[ 1, 5 ]→ { 1,..., 5 }
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( FinSet1( 2 ), [ 5, 1 ], S );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( phi );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := UniversalMorphismIntoEqualizer( D, phi );</span>
@@ -910,7 +761,7 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( psi );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( psi );</span>
-{ 0, 1 } ⱶ[ 1, 0 ]→ { 0, 1 }
+{ 1, 2 } ⱶ[ 2, 1 ]→ { 1, 2 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( psi, iota ) = phi;</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D := [ f2, f3 ];;</span>
@@ -919,7 +770,7 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := EmbeddingOfEqualizer( D );</span>
 |3| → |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( psi );</span>
-{ 0, 1, 2 } ⱶ[ 0, 3, 4 ]→ { 0,..., 4 }
+{ 1, 2, 3 } ⱶ[ 1, 4, 5 ]→ { 1,..., 5 }
 </pre></div>
 
 <p><a id="X7CAD01387C12A9E8" name="X7CAD01387C12A9E8"></a></p>
@@ -930,33 +781,33 @@ true
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet( 5 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet1( 5 );</span>
 |5|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n1 := FinSet( 3 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n1 := FinSet1( 3 );</span>
 |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota1 := EmbeddingOfFinSets( n1, m );</span>
 |3| ↪ |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( iota1 );</span>
-{ 0, 1, 2 } ⱶ[ 0 .. 2 ]→ { 0,..., 4 }
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n2 := FinSet( 4 );</span>
+{ 1, 2, 3 } ⱶ[ 1 .. 3 ]→ { 1,..., 5 }
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n2 := FinSet1( 4 );</span>
 |4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota2 := EmbeddingOfFinSets( n2, m );</span>
 |4| ↪ |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( iota2 );</span>
-{ 0,..., 3 } ⱶ[ 0 .. 3 ]→ { 0,..., 4 }
+{ 1,..., 4 } ⱶ[ 1 .. 4 ]→ { 1,..., 5 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D := [ iota1, iota2 ];;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Fib := FiberProduct( D );</span>
 |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi1 := ProjectionInFactorOfFiberProduct( D, 1 );</span>
 |3| → |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( pi1 );</span>
-{ 0, 1, 2 } ⱶ[ 0, 1, 2 ]→ { 0, 1, 2 }
+{ 1, 2, 3 } ⱶ[ 1, 2, 3 ]→ { 1, 2, 3 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">int1 := ImageObject( pi1 );</span>
 |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi2 := ProjectionInFactorOfFiberProduct( D, 2 );</span>
 |3| → |4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( pi2 );</span>
-{ 0, 1, 2 } ⱶ[ 0, 1, 2 ]→ { 0,..., 3 }
+{ 1, 2, 3 } ⱶ[ 1, 2, 3 ]→ { 1,..., 4 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">int2 := ImageObject( pi2 );</span>
 |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">omega1 := PreCompose( pi1, iota1 );</span>
@@ -966,7 +817,7 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">omega1 = omega2;</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( omega1 );</span>
-{ 0, 1, 2 } ⱶ[ 0, 1, 2 ]→ { 0,..., 4 }
+{ 1, 2, 3 } ⱶ[ 1, 2, 3 ]→ { 1,..., 5 }
 </pre></div>
 
 <p><a id="X83BC64A980FE2B98" name="X83BC64A980FE2B98"></a></p>
@@ -977,13 +828,13 @@ true
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s := FinSet( 5 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s := FinSet1( 5 );</span>
 |5|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">t := FinSet( 4 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">t := FinSet1( 4 );</span>
 |4|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f := MapOfFinSets( s, [ 2, 3, 3, 1, 3 ], t );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f := MapOfFinSets( s, [ 3, 4, 4, 2, 4 ], t );</span>
 |5| → |4|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := MapOfFinSets( s, [ 2, 2, 3, 1, 3 ], t );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := MapOfFinSets( s, [ 3, 3, 4, 2, 4 ], t );</span>
 |5| → |4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D := [ f, g ];;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := Coequalizer( D );</span>
@@ -991,22 +842,22 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi := ProjectionOntoCoequalizer( D );</span>
 |4| → |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( pi );</span>
-{ 0,..., 3 } ⱶ[ 0, 1, 2, 2 ]→ { 0, 1, 2 }
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">tau := MapOfFinSets( t, [ 1, 0, 1, 1 ], FinSet( 2 ) );</span>
+{ 1,..., 4 } ⱶ[ 1, 2, 3, 3 ]→ { 1, 2, 3 }
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">tau := MapOfFinSets( t, [ 2, 1, 2, 2 ], FinSet1( 2 ) );</span>
 |4| → |2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := UniversalMorphismFromCoequalizer( D, tau );</span>
 |3| → |2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( phi );</span>
-{ 0, 1, 2 } ⱶ[ 1, 0, 1 ]→ { 0, 1 }
+{ 1, 2, 3 } ⱶ[ 2, 1, 2 ]→ { 1, 2 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( pi, phi ) = tau;</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s := FinSet( 5 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s := FinSet1( 5 );</span>
 |5|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">t := FinSet( 4 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">t := FinSet1( 4 );</span>
 |4|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f := MapOfFinSets( s, [ 1, 2, 2, 1, 3 ], t );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f := MapOfFinSets( s, [ 2, 3, 3, 2, 4 ], t );</span>
 |5| → |4|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := MapOfFinSets( s, [ 1, 2, 1, 1, 3 ], t );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := MapOfFinSets( s, [ 2, 3, 2, 2, 4 ], t );</span>
 |5| → |4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D := [ f, g ];;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := Coequalizer( D );</span>
@@ -1014,23 +865,23 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi := ProjectionOntoCoequalizer( D );</span>
 |4| → |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( pi );</span>
-{ 0,..., 3 } ⱶ[ 0, 1, 1, 2 ]→ { 0, 1, 2 }
+{ 1,..., 4 } ⱶ[ 1, 2, 2, 3 ]→ { 1, 2, 3 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( f, pi ) = PreCompose( g, pi );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">tau := MapOfFinSets( t, [ 0, 1, 1, 0 ], FinSet( 2 ) );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">tau := MapOfFinSets( t, [ 1, 2, 2, 1 ], FinSet1( 2 ) );</span>
 |4| → |2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := UniversalMorphismFromCoequalizer( D, tau );</span>
 |3| → |2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( phi );</span>
-{ 0, 1, 2 } ⱶ[ 0, 1, 0 ]→ { 0, 1 }
+{ 1, 2, 3 } ⱶ[ 1, 2, 1 ]→ { 1, 2 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( pi, phi ) = tau;</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s := FinSet( 2 );;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">t := FinSet( 3 );;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f := MapOfFinSets( s, [ 0, 1 ], t );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s := FinSet1( 2 );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">t := FinSet1( 3 );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f := MapOfFinSets( s, [ 1, 2 ], t );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( f );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := MapOfFinSets( s, [ 1, 2 ], t );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := MapOfFinSets( s, [ 2, 3 ], t );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( g );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := Coequalizer( [ f, g ] );</span>
@@ -1045,31 +896,31 @@ true
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSet( 5 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSet1( 5 );</span>
 |5|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">N1 := FinSet( 3 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">N1 := FinSet1( 3 );</span>
 |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota1 := EmbeddingOfFinSets( N1, M );</span>
 |3| ↪ |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( iota1 );</span>
-{ 0, 1, 2 } ⱶ[ 0 .. 2 ]→ { 0,..., 4 }
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">N2 := FinSet( 2 );</span>
+{ 1, 2, 3 } ⱶ[ 1 .. 3 ]→ { 1,..., 5 }
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">N2 := FinSet1( 2 );</span>
 |2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota2 := EmbeddingOfFinSets( N2, M );</span>
 |2| ↪ |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( iota2 );</span>
-{ 0, 1 } ⱶ[ 0 .. 1 ]→ { 0,..., 4 }
+{ 1, 2 } ⱶ[ 1 .. 2 ]→ { 1,..., 5 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D := [ iota1, iota2 ];;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Fib := FiberProduct( D );</span>
 |2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi1 := ProjectionInFactorOfFiberProduct( D, 1 );</span>
 |2| → |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( pi1 );</span>
-{ 0, 1 } ⱶ[ 0, 1 ]→ { 0, 1, 2 }
+{ 1, 2 } ⱶ[ 1, 2 ]→ { 1, 2, 3 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi2 := ProjectionInFactorOfFiberProduct( D, 2 );</span>
 |2| → |2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( pi2 );</span>
-{ 0, 1 } ⱶ[ 0, 1 ]→ { 0, 1 }
+{ 1, 2 } ⱶ[ 1, 2 ]→ { 1, 2 }
 </pre></div>
 
 <p>The easy way</p>
@@ -1084,11 +935,11 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">kappa1 := InjectionOfCofactorOfPushout( D, 1 );</span>
 |3| → |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( kappa1 );</span>
-{ 0, 1, 2 } ⱶ[ 0, 1, 2 ]→ { 0, 1, 2 }
+{ 1, 2, 3 } ⱶ[ 1, 2, 3 ]→ { 1, 2, 3 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">kappa2 := InjectionOfCofactorOfPushout( D, 2 );</span>
 |2| → |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( kappa2 );</span>
-{ 0, 1 } ⱶ[ 0, 1 ]→ { 0, 1, 2 }
+{ 1, 2 } ⱶ[ 1, 2 ]→ { 1, 2, 3 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( pi1, kappa1 ) = PreCompose( pi2, kappa2 );</span>
 true
 </pre></div>
@@ -1102,33 +953,33 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Co := Coproduct( N1, N2 );</span>
 |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( Co );</span>
-{ 0,..., 4 }
+{ 1,..., 5 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota_1 := InjectionOfCofactorOfCoproduct( [ N1, N2 ], 1 );</span>
 |3| → |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( iota_1 );</span>
-{ 0, 1, 2 } ⱶ[ 0 .. 2 ]→ { 0,..., 4 }
+{ 1, 2, 3 } ⱶ[ 1, 2, 3 ]→ { 1,..., 5 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota_2 := InjectionOfCofactorOfCoproduct( [ N1, N2 ], 2 );</span>
 |2| → |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( iota_2 );</span>
-{ 0, 1 } ⱶ[ 3 .. 4 ]→ { 0,..., 4 }
+{ 1, 2 } ⱶ[ 4, 5 ]→ { 1,..., 5 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">alpha := PreCompose( pi1, iota_1 );</span>
 |2| → |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( alpha );</span>
-{ 0, 1 } ⱶ[ 0, 1 ]→ { 0,..., 4 }
+{ 1, 2 } ⱶ[ 1, 2 ]→ { 1,..., 5 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">beta := PreCompose( pi2, iota_2 );</span>
 |2| → |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( beta );</span>
-{ 0, 1 } ⱶ[ 3, 4 ]→ { 0,..., 4 }
+{ 1, 2 } ⱶ[ 4, 5 ]→ { 1,..., 5 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Cq := Coequalizer( [ alpha, beta ] );</span>
 |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := ProjectionOntoCoequalizer( [ alpha, beta ] );</span>
 |5| → |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( psi );</span>
-{ 0,..., 4 } ⱶ[ 0, 1, 2, 0, 1 ]→ { 0, 1, 2 }
+{ 1,..., 5 } ⱶ[ 1, 2, 3, 1, 2 ]→ { 1, 2, 3 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( PreCompose( iota_1, psi ) );</span>
-{ 0, 1, 2 } ⱶ[ 0, 1, 2 ]→ { 0, 1, 2 }
+{ 1, 2, 3 } ⱶ[ 1, 2, 3 ]→ { 1, 2, 3 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( PreCompose( iota_2, psi ) );</span>
-{ 0, 1 } ⱶ[ 0, 1 ]→ { 0, 1, 2 }
+{ 1, 2 } ⱶ[ 1, 2 ]→ { 1, 2, 3 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( alpha, psi ) = PreCompose( beta, psi );</span>
 true
 </pre></div>
@@ -1141,15 +992,15 @@ true
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S := FinSet( 3 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S := FinSet1( 3 );</span>
 |3|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R := FinSet( 2 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R := FinSet1( 2 );</span>
 |2|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f := MapOfFinSets( S, [ 1, 1, 0 ], R );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f := MapOfFinSets( S, [ 2, 2, 1 ], R );</span>
 |3| → |2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( f );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">T := TerminalObject( SkeletalFinSets );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">T := TerminalObject( SkeletalFinSets1 );</span>
 |1|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsTerminal( T );</span>
 true
@@ -1160,29 +1011,29 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Source( lf ) = T;</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( Range( lf ) );</span>
-{ 0,..., 7 }
+{ 1,..., 8 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( lf );</span>
-{ 0 } ⱶ[ 3 ]→ { 0,..., 7 }
+{ 1 } ⱶ[ 4 ]→ { 1,..., 8 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">elf := CartesianLambdaElimination( S, R, lf );</span>
 |3| → |2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">elf = f;</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := MorphismsOfExternalHom( S, R );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( L );</span>
-[ { 0, 1, 2 } ⱶ[ 0, 0, 0 ]→ { 0, 1 },\
- { 0, 1, 2 } ⱶ[ 1, 0, 0 ]→ { 0, 1 },\
- { 0, 1, 2 } ⱶ[ 0, 1, 0 ]→ { 0, 1 },\
- { 0, 1, 2 } ⱶ[ 1, 1, 0 ]→ { 0, 1 },\
- { 0, 1, 2 } ⱶ[ 0, 0, 1 ]→ { 0, 1 },\
- { 0, 1, 2 } ⱶ[ 1, 0, 1 ]→ { 0, 1 },\
- { 0, 1, 2 } ⱶ[ 0, 1, 1 ]→ { 0, 1 },\
- { 0, 1, 2 } ⱶ[ 1, 1, 1 ]→ { 0, 1 } ]
+[ { 1, 2, 3 } ⱶ[ 1, 1, 1 ]→ { 1, 2 },\
+ { 1, 2, 3 } ⱶ[ 2, 1, 1 ]→ { 1, 2 },\
+ { 1, 2, 3 } ⱶ[ 1, 2, 1 ]→ { 1, 2 },\
+ { 1, 2, 3 } ⱶ[ 2, 2, 1 ]→ { 1, 2 },\
+ { 1, 2, 3 } ⱶ[ 1, 1, 2 ]→ { 1, 2 },\
+ { 1, 2, 3 } ⱶ[ 2, 1, 2 ]→ { 1, 2 },\
+ { 1, 2, 3 } ⱶ[ 1, 2, 2 ]→ { 1, 2 },\
+ { 1, 2, 3 } ⱶ[ 2, 2, 2 ]→ { 1, 2 } ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Li := List( L, phi -&gt; CartesianLambdaIntroduction( phi ) );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( Li );</span>
-[ { 0 } ⱶ[ 0 ]→ { 0,..., 7 }, { 0 } ⱶ[ 1 ]→ { 0,..., 7 },\
- { 0 } ⱶ[ 2 ]→ { 0,..., 7 }, { 0 } ⱶ[ 3 ]→ { 0,..., 7 },\
- { 0 } ⱶ[ 4 ]→ { 0,..., 7 }, { 0 } ⱶ[ 5 ]→ { 0,..., 7 },\
- { 0 } ⱶ[ 6 ]→ { 0,..., 7 }, { 0 } ⱶ[ 7 ]→ { 0,..., 7 } ]
+[ { 1 } ⱶ[ 1 ]→ { 1,..., 8 }, { 1 } ⱶ[ 2 ]→ { 1,..., 8 },\
+ { 1 } ⱶ[ 3 ]→ { 1,..., 8 }, { 1 } ⱶ[ 4 ]→ { 1,..., 8 },\
+ { 1 } ⱶ[ 5 ]→ { 1,..., 8 }, { 1 } ⱶ[ 6 ]→ { 1,..., 8 },\
+ { 1 } ⱶ[ 7 ]→ { 1,..., 8 }, { 1 } ⱶ[ 8 ]→ { 1,..., 8 } ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">List( L, phi -&gt;</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">      DirectProductToExponentialLeftAdjunctMorphism( T, S, phi ) ) = Li;</span>
 true
@@ -1201,28 +1052,28 @@ true
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet( 3 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet1( 3 );</span>
 |3|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet( 4 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet1( 4 );</span>
 |4|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f := MapOfFinSets( m, [ 1, 1, 0 ], m );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f := MapOfFinSets( m, [ 2, 2, 1 ], m );</span>
 |3| → |3|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := MapOfFinSets( n, [ 2, 1, 0, 1 ], m );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := MapOfFinSets( n, [ 3, 2, 1, 2 ], m );</span>
 |4| → |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLiftable( f, g );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">chi := Lift( f, g );</span>
 |3| → |4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( chi );</span>
-{ 0, 1, 2 } ⱶ[ 1, 1, 2 ]→ { 0,..., 3 }
+{ 1, 2, 3 } ⱶ[ 2, 2, 3 ]→ { 1,..., 4 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( Lift( f, g ), g ) = f;</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLiftable( g, f );</span>
 false
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">k := FinSet( 100000 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">k := FinSet1( 100000 );</span>
 |100000|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">h := ListWithIdenticalEntries( Cardinality( k ) - 3, 2 );;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">h := Concatenation( h, [ 1, 0, 1 ] );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">h := ListWithIdenticalEntries( Cardinality( k ) - 3, 3 );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">h := Concatenation( h, [ 2, 1, 2 ] );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">h := MapOfFinSets( k, h, m );</span>
 |100000| → |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLiftable( f, h );</span>
@@ -1239,7 +1090,7 @@ false
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">I := InitialObject( SkeletalFinSets );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">I := InitialObject( SkeletalFinSets1 );</span>
 |0|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota := UniversalMorphismIntoTerminalObject( I );</span>
 |0| → |1|
@@ -1247,20 +1098,20 @@ true
 |0| → |0|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsColiftable( iota, id );</span>
 false
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet( 5 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet1( 5 );</span>
 |5|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet( 4 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet1( 4 );</span>
 |4|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f := MapOfFinSets( m, [ 1, 1, 0, 0, 2 ], n );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f := MapOfFinSets( m, [ 2, 2, 1, 1, 3 ], n );</span>
 |5| → |4|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := MapOfFinSets( m, [ 4, 4, 3, 3, 4 ], m );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := MapOfFinSets( m, [ 5, 5, 4, 4, 5 ], m );</span>
 |5| → |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsColiftable( f, g );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">chi := Colift( f, g );</span>
 |4| → |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( chi );</span>
-{ 0,..., 3 } ⱶ[ 3, 4, 4, 0 ]→ { 0,..., 4 }
+{ 1,..., 4 } ⱶ[ 4, 5, 5, 1 ]→ { 1,..., 5 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( f, Colift( f, g ) ) = g;</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsColiftable( g, f );</span>
@@ -1275,11 +1126,11 @@ false
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP" );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a := FinSet( 3 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a := FinSet1( 3 );</span>
 |3|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">sa := SingletonMorphism( a );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( sa );</span>
-{ 0, 1, 2 } ⱶ[ 1, 2, 4 ]→ { 0,..., 7 }
+{ 1, 2, 3 } ⱶ[ 2, 3, 5 ]→ { 1,..., 8 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">sa = LowerSegmentOfRelation( a, a, CartesianDiagonal( a, 2 ) );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">sa = UpperSegmentOfRelation( a, a, CartesianDiagonal( a, 2 ) );</span>
@@ -1294,15 +1145,15 @@ true
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">T := TerminalObject( SkeletalFinSets );;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSet( 4 );;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">N := FinSet( 3 );;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := FinSet( 4 );;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G_f := [ 0, 1, 0, 2 ];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">T := TerminalObject( SkeletalFinSets1 );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSet1( 4 );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">N := FinSet1( 3 );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := FinSet1( 4 );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G_f := [ 1, 2, 1, 3 ];;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f := MapOfFinSets( M, G_f, N );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( f );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G_g := [ 2, 2, 1, 0 ];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G_g := [ 3, 3, 2, 1 ];;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := MapOfFinSets( M, G_g, N );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( g );</span>
 true
@@ -1318,14 +1169,14 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CartesianBraiding( M, N );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CartesianBraidingInverse( M, N );;</span>
 #@if ValueOption( "no_precompiled_code" ) &lt;&gt; true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SkeletalFinSets!.cached_precompiled_functions.</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">    CartesianBraidingWithGivenDirectProducts( SkeletalFinSets,</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SkeletalFinSets1!.cached_precompiled_functions.</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    CartesianBraidingWithGivenDirectProducts( SkeletalFinSets1,</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">        DirectProduct( M, N ),</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">        M, N,</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">        DirectProduct( N, M )</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SkeletalFinSets!.cached_precompiled_functions.</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">    CartesianBraidingInverseWithGivenDirectProducts( SkeletalFinSets,</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SkeletalFinSets1!.cached_precompiled_functions.</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    CartesianBraidingInverseWithGivenDirectProducts( SkeletalFinSets1,</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">        DirectProduct( N, M ),</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">        M, N,</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">        DirectProduct( M, N )</span>
@@ -1334,8 +1185,8 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ExponentialOnObjects( M, N );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ExponentialOnMorphisms( f, g );;</span>
 #@if ValueOption( "no_precompiled_code" ) &lt;&gt; true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SkeletalFinSets!.cached_precompiled_functions.</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">    ExponentialOnMorphismsWithGivenExponentials( SkeletalFinSets,</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SkeletalFinSets1!.cached_precompiled_functions.</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    ExponentialOnMorphismsWithGivenExponentials( SkeletalFinSets1,</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">        ExponentialOnObjects( Range( f ), Source( g ) ),</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">        f, g,</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">        ExponentialOnObjects( Source( f ), Range( g ) )</span>
@@ -1354,10 +1205,10 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ExponentialToDirectProductLeftAdjunctMorphism( M, N,</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">    UniversalMorphismFromInitialObject( ExponentialOnObjects( M, N ) )</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSet( 2 );;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">N := FinSet( 2 );;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := FinSet( 1 );;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Q := FinSet( 2 );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSet1( 2 );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">N := FinSet1( 2 );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := FinSet1( 1 );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Q := FinSet1( 2 );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CartesianPreComposeMorphism( M, N, P );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CartesianPostComposeMorphism( M, N, P );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DirectProductExponentialCompatibilityMorphism( [ M, N, P, Q ] );;</span>
@@ -1371,98 +1222,98 @@ true
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SubobjectClassifier( SkeletalFinSets );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SubobjectClassifier( SkeletalFinSets1 );</span>
 |2|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfFalse( SkeletalFinSets ) );</span>
-{ 0 } ⱶ[ 0 ]→ { 0, 1 }
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfTrue( SkeletalFinSets ) );</span>
-{ 0 } ⱶ[ 1 ]→ { 0, 1 }
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfNot( SkeletalFinSets ) );</span>
-{ 0, 1 } ⱶ[ 1, 0 ]→ { 0, 1 }
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CartesianSquareOfSubobjectClassifier( SkeletalFinSets );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfFalse( SkeletalFinSets1 ) );</span>
+{ 1 } ⱶ[ 1 ]→ { 1, 2 }
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfTrue( SkeletalFinSets1 ) );</span>
+{ 1 } ⱶ[ 2 ]→ { 1, 2 }
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfNot( SkeletalFinSets1 ) );</span>
+{ 1, 2 } ⱶ[ 2, 1 ]→ { 1, 2 }
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CartesianSquareOfSubobjectClassifier( SkeletalFinSets1 );</span>
 |4|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfAnd( SkeletalFinSets ) );</span>
-{ 0,..., 3 } ⱶ[ 0, 0, 0, 1 ]→ { 0, 1 }
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfOr( SkeletalFinSets ) );</span>
-{ 0,..., 3 } ⱶ[ 0, 1, 1, 1 ]→ { 0, 1 }
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfImplies( SkeletalFinSets ) );</span>
-{ 0,..., 3 } ⱶ[ 1, 0, 1, 1 ]→ { 0, 1 }
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S := FinSet( 5 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfAnd( SkeletalFinSets1 ) );</span>
+{ 1,..., 4 } ⱶ[ 1, 1, 1, 2 ]→ { 1, 2 }
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfOr( SkeletalFinSets1 ) );</span>
+{ 1,..., 4 } ⱶ[ 1, 2, 2, 2 ]→ { 1, 2 }
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfImplies( SkeletalFinSets1 ) );</span>
+{ 1,..., 4 } ⱶ[ 2, 1, 2, 2 ]→ { 1, 2 }
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S := FinSet1( 5 );</span>
 |5|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">A := FinSet( 2 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">A := FinSet1( 2 );</span>
 |2|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := MapOfFinSets( A, [ 0, 4 ], S );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := MapOfFinSets( A, [ 1, 5 ], S );</span>
 |2| → |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( ClassifyingMorphismOfSubobject( m ) );</span>
-{ 0,..., 4 } ⱶ[ 1, 0, 0, 0, 1 ]→ { 0, 1 }
+{ 1,..., 5 } ⱶ[ 2, 1, 1, 1, 2 ]→ { 1, 2 }
 </pre></div>
 
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSet( 7 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSet1( 7 );</span>
 |7|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">N := FinSet( 3 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">N := FinSet1( 3 );</span>
 |3|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iotaN := MapOfFinSets( N, [ 1, 2, 4 ], M );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iotaN := MapOfFinSets( N, [ 2, 3, 5 ], M );</span>
 |3| → |7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NC := PseudoComplementSubobject( iotaN );</span>
 |4|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">tauN := EmbeddingOfPseudoComplementSubobject( iotaN );</span>
 |4| ↪ |7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( tauN );</span>
-{ 0,..., 3 } ⱶ[ 0, 3, 5, 6 ]→ { 0,..., 6 }
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := FinSet( 4 );</span>
+{ 1,..., 4 } ⱶ[ 1, 4, 6, 7 ]→ { 1,..., 7 }
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := FinSet1( 4 );</span>
 |4|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iotaL := MapOfFinSets( L, [ 1, 3, 4, 6 ], M );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iotaL := MapOfFinSets( L, [ 2, 4, 5, 7 ], M );</span>
 |4| → |7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NIL := IntersectionSubobject( iotaN, iotaL );</span>
 |2|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iotaNiL := EmbeddingOfIntersectionSubobject( iotaN, iotaL );</span>
 |2| ↪ |7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( iotaNiL );</span>
-{ 0, 1 } ⱶ[ 1, 4 ]→ { 0,..., 6 }
+{ 1, 2 } ⱶ[ 2, 5 ]→ { 1,..., 7 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NUL := UnionSubobject( iotaN, iotaL );</span>
 |5|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iotaNuL := EmbeddingOfUnionSubobject( iotaN, iotaL );</span>
 |5| → |7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( iotaNuL );</span>
-{ 0,..., 4 } ⱶ[ 1, 2, 3, 4, 6 ]→ { 0,..., 6 }
+{ 1,..., 5 } ⱶ[ 2, 3, 4, 5, 7 ]→ { 1,..., 7 }
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NPL := RelativePseudoComplementSubobject( iotaN, iotaL );</span>
 |6|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iotaNpL := EmbeddingOfRelativePseudoComplementSubobject( iotaN, iotaL );</span>
 |6| ↪ |7|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( iotaNpL );</span>
-{ 0,..., 5 } ⱶ[ 0, 1, 3, 4, 5, 6 ]→ { 0,..., 6 }
+{ 1,..., 6 } ⱶ[ 1, 2, 4, 5, 6, 7 ]→ { 1,..., 7 }
 </pre></div>
 
 <p><a id="X7A714DD6853DF4FB" name="X7A714DD6853DF4FB"></a></p>
 
 <h5>2.5-22 <span class="Heading">Skeletal Pushout Complement</span></h5>
 
-<p>Define two composable monos <span class="Math">K \stackrel{l}{\hookrightarrow} L \stackrel{m}{\hookrightarrow} G</span> in <code class="code">SkeletalFinSets</code>:</p>
+<p>Define two composable monos <span class="Math">K \stackrel{l}{\hookrightarrow} L \stackrel{m}{\hookrightarrow} G</span> in <code class="code">SkeletalFinSets1</code>:</p>
 
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">K := FinSet( 3 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">K := FinSet1( 3 );</span>
 |3|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := FinSet( 6 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := FinSet1( 6 );</span>
 |6|
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">l := MapOfFinSets( K, [ 2 .. 4 ], L );; IsMonomorphism( l );; l;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">l := MapOfFinSets( K, [ 3 .. 5 ], L );; IsMonomorphism( l );; l;</span>
 |3| ↪ |6|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( l );</span>
-{ 0, 1, 2 } ⱶ[ 2 .. 4 ]→ { 0,..., 5 }
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := FinSet( 8 );</span>
+{ 1, 2, 3 } ⱶ[ 3 .. 5 ]→ { 1,..., 6 }
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := FinSet1( 8 );</span>
 |8|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( G );</span>
-{ 0,..., 7 }
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := MapOfFinSets( L, [ 0, 1, 2, 3, 5, 6 ], G );</span>
+{ 1,..., 8 }
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := MapOfFinSets( L, [ 1, 2, 3, 4, 6, 7 ], G );</span>
 |6| → |8|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( m );</span>
-{ 0,..., 5 } ⱶ[ 0, 1, 2, 3, 5, 6 ]→ { 0,..., 7 }
+{ 1,..., 6 } ⱶ[ 1, 2, 3, 4, 6, 7 ]→ { 1,..., 8 }
 </pre></div>
 
 <p>Now we compute the pushout complement <span class="Math">D \stackrel{c}{\hookrightarrow} G</span> of <span class="Math">K \stackrel{l}{\hookrightarrow} L \stackrel{m}{\hookrightarrow} G</span>:</p>
@@ -1476,14 +1327,63 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c := PushoutComplement( l, m );</span>
 |5| → |8|
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( c );</span>
-{ 0,..., 4 } ⱶ[ 2, 3, 4, 5, 7 ]→ { 0,..., 7 }
+{ 1,..., 5 } ⱶ[ 3, 4, 5, 6, 8 ]→ { 1,..., 8 }
+</pre></div>
+
+<p><a id="X87F287CE873DF50E" name="X87F287CE873DF50E"></a></p>
+
+<h5>2.5-23 <span class="Heading">Morphisms of external Hom</span></h5>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := FinSet1( 0 );</span>
+|0|
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSet1( 2 );</span>
+|2|
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">N := FinSet1( 3 );</span>
+|3|
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( MorphismsOfExternalHom( L, L ) );</span>
+[ ∅ ⱶ[  ]→ ∅ ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( MorphismsOfExternalHom( M, L ) );</span>
+[  ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( MorphismsOfExternalHom( L, M ) );</span>
+[ ∅ ⱶ[  ]→ { 1, 2 } ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( MorphismsOfExternalHom( M, N ) );</span>
+[ { 1, 2 } ⱶ[ 1, 1 ]→ { 1, 2, 3 }, { 1, 2 } ⱶ[ 2, 1 ]→ { 1, 2, 3 },\
+ { 1, 2 } ⱶ[ 3, 1 ]→ { 1, 2, 3 }, { 1, 2 } ⱶ[ 1, 2 ]→ { 1, 2, 3 },\
+ { 1, 2 } ⱶ[ 2, 2 ]→ { 1, 2, 3 }, { 1, 2 } ⱶ[ 3, 2 ]→ { 1, 2, 3 },\
+ { 1, 2 } ⱶ[ 1, 3 ]→ { 1, 2, 3 }, { 1, 2 } ⱶ[ 2, 3 ]→ { 1, 2, 3 },\
+ { 1, 2 } ⱶ[ 3, 3 ]→ { 1, 2, 3 } ]
+</pre></div>
+
+<p><a id="X80B4B4D781D153B6" name="X80B4B4D781D153B6"></a></p>
+
+<h5>2.5-24 <span class="Heading">Exact cover with global elements</span></h5>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := FinSet1( 0 );</span>
+|0|
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSet1( 2 );</span>
+|2|
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( ExactCoverWithGlobalElements( L ) );</span>
+[  ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := ExactCoverWithGlobalElements( M );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( g );</span>
+[ { 1 } ⱶ[ 1 ]→ { 1, 2 }, { 1 } ⱶ[ 2 ]→ { 1, 2 } ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsOne( UniversalMorphismFromCoproduct( g ) );</span>
+true
 </pre></div>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap1.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap3.html">[Next Chapter]</a>&nbsp;  </div>
 
 
-<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chapInd.html">Ind</a>  </div>
+<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chapInd.html">Ind</a>  </div>
 
 <hr />
 <p class="foot">generated by <a href="https://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc">GAPDoc2HTML</a></p>

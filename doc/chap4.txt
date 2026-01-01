@@ -1,0 +1,185 @@
+  
+  [1X4 [33X[0;0YPrecompilation[133X[101X
+  
+  
+  [1X4.1 [33X[0;0YPrecompiling ProjectionInFactorOfBinaryDirectProduct[133X[101X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X#@if ValueOption( "no_precompiled_code" ) <> true[128X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "CompilerForCAP", ">= 2023.12-09", false );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XReadPackageOnce( "FinSetsForCAP", "gap/CompilerLogic.gi" );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XsFinSets := CategoryOfSkeletalFinSets( : no_precompiled_code := true );[127X[104X
+    [4X[28XSkeletalFinSets[128X[104X
+    [4X[25Xgap>[125X [27XLeftProjectionInFactorOfBinaryDirectProduct :=[127X[104X
+    [4X[25X>[125X [27X  function( cat, a, b, axb )[127X[104X
+    [4X[25X>[125X [27X    return ProjectionInFactorOfDirectProductWithGivenDirectProduct( cat,[127X[104X
+    [4X[25X>[125X [27X                   [ a, b ],[127X[104X
+    [4X[25X>[125X [27X                   1,[127X[104X
+    [4X[25X>[125X [27X                   axb ); end;[127X[104X
+    [4X[28Xfunction( cat, a, b, axb ) ... end[128X[104X
+    [4X[25Xgap>[125X [27XRightProjectionInFactorOfBinaryDirectProduct :=[127X[104X
+    [4X[25X>[125X [27X  function( cat, a, b, axb )[127X[104X
+    [4X[25X>[125X [27X    return ProjectionInFactorOfDirectProductWithGivenDirectProduct( cat,[127X[104X
+    [4X[25X>[125X [27X                   [ a, b ],[127X[104X
+    [4X[25X>[125X [27X                   2,[127X[104X
+    [4X[25X>[125X [27X                   axb ); end;[127X[104X
+    [4X[28Xfunction( cat, a, b, axb ) ... end[128X[104X
+    [4X[25Xgap>[125X [27XStartTimer( "ProjectionInFactorOfBinaryDirectProduct" );[127X[104X
+    [4X[25Xgap>[125X [27Xcompiled_LeftProjectionInFactorOfBinaryDirectProduct :=[127X[104X
+    [4X[25X>[125X [27X  CapJitCompiledFunction( LeftProjectionInFactorOfBinaryDirectProduct,[127X[104X
+    [4X[25X>[125X [27X          sFinSets,[127X[104X
+    [4X[25X>[125X [27X          [ "category", "object", "object", "object" ],[127X[104X
+    [4X[25X>[125X [27X          "morphism" );[127X[104X
+    [4X[28Xfunction( cat_1, a_1, b_1, axb_1 ) ... end[128X[104X
+    [4X[25Xgap>[125X [27Xcompiled_RightProjectionInFactorOfBinaryDirectProduct :=[127X[104X
+    [4X[25X>[125X [27X  CapJitCompiledFunction( RightProjectionInFactorOfBinaryDirectProduct,[127X[104X
+    [4X[25X>[125X [27X          sFinSets,[127X[104X
+    [4X[25X>[125X [27X          [ "category", "object", "object", "object" ],[127X[104X
+    [4X[25X>[125X [27X          "morphism" );[127X[104X
+    [4X[28Xfunction( cat_1, a_1, b_1, axb_1 ) ... end[128X[104X
+    [4X[25Xgap>[125X [27XStopTimer( "ProjectionInFactorOfBinaryDirectProduct" );[127X[104X
+    [4X[25Xgap>[125X [27X#DisplayTimer( "ProjectionInFactorOfBinaryDirectProduct" );[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( compiled_LeftProjectionInFactorOfBinaryDirectProduct );[127X[104X
+    [4X[28Xfunction ( cat_1, a_1, b_1, axb_1 )[128X[104X
+    [4X[28X    local hoisted_1_1, deduped_3_1;[128X[104X
+    [4X[28X    deduped_3_1 := Cardinality( axb_1 );[128X[104X
+    [4X[28X    hoisted_1_1 := Cardinality( a_1 );[128X[104X
+    [4X[28X    return CreateCapCategoryMorphismWithAttributes( cat_1, axb_1, a_1,[128X[104X
+    [4X[28X       AsList, List( [ 0 .. deduped_3_1 - 1 ], function ( i_2 )[128X[104X
+    [4X[28X              return RemIntWithDomain( i_2, hoisted_1_1, deduped_3_1 );[128X[104X
+    [4X[28X          end ) );[128X[104X
+    [4X[28Xend[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( compiled_RightProjectionInFactorOfBinaryDirectProduct );[127X[104X
+    [4X[28Xfunction ( cat_1, a_1, b_1, axb_1 )[128X[104X
+    [4X[28X    local hoisted_1_1, deduped_3_1;[128X[104X
+    [4X[28X    deduped_3_1 := Cardinality( axb_1 );[128X[104X
+    [4X[28X    hoisted_1_1 := Cardinality( a_1 );[128X[104X
+    [4X[28X    return CreateCapCategoryMorphismWithAttributes( cat_1, axb_1, b_1,[128X[104X
+    [4X[28X       AsList, List( [ 0 .. deduped_3_1 - 1 ], function ( i_2 )[128X[104X
+    [4X[28X              return QuoIntWithDomain( i_2, hoisted_1_1, deduped_3_1 );[128X[104X
+    [4X[28X          end ) );[128X[104X
+    [4X[28Xend[128X[104X
+    [4X[28X#@fi[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X4.2 [33X[0;0YPrecompiling the skeletal category of finite sets[133X[101X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X#@if ValueOption( "no_precompiled_code" ) <> true[128X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "CompilerForCAP", ">= 2025.11-01", false );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XReadPackageOnce( "FinSetsForCAP", "gap/CompilerLogic.gi" );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xcategory_constructor := {} -> SkeletalCategoryOfFiniteSets( );;[127X[104X
+    [4X[25Xgap>[125X [27Xgiven_arguments := [ ];;[127X[104X
+    [4X[25Xgap>[125X [27Xcompiled_category_name :=[127X[104X
+    [4X[25X>[125X [27X  "SkeletalCategoryOfFiniteSetsWithMorphismsGivenByLists_precompiled";;[127X[104X
+    [4X[25Xgap>[125X [27Xpackage_name := "FinSetsForCAP";;[127X[104X
+    [4X[25Xgap>[125X [27Xprimitive_operations :=[127X[104X
+    [4X[25X>[125X [27X  ListPrimitivelyInstalledOperationsOfCategory([127X[104X
+    [4X[25X>[125X [27X          category_constructor( : no_precompiled_code := true ) );;[127X[104X
+    [4X[25Xgap>[125X [27Xlist_of_operations :=[127X[104X
+    [4X[25X>[125X [27X  SortedList( Concatenation( primitive_operations, [[127X[104X
+    [4X[25X>[125X [27X          "CartesianBraidingWithGivenDirectProducts",[127X[104X
+    [4X[25X>[125X [27X          "CartesianBraidingInverseWithGivenDirectProducts",[127X[104X
+    [4X[25X>[125X [27X          "CartesianLambdaIntroduction",[127X[104X
+    [4X[25X>[125X [27X          "CartesianRightEvaluationMorphismWithGivenSource",[127X[104X
+    [4X[25X>[125X [27X          "CartesianRightCoevaluationMorphismWithGivenRange",[127X[104X
+    [4X[25X>[125X [27X          "CoastrictionToImage",[127X[104X
+    [4X[25X>[125X [27X          "CoimageProjection",[127X[104X
+    [4X[25X>[125X [27X          "IsHomSetInhabited",[127X[104X
+    [4X[25X>[125X [27X          "TruthMorphismOfImplies",[127X[104X
+    [4X[25X>[125X [27X          "SingletonMorphismWithGivenPowerObject",[127X[104X
+    [4X[25X>[125X [27X          #"HasPushoutComplement",[127X[104X
+    [4X[25X>[125X [27X          #"PushoutComplement",[127X[104X
+    [4X[25X>[125X [27X          ] ) );;[127X[104X
+    [4X[25Xgap>[125X [27XCapJitPrecompileCategoryAndCompareResult([127X[104X
+    [4X[25X>[125X [27X        category_constructor,[127X[104X
+    [4X[25X>[125X [27X        given_arguments,[127X[104X
+    [4X[25X>[125X [27X        package_name,[127X[104X
+    [4X[25X>[125X [27X        compiled_category_name[127X[104X
+    [4X[25X>[125X [27X        : operations := list_of_operations,[127X[104X
+    [4X[25X>[125X [27X        number_of_objectified_objects_in_data_structure_of_object := 1,[127X[104X
+    [4X[25X>[125X [27X        number_of_objectified_morphisms_in_data_structure_of_object := 0,[127X[104X
+    [4X[25X>[125X [27X        number_of_objectified_objects_in_data_structure_of_morphism := 2,[127X[104X
+    [4X[25X>[125X [27X        number_of_objectified_morphisms_in_data_structure_of_morphism := 1[127X[104X
+    [4X[25X>[125X [27X);;[127X[104X
+    [4X[25Xgap>[125X [27XSkeletalCategoryOfFiniteSetsWithMorphismsGivenByLists_precompiled( );[127X[104X
+    [4X[28XSkeletalFinSets[128X[104X
+    [4X[25Xgap>[125X [27Xcat := SkeletalCategoryOfFiniteSets( );[127X[104X
+    [4X[28XSkeletalFinSets[128X[104X
+    [4X[25Xgap>[125X [27Xcat!.precompiled_functions_added;[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[28X#@fi[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X4.3 [33X[0;0YPrecompiling the skeletal category of finite sets with counting starting[101X
+  [1Xat 1[133X[101X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X#@if ValueOption( "no_precompiled_code" ) <> true[128X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "CompilerForCAP", ">= 2025.11-01", false );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XReadPackageOnce( "FinSetsForCAP", "gap/CompilerLogic.gi" );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XReadPackageOnce( "FinSetsForCAP",[127X[104X
+    [4X[25X>[125X [27X        "gap/CompilerLogicWithCountingStartingAt1.gi" );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xcategory_constructor := sFinSets ->[127X[104X
+    [4X[25X>[125X [27X  SkeletalCategoryOfFiniteSetsWithCountingStartingAt1( sFinSets );;[127X[104X
+    [4X[25Xgap>[125X [27Xgiven_arguments := [ SkeletalFinSets ];;[127X[104X
+    [4X[25Xgap>[125X [27Xcompiled_category_name :=[127X[104X
+    [4X[25X>[125X [27X  "SkeletalCategoryOfFiniteSetsWithMorphismsGivenByLists\[127X[104X
+    [4X[25X>[125X [27XAndCountingStartingAt1_precompiled";;[127X[104X
+    [4X[25Xgap>[125X [27Xpackage_name := "FinSetsForCAP";;[127X[104X
+    [4X[25Xgap>[125X [27Xprimitive_operations :=[127X[104X
+    [4X[25X>[125X [27X  ListPrimitivelyInstalledOperationsOfCategory([127X[104X
+    [4X[25X>[125X [27X          category_constructor( given_arguments[1][127X[104X
+    [4X[25X>[125X [27X                  : no_precompiled_code := true ) );;[127X[104X
+    [4X[25Xgap>[125X [27Xlist_of_operations :=[127X[104X
+    [4X[25X>[125X [27X  SortedList( Concatenation( primitive_operations, [[127X[104X
+    [4X[25X>[125X [27X          "CartesianBraidingWithGivenDirectProducts",[127X[104X
+    [4X[25X>[125X [27X          "CartesianBraidingInverseWithGivenDirectProducts",[127X[104X
+    [4X[25X>[125X [27X          "CartesianLambdaIntroduction",[127X[104X
+    [4X[25X>[125X [27X          "CartesianRightEvaluationMorphismWithGivenSource",[127X[104X
+    [4X[25X>[125X [27X          "CartesianRightCoevaluationMorphismWithGivenRange",[127X[104X
+    [4X[25X>[125X [27X          "CoastrictionToImage",[127X[104X
+    [4X[25X>[125X [27X          "CoimageProjection",[127X[104X
+    [4X[25X>[125X [27X          #"IsHomSetInhabited",[127X[104X
+    [4X[25X>[125X [27X          "TruthMorphismOfImplies",[127X[104X
+    [4X[25X>[125X [27X          "SingletonMorphismWithGivenPowerObject",[127X[104X
+    [4X[25X>[125X [27X          #"HasPushoutComplement",[127X[104X
+    [4X[25X>[125X [27X          #"PushoutComplement",[127X[104X
+    [4X[25X>[125X [27X          ] ) );;[127X[104X
+    [4X[25Xgap>[125X [27XCapJitPrecompileCategoryAndCompareResult([127X[104X
+    [4X[25X>[125X [27X        category_constructor,[127X[104X
+    [4X[25X>[125X [27X        given_arguments,[127X[104X
+    [4X[25X>[125X [27X        package_name,[127X[104X
+    [4X[25X>[125X [27X        compiled_category_name[127X[104X
+    [4X[25X>[125X [27X        : operations := list_of_operations,[127X[104X
+    [4X[25X>[125X [27X        number_of_objectified_objects_in_data_structure_of_object := 1,[127X[104X
+    [4X[25X>[125X [27X        number_of_objectified_morphisms_in_data_structure_of_object := 0,[127X[104X
+    [4X[25X>[125X [27X        number_of_objectified_objects_in_data_structure_of_morphism := 2,[127X[104X
+    [4X[25X>[125X [27X        number_of_objectified_morphisms_in_data_structure_of_morphism := 1[127X[104X
+    [4X[25X>[125X [27X);;[127X[104X
+    [4X[25Xgap>[125X [27XSkeletalCategoryOfFiniteSetsWithMorphismsGivenByLists\[127X[104X
+    [4X[25X>[125X [27XAndCountingStartingAt1_precompiled( SkeletalFinSets );[127X[104X
+    [4X[28XSkeletalFinSets1[128X[104X
+    [4X[25Xgap>[125X [27Xcat :=[127X[104X
+    [4X[25X>[125X [27X  SkeletalCategoryOfFiniteSetsWithCountingStartingAt1( SkeletalFinSets );[127X[104X
+    [4X[28XSkeletalFinSets1[128X[104X
+    [4X[25Xgap>[125X [27Xcat!.precompiled_functions_added;[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[28X#@fi[128X[104X
+  [4X[32X[104X
+  

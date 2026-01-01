@@ -8,7 +8,7 @@
 <script type="text/javascript"
   src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
-<title>GAP (FinSetsForCAP) - Chapter 3: Precompilation</title>
+<title>GAP (FinSetsForCAP) - Chapter 3: The category of finite sets</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta name="generator" content="GAPDoc2HTML" />
 <link rel="stylesheet" type="text/css" href="manual.css" />
@@ -18,151 +18,1479 @@
 <body class="chap3"  onload="jscontent()">
 
 
-<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0_mj.html">Top</a>  <a href="chap1_mj.html">1</a>  <a href="chap2_mj.html">2</a>  <a href="chap3_mj.html">3</a>  <a href="chapInd_mj.html">Ind</a>  </div>
+<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0_mj.html">Top</a>  <a href="chap1_mj.html">1</a>  <a href="chap2_mj.html">2</a>  <a href="chap3_mj.html">3</a>  <a href="chap4_mj.html">4</a>  <a href="chapInd_mj.html">Ind</a>  </div>
 
-<div class="chlinkprevnexttop">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap2_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chapInd_mj.html">[Next Chapter]</a>&nbsp;  </div>
+<div class="chlinkprevnexttop">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap2_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap4_mj.html">[Next Chapter]</a>&nbsp;  </div>
 
 <p id="mathjaxlink" class="pcenter"><a href="chap3.html">[MathJax off]</a></p>
-<p><a id="X7D7026828261C26B" name="X7D7026828261C26B"></a></p>
-<div class="ChapSects"><a href="chap3_mj.html#X7D7026828261C26B">3 <span class="Heading">Precompilation</span></a>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3_mj.html#X7ACF4A427C74DACB">3.1 <span class="Heading">Precompiling ProjectionInFactorOfBinaryDirectProduct</span></a>
+<p><a id="X874B56887B635D84" name="X874B56887B635D84"></a></p>
+<div class="ChapSects"><a href="chap3_mj.html#X874B56887B635D84">3 <span class="Heading">The category of finite sets</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3_mj.html#X7C701DBF7BAE649A">3.1 <span class="Heading">Attributes</span></a>
 </span>
-</div>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3_mj.html#X7C9560E084A9A27C">3.2 <span class="Heading">Precompiling the skeletal category of finite sets</span></a>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X818FAED37BDF573D">3.1-1 AsList</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X84697C247FAB3071">3.1-2 Length</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X8061C2DC84A97743">3.1-3 AsList</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3_mj.html#X86EC0F0A78ECBC10">3.2 <span class="Heading">Constructors</span></a>
 </span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7D6F0BC08496764E">3.2-1 CategoryOfFiniteSets</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7FFB780579C2D747">3.2-2 FinSets</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X820139117FD07B41">3.2-3 FinSet</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X87A9DC387CF8B19B">3.2-4 FinSet</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X8060BBD67A020362">3.2-5 FinSetNC</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7890DCB87BF5B565">3.2-6 FinSetNC</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X813A7C1B8212E52F">3.2-7 MapOfFinSets</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X786BE8607F52781B">3.2-8 MapOfFinSetsNC</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3_mj.html#X8508AEF8845565A1">3.3 <span class="Heading">Tools</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X8433D5317EBA3B2C">3.3-1 IsEqualForElementsOfFinSets</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X84A318EC82F38F5D"><code>3.3-2 \in</code></a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X87EFA16D7CEF82C7">3.3-3 []</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X87651EE57B06EE95">3.3-4 Iterator</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X822C05517A0E44E9">3.3-5 UnionOfFinSets</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X8618E29486BF2933">3.3-6 ListOp</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X8358F2F57A83404C">3.3-7 FilteredOp</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7C9C8AA5852921C2">3.3-8 First</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7B7398B180764956">3.3-9 EmbeddingOfFinSets</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7BC963747AF63760">3.3-10 ProjectionOfFinSets</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7F1B3FD3835A966C">3.3-11 Preimage</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X86A5E22A822D3A7D">3.3-12 ImageObject</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7E4A5B6D87B79D4D">3.3-13 CallFuncList</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X781AB537830F0FC4">3.3-14 ListOp</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3_mj.html#X7D03633A7D98026B">3.4 <span class="Heading">GAP Categories</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7B46F7027CEA500F">3.4-1 IsCategoryOfFiniteSets</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X825134E18488F4B4">3.4-2 IsObjectInCategoryOfFiniteSets</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7AD6178583B36F07">3.4-3 IsMorphismInCategoryOfFiniteSets</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3_mj.html#X7A489A5D79DA9E5C">3.5 <span class="Heading">Examples</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X84563B1A835E9766">3.5-1 <span class="Heading">IsHomSetInhabited</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7962726878BD8B89">3.5-2 <span class="Heading">PreCompose</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7BE5CD8087757591">3.5-3 <span class="Heading">IsEpimorphism and IsMonomorhism</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X821C93887C729BF2">3.5-4 <span class="Heading">Initial and Terminal Objects</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X84F70EEE8189BD7B">3.5-5 <span class="Heading">Projective and Injective Objects</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7E5C72F27B657948">3.5-6 <span class="Heading">Product</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7E8036DF7AC65994">3.5-7 <span class="Heading">Coproduct</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X87F4D35A826599C6">3.5-8 <span class="Heading">Image</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7EB02EC487B586E5">3.5-9 <span class="Heading">Coimage</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X824FD8F786D2350D">3.5-10 <span class="Heading">Equalizer</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7C705F2A79F8E43C">3.5-11 <span class="Heading">Pullback</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7BA8F7BD793CC288">3.5-12 <span class="Heading">Coequalizer</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X81A2D49D85923894">3.5-13 <span class="Heading">Pushout</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7BFCFE167948EB2B">3.5-14 <span class="Heading">Cartesian Lambda Introduction</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7DC1099D7D615250">3.5-15 <span class="Heading">Lift</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X8107039F816355E5">3.5-16 <span class="Heading">Singleton morphism</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X8093B84081CFD240">3.5-17 <span class="Heading">Topos properties</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X87DA77E487F951EF">3.5-18 <span class="Heading">Subobject Classifier</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X81FD0D9179A75F88">3.5-19 <span class="Heading">Pushout Complement</span></a>
+</span>
+</div></div>
 </div>
-</div>
 
-<h3>3 <span class="Heading">Precompilation</span></h3>
+<h3>3 <span class="Heading">The category of finite sets</span></h3>
 
-<p><a id="X7ACF4A427C74DACB" name="X7ACF4A427C74DACB"></a></p>
+<p><a id="X7C701DBF7BAE649A" name="X7C701DBF7BAE649A"></a></p>
 
-<h4>3.1 <span class="Heading">Precompiling ProjectionInFactorOfBinaryDirectProduct</span></h4>
+<h4>3.1 <span class="Heading">Attributes</span></h4>
+
+<p><a id="X818FAED37BDF573D" name="X818FAED37BDF573D"></a></p>
+
+<h5>3.1-1 AsList</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AsList</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: a <strong class="pkg">GAP</strong> set</p>
+
+<p>The <strong class="pkg">GAP</strong> set of the list used to construct a finite set <span class="SimpleMath">\(S\)</span>, i.e., <code class="code">AsList( FinSet( <var class="Arg">L</var> ) ) = Set( <var class="Arg">L</var> )</code>.</p>
+
+<p><a id="X84697C247FAB3071" name="X84697C247FAB3071"></a></p>
+
+<h5>3.1-2 Length</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Length</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: an integer</p>
+
+<p>The length of the <strong class="pkg">GAP</strong> set of the list used to construct a finite set <span class="SimpleMath">\(S\)</span>, i.e., <code class="code">Length( FinSet( <var class="Arg">L</var> ) ) = Length( Set( <var class="Arg">L</var> ) )</code>.</p>
+
+<p><a id="X8061C2DC84A97743" name="X8061C2DC84A97743"></a></p>
+
+<h5>3.1-3 AsList</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AsList</code>( <var class="Arg">f</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: a list</p>
+
+<p>The relation underlying a map between finite sets, i.e., <code class="code">AsList( MapOfFinSets( S, <var class="Arg">G</var>, T ) ) = <var class="Arg">G</var></code>.</p>
+
+<p><a id="X86EC0F0A78ECBC10" name="X86EC0F0A78ECBC10"></a></p>
+
+<h4>3.2 <span class="Heading">Constructors</span></h4>
+
+<p><a id="X7D6F0BC08496764E" name="X7D6F0BC08496764E"></a></p>
+
+<h5>3.2-1 CategoryOfFiniteSets</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CategoryOfFiniteSets</code>(  )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: a CAP category</p>
+
+<p>Construct a category of finite sets.</p>
+
+<p><a id="X7FFB780579C2D747" name="X7FFB780579C2D747"></a></p>
+
+<h5>3.2-2 FinSets</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FinSets</code></td><td class="tdright">(&nbsp;global variable&nbsp;)</td></tr></table></div>
+<p>The default instance of the category of finite sets. It is automatically created while loading this package.</p>
+
+<p><a id="X820139117FD07B41" name="X820139117FD07B41"></a></p>
+
+<h5>3.2-3 FinSet</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FinSet</code>( <var class="Arg">cat_of_fin_sets</var>, <var class="Arg">L</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: a CAP object</p>
+
+<p>Construct a finite set out of the dense list <var class="Arg">L</var>, i.e., an object in the CAP category <code class="code">cat_of_fin_sets</code>. The <strong class="pkg">GAP</strong> operation <code class="code">Set</code> must be applicable to <var class="Arg">L</var> without throwing an error. Equality is determined as follows: <code class="code">FinSet( L1 ) = FinSet( L2 )</code> iff <code class="code">IsEqualForElementsOfFinSets( Immutable( Set( L1 ) ), Immutable( Set( L2 ) ) )</code>. Warning: all internal operations use <code class="code">FinSetNC</code> (see below) instead of <code class="code">FinSet</code>. Thus, this notion of equality is only valid for objects created by calling <code class="code">FinSet</code> explicitly. Internally, <code class="code">FinSet( cat_of_fin_sets, L )</code> is an alias for <code class="code">FinSetNC( cat_of_fin_sets, Set( L ) )</code> and equality is determined as for <code class="code">FinSetNC</code>. Thus, <code class="code">FinSet( cat_of_fin_sets, L1 ) = FinSetNC( cat_of_fin_sets, L2 )</code> iff <code class="code">IsEqualForElementsOfFinSets( Immutable( Set( L1 ) ), Immutable( L2 ) )</code> and <code class="code">FinSetNC( cat_of_fin_sets, L1 ) = FinSet( cat_of_fin_sets, L2 )</code> iff <code class="code">IsEqualForElementsOfFinSets( Immutable( L1 ), Immutable( Set( L2 ) ) )</code>.</p>
+
+<p><a id="X87A9DC387CF8B19B" name="X87A9DC387CF8B19B"></a></p>
+
+<h5>3.2-4 FinSet</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FinSet</code>( <var class="Arg">L</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: a CAP object</p>
+
+<p>Return <code class="code">FinSet</code>( <code class="code">FinSets</code>, <var class="Arg">L</var> ).</p>
 
 
 <div class="example"><pre>
-#@if ValueOption( "no_precompiled_code" ) &lt;&gt; true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "CompilerForCAP", "&gt;= 2023.12-09", false );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S := FinSet( [ 1, 3, 2, 2, 1 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( S );</span>
+[ 1, 2, 3 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := AsList( S );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( L );</span>
+[ 1, 2, 3 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Q := FinSet( L );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S = Q;</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ReadPackageOnce( "FinSetsForCAP", "gap/CompilerLogic.gi" );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">FinSet( [ 1, 2 ] ) = FinSet( [ 2, 1 ] );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">sFinSets := CategoryOfSkeletalFinSets( : no_precompiled_code := true );</span>
-SkeletalFinSets
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LeftProjectionInFactorOfBinaryDirectProduct :=</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">  function( cat, a, b, axb )</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">    return ProjectionInFactorOfDirectProductWithGivenDirectProduct( cat,</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">                   [ a, b ],</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">                   1,</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">                   axb ); end;</span>
-function( cat, a, b, axb ) ... end
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RightProjectionInFactorOfBinaryDirectProduct :=</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">  function( cat, a, b, axb )</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">    return ProjectionInFactorOfDirectProductWithGivenDirectProduct( cat,</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">                   [ a, b ],</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">                   2,</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">                   axb ); end;</span>
-function( cat, a, b, axb ) ... end
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">StartTimer( "ProjectionInFactorOfBinaryDirectProduct" );</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">compiled_LeftProjectionInFactorOfBinaryDirectProduct :=</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">  CapJitCompiledFunction( LeftProjectionInFactorOfBinaryDirectProduct,</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">          sFinSets,</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">          [ "category", "object", "object", "object" ],</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">          "morphism" );</span>
-function( cat_1, a_1, b_1, axb_1 ) ... end
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">compiled_RightProjectionInFactorOfBinaryDirectProduct :=</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">  CapJitCompiledFunction( RightProjectionInFactorOfBinaryDirectProduct,</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">          sFinSets,</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">          [ "category", "object", "object", "object" ],</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">          "morphism" );</span>
-function( cat_1, a_1, b_1, axb_1 ) ... end
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">StopTimer( "ProjectionInFactorOfBinaryDirectProduct" );</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">#DisplayTimer( "ProjectionInFactorOfBinaryDirectProduct" );</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( compiled_LeftProjectionInFactorOfBinaryDirectProduct );</span>
-function ( cat_1, a_1, b_1, axb_1 )
-    local hoisted_1_1, deduped_3_1;
-    deduped_3_1 := Cardinality( axb_1 );
-    hoisted_1_1 := Cardinality( a_1 );
-    return CreateCapCategoryMorphismWithAttributes( cat_1, axb_1, a_1,
-       AsList, List( [ 0 .. deduped_3_1 - 1 ], function ( i_2 )
-              return RemIntWithDomain( i_2, hoisted_1_1, deduped_3_1 );
-          end ) );
-end
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( compiled_RightProjectionInFactorOfBinaryDirectProduct );</span>
-function ( cat_1, a_1, b_1, axb_1 )
-    local hoisted_1_1, deduped_3_1;
-    deduped_3_1 := Cardinality( axb_1 );
-    hoisted_1_1 := Cardinality( a_1 );
-    return CreateCapCategoryMorphismWithAttributes( cat_1, axb_1, b_1,
-       AsList, List( [ 0 .. deduped_3_1 - 1 ], function ( i_2 )
-              return QuoIntWithDomain( i_2, hoisted_1_1, deduped_3_1 );
-          end ) );
-end
-#@fi
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSetNC( [ 1, 2, 3, 3 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( M );</span>
+false
 </pre></div>
 
-<p><a id="X7C9560E084A9A27C" name="X7C9560E084A9A27C"></a></p>
+<p><a id="X8060BBD67A020362" name="X8060BBD67A020362"></a></p>
 
-<h4>3.2 <span class="Heading">Precompiling the skeletal category of finite sets</span></h4>
+<h5>3.2-5 FinSetNC</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FinSetNC</code>( <var class="Arg">cat_of_fin_sets</var>, <var class="Arg">L</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: a CAP object</p>
+
+<p>Construct a finite set out of the duplicate-free (w.r.t. <code class="code">IsEqualForElementsOfFinSets</code>) and dense list <var class="Arg">L</var>, i.e., an object in the CAP category <code class="code">cat_of_fin_sets,</code>. Equality is determined as follows: <code class="code">FinSetNC( cat_of_fin_sets, L1 ) = FinSetNC( cat_of_fin_sets, L2 )</code> iff <code class="code">IsEqualForElementsOfFinSets( Immutable( L1 ), Immutable( L2 ) )</code>.</p>
+
+<p><a id="X7890DCB87BF5B565" name="X7890DCB87BF5B565"></a></p>
+
+<h5>3.2-6 FinSetNC</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FinSetNC</code>( <var class="Arg">L</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: a CAP object</p>
+
+<p>Return <code class="code">FinSetNC</code>( <code class="code">FinSets</code>, <var class="Arg">L</var> ).</p>
 
 
 <div class="example"><pre>
-#@if ValueOption( "no_precompiled_code" ) &lt;&gt; true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "CompilerForCAP", "&gt;= 2025.11-01", false );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S := FinSetNC( [ 1, 3, 2 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( S );</span>
+[ 1, 3, 2 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := AsList( S );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( L );</span>
+[ 1, 3, 2 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Q := FinSetNC( L );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S = Q;</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ReadPackageOnce( "FinSetsForCAP", "gap/CompilerLogic.gi" );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S := ObjectConstructor( FinSets, [ 1, 3, 2 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( S );</span>
+[ 1, 3, 2 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := ObjectDatum( S );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( L );</span>
+[ 1, 3, 2 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Q := ObjectConstructor( FinSets, L );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S = Q;</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">category_constructor := {} -&gt; SkeletalCategoryOfFiniteSets( );;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">given_arguments := [ ];;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">compiled_category_name :=</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">  "SkeletalCategoryOfFiniteSetsWithMorphismsGivenByLists_precompiled";;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">package_name := "FinSetsForCAP";;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">primitive_operations :=</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">  ListPrimitivelyInstalledOperationsOfCategory(</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">          category_constructor( : no_precompiled_code := true ) );;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">list_of_operations :=</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">  SortedList( Concatenation( primitive_operations, [</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">          "CartesianBraidingWithGivenDirectProducts",</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">          "CartesianBraidingInverseWithGivenDirectProducts",</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">          "CartesianLambdaIntroduction",</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">          "CartesianRightEvaluationMorphismWithGivenSource",</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">          "CartesianRightCoevaluationMorphismWithGivenRange",</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">          "CoastrictionToImage",</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">          "CoimageProjection",</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">          "IsHomSetInhabited",</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">          "TruthMorphismOfImplies",</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">          "SingletonMorphismWithGivenPowerObject",</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">          #"HasPushoutComplement",</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">          #"PushoutComplement",</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">          ] ) );;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CapJitPrecompileCategoryAndCompareResult(</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">        category_constructor,</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">        given_arguments,</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">        package_name,</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">        compiled_category_name</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">        : operations := list_of_operations,</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">        number_of_objectified_objects_in_data_structure_of_object := 1,</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">        number_of_objectified_morphisms_in_data_structure_of_object := 0,</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">        number_of_objectified_objects_in_data_structure_of_morphism := 2,</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">        number_of_objectified_morphisms_in_data_structure_of_morphism := 1</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">FinSetNC( [ 1, 2 ] ) = FinSetNC( [ 2, 1 ] );</span>
+false
+</pre></div>
+
+<p><a id="X813A7C1B8212E52F" name="X813A7C1B8212E52F"></a></p>
+
+<h5>3.2-7 MapOfFinSets</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MapOfFinSets</code>( <var class="Arg">S</var>, <var class="Arg">G</var>, <var class="Arg">T</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: a CAP morphism</p>
+
+<p>Construct a map <span class="SimpleMath">\(\phi:\)</span><var class="Arg">S</var><span class="SimpleMath">\(\to\)</span><var class="Arg">T</var> of the finite sets <var class="Arg">S</var> and <var class="Arg">T</var>, i.e., a morphism in the CAP category <code class="code">FinSets</code>, where <var class="Arg">G</var> is a dense list of pairs in <var class="Arg">S</var><span class="SimpleMath">\(\times\)</span><var class="Arg">T</var> describing the graph of <span class="SimpleMath">\(\phi\)</span>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S := FinSet( [ 1, 3, 2, 2, 1 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">T := FinSet( [ "a", "b", "c" ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := [ [ 1, "b" ], [ 3, "b" ], [ 2, "a" ] ];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( S, G, T );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( phi );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( phi ) );</span>
+[ [ 1, "b" ], [ 2, "a" ], [ 3, "b" ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi2 := MorphismConstructor( S, G, T );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( MorphismDatum( phi2 ) );</span>
+[ [ 1, "b" ], [ 2, "a" ], [ 3, "b" ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi = phi2;</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi( 1 );</span>
+"b"
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi( 2 );</span>
+"a"
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi( 3 );</span>
+"b"
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( List( S, phi ) );</span>
+[ "b", "a", "b" ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := [ [ 1, "b" ], [ 2, "a" ], [ 3, "b" ] ];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := MapOfFinSets( S, psi, T );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( psi );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi = psi;</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := MapOfFinSets( S, [ [ 1, "d" ], [ 3, "b" ] ], T );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( psi );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := MapOfFinSets( S, [ 1, 2, 3 ], T );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( psi );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := MapOfFinSets( S, [ [ 1, "b" ], [ 3, "b" ], [ 2, "a", "b" ] ], T );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( psi );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := MapOfFinSets( S, [ [ 5, "b" ], [ 3, "b" ], [ 2, "a" ] ], T );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( psi );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := MapOfFinSets( S, [ [ 1, "d" ], [ 3, "b" ], [ 2, "a" ] ], T );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( psi );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := MapOfFinSets( S, [ [ 1, "b" ], [ 2, "b" ], [ 2, "a" ] ], T );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( psi );</span>
+false
+</pre></div>
+
+<p><a id="X786BE8607F52781B" name="X786BE8607F52781B"></a></p>
+
+<h5>3.2-8 MapOfFinSetsNC</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MapOfFinSetsNC</code>( <var class="Arg">S</var>, <var class="Arg">G</var>, <var class="Arg">T</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: a CAP morphism</p>
+
+<p>Construct a map <span class="SimpleMath">\(\phi:\)</span><var class="Arg">S</var><span class="SimpleMath">\(\to\)</span><var class="Arg">T</var> of the finite sets <var class="Arg">S</var> and <var class="Arg">T</var>, i.e., a morphism in the CAP category <code class="code">FinSets</code>, where <var class="Arg">G</var> is a duplicate-free and dense list of pairs in <var class="Arg">S</var><span class="SimpleMath">\(\times\)</span><var class="Arg">T</var> describing the graph of <span class="SimpleMath">\(\phi\)</span>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S := FinSetNC( [ 1, 3, 2 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">T := FinSetNC( [ "a", "b", "c" ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := [ [ 1, "b" ], [ 3, "b" ], [ 2, "a" ] ];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSetsNC( S, G, T );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( phi );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi( 1 );</span>
+"b"
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi( 2 );</span>
+"a"
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi( 3 );</span>
+"b"
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( List( S, phi ) );</span>
+[ "b", "b", "a" ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := [ [ 1, "b" ], [ 2, "a" ], [ 3, "b" ] ];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := MapOfFinSetsNC( S, psi, T );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( psi );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi = psi;</span>
+true
+</pre></div>
+
+<p><a id="X8508AEF8845565A1" name="X8508AEF8845565A1"></a></p>
+
+<h4>3.3 <span class="Heading">Tools</span></h4>
+
+<p><a id="X8433D5317EBA3B2C" name="X8433D5317EBA3B2C"></a></p>
+
+<h5>3.3-1 IsEqualForElementsOfFinSets</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsEqualForElementsOfFinSets</code>( <var class="Arg">a</var>, <var class="Arg">b</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: a boolean</p>
+
+<p>Compares two arbitrary objects using the following rules:</p>
+
+
+<ul>
+<li><p>integers, strings and chars are compared using the operation <code class="code">=</code></p>
+
+</li>
+<li><p>dense lists and records are compared recursively</p>
+
+</li>
+<li><p>CAP category objects are compared using <code class="code">IsEqualForObjects</code> (if available)</p>
+
+</li>
+<li><p>CAP category morphisms are compared using <code class="code">IsEqualForMorphismsOnMor</code> (if available)</p>
+
+</li>
+<li><p>other objects are compared using <code class="code">IsIdenticalObj</code></p>
+
+</li>
+</ul>
+<p>Note: if CAP category objects or CAP category morphisms are compared using <code class="code">IsEqualForObjects</code> or <code class="code">IsEqualForMorphismsOnMor</code>, respectively, the result must not be <code class="code">fail</code>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEqualForElementsOfFinSets( 2, 2 );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEqualForElementsOfFinSets( 2, "2" );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEqualForElementsOfFinSets( 'a', 'a' );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEqualForElementsOfFinSets( 'a', 'b' );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEqualForElementsOfFinSets( [ 2 ], [ 2 ] );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEqualForElementsOfFinSets( [ 2 ], [ 2, 3 ] );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEqualForElementsOfFinSets( rec( a := "a", b := "b" ),</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">                             rec( b := "b", a := "a" )</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">                           );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEqualForElementsOfFinSets( rec( a := "a", b := "b" ),</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">                             rec( a := "a" )</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">                           );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEqualForElementsOfFinSets( rec( a := "a", b := "b" ),</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">                             rec( a := "a", b := "notb" )</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">                           );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSet( [ ] );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">N := FinSet( [ ] );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet( 0 );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">id_M := IdentityMorphism( M );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">id_N := IdentityMorphism( N );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">id_m := IdentityMorphism( m );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEqualForElementsOfFinSets( M, N );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEqualForElementsOfFinSets( M, m );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEqualForElementsOfFinSets( id_M, id_N );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEqualForElementsOfFinSets( id_M, id_m );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEqualForElementsOfFinSets( FinSets, SkeletalFinSets );</span>
+false
+</pre></div>
+
+<p><a id="X84A318EC82F38F5D" name="X84A318EC82F38F5D"></a></p>
+
+<h5><code>3.3-2 \in</code></h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; \in</code>( <var class="Arg">obj</var>, <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: a boolean</p>
+
+<p>Returns <code class="code">true</code> if there exists an element in <code class="code">AsList( <var class="Arg">M</var> )</code> which is equal to <var class="Arg">obj</var> w.r.t. <code class="code">IsEqualForElementsOfFinSets</code> and <code class="code">false</code> if not.</p>
+
+<p><a id="X87EFA16D7CEF82C7" name="X87EFA16D7CEF82C7"></a></p>
+
+<h5>3.3-3 []</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; []</code>( <var class="Arg">M</var>, <var class="Arg">i</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: an object</p>
+
+<p>Returns the <var class="Arg">i</var>-th entry of the <strong class="pkg">GAP</strong> set of the list used to construct a finite set <span class="SimpleMath">\(S\)</span>, i.e., <code class="code">FinSet( <var class="Arg">L</var> )[ i ] = Set( <var class="Arg">L</var> )[ i ]</code>.</p>
+
+<p><a id="X87651EE57B06EE95" name="X87651EE57B06EE95"></a></p>
+
+<h5>3.3-4 Iterator</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Iterator</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: an iterator</p>
+
+<p>An iterator of the <strong class="pkg">GAP</strong> set of the list used to construct a finite set <span class="SimpleMath">\(S\)</span>, i.e., <code class="code">Iterator( FinSet( <var class="Arg">L</var> ) ) = Iterator( Set( <var class="Arg">L</var> ) )</code>.</p>
+
+<p><a id="X822C05517A0E44E9" name="X822C05517A0E44E9"></a></p>
+
+<h5>3.3-5 UnionOfFinSets</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UnionOfFinSets</code>( <var class="Arg">cat_of_fin_sets</var>, <var class="Arg">L</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: a CAP object</p>
+
+<p>Compute the set-theoretic union of the elements of <var class="Arg">L</var>, where <var class="Arg">L</var> is a dense list of finite sets in the category <var class="Arg">cat_of_fin_sets</var>.</p>
+
+<p><a id="X8618E29486BF2933" name="X8618E29486BF2933"></a></p>
+
+<h5>3.3-6 ListOp</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ListOp</code>( <var class="Arg">M</var>, <var class="Arg">f</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: a list</p>
+
+<p>Returns <code class="code">List( AsList( <var class="Arg">M</var> ), <var class="Arg">f</var> )</code>.</p>
+
+<p><a id="X8358F2F57A83404C" name="X8358F2F57A83404C"></a></p>
+
+<h5>3.3-7 FilteredOp</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FilteredOp</code>( <var class="Arg">M</var>, <var class="Arg">f</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: a list</p>
+
+<p>Returns <code class="code">FinSetNC( Filtered( AsList( <var class="Arg">M</var> ), <var class="Arg">f</var> ) )</code>.</p>
+
+<p><a id="X7C9C8AA5852921C2" name="X7C9C8AA5852921C2"></a></p>
+
+<h5>3.3-8 First</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; First</code>( <var class="Arg">M</var>, <var class="Arg">f</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: a list</p>
+
+<p>Returns <code class="code">First( AsList( <var class="Arg">M</var> ), <var class="Arg">f</var> )</code>.</p>
+
+<p><a id="X7B7398B180764956" name="X7B7398B180764956"></a></p>
+
+<h5>3.3-9 EmbeddingOfFinSets</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EmbeddingOfFinSets</code>( <var class="Arg">S</var>, <var class="Arg">T</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: a CAP morphism</p>
+
+<p>Construct the embedding <span class="SimpleMath">\(\iota:\)</span><var class="Arg">S</var><span class="SimpleMath">\(\to\)</span><var class="Arg">T</var> of the finite sets <var class="Arg">S</var> and <var class="Arg">T</var>, where <var class="Arg">S</var> must be subset of <var class="Arg">T</var>.</p>
+
+<p><a id="X7BC963747AF63760" name="X7BC963747AF63760"></a></p>
+
+<h5>3.3-10 ProjectionOfFinSets</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ProjectionOfFinSets</code>( <var class="Arg">S</var>, <var class="Arg">T</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: a CAP morphism</p>
+
+<p>Construct the projection <span class="SimpleMath">\(\pi:\)</span><var class="Arg">S</var><span class="SimpleMath">\(\to\)</span><var class="Arg">T</var> of the finite sets <var class="Arg">S</var> and <var class="Arg">T</var>, where <var class="Arg">T</var> is a partition of <var class="Arg">S</var>.</p>
+
+<p><a id="X7F1B3FD3835A966C" name="X7F1B3FD3835A966C"></a></p>
+
+<h5>3.3-11 Preimage</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Preimage</code>( <var class="Arg">f</var>, <var class="Arg">T_</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: a CAP object</p>
+
+<p>Compute the preimage of <var class="Arg">T_</var> under the morphism <var class="Arg">f</var>.</p>
+
+<p><a id="X86A5E22A822D3A7D" name="X86A5E22A822D3A7D"></a></p>
+
+<h5>3.3-12 ImageObject</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ImageObject</code>( <var class="Arg">f</var>, <var class="Arg">S_</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: a CAP object</p>
+
+<p>Compute the image of <var class="Arg">S_</var> under the morphism <var class="Arg">f</var>.</p>
+
+<p><a id="X7E4A5B6D87B79D4D" name="X7E4A5B6D87B79D4D"></a></p>
+
+<h5>3.3-13 CallFuncList</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CallFuncList</code>( <var class="Arg">phi</var>, <var class="Arg">L</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: a list</p>
+
+<p>Returns the image of <code class="code"><var class="Arg">L</var>[1]</code> under the map <var class="Arg">phi</var> assuming <code class="code"><var class="Arg">L</var>[1]</code> is an element of <code class="code">AsList( Source( <var class="Arg">phi</var> ) )</code>.</p>
+
+<p><a id="X781AB537830F0FC4" name="X781AB537830F0FC4"></a></p>
+
+<h5>3.3-14 ListOp</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ListOp</code>( <var class="Arg">F</var>, <var class="Arg">phi</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: a list</p>
+
+<p>Returns <code class="code">List( AsList( <var class="Arg">F</var> ), <var class="Arg">phi</var> )</code>.</p>
+
+<p><a id="X7D03633A7D98026B" name="X7D03633A7D98026B"></a></p>
+
+<h4>3.4 <span class="Heading">GAP Categories</span></h4>
+
+<p><a id="X7B46F7027CEA500F" name="X7B46F7027CEA500F"></a></p>
+
+<h5>3.4-1 IsCategoryOfFiniteSets</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsCategoryOfFiniteSets</code>( <var class="Arg">object</var> )</td><td class="tdright">(&nbsp;filter&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
+
+<p>The GAP category of categories of finite sets.</p>
+
+<p><a id="X825134E18488F4B4" name="X825134E18488F4B4"></a></p>
+
+<h5>3.4-2 IsObjectInCategoryOfFiniteSets</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsObjectInCategoryOfFiniteSets</code>( <var class="Arg">object</var> )</td><td class="tdright">(&nbsp;filter&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
+
+<p>The GAP category of objects in the category of finite sets.</p>
+
+<p><a id="X7AD6178583B36F07" name="X7AD6178583B36F07"></a></p>
+
+<h5>3.4-3 IsMorphismInCategoryOfFiniteSets</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsMorphismInCategoryOfFiniteSets</code>( <var class="Arg">object</var> )</td><td class="tdright">(&nbsp;filter&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
+
+<p>The GAP category of morphisms in the category of finite sets.</p>
+
+<p><a id="X7A489A5D79DA9E5C" name="X7A489A5D79DA9E5C"></a></p>
+
+<h4>3.5 <span class="Heading">Examples</span></h4>
+
+<p><a id="X84563B1A835E9766" name="X84563B1A835E9766"></a></p>
+
+<h5>3.5-1 <span class="Heading">IsHomSetInhabited</span></h5>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := FinSet( [ ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSet( [ 2 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">N := FinSet( [ 3 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsHomSetInhabited( L, L );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsHomSetInhabited( M, L );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsHomSetInhabited( L, M );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsHomSetInhabited( M, N );</span>
+true
+</pre></div>
+
+<p><a id="X7962726878BD8B89" name="X7962726878BD8B89"></a></p>
+
+<h5>3.5-2 <span class="Heading">PreCompose</span></h5>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S := FinSet( [ 1, 2, 3 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">T := FinSet( [ "a", "b" ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := [ [ 1, "b" ], [ 2, "a" ], [ 3, "b" ] ];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( S, phi, T );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := [ [ "a", 3 ], [ "b", 1 ] ];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := MapOfFinSets( T, psi, S );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">alpha := PreCompose( phi, psi );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( List( S, alpha ) );</span>
+[ 1, 3, 1 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsOne( alpha );</span>
+false
+</pre></div>
+
+<p><a id="X7BE5CD8087757591" name="X7BE5CD8087757591"></a></p>
+
+<h5>3.5-3 <span class="Heading">IsEpimorphism and IsMonomorhism</span></h5>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S := FinSet( [ 1, 2, 3 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">T := S;</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := [ [ 1, 2 ], [ 2, 3 ], [ 3, 1 ] ];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( S, phi, T );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">I := ImageObject( phi );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Length( I );</span>
+3
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsMonomorphism( phi );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSplitMonomorphism( phi );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEpimorphism( phi );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSplitEpimorphism( phi );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota := ImageEmbedding( phi );</span>
+&lt;A monomorphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi := CoastrictionToImage( phi );</span>
+&lt;An epimorphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( pi, iota ) = phi;</span>
+true
+</pre></div>
+
+<p><a id="X821C93887C729BF2" name="X821C93887C729BF2"></a></p>
+
+<h5>3.5-4 <span class="Heading">Initial and Terminal Objects</span></h5>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSet( [ 1, 2, 3 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInitial( M );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsTerminal( M );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">I := InitialObject( FinSets );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInitial( I );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsTerminal( I );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota := UniversalMorphismFromInitialObject( M );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( I );</span>
+[  ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">T := TerminalObject( FinSets );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( T );</span>
+[ [  ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInitial( T );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsTerminal( T );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi := UniversalMorphismIntoTerminalObject( M );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIdenticalObj( Range( pi ), T );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">t := FinSet( [ "Julia" ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi_t := UniversalMorphismIntoTerminalObjectWithGivenTerminalObject( M, t );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( List( M, pi_t ) );</span>
+[ "Julia", "Julia", "Julia" ]
+</pre></div>
+
+<p><a id="X84F70EEE8189BD7B" name="X84F70EEE8189BD7B"></a></p>
+
+<h5>3.5-5 <span class="Heading">Projective and Injective Objects</span></h5>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">I := FinSet( [ ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">T := FinSet( [ 1 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSet( [ 2 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsProjective( I );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsProjective( T );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsProjective( M );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsOne( EpimorphismFromSomeProjectiveObject( I ) );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsOne( EpimorphismFromSomeProjectiveObject( M ) );</span>
+true
+</pre></div>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">I := FinSet( [ ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">T := FinSet( [ 1 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSet( [ 2 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInjective( I );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInjective( T );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInjective( M );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIsomorphism( MonomorphismIntoSomeInjectiveObject( I ) );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsMonomorphism( MonomorphismIntoSomeInjectiveObject( I ) );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsOne( MonomorphismIntoSomeInjectiveObject( M ) );</span>
+true
+</pre></div>
+
+<p><a id="X7E5C72F27B657948" name="X7E5C72F27B657948"></a></p>
+
+<h5>3.5-6 <span class="Heading">Product</span></h5>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S := FinSet( [ 1, 2, 3 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Length( S );</span>
+3
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">T := FinSet( [ "a", "b" ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Length( T );</span>
+2
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := DirectProduct( S, T );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Length( P );</span>
+6
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( P );</span>
+[ [ 1, "a" ], [ 2, "a" ], [ 3, "a" ], [ 1, "b" ], [ 2, "b" ], [ 3, "b" ] ]
+</pre></div>
+
+<p><a id="X7E8036DF7AC65994" name="X7E8036DF7AC65994"></a></p>
+
+<h5>3.5-7 <span class="Heading">Coproduct</span></h5>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S := FinSet( [ 1, 2, 3 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Length( S );</span>
+3
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">T := FinSet( [ "a", "b" ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Length( T );</span>
+2
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := Coproduct( T, S );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Length( C );</span>
+5
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( C );</span>
+[ [ 1, "a" ], [ 1, "b" ], [ 2, 1 ], [ 2, 2 ], [ 2, 3 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSet( [ 1, 2, 3, 4, 5, 6, 7 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">N := FinSet( [ 1, 2, 3 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := FinSet( [ 1, 2, 3, 4 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := Coproduct( M, N, P );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( C ) );</span>
+[ [ 1, 1 ], [ 1, 2 ], [ 1, 3 ], [ 1, 4 ], [ 1, 5 ], [ 1, 6 ],\
+ [ 1, 7 ], [ 2, 1 ], [ 2, 2 ], [ 2, 3 ], [ 3, 1 ], [ 3, 2 ],\
+ [ 3, 3 ], [ 3, 4 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota1 := InjectionOfCofactorOfCoproduct( [ M, N, P ], 1 );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( iota1 );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( iota1 ) );</span>
+[ [ 1, [ 1, 1 ] ], [ 2, [ 1, 2 ] ], [ 3, [ 1, 3 ] ], [ 4, [ 1, 4 ] ],\
+ [ 5, [ 1, 5 ] ], [ 6, [ 1, 6 ] ], [ 7, [ 1, 7 ] ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota2 := InjectionOfCofactorOfCoproduct( [ M, N, P ], 2 );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( iota2 );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( iota2 ) );</span>
+[ [ 1, [ 2, 1 ] ], [ 2, [ 2, 2 ] ], [ 3, [ 2, 3 ] ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota3 := InjectionOfCofactorOfCoproduct( [ M, N, P ], 3 );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( iota3 );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( iota3 ) );</span>
+[ [ 1, [ 3, 1 ] ], [ 2, [ 3, 2 ] ], [ 3, [ 3, 3 ] ], [ 4, [ 3, 4 ] ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := UniversalMorphismFromCoproduct( [ M, N, P ],</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">                                       [ iota1, iota2, iota3 ]</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">                                     );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi = IdentityMorphism( Coproduct( [ M, N, P ] ) );</span>
+true
+</pre></div>
+
+<p><a id="X87F4D35A826599C6" name="X87F4D35A826599C6"></a></p>
+
+<h5>3.5-8 <span class="Heading">Image</span></h5>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S := FinSet( [ 1, 2, 3 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">T := FinSet( [ "a", "b", "c" ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := [ [ 1, "b" ], [ 2, "a" ], [ 3, "b" ] ];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( S, phi, T );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">I := ImageObject( phi );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Length( I );</span>
+2
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsMonomorphism( phi );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSplitMonomorphism( phi );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEpimorphism( phi );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSplitEpimorphism( phi );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota := ImageEmbedding( phi );</span>
+&lt;A monomorphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi := CoastrictionToImage( phi );</span>
+&lt;An epimorphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( pi, iota ) = phi;</span>
+true
+</pre></div>
+
+<p><a id="X7EB02EC487B586E5" name="X7EB02EC487B586E5"></a></p>
+
+<h5>3.5-9 <span class="Heading">Coimage</span></h5>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S := FinSet( [ 1, 2, 3 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">T := FinSet( [ "a", "b", "c" ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := [ [ 1, "b" ], [ 2, "a" ], [ 3, "b" ] ];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( S, phi, T );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">I := CoimageObject( phi );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Length( I );</span>
+2
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsMonomorphism( phi );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSplitMonomorphism( phi );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEpimorphism( phi );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSplitEpimorphism( phi );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi := CoimageProjection( phi );</span>
+&lt;An epimorphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota := AstrictionToCoimage( phi );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( pi, iota ) = phi;</span>
+true
+</pre></div>
+
+<p><a id="X824FD8F786D2350D" name="X824FD8F786D2350D"></a></p>
+
+<h5>3.5-10 <span class="Heading">Equalizer</span></h5>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S := FinSet( [ 1 .. 5 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">T := FinSet( [ 1 .. 3 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f1 := MapOfFinSets( S, [ [1,3],[2,3],[3,1],[4,2],[5,2] ], T );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f2 := MapOfFinSets( S, [ [1,3],[2,2],[3,3],[4,1],[5,2] ], T );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f3 := MapOfFinSets( S, [ [1,3],[2,1],[3,2],[4,1],[5,2] ], T );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D := [ f1, f2, f3 ];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Eq := Equalizer( D );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( Eq );</span>
+[ 1, 5 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota := EmbeddingOfEqualizer( D );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( iota );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Im := ImageObject( iota );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( Im );</span>
+[ 1, 5 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">mu := MorphismFromEqualizerToSink( D );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( iota, f1 ) = mu;</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSet( [ "a" ] );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := MapOfFinSets( M, [ [ "a", 5 ] ], S );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( phi );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">psi := UniversalMorphismIntoEqualizer( D, phi );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( psi );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( psi );</span>
+[ [ "a" ], [ [ "a", 5 ] ], [ 1, 5 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( psi, iota ) = phi;</span>
+true
+</pre></div>
+
+<p><a id="X7C705F2A79F8E43C" name="X7C705F2A79F8E43C"></a></p>
+
+<h5>3.5-11 <span class="Heading">Pullback</span></h5>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSet( [ 1 .. 5 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">N1 := FinSet( [ 1 .. 3 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota1 := EmbeddingOfFinSets( N1, M );</span>
+&lt;A monomorphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">N2 := FinSet( [ 2 .. 5 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota2 := EmbeddingOfFinSets( N2, M );</span>
+&lt;A monomorphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D := [ iota1, iota2 ];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">int := FiberProduct( D );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( int );</span>
+[ [ 2, 2 ], [ 3, 3 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi1 := ProjectionInFactorOfFiberProduct( D, 1 );</span>
+&lt;A monomorphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">int1 := ImageObject( pi1 );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( int1 );</span>
+[ 2, 3 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi2 := ProjectionInFactorOfFiberProduct( D, 2 );</span>
+&lt;A monomorphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">int2 := ImageObject( pi2 );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( int2 );</span>
+[ 2, 3 ]
+</pre></div>
+
+<p><a id="X7BA8F7BD793CC288" name="X7BA8F7BD793CC288"></a></p>
+
+<h5>3.5-12 <span class="Heading">Coequalizer</span></h5>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">N := FinSet( [1,3] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSet( [1,2,4] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f := MapOfFinSets( N, [ [1,1], [3,2] ], M );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := MapOfFinSets( N, [ [1,2], [3,4] ], M );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := Coequalizer( f, g );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( C ) );</span>
+[ [ 1, 2, 4 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">A := FinSet( [ 1, 2, 3, 4 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">B := FinSet( [ 1, 2, 3, 4, 5, 6, 7, 8 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f1 := MapOfFinSets( A, [ [ 1, 1 ], [ 2, 2 ], [ 3, 3 ], [ 4, 8 ] ], B );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f2 := MapOfFinSets( A, [ [ 1, 2 ], [ 2, 3 ], [ 3, 8 ], [ 4, 5 ] ], B );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f3 := MapOfFinSets( A, [ [ 1, 4 ], [ 2, 2 ], [ 3, 3 ], [ 4, 8 ] ], B );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1 := Coequalizer( [ f1, f3 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( C1 ) );</span>
+[ [ 1, 4 ], [ 2 ], [ 3 ], [ 5 ], [ 6 ], [ 7 ], [ 8 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2 := Coequalizer( [ f1, f2, f3 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( C2 ) );</span>
+[ [ 1, 2, 3, 8, 5, 4 ], [ 6 ], [ 7 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S := FinSet( [ 1 .. 5 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">T := FinSet( [ 1 .. 4 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f := MapOfFinSets( S, [ [1,2], [2,4], [3,4], [4,3], [5,4] ], T );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := MapOfFinSets( S, [ [1,2], [2,3], [3,4], [4,3], [5,4] ], T );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := Coequalizer( f, g );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( C );</span>
+[ [ 1 ], [ 2 ], [ 4, 3 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S := FinSet( [ 1, 2, 3, 4, 5 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">T := FinSet( [ 1, 2, 3, 4 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G_f := [ [ 1, 3 ], [ 2, 4 ], [ 3, 4 ], [ 4, 2 ], [ 5, 4 ] ];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f := MapOfFinSets( S, G_f, T );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G_g := [ [ 1, 3 ], [ 2, 3 ], [ 3, 4 ], [ 4, 2 ], [ 5, 4 ] ];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := MapOfFinSets( S, G_g, T );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D := [ f, g ];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := Coequalizer( D );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( C ) );</span>
+[ [ 1 ], [ 2 ], [ 3, 4 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi := ProjectionOntoCoequalizer( D );</span>
+&lt;An epimorphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( pi ) );</span>
+[ [ 1, [ 1 ] ], [ 2, [ 2 ] ], [ 3, [ 3, 4 ] ], [ 4, [ 3, 4 ] ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">mu := MorphismFromSourceToCoequalizer( D );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( f, pi ) = mu;</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G_tau := [ [ 1, 2 ], [ 2, 1 ], [ 3, 2 ], [ 4, 2 ] ];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">tau := MapOfFinSets( T, G_tau, FinSet( [ 1, 2 ] ) );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := UniversalMorphismFromCoequalizer( D, tau );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( phi ) );</span>
+[ [ [ 1 ], 2 ], [ [ 2 ], 1 ], [ [ 3, 4 ], 2 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( pi, phi ) = tau;</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S := FinSet( [ 1, 2, 3, 4, 5 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">T := FinSet( [ 1, 2, 3, 4 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G_f := [ [ 1, 2 ], [ 2, 3 ], [ 3, 3 ], [ 4, 2 ], [ 5, 4 ] ];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f := MapOfFinSets( S, G_f, T );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G_g := [ [ 1, 2 ], [ 2, 3 ], [ 3, 2 ], [ 4, 2 ], [ 5, 4 ] ];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := MapOfFinSets( S, G_g, T );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D := [ f, g ];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := Coequalizer( D );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( C ) );</span>
+[ [ 1 ], [ 2, 3 ], [ 4 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi := ProjectionOntoCoequalizer( D );</span>
+&lt;An epimorphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( pi ) );</span>
+[ [ 1, [ 1 ] ], [ 2, [ 2, 3 ] ], [ 3, [ 2, 3 ] ], [ 4, [ 4 ] ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( f, pi ) = PreCompose( g, pi );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">mu := MorphismFromSourceToCoequalizer( D );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( f, pi ) = mu;</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G_tau := [ [ 1, 1 ], [ 2, 2 ], [ 3, 2 ], [ 4, 1 ] ];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">tau := MapOfFinSets( T, G_tau, FinSet( [ 1, 2 ] ) );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">phi := UniversalMorphismFromCoequalizer( D, tau );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( phi ) );</span>
+[ [ [ 1 ], 1 ], [ [ 2, 3 ], 2 ], [ [ 4 ], 1 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( pi, phi ) = tau;</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">A := FinSet( [ "A" ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">B := FinSet( [ "B" ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSetNC( [ A, B ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f := MapOfFinSetsNC( M, [ [ A, A ], [ B, A ] ], M );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := IdentityMorphism( M );</span>
+&lt;An identity morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := Coequalizer( [ f, g ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Length( C );</span>
+1
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Length( AsList( C )[ 1 ] );</span>
+2
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( C )[ 1 ][ 1 ] );</span>
+[ "A" ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( AsList( C )[ 1 ][ 2 ] );</span>
+[ "B" ]
+</pre></div>
+
+<p><a id="X81A2D49D85923894" name="X81A2D49D85923894"></a></p>
+
+<h5>3.5-13 <span class="Heading">Pushout</span></h5>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSet( [ 1 .. 5 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">N1 := FinSet( [ 1, 2, 4 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota1 := EmbeddingOfFinSets( N1, M );</span>
+&lt;A monomorphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">N2 := FinSet( [ 2, 3 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota2 := EmbeddingOfFinSets( N2, M );</span>
+&lt;A monomorphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D := [ iota1, iota2 ];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">int := FiberProduct( D );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( int );</span>
+[ [ 2, 2 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi1 := ProjectionInFactorOfFiberProduct( D, 1 );</span>
+&lt;A monomorphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pi2 := ProjectionInFactorOfFiberProduct( D, 2 );</span>
+&lt;A monomorphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UU := Pushout( pi1, pi2 );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( UU );</span>
+[ [ [ 1, 1 ] ], [ [ 1, 2 ], [ 2, 2 ] ], [ [ 1, 4 ] ], [ [ 2, 3 ] ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iota := UniversalMorphismFromPushout( [ pi1, pi2 ], [ iota1, iota2 ] );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">U := ImageObject( iota );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( U );</span>
+[ 1, 2, 4, 3 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UnionOfFinSets( FinSets, [ N1, N2 ] ) = U;</span>
+true
+</pre></div>
+
+<p><a id="X7BFCFE167948EB2B" name="X7BFCFE167948EB2B"></a></p>
+
+<h5>3.5-14 <span class="Heading">Cartesian Lambda Introduction</span></h5>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S := FinSet( [ 1 .. 3 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R := FinSet( [ 1 .. 2 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f := MapOfFinSets( S, [ [1,2],[2,2],[3,1] ], R );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( f );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">T := TerminalObject( FinSets );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsTerminal( T );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">lf := CartesianLambdaIntroduction( f );</span>
+&lt;A split monomorphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Source( lf ) = T;</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Length( Range( lf ) );</span>
+8
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">lf( T[1] ) = f;</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">elf := CartesianLambdaElimination( S, R, lf );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">elf = f;</span>
+true
+</pre></div>
+
+<p><a id="X7DC1099D7D615250" name="X7DC1099D7D615250"></a></p>
+
+<h5>3.5-15 <span class="Heading">Lift</span></h5>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet( [ 1 .. 3 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet( [ 1 .. 4 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f := MapOfFinSets( m, [ [ 1, 2 ], [ 2, 2 ], [ 3, 1 ] ], m );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := MapOfFinSets( n, [ [ 1, 3 ], [ 2, 2 ], [ 3, 1 ], [ 4, 2 ] ], m );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLiftable( f, g );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">chi := Lift( f, g );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( chi );</span>
+[ [ 1 .. 3 ], [ [ 1, 2 ], [ 2, 2 ], [ 3, 3 ] ], [ 1 .. 4 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( Lift( f, g ), g ) = f;</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLiftable( g, f );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">k := FinSet( [ 1 .. 100 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">h := ListWithIdenticalEntries( Length( k ) - 3, 3 );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">h := Concatenation( h, [ 2, 1, 2 ] );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">h := MapOfFinSets( k, List( k, i -&gt; [ i, h[i] ] ), m );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLiftable( f, h );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLiftable( h, f );</span>
+false
+</pre></div>
+
+<p><a id="X8107039F816355E5" name="X8107039F816355E5"></a></p>
+
+<h5>3.5-16 <span class="Heading">Singleton morphism</span></h5>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP" );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a := FinSet( [ 1, 2, 3 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">sa := SingletonMorphism( a );</span>
+&lt;A monomorphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">sa = LowerSegmentOfRelation( a, a, CartesianDiagonal( a, 2 ) );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">sa = UpperSegmentOfRelation( a, a, CartesianDiagonal( a, 2 ) );</span>
+true
+</pre></div>
+
+<p><a id="X8093B84081CFD240" name="X8093B84081CFD240"></a></p>
+
+<h5>3.5-17 <span class="Heading">Topos properties</span></h5>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSet( [ 1 .. 5 ] );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">N := FinSet( [ 1, 2, 4 ] );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := FinSet( [ 1, 4, 8, 9 ] );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G_f := [ [ 1, 1 ], [ 2, 2 ], [ 3, 1 ], [ 4, 2 ], [ 5, 4 ] ];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f := MapOfFinSets( M, G_f, N );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( f );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G_g := [ [ 1, 4 ], [ 2, 4 ], [ 3, 2 ], [ 4, 2 ], [ 5, 1 ] ];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := MapOfFinSets( M, G_g, N );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefined( g );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DirectProduct( M, N );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DirectProductOnMorphisms( f, g );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CartesianAssociatorLeftToRight( M, N, P );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CartesianAssociatorRightToLeft( M, N, P );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">TerminalObject( FinSets );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CartesianLeftUnitor( M );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CartesianLeftUnitorInverse( M );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CartesianRightUnitor( M );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CartesianRightUnitorInverse( M );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CartesianBraiding( M, N );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CartesianBraidingInverse( M, N );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">exp := ExponentialOnObjects( M, N );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ExponentialOnObjects( FinSet( [ 1 ] ), exp );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ExponentialOnMorphisms( f, g );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CartesianRightEvaluationMorphism( M, N );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CartesianRightCoevaluationMorphism( N, M );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DirectProductToExponentialRightAdjunctMorphism( M, N,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    UniversalMorphismIntoTerminalObject( DirectProduct( M, N ) )</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SkeletalCategoryOfFiniteSetsWithMorphismsGivenByLists_precompiled( );</span>
-SkeletalFinSets
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">cat := SkeletalCategoryOfFiniteSets( );</span>
-SkeletalFinSets
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">cat!.precompiled_functions_added;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ExponentialToDirectProductRightAdjunctMorphism( M, N,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    UniversalMorphismFromInitialObject( ExponentialOnObjects( M, N ) )</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CartesianLeftEvaluationMorphism( M, N );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CartesianLeftCoevaluationMorphism( N, M );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DirectProductToExponentialLeftAdjunctMorphism( M, N,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    UniversalMorphismIntoTerminalObject( DirectProduct( M, N ) )</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ExponentialToDirectProductLeftAdjunctMorphism( M, N,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    UniversalMorphismFromInitialObject( ExponentialOnObjects( M, N ) )</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSet( [ 1, 2 ] );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">N := FinSet( [ "a", "b" ] );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := FinSet( [ "*" ] );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Q := FinSet( [ "§", "&amp;" ] );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CartesianPreComposeMorphism( M, N, P );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CartesianPostComposeMorphism( M, N, P );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DirectProductExponentialCompatibilityMorphism( [ M, N, P, Q ] );;</span>
+</pre></div>
+
+<p><a id="X87DA77E487F951EF" name="X87DA77E487F951EF"></a></p>
+
+<h5>3.5-18 <span class="Heading">Subobject Classifier</span></h5>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
 true
-#@fi
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( SubobjectClassifier( FinSets ) );</span>
+[ "true", "false" ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfTrue( FinSets ) );</span>
+[ [ [  ] ], [ [ [  ], "true" ] ], [ "true", "false" ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfFalse( FinSets ) );</span>
+[ [ [  ] ], [ [ [  ], "false" ] ], [ "true", "false" ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfNot( FinSets ) );</span>
+[ [ "true", "false" ],\
+ [ [ "false", "true" ], [ "true", "false" ] ],\
+ [ "true", "false" ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( CartesianSquareOfSubobjectClassifier( FinSets ) );</span>
+[ [ "true", "true" ], [ "false", "true" ],\
+ [ "true", "false" ], [ "false", "false" ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfAnd( FinSets ) );</span>
+[ [ [ "true", "true" ], [ "false", "true" ],\
+ [ "true", "false" ], [ "false", "false" ] ],\
+ [ [ [ "false", "false" ], "false" ], [ [ "false", "true" ], "false" ],\
+ [ [ "true", "false" ], "false" ], [ [ "true", "true" ], "true" ] ],\
+ [ "true", "false" ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfOr( FinSets ) );</span>
+[ [ [ "true", "true" ], [ "false", "true" ],\
+ [ "true", "false" ], [ "false", "false" ] ],\
+ [ [ [ "false", "false" ], "false" ], [ [ "false", "true" ], "true" ],\
+ [ [ "true", "false" ], "true" ], [ [ "true", "true" ], "true" ] ],\
+ [ "true", "false" ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( TruthMorphismOfImplies( FinSets ) );</span>
+[ [ [ "true", "true" ], [ "false", "true" ],\
+ [ "true", "false" ], [ "false", "false" ] ],\
+ [ [ [ "false", "false" ], "true" ], [ [ "false", "true" ], "true" ],\
+ [ [ "true", "false" ], "false" ], [ [ "true", "true" ], "true" ] ],\
+ [ "true", "false" ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S := FinSet( [ 1, 2, 3, 4, 5 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">A := FinSet( [ 1, 5 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := EmbeddingOfFinSets( A, S );</span>
+&lt;A monomorphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( ClassifyingMorphismOfSubobject( m ) );</span>
+[ [ 1, 2, 3, 4, 5 ], [ [ 1, "true" ], [ 2, "false" ], [ 3, "false" ],\
+ [ 4, "false" ], [ 5, "true" ] ], [ "true", "false" ] ]
 </pre></div>
 
 
-<div class="chlinkprevnextbot">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap2_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chapInd_mj.html">[Next Chapter]</a>&nbsp;  </div>
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := FinSet( [ 1 .. 7 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">N := FinSet( [ 2, 3, 5 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iotaN := EmbeddingOfFinSets( N, M );</span>
+&lt;A monomorphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NC := PseudoComplementSubobject( iotaN );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( NC );</span>
+[ [ 1, [  ] ], [ 4, [  ] ], [ 6, [  ] ], [ 7, [  ] ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">tauN := EmbeddingOfPseudoComplementSubobject( iotaN );</span>
+&lt;A monomorphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Nc := ImageObject( tauN );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( Nc );</span>
+[ 1, 4, 6, 7 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := FinSet( [ 2, 4, 5, 7 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iotaL := EmbeddingOfFinSets( L, M );</span>
+&lt;A monomorphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NIL := IntersectionSubobject( iotaN, iotaL );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( NIL );</span>
+[ [ 2, 2 ], [ 5, 5 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iotaNiL := EmbeddingOfIntersectionSubobject( iotaN, iotaL );</span>
+&lt;A monomorphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NiL := ImageObject( iotaNiL );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( NiL );</span>
+[ 2, 5 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NUL := UnionSubobject( iotaN, iotaL );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( NUL );</span>
+[ 2, 3, 5, 4, 7 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iotaNuL := EmbeddingOfUnionSubobject( iotaN, iotaL );</span>
+&lt;A monomorphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NuL := ImageObject( iotaNuL );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( NuL );</span>
+[ 2, 3, 5, 4, 7 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NPL := RelativePseudoComplementSubobject( iotaN, iotaL );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( NPL );</span>
+[ [ 1, [  ] ], [ 2, [  ] ], [ 4, [  ] ], [ 5, [  ] ], [ 6, [  ] ], [ 7, [  ] ]\
+ ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iotaNpL := EmbeddingOfRelativePseudoComplementSubobject( iotaN, iotaL );</span>
+&lt;A monomorphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NpL := ImageObject( iotaNpL );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( NpL );</span>
+[ 1, 2, 4, 5, 6, 7 ]
+</pre></div>
+
+<p><a id="X81FD0D9179A75F88" name="X81FD0D9179A75F88"></a></p>
+
+<h5>3.5-19 <span class="Heading">Pushout Complement</span></h5>
+
+<p>Define two composable monos <span class="SimpleMath">\(K \stackrel{l}{\hookrightarrow} L \stackrel{m}{\hookrightarrow} G\)</span> in <code class="code">FinSets</code>:</p>
 
 
-<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0_mj.html">Top</a>  <a href="chap1_mj.html">1</a>  <a href="chap2_mj.html">2</a>  <a href="chap3_mj.html">3</a>  <a href="chapInd_mj.html">Ind</a>  </div>
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">K := FinSet( [ 2, 3, 5 ] );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( K );</span>
+[ 2, 3, 5 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := FinSet( [ 0, 1, 2, 3, 5, 6 ] );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( L );</span>
+[ 0, 1, 2, 3, 5, 6 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">l := EmbeddingOfFinSets( K, L );</span>
+&lt;A monomorphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := FinSet( [ 0, 1, 2, 3, 4, 5, 6, 10 ] );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( G );</span>
+[ 0, 1, 2, 3, 4, 5, 6, 10 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := EmbeddingOfFinSets( L, G );</span>
+&lt;A monomorphism in FinSets&gt;
+</pre></div>
+
+<p>Now we compute the pushout complement <span class="SimpleMath">\(D \stackrel{c}{\hookrightarrow} G\)</span> of <span class="SimpleMath">\(K \stackrel{l}{\hookrightarrow} L \stackrel{m}{\hookrightarrow} G\)</span>:</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">HasPushoutComplement( l, m );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c := PushoutComplement( l, m );</span>
+&lt;A monomorphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D := Source( c );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( D );</span>
+[ 2, 3, 4, 5, 10 ]
+</pre></div>
+
+
+<div class="chlinkprevnextbot">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap2_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap4_mj.html">[Next Chapter]</a>&nbsp;  </div>
+
+
+<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0_mj.html">Top</a>  <a href="chap1_mj.html">1</a>  <a href="chap2_mj.html">2</a>  <a href="chap3_mj.html">3</a>  <a href="chap4_mj.html">4</a>  <a href="chapInd_mj.html">Ind</a>  </div>
 
 <hr />
 <p class="foot">generated by <a href="https://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc">GAPDoc2HTML</a></p>
