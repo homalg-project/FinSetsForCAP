@@ -77,7 +77,7 @@ DeclareGlobalName( "SkeletalFinSets1" );
 #! @Returns a &CAP; object
 DeclareOperation( "FinSet1",
         [ IsBigInt ] );
-#! @InsertChunk SkeletalFinSet1
+#! @InsertChunk Skeletal1FinSet
 
 #! @Description
 #!  Construct a skeletal finite set residing in
@@ -85,7 +85,7 @@ DeclareOperation( "FinSet1",
 #!  of order given by the nonnegative integer <A>n</A>.
 #! @Arguments C, n
 #! @Returns a &CAP; object
-KeyDependentOperation( "FinSet1", IsSkeletalCategoryOfFiniteSetsWithCountingStartingAt1, IsBigInt, ReturnTrue );
+KeyDependentOperation( "FinSet", IsSkeletalCategoryOfFiniteSetsWithCountingStartingAt1, IsBigInt, ReturnTrue );
 
 #! @Description
 #!  Construct a map $\phi:$<A>s</A>$\to$<A>t</A> of the skeletal finite sets <A>s</A> and <A>t</A>,
@@ -95,7 +95,7 @@ KeyDependentOperation( "FinSet1", IsSkeletalCategoryOfFiniteSetsWithCountingStar
 #! @Returns a &CAP; morphism
 DeclareOperation( "MapOfFinSets",
         [ IsObjectInSkeletalCategoryOfFiniteSetsWithCountingStartingAt1, IsList, IsObjectInSkeletalCategoryOfFiniteSetsWithCountingStartingAt1 ] );
-#! @InsertChunk  SkeletalMapOfFinSets1
+#! @InsertChunk  Skeletal1MapOfFinSets
 
 #! @Section Tools
 
