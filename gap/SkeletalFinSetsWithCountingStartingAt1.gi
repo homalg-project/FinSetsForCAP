@@ -13,7 +13,7 @@ InstallMethod( SkeletalCategoryOfFiniteSetsWithCountingStartingAt1,
     [ "cocartesian_monoidal_structure", false ],
     [ "FinalizeCategory", true ],
     [ "no_precompiled_code", false ],
-    [ "overhead", true ],
+    [ "overhead", false ],
   ],
   function ( CAP_NAMED_ARGUMENTS, SkeletalFinSets )
     local category_filter, category_object_filter, category_morphism_filter,
