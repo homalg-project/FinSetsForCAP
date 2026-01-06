@@ -20,11 +20,16 @@ InstallMethod( SkeletalCategoryOfFiniteSets,
     local cat, expected_weight;
     
     cat := CreateCapCategoryWithDataTypes(
-        "SkeletalFinSets", IsSkeletalCategoryOfFiniteSets,
-        IsObjectInSkeletalCategoryOfFiniteSets, IsMorphismInSkeletalCategoryOfFiniteSets, IsCapCategoryTwoCell,
-        IsBigInt, CapJitDataTypeOfListOf( IsBigInt ), fail
-        : overhead := CAP_NAMED_ARGUMENTS.overhead
-    );
+                   "SkeletalFinSets",
+                   IsSkeletalCategoryOfFiniteSets,
+                   IsObjectInSkeletalCategoryOfFiniteSets,
+                   IsMorphismInSkeletalCategoryOfFiniteSets,
+                   IsCapCategoryTwoCell,
+                   IsBigInt,
+                   CapJitDataTypeOfListOf( IsBigInt ),
+                   fail
+                   : overhead := CAP_NAMED_ARGUMENTS.overhead
+                   );
     
     cat!.category_as_first_argument := true;
     
