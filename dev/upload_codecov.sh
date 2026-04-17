@@ -28,9 +28,21 @@ else
   echo -e "\033[0;32mUsing CODECOV_TOKEN from environment variable.\033[0m"
 fi
 
+# build extra args for commit/branch/PR override (used by workflow_run context)
+EXTRA_ARGS=""
+if [ -n "$CODECOV_COMMIT_SHA" ]; then
+  EXTRA_ARGS="$EXTRA_ARGS -C $CODECOV_COMMIT_SHA"
+fi
+if [ -n "$CODECOV_BRANCH" ]; then
+  EXTRA_ARGS="$EXTRA_ARGS -B $CODECOV_BRANCH"
+fi
+if [ -n "$CODECOV_PR" ]; then
+  EXTRA_ARGS="$EXTRA_ARGS -P $CODECOV_PR"
+fi
+
 # execute
 chmod +x codecov
-while ! ./codecov -Z -v -s ../ -t $CODECOV_TOKEN; do
+while ! ./codecov -Z -v -s ../ -t $CODECOV_TOKEN $EXTRA_ARGS; do
     echo "Codecov upload failed, retrying in 60s"
     sleep 60
 done
