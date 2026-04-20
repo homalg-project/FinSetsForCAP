@@ -180,7 +180,7 @@
   
   [1X2.4-1 IsSkeletalCategoryOfFiniteSetsWithCountingStartingAt1[101X
   
-  [33X[1;0Y[29X[2XIsSkeletalCategoryOfFiniteSetsWithCountingStartingAt1[102X( [3Xobject[103X ) [32X filter[133X
+  [33X[1;0Y[29X[2XIsSkeletalCategoryOfFiniteSetsWithCountingStartingAt1[102X( [3Xobject[103X ) [32X Category[133X
   [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
   
   [33X[0;0YThe  GAP  category  of  a  skeletal  category  of  finite sets with counting
@@ -188,7 +188,7 @@
   
   [1X2.4-2 IsObjectInSkeletalCategoryOfFiniteSetsWithCountingStartingAt1[101X
   
-  [33X[1;0Y[29X[2XIsObjectInSkeletalCategoryOfFiniteSetsWithCountingStartingAt1[102X( [3Xobject[103X ) [32X filter[133X
+  [33X[1;0Y[29X[2XIsObjectInSkeletalCategoryOfFiniteSetsWithCountingStartingAt1[102X( [3Xobject[103X ) [32X Category[133X
   [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
   
   [33X[0;0YThe  GAP  category  of  objects in the skeletal category of finite sets with
@@ -196,7 +196,7 @@
   
   [1X2.4-3 IsMorphismInSkeletalCategoryOfFiniteSetsWithCountingStartingAt1[101X
   
-  [33X[1;0Y[29X[2XIsMorphismInSkeletalCategoryOfFiniteSetsWithCountingStartingAt1[102X( [3Xobject[103X ) [32X filter[133X
+  [33X[1;0Y[29X[2XIsMorphismInSkeletalCategoryOfFiniteSetsWithCountingStartingAt1[102X( [3Xobject[103X ) [32X Category[133X
   [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
   
   [33X[0;0YThe  GAP  category of morphisms in the skeletal category of finite sets with

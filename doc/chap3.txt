@@ -422,21 +422,21 @@
   
   [1X3.4-1 IsCategoryOfFiniteSets[101X
   
-  [33X[1;0Y[29X[2XIsCategoryOfFiniteSets[102X( [3Xobject[103X ) [32X filter[133X
+  [33X[1;0Y[29X[2XIsCategoryOfFiniteSets[102X( [3Xobject[103X ) [32X Category[133X
   [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
   
   [33X[0;0YThe GAP category of categories of finite sets.[133X
   
   [1X3.4-2 IsObjectInCategoryOfFiniteSets[101X
   
-  [33X[1;0Y[29X[2XIsObjectInCategoryOfFiniteSets[102X( [3Xobject[103X ) [32X filter[133X
+  [33X[1;0Y[29X[2XIsObjectInCategoryOfFiniteSets[102X( [3Xobject[103X ) [32X Category[133X
   [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
   
   [33X[0;0YThe GAP category of objects in the category of finite sets.[133X
   
   [1X3.4-3 IsMorphismInCategoryOfFiniteSets[101X
   
-  [33X[1;0Y[29X[2XIsMorphismInCategoryOfFiniteSets[102X( [3Xobject[103X ) [32X filter[133X
+  [33X[1;0Y[29X[2XIsMorphismInCategoryOfFiniteSets[102X( [3Xobject[103X ) [32X Category[133X
   [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
   
   [33X[0;0YThe GAP category of morphisms in the category of finite sets.[133X
