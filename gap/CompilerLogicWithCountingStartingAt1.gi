@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
-# MatroidsForCAP: Matroids and arrangements for CAP
+# FinSetsForCAP: The (skeletal) elementary topos of finite sets
 #
 # Implementations
 #
