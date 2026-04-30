@@ -99,13 +99,15 @@
 </span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7DC1099D7D615250">3.5-15 <span class="Heading">Lift</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X8107039F816355E5">3.5-16 <span class="Heading">Singleton morphism</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7F7F2F1578735AD5">3.5-16 <span class="Heading">Colift</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X8093B84081CFD240">3.5-17 <span class="Heading">Topos properties</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X8107039F816355E5">3.5-17 <span class="Heading">Singleton morphism</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X87DA77E487F951EF">3.5-18 <span class="Heading">Subobject Classifier</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X8093B84081CFD240">3.5-18 <span class="Heading">Topos properties</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X81FD0D9179A75F88">3.5-19 <span class="Heading">Pushout Complement</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X87DA77E487F951EF">3.5-19 <span class="Heading">Subobject Classifier</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X81FD0D9179A75F88">3.5-20 <span class="Heading">Pushout Complement</span></a>
 </span>
 </div></div>
 </div>
@@ -1260,9 +1262,45 @@ true
 false
 </pre></div>
 
+<p><a id="X7F7F2F1578735AD5" name="X7F7F2F1578735AD5"></a></p>
+
+<h5>3.5-16 <span class="Heading">Colift</span></h5>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "FinSetsForCAP", false );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := FinSet( [ 1 .. 3 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := FinSet( [ 1 .. 4 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">alpha := MapOfFinSets( m, [ [ 1, 1 ], [ 2, 2 ], [ 3, 3 ] ], n );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">beta := MapOfFinSets( m, [ [ 1, 2 ], [ 2, 2 ], [ 3, 1 ] ], m );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsColiftable( alpha, beta );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">chi := Colift( alpha, beta );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( chi );</span>
+[ [ 1 .. 4 ], [ [ 1, 2 ], [ 2, 2 ], [ 3, 1 ], [ 4, 1 ] ], [ 1 .. 3 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( alpha, Colift( alpha, beta ) ) = beta;</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsColiftable( beta, alpha );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">k := FinSet( [ 1 .. 3 ] );</span>
+&lt;An object in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">h := MapOfFinSets( m, [ [ 1, 1 ], [ 2, 2 ], [ 3, 3 ] ], k );</span>
+&lt;A morphism in FinSets&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsColiftable( h, beta );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsColiftable( beta, h );</span>
+false
+</pre></div>
+
 <p><a id="X8107039F816355E5" name="X8107039F816355E5"></a></p>
 
-<h5>3.5-16 <span class="Heading">Singleton morphism</span></h5>
+<h5>3.5-17 <span class="Heading">Singleton morphism</span></h5>
 
 
 <div class="example"><pre>
@@ -1280,7 +1318,7 @@ true
 
 <p><a id="X8093B84081CFD240" name="X8093B84081CFD240"></a></p>
 
-<h5>3.5-17 <span class="Heading">Topos properties</span></h5>
+<h5>3.5-18 <span class="Heading">Topos properties</span></h5>
 
 
 <div class="example"><pre>
@@ -1338,7 +1376,7 @@ true
 
 <p><a id="X87DA77E487F951EF" name="X87DA77E487F951EF"></a></p>
 
-<h5>3.5-18 <span class="Heading">Subobject Classifier</span></h5>
+<h5>3.5-19 <span class="Heading">Subobject Classifier</span></h5>
 
 
 <div class="example"><pre>
@@ -1445,7 +1483,7 @@ true
 
 <p><a id="X81FD0D9179A75F88" name="X81FD0D9179A75F88"></a></p>
 
-<h5>3.5-19 <span class="Heading">Pushout Complement</span></h5>
+<h5>3.5-20 <span class="Heading">Pushout Complement</span></h5>
 
 <p>Define two composable monos <span class="Math">K \stackrel{l}{\hookrightarrow} L \stackrel{m}{\hookrightarrow} G</span> in <code class="code">FinSets</code>:</p>
 

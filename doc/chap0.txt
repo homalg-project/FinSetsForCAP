@@ -6,10 +6,10 @@
                 [1X The (skeletal) elementary topos of finite sets [101X
   
   
-                                   2026.04-02
+                                   2026.04-03
   
   
-                                 29 April 2026
+                                 30 April 2026
   
   
                                 Mohamed Barakat
@@ -197,10 +197,11 @@
       3.5-13 [33X[0;0YPushout[133X
       3.5-14 [33X[0;0YCartesian Lambda Introduction[133X
       3.5-15 [33X[0;0YLift[133X
-      3.5-16 [33X[0;0YSingleton morphism[133X
-      3.5-17 [33X[0;0YTopos properties[133X
-      3.5-18 [33X[0;0YSubobject Classifier[133X
-      3.5-19 [33X[0;0YPushout Complement[133X
+      3.5-16 [33X[0;0YColift[133X
+      3.5-17 [33X[0;0YSingleton morphism[133X
+      3.5-18 [33X[0;0YTopos properties[133X
+      3.5-19 [33X[0;0YSubobject Classifier[133X
+      3.5-20 [33X[0;0YPushout Complement[133X
   4 [33X[0;0YPrecompilation[133X
     4.1 [33X[0;0YPrecompiling ProjectionInFactorOfBinaryDirectProduct[133X
     4.2 [33X[0;0YPrecompiling the skeletal category of finite sets[133X
