@@ -768,8 +768,12 @@ end );
 ##
 AddIsLiftable( category_of_finite_sets,
   function ( category_of_finite_sets, beta, alpha )
+    local image_beta, image_alpha;
     
-    return IsSubset( AsList( ImageObject( alpha ) ), AsList( ImageObject( beta ) ) );
+    image_beta := AsList( ImageObject( beta ) );
+    image_alpha := AsList( ImageObject( alpha ) );
+    
+    return ForAll( image_beta, e -> e in image_alpha );
     
 end );
 
