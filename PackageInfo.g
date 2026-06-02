@@ -98,9 +98,9 @@ PackageDoc := rec(
 Dependencies := rec(
   GAP := ">= 4.13.0",
   NeededOtherPackages := [
-                   [ "CAP", ">= 2023.12-05" ],
-                   [ "MonoidalCategories", ">= 2025.07-07" ],
-                   [ "CartesianCategories", ">= 2024.02-02" ],
+                   [ "CAP", ">= 2026.06-01" ],
+                   [ "MonoidalCategories", ">= 2026.06-01" ],
+                   [ "CartesianCategories", ">= 2026.06-01" ],
                    [ "Toposes", ">= 2024.03-04" ],
                    ],
   SuggestedOtherPackages := [ ],

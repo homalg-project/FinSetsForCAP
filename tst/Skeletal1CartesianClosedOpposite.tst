@@ -177,42 +177,43 @@ gap> BraidedCocartesianCategoriesTest( finsets, opposite_primitive, a, t );;
 #
 gap> a := FinSet1( 2 );;
 gap> L := [ FinSet1( 4 ), FinSet1( 2 ), FinSet1( 6 ) ];;
+gap> M := [ 3, 2, 4 ];;
 
 #
-gap> DistributiveCartesianCategoriesTest( finsets, opposite, a, L );;
-gap> DistributiveCartesianCategoriesTest( finsets, opposite_primitive, a, L );;
+gap> DistributiveCartesianCategoriesTest( finsets, opposite, a, L, M );;
+gap> DistributiveCartesianCategoriesTest( finsets, opposite_primitive, a, L, M );;
 
 #
 gap> a := InitialObject( finsets );;
 gap> L := [ FinSet1( 4 ), FinSet1( 2 ), FinSet1( 6 ) ];;
 
 #
-gap> DistributiveCartesianCategoriesTest( finsets, opposite, a, L );;
-gap> DistributiveCartesianCategoriesTest( finsets, opposite_primitive, a, L );;
+gap> DistributiveCartesianCategoriesTest( finsets, opposite, a, L, M );;
+gap> DistributiveCartesianCategoriesTest( finsets, opposite_primitive, a, L, M );;
 
 #
 gap> a := FinSet1( 2 );;
 gap> L := [ FinSet1( 4 ), InitialObject( finsets ), FinSet1( 6 ) ];;
 
 #
-gap> DistributiveCartesianCategoriesTest( finsets, opposite, a, L );;
-gap> DistributiveCartesianCategoriesTest( finsets, opposite_primitive, a, L );;
+gap> DistributiveCartesianCategoriesTest( finsets, opposite, a, L, M );;
+gap> DistributiveCartesianCategoriesTest( finsets, opposite_primitive, a, L, M );;
 
 #
 gap> a := TerminalObject( finsets );;
 gap> L := [ FinSet1( 4 ), FinSet1( 2 ), FinSet1( 6 ) ];;
 
 #
-gap> DistributiveCartesianCategoriesTest( finsets, opposite, a, L );;
-gap> DistributiveCartesianCategoriesTest( finsets, opposite_primitive, a, L );;
+gap> DistributiveCartesianCategoriesTest( finsets, opposite, a, L, M );;
+gap> DistributiveCartesianCategoriesTest( finsets, opposite_primitive, a, L, M );;
 
 #
 gap> a := FinSet1( 2 );;
 gap> L := [ FinSet1( 4 ), TerminalObject( finsets ), FinSet1( 6 ) ];;
 
 #
-gap> DistributiveCartesianCategoriesTest( finsets, opposite, a, L );;
-gap> DistributiveCartesianCategoriesTest( finsets, opposite_primitive, a, L );;
+gap> DistributiveCartesianCategoriesTest( finsets, opposite, a, L, M );;
+gap> DistributiveCartesianCategoriesTest( finsets, opposite_primitive, a, L, M );;
 
 #
 ##############################################
