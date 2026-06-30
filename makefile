@@ -81,3 +81,6 @@ test-gap_to_julia:
 		done'
 
 ci-test: test-basic-spacing test-spacing test-doc test-with-coverage test-with-coverage-without-precompiled-code test-gap_to_julia
+
+match_tests_to_examples:
+	python3 $$([ -f ../dev/match_tst_to_examples.py ] && echo ../dev/match_tst_to_examples.py || echo dev/match_tst_to_examples.py) .
