@@ -70,11 +70,16 @@ test-gap_to_julia:
 		else \
 			echo "CAP_project.jl already exists, skipping clone."; \
 		fi; \
+		if [ ! -d "$$HOME/.gap/pkg/CategoricalTowers" ]; then \
+			git clone --depth 1 -vv https://github.com/homalg-project/CategoricalTowers.git "$$HOME/.gap/pkg/CategoricalTowers"; \
+		else \
+			echo "CategoricalTowers already exists, skipping clone."; \
+		fi; \
 		for pkg in CAP MonoidalCategories CartesianCategories Toposes FinSetsForCAP; do \
 			julia -e "using Pkg; Pkg.develop(path = homedir() * \"/.julia/dev/CAP_project.jl/$${pkg}\")"; \
 		done; \
 		for pkg in CAP MonoidalCategories CartesianCategories Toposes FinSetsForCAP; do \
-			make -C "$$HOME/.julia/dev/CAP_project.jl/$${pkg}" gen-full; \
+			make -C "$$HOME/.julia/dev/CAP_project.jl/$${pkg}" gen; \
 		done; \
 		for pkg in CAP MonoidalCategories CartesianCategories Toposes FinSetsForCAP; do \
 			julia -e "using Pkg; Pkg.test(\"$${pkg}\")"; \
