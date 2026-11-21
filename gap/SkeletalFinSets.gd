@@ -26,6 +26,91 @@ DeclareCategory( "IsObjectInSkeletalCategoryOfFiniteSets",
 DeclareCategory( "IsMorphismInSkeletalCategoryOfFiniteSets",
                  IsCapCategoryMorphism );
 
+####################################
+##
+#! @Section Random Methods
+##
+####################################
+
+if false then
+
+# COVERAGE_IGNORE_BLOCK_START
+
+#! @Description
+#! The arguments are a category <A>C</A> of skeletal finite sets and a non-empty list <A>L</A> of non-negative integers.
+#! The output is an object whose cardinality is a random element in <A>L</A>.
+#! @Returns an object in a category of skeletal finite sets
+#! @Arguments C, L
+DeclareOperation( "RandomObjectByList", [ IsCategoryOfSkeletalFinSets, IsList ] );
+
+#! @Description
+#! The arguments are a category of skeletal finite sets <A>C</A> and a non-negative integer <A>n</A>.
+#! The output is an object whose cardinality is at most <A>n</A>.
+#! @Returns an object in a category of skeletal finite sets
+#! @Arguments C, n
+DeclareOperation( "RandomObjectByInteger", [ IsCategoryOfSkeletalFinSets, IsInt ] );
+
+#! @Description
+#! The arguments are a category <A>C</A> of skeletal finite sets, two objects <A>S</A>, <A>R</A> and an integer <A>n</A>.
+#! The output is a morphism from <A>S</A> to <A>R</A> defined by a random function of sets.
+#! In particular, the argument <A>n</A> will be disregarded.
+#! @Returns  a morphism in a category of skeletal finite sets
+#! @Arguments C, S, R, n
+DeclareOperation( "RandomMorphismWithFixedSourceAndRangeByInteger", [ IsCategoryOfSkeletalFinSets, IsCategoryOfSkeletalFinSetsObject, IsCategoryOfSkeletalFinSetsObject, IsInt ] );
+
+#! @Description
+#! The arguments are a category of skeletal finite sets <A>C</A> and a non-empty list <A>L</A>, containing two non-empty lists <A>L1</A> and <A>L2</A> of positive integers.
+#! The output is a morphism from an object <A>S</A> to an object <A>R</A> whose cardinalities are random elements in <A>L1</A> and <A>L2</A> respectively.
+#! @Returns  a morphism in a category of skeletal finite sets
+#! @Arguments C, L
+DeclareOperation( "RandomMorphismByList", [ IsCategoryOfSkeletalFinSets, IsList ] );
+
+#! @Description
+#! The arguments are a category of skeletal finite sets <A>C</A> and a non-negative integer <A>n</A>.
+#! The output is a morphism whose source and range cardinalities are at most <A>n</A>.
+#! @Returns  a morphism in a category of skeletal finite sets
+#! @Arguments C, n
+DeclareOperation( "RandomMorphismByInteger", [ IsCategoryOfSkeletalFinSets, IsInt ] );
+
+#! @Description
+#! The arguments are a category of skeletal finite sets <A>C</A>, an object <A>S</A> and a positive integer <A>n</A>.
+#! The output is a morphism from <A>S</A> to a random object <A>R</A> whose cardinality is at most <A>n</A> and at least <A>1</A>.
+#! @Returns  a morphism in a category of skeletal finite sets
+#! @Arguments C, S, n
+DeclareOperation( "RandomMorphismWithFixedSourceByInteger", [ IsCategoryOfSkeletalFinSets, IsCategoryOfSkeletalFinSetsObject, IsInt ] );
+
+#! @Description
+#! The arguments are a category of skeletal finite sets <A>C</A>, an object <A>R</A> and a non-negative integer <A>n</A>.
+#! The output is a morphism to <A>R</A> from an random object <A>S</A> whose cardinality is at most <A>n</A>.
+#! @Returns a morphism in a category of skeletal finite sets
+#! @Arguments C, R, n
+DeclareOperation( "RandomMorphismWithFixedRangeByInteger", [ IsCategoryOfSkeletalFinSets, IsCategoryOfSkeletalFinSetsObject, IsInt ] );
+
+#! @Description
+#! The arguments are a category of skeletal finite sets <A>C</A>, an object <A>S</A> and a list <A>L</A> of positive integers.
+#! The output is a morphism from <A>S</A> to a random object <A>R</A> whose cardinality is a random element of <A>L</A>.
+#! @Returns  a morphism in a category of skeletal finite sets
+#! @Arguments C, S, L
+DeclareOperation( "RandomMorphismWithFixedSourceByList", [ IsCategoryOfSkeletalFinSets, IsCategoryOfSkeletalFinSetsObject, IsList ] );
+
+#! @Description
+#! The arguments are a category of skeletal finite sets <A>C</A>, a object <A>R</A> and a list of positive integers. The list must contain <A>0</A> in case <A>R</A> is the empty set.
+#! The output is a morphism to <A>R</A> from an random object <A>S</A> whose cardinality is an element of <A>L</A>.
+#! @Returns a morphism in a category of skeletal finite sets
+#! @Arguments C, R, L
+DeclareOperation( "RandomMorphismWithFixedRangeByList", [ IsCategoryOfSkeletalFinSets, IsCategoryOfSkeletalFinSetsObject, IsList ] );
+
+#! @Description
+#! The arguments are a category <A>C</A> of skeletal finite sets, two objects <A>S</A>, <A>R</A> and a list <A>L</A>.
+#! The output is a morphism from <A>S</A> to <A>R</A> defined by a random function of sets.
+#! In particular, the argument <A>L</A> will be disregarded.
+#! @Returns  a morphism in a category of skeletal finite sets
+#! @Arguments C, S, R, L
+DeclareOperation( "RandomMorphismWithFixedSourceAndRangeByList", [ IsCategoryOfSkeletalFinSets, IsCategoryOfSkeletalFinSetsObject, IsCategoryOfSkeletalFinSetsObject, IsList ] );
+
+# COVERAGE_IGNORE_BLOCK_END
+fi;
+
 #! @Section Attributes
 
 #! @Description
@@ -137,6 +222,8 @@ DeclareOperation( "ImageObject",
 
 # Technical functions
 DeclareGlobalFunction( "INSTALL_FUNCTIONS_FOR_SKELETAL_FIN_SETS" );
+
+DeclareGlobalFunction( "SKELETAL_FIN_SETS_RANDOM_METHODS" );
 
 DeclareGlobalFunction( "SKELETAL_FIN_SETS_ExplicitCoequalizer" );
 CapJitAddTypeSignature( "SKELETAL_FIN_SETS_ExplicitCoequalizer", [ IsBigInt, IsList ], CapJitDataTypeOfListOf( CapJitDataTypeOfListOf( IsBigInt ) ) );

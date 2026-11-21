@@ -4,6 +4,7 @@
 @Section Constructors
 @Section Tools
 @Section GAP Categories
+@Section Random Methods
 @Section Examples
 
 @Subsection SkeletalIsHomSetInhabited
@@ -81,6 +82,9 @@
 
 @Subsection Exact cover with global elements
 @InsertChunk SkeletalExactCoverWithGlobalElements
+
+@Subsection Test Random Methods
+@InsertChunk TestRandomMethods
 
 @Chapter The skeletal category of finite sets with counting starting at 1
 
