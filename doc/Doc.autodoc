@@ -2,6 +2,7 @@
 
 @Section Attributes
 @Section Constructors
+@Section Random Methods
 @Section Tools
 @Section GAP Categories
 @Section Examples
@@ -81,6 +82,9 @@
 
 @Subsection Exact cover with global elements
 @InsertChunk SkeletalExactCoverWithGlobalElements
+
+@Subsection Random Methods
+@InsertChunk RandomMethods
 
 @Chapter The skeletal category of finite sets with counting starting at 1
 
