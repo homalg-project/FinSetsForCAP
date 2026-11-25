@@ -143,16 +143,110 @@
   [4X[32X[104X
   
   
-  [1X1.3 [33X[0;0YTools[133X[101X
+  [1X1.3 [33X[0;0YRandom Methods[133X[101X
   
-  [1X1.3-1 ListOp[101X
+  [1X1.3-1 RandomObjectByList[101X
+  
+  [33X[1;0Y[29X[2XRandomObjectByList[102X( [3XC[103X, [3XL[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yan object in a category of skeletal finite sets[133X
+  
+  [33X[0;0YThe  arguments are a category [3XC[103X of skeletal finite sets and a non-empty list
+  [3XL[103X  of  non-negative integers. The output is an object whose cardinality is a
+  random element in [3XL[103X.[133X
+  
+  [1X1.3-2 RandomObjectByInteger[101X
+  
+  [33X[1;0Y[29X[2XRandomObjectByInteger[102X( [3XC[103X, [3Xn[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yan object in a category of skeletal finite sets[133X
+  
+  [33X[0;0YThe  arguments  are  a category of skeletal finite sets [3XC[103X and a non-negative
+  integer [3Xn[103X. The output is an object whose cardinality is at most [3Xn[103X.[133X
+  
+  [1X1.3-3 RandomMorphismWithFixedSourceAndRangeByInteger[101X
+  
+  [33X[1;0Y[29X[2XRandomMorphismWithFixedSourceAndRangeByInteger[102X( [3XC[103X, [3XS[103X, [3XR[103X, [3Xn[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ya morphism in a category of skeletal finite sets[133X
+  
+  [33X[0;0YThe arguments are a category [3XC[103X of skeletal finite sets, two objects [3XS[103X, [3XR[103X and
+  an  integer  [3Xn[103X.  The  output  is  a morphism from [3XS[103X to [3XR[103X defined by a random
+  function of sets. In particular, the argument [3Xn[103X will be disregarded.[133X
+  
+  [1X1.3-4 RandomMorphismByList[101X
+  
+  [33X[1;0Y[29X[2XRandomMorphismByList[102X( [3XC[103X, [3XL[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ya morphism in a category of skeletal finite sets[133X
+  
+  [33X[0;0YThe  arguments are a category of skeletal finite sets [3XC[103X and a non-empty list
+  [3XL[103X, containing two non-empty lists [3XL1[103X and [3XL2[103X of positive integers. The output
+  is a morphism from an object [3XS[103X to an object [3XR[103X whose cardinalities are random
+  elements in [3XL1[103X and [3XL2[103X respectively.[133X
+  
+  [1X1.3-5 RandomMorphismByInteger[101X
+  
+  [33X[1;0Y[29X[2XRandomMorphismByInteger[102X( [3XC[103X, [3Xn[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ya morphism in a category of skeletal finite sets[133X
+  
+  [33X[0;0YThe  arguments  are  a category of skeletal finite sets [3XC[103X and a non-negative
+  integer [3Xn[103X. The output is a morphism whose source and range cardinalities are
+  at most [3Xn[103X.[133X
+  
+  [1X1.3-6 RandomMorphismWithFixedSourceByInteger[101X
+  
+  [33X[1;0Y[29X[2XRandomMorphismWithFixedSourceByInteger[102X( [3XC[103X, [3XS[103X, [3Xn[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ya morphism in a category of skeletal finite sets[133X
+  
+  [33X[0;0YThe  arguments  are  a category of skeletal finite sets [3XC[103X, an object [3XS[103X and a
+  positive  integer  [3Xn[103X.  The  output is a morphism from [3XS[103X to a random object [3XR[103X
+  whose cardinality is at most [3Xn[103X and at least [3X1[103X.[133X
+  
+  [1X1.3-7 RandomMorphismWithFixedRangeByInteger[101X
+  
+  [33X[1;0Y[29X[2XRandomMorphismWithFixedRangeByInteger[102X( [3XC[103X, [3XR[103X, [3Xn[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ya morphism in a category of skeletal finite sets[133X
+  
+  [33X[0;0YThe  arguments  are  a category of skeletal finite sets [3XC[103X, an object [3XR[103X and a
+  non-negative  integer [3Xn[103X. The output is a morphism to [3XR[103X from an random object
+  [3XS[103X whose cardinality is at most [3Xn[103X.[133X
+  
+  [1X1.3-8 RandomMorphismWithFixedSourceByList[101X
+  
+  [33X[1;0Y[29X[2XRandomMorphismWithFixedSourceByList[102X( [3XC[103X, [3XS[103X, [3XL[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ya morphism in a category of skeletal finite sets[133X
+  
+  [33X[0;0YThe  arguments  are  a category of skeletal finite sets [3XC[103X, an object [3XS[103X and a
+  list  [3XL[103X  of  positive  integers. The output is a morphism from [3XS[103X to a random
+  object [3XR[103X whose cardinality is a random element of [3XL[103X.[133X
+  
+  [1X1.3-9 RandomMorphismWithFixedRangeByList[101X
+  
+  [33X[1;0Y[29X[2XRandomMorphismWithFixedRangeByList[102X( [3XC[103X, [3XR[103X, [3XL[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ya morphism in a category of skeletal finite sets[133X
+  
+  [33X[0;0YThe  arguments  are  a  category of skeletal finite sets [3XC[103X, a object [3XR[103X and a
+  list  of  positive  integers. The list must contain [3X0[103X in case [3XR[103X is the empty
+  set. The output is a morphism to [3XR[103X from an random object [3XS[103X whose cardinality
+  is an element of [3XL[103X.[133X
+  
+  [1X1.3-10 RandomMorphismWithFixedSourceAndRangeByList[101X
+  
+  [33X[1;0Y[29X[2XRandomMorphismWithFixedSourceAndRangeByList[102X( [3XC[103X, [3XS[103X, [3XR[103X, [3XL[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ya morphism in a category of skeletal finite sets[133X
+  
+  [33X[0;0YThe arguments are a category [3XC[103X of skeletal finite sets, two objects [3XS[103X, [3XR[103X and
+  a  list [3XL[103X. The output is a morphism from [3XS[103X to [3XR[103X defined by a random function
+  of sets. In particular, the argument [3XL[103X will be disregarded.[133X
+  
+  
+  [1X1.4 [33X[0;0YTools[133X[101X
+  
+  [1X1.4-1 ListOp[101X
   
   [33X[1;0Y[29X[2XListOp[102X( [3Xs[103X, [3Xf[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ya list[133X
   
   [33X[0;0YReturns [10XList( AsList( [3Xs[103X[10X ), [3Xf[103X[10X )[110X.[133X
   
-  [1X1.3-2 EmbeddingOfFinSets[101X
+  [1X1.4-2 EmbeddingOfFinSets[101X
   
   [33X[1;0Y[29X[2XEmbeddingOfFinSets[102X( [3Xs[103X, [3Xt[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ya CAP morphism[133X
@@ -160,21 +254,21 @@
   [33X[0;0YConstruct the embedding [23X\iota:[123X[3Xs[103X[23X\to[123X[3Xt[103X of the finite sets [3Xs[103X and [3Xt[103X, where [3Xs[103X must
   be subset of [3Xt[103X.[133X
   
-  [1X1.3-3 Preimage[101X
+  [1X1.4-3 Preimage[101X
   
   [33X[1;0Y[29X[2XPreimage[102X( [3Xphi[103X, [3Xt[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ya list[133X
   
   [33X[0;0YCompute the preimage of the list [3Xt[103X of numbers under the morphism [3Xphi[103X.[133X
   
-  [1X1.3-4 ImageObject[101X
+  [1X1.4-4 ImageObject[101X
   
   [33X[1;0Y[29X[2XImageObject[102X( [3Xphi[103X, [3Xs_[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ya CAP object[133X
   
   [33X[0;0YCompute the image of [3Xs_[103X under the morphism [3Xphi[103X.[133X
   
-  [1X1.3-5 CallFuncList[101X
+  [1X1.4-5 CallFuncList[101X
   
   [33X[1;0Y[29X[2XCallFuncList[102X( [3Xphi[103X, [3XL[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ya list[133X
@@ -182,14 +276,14 @@
   [33X[0;0YReturns  the  image of [10X[3XL[103X[10X[1][110X under the map [3Xphi[103X assuming [10X[3XL[103X[10X[1][110X is a nonnegative
   integer smaller than [10XCardinality( Source( [3Xphi[103X[10X ) )[110X.[133X
   
-  [1X1.3-6 BoolToBigInt[101X
+  [1X1.4-6 BoolToBigInt[101X
   
   [33X[1;0Y[29X[2XBoolToBigInt[102X( [3Xb[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Yan integer[133X
   
   [33X[0;0YThe input [3Xb[103X is a boolean. The output is [23X0[123X if [3Xb[103X = [10Xfalse[110X and [23X1[123X if [3Xb[103X = [10Xtrue[110X.[133X
   
-  [1X1.3-7 GeometricSum[101X
+  [1X1.4-7 GeometricSum[101X
   
   [33X[1;0Y[29X[2XGeometricSum[102X( [3Xq[103X, [3Xn[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Yan integer[133X
@@ -197,7 +291,7 @@
   [33X[0;0YReturns  [23X(q^n-1)/(q-1)[123X  = [10XSum[110X( [ 0 .. [3Xn[103X - 1 ], i -> [3Xq[103X^i ), taking the corner
   case [3Xq[103X[23X= 1[123X into account.[133X
   
-  [1X1.3-8 GeometricSumDiff1[101X
+  [1X1.4-8 GeometricSumDiff1[101X
   
   [33X[1;0Y[29X[2XGeometricSumDiff1[102X( [3Xq[103X, [3Xn[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Yan integer[133X
@@ -205,7 +299,7 @@
   [33X[0;0YReturns [23X(1+((n-1)*q-n)*q^(n-1))/(q-1)^2[123X = [10XSum[110X( [ 0 .. [3Xn[103X - 1 ], i -> i * [3Xq[103X^(i
   - 1) ), taking the corner case [3Xq[103X[23X= 1[123X into account.[133X
   
-  [1X1.3-9 RemIntWithDomain[101X
+  [1X1.4-9 RemIntWithDomain[101X
   
   [33X[1;0Y[29X[2XRemIntWithDomain[102X( [3Xv[103X, [3Xa[103X, [3Xab[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Yan integer[133X
@@ -213,7 +307,7 @@
   [33X[0;0YReturn the remainder of the natural number [3Xv[103X less than [3Xab[103X modulo [3Xa[103X, where [3Xab[103X
   is a multiple of [3Xa[103X.[133X
   
-  [1X1.3-10 QuoIntWithDomain[101X
+  [1X1.4-10 QuoIntWithDomain[101X
   
   [33X[1;0Y[29X[2XQuoIntWithDomain[102X( [3Xv[103X, [3Xa[103X, [3Xab[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Yan integer[133X
@@ -221,14 +315,14 @@
   [33X[0;0YReturn  the quotient of the natural number [3Xv[103X less than [3Xab[103X modulo [3Xa[103X, where [3Xab[103X
   is a multiple of [3Xa[103X.[133X
   
-  [1X1.3-11 DivIntWithGivenQuotient[101X
+  [1X1.4-11 DivIntWithGivenQuotient[101X
   
   [33X[1;0Y[29X[2XDivIntWithGivenQuotient[102X( [3Xa[103X, [3Xd[103X, [3Xq[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Yan integer[133X
   
   [33X[0;0YReturn the quotient [3Xq[103X of the natural number [3Xa[103X by the divior [3Xd[103X.[133X
   
-  [1X1.3-12 DigitInPositionalNotation[101X
+  [1X1.4-12 DigitInPositionalNotation[101X
   
   [33X[1;0Y[29X[2XDigitInPositionalNotation[102X( [3Xv[103X, [3Xi[103X, [3Xl[103X, [3Xb[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Yan integer[133X
@@ -237,23 +331,23 @@
   natural number [3Xv[103X.[133X
   
   
-  [1X1.4 [33X[0;0YGAP Categories[133X[101X
+  [1X1.5 [33X[0;0YGAP Categories[133X[101X
   
-  [1X1.4-1 IsSkeletalCategoryOfFiniteSets[101X
+  [1X1.5-1 IsSkeletalCategoryOfFiniteSets[101X
   
   [33X[1;0Y[29X[2XIsSkeletalCategoryOfFiniteSets[102X( [3Xobject[103X ) [32X Category[133X
   [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
   
   [33X[0;0YThe GAP category of a skeletal category of finite sets.[133X
   
-  [1X1.4-2 IsObjectInSkeletalCategoryOfFiniteSets[101X
+  [1X1.5-2 IsObjectInSkeletalCategoryOfFiniteSets[101X
   
   [33X[1;0Y[29X[2XIsObjectInSkeletalCategoryOfFiniteSets[102X( [3Xobject[103X ) [32X Category[133X
   [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
   
   [33X[0;0YThe GAP category of objects in the skeletal category of finite sets.[133X
   
-  [1X1.4-3 IsMorphismInSkeletalCategoryOfFiniteSets[101X
+  [1X1.5-3 IsMorphismInSkeletalCategoryOfFiniteSets[101X
   
   [33X[1;0Y[29X[2XIsMorphismInSkeletalCategoryOfFiniteSets[102X( [3Xobject[103X ) [32X Category[133X
   [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
@@ -261,10 +355,10 @@
   [33X[0;0YThe GAP category of morphisms in the skeletal category of finite sets.[133X
   
   
-  [1X1.5 [33X[0;0YExamples[133X[101X
+  [1X1.6 [33X[0;0YExamples[133X[101X
   
   
-  [1X1.5-1 [33X[0;0YSkeletalIsHomSetInhabited[133X[101X
+  [1X1.6-1 [33X[0;0YSkeletalIsHomSetInhabited[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
@@ -286,7 +380,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-2 [33X[0;0YSkeletal WellDefined[133X[101X
+  [1X1.6-2 [33X[0;0YSkeletal WellDefined[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
@@ -314,7 +408,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-3 [33X[0;0YSkeletal PreCompose[133X[101X
+  [1X1.6-3 [33X[0;0YSkeletal PreCompose[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
@@ -336,7 +430,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-4 [33X[0;0YSkeletal Monomophisms and Epimophisms[133X[101X
+  [1X1.6-4 [33X[0;0YSkeletal Monomophisms and Epimophisms[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
@@ -380,7 +474,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-5 [33X[0;0YSkeletal Initial and Terminal Objects[133X[101X
+  [1X1.6-5 [33X[0;0YSkeletal Initial and Terminal Objects[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
@@ -424,7 +518,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-6 [33X[0;0YProjective and Injective Objects[133X[101X
+  [1X1.6-6 [33X[0;0YProjective and Injective Objects[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
@@ -471,7 +565,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-7 [33X[0;0YSkeletal Product[133X[101X
+  [1X1.6-7 [33X[0;0YSkeletal Product[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
@@ -520,7 +614,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-8 [33X[0;0YSkeletal Coproduct[133X[101X
+  [1X1.6-8 [33X[0;0YSkeletal Coproduct[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
@@ -563,7 +657,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-9 [33X[0;0YSkeletal Image[133X[101X
+  [1X1.6-9 [33X[0;0YSkeletal Image[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
@@ -649,7 +743,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-10 [33X[0;0YSkeletal Coimage[133X[101X
+  [1X1.6-10 [33X[0;0YSkeletal Coimage[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
@@ -683,7 +777,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-11 [33X[0;0YSkeletal Preimage[133X[101X
+  [1X1.6-11 [33X[0;0YSkeletal Preimage[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
@@ -705,7 +799,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-12 [33X[0;0YSkeletal Equalizer[133X[101X
+  [1X1.6-12 [33X[0;0YSkeletal Equalizer[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
@@ -748,7 +842,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-13 [33X[0;0YSkeletal Pullback[133X[101X
+  [1X1.6-13 [33X[0;0YSkeletal Pullback[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
@@ -793,7 +887,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-14 [33X[0;0YSkeletal Coequalizer[133X[101X
+  [1X1.6-14 [33X[0;0YSkeletal Coequalizer[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
@@ -859,7 +953,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-15 [33X[0;0YSkeletal Pushout[133X[101X
+  [1X1.6-15 [33X[0;0YSkeletal Pushout[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
@@ -951,7 +1045,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-16 [33X[0;0YSkeletal Cartesian Lambda Introduction[133X[101X
+  [1X1.6-16 [33X[0;0YSkeletal Cartesian Lambda Introduction[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
@@ -1009,7 +1103,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-17 [33X[0;0YSkeletal Lift[133X[101X
+  [1X1.6-17 [33X[0;0YSkeletal Lift[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
@@ -1045,7 +1139,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-18 [33X[0;0YSkeletal Colift[133X[101X
+  [1X1.6-18 [33X[0;0YSkeletal Colift[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
@@ -1079,7 +1173,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-19 [33X[0;0YSkeletal singleton morphism[133X[101X
+  [1X1.6-19 [33X[0;0YSkeletal singleton morphism[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP" );[127X[104X
@@ -1096,7 +1190,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-20 [33X[0;0YSkeletal topos properties[133X[101X
+  [1X1.6-20 [33X[0;0YSkeletal topos properties[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
@@ -1171,7 +1265,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-21 [33X[0;0YSkeletal Subobject Classifier[133X[101X
+  [1X1.6-21 [33X[0;0YSkeletal Subobject Classifier[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
@@ -1242,7 +1336,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-22 [33X[0;0YSkeletal Pushout Complement[133X[101X
+  [1X1.6-22 [33X[0;0YSkeletal Pushout Complement[133X[101X
   
   [33X[0;0YDefine    two    composable    monos   [23XK   \stackrel{l}{\hookrightarrow}   L
   \stackrel{m}{\hookrightarrow} G[123X in [10XSkeletalFinSets[110X:[133X
@@ -1283,7 +1377,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-23 [33X[0;0YMorphisms of external Hom[133X[101X
+  [1X1.6-23 [33X[0;0YMorphisms of external Hom[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
@@ -1309,7 +1403,7 @@
   [4X[32X[104X
   
   
-  [1X1.5-24 [33X[0;0YExact cover with global elements[133X[101X
+  [1X1.6-24 [33X[0;0YExact cover with global elements[133X[101X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
@@ -1324,6 +1418,74 @@
     [4X[25Xgap>[125X [27XDisplay( g );[127X[104X
     [4X[28X[ { 0 } ⱶ[ 0 ]→ { 0, 1 }, { 0 } ⱶ[ 1 ]→ { 0, 1 } ][128X[104X
     [4X[25Xgap>[125X [27XIsOne( UniversalMorphismFromCoproduct( g ) );[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X1.6-25 [33X[0;0YRandom Methods[133X[101X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "FinSetsForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XL := [ 10, 20, 50, 100, 500 ];;[127X[104X
+    [4X[25Xgap>[125X [27Xobj0 := RandomObjectByInteger( SkeletalFinSets, 0 );;[127X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( obj0 );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xobj1 := RandomObjectByList( SkeletalFinSets, L );;[127X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( obj1 );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XCardinality( obj1 ) in L;[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xobj2 := RandomObjectByInteger( SkeletalFinSets, 10 );;[127X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( obj2 );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xmor0 := RandomMorphismWithFixedSourceAndRangeByInteger( [127X[104X
+    [4X[25X>[125X [27X                SkeletalFinSets, obj0, obj0, 10 );;[127X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( mor0 );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xmor1 := RandomMorphismWithFixedSourceAndRangeByInteger( [127X[104X
+    [4X[25X>[125X [27X                SkeletalFinSets, obj1, obj1, 10 );;[127X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( mor1 );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xmor2 := RandomMorphismByList( SkeletalFinSets, [ L, L ] );;[127X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( mor2 );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XCardinality( Source( mor2 ) ) in L  and[127X[104X
+    [4X[25X>[125X [27X    Cardinality( Range( mor2 ) ) in L ;[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xmor03 := RandomMorphismByInteger( SkeletalFinSets, 0 );;[127X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( mor03 );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xmor4 := RandomMorphismByInteger( SkeletalFinSets, 10 );;[127X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( mor4 );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xmor5 := RandomMorphismWithFixedSourceByInteger( [127X[104X
+    [4X[25X>[125X [27X                SkeletalFinSets, obj1, 10 );;[127X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( mor5 );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xmor06 := RandomMorphismWithFixedRangeByInteger( [127X[104X
+    [4X[25X>[125X [27X                 SkeletalFinSets, obj0, 10 );;[127X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( mor06 );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xmor7 := RandomMorphismWithFixedRangeByInteger( [127X[104X
+    [4X[25X>[125X [27X                SkeletalFinSets, obj1, 10 );;[127X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( mor7 );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xmor8 := RandomMorphismWithFixedSourceByList( [127X[104X
+    [4X[25X>[125X [27X                SkeletalFinSets, obj1, [ 10 ] );;[127X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( mor8 );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xmor09 := RandomMorphismWithFixedRangeByList( [127X[104X
+    [4X[25X>[125X [27X                 SkeletalFinSets, obj0, [ 0 ] );;[127X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( mor09 );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xmor10 := RandomMorphismWithFixedRangeByList( [127X[104X
+    [4X[25X>[125X [27X                 SkeletalFinSets, obj1, [ 10 ] );;[127X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( mor10 );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xmor11 := RandomMorphismWithFixedSourceAndRangeByList( [127X[104X
+    [4X[25X>[125X [27X                 SkeletalFinSets, obj2, obj2, [ 10 ] );;[127X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( mor11 );[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   

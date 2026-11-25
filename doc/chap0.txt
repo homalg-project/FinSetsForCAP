@@ -6,10 +6,10 @@
                 [1X The (skeletal) elementary topos of finite sets [101X
   
   
-                                   2026.10-01
+                                   2026.11-01
   
   
-                                20 October 2026
+                                25 November 2026
   
   
                                 Mohamed Barakat
@@ -61,48 +61,60 @@
       1.2-3 FinSet
       1.2-4 FinSet
       1.2-5 MapOfFinSets
-    1.3 [33X[0;0YTools[133X
-      1.3-1 ListOp
-      1.3-2 EmbeddingOfFinSets
-      1.3-3 Preimage
-      1.3-4 ImageObject
-      1.3-5 CallFuncList
-      1.3-6 BoolToBigInt
-      1.3-7 GeometricSum
-      1.3-8 GeometricSumDiff1
-      1.3-9 RemIntWithDomain
-      1.3-10 QuoIntWithDomain
-      1.3-11 DivIntWithGivenQuotient
-      1.3-12 DigitInPositionalNotation
-    1.4 [33X[0;0YGAP Categories[133X
-      1.4-1 IsSkeletalCategoryOfFiniteSets
-      1.4-2 IsObjectInSkeletalCategoryOfFiniteSets
-      1.4-3 IsMorphismInSkeletalCategoryOfFiniteSets
-    1.5 [33X[0;0YExamples[133X
-      1.5-1 [33X[0;0YSkeletalIsHomSetInhabited[133X
-      1.5-2 [33X[0;0YSkeletal WellDefined[133X
-      1.5-3 [33X[0;0YSkeletal PreCompose[133X
-      1.5-4 [33X[0;0YSkeletal Monomophisms and Epimophisms[133X
-      1.5-5 [33X[0;0YSkeletal Initial and Terminal Objects[133X
-      1.5-6 [33X[0;0YProjective and Injective Objects[133X
-      1.5-7 [33X[0;0YSkeletal Product[133X
-      1.5-8 [33X[0;0YSkeletal Coproduct[133X
-      1.5-9 [33X[0;0YSkeletal Image[133X
-      1.5-10 [33X[0;0YSkeletal Coimage[133X
-      1.5-11 [33X[0;0YSkeletal Preimage[133X
-      1.5-12 [33X[0;0YSkeletal Equalizer[133X
-      1.5-13 [33X[0;0YSkeletal Pullback[133X
-      1.5-14 [33X[0;0YSkeletal Coequalizer[133X
-      1.5-15 [33X[0;0YSkeletal Pushout[133X
-      1.5-16 [33X[0;0YSkeletal Cartesian Lambda Introduction[133X
-      1.5-17 [33X[0;0YSkeletal Lift[133X
-      1.5-18 [33X[0;0YSkeletal Colift[133X
-      1.5-19 [33X[0;0YSkeletal singleton morphism[133X
-      1.5-20 [33X[0;0YSkeletal topos properties[133X
-      1.5-21 [33X[0;0YSkeletal Subobject Classifier[133X
-      1.5-22 [33X[0;0YSkeletal Pushout Complement[133X
-      1.5-23 [33X[0;0YMorphisms of external Hom[133X
-      1.5-24 [33X[0;0YExact cover with global elements[133X
+    1.3 [33X[0;0YRandom Methods[133X
+      1.3-1 RandomObjectByList
+      1.3-2 RandomObjectByInteger
+      1.3-3 RandomMorphismWithFixedSourceAndRangeByInteger
+      1.3-4 RandomMorphismByList
+      1.3-5 RandomMorphismByInteger
+      1.3-6 RandomMorphismWithFixedSourceByInteger
+      1.3-7 RandomMorphismWithFixedRangeByInteger
+      1.3-8 RandomMorphismWithFixedSourceByList
+      1.3-9 RandomMorphismWithFixedRangeByList
+      1.3-10 RandomMorphismWithFixedSourceAndRangeByList
+    1.4 [33X[0;0YTools[133X
+      1.4-1 ListOp
+      1.4-2 EmbeddingOfFinSets
+      1.4-3 Preimage
+      1.4-4 ImageObject
+      1.4-5 CallFuncList
+      1.4-6 BoolToBigInt
+      1.4-7 GeometricSum
+      1.4-8 GeometricSumDiff1
+      1.4-9 RemIntWithDomain
+      1.4-10 QuoIntWithDomain
+      1.4-11 DivIntWithGivenQuotient
+      1.4-12 DigitInPositionalNotation
+    1.5 [33X[0;0YGAP Categories[133X
+      1.5-1 IsSkeletalCategoryOfFiniteSets
+      1.5-2 IsObjectInSkeletalCategoryOfFiniteSets
+      1.5-3 IsMorphismInSkeletalCategoryOfFiniteSets
+    1.6 [33X[0;0YExamples[133X
+      1.6-1 [33X[0;0YSkeletalIsHomSetInhabited[133X
+      1.6-2 [33X[0;0YSkeletal WellDefined[133X
+      1.6-3 [33X[0;0YSkeletal PreCompose[133X
+      1.6-4 [33X[0;0YSkeletal Monomophisms and Epimophisms[133X
+      1.6-5 [33X[0;0YSkeletal Initial and Terminal Objects[133X
+      1.6-6 [33X[0;0YProjective and Injective Objects[133X
+      1.6-7 [33X[0;0YSkeletal Product[133X
+      1.6-8 [33X[0;0YSkeletal Coproduct[133X
+      1.6-9 [33X[0;0YSkeletal Image[133X
+      1.6-10 [33X[0;0YSkeletal Coimage[133X
+      1.6-11 [33X[0;0YSkeletal Preimage[133X
+      1.6-12 [33X[0;0YSkeletal Equalizer[133X
+      1.6-13 [33X[0;0YSkeletal Pullback[133X
+      1.6-14 [33X[0;0YSkeletal Coequalizer[133X
+      1.6-15 [33X[0;0YSkeletal Pushout[133X
+      1.6-16 [33X[0;0YSkeletal Cartesian Lambda Introduction[133X
+      1.6-17 [33X[0;0YSkeletal Lift[133X
+      1.6-18 [33X[0;0YSkeletal Colift[133X
+      1.6-19 [33X[0;0YSkeletal singleton morphism[133X
+      1.6-20 [33X[0;0YSkeletal topos properties[133X
+      1.6-21 [33X[0;0YSkeletal Subobject Classifier[133X
+      1.6-22 [33X[0;0YSkeletal Pushout Complement[133X
+      1.6-23 [33X[0;0YMorphisms of external Hom[133X
+      1.6-24 [33X[0;0YExact cover with global elements[133X
+      1.6-25 [33X[0;0YRandom Methods[133X
   2 [33X[0;0YThe skeletal category of finite sets with counting starting at 1[133X
     2.1 [33X[0;0YAttributes[133X
       2.1-1 Cardinality
