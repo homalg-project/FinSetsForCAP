@@ -1,15 +1,15 @@
-#! @Chunk Several categories
+# @Chunk Several categories
 
-#! @Example
+# @Example
 LoadPackage( "FinSetsForCAP", false );
-#! true
+# true
 S := FinSet( 3 );;
 cat := SkeletalCategoryOfFiniteSets();;
 T := FinSet( cat, 3 );;
 IsIdenticalObj( CapCategory( T ), CapCategory( S ) );
-#! false
+# false
 alpha := MapOfFinSets( S, [ 2,3,1 ], S );;
 beta := MapOfFinSets( T, [ 2,3,1 ], T );;
 IsIdenticalObj( CapCategory( alpha ), CapCategory( beta ) );
-#! false
-#! @EndExample
+# false
+# @EndExample
