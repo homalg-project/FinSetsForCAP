@@ -84,7 +84,7 @@
 @InsertChunk SkeletalExactCoverWithGlobalElements
 
 @Subsection Random Methods
-@InsertChunk RandomMethods
+@InsertChunk SkeletalRandomMethods
 
 @Chapter The skeletal category of finite sets with counting starting at 1
 
