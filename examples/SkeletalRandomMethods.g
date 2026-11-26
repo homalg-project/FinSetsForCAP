@@ -1,4 +1,4 @@
-#! @Chunk RandomMethods
+#! @Chunk SkeletalRandomMethods
 
 # Below we use the random methods defined in Skeletal
 # Finite Sets and assert the results and edge cases 
